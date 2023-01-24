@@ -1,0 +1,41 @@
+{
+  "name": "open-seattle-nextjstailwind-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.17",
+    "@mui/x-date-pickers": "^5.0.12",
+    "@next/font": "^13.0.6",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.6",
+    "next": "13.0.6",
+    "next-sanity": "^3.1.5",
+    "next-sanity-image": "^5.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.41.1",
+    "react-hook-form-mui": "^5.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.12",
+    "cypress": "^12.2.0",
+    "prettier": "^2.8.0",
+    "prettier-plugin-tailwindcss": "^0.2.0",
+    "start-server-and-test": "^1.15.2"
+  }
+}
