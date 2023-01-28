@@ -1,16 +1,16 @@
-import { useNextSanityImage } from 'next-sanity-image';
 import {
   Box,
   Button,
-  Typography,
   Container,
   Grid,
   Paper,
   Stack,
+  Typography,
 } from '@mui/material';
+import Image from 'next/image';
+import { useNextSanityImage } from 'next-sanity-image';
 
 import ExternalButton from './ExternalButton';
-import Image from 'next/image';
 
 export default function Section({ section, index, sanityClient, ...props }) {
   const imageProps = useNextSanityImage(sanityClient, section.image);

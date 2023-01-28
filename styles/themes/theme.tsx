@@ -1,8 +1,9 @@
 import { grey } from '@mui/material/colors';
+import { LinkProps } from '@mui/material/Link';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { Sintony, Inter } from '@next/font/google';
+import { Inter, Sintony } from '@next/font/google';
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { forwardRef } from 'react';
-import NextLink, { LinkProps } from 'next/link';
 
 export const sintony = Sintony({
   weight: ['400', '700'],
@@ -17,7 +18,7 @@ export const inter = Inter({
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 
-const LinkBehavior = forwardRef<HTMLAnchorElement, LinkProps>(
+const LinkBehavior = forwardRef<HTMLAnchorElement, NextLinkProps>(
   function LinkBehavior(props, ref) {
     return <NextLink ref={ref} {...props} />;
   }
@@ -152,10 +153,8 @@ theme.components = {
   },
   MuiLink: {
     defaultProps: {
-      // @ts-ignore
-      // MUI is missing the component prop, but it works and is one of the recommended solutions.
       component: LinkBehavior,
-    },
+    } as LinkProps,
   },
   MuiTabs: {
     styleOverrides: {
@@ -204,6 +203,11 @@ theme.components = {
         },
       },
     ],
+  },
+  MuiButtonBase: {
+    defaultProps: {
+      LinkComponent: LinkBehavior,
+    },
   },
   MuiButton: {
     styleOverrides: {

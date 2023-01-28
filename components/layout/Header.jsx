@@ -1,27 +1,26 @@
+import Menu from '@mui/icons-material/Menu';
 import {
   AppBar,
-  Container,
-  Button,
-  Toolbar,
-  IconButton,
   Box,
+  Button,
+  Container,
   Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
+  Toolbar,
   Typography,
 } from '@mui/material';
-import SkipLink from '../SkipLink';
-import NavigationLogo from '../NavigationLogo';
-import Menu from '@mui/icons-material/Menu';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-
 import navItems from '../../utils/navItems';
+import NavigationLogo from '../NavigationLogo';
+import SkipLink from '../SkipLink';
 
 export default function Header() {
   const theme = useTheme();

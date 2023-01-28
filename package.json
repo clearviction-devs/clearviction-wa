@@ -32,8 +32,9 @@
   "devDependencies": {
     "@types/node": "18.11.12",
     "cypress": "^12.2.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^2.8.0",
-    "prettier-plugin-tailwindcss": "^0.2.0",
     "start-server-and-test": "^1.15.2"
   }
 }

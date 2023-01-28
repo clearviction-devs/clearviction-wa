@@ -1,10 +1,9 @@
+import { Box, Button, Container, SxProps, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
-import { Box, Container, Button, SxProps, Typography } from '@mui/material';
 
 import Footer from '../components/layout/Footer';
-
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
 
 const heroStyles: SxProps = {
   backgroundColor: 'primary.dark',

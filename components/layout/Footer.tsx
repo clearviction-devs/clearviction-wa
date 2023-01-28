@@ -1,20 +1,19 @@
 import {
   Box,
-  Grid,
   Container,
-  Typography,
-  Stack,
-  Link,
-  SxProps,
   Divider,
+  Grid,
+  Link,
+  Stack,
+  SxProps,
+  Typography,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Image from 'next/image';
 
-import NavigationLogo from '../NavigationLogo';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-
 import navItems from '../../utils/navItems';
+import NavigationLogo from '../NavigationLogo';
 
 const sectionContainerStyles: SxProps = {
   flex: 1,

@@ -1,5 +1,5 @@
-import { Button } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { Button } from '@mui/material';
 
 export default function ExternalButton({ href, label, ...props }) {
   return (
