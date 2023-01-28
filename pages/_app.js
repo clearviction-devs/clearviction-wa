@@ -3,10 +3,10 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import '../styles/global.css';
 
 import createEmotionCache from '../utils/createEmotionCache';
-import lightTheme from '../styles/themes/light-theme';
+import theme from '../styles/themes/theme';
 
 import Head from 'next/head';
-import Header from '../components/Header';
+import Header from '../components/layout/Header';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -21,7 +21,7 @@ function MyApp({
         <Head>
           <meta name='viewport' content='initial-scale=1, width=device-width' />
         </Head>
-        <ThemeProvider theme={lightTheme}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Header />
           <Component {...pageProps} />

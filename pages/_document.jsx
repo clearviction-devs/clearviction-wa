@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../utils/createEmotionCache';
-import theme, { open_sans, oswald, roboto } from '../styles/themes/light-theme';
+import theme from '../styles/themes/theme';
 
 export default class CustomDocument extends Document {
   render() {

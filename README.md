@@ -1,12 +1,12 @@
 # Open Seattle
 
-This repository holds source code for the [Open Seattle website](https://www.openseattle.org).
+This repository holds source code for the new [Clearviction website]().
 
 ## Tools / Services
 
 - [NextJS](https://nextjs.org/) - React-based Web Framework
 - [MUI](https://mui.com/) - UI / Component Library
-- [Sanity](https://www.sanity.io/) - Content Management System / Content API
+<!-- - [Sanity](https://www.sanity.io/) - Content Management System / Content API -->
 
 ## Getting Started
 
