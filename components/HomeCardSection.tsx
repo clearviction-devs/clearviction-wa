@@ -1,12 +1,12 @@
 import {
   Box,
   Button,
-  Grid,
-  Paper,
-  Typography,
-  GridProps,
-  PaperProps,
   Divider,
+  Grid,
+  GridProps,
+  Paper,
+  PaperProps,
+  Typography,
 } from '@mui/material';
 import { ReactHTMLElement } from 'react';
 
