@@ -10,6 +10,20 @@ A list of things we use in our tech stack -
 - [MUI](https://mui.com/)
 - [Material Icons](https://mui.com/material-ui/material-icons/)
 
+## Next.js
+
+Since we have little, if any, dynamic content currently, our site should be able to take full advantage of Next's Static Site Generation capabilities.
+
+Next's documentation is very extensive, and usually helpful in solving any blockers.
+
+Keep in mind, we are **not** using the [app directory](https://beta.nextjs.org/docs/app-directory-roadmap), which is currently in beta. MUI is currently not supporting the app directory. This may change in the future.
+
+### Routing
+
+Next.js handles routing for us. See the [documentation](https://nextjs.org/docs/routing/introduction) for more details. Put simply, creating a new page is as easy as creating a new file in the `/pages` directory.
+
+See the section on [Links below](#links) for information on how to link between pages.
+
 ## Examples
 
 ### Navigation Logo
