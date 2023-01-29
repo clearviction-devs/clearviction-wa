@@ -5,27 +5,27 @@ export interface navItem {
 
 const navItems: navItem[] = [
   {
-    href: '#',
+    href: '/',
     text: 'Home',
   },
   {
-    href: '#',
+    href: 'get-started',
     text: 'Get Started',
   },
   {
-    href: '#',
+    href: 'get-involved',
     text: 'Get Involved',
   },
   {
-    href: '#',
+    href: 'why-vacate',
     text: 'Why Vacate',
   },
   {
-    href: '#',
+    href: 'donate',
     text: 'Donate',
   },
   {
-    href: '#',
+    href: 'contact',
     text: 'Contact',
   },
 ];

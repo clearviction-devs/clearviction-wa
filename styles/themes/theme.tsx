@@ -41,7 +41,7 @@ let theme = createTheme({
     },
     neutral: {
       main: '#FFFFFF',
-      dark: grey[100],
+      dark: grey[200],
       contrastText: '#2F3554',
     },
     error: {

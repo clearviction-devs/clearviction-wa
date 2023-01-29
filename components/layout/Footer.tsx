@@ -12,7 +12,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Image from 'next/image';
 
-import navItems from '../../utils/navItems';
+import navItems from '../../content/navItems';
 import NavigationLogo from '../NavigationLogo';
 
 const sectionContainerStyles: SxProps = {
