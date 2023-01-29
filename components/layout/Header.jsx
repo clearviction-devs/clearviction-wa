@@ -18,7 +18,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import navItems from '../../utils/navItems';
+import navItems from '../../content/navItems';
 import NavigationLogo from '../NavigationLogo';
 import SkipLink from '../SkipLink';
 
@@ -51,7 +51,7 @@ export default function Header() {
   );
 
   return (
-    <header>
+    <>
       <AppBar color='primary' elevation={0} component='nav' position='sticky'>
         <Container maxWidth='xl'>
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
@@ -109,6 +109,6 @@ export default function Header() {
           </Typography>
         </Drawer>
       </Box>
-    </header>
+    </>
   );
 }
