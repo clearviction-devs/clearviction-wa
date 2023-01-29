@@ -14,29 +14,10 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 
 import FAQAccordion from '../components/FAQAccordion';
+import HeroBanner from '../components/HeroBanner';
 import { HomeCardItem, HomeCardSection } from '../components/HomeCardSection';
-import Footer from '../components/layout/Footer';
+import SectionContainer from '../components/SectionContainer';
 import faqs from '../content/faqs';
-
-const heroStyles: SxProps = {
-  backgroundColor: 'primary.dark',
-  color: 'text.secondary',
-  py: 4,
-};
-
-function SectionContainer({ children, id, ...props }: ContainerProps) {
-  return (
-    <Container
-      component='section'
-      id={id}
-      maxWidth='lg'
-      sx={{ my: 8, scrollMarginTop: 64 }}
-      {...props}
-    >
-      {children}
-    </Container>
-  );
-}
 
 export default function Home() {
   const theme = useTheme();
@@ -51,39 +32,17 @@ export default function Home() {
       </Head>
 
       <main>
-        <Box sx={heroStyles} textAlign={{ xs: 'center', md: 'left' }}>
-          <SectionContainer>
-            <Typography variant='h1' gutterBottom>
-              {matchesXS ? `WA's` : `Washington's`} Vacation Eligibility
-              Calculator
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 4 }}>
-              <Box sx={{ flex: 1 }}>
-                <Typography variant='subtitle1' sx={{ mb: 4 }}>
-                  If you have convictions in Washington, you can check your
-                  eligibility to vacate your conviction for free in less than 10
-                  minutes!
-                </Typography>
-                <Button
-                  variant='contained'
-                  color='neutral'
-                  href='/calculator/landing-0'
-                >
-                  Access Calculator
-                </Button>
-              </Box>
-              <Box
-                sx={{
-                  display: { xs: 'none', md: 'flex' },
-                  flex: 1,
-                  justifyContent: 'center',
-                }}
-              >
-                <img src='/illustrations/homeHeroImage.svg' alt='' />
-              </Box>
-            </Box>
-          </SectionContainer>
-        </Box>
+        <HeroBanner
+          heading={`${
+            matchesXS ? `WA's` : `Washington's`
+          } Vacation Eligibility Calculator`}
+          subheading='If you have convictions in Washington, you can check your
+          eligibility to vacate your conviction for free in less than 10
+          minutes!'
+          ctaLink='/calculator/landing-0'
+          ctaText='Access Calculator'
+          imgsrc='/illustrations/homeHeroImage.svg'
+        />
         <SectionContainer>
           <ButtonGroup
             variant='text'
