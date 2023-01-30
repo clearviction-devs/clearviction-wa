@@ -4,10 +4,11 @@ import SectionContainer from './SectionContainer';
 
 interface HeroBannerProps {
   heading: string;
+  smallHeading?: string;
   subheading: string;
   imgsrc: string;
-  ctaText: string;
-  ctaLink: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 const heroStyles: SxProps = {
@@ -18,6 +19,7 @@ const heroStyles: SxProps = {
 
 export default function HeroBanner({
   heading,
+  smallHeading = heading,
   subheading,
   imgsrc,
   ctaText,
@@ -26,17 +28,30 @@ export default function HeroBanner({
   return (
     <Box sx={heroStyles} textAlign={{ xs: 'center', md: 'left' }}>
       <SectionContainer>
-        <Typography variant='h1' gutterBottom>
+        <Typography
+          variant='h1'
+          gutterBottom
+          sx={{ display: { xs: 'none', sm: 'block' } }}
+        >
           {heading}
+        </Typography>
+        <Typography
+          variant='h1'
+          gutterBottom
+          sx={{ display: { xs: 'block', sm: 'none' } }}
+        >
+          {smallHeading}
         </Typography>
         <Box sx={{ display: 'flex', gap: 4 }}>
           <Box sx={{ flex: 1 }}>
             <Typography variant='subtitle1' sx={{ mb: 4 }}>
               {subheading}
             </Typography>
-            <Button variant='contained' color='neutral' href={ctaLink}>
-              {ctaText}
-            </Button>
+            {ctaText && ctaLink && (
+              <Button variant='contained' color='neutral' href={ctaLink}>
+                {ctaText}
+              </Button>
+            )}
           </Box>
           <Box
             sx={{
