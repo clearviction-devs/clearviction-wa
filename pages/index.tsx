@@ -23,9 +23,8 @@ export default function Home() {
 
       <main>
         <HeroBanner
-          heading={`${
-            matchesXS ? `WA's` : `Washington's`
-          } Vacation Eligibility Calculator`}
+          heading="Washington's Vacation Eligibility Calculator"
+          smallHeading="WA's Vacation Eligibility Calculator"
           subheading='If you have convictions in Washington, you can check your
           eligibility to vacate your conviction for free in less than 10
           minutes!'
@@ -53,24 +52,24 @@ export default function Home() {
             <Grid container spacing={4}>
               <HomeCardItem
                 xs={12}
-                sm={4}
+                md={4}
                 title='Inform'
                 body='We break down the laws into understandable language.'
-                imgsrc='/illustrations/washington.svg'
+                imgsrc='/illustrations/team-building.svg'
               />
               <HomeCardItem
                 xs={12}
-                sm={4}
+                md={4}
                 title='Assess'
                 body='You answer a few simple yes/no questions.'
-                imgsrc='/illustrations/washington.svg'
+                imgsrc='/illustrations/calculator.svg'
               />
               <HomeCardItem
                 xs={12}
-                sm={4}
+                md={4}
                 title='Calculate'
                 body='This helps determine your vacation eligibility in Washington.'
-                imgsrc='/illustrations/washington.svg'
+                imgsrc='/illustrations/notetaking.svg'
               />
             </Grid>
           </HomeCardSection>

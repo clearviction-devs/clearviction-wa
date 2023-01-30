@@ -1,14 +1,12 @@
 import {
   Box,
   Button,
-  Divider,
   Grid,
   GridProps,
   Paper,
   PaperProps,
   Typography,
 } from '@mui/material';
-import { ReactHTMLElement } from 'react';
 
 interface HomeCardSectionProps extends PaperProps {
   title: string;
@@ -32,16 +30,20 @@ export function HomeCardItem({
   return (
     <Grid item {...props} sx={{ mb: 4 }}>
       <Box>
-        <Box
-          component='img'
-          src={imgsrc}
-          alt=''
-          sx={{ width: '100%', maxWidth: '200px' }}
-        />
+        {imgsrc && (
+          <Box
+            component='img'
+            src={imgsrc}
+            alt=''
+            sx={{
+              maxWidth: '250px',
+              height: '200px',
+              objectFit: 'contain',
+            }}
+          ></Box>
+        )}
         <Typography variant='subtitle1'>{title}</Typography>
-        <Typography variant='body1' sx={{ maxWidth: '60ch' }}>
-          {body}
-        </Typography>
+        <Typography variant='body1'>{body}</Typography>
       </Box>
     </Grid>
   );

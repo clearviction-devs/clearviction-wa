@@ -12,7 +12,9 @@ export default function GetStartedPage() {
       <HeroBanner
         heading='Get Started'
         subheading='Vacate your conviction in the state of Washington by following these 4 steps!'
-        imgsrc='/illustrations/homeHeroImage.svg'
+        imgsrc='/illustrations/home-hero-image.svg'
+        ctaLink='/calculator/landing-0'
+        ctaText='Access Calculator'
       />
       <SectionContainer>
         <Grid container spacing={2}>
