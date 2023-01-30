@@ -1,19 +1,9 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Container,
-  ContainerProps,
-  Grid,
-  Paper,
-  SxProps,
-  Typography,
-} from '@mui/material';
+import { Button, ButtonGroup, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 
-import FAQAccordion from '../components/FAQAccordion';
+import AccordionBuilder from '../components/AccordionBuilder';
 import HeroBanner from '../components/HeroBanner';
 import { HomeCardItem, HomeCardSection } from '../components/HomeCardSection';
 import SectionContainer from '../components/SectionContainer';
@@ -124,7 +114,9 @@ export default function Home() {
         </SectionContainer>
         <SectionContainer id='faq'>
           <HomeCardSection title='FAQ'>
-            <FAQAccordion faqs={faqs} />
+            {faqs.map((faq) => (
+              <AccordionBuilder key={faq.id} {...faq} />
+            ))}
           </HomeCardSection>
         </SectionContainer>
       </main>

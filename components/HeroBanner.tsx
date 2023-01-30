@@ -6,8 +6,8 @@ interface HeroBannerProps {
   heading: string;
   subheading: string;
   imgsrc: string;
-  ctaText: string;
-  ctaLink: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 const heroStyles: SxProps = {
@@ -34,9 +34,11 @@ export default function HeroBanner({
             <Typography variant='subtitle1' sx={{ mb: 4 }}>
               {subheading}
             </Typography>
-            <Button variant='contained' color='neutral' href={ctaLink}>
-              {ctaText}
-            </Button>
+            {ctaText && ctaLink && (
+              <Button variant='contained' color='neutral' href={ctaLink}>
+                {ctaText}
+              </Button>
+            )}
           </Box>
           <Box
             sx={{
