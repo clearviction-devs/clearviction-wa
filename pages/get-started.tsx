@@ -13,8 +13,6 @@ export default function GetStartedPage() {
         heading='Get Started'
         subheading='Vacate your conviction in the state of Washington by following these 4 steps!'
         imgsrc='/illustrations/chart.svg'
-        // ctaLink='/calculator/landing-0'
-        // ctaText='Access Calculator'
       />
       <SectionContainer>
         <Grid container spacing={2}>
