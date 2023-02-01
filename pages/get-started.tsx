@@ -1,4 +1,5 @@
 import { Grid } from '@mui/material';
+import Typography from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 
 import AccordionBuilder from '../components/AccordionBuilder';
@@ -17,13 +18,28 @@ export default function GetStartedPage() {
       />
       <SectionContainer>
         <Grid container spacing={2}>
+          {content.financialAidForms.map((financialForm) => (
+            <Grid key={financialForm.id} item xs={12} sm={6} md={4}>
+              <AccordionBuilder
+                id={financialForm.id}
+                summary={financialForm.summary}
+                details={financialForm.details}
+                sx={{ py: 2, height:"6em" }}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </SectionContainer>
+      <SectionContainer>
+        <MuiMarkdown>{`#Eligibility Forms`}</MuiMarkdown>
+        <Grid container spacing={2}>
           {content.eligibilityForms.map((eligibilityForm) => (
             <Grid key={eligibilityForm.id} item xs={12} sm={6} md={4}>
               <AccordionBuilder
                 id={eligibilityForm.id}
                 summary={eligibilityForm.summary}
                 details={eligibilityForm.details}
-                sx={{ py: 2, height:"122px" }}
+                sx={{ py: 2, height:"6em" }}
               />
             </Grid>
           ))}

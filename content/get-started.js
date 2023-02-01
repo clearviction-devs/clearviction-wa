@@ -1,9 +1,24 @@
 const getStartedContent = {
+  financialAidForms: [
+    {
+      id: 'financialform1',
+      summary: 'Legal Financial Obligations (LFOs)',
+      details: 
+      'You may be eligible for financial assistance of fees, fines, or restitution for a misdemeanor or felony:\n\n * [CLEAR hotline](https://nwjustice.org/clear-hotline) can refer you to legal organizations\n\n* [Re-Entry Clinic](https://columbialegal.org/wp-content/uploads/2019/10/CLS-Re-Entry-Clinic-Brochure.pdf) is a joint project of Columbia Legal Services and FareStart, focusing on legal issues related to LFO’s\n\nContact us at contact@cvp.com and we will get back to you within 24 hours. If you want more info about your rights concerning LFOs, consult the website of [Washington LawHelp](https://www.washingtonlawhelp.org/issues/criminal/legal-financial-obligations-restitution-reduc-1?location=Yakima%20County).',
+    },
+    {
+      id: 'financialform2',
+      summary: 'Court Fees',
+      details: 
+      'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/3928A184-D6E5-9324-4FB9-495A060A017B/3204en_filing-motion-for-fee-waiver.pdf) to find out if you are eligible to waive your fees (p. 1-2). It also includes instructions to request a fee waiver (p. 4-9) as well as all necessary forms (p. 10-14).\n\nIf you have trouble filling out the documents, use [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
+    },
+  ],
   eligibilityForms: [
     {
       id: 'eligibilityform1',
       summary: '(Gross) Misdeameanor Convictions',
-      details: `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-criminal-record.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
+      details: 
+        `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-criminal-record.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
     },
     {
       id: 'eligibilityform2',
