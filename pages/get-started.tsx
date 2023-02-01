@@ -3,6 +3,7 @@ import MuiMarkdown from 'mui-markdown';
 
 import AccordionBuilder from '../components/AccordionBuilder';
 import HeroBanner from '../components/HeroBanner';
+import { HomeCardItem, HomeCardSection } from '../components/HomeCardSection';
 import SectionContainer from '../components/SectionContainer';
 import content from '../content/get-started';
 
@@ -16,13 +17,13 @@ export default function GetStartedPage() {
       />
       <SectionContainer>
         <Grid container spacing={2}>
-          {content.courtForms.map((courtForm) => (
-            <Grid key={courtForm.id} item xs={12} sm={6} md={4}>
+          {content.eligibilityForms.map((eligibilityForm) => (
+            <Grid key={eligibilityForm.id} item xs={12} sm={6} md={4}>
               <AccordionBuilder
-                id={courtForm.id}
-                summary={courtForm.summary}
-                details={courtForm.details}
-                sx={{ py: 2 }}
+                id={eligibilityForm.id}
+                summary={eligibilityForm.summary}
+                details={eligibilityForm.details}
+                sx={{ py: 2, height:"122px" }}
               />
             </Grid>
           ))}
