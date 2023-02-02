@@ -1,4 +1,24 @@
 const getStartedContent = {
+  legalAidForms: [
+    {
+      id: 'legalform1',
+      summary: 'Assistance for Pro Se Patrons',
+      details: 
+      '[Public Law Library of King County Legal Clinics (KCLL)](https://kcll.org/contact-us/)\n\n[Walk-In Clinic](https://www.kcba.org/For-Lawyers/Pro-Bono-Services/YLD-Law-Library-Walk-in-Clinic)\n\n[King County Bar](http://www.kcba.org/For-the-Public/Free-Legal-Assistance/Neighborhood-Legal-Clinics)\n\n[Open Door Legal Services](https://www.ugm.org/what-we-do/stabilization/legal-services/#)',
+    },
+    {
+      id: 'legalform2',
+      summary: 'Assistance For Adults',
+      details: 
+      '[Center for Justice](https://serve.gonzaga.edu/agency/detail/?agency_id=101214)\n\n[Clark County Volunteer Lawyers Program (CCVLP)](https://ccvlp.org/)\n\n[Cowlitz-Wahkiakum Legal Aid](http://cwlap.org/)\n\n[Northwest Justice Project](https://nwjustice.org/get-legal-help)\n\n[The Records Project](https://www.kcba.org/For-the-Public/Free-Legal-Assistance/The-Records-Project)\n\n',
+    },
+    {
+      id: 'legalform3',
+      summary: 'Assistance For Children',
+      details: 
+      '[TeamChild](https://teamchild.org/record-sealing/)\n\n[Center for Children & Youth Justice (CCYJ)](https://ccyj.org/our-work/empowering-foster-homeless-youth/)',
+    },
+  ],
   financialAidForms: [
     {
       id: 'financialform1',
