@@ -16,7 +16,25 @@ export default function GetStartedPage() {
         subheading='Vacate your conviction in the state of Washington by following these 4 steps!'
         imgsrc='/illustrations/chart.svg'
       />
-      <SectionContainer>
+      <SectionContainer id='step-1'>
+        <MuiMarkdown>{`##Step 1: Documents`}</MuiMarkdown>
+        <MuiMarkdown>
+            {`First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.`}
+          </MuiMarkdown>
+      </SectionContainer>
+      <SectionContainer id='step-2'>
+        <MuiMarkdown>{`##Step 2: Eligibility`}</MuiMarkdown>
+        <MuiMarkdown>
+            {`Once you have your records and forms gathered, use our eligibilty calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.`}
+          </MuiMarkdown>
+      </SectionContainer>
+      <SectionContainer id='step-3'>
+        <MuiMarkdown>{`##Step 3: File with Court`}</MuiMarkdown>
+        <MuiMarkdown>
+            {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.`}
+          </MuiMarkdown>
+      </SectionContainer>
+      <SectionContainer id='step-4'>
         <MuiMarkdown>{`##Step 4: Court Hearing`}</MuiMarkdown>
         <MuiMarkdown>
           {`Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.`}
