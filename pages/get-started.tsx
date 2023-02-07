@@ -44,7 +44,7 @@ export default function GetStartedPage() {
               <FactCard
                 body='There is a record including violated probation, unpaid fines, or other offenses'
               />
-            </Grid>
+        </Grid>
       </SectionContainer>
       <SectionContainer id='step-4'>
         <MuiMarkdown>{`##Step 4: Court Hearing`}</MuiMarkdown>
