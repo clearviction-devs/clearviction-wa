@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Box,Grid } from '@mui/material';
 import Typography from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 
@@ -34,16 +34,22 @@ export default function GetStartedPage() {
         <MuiMarkdown>
             {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n**Common reasons requests to vacate may be denied:**`}
         </MuiMarkdown>
-        <Grid container>
-              <FactCard
-                body='The court does not believe that vacating your conviction will be in the interest of society'
-              />
-              <FactCard
-                body='There are inaccuracies in your court records and/or the application'
-              />
-              <FactCard
-                body='There is a record including violated probation, unpaid fines, or other offenses'
-              />
+        <Grid container spacing={10}>
+          <FactCard
+            xs={12}
+            md={4}
+            body='The court does not believe that vacating your conviction will be in the interest of society'
+          />
+          <FactCard
+            xs={12}
+            md={4}
+            body='There are inaccuracies in your court records and/or the application'
+          />
+          <FactCard
+            xs={12}
+            md={4}
+            body='There is a record including violated probation, unpaid fines, or other offenses'
+          />
         </Grid>
       </SectionContainer>
       <SectionContainer id='step-4'>

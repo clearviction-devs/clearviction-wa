@@ -1,12 +1,10 @@
 import { 
-  Box,
-  Card, 
-  CardContent, 
-  CardProps,
   Grid,
+  GridProps,
+  Paper,
   Typography} from "@mui/material";
 
-interface FactCardProps extends CardProps {
+interface FactCardProps extends GridProps {
   body: string;
 }
 
@@ -15,24 +13,17 @@ export function FactCard({
   ...props
 }: FactCardProps) {
   return (
-    <Grid item {...props} sx={{ mb: 4 }}>
-      <Box>
-          <Card
-            sx={{
-              maxWidth: '250px',
-              height: '200px',
-              objectFit: 'contain',
-            }}
-          >
-            <CardContent
-            sx={{
-              justifyContent: 'center'
-            }}
-            >
-              <Typography>{body}</Typography>
-            </CardContent>
-          </Card>
-      </Box>
-  </Grid>
+    <Grid item {...props}>
+      <Paper 
+          sx={{
+            display: 'flex',
+            height: '200px',
+            textAlign: 'center',
+            alignItems: 'center',
+            p: 4 
+          }}>
+            <Typography>{body}</Typography>
+      </Paper>
+    </Grid>
   );
 }
