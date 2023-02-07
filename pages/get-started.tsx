@@ -3,6 +3,7 @@ import Typography from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 
 import AccordionBuilder from '../components/AccordionBuilder';
+import { FactCard } from '../components/FactCard';
 import HeroBanner from '../components/HeroBanner';
 import { HomeCardItem, HomeCardSection } from '../components/HomeCardSection';
 import SectionContainer from '../components/SectionContainer';
@@ -31,8 +32,19 @@ export default function GetStartedPage() {
       <SectionContainer id='step-3'>
         <MuiMarkdown>{`##Step 3: File with Court`}</MuiMarkdown>
         <MuiMarkdown>
-            {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.`}
-          </MuiMarkdown>
+            {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n**Common reasons requests to vacate may be denied:**`}
+        </MuiMarkdown>
+        <Grid container>
+              <FactCard
+                body='The court does not believe that vacating your conviction will be in the interest of society'
+              />
+              <FactCard
+                body='There are inaccuracies in your court records and/or the application'
+              />
+              <FactCard
+                body='There is a record including violated probation, unpaid fines, or other offenses'
+              />
+            </Grid>
       </SectionContainer>
       <SectionContainer id='step-4'>
         <MuiMarkdown>{`##Step 4: Court Hearing`}</MuiMarkdown>
