@@ -41,7 +41,7 @@ let theme = createTheme({
     },
     neutral: {
       main: '#FFFFFF',
-      dark: grey[200],
+      dark: grey[400],
       contrastText: '#2F3554',
     },
     error: {
@@ -213,7 +213,8 @@ theme.components = {
     styleOverrides: {
       root: {
         borderRadius: 50,
-        whiteSpace: 'nowrap',
+        // whiteSpace: 'nowrap',
+        textAlign: 'center',
         minWidth: 'max-content',
       },
     },

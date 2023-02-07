@@ -15,6 +15,7 @@ export default function GetStartedPage() {
         imgsrc='/illustrations/homeHeroImage.svg'
       />
       <SectionContainer>
+        <MuiMarkdown>{`##Step 1: Documents\nGathering documents is the first step in the process. This includes any forms or records that pertain to your conviction. Please gather all relevant court forms and get a copy of your Criminal History Record Information (CHRI).\n###Court Forms`}</MuiMarkdown>
         <Grid container spacing={2}>
           {content.courtForms.map((courtForm) => (
             <Grid key={courtForm.id} item xs={12} sm={6} md={4}>
@@ -22,7 +23,7 @@ export default function GetStartedPage() {
                 id={courtForm.id}
                 summary={courtForm.summary}
                 details={courtForm.details}
-                sx={{ py: 2 }}
+                sx={{ py: 2, height: '120px' }}
               />
             </Grid>
           ))}
