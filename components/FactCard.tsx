@@ -1,4 +1,5 @@
 import { 
+  Box,
   Grid,
   GridProps,
   Paper,
@@ -10,6 +11,7 @@ interface FactCardProps extends GridProps {
 
 export function FactCard({
   body,
+  children,
   ...props
 }: FactCardProps) {
   return (
@@ -20,10 +22,12 @@ export function FactCard({
             height: '10em',
             textAlign: 'center',
             alignItems: 'center',
+            // flexDirection: 'column',
             p: 4 
           }}>
+            {children}
             <Typography>{body}</Typography>
-      </Paper>
+        </Paper>
     </Grid>
   );
 }
