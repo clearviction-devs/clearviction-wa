@@ -18,6 +18,20 @@ const getStartedContent = {
         details: "Pending or new criminal charges & any court orders against you",
     },
   ],
+  CHRIMethods: [
+    {
+        id: "chri1",
+        summary: '“Unofficial” Copy Through W.A.T.C.H',
+        details: 
+        'Get an [“unofficial” copy through WATCH](https://watch.wsp.wa.gov/WATCH/Home/Notice?ReturnPage=%2FHome%2FIndex) for a $11.00 fee. This report is not always accurate so you should ask the prosecutor.',
+    },
+    {
+        id: "chri2",
+        summary: 'Official Record Review (Fingerprint Card)',
+        details: 
+        'If the WATCH printout is not good enough, go to your local police or sheriff’s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an officialcopy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
+    },
+  ],
   rejectionReasons: [
     {
         id: "rejection1",

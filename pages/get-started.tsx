@@ -37,6 +37,23 @@ export default function GetStartedPage() {
               ))}
             </Grid>
         </SectionContainer>
+        <MuiMarkdown>{`###CHRI (Recommended)`}</MuiMarkdown>
+        <MuiMarkdown>
+            {`A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.`}
+          </MuiMarkdown>
+        <MuiMarkdown>{`**To get a copy of your CHRI, you have two options:**`}</MuiMarkdown>
+        <Grid container spacing={2}>
+              {content.CHRIMethods.map((method) => (
+                <Grid key={method.id} item xs={12} sm={6} md={6}>
+                  <AccordionBuilder
+                    id={method.id}
+                    summary={method.summary}
+                    details={method.details}
+                    sx={{ py: 2, height:"6em" }}
+                  />
+                </Grid>
+              ))}
+            </Grid>
       </SectionContainer>
       <SectionContainer id='step-2'>
         <MuiMarkdown>{`##Step 2: Eligibility`}</MuiMarkdown>
