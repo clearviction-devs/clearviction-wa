@@ -1,4 +1,37 @@
+import { AccountBalance,DateRange, History } from "@mui/icons-material";
+
 const getStartedContent = {
+  needToKnowFacts: [
+    {
+        id: "n2k1",
+        icon: <DateRange style={{ fontSize: 54 }} color="secondary" />,
+        details: "The date & violation of your misdemeanor conviction",
+    },
+    {
+        id: "n2k2",
+        icon: <History style={{ fontSize: 54 }} color="secondary" />,
+        details: "If and when you completed the terms of your sentence",
+    },
+    {
+        id: "n2k3",
+        icon: <AccountBalance style={{ fontSize: 54 }} color="secondary" />,
+        details: "Pending or new criminal charges & any court orders against you",
+    },
+  ],
+  rejectionReasons: [
+    {
+        id: "rejection1",
+        details: "The court does not believe that vacating your conviction will be in the interest of society",
+    },
+    {
+        id: "rejection2",
+        details: "There are inaccuracies in your court records and/or the application",
+    },
+    {
+        id: "rejection3",
+        details: "There is a record including violated probation, unpaid fines, or other offenses",
+    },
+  ],
   legalAidForms: [
     {
       id: 'legalform1',
