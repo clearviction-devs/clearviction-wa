@@ -34,7 +34,7 @@ export default function GetStartedPage() {
         <MuiMarkdown>
             {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n**Common reasons requests to vacate may be denied:**`}
         </MuiMarkdown>
-        <Grid container spacing={10}>
+        <Grid container spacing={8}>
           <FactCard
             xs={12}
             md={4}

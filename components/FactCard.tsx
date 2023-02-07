@@ -17,7 +17,7 @@ export function FactCard({
       <Paper 
           sx={{
             display: 'flex',
-            height: '200px',
+            height: '10em',
             textAlign: 'center',
             alignItems: 'center',
             p: 4 
