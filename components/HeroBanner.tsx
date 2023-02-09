@@ -1,6 +1,6 @@
-import { Box, Button, SxProps, Typography } from '@mui/material';
+import { Box, Button, SxProps, Typography } from "@mui/material";
 
-import SectionContainer from './SectionContainer';
+import SectionContainer from "./SectionContainer";
 
 interface HeroBannerProps {
   heading: string;
@@ -11,8 +11,8 @@ interface HeroBannerProps {
 }
 
 const heroStyles: SxProps = {
-  backgroundColor: 'primary.dark',
-  color: 'text.secondary',
+  backgroundColor: "primary.dark",
+  color: "text.secondary",
   py: 4,
 };
 
@@ -24,30 +24,30 @@ export default function HeroBanner({
   ctaLink,
 }: HeroBannerProps) {
   return (
-    <Box sx={heroStyles} textAlign={{ xs: 'center', md: 'left' }}>
+    <Box sx={heroStyles} textAlign={{ xs: "center", md: "left" }}>
       <SectionContainer>
-        <Typography variant='h1' gutterBottom>
+        <Typography variant="h1" gutterBottom>
           {heading}
         </Typography>
-        <Box sx={{ display: 'flex', gap: 4 }}>
+        <Box sx={{ display: "flex", gap: 4 }}>
           <Box sx={{ flex: 1 }}>
-            <Typography variant='subtitle1' sx={{ mb: 4 }}>
+            <Typography variant="subtitle1" sx={{ mb: 4 }}>
               {subheading}
             </Typography>
             {ctaText && ctaLink && (
-              <Button variant='contained' color='neutral' href={ctaLink}>
+              <Button variant="contained" color="neutral" href={ctaLink}>
                 {ctaText}
               </Button>
             )}
           </Box>
           <Box
             sx={{
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: "none", md: "flex" },
               flex: 1,
-              justifyContent: 'center',
+              justifyContent: "center",
             }}
           >
-            <img src={imgsrc} alt='' />
+            <img src={imgsrc} alt="" />
           </Box>
         </Box>
       </SectionContainer>

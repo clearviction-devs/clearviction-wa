@@ -24,7 +24,7 @@ export default function CardTestPage() {
           />
           <InfoCard
             title='Card 2'
-            body={`Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card`}
+            body={`Cards also accept markdown strings.\n* item 1\n* item 2\n\n#####Hello Card`}
             imgsrc='/illustrations/washington.svg'
             maxWidth='100%'
           />
