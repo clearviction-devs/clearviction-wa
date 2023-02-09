@@ -47,6 +47,7 @@ export default function HeroBanner({
               justifyContent: "center",
             }}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={imgsrc} alt="" />
           </Box>
         </Box>
