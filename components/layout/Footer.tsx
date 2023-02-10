@@ -7,48 +7,48 @@ import {
   Stack,
   SxProps,
   Typography,
-} from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Image from 'next/image';
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Image from "next/image";
 
-import navItems from '../../content/navItems';
-import NavigationLogo from '../NavigationLogo';
+import navItems from "../../content/navItems";
+import NavigationLogo from "../NavigationLogo";
 
 const sectionContainerStyles: SxProps = {
   flex: 1,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 };
 
 const sectionHeaderStyles: SxProps = {
   height: 64,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 };
 
 export default function Footer() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <Box
-      component='footer'
-      color='primary'
+      component="footer"
+      color="primary"
       sx={{
-        mt: 'auto',
-        backgroundColor: 'primary.dark',
-        color: 'text.secondary',
+        mt: "auto",
+        backgroundColor: "primary.dark",
+        color: "text.secondary",
       }}
     >
       <Container
-        maxWidth='xl'
+        maxWidth="xl"
         sx={{
-          display: 'flex',
-          textAlign: 'center',
+          display: "flex",
+          textAlign: "center",
           padding: 2,
-          flexDirection: { xs: 'column', md: 'row' },
+          flexDirection: { xs: "column", md: "row" },
           gap: 2,
         }}
       >
@@ -56,7 +56,7 @@ export default function Footer() {
           <Box sx={sectionHeaderStyles}>
             <NavigationLogo fullSize />
           </Box>
-          <Typography variant='caption'>
+          <Typography variant="caption">
             Clearviction is reducing barriers faced by formerly incarcerated
             individuals by streamlining the process of vacating eligible
             convictions in Washington state.
@@ -67,15 +67,15 @@ export default function Footer() {
 
         <Box sx={sectionContainerStyles}>
           <Box sx={sectionHeaderStyles}>
-            <Typography variant='h4'>Links</Typography>
+            <Typography variant="h4">Links</Typography>
           </Box>
           <Grid container spacing={1} maxWidth={300}>
             {navItems.map((item) => (
               <Grid key={item.text} item xs={6}>
                 <Link
                   href={item.href}
-                  color='text.secondary'
-                  underline='hover'
+                  color="text.secondary"
+                  underline="hover"
                   fontSize={18}
                   noWrap
                 >
@@ -90,39 +90,39 @@ export default function Footer() {
 
         <Box sx={sectionContainerStyles}>
           <Box sx={sectionHeaderStyles}>
-            <Typography variant='h4'>Partners</Typography>
+            <Typography variant="h4">Partners</Typography>
           </Box>
           <Stack
-            height='100%'
-            alignItems='center'
-            justifyContent='center'
+            height="100%"
+            alignItems="center"
+            justifyContent="center"
             sx={{ flex: 1 }}
           >
             <Box>
               <Image
-                alt=''
-                src='/democracylab-logo.png'
+                alt=""
+                src="/democracylab-logo.png"
                 width={412}
                 height={122}
                 style={{
-                  maxWidth: '200px',
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'contain',
+                  maxWidth: "200px",
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
                 }}
               />
             </Box>
             <Box>
               <Image
-                alt=''
-                src='/openseattle-logo.png'
+                alt=""
+                src="/openseattle-logo.png"
                 width={130}
                 height={102}
                 style={{
-                  maxWidth: '200px',
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'contain',
+                  maxWidth: "200px",
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
                 }}
               />
             </Box>

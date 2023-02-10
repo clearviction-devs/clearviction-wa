@@ -7,10 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --check ./",
+    "format:fix": "prettier --write ./",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
-    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
@@ -37,6 +41,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^2.8.0",
-    "start-server-and-test": "^1.15.2"
+    "start-server-and-test": "^1.15.2",
+    "husky": "^8.0.0"
   }
 }
