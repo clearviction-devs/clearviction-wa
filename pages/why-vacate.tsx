@@ -1,10 +1,11 @@
 import { Button, ButtonGroup, Grid, Typography } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 import AccordionBuilder from "../components/AccordionBuilder";
 import HeroBanner from "../components/HeroBanner";
-import SectionContainer from "../components/SectionContainer";
 import { HomeCardItem, HomeCardSection } from "../components/HomeCardSection";
+import SectionContainer from "../components/SectionContainer";
 import content from "../content/why-vacate";
 
 export default function WhyVacatePage() {
@@ -26,12 +27,16 @@ export default function WhyVacatePage() {
           orientation={matchesXS ? "vertical" : "horizontal"}
         >
           {content.buttons.map((button: any) => {
-            return <Button href={button.href}>{button.name}</Button>;
+            return (
+              <Button key={button.name} href={button.href}>
+                {button.name}
+              </Button>
+            );
           })}
         </ButtonGroup>
         {content.cards.map((card: any) => {
           return (
-            <SectionContainer id={card.sectionId}>
+            <SectionContainer id={card.sectionId} key={card.sectionId}>
               <HomeCardSection
                 title={card.title}
                 subtitle={card.subtitle}
@@ -41,6 +46,7 @@ export default function WhyVacatePage() {
                   {card.cardItems.map((cardItem: any) => {
                     return (
                       <HomeCardItem
+                        key={cardItem.title}
                         xs={12}
                         sm={6}
                         title={cardItem.title}
