@@ -40,13 +40,17 @@ const whyVacateContent = {
         {
           id: "1",
           summary: "Job Boards",
-          details: `* [Careeronestop](https://www.careeronestop.org/) * [WorkforceWA](https://www.worksourcewa.com/)`,
+          details: `[Careeronestop](https://www.careeronestop.org/) 
+                    \n[WorkforceWA](https://www.worksourcewa.com/) 
+                    \n[Goodwill](https://www.goodwill.org/jobs-training/find-a-job/) 
+                    \n[People for People](https://mypfp.org/about-us/careers/)`,
         },
         {
           id: "2",
           summary: "Professional Training",
-          details:
-            "If you are convicted of a crime, your criminal record will continue to show that conviction in background checks. Having a criminal record might negatively affect your housing, employment, and educational opportunities.\n\nIf you are experiencing this, vacating your conviction removes that crime from background checks, and you can say legally that you were never convicted of that crime. This can help you get access to housing, education, employment, volunteering opportunities, and more.",
+          details: `[People for People](https://mypfp.org/about-us/careers/) 
+                    \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills) 
+                    \n[Evergreen Goodwill](https://evergreengoodwill.org/job-training-and-education)`,
         },
       ],
     },
@@ -60,25 +64,21 @@ const whyVacateContent = {
           title: "Public Housing Authorities",
           body: "Getting back into society may take longer with a conviction on record.",
           imgRef: "/illustrations/city-buildings.svg",
-          children: [
-            "Income capped",
-            "Can’t be a registered offender",
-            "PHAs have discretion on who they decide to house",
-          ],
+          body: `* Income capped \n* Can’t be a registered offender \n* PHAs have discretion on who they decide to house`,
         },
         {
           title: "Private Housing",
-          body: "This is a common circumstance for people who have previously been convicted.",
+          body: `* Landlords have full discretion, and often deny people with criminal records \n* Management companies usually have extensive background checks`,
           imgRef: "/illustrations/dream.svg",
         },
         {
           title: "Supportive Housing",
-          body: "Getting a job in a new field is complicated by lack of access to educational opportunities.",
+          body: `* Funded by HUD homeless programs \n* Must have been residing in emergency shelter/housing in the previous 90 days`,
           imgRef: "/illustrations/diversity-1.svg",
         },
         {
           title: "Transitional Housing",
-          body: "Getting a job in a new field is complicated by lack of access to educational opportunities.",
+          body: `* Might require you have substance abuse, mental health or physical issues \n* Some require you attend special meetings or work`,
           imgRef: "/illustrations/process-building.svg",
         },
       ],
@@ -86,13 +86,16 @@ const whyVacateContent = {
         {
           id: "courtform1",
           summary: "Shelter Listings",
-          details: `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-criminal-record.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
+          details: `[Washington Shelter List](https://www.shelterlist.com/state/washington) 
+          \n[Catholic Community Services and Catholic Housing Services of Western Washington](https://ccsww.org/) 
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
+          \n[Social Serve](https://www.socialserve.com/tenant/WA/index.html?ch=KCHA)`,
         },
         {
           id: "courtform2",
           summary: "Housing Advisory",
-          details:
-            "If you are convicted of a crime, your criminal record will continue to show that conviction in background checks. Having a criminal record might negatively affect your housing, employment, and educational opportunities.\n\nIf you are experiencing this, vacating your conviction removes that crime from background checks, and you can say legally that you were never convicted of that crime. This can help you get access to housing, education, employment, volunteering opportunities, and more.",
+          details: `[Compass Housing Alliance](https://www.compasshousingalliance.org/) 
+          \n[The STAR Project](https://www.thestarproject.us/)`,
         },
       ],
     },
@@ -117,19 +120,24 @@ const whyVacateContent = {
         {
           id: "courtform1",
           summary: "Federal Financial Student Aid",
-          details: `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-criminal-record.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
+          details: `[FAQ on Incarcerated Individuals and Eligibility for Federal Student Aid](https://studentaid.ed.gov/sites/default/files/aid-info-for-incarcerated-individuals.pdf) 
+          \n[Free Application for Federal Student Aid (FAFSA)](http://www.fafsa.gov/) 
+          \n[Federal Pell Grants](https://studentaid.ed.gov/sa/types/grants-scholarships/pell)
+          \n[Federal Work-Study Programs](https://studentaid.ed.gov/types/work-study)`,
         },
         {
           id: "courtform2",
           summary: "Post-incarceration educational programs",
-          details:
-            "If you are convicted of a crime, your criminal record will continue to show that conviction in background checks. Having a criminal record might negatively affect your housing, employment, and educational opportunities.\n\nIf you are experiencing this, vacating your conviction removes that crime from background checks, and you can say legally that you were never convicted of that crime. This can help you get access to housing, education, employment, volunteering opportunities, and more.",
+          details: `[Freedom Education Project](http://www.fepps.org/) 
+          \n[People for People](https://ccsww.org/) 
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
+          \n[Post-Prison Education Program](http://postprisonedu.org/)
+          \n[The STAR Project](http://thestarproject.us/)`,
         },
         {
           id: "courtform3",
           summary: "Other Educational assistance",
-          details:
-            "To be eligible to vacate, there are specific criteria that your conviction must meet.",
+          details: `[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)`,
         },
       ],
     },

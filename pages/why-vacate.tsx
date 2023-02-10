@@ -1,8 +1,6 @@
-import { Button, ButtonGroup, Grid } from "@mui/material";
+import { Button, ButtonGroup, Grid, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import MuiMarkdown from "mui-markdown";
-
 import AccordionBuilder from "../components/AccordionBuilder";
 import HeroBanner from "../components/HeroBanner";
 import SectionContainer from "../components/SectionContainer";
@@ -34,7 +32,11 @@ export default function WhyVacatePage() {
         {content.cards.map((card: any) => {
           return (
             <SectionContainer id={card.sectionId}>
-              <HomeCardSection title={card.title} subtitle={card.subtitle}>
+              <HomeCardSection
+                title={card.title}
+                subtitle={card.subtitle}
+                sx={{ textAlign: "left", p: 4 }}
+              >
                 <Grid container spacing={2}>
                   {card.cardItems.map((cardItem: any) => {
                     return (
@@ -48,20 +50,27 @@ export default function WhyVacatePage() {
                     );
                   })}
                 </Grid>
+                <Typography variant={"h3"}>Resources</Typography>
+                <Grid container spacing={2}>
+                  {card.accordianItems.map((accordianItem: any) => (
+                    <Grid
+                      key={accordianItem.id}
+                      spacing={2}
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                    >
+                      <AccordionBuilder
+                        id={accordianItem.id}
+                        summary={accordianItem.summary}
+                        details={accordianItem.details}
+                        sx={{ my: 1, mx: 4, py: 2 }}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
               </HomeCardSection>
-
-              <Grid container spacing={2}>
-                {card.accordianItems.map((accordianItem: any) => (
-                  <Grid key={accordianItem.id} item xs={12} sm={6} md={4}>
-                    <AccordionBuilder
-                      id={accordianItem.id}
-                      summary={accordianItem.summary}
-                      details={accordianItem.details}
-                      sx={{ py: 2 }}
-                    />
-                  </Grid>
-                ))}
-              </Grid>
             </SectionContainer>
           );
         })}

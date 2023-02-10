@@ -7,6 +7,7 @@ import {
   PaperProps,
   Typography,
 } from "@mui/material";
+import MuiMarkdown from "mui-markdown";
 
 interface HomeCardSectionProps extends PaperProps {
   title: string;
@@ -43,7 +44,7 @@ export function HomeCardItem({
           ></Box>
         )}
         <Typography variant="subtitle1">{title}</Typography>
-        <Typography variant="body1">{body}</Typography>
+        {<MuiMarkdown>{body}</MuiMarkdown>}
       </Box>
     </Grid>
   );
@@ -57,7 +58,6 @@ export function HomeCardSection({
   children,
   ...props
 }: HomeCardSectionProps) {
-  console.log("children: ", children);
   return (
     <Paper sx={{ textAlign: "center", p: 4 }} {...props}>
       <Typography variant="h2" sx={{ mb: 4 }}>
