@@ -68,8 +68,9 @@ export function HomeCardSection({
           {subtitle}
         </Typography>
       )}
-
-      {children}
+      <Grid container spacing={4}>
+        {children}
+      </Grid>
 
       {ctaText && ctaLink && (
         <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
