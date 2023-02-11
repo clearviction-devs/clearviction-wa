@@ -4,10 +4,10 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Head from "next/head";
 
 import AccordionBuilder from "../components/AccordionBuilder";
+import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
-import { HomeCardItem, HomeCardSection } from "../components/HomeCardSection";
+import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
-import faqs from "../content/faqs";
 import content from "../content/home.json";
 
 export default function Home() {
@@ -39,30 +39,32 @@ export default function Home() {
         </SectionContainer>
         {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>
-            <HomeCardSection
+            <PaperSection
               title={section.title}
               ctaLink={section.ctaLink}
               ctaText={section.ctaText}
             >
-              {section.items.map((item) => (
-                <HomeCardItem
-                  key={item.id}
-                  xs={12}
-                  md={section.items.length % 2 ? 4 : 6}
-                  title={item.title}
-                  body={item.body}
-                  imgsrc={item.imgsrc}
-                />
-              ))}
-            </HomeCardSection>
+              <Grid container spacing={4}>
+                {section.items.map((item) => (
+                  <GridItemCard
+                    key={item.id}
+                    xs={12}
+                    md={section.items.length % 2 ? 4 : 6}
+                    title={item.title}
+                    body={item.body}
+                    imgsrc={item.imgsrc}
+                  />
+                ))}
+              </Grid>
+            </PaperSection>
           </SectionContainer>
         ))}
         <SectionContainer id="faq">
-          <HomeCardSection title="FAQ">
+          <PaperSection title="FAQ">
             {content.faqs.map((faq) => (
               <AccordionBuilder key={faq.id} {...faq} />
             ))}
-          </HomeCardSection>
+          </PaperSection>
         </SectionContainer>
       </main>
     </>
