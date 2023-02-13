@@ -1,11 +1,9 @@
-import { Box,Button,Card,CardActionArea,CardContent,CardMedia,Grid } from '@mui/material';
-import Typography from '@mui/material';
+import { Box,Button,Grid } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 
 import AccordionBuilder from '../components/AccordionBuilder';
 import { FactCard } from '../components/FactCard';
 import HeroBanner from '../components/HeroBanner';
-import InfoCard from '../components/InfoCard';
 import SectionContainer from '../components/SectionContainer';
 import content from '../content/get-started';
 
@@ -65,9 +63,8 @@ export default function GetStartedPage() {
                 <Grid item md={12}>
                     <Box
                       component="img"
-                      height="300"
                       src="/quickstart.svg"
-                      sx={{padding:"1em", maxWidth: 'md'}}
+                      sx={{padding:"1em", width:"100%"}}
                       />  
                 </Grid>
                 <Grid item md={12}>
@@ -75,7 +72,6 @@ export default function GetStartedPage() {
                     variant="contained"
                     color="primary"
                     href="/calculator/landing-0"
-                    sx={{width:"250px"}}
                     >
                     Access Calculator
                   </Button>  
