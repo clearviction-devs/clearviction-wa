@@ -18,15 +18,18 @@ export function FactCard({
     <Grid item {...props}>
       <Paper 
           sx={{
-            display: 'flex',
-            height: '10em',
-            textAlign: 'center',
-            alignItems: 'center',
-            // flexDirection: 'column',
-            p: 4 
+            maxWidth: "200",
+            minHeight: "250px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}>
-            {children}
-            <Typography>{body}</Typography>
+            <Box pt={3} pb={1} px={3}>
+              {children}
+            </Box>
+            <Box pb={3} px={3}>
+              <Typography sx={{textAlign:"center"}}>{body}</Typography>
+            </Box>
         </Paper>
     </Grid>
   );

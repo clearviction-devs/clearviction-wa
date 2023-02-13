@@ -1,11 +1,11 @@
-import { Box,Grid } from '@mui/material';
+import { Box,Button,Card,CardActionArea,CardContent,CardMedia,Grid } from '@mui/material';
 import Typography from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 
 import AccordionBuilder from '../components/AccordionBuilder';
 import { FactCard } from '../components/FactCard';
 import HeroBanner from '../components/HeroBanner';
-import { HomeCardItem, HomeCardSection } from '../components/HomeCardSection';
+import InfoCard from '../components/InfoCard';
 import SectionContainer from '../components/SectionContainer';
 import content from '../content/get-started';
 
@@ -60,6 +60,28 @@ export default function GetStartedPage() {
         <MuiMarkdown>
             {`Once you have your records and forms gathered, use our eligibilty calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.`}
           </MuiMarkdown>
+          <SectionContainer>
+              <Grid container sx={{ flexDirection:'column', alignItems:"center" }}>
+                <Grid item md={12}>
+                    <Box
+                      component="img"
+                      height="300"
+                      src="/quickstart.svg"
+                      sx={{padding:"1em", maxWidth: 'md'}}
+                      />  
+                </Grid>
+                <Grid item md={12}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    href="/calculator/landing-0"
+                    sx={{width:"250px"}}
+                    >
+                    Access Calculator
+                  </Button>  
+                </Grid> 
+              </Grid> 
+            </SectionContainer>
       </SectionContainer>
       <SectionContainer id='step-3'>
         <MuiMarkdown>{`##Step 3: File with Court`}</MuiMarkdown>
