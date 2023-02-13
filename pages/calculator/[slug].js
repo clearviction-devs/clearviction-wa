@@ -13,10 +13,11 @@ import {
 import { PortableText } from "@portabletext/react";
 import { useState } from "react";
 import {
+  getCalculatorConfig,
   getCalculatorPageBySlug,
   getCalculatorPagePaths,
-  getCalculatorConfig,
 } from "utils/sanity.client";
+
 import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
@@ -80,7 +81,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby="alert-dialog-title"
-        aria-described-by="alert-dialog-description"
+        aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
           {calculatorConfig.notSureHeader}
