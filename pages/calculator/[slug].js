@@ -1,58 +1,112 @@
-import { Box, Button, Container, Stack } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { PortableText } from "@portabletext/react";
+import { useState } from "react";
 import {
   getCalculatorPageBySlug,
   getCalculatorPagePaths,
+  getCalculatorConfig,
 } from "utils/sanity.client";
+import portableTextComponents from "../../utils/portableTextComponents";
 
-export default function CalculatorSlugRoute({ page }) {
+export default function CalculatorSlugRoute({ page, calculatorConfig }) {
+  const [open, setOpen] = useState(false);
   console.log(page);
+  console.log(calculatorConfig);
   return (
-    <Container
-      maxWidth="md"
-      sx={{
-        minHeight: "700px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Box mb={4}>
-        <PortableText value={page.content} />
-      </Box>
-      <Container maxWidth="xs" sx={{ mb: 4 }}>
-        <Stack gap={2}>
-          {page.choices.map((choice, index) => {
-            const linkTo = choice.linkTo
-              ? `/calculator/${choice.linkTo.slug.current}`
-              : "#";
-            const href = choice.isExternalLink ? choice.url : linkTo;
-            return (
+    <>
+      <Container
+        maxWidth="md"
+        sx={{
+          minHeight: "700px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box mb={4}>
+          <PortableText
+            value={page.content}
+            components={portableTextComponents}
+          />
+        </Box>
+        <Container maxWidth="xs" sx={{ mb: 4 }}>
+          <Stack gap={2}>
+            {page.choices.map((choice) => {
+              const linkTo = choice.linkTo
+                ? `/calculator/${choice.linkTo.slug.current}`
+                : "#";
+              const href = choice.isExternalLink ? choice.url : linkTo;
+              return (
+                <Button
+                  key={choice._key}
+                  variant="contained"
+                  color="primary"
+                  href={href}
+                >
+                  {choice.label}
+                </Button>
+              );
+            })}
+            {page.isQuestion && (
               <Button
-                key={index}
-                variant="contained"
+                variant="outlined"
                 color="primary"
-                href={href}
-              >
-                {choice.label}
-              </Button>
-            );
-          })}
-          {page.isQuestion && (
-            <Button variant="outlined" color="primary">{`I'm not sure`}</Button>
-          )}
-        </Stack>
+                onClick={() => setOpen(true)}
+              >{`I'm not sure`}</Button>
+            )}
+          </Stack>
+        </Container>
+        {page.isFinalPage && (
+          <Box maxWidth="60ch" textAlign="center">
+            <Typography variant="caption" sx={{ fontWeight: "light" }}>
+              {calculatorConfig.legalDisclaimer}
+            </Typography>
+          </Box>
+        )}
       </Container>
-    </Container>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        aria-labelledby="alert-dialog-title"
+        aria-described-by="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {calculatorConfig.notSureHeader}
+        </DialogTitle>
+        <DialogContent>
+          <PortableText
+            value={calculatorConfig.notSureContent}
+            components={portableTextComponents}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)}>
+            {calculatorConfig.notSureButtonText}
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   );
 }
 
 export async function getStaticProps(ctx) {
   const { params = {} } = ctx;
 
-  const [page] = await Promise.all([
+  const [page, calculatorConfig] = await Promise.all([
     getCalculatorPageBySlug({ slug: params.slug }),
+    getCalculatorConfig(),
   ]);
 
   if (!page) {
@@ -64,6 +118,7 @@ export async function getStaticProps(ctx) {
   return {
     props: {
       page,
+      calculatorConfig,
     },
   };
 }

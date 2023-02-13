@@ -2,6 +2,7 @@ import { createClient } from "next-sanity";
 
 import { apiVersion, dataset, projectId, useCdn } from "./sanity.api";
 import {
+  calculatorConfigQuery,
   calculatorPagePaths,
   calculatorPagesBySlugQuery,
 } from "./sanity.queries";
@@ -24,4 +25,8 @@ export async function getCalculatorPageBySlug({
 
 export async function getCalculatorPagePaths(): Promise<string[] | undefined> {
   return await sanityClient()?.fetch(calculatorPagePaths);
+}
+
+export async function getCalculatorConfig() {
+  return await sanityClient()?.fetch(calculatorConfigQuery);
 }

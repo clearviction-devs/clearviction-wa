@@ -12,7 +12,16 @@ export const calculatorPagesBySlugQuery = groq`
     isQuestion,
     isFinalPage,
     isEligible,
-    "choices": choices[]{url, isExternalLink, label, linkTo->{slug}},
+    "choices": choices[]{_key, url, isExternalLink, label, linkTo->{slug}},
     "slug": slug.current,
+  }
+`;
+
+export const calculatorConfigQuery = groq`
+  *[_type == "calculatorConfig"][0] {
+    notSureHeader,
+    notSureContent,
+    notSureButtonText,
+    legalDisclaimer
   }
 `;
