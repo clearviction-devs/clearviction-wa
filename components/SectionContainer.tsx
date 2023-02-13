@@ -1,4 +1,4 @@
-import { Container, ContainerProps } from '@mui/material';
+import { Container, ContainerProps } from "@mui/material";
 
 export default function SectionContainer({
   children,
@@ -7,9 +7,9 @@ export default function SectionContainer({
 }: ContainerProps) {
   return (
     <Container
-      component='section'
+      component="section"
       id={id}
-      maxWidth='lg'
+      maxWidth="lg"
       sx={{ my: 8, scrollMarginTop: 64 }}
       {...props}
     >

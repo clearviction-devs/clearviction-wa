@@ -6,7 +6,8 @@ import {
   Paper,
   PaperProps,
   Typography,
-} from '@mui/material';
+} from "@mui/material";
+import { ReactHTMLElement } from "react";
 
 interface HomeCardSectionProps extends PaperProps {
   title: string;
@@ -32,18 +33,18 @@ export function HomeCardItem({
       <Box>
         {imgsrc && (
           <Box
-            component='img'
+            component="img"
             src={imgsrc}
-            alt=''
+            alt=""
             sx={{
-              maxWidth: '250px',
-              height: '200px',
-              objectFit: 'contain',
+              maxWidth: "250px",
+              height: "200px",
+              objectFit: "contain",
             }}
           ></Box>
         )}
-        <Typography variant='subtitle1'>{title}</Typography>
-        <Typography variant='body1'>{body}</Typography>
+        <Typography variant="subtitle1">{title}</Typography>
+        <Typography variant="body1">{body}</Typography>
       </Box>
     </Grid>
   );
@@ -58,12 +59,12 @@ export function HomeCardSection({
   ...props
 }: HomeCardSectionProps) {
   return (
-    <Paper sx={{ textAlign: 'center', p: 4 }} {...props}>
-      <Typography variant='h2' sx={{ mb: 4 }}>
+    <Paper sx={{ textAlign: "center", p: 4 }} {...props}>
+      <Typography variant="h2" sx={{ mb: 4 }}>
         {title}
       </Typography>
       {subtitle && (
-        <Typography variant='subtitle1' sx={{ mb: 4 }}>
+        <Typography variant="subtitle1" sx={{ mb: 4 }}>
           {subtitle}
         </Typography>
       )}
@@ -71,7 +72,7 @@ export function HomeCardSection({
       {children}
 
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant='contained' sx={{ mt: 4 }}>
+        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
           {ctaText}
         </Button>
       )}
