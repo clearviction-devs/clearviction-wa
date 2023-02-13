@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import MuiMarkdown from "mui-markdown";
+import { ReactHTMLElement } from "react";
 
 interface HomeCardSectionProps extends PaperProps {
   title: string;

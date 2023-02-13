@@ -1,16 +1,16 @@
-import { Button, ButtonProps, SxProps } from '@mui/material';
+import { Button, ButtonProps, SxProps } from "@mui/material";
 
 const styles: SxProps = {
-  position: 'fixed',
-  ':not(:focus)': {
-    position: 'absolute',
-    width: '1px',
-    height: '1px',
+  position: "fixed",
+  ":not(:focus)": {
+    position: "absolute",
+    width: "1px",
+    height: "1px",
     padding: 0,
-    margin: '-1px',
-    overflow: 'hidden',
-    clip: 'rect(0, 0, 0, 0)',
-    whiteSpace: 'nowrap',
+    margin: "-1px",
+    overflow: "hidden",
+    clip: "rect(0, 0, 0, 0)",
+    whiteSpace: "nowrap",
     borderWidth: 0,
   },
 };
@@ -21,12 +21,12 @@ interface Props extends ButtonProps {
 
 export default function SkipLink({ skipTo }: Props) {
   return (
-    <Button sx={styles} href={skipTo} variant='contained' color='neutral'>
+    <Button sx={styles} href={skipTo} variant="contained" color="neutral">
       Skip to Content
     </Button>
   );
 }
 
 SkipLink.defaultProps = {
-  skipTo: '#main',
+  skipTo: "#main",
 };
