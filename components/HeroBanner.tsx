@@ -1,4 +1,11 @@
-import { Box, Button, SxProps, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  SxProps,
+  Typography,
+  TypographyProps,
+} from "@mui/material";
+import MuiMarkdown from "mui-markdown";
 
 import SectionContainer from "./SectionContainer";
 
@@ -6,7 +13,6 @@ interface HeroBannerProps {
   heading: string;
   smallHeading?: string;
   subheading: string;
-  subheading2?: string;
   imgsrc: string;
   ctaText?: string;
   ctaLink?: string;
@@ -22,7 +28,6 @@ export default function HeroBanner({
   heading,
   smallHeading = heading,
   subheading,
-  subheading2,
   imgsrc,
   ctaText,
   ctaLink,
@@ -46,12 +51,22 @@ export default function HeroBanner({
         </Typography>
         <Box sx={{ display: "flex", gap: 4 }}>
           <Box sx={{ flex: 1 }}>
-            <Typography variant="subtitle1" sx={{ mb: 4 }}>
-              {subheading}
-            </Typography>
-            <Typography variant="subtitle1" sx={{ mb: 4 }}>
-              {subheading2}
-            </Typography>
+            <Box sx={{ mb: 4 }}>
+              <MuiMarkdown
+                overrides={{
+                  p: {
+                    component: Typography,
+                    props: { variant: "subtitle1" } as TypographyProps,
+                  },
+                  span: {
+                    component: Typography,
+                    props: { variant: "subtitle1" } as TypographyProps,
+                  },
+                }}
+              >
+                {subheading}
+              </MuiMarkdown>
+            </Box>
             {ctaText && ctaLink && (
               <Button variant="contained" color="neutral" href={ctaLink}>
                 {ctaText}
@@ -65,6 +80,7 @@ export default function HeroBanner({
               justifyContent: "center",
             }}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={imgsrc} alt="" />
           </Box>
         </Box>

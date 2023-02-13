@@ -1,4 +1,9 @@
 const whyVacateContent = {
+  heroBanner: {
+    heading: "Why Vacate",
+    subheading: `The process of vacating a conviction in Washington is convoluted, but it’s needed to avoid barriers in employment, housing and education. \n\nFind out why it’s important to vacate your conviction and get resources to help you while you work your way to it.`,
+    imgsrc: "/illustrations/team-building.svg",
+  },
   buttons: [
     {
       name: "Employment",

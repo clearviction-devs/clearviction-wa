@@ -15,10 +15,9 @@ export default function WhyVacatePage() {
   return (
     <>
       <HeroBanner
-        heading="Why Vacate"
-        subheading="The process of vacating a conviction in Washington is convoluted, but it’s needed to avoid barriers in employment, housing and education."
-        subheading2="Find out why it’s important to vacate your conviction and get resources to help you while you work your way to it."
-        imgsrc="/illustrations/team-building.svg"
+        heading={content.heroBanner.heading}
+        subheading={content.heroBanner.subheading}
+        imgsrc={content.heroBanner.imgsrc}
       />
       <SectionContainer>
         <ButtonGroup
