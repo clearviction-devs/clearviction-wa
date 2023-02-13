@@ -44,7 +44,7 @@ export default function GetStartedPage() {
         <MuiMarkdown>{`**To get a copy of your CHRI, you have two options:**`}</MuiMarkdown>
         <Grid container spacing={2}>
               {content.CHRIMethods.map((method) => (
-                <Grid key={method.id} item xs={12} sm={6} md={6}>
+                <Grid key={method.id} item xs={12} md={6}>
                   <AccordionBuilder
                     id={method.id}
                     summary={method.summary}
