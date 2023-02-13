@@ -172,7 +172,8 @@ export default function ContactPage() {
           src="/illustrations/new_message.svg"
           sx={{
             maxWidth: "600px",
-            margin: "20px auto 40px",
+            margin: 2,
+            display: { xs: "none", md: "block" },
           }}
         />
       </SectionContainer>
