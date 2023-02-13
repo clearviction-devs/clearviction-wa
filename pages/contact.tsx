@@ -1,13 +1,6 @@
-// TODO:
-// form submit working
-// typescript error with errorMessages
-// style markdown
-// do we need useHistory?
-
-import { send } from "@emailjs/browser";
 import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
 import MuiMarkdown from "mui-markdown";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import SectionContainer from "../components/SectionContainer";
 
