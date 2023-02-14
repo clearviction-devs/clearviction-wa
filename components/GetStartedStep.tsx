@@ -38,9 +38,7 @@ export function GetStartedStep({
         </MuiMarkdown>
       )}
       <SectionContainer
-        sx={{
-          textAlign:"left",
-        }}
+        sx={{textAlign:"left" }}
       >
         {children}
       </SectionContainer>
