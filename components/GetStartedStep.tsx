@@ -1,15 +1,11 @@
 import {
-  Box,
   Button,
-  Grid,
-  GridProps,
   Paper,
   PaperProps,
   Typography,
 } from "@mui/material";
 import MuiMarkdown from 'mui-markdown';
 
-// import { ReactHTMLElement } from "react";
 import SectionContainer from "./SectionContainer";
 
 interface GetStartedStepProps extends PaperProps {
@@ -37,14 +33,12 @@ export function GetStartedStep({
           {bodyText}
         </MuiMarkdown>
       )}
-      <SectionContainer
-        sx={{textAlign:"left" }}
-      >
+      <SectionContainer sx={{textAlign:"left", my: 3 }}>
         {children}
       </SectionContainer>
 
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
+        <Button href={ctaLink} variant="contained" sx={{ my: 3 }}>
           {ctaText}
         </Button>
       )}

@@ -81,25 +81,22 @@ export default function GetStartedPage() {
           ctaLink='"/calculator/landing-0"'
           >
             <SectionContainer>
-              <Grid container sx={{ flexDirection:'column', alignItems:"center" }}>
-                <Grid item md={12}>
-                    <Box
+                <Grid container sx={{ alignItems:"center" }}>
+                    <Box 
                       component="img"
                       src="/quickstart.svg"
                       sx={{padding:"1em", width:"100%"}}
                       />  
                 </Grid>
-              </Grid>
             </SectionContainer>
         </GetStartedStep>
       </SectionContainer>
       <SectionContainer id="step-3">
         <GetStartedStep
           title="Step 3: File with Court"
-          bodyText="Next, submit a request to have your conviction vacated. Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons."
+          bodyText={`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>`}
           >
-            <MuiMarkdown>{`Refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county) for information on how to submit.\n\n**Common reasons requests to vacate may be denied:**`}
-            </MuiMarkdown>
+            <MuiMarkdown>{`**Common reasons requests to vacate may be denied:**`}</MuiMarkdown>
             <Grid container spacing={8} sx={{my:1}}>
             {content.rejectionReasons.map((fact) => (
                 <FactCard 
@@ -112,8 +109,6 @@ export default function GetStartedPage() {
             </Grid>
         </GetStartedStep>
       </SectionContainer>
-
-
       <SectionContainer id="step-4">
         <GetStartedStep
           title="Step 4: Court Hearing"
