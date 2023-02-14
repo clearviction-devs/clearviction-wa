@@ -3,8 +3,9 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import AccordionBuilder from "../components/AccordionBuilder";
+import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
-import { HomeCardItem, HomeCardSection } from "../components/HomeCardSection";
+import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
 import content from "../content/why-vacate";
 
@@ -36,18 +37,18 @@ export default function WhyVacatePage() {
         {content.cards.map((card: any) => {
           return (
             <SectionContainer id={card.sectionId} key={card.sectionId}>
-              <HomeCardSection
+              <PaperSection
                 title={card.title}
                 subtitle={card.subtitle}
                 sx={{ textAlign: "left", p: 4 }}
               >
-                <Grid container spacing={2}>
+                <Grid container spacing={4}>
                   {card.cardItems.map((cardItem: any) => {
                     return (
-                      <HomeCardItem
+                      <GridItemCard
                         key={cardItem.title}
                         xs={12}
-                        sm={6}
+                        md={card.cardItems.length % 2 ? 4 : 6}
                         title={cardItem.title}
                         body={cardItem.body}
                         imgsrc={cardItem.imgRef}
@@ -75,7 +76,7 @@ export default function WhyVacatePage() {
                     </Grid>
                   ))}
                 </Grid>
-              </HomeCardSection>
+              </PaperSection>
             </SectionContainer>
           );
         })}

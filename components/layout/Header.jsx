@@ -38,7 +38,7 @@ export default function Header() {
         {navItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton
-              linkComponent={Link}
+              component={Link}
               href={item.href}
               sx={{ textAlign: "center" }}
             >

@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import MuiMarkdown from "mui-markdown";
 
-
 import SectionContainer from "./SectionContainer";
 
 interface HeroBannerProps {
@@ -52,7 +51,6 @@ export default function HeroBanner({
         </Typography>
         <Box sx={{ display: "flex", gap: 4 }}>
           <Box sx={{ flex: 1 }}>
-
             <Box sx={{ mb: 4 }}>
               <MuiMarkdown
                 overrides={{
