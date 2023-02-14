@@ -27,10 +27,10 @@ export default function GetStartedPage() {
             fullWidth
             orientation={matchesXS ? "vertical" : "horizontal"}
           >
-            <Button href="#step-1">1: Documents</Button>
-            <Button href="#step-2">2: Eligibility</Button>
-            <Button href="#step-3">3: Filing</Button>
-            <Button href="#step-4">4: Court Hearing</Button>
+            <Button href="#step-1"> Step 1: Documents</Button>
+            <Button href="#step-2"> Step 2: Eligibility</Button>
+            <Button href="#step-3"> Step 3: Filing</Button>
+            <Button href="#step-4"> Step 4: Court Hearing</Button>
           </ButtonGroup>
       </SectionContainer>
       <SectionContainer id="step-1">
