@@ -5,6 +5,7 @@ import MuiMarkdown from 'mui-markdown';
 
 import AccordionBuilder from '../components/AccordionBuilder';
 import { FactCard } from '../components/FactCard';
+import { GetStartedStep } from '../components/GetStartedStep';
 import HeroBanner from '../components/HeroBanner';
 import SectionContainer from '../components/SectionContainer';
 import content from '../content/get-started';
@@ -31,13 +32,13 @@ export default function GetStartedPage() {
             <Button href="#step-3">3: Filing</Button>
             <Button href="#step-4">4: Court Hearing</Button>
           </ButtonGroup>
-        </SectionContainer>
-      <SectionContainer id='step-1'>
-        <MuiMarkdown>{`##Step 1: Documents`}</MuiMarkdown>
-        <MuiMarkdown>
-            {`First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.`}
-          </MuiMarkdown>
-        <SectionContainer>
+      </SectionContainer>
+      <SectionContainer id="step-1">
+        <GetStartedStep
+          title="Step 1: Documents"
+          bodyText="First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
+          >
+          <SectionContainer>
             <MuiMarkdown>{`**You\'ll need to know:**`}</MuiMarkdown>
             <Grid container spacing={8} sx={{my:1}}>
               {content.needToKnowFacts.map((fact) => (
@@ -51,31 +52,35 @@ export default function GetStartedPage() {
                 </FactCard>
               ))}
             </Grid>
-        </SectionContainer>
-        <MuiMarkdown>{`###CHRI (Recommended)`}</MuiMarkdown>
-        <MuiMarkdown>
-            {`A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.`}
-          </MuiMarkdown>
-        <MuiMarkdown>{`**To get a copy of your CHRI, you have two options:**`}</MuiMarkdown>
-        <Grid container spacing={2} sx={{my:1}}>
-              {content.CHRIMethods.map((method) => (
-                <Grid key={method.id} item xs={12} md={6}>
-                  <AccordionBuilder
-                    id={method.id}
-                    summary={method.summary}
-                    details={method.details}
-                    sx={{ py: 2, height:"6em" }}
-                  />
-                </Grid>
-              ))}
-            </Grid>
-      </SectionContainer>
-      <SectionContainer id='step-2'>
-        <MuiMarkdown>{`##Step 2: Eligibility`}</MuiMarkdown>
-        <MuiMarkdown>
-            {`Once you have your records and forms gathered, use our eligibilty calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.`}
-          </MuiMarkdown>
+          </SectionContainer>
           <SectionContainer>
+              <MuiMarkdown>{`###CHRI (Recommended)`}</MuiMarkdown>
+              <MuiMarkdown>
+                {`A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.`}
+              </MuiMarkdown>
+              <Grid container spacing={2} sx={{my:3}}>
+                  {content.CHRIMethods.map((method) => (
+                    <Grid key={method.id} item xs={12} md={6}>
+                      <AccordionBuilder
+                        id={method.id}
+                        summary={method.summary}
+                        details={method.details}
+                        sx={{ py: 2, height:"6em" }}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+            </SectionContainer>
+        </GetStartedStep>
+      </SectionContainer>
+      <SectionContainer id="step-2">
+        <GetStartedStep
+          title="Step 2: Eligibility"
+          bodyText="Once you have your records and forms gathered, use our eligibilty calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes."
+          ctaText='Access Calculator'
+          ctaLink='"/calculator/landing-0"'
+          >
+            <SectionContainer>
               <Grid container sx={{ flexDirection:'column', alignItems:"center" }}>
                 <Grid item md={12}>
                     <Box
@@ -84,25 +89,18 @@ export default function GetStartedPage() {
                       sx={{padding:"1em", width:"100%"}}
                       />  
                 </Grid>
-                <Grid item md={12}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    href="/calculator/landing-0"
-                    >
-                    Access Calculator
-                  </Button>  
-                </Grid> 
-              </Grid> 
+              </Grid>
             </SectionContainer>
+        </GetStartedStep>
       </SectionContainer>
-      <SectionContainer id='step-3'>
-        <MuiMarkdown>{`##Step 3: File with Court`}</MuiMarkdown>
-        <MuiMarkdown>
-            {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>`}
-        </MuiMarkdown>
-        <MuiMarkdown>{`**Common reasons requests to vacate may be denied:**`}</MuiMarkdown>
-        <Grid container spacing={8} sx={{my:1}}>
+      <SectionContainer id="step-3">
+        <GetStartedStep
+          title="Step 3: File with Court"
+          bodyText="Next, submit a request to have your conviction vacated. Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons."
+          >
+            <MuiMarkdown>{`Refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county) for information on how to submit.\n\n**Common reasons requests to vacate may be denied:**`}
+            </MuiMarkdown>
+            <Grid container spacing={8} sx={{my:1}}>
             {content.rejectionReasons.map((fact) => (
                 <FactCard 
                   key={fact.id}
@@ -111,32 +109,35 @@ export default function GetStartedPage() {
                   body={fact.details}
                 />
               ))}
-        </Grid>
+            </Grid>
+        </GetStartedStep>
       </SectionContainer>
-      <SectionContainer id='step-4'>
-        <MuiMarkdown>{`##Step 4: Court Hearing`}</MuiMarkdown>
-        <MuiMarkdown>
-          {`Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.`}
-        </MuiMarkdown>
-        <SectionContainer>
-          <MuiMarkdown>{`###Legal Aid`}</MuiMarkdown>
-          <MuiMarkdown>
-            {`Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)`}
-          </MuiMarkdown>
-          <Grid container spacing={2} sx={{my:1}}>
-            {content.legalAidForms.map((legalForm) => (
-              <Grid key={legalForm.id} item xs={12} sm={6} md={4}>
-                <AccordionBuilder
-                  id={legalForm.id}
-                  summary={legalForm.summary}
-                  details={legalForm.details}
-                  sx={{ py: 2, height:"6em" }}
-                />
+
+
+      <SectionContainer id="step-4">
+        <GetStartedStep
+          title="Step 4: Court Hearing"
+          bodyText="Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid."
+          >
+            <SectionContainer>
+              <MuiMarkdown>{`###Legal Aid`}</MuiMarkdown>
+              <MuiMarkdown>
+                {`Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)`}
+              </MuiMarkdown>
+              <Grid container spacing={2} sx={{my:1}}>
+                {content.legalAidForms.map((legalForm) => (
+                  <Grid key={legalForm.id} item xs={12} sm={6} md={4}>
+                    <AccordionBuilder
+                      id={legalForm.id}
+                      summary={legalForm.summary}
+                      details={legalForm.details}
+                      sx={{ py: 2, height:"6em" }}
+                    />
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
-        </SectionContainer>
-        <SectionContainer>
+            </SectionContainer>
+            <SectionContainer>
           <MuiMarkdown>{`###Financial Aid`}</MuiMarkdown>
             <Grid container spacing={2} sx={{my:1}}>
               {content.financialAidForms.map((financialForm) => (
@@ -166,6 +167,7 @@ export default function GetStartedPage() {
             ))}
           </Grid>
         </SectionContainer>
+        </GetStartedStep>
       </SectionContainer>
     </>
   );
