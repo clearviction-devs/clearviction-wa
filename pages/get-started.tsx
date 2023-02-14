@@ -36,7 +36,7 @@ export default function GetStartedPage() {
       <SectionContainer id="step-1">
         <GetStartedStep
           title="Step 1: Documents"
-          bodyText="First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
+          bodyText={`First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.`}
           >
           <SectionContainer>
             <MuiMarkdown>{`**You\'ll need to know:**`}</MuiMarkdown>
@@ -76,7 +76,7 @@ export default function GetStartedPage() {
       <SectionContainer id="step-2">
         <GetStartedStep
           title="Step 2: Eligibility"
-          bodyText="Once you have your records and forms gathered, use our eligibilty calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes."
+          bodyText={`Once you have your records and forms gathered, use our eligibilty calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.`}
           ctaText='Access Calculator'
           ctaLink='"/calculator/landing-0"'
           >
@@ -112,7 +112,7 @@ export default function GetStartedPage() {
       <SectionContainer id="step-4">
         <GetStartedStep
           title="Step 4: Court Hearing"
-          bodyText="Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid."
+          bodyText={`Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.`}
           >
             <SectionContainer>
               <MuiMarkdown>{`###Legal Aid`}</MuiMarkdown>
