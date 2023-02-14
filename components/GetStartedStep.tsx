@@ -7,8 +7,9 @@ import {
   PaperProps,
   Typography,
 } from "@mui/material";
-import { ReactHTMLElement } from "react";
+import MuiMarkdown from 'mui-markdown';
 
+// import { ReactHTMLElement } from "react";
 import SectionContainer from "./SectionContainer";
 
 interface GetStartedStepProps extends PaperProps {
@@ -17,40 +18,6 @@ interface GetStartedStepProps extends PaperProps {
   ctaText?: string;
   ctaLink?: string;
 }
-
-// interface HomeCardItemProps extends GridProps {
-//   title?: string;
-//   body: string;
-//   imgsrc?: string;
-// }
-
-// export function HomeCardItem({
-//   title,
-//   body,
-//   imgsrc,
-//   ...props
-// }: HomeCardItemProps) {
-//   return (
-//     <Grid item {...props} sx={{ mb: 4 }}>
-//       <Box>
-//         {imgsrc && (
-//           <Box
-//             component="img"
-//             src={imgsrc}
-//             alt=""
-//             sx={{
-//               maxWidth: "250px",
-//               height: "200px",
-//               objectFit: "contain",
-//             }}
-//           ></Box>
-//         )}
-//         <Typography variant="subtitle1">{title}</Typography>
-//         <Typography variant="body1">{body}</Typography>
-//       </Box>
-//     </Grid>
-//   );
-// }
 
 export function GetStartedStep({
   title,
@@ -66,9 +33,9 @@ export function GetStartedStep({
         {title}
       </Typography>
       {bodyText && (
-        <Typography variant="body1" sx={{ mb: 4 }}>
+        <MuiMarkdown>
           {bodyText}
-        </Typography>
+        </MuiMarkdown>
       )}
       <SectionContainer
         sx={{
