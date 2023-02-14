@@ -23,6 +23,7 @@ export function FactCard({
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}>
             <Box pt={3} pb={1} px={3}>
               {children}

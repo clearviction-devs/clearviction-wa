@@ -1,4 +1,6 @@
-import { Box,Button,Grid } from '@mui/material';
+import { Box,Button,ButtonGroup,Grid } from '@mui/material';
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import MuiMarkdown from 'mui-markdown';
 
 import AccordionBuilder from '../components/AccordionBuilder';
@@ -8,6 +10,9 @@ import SectionContainer from '../components/SectionContainer';
 import content from '../content/get-started';
 
 export default function GetStartedPage() {
+  const theme = useTheme();
+  const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <>
       <HeroBanner
@@ -15,6 +20,18 @@ export default function GetStartedPage() {
         subheading='Vacate your conviction in the state of Washington by following these 4 steps!'
         imgsrc='/illustrations/chart.svg'
       />
+      <SectionContainer>
+          <ButtonGroup
+            variant="text"
+            fullWidth
+            orientation={matchesXS ? "vertical" : "horizontal"}
+          >
+            <Button href="#step-1">1: Documents</Button>
+            <Button href="#step-2">2: Eligibility</Button>
+            <Button href="#step-3">3: Filing</Button>
+            <Button href="#step-4">4: Court Hearing</Button>
+          </ButtonGroup>
+        </SectionContainer>
       <SectionContainer id='step-1'>
         <MuiMarkdown>{`##Step 1: Documents`}</MuiMarkdown>
         <MuiMarkdown>
@@ -22,7 +39,7 @@ export default function GetStartedPage() {
           </MuiMarkdown>
         <SectionContainer>
             <MuiMarkdown>{`**You\'ll need to know:**`}</MuiMarkdown>
-            <Grid container spacing={8}>
+            <Grid container spacing={8} sx={{my:1}}>
               {content.needToKnowFacts.map((fact) => (
                 <FactCard 
                   key={fact.id}
@@ -40,7 +57,7 @@ export default function GetStartedPage() {
             {`A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.`}
           </MuiMarkdown>
         <MuiMarkdown>{`**To get a copy of your CHRI, you have two options:**`}</MuiMarkdown>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{my:1}}>
               {content.CHRIMethods.map((method) => (
                 <Grid key={method.id} item xs={12} md={6}>
                   <AccordionBuilder
@@ -82,9 +99,10 @@ export default function GetStartedPage() {
       <SectionContainer id='step-3'>
         <MuiMarkdown>{`##Step 3: File with Court`}</MuiMarkdown>
         <MuiMarkdown>
-            {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n**Common reasons requests to vacate may be denied:**`}
+            {`Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>`}
         </MuiMarkdown>
-        <Grid container spacing={8}>
+        <MuiMarkdown>{`**Common reasons requests to vacate may be denied:**`}</MuiMarkdown>
+        <Grid container spacing={8} sx={{my:1}}>
             {content.rejectionReasons.map((fact) => (
                 <FactCard 
                   key={fact.id}
@@ -105,7 +123,7 @@ export default function GetStartedPage() {
           <MuiMarkdown>
             {`Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)`}
           </MuiMarkdown>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} sx={{my:1}}>
             {content.legalAidForms.map((legalForm) => (
               <Grid key={legalForm.id} item xs={12} sm={6} md={4}>
                 <AccordionBuilder
@@ -120,7 +138,7 @@ export default function GetStartedPage() {
         </SectionContainer>
         <SectionContainer>
           <MuiMarkdown>{`###Financial Aid`}</MuiMarkdown>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{my:1}}>
               {content.financialAidForms.map((financialForm) => (
                 <Grid key={financialForm.id} item xs={12} sm={6} md={4}>
                   <AccordionBuilder
@@ -135,7 +153,7 @@ export default function GetStartedPage() {
         </SectionContainer>
         <SectionContainer>
           <MuiMarkdown>{`###Eligibility-Related Forms`}</MuiMarkdown>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} sx={{my:1}}>
             {content.eligibilityForms.map((eligibilityForm) => (
               <Grid key={eligibilityForm.id} item xs={12} sm={6} md={4}>
                 <AccordionBuilder
