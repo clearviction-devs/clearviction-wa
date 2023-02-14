@@ -4,8 +4,10 @@ import {
   AccordionDetails,
   AccordionProps,
   AccordionSummary,
+  Box,
   SxProps,
 } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import MuiMarkdown from "mui-markdown";
 
 interface InfoDropdownProps {
@@ -31,8 +33,10 @@ export default function InfoDropdown({
       >
         <MuiMarkdown>{summary}</MuiMarkdown>
       </AccordionSummary>
-      <AccordionDetails>
-        <MuiMarkdown>{details}</MuiMarkdown>
+      <AccordionDetails sx={{ backgroundColor: grey[50] }}>
+        <Box px={2}>
+          <MuiMarkdown>{details}</MuiMarkdown>
+        </Box>
       </AccordionDetails>
     </Accordion>
   );

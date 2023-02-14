@@ -10,7 +10,7 @@ export default function CardTestPage() {
         <InfoCard
           title="Card"
           body="Cards can be used to convey information and an optional call to action"
-          imgsrc="/illustrations/washington.svg"
+          imgsrc="/illustrations/city-buildings.svg"
           maxWidth="50%"
           ctaLink="#"
           ctaText="Click me"
@@ -19,13 +19,13 @@ export default function CardTestPage() {
           <InfoCard
             title="Card 1"
             body={`Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card`}
-            imgsrc="/illustrations/washington.svg"
+            imgsrc="/illustrations/checklist.svg"
             maxWidth="100%"
           />
           <InfoCard
             title="Card 2"
             body={`Cards also accept markdown strings.\n* item 1\n* item 2\n\n#####Hello Card`}
-            imgsrc="/illustrations/washington.svg"
+            imgsrc="/illustrations/graduation.svg"
             maxWidth="100%"
           />
           <InfoCard
