@@ -1,4 +1,11 @@
-import { Box, Button, SxProps, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  SxProps,
+  Typography,
+  TypographyProps,
+} from "@mui/material";
+import MuiMarkdown from "mui-markdown";
 
 import SectionContainer from "./SectionContainer";
 
@@ -44,9 +51,22 @@ export default function HeroBanner({
         </Typography>
         <Box sx={{ display: "flex", gap: 4 }}>
           <Box sx={{ flex: 1 }}>
-            <Typography variant="subtitle1" sx={{ mb: 4 }}>
-              {subheading}
-            </Typography>
+            <Box sx={{ mb: 4 }}>
+              <MuiMarkdown
+                overrides={{
+                  p: {
+                    component: Typography,
+                    props: { variant: "subtitle1" } as TypographyProps,
+                  },
+                  span: {
+                    component: Typography,
+                    props: { variant: "subtitle1" } as TypographyProps,
+                  },
+                }}
+              >
+                {subheading}
+              </MuiMarkdown>
+            </Box>
             {ctaText && ctaLink && (
               <Button variant="contained" color="neutral" href={ctaLink}>
                 {ctaText}
