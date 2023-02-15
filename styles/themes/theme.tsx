@@ -55,7 +55,7 @@ let theme = createTheme({
     },
     text: {
       primary: "#000000",
-      secondary: "#FFFFFF",
+      secondary: "#AAAAAA",
     },
   },
   typography: {
