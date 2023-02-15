@@ -17,7 +17,7 @@ export default function DonatePage() {
     <>
       <HeroBanner
         heading="Donate"
-        subheading="Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration. \n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington."
+        subheading={`Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.`}
       >
         <DonationForm />
       </HeroBanner>
@@ -32,7 +32,7 @@ export default function DonatePage() {
             <GridItemCard
               xs={12}
               sm={6}
-              body="Fund the technological and project management toolsneeded to grow our project."
+              body="Fund the technological and project management tools needed to grow our project."
               imgsrc="/illustrations/startup.svg"
             />
             <GridItemCard

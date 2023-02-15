@@ -58,7 +58,10 @@ export default function HeroBanner({
                 overrides={{
                   p: {
                     component: Typography,
-                    props: { variant: "subtitle1" } as TypographyProps,
+                    props: {
+                      variant: "subtitle1",
+                      gutterBottom: true,
+                    } as TypographyProps,
                   },
                   span: {
                     component: Typography,

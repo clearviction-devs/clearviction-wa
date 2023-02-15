@@ -1,10 +1,5 @@
-import {
-  Button,
-  Paper,
-  PaperProps,
-  Typography,
-} from "@mui/material";
-import MuiMarkdown from 'mui-markdown';
+import { Button, Paper, PaperProps, Typography } from "@mui/material";
+import MuiMarkdown from "mui-markdown";
 
 import SectionContainer from "./SectionContainer";
 
@@ -28,12 +23,8 @@ export function GetStartedStep({
       <Typography variant="h2" sx={{ mb: 4 }}>
         {title}
       </Typography>
-      {bodyText && (
-        <MuiMarkdown>
-          {bodyText}
-        </MuiMarkdown>
-      )}
-      <SectionContainer sx={{textAlign:"left", my: 3 }}>
+      {bodyText && <MuiMarkdown>{bodyText}</MuiMarkdown>}
+      <SectionContainer sx={{ textAlign: "left", my: 3 }}>
         {children}
       </SectionContainer>
 
