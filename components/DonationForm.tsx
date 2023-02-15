@@ -8,7 +8,6 @@ export default function DonationForm() {
         margin: -13,
       }}
     >
-      <script src="https://donorbox.org/widget.js" defer></script>
       <iframe
         src="https://donorbox.org/embed/clearviction"
         name="donorbox"

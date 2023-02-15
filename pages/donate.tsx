@@ -3,6 +3,7 @@
 // donate button open in new tab
 
 import { Grid } from "@mui/material";
+import Script from "next/script";
 
 import AccordionBuilder from "../components/AccordionBuilder";
 import DonationForm from "../components/DonationForm";
@@ -15,6 +16,8 @@ import content from "../content/donate-faqs";
 export default function DonatePage() {
   return (
     <>
+      <Script src="https://donorbox.org/widget.js" />
+
       <HeroBanner
         heading="Donate"
         subheading={`Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.`}
