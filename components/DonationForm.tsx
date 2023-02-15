@@ -5,30 +5,29 @@ export default function DonationForm() {
   return (
     <Box
       sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: { sm: "center", md: "flex-end" },
-        position: { xs: "relative" },
-        marginBottom: { xs: "155px", md: "-410px" },
-        marginTop: { xs: "0px", md: "-422px" },
-        marginRight: { sm: "unset", md: "5%", lg: "15%" },
-        top: { xs: "0px", md: "-140px" },
+        margin: -13,
       }}
     >
+      <script
+        src="https://donorbox.org/widget.js"
+        paypalExpress="false"
+        defer
+      ></script>
       <iframe
-        title="Clearviction Donation Form"
-        src="https://donorbox.org/embed/clearviction-givingtuesday?hide_donation_meter=true"
+        src="https://donorbox.org/embed/clearviction"
         name="donorbox"
-        // seamless='seamless'
-        height="900"
+        allowpaymentrequest="allowpaymentrequest"
+        seamless="seamless"
+        frameBorder="0"
+        scrolling="no"
+        height="900px"
         width="100%"
         style={{
-          border: "none",
-          maxWidth: "425px",
+          maxWidth: "500px",
           minWidth: "250px",
-          maxHeight: "none !important",
+          maxHeight: "none!important",
         }}
-      />
+      ></iframe>
     </Box>
   );
 }
