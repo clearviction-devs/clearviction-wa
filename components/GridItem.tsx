@@ -1,5 +1,5 @@
 import { Box, Grid, GridProps, Typography } from "@mui/material";
-
+import MuiMarkdown from "mui-markdown";
 interface GridItemCardProps extends GridProps {
   title?: string;
   body: string;
@@ -14,7 +14,7 @@ export function GridItemCard({
 }: GridItemCardProps) {
   return (
     <Grid item {...props} sx={{ mb: 4 }}>
-      <Box>
+      <Box textAlign="center">
         {imgsrc && (
           <Box
             component="img"
@@ -24,11 +24,14 @@ export function GridItemCard({
               maxWidth: "250px",
               height: "200px",
               objectFit: "contain",
+              textAlign: "center",
             }}
           ></Box>
         )}
         <Typography variant="subtitle1">{title}</Typography>
-        <Typography variant="body1">{body}</Typography>
+        <Box textAlign="left">
+          <MuiMarkdown>{body}</MuiMarkdown>
+        </Box>
       </Box>
     </Grid>
   );
