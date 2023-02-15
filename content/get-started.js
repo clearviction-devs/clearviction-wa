@@ -85,7 +85,7 @@ const getStartedContent = {
       id: 'eligibilityform1',
       summary: '(Gross) Misdeameanor Convictions',
       details: 
-        `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
+        `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
     },
     {
       id: 'eligibilityform2',
