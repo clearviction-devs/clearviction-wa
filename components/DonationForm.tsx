@@ -8,16 +8,10 @@ export default function DonationForm() {
         margin: -13,
       }}
     >
-      <script
-        src="https://donorbox.org/widget.js"
-        paypalExpress="false"
-        defer
-      ></script>
+      <script src="https://donorbox.org/widget.js" defer></script>
       <iframe
         src="https://donorbox.org/embed/clearviction"
         name="donorbox"
-        allowpaymentrequest="allowpaymentrequest"
-        seamless="seamless"
         frameBorder="0"
         scrolling="no"
         height="900px"
@@ -26,6 +20,7 @@ export default function DonationForm() {
           maxWidth: "500px",
           minWidth: "250px",
           maxHeight: "none!important",
+          borderWidth: "0px",
         }}
       ></iframe>
     </Box>
