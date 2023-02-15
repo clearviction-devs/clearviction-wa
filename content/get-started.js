@@ -77,7 +77,7 @@ const getStartedContent = {
       id: 'financialform2',
       summary: 'Court Fees',
       details: 
-      'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/3928A184-D6E5-9324-4FB9-495A060A017B/3204en_filing-motion-for-fee-waiver.pdf) to find out if you are eligible to waive your fees (p. 1-2). It also includes instructions to request a fee waiver (p. 4-9) as well as all necessary forms (p. 10-14).\n\nIf you have trouble filling out the documents, use [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
+      'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) to find out if you are eligible to waive your fees (p. 1-2). It also includes instructions to request a fee waiver (p. 4-9) as well as all necessary forms (p. 10-14).\n\nIf you have trouble filling out the documents, use [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
     },
   ],
   eligibilityForms: [
@@ -85,19 +85,19 @@ const getStartedContent = {
       id: 'eligibilityform1',
       summary: '(Gross) Misdeameanor Convictions',
       details: 
-        `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-criminal-record.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
+        `[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).`,
     },
     {
       id: 'eligibilityform2',
       summary: 'Marijuana Misdemeanors',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-criminal-record.pdf) with the steps to vacate (p. 2-6), all necessary court documents (p. 8-13) and a sample letter for WSP to seal your record (p. 7).',
+        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with the steps to vacate (p. 2-6), all necessary court documents (p. 8-13) and a sample letter for WSP to seal your record (p. 7).',
     },
     {
       id: 'eligibilityform3',
       summary: 'Prostitution Convictions',
       details:
-        'If you were a victim of trafficking, you can use [this vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-criminal-record.pdf) with info on the eligibility to vacate (p. 1-3), steps to take (p. 4-8), court forms (p. 10-18) and a sample letter for WSP (p. 9).',
+        'If you were a victim of trafficking, you can use [this vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with info on the eligibility to vacate (p. 1-3), steps to take (p. 4-8), court forms (p. 10-18) and a sample letter for WSP (p. 9).',
     },
     {
       id: 'eligibilityform4',
