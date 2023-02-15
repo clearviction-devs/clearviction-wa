@@ -26,7 +26,7 @@ export default function DonatePage() {
           title="How will your donations help Clearviction's goal"
           subtitle="Heres how your generosity can help us achieve our milestones and make it possible to connect our project with more and more people who need it:"
           ctaLink="https://donorbox.org/clearviction"
-          ctaText="donate"
+          ctaText="Visit our donorbox page"
         >
           <Grid container spacing={4}>
             <GridItemCard
