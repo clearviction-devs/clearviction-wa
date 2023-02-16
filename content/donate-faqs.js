@@ -27,12 +27,6 @@ const donateFAQContent = {
     },
     {
       id: "donate5",
-      summary: "Can I make a donation by check?",
-      details:
-        "Donorbox has the capability for direct ACH payments, but you are still welcome to mail a check. Please make the check out to Clearviction and mail it to:\n\n>Seamus Brugh\n\n>802 5th Ave N, unit 213\n\n>Seattle, WA 98109",
-    },
-    {
-      id: "donate6",
       summary: "Who should I contact if I have more questions?",
       details: `You can send us an email at [contact@clearviction.org](mailto:contact@clearviction.org) and we will get back to you within 24 hours.`,
     },
