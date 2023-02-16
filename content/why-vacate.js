@@ -78,12 +78,12 @@ const whyVacateContent = {
         },
         {
           title: "Supportive Housing",
-          body: `* Funded by HUD homeless programs \n* Must have been residing in emergency shelter/housing in the previous 90 days`,
+          body: `* Funded by HUD homelessness programs \n* Must have been residing in emergency shelter/housing in the previous 90 days`,
           imgRef: "/illustrations/diversity-1.svg",
         },
         {
           title: "Transitional Housing",
-          body: `* Might require you have substance abuse, mental health or physical issues \n* Some require you attend special meetings or work`,
+          body: `* Might require you to have substance abuse, mental health or physical issues \n* Some require you to attend special meetings or work`,
           imgRef: "/illustrations/process-building.svg",
         },
       ],
@@ -108,10 +108,10 @@ const whyVacateContent = {
       title: "Education",
       sectionId: "education",
       subtitle:
-        "With a conviction in your record, you might face some barriers when it comes to getting opportunities where a background check is performed. Here are the main educational challenges faced by those with convicitons:",
+        "With a conviction on your record, you might face some barriers when it comes to getting opportunities where a background check is performed. Here are the main educational challenges faced by those with convictions:",
       cardItems: [
         {
-          title: "Ocupational Licenses",
+          title: "Occupational Licenses",
           body: "Some states’ laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.",
           imgRef: "/illustrations/career.svg",
         },
