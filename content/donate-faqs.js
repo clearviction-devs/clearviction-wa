@@ -17,19 +17,19 @@ const donateFAQContent = {
     {
       id: "donate3",
       summary: "Is it safe and secure for me to donate online?",
-      details: `Clearviction utilizes Donorbox for safe and secure transactions. Donorbox’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Donorbox servers. /n/n For more information, visit Donorbox: https://donorbox.org/`,
+      details: `Clearviction utilizes Donorbox for safe and secure transactions. Donorbox’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Donorbox servers.\n\nFor more information, visit Donorbox: https://donorbox.org/`,
     },
     {
       id: "donate4",
       summary: "I need a record of my donation for tax purposes",
       details:
-        "Donorbox automatically sends you a receipt of your donation, even if you wish to remain anonymous. This receipt can be customized to include any information you require. \n\nClearviction is an official 501(c)(3) non-profit and donations to Clearviction are all tax deductible. Any donations greater than or equal to $250 require a receipt. View the IRS’ requirements.",
+        "Donorbox automatically sends you a receipt of your donation, even if you wish to remain anonymous. This receipt can be customized to include any information you require.\n\nClearviction is an official 501(c)(3) non-profit and donations to Clearviction are all tax deductible. Any donations greater than or equal to $250 require a receipt. View the IRS’ requirements.",
     },
     {
       id: "donate5",
       summary: "Can I make a donation by check?",
       details:
-        "Donorbox has the capability for direct ACH payments, but you are still welcome to mail a check. Please make the check out to Clearviction and mail it to: /formbat Seamus Brugh 802 5th Ave N, unit 213 Seattle, WA 98109",
+        "Donorbox has the capability for direct ACH payments, but you are still welcome to mail a check. Please make the check out to Clearviction and mail it to:\n\n>Seamus Brugh\n\n>802 5th Ave N, unit 213\n\n>Seattle, WA 98109",
     },
     {
       id: "donate6",
