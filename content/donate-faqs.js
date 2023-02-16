@@ -1,5 +1,3 @@
-// 3 & 4 & 5 & 6 needs line break and links
-
 const donateFAQContent = {
   donateFAQS: [
     {
@@ -17,7 +15,7 @@ const donateFAQContent = {
     {
       id: "donate3",
       summary: "Is it safe and secure for me to donate online?",
-      details: `Clearviction utilizes Donorbox for safe and secure transactions. Donorbox’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Donorbox servers.\n\nFor more information, visit Donorbox: https://donorbox.org/`,
+      details: `Clearviction utilizes Donorbox for safe and secure transactions. Donorbox’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Donorbox servers.\n\nFor more information, visit [Donorbox's website](https://donorbox.org).`,
     },
     {
       id: "donate4",
