@@ -9,7 +9,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import ExternalButton from "../../components/ExternalButton";
 import { PortableText } from "@portabletext/react";
 import { useState } from "react";
 import {
@@ -18,6 +17,7 @@ import {
   getCalculatorPagePaths,
 } from "utils/sanity.client";
 
+import ExternalButton from "../../components/ExternalButton";
 import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
