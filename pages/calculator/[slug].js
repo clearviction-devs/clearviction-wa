@@ -22,8 +22,6 @@ import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
-  console.log(page);
-  console.log(calculatorConfig);
   return (
     <>
       <Container
@@ -44,22 +42,23 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         </Box>
         <Container maxWidth="xs" sx={{ mb: 4 }}>
           <Stack gap={2}>
-            {page.choices.map((choice) => {
-              const linkTo = choice.linkTo
-                ? `/calculator/${choice.linkTo.slug.current}`
-                : "#";
-              const href = choice.isExternalLink ? choice.url : linkTo;
-              return (
-                <Button
-                  key={choice._key}
-                  variant="contained"
-                  color="primary"
-                  href={href}
-                >
-                  {choice.label}
-                </Button>
-              );
-            })}
+            {page.choices &&
+              page.choices.map((choice) => {
+                const linkTo = choice.linkTo
+                  ? `/calculator/${choice.linkTo.slug.current}`
+                  : "#";
+                const href = choice.isExternalLink ? choice.url : linkTo;
+                return (
+                  <Button
+                    key={choice._key}
+                    variant="contained"
+                    color="primary"
+                    href={href}
+                  >
+                    {choice.label}
+                  </Button>
+                );
+              })}
             {page.isQuestion && (
               <Button
                 variant="outlined"
