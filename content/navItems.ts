@@ -25,7 +25,7 @@ const navItems: navItem[] = [
     text: "Access Calculator",
   },
   {
-    href: "https://donorbox.org/clearviction",
+    href: "donate",
     text: "Donate",
   },
   {
