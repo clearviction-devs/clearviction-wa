@@ -66,6 +66,15 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 onClick={() => setOpen(true)}
               >{`I'm not sure`}</Button>
             )}
+            {page.isFinalPage && (
+              <Button
+                variant="outlined"
+                color="primary"
+                href={calculatorConfig.feedbackButtonLink}
+              >
+                {calculatorConfig.feedbackButtonText}
+              </Button>
+            )}
           </Stack>
         </Container>
         {page.isFinalPage && (
