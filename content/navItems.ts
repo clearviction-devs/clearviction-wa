@@ -21,6 +21,10 @@ const navItems: navItem[] = [
     text: "Why Vacate",
   },
   {
+    href: "/calculator/initial-landing",
+    text: "Access Calculator",
+  },
+  {
     href: "https://donorbox.org/clearviction",
     text: "Donate",
   },
