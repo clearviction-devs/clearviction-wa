@@ -5,11 +5,11 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   Stack,
   Typography,
 } from "@mui/material";
+import ExternalButton from "../../components/ExternalButton";
 import { PortableText } from "@portabletext/react";
 import { useState } from "react";
 import {
@@ -67,13 +67,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               >{`I'm not sure`}</Button>
             )}
             {page.isFinalPage && (
-              <Button
-                variant="outlined"
+              <ExternalButton
+                variant="contained"
                 color="primary"
                 href={calculatorConfig.feedbackButtonLink}
               >
                 {calculatorConfig.feedbackButtonText}
-              </Button>
+              </ExternalButton>
             )}
           </Stack>
         </Container>
