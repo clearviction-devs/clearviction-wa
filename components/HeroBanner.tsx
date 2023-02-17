@@ -13,9 +13,10 @@ interface HeroBannerProps {
   heading: string;
   smallHeading?: string;
   subheading: string;
-  imgsrc: string;
+  imgsrc?: string;
   ctaText?: string;
   ctaLink?: string;
+  children?: JSX.Element;
 }
 
 const heroStyles: SxProps = {
@@ -31,6 +32,7 @@ export default function HeroBanner({
   imgsrc,
   ctaText,
   ctaLink,
+  children,
 }: HeroBannerProps) {
   return (
     <Box sx={heroStyles} textAlign={{ xs: "center", md: "left" }}>
@@ -56,7 +58,10 @@ export default function HeroBanner({
                 overrides={{
                   p: {
                     component: Typography,
-                    props: { variant: "subtitle1" } as TypographyProps,
+                    props: {
+                      variant: "subtitle1",
+                      gutterBottom: true,
+                    } as TypographyProps,
                   },
                   span: {
                     component: Typography,
@@ -81,7 +86,7 @@ export default function HeroBanner({
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={imgsrc} alt="" />
+            {imgsrc ? <img src={imgsrc} alt="" /> : children}
           </Box>
         </Box>
       </SectionContainer>

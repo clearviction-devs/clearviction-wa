@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Open Seattle homepage", () => {
+describe("Clearviction Homepage", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000");
   });

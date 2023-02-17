@@ -85,6 +85,7 @@ export default function Header() {
                 sx={{ whiteSpace: "nowrap" }}
                 variant="contained"
                 color="neutral"
+                href="/calculator/initial-landing"
               >
                 Access Calculator
               </Button>

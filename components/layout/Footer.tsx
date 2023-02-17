@@ -39,7 +39,7 @@ export default function Footer() {
       sx={{
         mt: "auto",
         backgroundColor: "primary.dark",
-        color: "text.secondary",
+        color: "primary.contrastText",
       }}
     >
       <Container
@@ -56,10 +56,14 @@ export default function Footer() {
           <Box sx={sectionHeaderStyles}>
             <NavigationLogo fullSize />
           </Box>
-          <Typography variant="caption">
+          <Typography variant="caption" gutterBottom>
             Clearviction is reducing barriers faced by formerly incarcerated
             individuals by streamlining the process of vacating eligible
             convictions in Washington state.
+          </Typography>
+          <Typography variant="caption">
+            Clearviction is a registered 501(c)3 nonprofit organization,
+            EIN#88-3187952. All donations are tax deductible in full or in part.
           </Typography>
         </Box>
 
@@ -74,7 +78,7 @@ export default function Footer() {
               <Grid key={item.text} item xs={6}>
                 <Link
                   href={item.href}
-                  color="text.secondary"
+                  color="primary.contrastText"
                   underline="hover"
                   fontSize={18}
                   noWrap

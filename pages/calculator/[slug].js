@@ -5,7 +5,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   Stack,
   Typography,
@@ -18,12 +17,11 @@ import {
   getCalculatorPagePaths,
 } from "utils/sanity.client";
 
+import ExternalButton from "../../components/ExternalButton";
 import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
-  console.log(page);
-  console.log(calculatorConfig);
   return (
     <>
       <Container
@@ -44,28 +42,38 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         </Box>
         <Container maxWidth="xs" sx={{ mb: 4 }}>
           <Stack gap={2}>
-            {page.choices.map((choice) => {
-              const linkTo = choice.linkTo
-                ? `/calculator/${choice.linkTo.slug.current}`
-                : "#";
-              const href = choice.isExternalLink ? choice.url : linkTo;
-              return (
-                <Button
-                  key={choice._key}
-                  variant="contained"
-                  color="primary"
-                  href={href}
-                >
-                  {choice.label}
-                </Button>
-              );
-            })}
+            {page.choices &&
+              page.choices.map((choice) => {
+                const linkTo = choice.linkTo
+                  ? `/calculator/${choice.linkTo.slug.current}`
+                  : "#";
+                const href = choice.isExternalLink ? choice.url : linkTo;
+                return (
+                  <Button
+                    key={choice._key}
+                    variant="contained"
+                    color="primary"
+                    href={href}
+                  >
+                    {choice.label}
+                  </Button>
+                );
+              })}
             {page.isQuestion && (
               <Button
                 variant="outlined"
                 color="primary"
                 onClick={() => setOpen(true)}
               >{`I'm not sure`}</Button>
+            )}
+            {page.isFinalPage && (
+              <ExternalButton
+                variant="contained"
+                color="primary"
+                href={calculatorConfig.feedbackButtonLink}
+              >
+                {calculatorConfig.feedbackButtonText}
+              </ExternalButton>
             )}
           </Stack>
         </Container>
