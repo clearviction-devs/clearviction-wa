@@ -8,9 +8,9 @@
     "imgsrc": "/illustrations/home-hero-image.svg"
   },
   "sectionNavs": [
-    { "label": "How it works", "href": "how-it-works" },
-    { "label": "Why vacate", "href": "why-vacate" },
-    { "label": "FAQ", "href": "faq" }
+    { "label": "How it works", "href": "#how-it-works" },
+    { "label": "Why vacate", "href": "#why-vacate" },
+    { "label": "FAQ", "href": "#faq" }
   ],
   "gridSections": [
     {
