@@ -1,7 +1,7 @@
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { Button } from "@mui/material";
 
-export default function ExternalButton({ href, label, ...props }) {
+export default function ExternalButton({ href, children, ...props }) {
   return (
     <Button
       href={href}
@@ -10,7 +10,7 @@ export default function ExternalButton({ href, label, ...props }) {
       endIcon={<OpenInNewIcon />}
       {...props}
     >
-      {label}
+      {children}
     </Button>
   );
 }

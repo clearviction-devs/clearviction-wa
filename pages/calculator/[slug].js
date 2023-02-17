@@ -5,7 +5,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   Stack,
   Typography,
@@ -18,6 +17,7 @@ import {
   getCalculatorPagePaths,
 } from "utils/sanity.client";
 
+import ExternalButton from "../../components/ExternalButton";
 import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
@@ -65,6 +65,15 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 color="primary"
                 onClick={() => setOpen(true)}
               >{`I'm not sure`}</Button>
+            )}
+            {page.isFinalPage && (
+              <ExternalButton
+                variant="contained"
+                color="primary"
+                href={calculatorConfig.feedbackButtonLink}
+              >
+                {calculatorConfig.feedbackButtonText}
+              </ExternalButton>
             )}
           </Stack>
         </Container>
