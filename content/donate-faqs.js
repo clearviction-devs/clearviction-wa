@@ -19,7 +19,7 @@ const donateFAQContent = {
     },
     {
       id: "donate4",
-      summary: "I need a record of my donation for tax purposes",
+      summary: "How can I obtain a record of my donation for tax purposes?",
       details:
         "Donorbox automatically sends you a receipt of your donation, even if you wish to remain anonymous. This receipt can be customized to include any information you require.\n\nClearviction is an official 501(c)(3) non-profit and donations to Clearviction are all tax deductible. Any donations greater than or equal to $250 require a receipt. View the IRS’ requirements.",
     },
