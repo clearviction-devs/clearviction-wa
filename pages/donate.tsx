@@ -30,6 +30,7 @@ export default function DonatePage() {
           subtitle="Heres how your generosity can help us achieve our milestones and make it possible to connect our project with more and more people who need it:"
           ctaLink="https://donorbox.org/clearviction"
           ctaText="Visit our donorbox page"
+          isNewTab={true}
         >
           <Grid container spacing={4}>
             <GridItemCard

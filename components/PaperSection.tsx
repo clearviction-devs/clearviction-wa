@@ -5,6 +5,15 @@ interface PaperSectionProps extends PaperProps {
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
+  isNewTab?: boolean;
+}
+
+interface CustomButtonProps {
+  href: string;
+  variant: "contained";
+  sx: { mt: 4 };
+  target?: "_blank";
+  rel?: "noopener";
 }
 
 export function PaperSection({
@@ -13,8 +22,20 @@ export function PaperSection({
   ctaText,
   ctaLink,
   children,
+  isNewTab,
   ...props
 }: PaperSectionProps) {
+  const button = (buttonProps: CustomButtonProps) => {
+    if (isNewTab) {
+      return (
+        <Button {...buttonProps} target="_blank" rel="noopener">
+          {ctaText}
+        </Button>
+      );
+    }
+    return <Button {...buttonProps}>{ctaText}</Button>;
+  };
+
   return (
     <Paper sx={{ textAlign: "center", p: 4 }} {...props}>
       <Typography variant="h2" sx={{ mb: 4 }}>
@@ -26,11 +47,9 @@ export function PaperSection({
         </Typography>
       )}
       {children}
-      {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
-          {ctaText}
-        </Button>
-      )}
+      {ctaText &&
+        ctaLink &&
+        button({ href: ctaLink, variant: "contained", sx: { mt: 4 } })}
     </Paper>
   );
 }
