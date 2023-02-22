@@ -1,19 +1,13 @@
 import { Button, Paper, PaperProps, Typography } from "@mui/material";
 
+import ExternalButton from "./ExternalButton";
+
 interface PaperSectionProps extends PaperProps {
   title: string;
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
-  isNewTab?: boolean;
-}
-
-interface CustomButtonProps {
-  href: string;
-  variant: "contained";
-  sx: { mt: number };
-  target?: string;
-  rel?: string;
+  isCtaNewTab?: boolean;
 }
 
 export function PaperSection({
@@ -21,21 +15,10 @@ export function PaperSection({
   subtitle,
   ctaText,
   ctaLink,
+  isCtaNewTab,
   children,
-  isNewTab,
   ...props
 }: PaperSectionProps) {
-  const button = (buttonProps: CustomButtonProps) => {
-    if (isNewTab) {
-      return (
-        <Button {...buttonProps} target="_blank" rel="noopener">
-          {ctaText}
-        </Button>
-      );
-    }
-    return <Button {...buttonProps}>{ctaText}</Button>;
-  };
-
   return (
     <Paper sx={{ textAlign: "center", p: 4 }} {...props}>
       <Typography variant="h2" sx={{ mb: 4 }}>
@@ -47,9 +30,15 @@ export function PaperSection({
         </Typography>
       )}
       {children}
-      {ctaText &&
-        ctaLink &&
-        button({ href: ctaLink, variant: "contained", sx: { mt: 4 } })}
+      {ctaText && ctaLink && isCtaNewTab ? (
+        <ExternalButton href={ctaLink} variant="contained" sx={{ mt: 4 }}>
+          {ctaText}
+        </ExternalButton>
+      ) : (
+        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
+          {ctaText}
+        </Button>
+      )}
     </Paper>
   );
 }
