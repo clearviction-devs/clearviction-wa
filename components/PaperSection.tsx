@@ -11,9 +11,9 @@ interface PaperSectionProps extends PaperProps {
 interface CustomButtonProps {
   href: string;
   variant: "contained";
-  sx: { mt: 4 };
-  target?: "_blank";
-  rel?: "noopener";
+  sx: { mt: number };
+  target?: string;
+  rel?: string;
 }
 
 export function PaperSection({
