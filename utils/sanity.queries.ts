@@ -24,6 +24,8 @@ export const calculatorConfigQuery = groq`
     notSureButtonText,
     feedbackButtonText,
     feedbackButtonLink,
+    checkAnotherConvictionButtonText,
+    checkAnotherConvictionButtonLink,
     legalDisclaimer
   }
 `;
