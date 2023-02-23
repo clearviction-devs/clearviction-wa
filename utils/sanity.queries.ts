@@ -22,10 +22,10 @@ export const calculatorConfigQuery = groq`
     notSureHeader,
     notSureContent,
     notSureButtonText,
-    feedbackButtonText,
-    feedbackButtonLink,
-    checkAnotherConvictionButtonText,
-    checkAnotherConvictionButtonLink,
+    feedbackButtonEligibleText,
+    feedbackButtonEligibleLink,
+    feedbackButtonIneligibleText,
+    feedbackButtonIneligibleLink,
     legalDisclaimer
   }
 `;
