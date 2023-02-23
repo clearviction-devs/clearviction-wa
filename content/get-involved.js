@@ -31,20 +31,20 @@ const getInvolved = {
       "By volunteering, you will help us reduce barriers and streamline the process of vacating eligible convictions in Washington state to make it easier for people to move forward.",
       "You'll be a perfect fit if you:",
     ],
-    qualifications: [
+    facts: [
       {
         id: "fact0",
-        icon: <Alarm />,
+        icon: <Alarm sx={{ fontSize: "3em", color: "rgb(255, 210, 0)"}} />,
         text: "Can commit to 4 hours a week for at least 6 months",
       },
       {
         id: "fact1",
-        icon: <Sync />,
+        icon: <Sync sx={{ fontSize: "3em", color: "rgb(255, 210, 0)"}} />,
         text: "Want to share your expertise to help us make a better product",
       },
       {
         id: "fact2",
-        icon: <CloudDone />,
+        icon: <CloudDone sx={{ fontSize: "3em", color: "rgb(255, 210, 0)"}} />,
         text: "Are a self-motivated individual comfortable with remote work",
       },
     ],

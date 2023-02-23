@@ -5,9 +5,8 @@ export default function ImageContentCard({
   content,
   buttonText,
   buttonHref,
-  image
-}){
-
+  image,
+}) {
   return (
     <Box padding={1}>
       <Paper
@@ -21,11 +20,16 @@ export default function ImageContentCard({
           backgroundPosition: "40-60%",
         }}
       >
-        <Typography style={{padding: 34}}>
-          {content}
-        </Typography>
+        <Typography sx={{ p: "34px" }} style={{fontSize: "22px"}} align="center" variant="subtitle2" component="h2" >{content}</Typography>
 
-        <Box style={{ marginTop: 64, display: "flex", justifyContent: "center", width: "100%"}}>
+        <Box
+          style={{
+            marginTop: 64,
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+          }}
+        >
           <Button
             sx={{ margin: "30px auto 50px", minWidth: "240px" }}
             variant="contained"
@@ -36,6 +40,5 @@ export default function ImageContentCard({
         </Box>
       </Paper>
     </Box>
-  )
+  );
 }
-
