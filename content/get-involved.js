@@ -34,17 +34,17 @@ const getInvolved = {
     facts: [
       {
         id: "fact0",
-        icon: <Alarm sx={{ fontSize: "3em", color: "rgb(255, 210, 0)"}} />,
+        icon: <Alarm sx={{ fontSize: "3em", color: "rgb(255, 210, 0)" }} />,
         text: "Can commit to 4 hours a week for at least 6 months",
       },
       {
         id: "fact1",
-        icon: <Sync sx={{ fontSize: "3em", color: "rgb(255, 210, 0)"}} />,
+        icon: <Sync sx={{ fontSize: "3em", color: "rgb(255, 210, 0)" }} />,
         text: "Want to share your expertise to help us make a better product",
       },
       {
         id: "fact2",
-        icon: <CloudDone sx={{ fontSize: "3em", color: "rgb(255, 210, 0)"}} />,
+        icon: <CloudDone sx={{ fontSize: "3em", color: "rgb(255, 210, 0)" }} />,
         text: "Are a self-motivated individual comfortable with remote work",
       },
     ],

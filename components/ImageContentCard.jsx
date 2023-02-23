@@ -20,7 +20,15 @@ export default function ImageContentCard({
           backgroundPosition: "40-60%",
         }}
       >
-        <Typography sx={{ p: "34px" }} style={{fontSize: "22px"}} align="center" variant="subtitle2" component="h2" >{content}</Typography>
+        <Typography
+          sx={{ p: "34px" }}
+          style={{ fontSize: "22px" }}
+          align="center"
+          variant="subtitle2"
+          component="h2"
+        >
+          {content}
+        </Typography>
 
         <Box
           style={{
