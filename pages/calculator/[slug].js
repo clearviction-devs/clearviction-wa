@@ -1,3 +1,4 @@
+import HistoryIcon from "@mui/icons-material/History";
 import {
   Box,
   Button,
@@ -10,7 +11,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import HistoryIcon from "@mui/icons-material/History";
 import { PortableText } from "@portabletext/react";
 import { useState } from "react";
 import {
