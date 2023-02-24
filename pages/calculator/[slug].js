@@ -23,7 +23,6 @@ import ExternalButton from "../../components/ExternalButton";
 import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
-  console.log(page);
   const [open, setOpen] = useState(false);
   return (
     <>
