@@ -44,11 +44,25 @@ export default function GetInvolvedPage() {
       </Box>
       <Volunteer />
       <Container maxWidth="md">
-        <Divider maxWidth="md" sx={{ mt: theme.spacing(8), mb: theme.spacing(8), scrollMarginTop: "4em" }} />
+        <Divider
+          maxWidth="md"
+          sx={{
+            mt: theme.spacing(8),
+            mb: theme.spacing(8),
+            scrollMarginTop: "4em",
+          }}
+        />
       </Container>
       <Partner />
       <Container maxWidth="md">
-        <Divider maxWidth="md" sx={{ mt: theme.spacing(8), mb: theme.spacing(8), scrollMarginTop: "4em" }} />
+        <Divider
+          maxWidth="md"
+          sx={{
+            mt: theme.spacing(8),
+            mb: theme.spacing(8),
+            scrollMarginTop: "4em",
+          }}
+        />
       </Container>
     </>
   );

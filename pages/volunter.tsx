@@ -13,9 +13,16 @@ export default function Volunteer() {
         component="section"
         id="volunteer"
         maxWidth="md"
-        sx={{ mt: theme.spacing(8), mb: theme.spacing(8), scrollMarginTop: "4em" }}
+        sx={{
+          mt: theme.spacing(8),
+          mb: theme.spacing(8),
+          scrollMarginTop: "4em",
+        }}
       >
-        <Typography sx={{ mt: theme.spacing(8), mb: theme.spacing(8) }} variant="h2">
+        <Typography
+          sx={{ mt: theme.spacing(8), mb: theme.spacing(8) }}
+          variant="h2"
+        >
           {content.volunteerPage.header}
         </Typography>
         {content.volunteerPage.body.map((text, idx) => (
@@ -37,9 +44,16 @@ export default function Volunteer() {
       </Container>
       <Container
         maxWidth="md"
-        sx={{ mt: theme.spacing(8), mb: theme.spacing(8), scrollMarginTop: "4em" }}
+        sx={{
+          mt: theme.spacing(8),
+          mb: theme.spacing(8),
+          scrollMarginTop: "4em",
+        }}
       >
-        <Typography sx={{ mt: theme.spacing(8), mb: theme.spacing(8) }} variant="h2">
+        <Typography
+          sx={{ mt: theme.spacing(8), mb: theme.spacing(8) }}
+          variant="h2"
+        >
           {content.volunteerPage.openRole.title}
         </Typography>
         <iframe
