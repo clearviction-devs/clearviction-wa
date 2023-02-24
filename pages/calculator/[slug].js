@@ -76,9 +76,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   variant="contained"
                   color="primary"
                   href={
-                    page.isEligible
-                      ? calculatorConfig.feedback.eligibleUrl
-                      : calculatorConfig.feedback.ineligibleUrl
+                    page.isUndetermined
+                      ? calculatorConfig.feedback.isUndeterminedUrl
+                      : calculatorConfig.feedback.allOtherFeedbackUrl
                   }
                 >
                   {calculatorConfig.feedback.linkText}
