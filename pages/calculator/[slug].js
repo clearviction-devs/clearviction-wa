@@ -23,6 +23,7 @@ import ExternalButton from "../../components/ExternalButton";
 import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
+  console.log(page);
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -75,7 +76,11 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 <ExternalButton
                   variant="contained"
                   color="primary"
-                  href={calculatorConfig.feedback.url}
+                  href={
+                    page.isEligible
+                      ? calculatorConfig.feedback.eligibleUrl
+                      : calculatorConfig.feedback.ineligibleUrl
+                  }
                 >
                   {calculatorConfig.feedback.linkText}
                 </ExternalButton>
