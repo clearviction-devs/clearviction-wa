@@ -8,9 +8,9 @@ import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
-import content from "../content/home.json";
+import jsonContent from "../content/home.json";
 
-export default function Home({ content }) {
+export default function Home({ content }: { content: typeof jsonContent }) {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -72,7 +72,7 @@ export default function Home({ content }) {
 }
 
 export async function getStaticProps() {
-  if (!content) {
+  if (!jsonContent) {
     return {
       notFound: true,
     };
@@ -80,7 +80,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      content,
+      content: jsonContent,
     },
   };
 }
