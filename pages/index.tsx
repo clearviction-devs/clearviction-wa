@@ -10,7 +10,7 @@ import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
 import content from "../content/home.json";
 
-export default function Home() {
+export default function Home({ content }) {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -69,4 +69,18 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  if (!content) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      content,
+    },
+  };
 }

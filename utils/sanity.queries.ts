@@ -19,13 +19,9 @@ export const calculatorPagesBySlugQuery = groq`
 
 export const calculatorConfigQuery = groq`
   *[_type == "calculatorConfig"][0] {
-    notSureHeader,
-    notSureContent,
-    notSureButtonText,
-    feedbackButtonEligibleText,
-    feedbackButtonEligibleLink,
-    feedbackButtonIneligibleText,
-    feedbackButtonIneligibleLink,
+    unknownAnswer,
+    feedback,
+    checkAnotherConviction{..., "linkTo": reference->{slug}},
     legalDisclaimer
   }
 `;

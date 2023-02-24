@@ -30,15 +30,17 @@ export function PaperSection({
         </Typography>
       )}
       {children}
-      {ctaText && ctaLink && isCtaNewTab ? (
-        <ExternalButton href={ctaLink} variant="contained" sx={{ mt: 4 }}>
-          {ctaText}
-        </ExternalButton>
-      ) : (
-        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
-          {ctaText}
-        </Button>
-      )}
+      {ctaText &&
+        ctaLink &&
+        (isCtaNewTab ? (
+          <ExternalButton href={ctaLink} variant="contained" sx={{ mt: 4 }}>
+            {ctaText}
+          </ExternalButton>
+        ) : (
+          <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
+            {ctaText}
+          </Button>
+        ))}
     </Paper>
   );
 }
