@@ -65,7 +65,7 @@ const getInvolved = {
       "Share our mission on your social media or send it to someone you know needs it.",
     ],
     href: "/contact",
-    imgsrc: "/illustrations/pr.svg",
+    imgsrc: "../illustrations/pr.svg",
   },
 };
 
