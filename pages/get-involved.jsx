@@ -5,7 +5,7 @@ import HeroBanner from "../components/HeroBanner";
 import ImageContentCard from "../components/ImageContentCard";
 import content from "../content/get-involved";
 import Partner from "../pages/partner";
-import Volunteer from "../pages/volunter";
+import Volunteer from "../pages/volunteer";
 
 export default function GetInvolvedPage() {
   const theme = useTheme();
