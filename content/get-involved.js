@@ -1,6 +1,6 @@
 import { Alarm, CloudDone, Sync } from "@mui/icons-material";
 
-const getInvolved = {
+const getInvolvedContent = {
   waysToParticipate: [
     {
       id: "w2p_1",
@@ -69,4 +69,4 @@ const getInvolved = {
   },
 };
 
-export default getInvolved;
+export default getInvolvedContent;
