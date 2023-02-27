@@ -1,8 +1,8 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import content from ".././content/get-involved";
 import { Fact } from "../components/Fact";
+import content from "../content/get-involved";
 
 export default function Volunteer() {
   const theme = useTheme();
