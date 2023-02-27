@@ -20,7 +20,7 @@ const getInvolved = {
       id: "w2p_3",
       title: "Partner with us",
       body: "Create change by sharing our project with others and reaching out to your peers.",
-      imgsrc: "../illustrations/marketing.svg",
+      imgsrc: "../illustrations/horn.svg",
       href: "#partner-with-us",
     },
   ],
