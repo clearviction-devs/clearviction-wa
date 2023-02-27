@@ -1,3 +1,4 @@
+import HistoryIcon from "@mui/icons-material/History";
 import {
   Box,
   Button,
@@ -6,6 +7,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Link,
   Stack,
   Typography,
 } from "@mui/material";
@@ -64,16 +66,42 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 variant="outlined"
                 color="primary"
                 onClick={() => setOpen(true)}
-              >{`I'm not sure`}</Button>
+              >
+                {calculatorConfig.unknownAnswer.promptText}
+              </Button>
             )}
             {page.isFinalPage && (
-              <ExternalButton
-                variant="contained"
-                color="primary"
-                href={calculatorConfig.feedbackButtonLink}
-              >
-                {calculatorConfig.feedbackButtonText}
-              </ExternalButton>
+              <>
+                <ExternalButton
+                  variant="contained"
+                  color="primary"
+                  href={
+                    page.isUndetermined
+                      ? calculatorConfig.feedback.isUndeterminedUrl
+                      : calculatorConfig.feedback.allOtherFeedbackUrl
+                  }
+                >
+                  {calculatorConfig.feedback.linkText}
+                </ExternalButton>
+                <Link
+                  sx={{ textAlign: "center" }}
+                  href={
+                    calculatorConfig.checkAnotherConviction.linkTo.slug.current
+                  }
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 1,
+                    }}
+                  >
+                    <HistoryIcon />
+                    {calculatorConfig.checkAnotherConviction.linkText}
+                  </Box>
+                </Link>
+              </>
             )}
           </Stack>
         </Container>
@@ -92,17 +120,17 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {calculatorConfig.notSureHeader}
+          {calculatorConfig.unknownAnswer.header}
         </DialogTitle>
         <DialogContent>
           <PortableText
-            value={calculatorConfig.notSureContent}
+            value={calculatorConfig.unknownAnswer.content}
             components={portableTextComponents}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpen(false)}>
-            {calculatorConfig.notSureButtonText}
+            {calculatorConfig.unknownAnswer.closeText}
           </Button>
         </DialogActions>
       </Dialog>
