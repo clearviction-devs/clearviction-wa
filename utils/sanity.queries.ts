@@ -12,6 +12,7 @@ export const calculatorPagesBySlugQuery = groq`
     isQuestion,
     isFinalPage,
     isEligible,
+    isUndetermined,
     "choices": choices[]{_key, url, isExternalLink, label, linkTo->{slug}},
     "slug": slug.current,
   }
@@ -19,11 +20,9 @@ export const calculatorPagesBySlugQuery = groq`
 
 export const calculatorConfigQuery = groq`
   *[_type == "calculatorConfig"][0] {
-    notSureHeader,
-    notSureContent,
-    notSureButtonText,
-    feedbackButtonText,
-    feedbackButtonLink,
+    unknownAnswer,
+    feedback,
+    checkAnotherConviction{..., "linkTo": reference->{slug}},
     legalDisclaimer
   }
 `;
