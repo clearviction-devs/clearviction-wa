@@ -10,6 +10,9 @@ This repository holds source code for the new [Clearviction website]().
 
 ## Getting Started
 
+Create a .env file using .env.local.example as a guide.
+The secret token is used the the Sanity GROQ powered Webhooks to update the site when new content becomes available.
+
 First, run the development server:
 
 ```bash
