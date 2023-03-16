@@ -9,23 +9,23 @@ const navItems: navItem[] = [
     text: "Home",
   },
   {
-    href: "get-started",
+    href: "/get-started",
     text: "Get Started",
   },
   {
-    href: "get-involved",
+    href: "/get-involved",
     text: "Get Involved",
   },
   {
-    href: "why-vacate",
+    href: "/why-vacate",
     text: "Why Vacate",
   },
   {
-    href: "donate",
+    href: "/donate",
     text: "Donate",
   },
   {
-    href: "contact",
+    href: "/contact",
     text: "Contact",
   },
 ];
