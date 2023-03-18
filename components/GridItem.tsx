@@ -13,7 +13,7 @@ export function GridItemCard({
   ...props
 }: GridItemCardProps) {
   return (
-    <Grid item {...props} sx={{ mb: 4, justifyContent: 'center' }}>
+    <Grid item {...props} sx={{ mb: 4, justifyContent: "center" }}>
       <Box textAlign="center">
         {imgsrc && (
           <Box
@@ -28,35 +28,39 @@ export function GridItemCard({
             }}
           ></Box>
         )}
-        <Typography variant="subtitle2" 
-          sx={{ 
-            fontWeight: 'bold', 
-            marginBottom: '10px', 
-            maxWidth: '250px', 
-            margin: '27px auto auto',
-            minHeight: '62px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }} >
-            {title}
-          </Typography>
+        <Typography
+          variant="subtitle2"
+          sx={{
+            fontWeight: "bold",
+            marginBottom: "10px",
+            maxWidth: "250px",
+            margin: "27px auto auto",
+            minHeight: "62px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {title}
+        </Typography>
         <Box textAlign="left">
-          <MuiMarkdown 
+          <MuiMarkdown
             overrides={{
               span: {
-                component: 'p',
+                component: "p",
                 props: {
-                  style: { 
-                    maxWidth: '260px',
-                    display: 'flex',
-                    margin: '20px auto',
-                    textAlign: 'center',
+                  style: {
+                    maxWidth: "260px",
+                    display: "flex",
+                    margin: "20px auto",
+                    textAlign: "center",
                   },
                 } as React.HTMLProps<HTMLParagraphElement>,
               },
             }}
-          >{body}</MuiMarkdown>
+          >
+            {body}
+          </MuiMarkdown>
         </Box>
       </Box>
     </Grid>
