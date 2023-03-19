@@ -127,8 +127,8 @@ const whyVacateContent = {
           summary: "Federal Financial Student Aid",
           details: `[FAQ on Incarcerated Individuals and Eligibility for Federal Student Aid](https://studentaid.gov/understand-aid/eligibility/requirements/criminal-convictions) 
           \n[Free Application for Federal Student Aid (FAFSA)](http://www.fafsa.gov/) 
-          \n[Federal Pell Grants](https://studentaid.gov/sa/types/grants-scholarships/pell)
-          \n[Federal Work-Study Programs](https://studentaid.gov/types/work-study)`,
+          \n[Federal Pell Grants](https://www2.ed.gov/programs/fpg)
+          \n[Federal Work-Study Programs](https://studentaid.gov/understand-aid/types/work-study)`,
         },
         {
           id: "courtform2",
