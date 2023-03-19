@@ -46,6 +46,15 @@ export default function Header() {
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem key="disclaimer">
+          <Typography
+            variant="caption"
+            sx={{ mb: 2, px: 2, textAlign: "center" }}
+          >
+            The information on this site is not, nor should it be considered
+            legal advice.
+          </Typography>
+        </ListItem>
       </List>
     </Box>
   );
@@ -68,7 +77,12 @@ export default function Header() {
             >
               <Menu fontSize="large" />
             </IconButton>
-            <Box sx={{ display: { xs: "none", xl: "flex" }, gap: 2 }}>
+            <Box
+              sx={{
+                display: { xs: "none", xl: "flex" },
+                gap: 2,
+              }}
+            >
               {navItems.map((item) => (
                 <Button
                   key={item.text}
@@ -105,9 +119,6 @@ export default function Header() {
           anchor="right"
         >
           {drawer}
-          <Typography variant="caption" sx={{ mb: 2, px: 2 }}>
-            The content on this website should not be treated as legal advice.
-          </Typography>
         </Drawer>
       </Box>
     </>
