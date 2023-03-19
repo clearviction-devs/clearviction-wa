@@ -14,9 +14,9 @@ import content from "../content/get-started";
 export default function GetStartedPage() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
-  
+
   externalLinks();
-  
+
   return (
     <>
       <HeroBanner

@@ -15,9 +15,8 @@ import SectionContainer from "../components/SectionContainer";
 import content from "../content/donate-faqs";
 
 export default function DonatePage() {
-
   externalLinks();
-  
+
   return (
     <>
       <Script src="https://donorbox.org/widget.js" />
