@@ -1,7 +1,7 @@
 import { Box, Button, Grid, SxProps, Typography } from "@mui/material";
 import Image from "next/image";
 
-import researchImage from "../public/research-banner.svg";
+import researchImage from "../public/illustrations/checklist1.svg";
 import SectionContainer from "./SectionContainer";
 
 const researchBannerStyles: SxProps = {
