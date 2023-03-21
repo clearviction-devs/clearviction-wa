@@ -4,7 +4,7 @@ import {
   PanToolOutlined,
 } from "@mui/icons-material";
 import { Box, Button, ButtonGroup, Grid, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { SxProps, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 
@@ -13,6 +13,15 @@ import HeroBanner from "../components/HeroBanner";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
 import aboutImage from "../public/illustrations/checklist1.svg";
+
+const gridStyles: SxProps = {
+  textAlign: "center",
+  mb: "2em",
+};
+
+const gridIconStyles: SxProps = {
+  color: "#FFD200",
+};
 
 export default function AboutPage() {
   const theme = useTheme();
@@ -64,24 +73,24 @@ export default function AboutPage() {
                 conviction is very convoluted, making it difficult for most
                 people to navigate:
               </Typography>
-              <Grid item md={4} sx={{ textAlign: "center", mb: "2em" }}>
-                <HourglassEmpty sx={{ color: "#FFD200" }} />
+              <Grid item md={4} sx={gridStyles}>
+                <HourglassEmpty sx={gridIconStyles} />
                 <Typography>
                   {
                     "It has a number of steps that require time and know-how increasing the barrier of entry for applicants"
                   }
                 </Typography>
               </Grid>
-              <Grid item md={4} sx={{ textAlign: "center" }}>
-                <LocalAtmOutlined sx={{ color: "#FFD200" }} />
+              <Grid item md={4} sx={gridStyles}>
+                <LocalAtmOutlined sx={gridIconStyles} />
                 <Typography>
                   {
                     "While hiring an attorney can help simplify the process, it's unaffordable for most"
                   }
                 </Typography>
               </Grid>
-              <Grid item md={4} sx={{ textAlign: "center" }}>
-                <PanToolOutlined sx={{ color: "#FFD200" }} />
+              <Grid item md={4} sx={gridStyles}>
+                <PanToolOutlined sx={gridIconStyles} />
                 <Typography>
                   {
                     "Volunteer services are available, but they are often inaccessible and don't cover all steps"
