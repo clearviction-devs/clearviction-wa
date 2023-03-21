@@ -87,22 +87,16 @@ export default function Header() {
                 <Button
                   key={item.text}
                   href={item.href}
-                  variant="text"
+                  variant={
+                    item.text === "Access Calculator" ? "contained" : "text"
+                  }
                   color="neutral"
                   size="small"
-                  sx={{ borderRadius: 1, whiteSpace: "nowrap" }}
+                  sx={{ whiteSpace: "nowrap" }}
                 >
                   {item.text}
                 </Button>
               ))}
-              <Button
-                sx={{ whiteSpace: "nowrap" }}
-                variant="contained"
-                color="neutral"
-                href="/calculator/head-initial-1-cont"
-              >
-                Access Calculator
-              </Button>
             </Box>
           </Toolbar>
         </Container>
