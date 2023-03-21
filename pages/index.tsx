@@ -4,6 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Head from "next/head";
 
 import AccordionBuilder from "../components/AccordionBuilder";
+import externalLinks from "../components/externalLinks";
 import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
 import { PaperSection } from "../components/PaperSection";
@@ -13,6 +14,8 @@ import jsonContent from "../content/home.json";
 export default function Home({ content }: { content: typeof jsonContent }) {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
+
+  externalLinks();
 
   return (
     <>
