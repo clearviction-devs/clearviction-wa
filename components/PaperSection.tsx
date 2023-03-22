@@ -1,7 +1,5 @@
 import { Button, Paper, PaperProps, Typography } from "@mui/material";
 
-import ExternalButton from "./ExternalButton";
-
 interface PaperSectionProps extends PaperProps {
   title: string;
   subtitle?: string;
