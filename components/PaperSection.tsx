@@ -7,7 +7,6 @@ interface PaperSectionProps extends PaperProps {
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
-  isCtaNewTab?: boolean;
 }
 
 export function PaperSection({
@@ -15,7 +14,6 @@ export function PaperSection({
   subtitle,
   ctaText,
   ctaLink,
-  isCtaNewTab,
   children,
   ...props
 }: PaperSectionProps) {
