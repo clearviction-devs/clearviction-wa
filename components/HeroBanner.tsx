@@ -22,7 +22,7 @@ interface HeroBannerProps {
 const heroStyles: SxProps = {
   backgroundColor: "primary.dark",
   color: "primary.contrastText",
-  py: 4,
+  py: 8,
 };
 
 export default function HeroBanner({
