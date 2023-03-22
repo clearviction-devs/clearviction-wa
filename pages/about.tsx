@@ -2,7 +2,6 @@ import { Box, Button, ButtonGroup, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MuiMarkdown from "mui-markdown";
-import Image from "next/image";
 
 import externalLinks from "../components/externalLinks";
 import { Fact } from "../components/Fact";
@@ -20,9 +19,9 @@ export default function AboutPage() {
   return (
     <>
       <HeroBanner
-        heading={aboutContent.aboutPage.hero.header}
-        subheading={aboutContent.aboutPage.hero.body}
-        imgsrc={aboutContent.aboutPage.hero.imgsrc}
+        heading={aboutContent.hero.header}
+        subheading={aboutContent.hero.body}
+        imgsrc={aboutContent.hero.imgsrc}
       />
       <SectionContainer>
         <ButtonGroup
@@ -40,21 +39,17 @@ export default function AboutPage() {
         sx={{ margin: "auto", maxWidth: "772px" }}
         maxWidth={false}
       >
-        <Typography variant="h2">
-          {aboutContent.aboutPage.ourStory.header}
-        </Typography>
-        <Typography variant="h3">
-          {aboutContent.aboutPage.ourStory.body}
-        </Typography>
+        <Typography variant="h2">{aboutContent.ourStory.header}</Typography>
+        <Typography variant="h3">{aboutContent.ourStory.body}</Typography>
 
         <Box>
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
             <Grid container spacing={4}>
               <Typography variant="subtitle1">
-                <MuiMarkdown>{aboutContent.aboutPage.body[0]}</MuiMarkdown>
+                <MuiMarkdown>{aboutContent.body[0]}</MuiMarkdown>
               </Typography>
               <Grid container>
-                {aboutContent.aboutPage.facts.map((fact) => (
+                {aboutContent.facts.map((fact) => (
                   <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
                     <Fact text={fact.text} icon={fact.icon} />
                   </Grid>
@@ -87,7 +82,7 @@ export default function AboutPage() {
             <Grid item sm={12} md={6}>
               <Box
                 component="img"
-                src={aboutContent.aboutPage.ourMission.imgsrc}
+                src={aboutContent.ourMission.imgsrc}
                 alt=""
                 sx={{
                   objectFit: "contain",
@@ -97,26 +92,22 @@ export default function AboutPage() {
             </Grid>
             <Grid item sm={12} md={6}>
               <Typography variant="h4">
-                {aboutContent.aboutPage.ourMission.header}
+                {aboutContent.ourMission.header}
               </Typography>
               <Typography variant="subtitle1">
-                <MuiMarkdown>
-                  {aboutContent.aboutPage.ourMission.body}
-                </MuiMarkdown>
+                <MuiMarkdown>{aboutContent.ourMission.body}</MuiMarkdown>
               </Typography>
             </Grid>
           </Grid>
         </Box>
       </SectionContainer>
       <SectionContainer id="our-team">
-        <Typography variant="h2">
-          {aboutContent.aboutPage.ourTeam.title}
-        </Typography>
+        <Typography variant="h2">{aboutContent.ourTeam.title}</Typography>
         <Grid container>
           <iframe
-            id={aboutContent.aboutPage.ourTeam.id}
+            id={aboutContent.ourTeam.id}
             title="our-team"
-            src={aboutContent.aboutPage.ourTeam.src}
+            src={aboutContent.ourTeam.src}
             width="100%"
             height="1048"
             style={{
