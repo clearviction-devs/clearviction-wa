@@ -47,11 +47,13 @@ export default function AboutPage() {
         </ButtonGroup>
       </SectionContainer>
 
-      <SectionContainer id="our-story">
-        <Typography variant="h2" gutterBottom>
-          Our Story
-        </Typography>
-        <Typography variant="h3" gutterBottom>
+      <SectionContainer
+        id="our-story"
+        sx={{ margin: "auto", maxWidth: "772px" }}
+        maxWidth={false}
+      >
+        <Typography variant="h2">Our Story</Typography>
+        <Typography variant="h3">
           Those with a criminal record in Washington face significant barriers
           to daily life after completing their prison terms
         </Typography>
@@ -59,7 +61,7 @@ export default function AboutPage() {
         <Box>
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
             <Grid container spacing={4}>
-              <Typography variant="subtitle1" gutterBottom>
+              <Typography variant="subtitle1">
                 <Button
                   href="https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017"
                   target="_blank"
@@ -117,13 +119,15 @@ export default function AboutPage() {
             </Box>
           </PaperSection>
         </Box>
+      </SectionContainer>
+      <SectionContainer>
         <Box style={{ width: "90%", margin: "0 auto" }}>
           <Grid container>
             <Grid item sm={12} md={6}>
               <Image src={aboutImage} alt="about-image" />
             </Grid>
             <Grid item sm={12} md={6}>
-              <Typography variant="h4" gutterBottom>
+              <Typography variant="h4">
                 Our mission is to benefit individuals with criminal convictions
                 in Washington and decrease life-long collateral consequences.
               </Typography>
@@ -149,9 +153,7 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
       <SectionContainer id="our-team">
-        <Typography variant="h2" gutterBottom>
-          Our Team
-        </Typography>
+        <Typography variant="h2">Our Team</Typography>
         <Grid container>
           <iframe
             id="our-team-embed-airtable"
