@@ -29,8 +29,8 @@ export default function DonatePage() {
       </HeroBanner>
       <SectionContainer id="donate">
         <PaperSection
-          title="How will your donations help Clearviction's goal"
-          subtitle="Heres how your generosity can help us achieve our milestones and make it possible to connect our project with more and more people who need it:"
+          title="How will your donations help Clearviction's goals?"
+          subtitle="Here's how your generosity can help us achieve our milestones and make it possible to connect our project with more and more people who need it:"
           ctaLink="https://donorbox.org/clearviction"
           ctaText="Visit our donorbox page"
         >
@@ -56,7 +56,7 @@ export default function DonatePage() {
             <GridItemCard
               xs={12}
               sm={6}
-              body="Help people with convictions learn about and access our Vacation Eligibiliity calculator."
+              body="Help people with convictions learn about and access our Conviction Vacation Eligibiliity calculator."
               imgsrc="/illustrations/notetaking.svg"
             />
           </Grid>
