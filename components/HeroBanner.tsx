@@ -73,20 +73,30 @@ export default function HeroBanner({
               </MuiMarkdown>
             </Box>
             {ctaText && ctaLink && (
-              <Button variant="contained" color="neutral" href={ctaLink}>
+              <Button
+                variant="contained"
+                color="primary"
+                href={ctaLink}
+                sx={{ px: 8 }}
+              >
                 {ctaText}
               </Button>
             )}
           </Box>
+        </Box>
+        <Box>
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: { md: "flex" },
               flex: 1,
               justifyContent: "center",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            {imgsrc ? <img src={imgsrc} alt="" /> : children}
+            {imgsrc ? (
+              <Box component="img" src={imgsrc} alt="" sx={{ flex: 1 }} />
+            ) : (
+              children
+            )}
           </Box>
         </Box>
       </SectionContainer>
