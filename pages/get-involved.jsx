@@ -25,7 +25,7 @@ export default function GetInvolvedPage() {
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
         />
 
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ maxWidth: "1200px", m: "auto" }}>
           {content.waysToParticipate.map((card) => (
             <Grid item xs={12} sm={12} md={4} key={card.id}>
               <Box display="flex" justifyContent="center" key={card.id}>
