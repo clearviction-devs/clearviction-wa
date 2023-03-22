@@ -1,27 +1,15 @@
-import {
-  HourglassEmpty,
-  LocalAtmOutlined,
-  PanToolOutlined,
-} from "@mui/icons-material";
 import { Box, Button, ButtonGroup, Grid, Typography } from "@mui/material";
-import { SxProps, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import MuiMarkdown from "mui-markdown";
 import Image from "next/image";
 
 import externalLinks from "../components/externalLinks";
+import { Fact } from "../components/Fact";
 import HeroBanner from "../components/HeroBanner";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
-import aboutImage from "../public/illustrations/checklist1.svg";
-
-const gridStyles: SxProps = {
-  textAlign: "center",
-  mb: "2em",
-};
-
-const gridIconStyles: SxProps = {
-  color: "#FFD200",
-};
+import aboutContent from "../content/about";
 
 export default function AboutPage() {
   const theme = useTheme();
@@ -32,9 +20,9 @@ export default function AboutPage() {
   return (
     <>
       <HeroBanner
-        heading="About Us"
-        subheading="We are a civic-tech open-source project working to make the conviction vacation process in Washington easier and more straightforward, starting with an eligibility calculator."
-        imgsrc="illustrations/map.svg"
+        heading={aboutContent.aboutPage.hero.header}
+        subheading={aboutContent.aboutPage.hero.body}
+        imgsrc={aboutContent.aboutPage.hero.imgsrc}
       />
       <SectionContainer>
         <ButtonGroup
@@ -52,52 +40,25 @@ export default function AboutPage() {
         sx={{ margin: "auto", maxWidth: "772px" }}
         maxWidth={false}
       >
-        <Typography variant="h2">Our Story</Typography>
+        <Typography variant="h2">
+          {aboutContent.aboutPage.ourStory.header}
+        </Typography>
         <Typography variant="h3">
-          Those with a criminal record in Washington face significant barriers
-          to daily life after completing their prison terms
+          {aboutContent.aboutPage.ourStory.body}
         </Typography>
 
         <Box>
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
             <Grid container spacing={4}>
               <Typography variant="subtitle1">
-                <Button
-                  href="https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="New Hope Act"
-                >
-                  {"Washington State's New Hope Act"}
-                </Button>
-                makes it easier for people with past criminal records to have
-                their convictions vacated. Even then, the process of vacating a
-                conviction is very convoluted, making it difficult for most
-                people to navigate:
+                <MuiMarkdown>{aboutContent.aboutPage.body[0]}</MuiMarkdown>
               </Typography>
-              <Grid item md={4} sx={gridStyles}>
-                <HourglassEmpty sx={gridIconStyles} />
-                <Typography>
-                  {
-                    "It has a number of steps that require time and know-how increasing the barrier of entry for applicants"
-                  }
-                </Typography>
-              </Grid>
-              <Grid item md={4} sx={gridStyles}>
-                <LocalAtmOutlined sx={gridIconStyles} />
-                <Typography>
-                  {
-                    "While hiring an attorney can help simplify the process, it's unaffordable for most"
-                  }
-                </Typography>
-              </Grid>
-              <Grid item md={4} sx={gridStyles}>
-                <PanToolOutlined sx={gridIconStyles} />
-                <Typography>
-                  {
-                    "Volunteer services are available, but they are often inaccessible and don't cover all steps"
-                  }
-                </Typography>
+              <Grid container>
+                {aboutContent.aboutPage.facts.map((fact) => (
+                  <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
+                    <Fact text={fact.text} icon={fact.icon} />
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
             <Box sx={{ width: "100%", textAlign: "center" }}>
@@ -124,42 +85,38 @@ export default function AboutPage() {
         <Box style={{ width: "90%", margin: "0 auto" }}>
           <Grid container>
             <Grid item sm={12} md={6}>
-              <Image src={aboutImage} alt="about-image" />
+              <Box
+                component="img"
+                src={aboutContent.aboutPage.ourMission.imgsrc}
+                alt=""
+                sx={{
+                  objectFit: "contain",
+                  textAlign: "center",
+                }}
+              />
             </Grid>
             <Grid item sm={12} md={6}>
               <Typography variant="h4">
-                Our mission is to benefit individuals with criminal convictions
-                in Washington and decrease life-long collateral consequences.
+                {aboutContent.aboutPage.ourMission.header}
               </Typography>
-              <Typography variant="subtitle1" component="p">
-                To support this mission, we first focused on creating a&nbsp;
-                <a
-                  href="https://www.clearviction.org/calculator/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Conviction Eligibility Calculator"
-                  style={{
-                    color: theme.palette.primary.main,
-                    textDecoration: "none",
-                  }}
-                >
-                  Conviction Eligibility Calculator{" "}
-                </a>
-                to help people determine if they are eligible to vacate their
-                conviction.
+              <Typography variant="subtitle1">
+                <MuiMarkdown>
+                  {aboutContent.aboutPage.ourMission.body}
+                </MuiMarkdown>
               </Typography>
             </Grid>
           </Grid>
         </Box>
       </SectionContainer>
       <SectionContainer id="our-team">
-        <Typography variant="h2">Our Team</Typography>
+        <Typography variant="h2">
+          {aboutContent.aboutPage.ourTeam.title}
+        </Typography>
         <Grid container>
           <iframe
-            id="our-team-embed-airtable"
+            id={aboutContent.aboutPage.ourTeam.id}
             title="our-team"
-            className="airtable-embed"
-            src="https://airtable.com/embed/shrUcTsNW8KLw3hyp"
+            src={aboutContent.aboutPage.ourTeam.src}
             width="100%"
             height="1048"
             style={{
