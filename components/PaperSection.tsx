@@ -31,7 +31,7 @@ export function PaperSection({
       )}
       {children}
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
+        <Button href={ctaLink} variant="contained" sx={{ mt: 4, px: 8 }}>
           {ctaText}
         </Button>
       )}
