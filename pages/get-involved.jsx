@@ -6,19 +6,20 @@ import {
   CardContent,
   CardMedia,
   Container,
-  Divider,
   Grid,
   Typography,
 } from "@mui/material";
 
 import { Fact } from "../components/Fact";
 import HeroBanner from "../components/HeroBanner";
+import { PaperSection } from "../components/PaperSection";
+import SectionContainer from "../components/SectionContainer";
 import content from "../content/get-involved";
 
 export default function GetInvolvedPage() {
   return (
     <>
-      <Box sx={{ color: "#ffffff", pb: 16, pt: 4, px: 3, bgcolor: "#2f3554" }}>
+      <Box sx={{ bgcolor: "#2f3554", pb: "64px" }}>
         <HeroBanner
           heading="Get Involved"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
@@ -66,13 +67,7 @@ export default function GetInvolvedPage() {
         </Grid>
       </Box>
       <Volunteer />
-      <Container maxWidth="md">
-        <Divider sx={{ my: 8, scrollMarginTop: "4em", maxWidth: "md" }} />
-      </Container>
       <Partner />
-      <Container maxWidth="md">
-        <Divider sx={{ my: 8, scrollMarginTop: "4em", maxWidth: "md" }} />
-      </Container>
     </>
   );
 }
@@ -158,26 +153,28 @@ function Partner() {
           </Button>
         </Container>
       </Container>
-      <Container>
-        <Grid container>
-          <Grid item xs={12} sm={6}>
-            <Box display="flex" justifyContent="center">
-              <Box component="img" src={content.partnerPage.imgsrc} />
-            </Box>
+      <SectionContainer>
+        <PaperSection title="" sx={{ margin: "auto", p: 4 }}>
+          <Grid container>
+            <Grid item xs={12} sm={6}>
+              <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
+                <Box component="img" src={content.partnerPage.imgsrc} />
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography sx={{ my: 8, scrollMarginTop: "4em" }} variant="h3">
+                {content.partnerPage.header[1]}
+              </Typography>
+              <Typography sx={{ my: 3 }} variant="body1">
+                {content.partnerPage.text[1]}
+              </Typography>
+              <Typography sx={{ my: 3 }} variant="body1">
+                {content.partnerPage.text[2]}
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <Typography sx={{ my: 8, scrollMarginTop: "4em" }} variant="h3">
-              {content.partnerPage.header[1]}
-            </Typography>
-            <Typography sx={{ my: 3 }} variant="body1">
-              {content.partnerPage.text[1]}
-            </Typography>
-            <Typography sx={{ my: 3 }} variant="body1">
-              {content.partnerPage.text[2]}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Container>
+        </PaperSection>
+      </SectionContainer>
     </>
   );
 }
