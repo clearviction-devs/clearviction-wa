@@ -56,7 +56,7 @@ export default function HeroBanner({
         >
           {smallHeading}
         </Typography>
-        <Box sx={{ display: "flex", gap: 4 }}>
+        <Box sx={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
           <Box sx={{ flex: 1 }}>
             <Box sx={{ mb: 4 }}>
               <MuiMarkdown
@@ -94,19 +94,15 @@ export default function HeroBanner({
               </Button>
             )}
           </Box>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flex: 1,
-            justifyContent: "center",
-          }}
-        >
-          {imgsrc ? (
-            <Box component="img" src={imgsrc} alt="" sx={{ flex: 1 }} />
-          ) : (
-            children
-          )}
+          <Box
+            sx={{
+              display: "flex",
+              flex: 1,
+              justifyContent: "center",
+            }}
+          >
+            {imgsrc ? <Box component={"img"} src={imgsrc} alt="" /> : children}
+          </Box>
         </Box>
       </SectionContainer>
     </Box>
