@@ -56,19 +56,12 @@ export default function AboutPage() {
                 ))}
               </Grid>
             </Grid>
-            <Box sx={{ width: "100%", textAlign: "center" }}>
+            <Box sx={{ width: "100%", textAlign: "center", mt: "32px" }}>
               <Button
                 href="/get-started"
                 aria-label="to Get Started"
                 variant="contained"
-                sx={{
-                  mt: 4,
-                  px: "2em",
-                  "&:hover": {
-                    color: theme.palette.primary.dark,
-                    backgroundColor: "#FFD200",
-                  },
-                }}
+                sx={{ px: 8 }}
               >
                 Learn More
               </Button>
