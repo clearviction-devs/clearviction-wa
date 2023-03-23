@@ -23,9 +23,18 @@ export default function GetInvolvedPage() {
         <HeroBanner
           heading="Get Involved"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
+          overrideStyles={{
+            pb: 0,
+            pt: 8,
+            color: "primary.contrastText",
+          }}
         />
 
-        <Grid container spacing={2} sx={{ maxWidth: "1200px", m: "auto" }}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ maxWidth: "1200px", m: "auto", mt: -8 }}
+        >
           {content.waysToParticipate.map((card) => (
             <Grid item xs={12} sm={12} md={4} key={card.id}>
               <Box display="flex" justifyContent="center" key={card.id}>

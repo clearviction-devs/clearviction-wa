@@ -17,6 +17,7 @@ interface HeroBannerProps {
   ctaText?: string;
   ctaLink?: string;
   children?: JSX.Element;
+  overrideStyles?: SxProps;
 }
 
 const heroStyles: SxProps = {
@@ -33,9 +34,13 @@ export default function HeroBanner({
   ctaText,
   ctaLink,
   children,
+  overrideStyles,
 }: HeroBannerProps) {
   return (
-    <Box sx={heroStyles} textAlign={{ xs: "center", md: "left" }}>
+    <Box
+      sx={overrideStyles || heroStyles}
+      textAlign={{ xs: "center", md: "left" }}
+    >
       <SectionContainer>
         <Typography
           variant="h1"
@@ -77,27 +82,31 @@ export default function HeroBanner({
                 variant="contained"
                 color="primary"
                 href={ctaLink}
-                sx={{ px: 8 }}
+                sx={{
+                  px: 8,
+                  "&:hover": {
+                    color: "primary.dark",
+                    backgroundColor: "secondary.main",
+                  },
+                }}
               >
                 {ctaText}
               </Button>
             )}
           </Box>
         </Box>
-        <Box>
-          <Box
-            sx={{
-              display: { md: "flex" },
-              flex: 1,
-              justifyContent: "center",
-            }}
-          >
-            {imgsrc ? (
-              <Box component="img" src={imgsrc} alt="" sx={{ flex: 1 }} />
-            ) : (
-              children
-            )}
-          </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flex: 1,
+            justifyContent: "center",
+          }}
+        >
+          {imgsrc ? (
+            <Box component="img" src={imgsrc} alt="" sx={{ flex: 1 }} />
+          ) : (
+            children
+          )}
         </Box>
       </SectionContainer>
     </Box>
