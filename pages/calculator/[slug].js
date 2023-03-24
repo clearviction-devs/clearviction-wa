@@ -19,11 +19,14 @@ import {
   getCalculatorPagePaths,
 } from "utils/sanity.client";
 
-import ExternalButton from "../../components/ExternalButton";
+import externalLinks from "../../components/externalLinks";
 import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
+
+  externalLinks();
+
   return (
     <>
       <Container
@@ -72,7 +75,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             )}
             {page.isFinalPage && (
               <>
-                <ExternalButton
+                <Button
                   variant="contained"
                   color="primary"
                   href={
@@ -82,7 +85,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   }
                 >
                   {calculatorConfig.feedback.linkText}
-                </ExternalButton>
+                </Button>
                 <Link
                   sx={{ textAlign: "center" }}
                   href={
