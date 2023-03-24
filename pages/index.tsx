@@ -8,6 +8,7 @@ import externalLinks from "../components/externalLinks";
 import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
 import { PaperSection } from "../components/PaperSection";
+import ResearchBanner from "../components/ResearchBanner";
 import SectionContainer from "../components/SectionContainer";
 import jsonContent from "../content/home.json";
 
@@ -69,6 +70,7 @@ export default function Home({ content }: { content: typeof jsonContent }) {
             ))}
           </PaperSection>
         </SectionContainer>
+        <ResearchBanner />
       </main>
     </>
   );
