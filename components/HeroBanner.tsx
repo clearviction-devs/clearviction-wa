@@ -101,7 +101,11 @@ export default function HeroBanner({
               justifyContent: "center",
             }}
           >
-            {imgsrc ? <Box component={"img"} src={imgsrc} alt="" /> : children}
+            {imgsrc ? (
+              <Box component="img" src={imgsrc} alt="" sx={{ width: "100%" }} />
+            ) : (
+              children
+            )}
           </Box>
         </Box>
       </SectionContainer>

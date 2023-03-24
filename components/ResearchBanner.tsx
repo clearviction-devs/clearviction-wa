@@ -1,7 +1,5 @@
 import { Box, Button, Grid, SxProps, Typography } from "@mui/material";
-import Image from "next/image";
 
-import researchImage from "../public/illustrations/checklist1.svg";
 import SectionContainer from "./SectionContainer";
 
 const researchBannerStyles: SxProps = {
@@ -39,7 +37,12 @@ export default function ResearchBanner() {
             </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Image src={researchImage} alt="" />
+            <Box
+              component="img"
+              src="/illustrations/checklist1.svg"
+              alt=""
+              sx={{ width: "100%" }}
+            />
           </Grid>
         </Grid>
       </SectionContainer>

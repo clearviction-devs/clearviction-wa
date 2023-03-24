@@ -80,6 +80,7 @@ export default function AboutPage() {
                 sx={{
                   objectFit: "contain",
                   textAlign: "center",
+                  width: "100%",
                 }}
               />
             </Grid>
