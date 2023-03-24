@@ -21,6 +21,10 @@ const navItems: navItem[] = [
     text: "Why Vacate",
   },
   {
+    href: "about",
+    text: "About Us",
+  },
+  {
     href: "donate",
     text: "Donate",
   },
