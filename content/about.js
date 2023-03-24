@@ -20,13 +20,13 @@ const aboutContent = {
     body: "Those with a criminal record in Washington face significant barriers to daily life after completing their prison terms",
   },
   body: [
-    "[Washington State's New Hope Act]('https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017') makes it easier for people with past criminal records to have their convictions vacated. Even then, the process of vacating a conviction is very convoluted, making it difficult for most people to navigate:",
+    "[Washington State's New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017) makes it easier for people with past criminal records to have their convictions vacated. Even then, the process of vacating a conviction is very convoluted, making it difficult for most people to navigate:",
   ],
   facts: [
     {
       id: "fact0",
       icon: <HourglassEmpty sx={gridIconStyles} />,
-      text: "It has a number of steps that require time and know-how increasing the barrier of entry for applicants",
+      text: "It has a number of steps that require time and know-how, increasing the barrier of entry for applicants",
     },
     {
       id: "fact1",
