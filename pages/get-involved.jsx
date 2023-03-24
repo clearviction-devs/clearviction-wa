@@ -42,7 +42,7 @@ export default function GetInvolvedPage() {
                   sx={{
                     p: 1,
                     pb: 0,
-                    maxWidth: 300,
+                    maxWidth: 275,
                     textAlign: "center",
                     display: "flex",
                     flexDirection: "column",
