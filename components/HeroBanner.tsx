@@ -94,19 +94,26 @@ export default function HeroBanner({
               </Button>
             )}
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flex: 1,
-              justifyContent: "center",
-            }}
-          >
-            {imgsrc ? (
-              <Box component="img" src={imgsrc} alt="" sx={{ width: "100%" }} />
-            ) : (
-              children
-            )}
-          </Box>
+          {(imgsrc || children) && (
+            <Box
+              sx={{
+                display: "flex",
+                // flex: 1,
+                justifyContent: "center",
+              }}
+            >
+              {imgsrc ? (
+                <Box
+                  component="img"
+                  src={imgsrc}
+                  alt=""
+                  sx={{ width: "100%" }}
+                />
+              ) : (
+                children
+              )}
+            </Box>
+          )}
         </Box>
       </SectionContainer>
     </Box>
