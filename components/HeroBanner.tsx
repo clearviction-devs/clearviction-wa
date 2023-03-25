@@ -42,7 +42,14 @@ export default function HeroBanner({
         <Typography variant="h1" sx={{ display: "block" }}>
           {heading}
         </Typography>
-        <Box sx={{ display: "flex", gap: 4, flexWrap: "wrap", flexDirection: {sm: "column", md: "row" }  }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: 4,
+            flexWrap: "wrap",
+            flexDirection: { sm: "column", md: "row" },
+          }}
+        >
           <Box sx={{ flex: 1 }}>
             <Box sx={{ mb: 4 }}>
               <MuiMarkdown
