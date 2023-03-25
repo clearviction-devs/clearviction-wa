@@ -65,7 +65,7 @@ let theme = createTheme({
       fontSize: "84px",
       fontFamily: sintony.style.fontFamily,
       fontWeight: "normal",
-      margin: "20px auto"
+      margin: "20px auto",
     },
     h2: {
       fontFamily: sintony.style.fontFamily,
@@ -116,7 +116,7 @@ let theme = createTheme({
       fontSize: "22px",
       letterSpacing: "0.15px",
       lineHeight: "1.5",
-      marginBottom: "20px"
+      marginBottom: "20px",
     },
     subtitle2: {
       fontFamily: sintony.style.fontFamily,

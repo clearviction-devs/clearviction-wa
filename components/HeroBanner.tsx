@@ -37,15 +37,9 @@ export default function HeroBanner({
   overrideStyles,
 }: HeroBannerProps) {
   return (
-    <Box
-      sx={overrideStyles || heroStyles}
-      textAlign="left" 
-    >
+    <Box sx={overrideStyles || heroStyles} textAlign="left">
       <SectionContainer>
-        <Typography
-          variant="h1"
-          sx={{ display: "block" }}
-        >
+        <Typography variant="h1" sx={{ display: "block" }}>
           {heading}
         </Typography>
         <Box sx={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
@@ -89,7 +83,7 @@ export default function HeroBanner({
             <Box
               sx={{
                 display: "flex",
-                margin: '30px auto',
+                margin: "30px auto",
                 justifyContent: "center",
               }}
             >
