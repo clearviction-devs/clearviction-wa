@@ -65,14 +65,14 @@ let theme = createTheme({
       fontSize: "84px",
       fontFamily: sintony.style.fontFamily,
       fontWeight: "normal",
-      marginBottom: ".5em",
+      margin: "20px auto"
     },
     h2: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: "normal",
       fontSize: "56px",
       letterSpacing: "-0.5px",
-      marginBottom: ".5em",
+      marginBottom: "1.5em",
     },
     h3: {
       fontFamily: sintony.style.fontFamily,
@@ -100,7 +100,7 @@ let theme = createTheme({
       fontWeight: "bold",
       fontSize: "19px",
       letterSpacing: "0.15px",
-      marginBottom: "0.5em",
+      marginBottom: "10px",
     },
     body1: {
       fontWeight: "normal",
@@ -115,6 +115,8 @@ let theme = createTheme({
       fontWeight: "normal",
       fontSize: "22px",
       letterSpacing: "0.15px",
+      lineHeight: "1.5",
+      marginBottom: "20px"
     },
     subtitle2: {
       fontFamily: sintony.style.fontFamily,
@@ -219,9 +221,9 @@ theme.components = {
     styleOverrides: {
       root: {
         borderRadius: 50,
-        // whiteSpace: 'nowrap',
         textAlign: "center",
         minWidth: "max-content",
+        margin: "10px auto",
       },
     },
   },

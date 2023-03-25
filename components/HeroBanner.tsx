@@ -28,7 +28,7 @@ const heroStyles: SxProps = {
 
 export default function HeroBanner({
   heading,
-  smallHeading = heading,
+  // smallHeading = heading,
   subheading,
   imgsrc,
   ctaText,
@@ -39,22 +39,14 @@ export default function HeroBanner({
   return (
     <Box
       sx={overrideStyles || heroStyles}
-      textAlign={{ xs: "center", md: "left" }}
+      textAlign="left" 
     >
       <SectionContainer>
         <Typography
           variant="h1"
-          gutterBottom
-          sx={{ display: { xs: "none", sm: "block" } }}
+          sx={{ display: "block" }}
         >
           {heading}
-        </Typography>
-        <Typography
-          variant="h1"
-          gutterBottom
-          sx={{ display: { xs: "block", sm: "none" } }}
-        >
-          {smallHeading}
         </Typography>
         <Box sx={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
           <Box sx={{ flex: 1 }}>
@@ -65,7 +57,6 @@ export default function HeroBanner({
                     component: Typography,
                     props: {
                       variant: "subtitle1",
-                      gutterBottom: true,
                     } as TypographyProps,
                   },
                   span: {
@@ -83,7 +74,7 @@ export default function HeroBanner({
                 color="primary"
                 href={ctaLink}
                 sx={{
-                  px: 8,
+                  px: 4,
                   "&:hover": {
                     color: "primary.dark",
                     backgroundColor: "secondary.main",
@@ -98,7 +89,7 @@ export default function HeroBanner({
             <Box
               sx={{
                 display: "flex",
-                // flex: 1,
+                margin: '30px auto',
                 justifyContent: "center",
               }}
             >
