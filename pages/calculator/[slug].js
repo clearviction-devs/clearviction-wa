@@ -134,6 +134,29 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           </Button>
         </DialogActions>
       </Dialog>
+      <Box
+        sx={{
+          textAlign: "center",
+          mb: "30px",
+          color: "black",
+          fontWeight: 500,
+          fontSize: "16px",
+        }}
+      >
+        <Link
+          href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
+          sx={{
+            color: "text.primary",
+            textDecoration: "none",
+            "&:hover": {
+              color: "primary.main",
+              textDecoration: "underline",
+            },
+          }}
+        >
+          {calculatorConfig.errorReportingForm.linkText}{" "}
+        </Link>
+      </Box>
     </>
   );
 }
