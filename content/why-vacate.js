@@ -94,7 +94,7 @@ const whyVacateContent = {
           details: `[Washington Shelter List](https://www.shelterlist.com/state/washington) 
           \n[Catholic Community Services and Catholic Housing Services of Western Washington](https://ccsww.org/) 
           \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
-          \n[Social Serve](https://www.socialserve.com/tenant/WA/index.html?ch=KCHA)`,
+          \n[Social Serve](https://www.myhousingsearch.com/CallCenter.html)`,
         },
         {
           id: "courtform2",
