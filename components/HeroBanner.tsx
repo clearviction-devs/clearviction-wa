@@ -28,7 +28,6 @@ const heroStyles: SxProps = {
 
 export default function HeroBanner({
   heading,
-  // smallHeading = heading,
   subheading,
   imgsrc,
   ctaText,
