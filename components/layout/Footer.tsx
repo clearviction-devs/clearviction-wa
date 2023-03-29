@@ -75,7 +75,11 @@ export default function Footer() {
           </Box>
           <Grid container spacing={1} maxWidth={300}>
             {navItems
-              .filter((item) => item.text !== "Access Calculator")
+              .filter((item) => {
+                return (
+                  item.text !== "Home" && item.text !== "Access Calculator"
+                );
+              })
               .map((item) => (
                 <Grid key={item.text} item xs={6}>
                   <Link
