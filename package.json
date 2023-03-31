@@ -5,9 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "export build=true && next build",
-    "dev": "next dev",
-    "build": "export build=true && next build",
-    "testLive": "next start -p 9999",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
