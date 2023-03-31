@@ -36,12 +36,15 @@ async function readBody(readable) {
   return Buffer.concat(chunks).toString("utf8");
 }
 
+function wait30() {
+  return new Promise((res) => {
+    setTimeout(res, 30000);
+  });
+}
+
 export default async function handler(req, res) {
-  function wait30() {
-    return new Promise((res) => {
-      setTimeout(res, 30000);
-    });
-  }
+
+  console.log('update request received')
 
   try {
     const secret = process.env.NEXT_REVALIDATE || "false";
