@@ -21,7 +21,7 @@ const navItems: navItem[] = [
     text: "Why Vacate",
   },
   {
-    href: "about",
+    href: "/about",
     text: "About Us",
   },
   {

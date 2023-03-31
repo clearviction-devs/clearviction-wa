@@ -44,7 +44,6 @@ function wait30() {
 
 export default async function handler(req, res) {
   console.log("update request received");
-
   try {
     const secret = process.env.NEXT_REVALIDATE || "false";
     const signature = req?.headers?.[SIGNATURE_HEADER_NAME];

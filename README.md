@@ -115,7 +115,6 @@ Make sure you read the dev guide on how to use Sanity [here](https://github.com/
 - [Sanity](https://www.sanity.io/) - Content Management System / Content API
 
 ## Get In Contact
-
 Find more information about this project, and Open Seattle [here](https://democracylab.org/index/?section=AboutProject&id=226).
 
 ## License
