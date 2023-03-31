@@ -94,11 +94,13 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Development Process
 
-1. Create your feature branch `git checkout -b feature/your-feature-name`
-2. Commit your changes `git commit -m "commit message describing your changes"`
-3. Push your changes to your feature branch `git push origin feature/your-feature-name`
-4. Create a Pull Request in GitHub against the `staging` branch
-5. Once all changes in `staging` are verified, merge `staging` to `main` (`main` should only ever be merged to from `staging`)
+1. Create a .env file using .env.local.example as a guide.
+   - The secret token is used the the Sanity GROQ powered Webhooks to update the site when new content becomes available.
+2. Create your feature branch `git checkout -b feature/your-feature-name`
+3. Commit your changes `git commit -m "commit message describing your changes"`
+4. Push your changes to your feature branch `git push origin feature/your-feature-name`
+5. Create a Pull Request in GitHub against the `staging` branch
+6. Once all changes in `staging` are verified, merge `staging` to `main` (`main` should only ever be merged to from `staging`)
 
 ## Sanity
 
