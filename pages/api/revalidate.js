@@ -52,7 +52,6 @@ export default async function handler(req, res) {
     const updateType = jsonBody["_type"];
     const updateFunction = revalidateLookup[updateType];
     const updateURL = updateFunction(jsonBody);
-    // await wait30();
     await res.revalidate(updateURL);
     console.log(" successfully revalidated: ", updateURL);
     return res.json({ revalidated: true });
@@ -60,7 +59,7 @@ export default async function handler(req, res) {
     console.log("revalidate error", err);
     // If there was an error, Next.js will continue
     // to show the last successfully generated page
-    return res.status(500).json({msg: 'internal server error'}); //500-range will be retried using an exponential back-off pattern
+    return res.status(500).json({ msg: "internal server error" }); //500-range will be retried using an exponential back-off pattern
   }
   // }
 }
