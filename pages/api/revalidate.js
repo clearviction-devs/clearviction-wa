@@ -26,20 +26,14 @@ const revalidateLookup = {
   },
 };
 
-//find _id to determine update type
-
+//https://www.sanity.io/docs/webhooks
+//https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
 async function readBody(readable) {
   const chunks = [];
   for await (const chunk of readable) {
     chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
   }
   return Buffer.concat(chunks).toString("utf8");
-}
-
-function wait30() {
-  return new Promise((res) => {
-    setTimeout(res, 30000);
-  });
 }
 
 export default async function handler(req, res) {
@@ -50,7 +44,7 @@ export default async function handler(req, res) {
     const body = await readBody(req); // Read the body into a string
 
     if (!isValidSignature(body, signature, secret)) {
-      res.status(401).json({ success: false, message: "Invalid signature" });
+      res.status(401).json({ success: false, msg: "Invalid signature" }); //400 status codes tell saniti there is an error, and not to retry
       return;
     }
 
@@ -58,7 +52,7 @@ export default async function handler(req, res) {
     const updateType = jsonBody["_type"];
     const updateFunction = revalidateLookup[updateType];
     const updateURL = updateFunction(jsonBody);
-    await wait30();
+    // await wait30();
     await res.revalidate(updateURL);
     console.log(" successfully revalidated: ", updateURL);
     return res.json({ revalidated: true });
@@ -66,7 +60,7 @@ export default async function handler(req, res) {
     console.log("revalidate error", err);
     // If there was an error, Next.js will continue
     // to show the last successfully generated page
-    return res.status(500).send(`Error revalidating ${req.query.path}`);
+    return res.status(500).json({msg: 'internal server error'}); //500-range will be retried using an exponential back-off pattern
   }
   // }
 }
