@@ -41,6 +41,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           alignItems: "center",
           justifyContent: "center",
         }}
+        id="calculator-container-outer"
       >
         <Button
           type="button"
@@ -96,7 +97,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 sx={{ width: "100%" }}
                 onClick={() => setOpen(true)}
               >
-                {calculatorConfig.unknownAnswer.promptText}
+                {calculatorConfig.notSureAnswer.promptText}
               </Button>
             )}
             {page.isFinalPage && (
@@ -149,17 +150,17 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {calculatorConfig.unknownAnswer.header}
+          {calculatorConfig.notSureAnswer.header}
         </DialogTitle>
         <DialogContent>
           <PortableText
-            value={calculatorConfig.unknownAnswer.content}
+            value={calculatorConfig.notSureAnswer.content}
             components={portableTextComponents}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpen(false)}>
-            {calculatorConfig.unknownAnswer.closeText}
+            {calculatorConfig.notSureAnswer.closeText}
           </Button>
         </DialogActions>
       </Dialog>
