@@ -83,6 +83,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                     variant="contained"
                     color="primary"
                     href={href}
+                    sx={{ width: "100%" }}
                   >
                     {choice.label}
                   </Button>
@@ -92,6 +93,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               <Button
                 variant="outlined"
                 color="primary"
+                sx={{ width: "100%" }}
                 onClick={() => setOpen(true)}
               >
                 {calculatorConfig.unknownAnswer.promptText}

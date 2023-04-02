@@ -46,7 +46,7 @@ const whyVacateContent = {
           id: "1",
           summary: "Job Boards",
           details: `[Careeronestop](https://www.careeronestop.org/) 
-                    \n[WorkforceWA](https://www.worksourcewa.com/) 
+                    \n[WorkSourceWA](https://www.worksourcewa.com/) 
                     \n[Goodwill](https://www.goodwill.org/jobs-training/find-a-job/) 
                     \n[People for People](https://mypfp.org/about-us/careers/)`,
         },
