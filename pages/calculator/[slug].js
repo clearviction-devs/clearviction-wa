@@ -38,6 +38,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           alignItems: "center",
           justifyContent: "center",
         }}
+        id="calculator-container-outer"
       >
         <Box mb={4}>
           <PortableText
