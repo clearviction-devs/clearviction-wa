@@ -9,9 +9,11 @@ import {
   DialogTitle,
   Link,
   Stack,
+  SvgIcon,
   Typography,
 } from "@mui/material";
 import { PortableText } from "@portabletext/react";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import {
   getCalculatorConfig,
@@ -24,6 +26,7 @@ import portableTextComponents from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   externalLinks();
 
@@ -39,6 +42,27 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           justifyContent: "center",
         }}
       >
+        <Button
+          type="button"
+          onClick={() => router.back()}
+          sx={{ marginLeft: 0, fontWeight: "lighter", fontSize: "14px" }}
+        >
+          <SvgIcon
+            sx={{ marginRight: "10px" }}
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="20"
+            viewBox="0 0 12 20"
+            fill="none"
+          >
+            <path
+              d="M11.8341 1.8701L10.0541 0.100098L0.164062 10.0001L10.0641 19.9001L11.8341 18.1301L3.70406 10.0001L11.8341 1.8701Z"
+              fill="#4e6c99"
+            />
+          </SvgIcon>
+          {/* remove previous once progress bar is in */}
+          Previous
+        </Button>
         <Box mb={4}>
           <PortableText
             value={page.content}
