@@ -41,7 +41,7 @@ This repo is for our informational website, which will eventually be home to the
 To get our static website up and running on your machine, you can follow the commands below:
 
 ```bash
-git clone https://github.com/openseattle/clearviction-next.git
+git clone https://github.com/clearviction-devs/clearviction-wa.git
 ```
 
 ### Installation
@@ -104,9 +104,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Sanity
 
-We are using [Sanity](https://www.sanity.io/) as our CMS. You can find the Sanity repository [here](https://github.com/openseattle/clearviction-sanity).
+We are using [Sanity](https://www.sanity.io/) as our CMS. You can find the Sanity repository [here](https://github.com/clearviction-devs/clearviction-sanity).
 
-Make sure you read the dev guide on how to use Sanity [here](https://github.com/openseattle/clearviction-sanity#readme). Changes involving calculator pages, and possibly other content may need to be made in the Sanity repository as well as [Sanity Studio](https://clearviction.sanity.studio/desk).
+Make sure you read the dev guide on how to use Sanity [here](https://github.com/clearviction-devs/clearviction-sanity#readme). Changes involving calculator pages, and possibly other content may need to be made in the Sanity repository as well as [Sanity Studio](https://clearviction.sanity.studio/desk).
 
 ## Tools / Services
 
