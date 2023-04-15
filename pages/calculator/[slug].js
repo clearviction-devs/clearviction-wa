@@ -21,7 +21,7 @@ import {
   getCalculatorPagePaths,
 } from "utils/sanity.client";
 
-import CalcStepper from '../../components/CalcStepper';
+import CalcStepper from "../../components/CalcStepper";
 import externalLinks from "../../components/externalLinks";
 import portableTextComponents from "../../utils/portableTextComponents";
 
@@ -46,9 +46,14 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
       >
         <Button
           type="button"
-          id='back-button'
+          id="back-button"
           onClick={() => router.back()}
-          sx={{ marginLeft: 0, fontWeight: "normal", fontSize: "14px", color: 'primary' }}
+          sx={{
+            marginLeft: 0,
+            fontWeight: "normal",
+            fontSize: "14px",
+            color: "primary",
+          }}
         >
           <SvgIcon
             sx={{ marginRight: "10px" }}
