@@ -15,15 +15,15 @@ const steps = ["your offense", "surrounding circumstances", "terms of offense"];
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
 
-    const log = console.log;
+  const log = console.log;
 
-  const handleNext = () => { 
-    console.log(activeStep)
+  const handleNext = () => {
+    console.log(activeStep);
     const { pathname } = window.location;
     let prevURL;
-    console.log(prevURL)
-    
-    const routes = ['offense-main-1-cont', 'circ-main', 'terms-main'];
+    console.log(prevURL);
+
+    const routes = ["offense-main-1-cont", "circ-main", "terms-main"];
     // if (prevURL !== pathname) {
     //     log('not the same')
     //     routes.forEach(item => {
@@ -31,10 +31,10 @@ export default function HorizontalLinearStepper() {
     //     //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
     //     })
     // }
-   prevURL = pathname;
-log(prevURL)
+    prevURL = pathname;
+    log(prevURL);
     // let step = sessionStorage.getItem('step') ? sessionStorage.getItem('step') : 'one'
-    
+
     // if (pathname === "/calculator/offense-main-1-cont") {
     //   console.log("step one");
     // //   sessionStorage.setItem('step', 'one')
@@ -64,7 +64,6 @@ log(prevURL)
     // }
     // console.log(step)
     // change active class on stepper
-
   };
 
   // TODO connect to previous btn
@@ -77,16 +76,16 @@ log(prevURL)
     setActiveStep(0);
   };
 
-useEffect(() => {
-    log('useEffect')
-       handleNext();
+  useEffect(() => {
+    log("useEffect");
+    handleNext();
     // Router.events.on('beforeHistoryChange', (url) => {
     //   console.log('routeComplete', url);
     // });
-});
+  });
 
   return (
-    <Box id='calc-stepper' sx={{ width: "100%" }}>
+    <Box id="calc-stepper" sx={{ width: "100%" }}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
@@ -104,10 +103,7 @@ useEffect(() => {
   );
 }
 
-
 // TODO will have issue on refresh, add mutation observer? useEffect/useState?
-
-
 
 // routeChangeStart: fires when a route starts to change
 // routeChangeComplete: fires when a route change is completed
