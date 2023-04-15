@@ -21,6 +21,7 @@ import {
   getCalculatorPagePaths,
 } from "utils/sanity.client";
 
+import CalcStepper from '../../components/CalcStepper';
 import externalLinks from "../../components/externalLinks";
 import portableTextComponents from "../../utils/portableTextComponents";
 
@@ -45,8 +46,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
       >
         <Button
           type="button"
+          id='back-button'
           onClick={() => router.back()}
-          sx={{ marginLeft: 0, fontWeight: "lighter", fontSize: "14px" }}
+          sx={{ marginLeft: 0, fontWeight: "normal", fontSize: "14px", color: 'primary' }}
         >
           <SvgIcon
             sx={{ marginRight: "10px" }}
@@ -61,9 +63,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               fill="#4e6c99"
             />
           </SvgIcon>
-          {/* remove previous once progress bar is in */}
-          Previous
+          previous
         </Button>
+        <CalcStepper />
         <Box mb={4}>
           <PortableText
             value={page.content}
