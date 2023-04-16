@@ -44,6 +44,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         }}
         id="calculator-container-outer"
       >
+        <CalcStepper />
         <Button
           type="button"
           id="back-button"
@@ -70,7 +71,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           </SvgIcon>
           previous
         </Button>
-        <CalcStepper />
         <Box mb={4}>
           <PortableText
             value={page.content}
