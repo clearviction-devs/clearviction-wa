@@ -33,17 +33,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
   return (
     <>
-      <Container
-        maxWidth="md"
-        sx={{
-          minHeight: "700px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        id="calculator-container-outer"
-      >
+      <Container id="stepper-container" sx={{ marginTop: "2rem" }}>
         <CalcStepper />
         <Button
           type="button"
@@ -71,6 +61,17 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           </SvgIcon>
           previous
         </Button>
+      </Container>
+      <Container
+        maxWidth="md"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        id="calculator-container-outer"
+      >
         <Box mb={4}>
           <PortableText
             value={page.content}
