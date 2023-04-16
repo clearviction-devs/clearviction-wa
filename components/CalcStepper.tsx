@@ -10,7 +10,11 @@ import { useEffect, useState } from "react";
 
 // ? do we want the stepper to start on offense-main-1-cont
 
-const steps = ["your offense", "surrounding circumstances", "terms of offense"];
+const steps = [
+  "your offense",
+  "surrounding circumstances",
+  "terms of offense",
+].map((step) => step.toUpperCase());
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
