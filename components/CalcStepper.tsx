@@ -32,12 +32,11 @@ export default function HorizontalLinearStepper() {
       offense: 0,
       circ: 1,
       terms: 2,
-    }
+    };
 
-    Object.keys(routes).forEach(key => {
-      if (pathname.includes(key)) setActiveStep(routes[key])
-    })
-
+    Object.keys(routes).forEach((key) => {
+      if (pathname.includes(key)) setActiveStep(routes[key]);
+    });
   };
 
   useEffect(() => {
