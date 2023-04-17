@@ -16,76 +16,32 @@ const steps = [
   "terms of offense",
 ].map((step) => step.toUpperCase());
 
+const log = console.log;
+
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
 
-  const log = console.log;
-
   const handleNext = () => {
-    console.log(activeStep);
     const { pathname } = window.location;
-    let prevURL;
-    console.log(prevURL);
 
-    const routes = ["offense-main-1-cont", "circ-main", "terms-main"];
-    // if (prevURL !== pathname) {
-    //     log('not the same')
-    //     routes.forEach(item => {
-    //       if (pathname.includes(item)) log('next');
-    //     //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    //     })
-    // }
-    prevURL = pathname;
-    log(prevURL);
-    // let step = sessionStorage.getItem('step') ? sessionStorage.getItem('step') : 'one'
+    type Items = {
+      [key: string]: number;
+    };
 
-    // if (pathname === "/calculator/offense-main-1-cont") {
-    //   console.log("step one");
-    // //   sessionStorage.setItem('step', 'one')
-    //   // step = 2;
-    //   // stepperEl!.textContent= 'step two'
-    //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    // }
-    // if (pathname === "/calculator/circ-main-1-cont") {
-    //     console.log("step two");
-    //     // sessionStorage.setItem('step', 'two')
-    //   //   step = 3;
-    //   //  stepperEl!.textContent= 'step three'
-    //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    // }
-    // if (pathname === "/calculator/c-main-1-cont") {
-    //     console.log("step three");
-    //     // sessionStorage.setItem('step', 'three')
-    //   //   step = 3;
-    //   //  stepperEl!.textContent= 'step three'
-    //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    // }
+    const routes: Items = {
+      offense: 0,
+      circ: 1,
+      terms: 2,
+    }
 
-    // if (/eligible/.test(pathname)) {
-    //   // hide stepper
-    //   console.log("eligible");
-    //   sessionStorage.removeItem('step');
-    // }
-    // console.log(step)
-    // change active class on stepper
-  };
+    Object.keys(routes).forEach(key => {
+      if (pathname.includes(key)) setActiveStep(routes[key])
+    })
 
-  // TODO connect to previous btn
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  // TODO might need to connect this to restart button
-  const handleReset = () => {
-    setActiveStep(0);
   };
 
   useEffect(() => {
-    log("useEffect");
     handleNext();
-    // Router.events.on('beforeHistoryChange', (url) => {
-    //   console.log('routeComplete', url);
-    // });
   });
 
   return (
@@ -106,13 +62,3 @@ export default function HorizontalLinearStepper() {
     </Box>
   );
 }
-
-// TODO will have issue on refresh, add mutation observer? useEffect/useState?
-
-// routeChangeStart: fires when a route starts to change
-// routeChangeComplete: fires when a route change is completed
-// routeChangeError: fires when an error occurs while changing routes, or when a route load is canceled
-// beforeHistoryChange: fires before changing the Router’s route history
-
-// reference
-// https://mui.com/material-ui/react-stepper/#linear
