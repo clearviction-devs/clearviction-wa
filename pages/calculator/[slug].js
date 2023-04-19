@@ -34,7 +34,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   return (
     <>
       <Container id="stepper-container" sx={{ marginTop: "2rem" }}>
-        <CalcStepper />
+        {!page.isFinalPage && <CalcStepper />}
         <Button
           type="button"
           id="back-button"
