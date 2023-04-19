@@ -29,12 +29,19 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
+  const isPageIncludedInStepper = (page) => {
+    const excludedPageSlug = "head";
+    const isPartOfHead = page.slug.includes(excludedPageSlug); // exclude
+    const isFinalPage = page.isFinalPage; // exclude
+    return !(isFinalPage || isPartOfHead);
+  };
+
   externalLinks();
 
   return (
     <>
       <Container id="stepper-container" sx={{ marginTop: "2rem" }}>
-        {!page.isFinalPage && <CalcStepper />}
+        {isPageIncludedInStepper(page) && <CalcStepper />}
         <Button
           type="button"
           id="back-button"
