@@ -1,22 +1,15 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
-import Typography from "@mui/material/Typography";
-import Router from "next/router";
 import * as React from "react";
-import { useEffect, useState } from "react";
-
-// ? do we want the stepper to start on offense-main-1-cont
+import { useEffect } from "react";
 
 const steps = [
   "your offense",
   "surrounding circumstances",
   "terms of offense",
 ].map((step) => step.toUpperCase());
-
-const log = console.log;
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
