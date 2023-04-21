@@ -45,7 +45,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   return (
     <>
       <Container id="stepper-container" sx={{ marginTop: "2rem" }}>
-        {isPageIncludedInStepper(page) && <CalcStepper />}
         {!isFirstPage(page) && (
           <Button
             type="button"
@@ -74,6 +73,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             previous
           </Button>
         )}
+        {isPageIncludedInStepper(page) && <CalcStepper />}
       </Container>
       <Container
         maxWidth="md"
