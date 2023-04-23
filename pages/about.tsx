@@ -43,6 +43,7 @@ export default function AboutPage() {
         <Typography variant="h3">{aboutContent.ourStory.body}</Typography>
 
         <Box>
+          {/* test comment */}
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
             <Grid container spacing={4}>
               <Typography variant="subtitle1">
