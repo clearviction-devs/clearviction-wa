@@ -18,6 +18,7 @@ export default function AboutPage() {
 
   return (
     <>
+      {/* test */}
       <HeroBanner
         heading={aboutContent.hero.header}
         subheading={aboutContent.hero.body}
