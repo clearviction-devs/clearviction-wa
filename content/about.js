@@ -42,7 +42,7 @@ const aboutContent = {
   ourMission: {
     header:
       "Our mission is to benefit individuals with criminal convictions in Washington and decrease life-long collateral consequences.",
-    body: "To support this mission, we first focused on creating a [Conviction Eligibility Calculator](https://www.clearviction.org/calculator/) to help people determine if they are eligible to vacate their conviction.",
+    body: "To support this mission, we first focused on creating a [Conviction Eligibility Calculator](https://www.clearviction.org/calculator/head-initial-1-cont) to help people determine if they are eligible to vacate their conviction.",
     imgsrc: "/illustrations/checklist1.svg",
   },
   ourTeam: {
