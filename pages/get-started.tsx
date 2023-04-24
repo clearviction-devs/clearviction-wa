@@ -23,7 +23,7 @@ export default function GetStartedPage() {
         heading="Get Started"
         subheading="Vacate your conviction in the state of Washington by following these 4 steps!"
         imgsrc="/illustrations/chart.svg"
-        ctaLink="#read-more"
+        ctaLink="#step-1"
         ctaText="Read More"
       />
       <SectionContainer>
