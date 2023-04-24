@@ -53,7 +53,7 @@ const whyVacateContent = {
         {
           id: "2",
           summary: "Professional Training",
-          details: `[People for People](https://mypfp.org/about-us/careers/) 
+          details: `[People for People](https://mypfp.org/services/employment-training/) 
                     \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills) 
                     \n[Evergreen Goodwill](https://evergreengoodwill.org/job-training-and-education)`,
         },
