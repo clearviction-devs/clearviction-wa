@@ -20,7 +20,7 @@ export const calculatorPagesBySlugQuery = groq`
 
 export const calculatorConfigQuery = groq`
   *[_type == "calculatorConfig"][0] {
-    unknownAnswer,
+    notSureAnswer,
     feedback,
     errorReportingForm,
     checkAnotherConviction{..., "linkTo": reference->{slug}},
