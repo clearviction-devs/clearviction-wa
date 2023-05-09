@@ -23,6 +23,7 @@ import {
 
 import externalLinks from "../../components/externalLinks";
 import portableTextComponents from "../../utils/portableTextComponents";
+import MailchimpForm from "../../components/MailchimpForm"
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
@@ -141,6 +142,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               {calculatorConfig.legalDisclaimer}
             </Typography>
           </Box>
+        )}
+        {page.isEligible &&(
+          <MailchimpForm/>
         )}
       </Container>
       <Dialog
