@@ -22,8 +22,8 @@ import {
 } from "utils/sanity.client";
 
 import externalLinks from "../../components/externalLinks";
+import MailchimpForm from "../../components/MailchimpForm";
 import portableTextComponents from "../../utils/portableTextComponents";
-import MailchimpForm from "../../components/MailchimpForm"
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
@@ -143,9 +143,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             </Typography>
           </Box>
         )}
-        {page.isEligible &&(
-          <MailchimpForm/>
-        )}
+        {page.isEligible && <MailchimpForm />}
       </Container>
       <Dialog
         open={open}
