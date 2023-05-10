@@ -62,14 +62,7 @@ export default function WhyVacatePage() {
                 <Typography variant={"h3"}>Resources</Typography>
                 <Grid container spacing={2}>
                   {card.accordianItems.map((accordianItem: any) => (
-                    <Grid
-                      key={accordianItem.id}
-                      spacing={2}
-                      item
-                      xs={12}
-                      sm={6}
-                      md={4}
-                    >
+                    <Grid key={accordianItem.id} item xs={12} sm={6} md={4}>
                       <AccordionBuilder
                         id={accordianItem.id}
                         summary={accordianItem.summary}

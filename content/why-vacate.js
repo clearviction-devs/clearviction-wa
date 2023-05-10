@@ -1,7 +1,7 @@
 const whyVacateContent = {
   heroBanner: {
     heading: "Why Vacate",
-    subheading: `The process of vacating a conviction in Washington is convoluted, but it’s needed to avoid barriers in employment, housing and education. \n\nFind out why it’s important to vacate your conviction and get resources to help you while you work your way to it.`,
+    subheading: `Vacating a conviction in Washington is complicated and intimidating but doing so opens opportunities in employment, housing, and education. \n\nExplore the benefits of vacating your conviction and get resources to help you along the way.`,
     imgsrc: "/illustrations/team-building.svg",
   },
   buttons: [
@@ -23,7 +23,7 @@ const whyVacateContent = {
       title: "Employment",
       sectionId: "employment",
       subtitle:
-        "Simply having a conviction does not prevent you from having a job, however, it can be more difficult depending on the type of job and the employer. It is important to not lose hope while facing challenges such as:",
+        "A conviction does not prevent you from having a job, but roadblocks can pop up depending on the job or the employer. It is important to not lose hope while facing challenges such as: ",
       cardItems: [
         {
           title: "Long periods of unemployment",
@@ -63,7 +63,7 @@ const whyVacateContent = {
       title: "Housing",
       sectionId: "housing",
       subtitle:
-        "There are many different barriers that can prevent people with convictions from fair access to housing. Each different type of housing comes with its own set of obstacles that you should take into consideration when looking for housing:",
+        "A background check is an obstacle for people with a conviction and it can prevent access to certain opportunities. Here are the main challenges background checks present to those seeking an education:",
       cardItems: [
         {
           title: "Public Housing Authorities",
