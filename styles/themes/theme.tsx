@@ -1,7 +1,7 @@
 import { grey } from "@mui/material/colors";
 import { LinkProps } from "@mui/material/Link";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import { Inter, Sintony } from "@next/font/google";
+import { Inter, Sintony } from "next/font/google";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import { forwardRef } from "react";
 

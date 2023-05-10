@@ -24,7 +24,6 @@
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
     "@mui/x-date-pickers": "^5.0.12",
-    "@next/font": "^13.0.6",
     "@portabletext/react": "^2.0.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/webhook": "^2.0.0",
