@@ -134,7 +134,7 @@ const whyVacateContent = {
           id: "courtform2",
           summary: "Post-incarceration educational programs",
           details: `[Freedom Education Project](http://www.fepps.org/) 
-          \n[People for People](https://ccsww.org/) 
+          \n[People for People](https://mypfp.org) 
           \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
           \n[Post-Prison Education Program](http://postprisonedu.org/)
           \n[The STAR Project](http://thestarproject.us/)`,
