@@ -21,6 +21,7 @@ import {
   getCalculatorPagePaths,
 } from "utils/sanity.client";
 
+import CalcStepper from "../../components/CalcStepper";
 import externalLinks from "../../components/externalLinks";
 import portableTextComponents from "../../utils/portableTextComponents";
 
@@ -28,14 +29,55 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
+  const isPageIncludedInStepper = (page) => {
+    const excludedPageSlug = "head";
+    const isPartOfHead = page.slug.includes(excludedPageSlug); // exclude
+    const isFinalPage = page.isFinalPage; // exclude
+    return !(isFinalPage || isPartOfHead);
+  };
+
+  const isFirstPage = (page) => {
+    return page.slug === "head-initial-1-cont";
+  };
+
   externalLinks();
 
   return (
     <>
+      <Container id="stepper-container" sx={{ marginTop: "2rem" }}>
+        {!isFirstPage(page) && (
+          <Button
+            type="button"
+            id="back-button"
+            onClick={() => router.back()}
+            sx={{
+              marginLeft: 0,
+              fontWeight: "normal",
+              fontSize: "14px",
+              color: "primary",
+            }}
+          >
+            <SvgIcon
+              sx={{ marginRight: "10px" }}
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="20"
+              viewBox="0 0 12 20"
+              fill="none"
+            >
+              <path
+                d="M11.8341 1.8701L10.0541 0.100098L0.164062 10.0001L10.0641 19.9001L11.8341 18.1301L3.70406 10.0001L11.8341 1.8701Z"
+                fill="#4e6c99"
+              />
+            </SvgIcon>
+            previous
+          </Button>
+        )}
+        {isPageIncludedInStepper(page) && <CalcStepper />}
+      </Container>
       <Container
         maxWidth="md"
         sx={{
-          minHeight: "700px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -43,27 +85,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         }}
         id="calculator-container-outer"
       >
-        <Button
-          type="button"
-          onClick={() => router.back()}
-          sx={{ marginLeft: 0, fontWeight: "lighter", fontSize: "14px" }}
-        >
-          <SvgIcon
-            sx={{ marginRight: "10px" }}
-            xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="20"
-            viewBox="0 0 12 20"
-            fill="none"
-          >
-            <path
-              d="M11.8341 1.8701L10.0541 0.100098L0.164062 10.0001L10.0641 19.9001L11.8341 18.1301L3.70406 10.0001L11.8341 1.8701Z"
-              fill="#4e6c99"
-            />
-          </SvgIcon>
-          {/* remove previous once progress bar is in */}
-          Previous
-        </Button>
         <Box mb={4}>
           <PortableText
             value={page.content}
