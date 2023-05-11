@@ -41,7 +41,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   };
 
   externalLinks();
-  console.log(calculatorConfig);
 
   return (
     <>
