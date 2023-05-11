@@ -1,6 +1,6 @@
 import { Link } from "@mui/material";
 
-export default {
+export const portableTextComponent = {
   marks: {
     link: ({ children, value }) => {
       return <Link href={value.href}>{children}</Link>;
