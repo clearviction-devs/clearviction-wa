@@ -17,26 +17,17 @@
 
 ## About The Project
 
-One in four Washingtonians have been involved in the criminal justice system. Those with a criminal record face
-significant barriers to daily life after completing their prison terms, making it harder to find housing and
-employment, to gain professional credentials, and to be involved in the life of their community.
-
-[Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017) makes it easier for people with past criminal records to have their convictions
-vacated. Yet the system is slow and inefficient. We have identified opportunities to use technology to streamline
-this process, and want to explore which of these technological possibilities would make the most sense to prototype,
-given user needs and volunteer resources.
-
 We are a civic-tech open source project and part of the [Democracy Lab](https://www.democracylab.org/projects/226) organization, which is a project within the [Open Seattle](https://openseattle.org/projects/) organization.
+
+One in four Washingtonians have been involved in the criminal justice system. Those with a criminal record in Washington face significant barriers to daily life after completing their prison terms, making it harder to find housing and employment, to gain professional credentials, and to be involved in the life of their community. [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017) makes it easier for people with past criminal records to have their convictions vacated. Even then, the process of vacating a conviction is very convoluted, making it difficult for most people to navigate.
 
 ## Our Mission
 
-To benefit individuals with criminal convictions and decrease lifelong “collateral consequences.” We have identified the first product we hope to ship to the KCBA to help automate the process for record clearance (a pain point and manual process for lawyers): a conviction eligibility calculator.
+Our mission is to benefit individuals with criminal convictions in Washington and decrease life-long collateral consequences. To support this mission, we first focused on creating a Conviction Eligibility Calculator to help people determine if they are eligible to vacate their conviction.
 
 We look forward to collaborating with you.
 
 ## Development Setup
-
-This repo is for our informational website, which will eventually be home to the eligibility calculator mentioned above.
 
 To get our static website up and running on your machine, you can follow the commands below:
 
@@ -70,31 +61,15 @@ In the project directory, you can run:
 
 ### Other Commands
 
-<!-- ```bash
-npm test
-```
+  ```bash
+   npm run build
+  ```
 
-Launches the test runner in the interactive watch mode.
-
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information. -->
-
-```bash
-npm run build
-```
-
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The underlying command, `next build` generates an optimized version of your application for production. The output is generated inside the `.next` folder.
 
 ## Development Process
 
-1. Create a .env file using .env.local.example as a guide.
+1. Create a `.env` file using `.env.local.example` as a guide.
    - The secret token is used the the Sanity GROQ powered Webhooks to update the site when new content becomes available.
 2. Create your feature branch `git checkout -b feature/your-feature-name`
 3. Commit your changes `git commit -m "commit message describing your changes"`
