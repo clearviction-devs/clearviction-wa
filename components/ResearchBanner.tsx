@@ -9,7 +9,7 @@ const researchBannerStyles: SxProps = {
 };
 
 const researchGoogleFormLink: string =
-  "https://docs.google.com/forms/d/1KXmPrwzHeE8_EEL88RFkjOFP4S1A52Ode1vV6SJijao/viewform?edit_requested=true";
+  'https://airtable.com/shrVse6WfDrWfLOhO';
 
 export default function ResearchBanner() {
   return (
