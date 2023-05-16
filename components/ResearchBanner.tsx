@@ -8,8 +8,7 @@ const researchBannerStyles: SxProps = {
   py: 4,
 };
 
-const researchGoogleFormLink: string =
-  'https://airtable.com/shrVse6WfDrWfLOhO';
+const researchGoogleFormLink: string = "https://airtable.com/shrVse6WfDrWfLOhO";
 
 export default function ResearchBanner() {
   return (
