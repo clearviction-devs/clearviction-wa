@@ -8,7 +8,7 @@ const researchBannerStyles: SxProps = {
   py: 4,
 };
 
-const researchGoogleFormLink: string = "https://airtable.com/shrVse6WfDrWfLOhO";
+const researchFormLink: string = "https://airtable.com/shrVse6WfDrWfLOhO";
 
 export default function ResearchBanner() {
   return (
@@ -22,7 +22,7 @@ export default function ResearchBanner() {
             <Button
               fullWidth
               variant="contained"
-              href={researchGoogleFormLink}
+              href={researchFormLink}
               sx={(theme) => ({
                 backgroundColor: theme.palette.primary.contrastText,
                 color: "black",
