@@ -22,7 +22,7 @@
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.16",
-    "@mui/material": "^5.10.17",
+    "@mui/material": "^5.13.1",
     "@mui/x-date-pickers": "^5.0.12",
     "@portabletext/react": "^2.0.1",
     "@sanity/image-url": "^1.0.2",
