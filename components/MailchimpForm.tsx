@@ -148,6 +148,9 @@ const Mailchimp = () => {
                       borderRadius: "0.325rem",
                       width: "2.5rem",
                       height: "2.5rem",
+                      "&:hover": {
+                        backgroundColor: theme.palette.primary.dark,
+                      },
                     })}
                   >
                     Subscribe
