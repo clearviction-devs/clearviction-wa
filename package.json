@@ -23,7 +23,7 @@
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.16",
-    "@mui/material": "^5.10.17",
+    "@mui/material": "^5.13.1",
     "@mui/x-date-pickers": "^5.0.12",
     "@next/font": "^13.0.6",
     "@portabletext/react": "^2.0.1",
@@ -38,6 +38,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.1",
     "react-hook-form-mui": "^5.12.0",
+    "react-share": "^4.4.1",
     "sharp": "^0.31.3"
   },
   "devDependencies": {

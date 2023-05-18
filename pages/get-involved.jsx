@@ -15,6 +15,7 @@ import HeroBanner from "../components/HeroBanner";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
 import content from "../content/get-involved";
+import ShareButtons from "../components/ShareButtons"
 
 export default function GetInvolvedPage() {
   return (
@@ -161,8 +162,9 @@ function Partner() {
                 {content.partnerPage.text[1]}
               </Typography>
               <Typography sx={{ my: 3 }} variant="body1">
-                {content.partnerPage.text[2]}
+                {content.partnerPage.text[2] }
               </Typography>
+              <ShareButtons/>
             </Grid>
           </Grid>
         </PaperSection>
