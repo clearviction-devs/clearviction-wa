@@ -1,67 +1,60 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  FormHelperText,
-  Link,
-  TextField,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import React, { ChangeEvent, useState } from "react";
+import React, { useState, ChangeEvent } from "react";
+import { Box, Typography, TextField, Link, Button, Avatar } from "@mui/material"
 
-import { mailchimpStyles } from "../styles/mailchimpStyles";
-
-const Mailchimp: React.FC = () => {
+const Mailchimp = () => {
   const [email, setEmail] = useState<string>("");
-  const [botInputValue, setBotValue] = useState<string>("");
-  const theme = useTheme();
+  const [botInputValue, setBotValue] =useState<string>("");
 
   return (
-    <Box id="mc_embed_signup" sx={mailchimpStyles.mcEmbedSignup}>
-      <Box className="formContent" sx={mailchimpStyles.formContent}>
-        <Box id="important" sx={mailchimpStyles.important}>
-          <Typography variant="h5" sx={mailchimpStyles.importantH5}>
-            Sign up for our quarterly newsletter!
-          </Typography>
-          <Typography id="p" sx={mailchimpStyles.importantP}>
-            Receive important legal news, ways to get involved, interviews with
-            team members, and more.
-          </Typography>
-        </Box>
-        <Box
-          component="form"
-          action="https://clearviction.us14.list-manage.com/subscribe/post?u=3649bfb6bbcebf017b8ea851a&amp;id=77eea4b433&amp;f_id=00da8be0f0"
-          method="post"
-          id="mc-embedded-subscribe-form"
-          name="mc-embedded-subscribe-form"
-          className="validate"
-          target="_blank"
-          noValidate
-          sx={mailchimpStyles.componentForm}
-        >
-          <Box
-            id="mc_embed_signup_scroll"
-            sx={mailchimpStyles.mc_embed_signup_scroll}
-          >
-            <Box className="indicates-required" sx={{ marginLeft: "auto" }}>
-              <Typography
-                className="asterik"
-                component="span"
-                sx={mailchimpStyles.indicatesRequired}
-              >
-                <span style={mailchimpStyles.asterik}>*</span> indicates
-                required
-              </Typography>
-            </Box>
-            <Box className="mc-field-group">
-              <Typography
-                className="label-left"
-                component="label"
-                htmlFor="mce-EMAIL"
-                sx={mailchimpStyles.mcFieldGroup}
-              >
-                Email Address <span style={mailchimpStyles.asterik}>*</span>
+    <Box id="mc_embed_signup" 
+       sx={(theme) => ({ 
+        display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+      background: theme.palette.primary.dark,
+       padding: { xs: '2rem 1.5rem', sm: '2.5rem 1.5rem' },
+       minWidth:'100%',
+      fontFamily:theme.typography.fontFamily,
+       marginY:'4.5rem',
+       alignSelf: "center",
+    })}
+      >
+    <Box className="formContent"sx={{display: 'flex',flexDirection:"column", justifyContent: 'center', alignItems: 'center',padding: '1rem',}}>
+      <Box id="important"        
+      sx={{gap: { xs: '0.5rem', sm: '0.75rem' },marginBottom: {xs:'2rem',sm:'4rem'},}}>
+        <Typography variant="h5"  sx={(theme) => ({  ...theme.typography.h5,
+        color: 'white', textAlign:{sm:'center'},
+              order:1,})}>Sign up for our quarterly newsletter!</Typography>
+        <Typography id="p"   sx={(theme) => ({ ...theme.typography.h6,
+              color:theme.palette.primary.light,textAlign: { xs: "left", sm: "center" },
+              margin: 0,order:2})}>
+          Receive important legal news, ways to get involved, interviews with
+          team members, and more.
+        </Typography>
+      </Box>
+      <Box
+  component="form"
+  action="https://clearviction.us14.list-manage.com/subscribe/post?u=3649bfb6bbcebf017b8ea851a&amp;id=77eea4b433&amp;f_id=00da8be0f0"
+  method="post"
+  id="mc-embedded-subscribe-form"
+  name="mc-embedded-subscribe-form"
+  className="validate"
+  target="_blank"
+  noValidate
+  sx={{background: 'white',
+  minHeight: '10rem',maxWidth:'29.6875rem',
+  }}>
+<Box id="mc_embed_signup_scroll"  
+ sx={{   display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: '0.625rem', paddingRight: '0.625rem',}}>
+<Box className="indicates-required" sx={{marginLeft:'auto'}}>
+  <Typography className="asterik" component="span" sx={(theme)=>({...theme.typography.caption, color: "#000", marginRight: "0.625rem" })}>
+    <span style={{color:'red'}}>*</span> indicates required
+  </Typography>
+</Box>
+<Box className="mc-field-group">
+              <Typography component="label" htmlFor="mce-EMAIL" sx={(theme) => ({...theme.typography.caption, float: 'left',  marginRight: '0.625rem', padding: 0 })}>
+                Email Address <span style={{ color: 'red' }}>*</span>
               </Typography>
               <TextField
                 type="email"
@@ -70,88 +63,79 @@ const Mailchimp: React.FC = () => {
                 required
                 fullWidth
                 id="mce-EMAIL"
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setEmail(e.target.value)
-                }
-                sx={mailchimpStyles.emailTextField}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
               />
-              <FormHelperText id="mce-EMAIL-HELPERTEXT"></FormHelperText>
             </Box>
-            <Box className="optionalParent" sx={mailchimpStyles.optionalParent}>
-              <Box
-                className="clear foot"
-                sx={mailchimpStyles.centerOrderElement}
-              >
-                <Button
-                  type="submit"
-                  value="Subscribe"
-                  name="subscribe"
-                  id="mc-embedded-subscribe"
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "#2F3554",
-                    },
-                    ...mailchimpStyles.mcEmbeddedSubscribe,
-                  }}
-                >
-                  Subscribe
-                </Button>
-              </Box>
-              <Box
-                className="brandingLogo"
-                sx={mailchimpStyles.centerOrderElement}
-              >
-                <Link
-                  href="http://eepurl.com/iqvIR2"
-                  title="Mailchimp - email marketing made easy and fun"
-                  sx={{ width: "100%", height: "100%" }}
-                >
-                  <Avatar
-                    src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"
-                    alt="Mailchimp logo"
-                    sx={mailchimpStyles.avatarMailchimp}
-                  />
-                </Link>
-              </Box>
-            </Box>
+          <Box 
+  className="optionalParent" 
+   sx={{ display: 'flex',justifyContent: 'space-between',
+   alignItems: 'center', 
+    width: '100%', 
+   }}
+>
+<Box 
+    className="clear foot"
+  >
+    <Button 
+      type="submit" 
+      value="Subscribe" 
+      name="subscribe" 
+      id="mc-embedded-subscribe"
+       sx={(theme) => ({  background:theme.palette.primary.main, 
+       color: 'white', 
+       borderRadius: '0.325rem', 
+       width: '3rem',  
+       height: '3rem', 
+    })}
+    >
+      Subscribe
+    </Button>
+  </Box>
+  <Box 
+    className="brandingLogo">
+    <Link 
+      href="http://eepurl.com/iqvIR2" 
+      title="Mailchimp - email marketing made easy and fun"
+    >
+      <Avatar
+        src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"
+        alt="Mailchimp logo"
+         sx={ { maxWidth: { xs: '4.0625rem', md: '5.625rem' },
+         maxHeight: { xs: '4.0625rem', md: '5.625rem' },
+         width: 'auto', 
+         height: 'auto'
+      }}
+      />
+    </Link>
+  </Box>
+</Box>
+          <Box id="mce-responses" className="clear foot" sx={{ display: 'flex', justifyContent: 'center' }}>
+  <Box
+    className="response"
+    id="mce-error-response"
+    sx={{ display: 'none' }}
+  ></Box>
+  <Box
+    className="response"
+    id="mce-success-response"
+    sx={{ display: 'none' }}
+  ></Box>
+</Box>
+{/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
+<Box id="bot" sx={{ position: 'absolute', left: '-312.5rem' }} aria-hidden="true">
+  <input
+    type="text"
+    name="b_3649bfb6bbcebf017b8ea851a_77eea4b433"
+    tabIndex="-1"
+    value={botInputValue}
+    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBotValue(e.target.value)}
+  />
+</Box>
 
-            <Box
-              id="mce-responses"
-              className="clear foot"
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <Box
-                className="response"
-                id="mce-error-response"
-                sx={{ display: "none" }}
-              ></Box>
-              <Box
-                className="response"
-                id="mce-success-response"
-                sx={{ display: "none" }}
-              ></Box>
-            </Box>
-            {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
-            <Box
-              id="bot"
-              sx={{ position: "absolute", left: "-5000px" }}
-              aria-hidden="true"
-            >
-              <input
-                type="text"
-                name="b_3649bfb6bbcebf017b8ea851a_77eea4b433"
-                tabIndex="-1"
-                value={botInputValue}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setBotValue(e.target.value)
-                }
-              />
-            </Box>
-          </Box>
-        </Box>
       </Box>
+    </Box>
+        </Box>
     </Box>
   );
 };
-
-export default Mailchimp;
+export default Mailchimp
