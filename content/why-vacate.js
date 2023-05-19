@@ -1,6 +1,6 @@
 const whyVacateContent = {
   heroBanner: {
-    heading: "Why Vacate",
+    heading: "Why vacate your conviction in Washington State?",
     subheading: `Vacating a conviction in Washington is complicated and intimidating but doing so opens opportunities in employment, housing, and education. \n\nExplore the benefits of vacating your conviction and get resources to help you along the way.`,
     imgsrc: "/illustrations/team-building.svg",
   },
