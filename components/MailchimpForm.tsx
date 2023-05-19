@@ -197,7 +197,7 @@ export default function MailchimpForm() {
                 <input
                   type="text"
                   name="b_3649bfb6bbcebf017b8ea851a_77eea4b433"
-                  tabIndex= {-1}
+                  tabIndex={-1}
                   value={botInputValue}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setBotValue(e.target.value)
