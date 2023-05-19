@@ -1,7 +1,3 @@
-// line break in the text
-// bold text
-// donate button open in new tab
-
 import { Grid } from "@mui/material";
 import Script from "next/script";
 
@@ -10,6 +6,7 @@ import DonationForm from "../components/DonationForm";
 import externalLinks from "../components/externalLinks";
 import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
+import IndividualPageHead from "../components/IndividualPageHead";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
 import content from "../content/donate-faqs";
@@ -19,10 +16,15 @@ export default function DonatePage() {
 
   return (
     <>
+      <IndividualPageHead
+        title="Support Clearviction | Reduce the odds of Recidivism"
+        metaContent="Support Clearviction—a 501(c)3 nonprofit—in its mission to transform lives and break down barriers for those with criminal records in Washington State."
+      />
+
       <Script src="https://donorbox.org/widget.js" />
 
       <HeroBanner
-        heading="Donate"
+        heading="Your generous donation directly aids those who are limited by their convictions in Washington State"
         subheading={`Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.\n\n<span style="fontSize: 14px">Clearviction is a registered 501(c)3 nonprofit organization, EIN#88-3187952. All donations are tax deductible in full or in part.</span>`}
         ctaLink="/about"
         ctaText="Learn more about us"

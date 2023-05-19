@@ -23,6 +23,7 @@ import {
 
 import CalcStepper from "../../components/CalcStepper";
 import externalLinks from "../../components/externalLinks";
+import IndividualPageHead from "../../components/IndividualPageHead";
 import { portableTextComponents } from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
@@ -44,6 +45,10 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
   return (
     <>
+      <IndividualPageHead
+        title="Check the eligibility to vacate your misdemeanor"
+        metaContent="Determine if your misdemeanor or gross misdemeanor is eligible to vacate in Washington State with Clearviction's eligibility calculator."
+      />
       <Container id="stepper-container" sx={{ marginTop: "2rem" }}>
         {!isFirstPage(page) && (
           <Button
