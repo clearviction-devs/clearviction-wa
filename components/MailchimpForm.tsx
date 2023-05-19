@@ -3,11 +3,11 @@ import {
   Box,
   Button,
   Grid,
-  Link,
   TextField,
   Typography,
 } from "@mui/material";
 import React, { ChangeEvent, useState } from "react";
+import NextLink from 'next/link'
 
 export default function MailchimpForm() {
   const [email, setEmail] = useState<string>("");
@@ -157,19 +157,21 @@ export default function MailchimpForm() {
                   </Button>
                 </Box>
                 <Box className="brandingLogo">
-                  <Link
+                  <NextLink
                     href="http://eepurl.com/iqvIR2"
-                    title="Mailchimp - email marketing made easy and fun"
+                    passHref
+                  
                   >
                     <Avatar
                       src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"
                       alt="Mailchimp logo"
+                      title="Mailchimp - email marketing made easy and fun"
                       sx={{
                         width: "auto",
                         height: "auto",
                       }}
                     />
-                  </Link>
+                  </NextLink>
                 </Box>
               </Box>
               <Box
