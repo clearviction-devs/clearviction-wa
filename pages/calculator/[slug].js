@@ -23,6 +23,7 @@ import {
 
 import CalcStepper from "../../components/CalcStepper";
 import externalLinks from "../../components/externalLinks";
+import MailchimpForm from "../../components/MailchimpForm";
 import { portableTextComponents } from "../../utils/portableTextComponents";
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
@@ -163,6 +164,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             </Typography>
           </Box>
         )}
+        {page.isEligible && <MailchimpForm />}
       </Container>
       <Dialog
         open={open}
