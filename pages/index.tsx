@@ -8,6 +8,7 @@ import AccordionBuilder from "../components/AccordionBuilder";
 import externalLinks from "../components/externalLinks";
 import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
+import MailchimpForm from "../components/MailchimpForm";
 import { PaperSection } from "../components/PaperSection";
 import ResearchBanner from "../components/ResearchBanner";
 import SectionContainer from "../components/SectionContainer";
@@ -90,6 +91,7 @@ export default function Home({ content }: { content: typeof jsonContent }) {
           </PaperSection>
         </SectionContainer>
         <ResearchBanner />
+        <MailchimpForm mobileMarginZero={true}/>
       </main>
     </>
   );
