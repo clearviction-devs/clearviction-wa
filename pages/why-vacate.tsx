@@ -6,6 +6,7 @@ import AccordionBuilder from "../components/AccordionBuilder";
 import externalLinks from "../components/externalLinks";
 import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
+import IndividualPageHead from "../components/IndividualPageHead";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
 import content from "../content/why-vacate";
@@ -18,6 +19,11 @@ export default function WhyVacatePage() {
 
   return (
     <>
+      <IndividualPageHead
+        title="Clearviction | Find out why it's important to vacate criminal records"
+        metaContent="Vacating your criminal record allows you better access to employment, housing, and educational resources so you can get your life back on track."
+      />
+
       <HeroBanner
         heading={content.heroBanner.heading}
         subheading={content.heroBanner.subheading}
