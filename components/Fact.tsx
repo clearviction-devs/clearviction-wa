@@ -1,6 +1,4 @@
-import {
-  Box, GridProps, Typography,
-} from '@mui/material';
+import { Box, GridProps, Typography } from '@mui/material';
 import React from 'react';
 
 interface FactProps extends GridProps {

@@ -75,7 +75,9 @@ export default function ContactPage() {
         <Typography variant="h1" sx={{ textAlign: 'center' }}>
           Get in contact with us
         </Typography>
-        <MuiMarkdown>{'**Have questions? Send us a message and we\'ll get back to you within 24 hours.**'}</MuiMarkdown>
+        <MuiMarkdown>
+          **Have questions? Send us a message and we'll get back to you within 24 hours.**
+        </MuiMarkdown>
       </SectionContainer>
       <SectionContainer
         sx={{

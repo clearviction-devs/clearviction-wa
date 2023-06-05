@@ -1,9 +1,12 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import {
-  FacebookIcon, FacebookShareButton,
-  LinkedinIcon, LinkedinShareButton,
-  TwitterIcon, TwitterShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
 } from 'react-share';
 
 export default function ShareButtons() {

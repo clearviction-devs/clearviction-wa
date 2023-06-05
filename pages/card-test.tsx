@@ -18,25 +18,33 @@ export default function CardTestPage() {
       <Box display="flex" mt={4} gap={4}>
         <InfoCard
           title="Card 1"
-          body={'Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card'}
+          body={
+            'Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card'
+          }
           imgsrc="/illustrations/checklist.svg"
           maxWidth="100%"
         />
         <InfoCard
           title="Card 2"
-          body={'Cards also accept markdown strings.\n* item 1\n* item 2\n\n#####Hello Card'}
+          body={
+            'Cards also accept markdown strings.\n* item 1\n* item 2\n\n#####Hello Card'
+          }
           imgsrc="/illustrations/graduation.svg"
           maxWidth="100%"
         />
         <InfoCard
           title="Card 3"
-          body={'Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card'}
+          body={
+            'Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card'
+          }
           imgsrc="/illustrations/washington.svg"
           maxWidth="100%"
         />
         <InfoCard
           title="Card 4"
-          body={'Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card'}
+          body={
+            'Cards also accept markdown strings.\n- item 1\n- item 2\n\n#####Hello Card'
+          }
           imgsrc="/illustrations/washington.svg"
           maxWidth="100%"
         />

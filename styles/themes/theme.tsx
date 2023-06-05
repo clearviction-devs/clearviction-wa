@@ -19,7 +19,7 @@ export const inter = Inter({
 });
 
 const LinkBehavior = forwardRef<HTMLAnchorElement, NextLinkProps>(
-  (props, ref) => <NextLink ref={ref} {...props} />,
+  (props, ref) => <NextLink ref={ref} {...props} />
 );
 
 const theme = createTheme({

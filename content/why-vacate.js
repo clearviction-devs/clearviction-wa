@@ -1,7 +1,8 @@
 const whyVacateContent = {
   heroBanner: {
     heading: 'Why vacate your conviction in Washington State?',
-    subheading: 'Vacating a conviction in Washington is complicated and intimidating but doing so opens opportunities in employment, housing, and education. \n\nExplore the benefits of vacating your conviction and get resources to help you along the way.',
+    subheading:
+      'Vacating a conviction in Washington is complicated and intimidating but doing so opens opportunities in employment, housing, and education. \n\nExplore the benefits of vacating your conviction and get resources to help you along the way.',
     imgsrc: '/illustrations/team-building.svg',
   },
   buttons: [
@@ -141,7 +142,8 @@ const whyVacateContent = {
         {
           id: 'courtform3',
           summary: 'Other Educational assistance',
-          details: '[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)',
+          details:
+            '[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)',
         },
       ],
     },

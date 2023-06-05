@@ -2,7 +2,8 @@ const faqs = [
   {
     id: 'faq1',
     summary: 'What does it mean to vacate a conviction?',
-    details: 'Vacating a conviction is the process of clearing a conviction from your record so it is not visible to the public anymore. Vacating your conviction can remove that crime from some background checks, and you can say legally that you were never convicted of that crime.\n\nThe courts can still reference a vacated conviction in a future criminal proceeding, and not all convictions are eligible for vacation.',
+    details:
+      'Vacating a conviction is the process of clearing a conviction from your record so it is not visible to the public anymore. Vacating your conviction can remove that crime from some background checks, and you can say legally that you were never convicted of that crime.\n\nThe courts can still reference a vacated conviction in a future criminal proceeding, and not all convictions are eligible for vacation.',
   },
   {
     id: 'faq2',

@@ -53,7 +53,7 @@ export default function GetStartedPage() {
           bodyText="First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
         >
           <SectionContainer>
-            <MuiMarkdown>{'**You\'ll need to know:**'}</MuiMarkdown>
+            <MuiMarkdown>**You'll need to know:**</MuiMarkdown>
             <Grid container spacing={8} sx={{ my: 1 }}>
               {content.needToKnowFacts.map((fact) => (
                 <FactCard key={fact.id} xs={12} md={4} body={fact.details}>
@@ -66,7 +66,9 @@ export default function GetStartedPage() {
             <MuiMarkdown>###CHRI (Recommended)</MuiMarkdown>
             <MuiMarkdown>
               {/* eslint-disable-next-line max-len */}
-              A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.
+              A copy of your **Criminal
+              History Record Information (CHRI)** would be very helpful in the
+              vacation process and might be required in some cases.
             </MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 3 }}>
               {content.CHRIMethods.map((method) => (
@@ -104,9 +106,13 @@ export default function GetStartedPage() {
       <SectionContainer id="step-3">
         <GetStartedStep
           title="Step 3: File with Court"
-          bodyText={'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>'}
+          bodyText={
+            'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>'
+          }
         >
-          <MuiMarkdown>**Common reasons requests to vacate may be denied:**</MuiMarkdown>
+          <MuiMarkdown>
+            **Common reasons requests to vacate may be denied:**
+          </MuiMarkdown>
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
               <FactCard key={fact.id} xs={12} md={4} body={fact.details} />
@@ -122,7 +128,9 @@ export default function GetStartedPage() {
           <SectionContainer>
             <MuiMarkdown>###Legal Aid</MuiMarkdown>
             <MuiMarkdown>
-              {'Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)'}
+              {
+                'Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)'
+              }
             </MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.legalAidForms.map((legalForm) => (

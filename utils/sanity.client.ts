@@ -9,7 +9,11 @@ import {
 
 const sanityClient = (token?: string) => {
   const createClientCall = createClient({
-    projectId, dataset, apiVersion, useCdn: false, token,
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn: false,
+    token,
   });
   return projectId ? createClientCall : null;
 };

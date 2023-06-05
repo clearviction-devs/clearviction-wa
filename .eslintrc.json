@@ -9,6 +9,7 @@
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
     "no-underscore-dangle": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "react/no-unescaped-entities": "off"
   }
 }

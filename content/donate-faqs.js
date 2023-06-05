@@ -15,7 +15,8 @@ const donateFAQContent = {
     {
       id: 'donate3',
       summary: 'Is it safe and secure for me to donate online?',
-      details: 'Clearviction utilizes Donorbox for safe and secure transactions. Donorbox’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Donorbox servers.\n\nFor more information, visit [Donorbox\'s website](https://donorbox.org).',
+      details:
+        "Clearviction utilizes Donorbox for safe and secure transactions. Donorbox’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Donorbox servers.\n\nFor more information, visit [Donorbox's website](https://donorbox.org).",
     },
     {
       id: 'donate4',
@@ -26,7 +27,8 @@ const donateFAQContent = {
     {
       id: 'donate5',
       summary: 'Who should I contact if I have more questions?',
-      details: 'You can send us an email at [contact@clearviction.org](mailto:contact@clearviction.org) and we will get back to you within 24 hours.',
+      details:
+        'You can send us an email at [contact@clearviction.org](mailto:contact@clearviction.org) and we will get back to you within 24 hours.',
     },
   ],
 };

@@ -9,7 +9,11 @@ import {
 import NextLink from 'next/link';
 import React, { ChangeEvent, useState } from 'react';
 
-export default function MailchimpForm({ mobileMarginZero }:{mobileMarginZero?:boolean}) {
+export default function MailchimpForm({
+  mobileMarginZero,
+}: {
+  mobileMarginZero?: boolean;
+}) {
   const [email, setEmail] = useState<string>('');
   const [botInputValue, setBotValue] = useState<string>('');
 
