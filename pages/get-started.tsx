@@ -66,9 +66,7 @@ export default function GetStartedPage() {
             <MuiMarkdown>###CHRI (Recommended)</MuiMarkdown>
             <MuiMarkdown>
               {/* eslint-disable-next-line max-len */}
-              A copy of your **Criminal
-              History Record Information (CHRI)** would be very helpful in the
-              vacation process and might be required in some cases.
+              A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.
             </MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 3 }}>
               {content.CHRIMethods.map((method) => (

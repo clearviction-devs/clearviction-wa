@@ -76,7 +76,8 @@ export default function ContactPage() {
           Get in contact with us
         </Typography>
         <MuiMarkdown>
-          **Have questions? Send us a message and we'll get back to you within 24 hours.**
+          **Have questions? Send us a message and we'll get back to you within
+          24 hours.**
         </MuiMarkdown>
       </SectionContainer>
       <SectionContainer

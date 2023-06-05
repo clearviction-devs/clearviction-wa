@@ -17,7 +17,7 @@ interface HeroBannerProps {
   imgsrc?: string;
   ctaText?: string;
   ctaLink?: string;
-  children?: JSX.Element; // added import, possibly ?
+  children?: JSX.Element;
   overrideStyles?: SxProps;
 }
 
