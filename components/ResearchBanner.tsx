@@ -1,14 +1,17 @@
-import { Box, Button, Grid, SxProps, Typography } from "@mui/material";
+import {
+  Box, Button, Grid, SxProps, Typography,
+} from '@mui/material';
+import React from 'react';
 
-import SectionContainer from "./SectionContainer";
+import SectionContainer from './SectionContainer.tsx';
 
 const researchBannerStyles: SxProps = {
-  backgroundColor: "primary.main",
-  color: "primary.contrastText",
+  backgroundColor: 'primary.main',
+  color: 'primary.contrastText',
   py: 4,
 };
 
-const researchFormLink: string = "https://airtable.com/shrVse6WfDrWfLOhO";
+const researchFormLink: string = 'https://airtable.com/shrVse6WfDrWfLOhO';
 
 export default function ResearchBanner() {
   return (
@@ -25,8 +28,8 @@ export default function ResearchBanner() {
               href={researchFormLink}
               sx={(theme) => ({
                 backgroundColor: theme.palette.primary.contrastText,
-                color: "black",
-                "&:hover": {
+                color: 'black',
+                '&:hover': {
                   color: theme.palette.primary.contrastText,
                   backgroundColor: theme.palette.primary.dark,
                 },
@@ -40,7 +43,7 @@ export default function ResearchBanner() {
               component="img"
               src="/illustrations/checklist1.svg"
               alt=""
-              sx={{ width: "100%" }}
+              sx={{ width: '100%' }}
             />
           </Grid>
         </Grid>

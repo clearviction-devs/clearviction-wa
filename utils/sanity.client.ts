@@ -1,16 +1,17 @@
-import { createClient } from "next-sanity";
+import { createClient } from 'next-sanity';
 
-import { apiVersion, dataset, projectId } from "./sanity.api";
+import { apiVersion, dataset, projectId } from './sanity.api.ts';
 import {
   calculatorConfigQuery,
   calculatorPagePaths,
   calculatorPagesBySlugQuery,
-} from "./sanity.queries";
+} from './sanity.queries.ts';
 
 const sanityClient = (token?: string) => {
-  return projectId
-    ? createClient({ projectId, dataset, apiVersion, useCdn: false, token })
-    : null;
+  const createClientCall = createClient({
+    projectId, dataset, apiVersion, useCdn: false, token,
+  });
+  return projectId ? createClientCall : null;
 };
 
 export async function getCalculatorPageBySlug({
@@ -20,13 +21,13 @@ export async function getCalculatorPageBySlug({
   slug: string;
   token?: string;
 }) {
-  return await sanityClient(token)?.fetch(calculatorPagesBySlugQuery, { slug });
+  return sanityClient(token)?.fetch(calculatorPagesBySlugQuery, { slug });
 }
 
 export async function getCalculatorPagePaths(): Promise<string[] | undefined> {
-  return await sanityClient()?.fetch(calculatorPagePaths);
+  return sanityClient()?.fetch(calculatorPagePaths);
 }
 
 export async function getCalculatorConfig() {
-  return await sanityClient()?.fetch(calculatorConfigQuery);
+  return sanityClient()?.fetch(calculatorConfigQuery);
 }

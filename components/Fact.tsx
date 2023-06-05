@@ -1,11 +1,14 @@
-import { Box, Grid, GridProps, Paper, Typography } from "@mui/material";
+import {
+  Box, GridProps, Typography,
+} from '@mui/material';
+import React from 'react';
 
 interface FactProps extends GridProps {
   text: string;
   icon: React.ReactNode;
 }
 
-export function Fact({ text, icon }: FactProps) {
+export default function Fact({ text, icon }: FactProps) {
   return (
     <>
       <Box display="flex" justifyContent="center" padding={3}>

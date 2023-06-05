@@ -7,48 +7,45 @@ import {
   Stack,
   SxProps,
   Typography,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Image from "next/image";
+} from '@mui/material';
+import Image from 'next/image';
+import React from 'react';
 
-import navItems from "../../content/navItems";
-import NavigationLogo from "../NavigationLogo";
+import navItems from '../../content/navItems.ts';
+import NavigationLogo from '../NavigationLogo';
 
 const sectionContainerStyles: SxProps = {
   flex: 1,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 };
 
 const sectionHeaderStyles: SxProps = {
   height: 64,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
-export default function Footer() {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+function Footer() {
   return (
     <Box
       component="footer"
       color="primary"
       sx={{
-        mt: "auto",
-        backgroundColor: "primary.dark",
-        color: "primary.contrastText",
+        mt: 'auto',
+        backgroundColor: 'primary.dark',
+        color: 'primary.contrastText',
       }}
     >
       <Container
         maxWidth="xl"
         sx={{
-          display: "flex",
-          textAlign: "center",
+          display: 'flex',
+          textAlign: 'center',
           padding: 2,
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: { xs: 'column', md: 'row' },
           gap: 2,
         }}
       >
@@ -75,11 +72,9 @@ export default function Footer() {
           </Box>
           <Grid container spacing={1} maxWidth={300}>
             {navItems
-              .filter((item) => {
-                return (
-                  item.text !== "Home" && item.text !== "Access Calculator"
-                );
-              })
+              .filter((item) => (
+                item.text !== 'Home' && item.text !== 'Access Calculator'
+              ))
               .map((item) => (
                 <Grid key={item.text} item xs={6}>
                   <Link
@@ -115,10 +110,10 @@ export default function Footer() {
                 width={412}
                 height={122}
                 style={{
-                  maxWidth: "200px",
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "contain",
+                  maxWidth: '200px',
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'contain',
                 }}
               />
             </Box>
@@ -129,10 +124,10 @@ export default function Footer() {
                 width={130}
                 height={102}
                 style={{
-                  maxWidth: "200px",
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "contain",
+                  maxWidth: '200px',
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'contain',
                 }}
               />
             </Box>
@@ -142,3 +137,5 @@ export default function Footer() {
     </Box>
   );
 }
+
+export default Footer;

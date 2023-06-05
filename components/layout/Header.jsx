@@ -1,4 +1,4 @@
-import Menu from "@mui/icons-material/Menu";
+import Menu from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
@@ -12,25 +12,25 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Link from "next/link";
-import { useState } from "react";
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Link from 'next/link';
+import React, { useCallback, useState } from 'react';
 
-import navItems from "../../content/navItems";
-import NavigationLogo from "../NavigationLogo";
-import SkipLink from "../SkipLink";
+import navItems from '../../content/navItems.ts';
+import NavigationLogo from '../NavigationLogo';
+import SkipLink from '../SkipLink.tsx';
 
 export default function Header() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  function handleDrawerToggle() {
+  const handleDrawerToggle = useCallback(() => {
     setMobileOpen((prev) => !prev);
-  }
+  }, []);
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ flexGrow: 1 }}>
@@ -40,7 +40,7 @@ export default function Header() {
             <ListItemButton
               component={Link}
               href={item.href}
-              sx={{ textAlign: "center" }}
+              sx={{ textAlign: 'center' }}
             >
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -49,7 +49,7 @@ export default function Header() {
         <ListItem key="disclaimer">
           <Typography
             variant="caption"
-            sx={{ mb: 2, px: 2, textAlign: "center" }}
+            sx={{ mb: 2, px: 2, textAlign: 'center' }}
           >
             The information on this site is not, nor should it be considered
             legal advice.
@@ -66,20 +66,20 @@ export default function Header() {
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
             <SkipLink color="primary" variant="contained" />
             {/* Boxes as containers for handling layout among siblings */}
-            <Box sx={{ flexGrow: 1, height: "100%" }}>
+            <Box sx={{ flexGrow: 1, height: '100%' }}>
               <NavigationLogo fullSize={matches} />
             </Box>
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              sx={{ display: { xl: "none" } }}
+              sx={{ display: { xl: 'none' } }}
               onClick={handleDrawerToggle}
             >
               <Menu fontSize="large" />
             </IconButton>
             <Box
               sx={{
-                display: { xs: "none", xl: "flex" },
+                display: { xs: 'none', xl: 'flex' },
                 gap: 2,
               }}
             >
@@ -88,11 +88,11 @@ export default function Header() {
                   key={item.text}
                   href={item.href}
                   variant={
-                    item.text === "Access Calculator" ? "contained" : "text"
+                    item.text === 'Access Calculator' ? 'contained' : 'text'
                   }
                   color="neutral"
                   size="small"
-                  sx={{ whiteSpace: "nowrap" }}
+                  sx={{ whiteSpace: 'nowrap' }}
                 >
                   {item.text}
                 </Button>
@@ -107,8 +107,8 @@ export default function Header() {
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           sx={{
-            display: { xs: "block", xl: "none" },
-            textAlign: "center",
+            display: { xs: 'block', xl: 'none' },
+            textAlign: 'center',
           }}
           anchor="right"
         >
