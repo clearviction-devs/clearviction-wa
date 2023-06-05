@@ -11,7 +11,7 @@ const gridIconStyles = {
 
 const aboutContent = {
   hero: {
-    header: "About Us",
+    header: "Our mission to break down barriers",
     body: "We are a civic-tech open-source project working to make the conviction vacation process in Washington easier and more straightforward, starting with an eligibility calculator.",
     imgsrc: "illustrations/map.svg",
   },

@@ -1,13 +1,14 @@
 import { Button, ButtonGroup, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Head from "next/head";
 import Script from "next/script";
 
 import AccordionBuilder from "../components/AccordionBuilder";
 import externalLinks from "../components/externalLinks";
 import { GridItemCard } from "../components/GridItem";
 import HeroBanner from "../components/HeroBanner";
+import IndividualPageHead from "../components/IndividualPageHead";
+import MailchimpForm from "../components/MailchimpForm";
 import { PaperSection } from "../components/PaperSection";
 import ResearchBanner from "../components/ResearchBanner";
 import SectionContainer from "../components/SectionContainer";
@@ -39,11 +40,11 @@ export default function Home({ content }: { content: typeof jsonContent }) {
         </Script>
         {/* <!-- End Google Analytics --> */}
       </div>
-      <Head>
-        <title>Clearviction</title>
-        <meta name="description" content="Helping clear convictions" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+
+      <IndividualPageHead
+        title="Clearing Criminal Records in Washington State"
+        metaContent="Washington Law allows for vacation of select criminal records. Clearviction's free tools help individuals assess their eligibility for a fresh start."
+      />
 
       <main>
         <HeroBanner {...content.heroBanner} />
@@ -90,6 +91,7 @@ export default function Home({ content }: { content: typeof jsonContent }) {
           </PaperSection>
         </SectionContainer>
         <ResearchBanner />
+        <MailchimpForm mobileMarginZero={true}/>
       </main>
     </>
   );

@@ -6,6 +6,7 @@ import MuiMarkdown from "mui-markdown";
 import externalLinks from "../components/externalLinks";
 import { Fact } from "../components/Fact";
 import HeroBanner from "../components/HeroBanner";
+import IndividualPageHead from "../components/IndividualPageHead";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
 import aboutContent from "../content/about";
@@ -18,6 +19,11 @@ export default function AboutPage() {
 
   return (
     <>
+      <IndividualPageHead
+        title="The story and team behind Clearviction."
+        metaContent="We're empowering individuals with criminal records in Washington State, and building brighter futures with tools like our Eligibility Calculator."
+      />
+
       <HeroBanner
         heading={aboutContent.hero.header}
         subheading={aboutContent.hero.body}

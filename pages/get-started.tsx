@@ -8,6 +8,7 @@ import externalLinks from "../components/externalLinks";
 import { FactCard } from "../components/FactCard";
 import { GetStartedStep } from "../components/GetStartedStep";
 import HeroBanner from "../components/HeroBanner";
+import IndividualPageHead from "../components/IndividualPageHead";
 import SectionContainer from "../components/SectionContainer";
 import content from "../content/get-started";
 
@@ -19,8 +20,13 @@ export default function GetStartedPage() {
 
   return (
     <>
+      <IndividualPageHead
+        title="Vacate Your Criminal Record in 4 Steps"
+        metaContent="Get started with Clearviction's 4 step process and access our resources to vacate your criminal record in Washington State"
+      />
+
       <HeroBanner
-        heading="Get Started"
+        heading="Get started on the conviction vacation process"
         subheading="Vacate your conviction in the state of Washington by following these 4 steps!"
         imgsrc="/illustrations/chart.svg"
         ctaLink="#step-1"

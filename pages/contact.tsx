@@ -2,6 +2,7 @@ import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
 import MuiMarkdown from "mui-markdown";
 import { useState } from "react";
 
+import IndividualPageHead from "../components/IndividualPageHead";
 import SectionContainer from "../components/SectionContainer";
 
 export default function ContactPage() {
@@ -64,9 +65,13 @@ export default function ContactPage() {
 
   return (
     <>
+      <IndividualPageHead
+        title="Contact Us - Reach Out for Support and Information"
+        metaContent="Have questions or concerns? Contact our team, and we'll respond within 24 hours."
+      />
       <SectionContainer sx={{ textAlign: "center", mt: 5 }}>
         <Typography variant="h1" sx={{ textAlign: "center" }}>
-          Contact Us
+          Get in contact with us
         </Typography>
         <MuiMarkdown>{`**Have questions? Send us a message and we'll get back to you within 24 hours.**`}</MuiMarkdown>
       </SectionContainer>

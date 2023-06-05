@@ -12,16 +12,23 @@ import {
 
 import { Fact } from "../components/Fact";
 import HeroBanner from "../components/HeroBanner";
+import IndividualPageHead from "../components/IndividualPageHead";
 import { PaperSection } from "../components/PaperSection";
 import SectionContainer from "../components/SectionContainer";
+import ShareButtons from "../components/ShareButtons";
 import content from "../content/get-involved";
 
 export default function GetInvolvedPage() {
   return (
     <>
+      <IndividualPageHead
+        title="Join Clearviction | Get Involved & Reduce Recidivism"
+        content="Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State"
+      />
+
       <Box sx={{ bgcolor: "#2f3554", pb: "64px" }}>
         <HeroBanner
-          heading="Get Involved"
+          heading="Share your expertise with us"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
           overrideStyles={{
             pb: 0,
@@ -163,6 +170,7 @@ function Partner() {
               <Typography sx={{ my: 3 }} variant="body1">
                 {content.partnerPage.text[2]}
               </Typography>
+              <ShareButtons />
             </Grid>
           </Grid>
         </PaperSection>

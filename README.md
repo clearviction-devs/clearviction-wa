@@ -61,9 +61,9 @@ In the project directory, you can run:
 
 ### Other Commands
 
-  ```bash
-   npm run build
-  ```
+```bash
+ npm run build
+```
 
 The underlying command, `next build` generates an optimized version of your application for production. The output is generated inside the `.next` folder.
 
