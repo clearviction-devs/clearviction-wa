@@ -21,6 +21,7 @@ import { useState } from "react";
 import navItems from "../../content/navItems";
 import NavigationLogo from "../NavigationLogo";
 import SkipLink from "../SkipLink";
+import GivingTuesdayBanner from '../GivingTuesdayBanner'
 
 export default function Header() {
   const theme = useTheme();
@@ -29,7 +30,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   function handleDrawerToggle() {
-    setMobileOpen((prev) => !prev);
+    setMobileOpen(!mobileOpen);
   }
 
   const drawer = (
@@ -61,6 +62,7 @@ export default function Header() {
 
   return (
     <>
+    <GivingTuesdayBanner/>
       <AppBar color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
@@ -69,6 +71,33 @@ export default function Header() {
             <Box sx={{ flexGrow: 1, height: "100%" }}>
               <NavigationLogo fullSize={matches} />
             </Box>
+            {!matches && (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                }}
+              >
+                <Button
+                  href="/access-calculator"
+                  variant="contained"
+                  color="neutral"
+                  size="small"
+                  sx={{ whiteSpace: "nowrap" }}
+                >
+                  Access Calculator
+                </Button>
+                <Button
+                  href="/donate"
+                  variant="contained"
+                  size="small"
+                  sx={{ whiteSpace: "nowrap", bgcolor: '#72C850' }}
+                >
+                  Donate
+                </Button>
+              </Box>
+            )}
             <IconButton
               color="inherit"
               aria-label="open drawer"
