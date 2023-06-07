@@ -19,9 +19,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 import navItems from "../../content/navItems";
+import GivingTuesdayBanner from "../GivingTuesdayBanner";
 import NavigationLogo from "../NavigationLogo";
 import SkipLink from "../SkipLink";
-import GivingTuesdayBanner from '../GivingTuesdayBanner'
 
 export default function Header() {
   const theme = useTheme();
@@ -62,7 +62,7 @@ export default function Header() {
 
   return (
     <>
-    <GivingTuesdayBanner/>
+      <GivingTuesdayBanner />
       <AppBar color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
@@ -92,12 +92,13 @@ export default function Header() {
                   href="/donate"
                   variant="contained"
                   size="small"
-                  sx={{ whiteSpace: "nowrap", bgcolor: '#72C850' }}
+                  sx={{ whiteSpace: "nowrap", bgcolor: "#72C850" }}
                 >
                   Donate
                 </Button>
               </Box>
             )}
+            {matches &&(
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -106,6 +107,9 @@ export default function Header() {
             >
               <Menu fontSize="large" />
             </IconButton>
+            )}
+             </Toolbar>
+        </Container>
             <Box
               sx={{
                 display: { xs: "none", xl: "flex" },
@@ -127,8 +131,7 @@ export default function Header() {
                 </Button>
               ))}
             </Box>
-          </Toolbar>
-        </Container>
+          
       </AppBar>
       <Box component="nav">
         <Drawer
