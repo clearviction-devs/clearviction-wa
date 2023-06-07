@@ -9,7 +9,11 @@ import {
 import NextLink from "next/link";
 import React, { ChangeEvent, useState } from "react";
 
-export default function MailchimpForm({mobileMarginZero}:{mobileMarginZero?:boolean}) {
+export default function MailchimpForm({
+  mobileMarginZero,
+}: {
+  mobileMarginZero?: boolean;
+}) {
   const [email, setEmail] = useState<string>("");
   const [botInputValue, setBotValue] = useState<string>("");
 
@@ -22,7 +26,7 @@ export default function MailchimpForm({mobileMarginZero}:{mobileMarginZero?:bool
         background: theme.palette.primary.dark,
         padding: theme.spacing(4, 2),
         fontFamily: theme.typography.fontFamily,
-        marginY: mobileMarginZero ? 0:theme.spacing(9),
+        marginY: mobileMarginZero ? 0 : theme.spacing(9),
       })}
     >
       <Grid item xs={12} md={8}>
