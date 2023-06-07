@@ -19,9 +19,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 import navItems from "../../content/navItems";
+import GivingTuesdayBanner from "../GivingTuesdayBanner";
 import NavigationLogo from "../NavigationLogo";
 import SkipLink from "../SkipLink";
-import GivingTuesdayBanner from '../GivingTuesdayBanner'
 
 export default function Header() {
   const theme = useTheme();
@@ -64,8 +64,8 @@ export default function Header() {
     <>
       <GivingTuesdayBanner />
       <AppBar color="primary" elevation={0} component="nav" position="sticky">
-        <Container maxWidth="xl" sx={{p:3}}>
-          <Toolbar disableGutters sx={{ height: { xs: 64 }}}>
+        <Container maxWidth="xl" sx={{ p: 3 }}>
+          <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
             <SkipLink color="primary" variant="contained" />
             {/* Boxes as containers for handling layout among siblings */}
             <Box
@@ -74,7 +74,6 @@ export default function Header() {
                 height: "100%",
                 display: "flex",
                 alignItems: "center",
-               
               }}
             >
               <NavigationLogo fullSize={matches} />
@@ -100,7 +99,7 @@ export default function Header() {
                   href="/donate"
                   variant="contained"
                   size="small"
-                  sx={{ whiteSpace: "nowrap", bgcolor: '#72C850' }}
+                  sx={{ whiteSpace: "nowrap", bgcolor: "#72C850" }}
                 >
                   Donate
                 </Button>
@@ -118,53 +117,50 @@ export default function Header() {
             )}
           </Toolbar>
         </Container>
-    
-      <Box component="nav" sx={{ bgcolor: "#1A1D2E" }}>
-        <Drawer
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{ keepMounted: true }}
-          sx={{
-            display: { xs: "block", xl: "none" },
-            textAlign: "center",
-          }}
-          anchor="right"
-        >
-          {drawer}
-        </Drawer>
-        {!matches && (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-               py: 1,
-              px: 4,
-            
-            }}
-          >
-            {navItems
-              .filter(
-                (item) =>
-                  item.text !== "Access Calculator" && item.text !== "Donate"
-              )
-              .map((item) => (
-                <Button
-                  key={item.text}
-                  href={item.href}
-                  variant="text"
-                  color="neutral"
-                  size="small"
-                  sx={{ whiteSpace: "nowrap", marginLeft:{md:0} }}
-                >
-                  {item.text}
-                </Button>
-              ))}
-          </Box>
-           
-        )}
-      </Box>
-      </AppBar>
 
+        <Box component="nav" sx={{ bgcolor: "#1A1D2E" }}>
+          <Drawer
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{ keepMounted: true }}
+            sx={{
+              display: { xs: "block", xl: "none" },
+              textAlign: "center",
+            }}
+            anchor="right"
+          >
+            {drawer}
+          </Drawer>
+          {!matches && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-start",
+                py: 1,
+                px: 4,
+              }}
+            >
+              {navItems
+                .filter(
+                  (item) =>
+                    item.text !== "Access Calculator" && item.text !== "Donate"
+                )
+                .map((item) => (
+                  <Button
+                    key={item.text}
+                    href={item.href}
+                    variant="text"
+                    color="neutral"
+                    size="small"
+                    sx={{ whiteSpace: "nowrap", marginLeft: { md: 0 } }}
+                  >
+                    {item.text}
+                  </Button>
+                ))}
+            </Box>
+          )}
+        </Box>
+      </AppBar>
     </>
   );
 }
