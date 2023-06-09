@@ -91,7 +91,7 @@ export default function Home({ content }: { content: typeof jsonContent }) {
           </PaperSection>
         </SectionContainer>
         <ResearchBanner />
-        <MailchimpForm mobileMarginZero={true}/>
+        <MailchimpForm mobileMarginZero={true} />
       </main>
     </>
   );
