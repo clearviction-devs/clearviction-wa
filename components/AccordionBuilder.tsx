@@ -1,14 +1,14 @@
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
   AccordionDetails,
-  AccordionProps,
   AccordionSummary,
   Box,
   SxProps,
-} from "@mui/material";
-import { grey } from "@mui/material/colors";
-import MuiMarkdown from "mui-markdown";
+} from '@mui/material';
+import { grey } from '@mui/material/colors';
+import MuiMarkdown from 'mui-markdown';
+import React from 'react';
 
 interface InfoDropdownProps {
   id: string;
@@ -24,7 +24,7 @@ export default function InfoDropdown({
   sx,
 }: InfoDropdownProps) {
   return (
-    <Accordion sx={{ textAlign: "left" }}>
+    <Accordion sx={{ textAlign: 'left' }}>
       <AccordionSummary
         id={`${id}-header`}
         aria-controls={`${id}-content`}

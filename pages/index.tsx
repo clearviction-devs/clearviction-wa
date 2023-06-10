@@ -1,22 +1,23 @@
-import { Button, ButtonGroup, Grid } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Script from "next/script";
+import { Button, ButtonGroup, Grid } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Script from 'next/script';
+import React from 'react';
 
-import AccordionBuilder from "../components/AccordionBuilder";
-import externalLinks from "../components/externalLinks";
-import { GridItemCard } from "../components/GridItem";
-import HeroBanner from "../components/HeroBanner";
-import IndividualPageHead from "../components/IndividualPageHead";
-import MailchimpForm from "../components/MailchimpForm";
-import { PaperSection } from "../components/PaperSection";
-import ResearchBanner from "../components/ResearchBanner";
-import SectionContainer from "../components/SectionContainer";
-import jsonContent from "../content/home.json";
+import AccordionBuilder from '../components/AccordionBuilder.tsx';
+import externalLinks from '../components/externalLinks.tsx';
+import GridItemCard from '../components/GridItem.tsx';
+import HeroBanner from '../components/HeroBanner.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
+import MailchimpForm from '../components/MailchimpForm.tsx';
+import PaperSection from '../components/PaperSection.tsx';
+import ResearchBanner from '../components/ResearchBanner.tsx';
+import SectionContainer from '../components/SectionContainer.tsx';
+import jsonContent from '../content/home.json';
 
 export default function Home({ content }: { content: typeof jsonContent }) {
   const theme = useTheme();
-  const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   externalLinks();
 
@@ -52,7 +53,7 @@ export default function Home({ content }: { content: typeof jsonContent }) {
           <ButtonGroup
             variant="text"
             fullWidth
-            orientation={matchesXS ? "vertical" : "horizontal"}
+            orientation={matchesXS ? 'vertical' : 'horizontal'}
           >
             {content.sectionNavs.map((nav) => (
               <Button key={nav.href} href={nav.href}>
@@ -91,7 +92,7 @@ export default function Home({ content }: { content: typeof jsonContent }) {
           </PaperSection>
         </SectionContainer>
         <ResearchBanner />
-        <MailchimpForm mobileMarginZero={true} />
+        <MailchimpForm mobileMarginZero />
       </main>
     </>
   );

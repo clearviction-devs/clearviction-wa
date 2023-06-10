@@ -1,4 +1,4 @@
-import Menu from "@mui/icons-material/Menu";
+import Menu from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
@@ -12,20 +12,20 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Link from "next/link";
-import { useState } from "react";
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-import navItems from "../../content/navItems";
-import GivingTuesdayBanner from "../GivingTuesdayBanner";
-import NavigationLogo from "../NavigationLogo";
-import SkipLink from "../SkipLink";
+import navItems from '../../content/navItems.ts';
+import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
+import NavigationLogo from '../NavigationLogo';
+import SkipLink from '../SkipLink.tsx';
 
 export default function Header() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -41,7 +41,7 @@ export default function Header() {
             <ListItemButton
               component={Link}
               href={item.href}
-              sx={{ textAlign: "center" }}
+              sx={{ textAlign: 'center' }}
             >
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -50,7 +50,7 @@ export default function Header() {
         <ListItem key="disclaimer">
           <Typography
             variant="caption"
-            sx={{ mb: 2, px: 2, textAlign: "center" }}
+            sx={{ mb: 2, px: 2, textAlign: 'center' }}
           >
             The information on this site is not, nor should it be considered
             legal advice.
@@ -71,9 +71,9 @@ export default function Header() {
             <Box
               sx={{
                 flexGrow: 1,
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
               <NavigationLogo fullSize={matches} />
@@ -81,8 +81,8 @@ export default function Header() {
             {!matches && (
               <Box
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
+                  display: 'flex',
+                  alignItems: 'center',
                   gap: 2,
                 }}
               >
@@ -91,7 +91,7 @@ export default function Header() {
                   variant="contained"
                   color="neutral"
                   size="small"
-                  sx={{ whiteSpace: "nowrap" }}
+                  sx={{ whiteSpace: 'nowrap' }}
                 >
                   Access Calculator
                 </Button>
@@ -99,7 +99,7 @@ export default function Header() {
                   href="/donate"
                   variant="contained"
                   size="small"
-                  sx={{ whiteSpace: "nowrap", bgcolor: "#72C850" }}
+                  sx={{ whiteSpace: 'nowrap', bgcolor: '#72C850' }}
                 >
                   Donate
                 </Button>
@@ -109,7 +109,7 @@ export default function Header() {
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                sx={{ display: { xl: "none" } }}
+                sx={{ display: { xl: 'none' } }}
                 onClick={handleDrawerToggle}
               >
                 <Menu fontSize="large" />
@@ -118,14 +118,14 @@ export default function Header() {
           </Toolbar>
         </Container>
 
-        <Box component="nav" sx={{ bgcolor: "#1A1D2E" }}>
+        <Box component="nav" sx={{ bgcolor: '#1A1D2E' }}>
           <Drawer
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{ keepMounted: true }}
             sx={{
-              display: { xs: "block", xl: "none" },
-              textAlign: "center",
+              display: { xs: 'block', xl: 'none' },
+              textAlign: 'center',
             }}
             anchor="right"
           >
@@ -134,16 +134,15 @@ export default function Header() {
           {!matches && (
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "flex-start",
+                display: 'flex',
+                justifyContent: 'flex-start',
                 py: 1,
                 px: 4,
               }}
             >
               {navItems
                 .filter(
-                  (item) =>
-                    item.text !== "Access Calculator" && item.text !== "Donate"
+                  (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
                 )
                 .map((item) => (
                   <Button
@@ -152,7 +151,7 @@ export default function Header() {
                     variant="text"
                     color="neutral"
                     size="small"
-                    sx={{ whiteSpace: "nowrap", marginLeft: { md: 0 } }}
+                    sx={{ whiteSpace: 'nowrap', marginLeft: { md: 0 } }}
                   >
                     {item.text}
                   </Button>
