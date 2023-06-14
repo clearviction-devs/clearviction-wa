@@ -1,5 +1,6 @@
 import {
-  Box, Button, ButtonGroup, Grid, Typography,Stack
+  Box, Button, ButtonGroup, Grid, Stack,
+  Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -43,7 +44,7 @@ export default function AboutPage() {
           <Button href="#our-team">Our Team</Button>
         </ButtonGroup>
       </SectionContainer>
-      <SectionContainer  sx={{ margin: 'auto', mb:4, maxWidth:'65rem'}} maxWidth={false}>
+      <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
         <Typography variant="h3">{aboutContent.ourMission.header}</Typography>
       </SectionContainer>
 
@@ -52,14 +53,17 @@ export default function AboutPage() {
         sx={{ margin: 'auto', maxWidth: '65rem' }}
         maxWidth={false}
       >
-        <Typography variant="h2"sx={{color:'#2f3554',mt:4}}>{aboutContent.ourStory.header}</Typography>
-        <Typography >{aboutContent.ourStory.body}</Typography>
-        <Typography sx={{mt:3}}> <MuiMarkdown>{aboutContent.body[0]}</MuiMarkdown></Typography>
-     
+        <Typography variant="h2" sx={{ color: '#2f3554', mt: 4 }}>{aboutContent.ourStory.header}</Typography>
+        <Typography>{aboutContent.ourStory.body}</Typography>
+        <Typography sx={{ mt: 3 }}>
+          {' '}
+          <MuiMarkdown>{aboutContent.body[0]}</MuiMarkdown>
+        </Typography>
+
         <Box>
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
             <Grid container spacing={4}>
-             
+
               <Grid container>
                 {aboutContent.facts.map((fact) => (
                   <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
@@ -68,7 +72,7 @@ export default function AboutPage() {
                 ))}
               </Grid>
             </Grid>
-            <Box sx={{ width: '100%', textAlign: 'center', mt: '32px' }}>
+            <Box sx={{ width: '100%', textAlign: 'center', mt: '2rem' }}>
               <Button
                 href="/get-started"
                 aria-label="to Get Started"
@@ -83,10 +87,10 @@ export default function AboutPage() {
       </SectionContainer>
       <SectionContainer>
         <Box style={{ width: '90%', margin: '0 auto' }}>
-       
+
           <Grid container>
             <Grid item sm={12} md={6}>
-            <Typography variant="h2"  >
+              <Typography variant="h2">
                 {aboutContent.joinUs.header}
               </Typography>
               <Box
@@ -101,20 +105,20 @@ export default function AboutPage() {
               />
             </Grid>
             <Grid item sm={12} md={6}>
-              <Typography variant="subtitle1"sx={{mt:'10.375rem'}}>
+              <Typography variant="subtitle1" sx={{ mt: '10.375rem' }}>
                 <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
               </Typography>
-       <Stack sx={{direction:'column'}}>
-          <Button href="#donate" variant="contained" sx={{width:'15.5rem'}}>Donate</Button>
-          <Button href="#get-involved" variant="contained"sx={{width:'15.5rem'}} >Volunteer</Button>
-      </Stack>
+              <Stack sx={{ direction: 'column' }}>
+                <Button href="#donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
+                <Button href="#get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
+              </Stack>
             </Grid>
           </Grid>
         </Box>
       </SectionContainer>
       <SectionContainer id="our-team">
         <Typography variant="h2">{aboutContent.ourTeam.title}</Typography>
-     
+
         <Grid container>
           <iframe
             id={aboutContent.ourTeam.id}
@@ -124,8 +128,8 @@ export default function AboutPage() {
             height="1048"
             style={{
               background: 'transparent',
-              border: '1px solid #ccc',
-              borderRadius: '6px',
+              border: '0.0625rem solid #ccc',
+              borderRadius: '0.5rem',
             }}
           />
         </Grid>
