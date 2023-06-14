@@ -14,6 +14,7 @@ import SectionContainer from './SectionContainer.tsx';
 interface HeroBannerProps {
   heading: string;
   subheading: string;
+  subheading2: string;
   imgsrc?: string;
   ctaText?: string;
   ctaLink?: string;
@@ -25,11 +26,13 @@ const heroStyles: SxProps = {
   backgroundColor: 'primary.dark',
   color: 'primary.contrastText',
   py: 8,
+
 };
 
 export default function HeroBanner({
   heading,
   subheading,
+  subheading2,
   imgsrc,
   ctaText,
   ctaLink,
@@ -51,24 +54,54 @@ export default function HeroBanner({
           }}
         >
           <Box sx={{ flex: 1 }}>
+            <Box sx={{ mt: 2, mb: 4 }}>
+              <MuiMarkdown
+                overrides={{
+                  p: {
+                    component: Typography,
+                    props: {
+                      variant: 'body1',
+                      gutterBottom: true,
+                    } as TypographyProps,
+                  },
+
+                  span: {
+                    component: Typography,
+                    props: { variant: 'body1' } as TypographyProps,
+
+                  },
+                }}
+              >
+                {`${subheading}`}
+
+              </MuiMarkdown>
+
+            </Box>
+            {subheading2 && (
             <Box sx={{ mb: 4 }}>
               <MuiMarkdown
                 overrides={{
                   p: {
                     component: Typography,
                     props: {
-                      variant: 'subtitle1',
+                      variant: 'body1',
+                      gutterBottom: true,
                     } as TypographyProps,
                   },
+
                   span: {
                     component: Typography,
-                    props: { variant: 'subtitle1' } as TypographyProps,
+                    props: { variant: 'body1' } as TypographyProps,
+
                   },
                 }}
               >
-                {subheading}
+                {` ${subheading2}`}
+
               </MuiMarkdown>
+
             </Box>
+            )}
             {ctaText && ctaLink && (
               <Button
                 variant="contained"

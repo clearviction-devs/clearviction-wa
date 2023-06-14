@@ -12,8 +12,9 @@ const gridIconStyles = {
 
 const aboutContent = {
   hero: {
-    header: 'Our mission to break down barriers',
-    body: 'We are a civic-tech open-source project working to make the conviction vacation process in Washington easier and more straightforward, starting with an eligibility calculator.',
+    header: 'About Us',
+    body: "Clearviction was founded in 2020 sparked by [Washington State's New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017), We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life. ",
+    subheading2:"Each year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.",
     imgsrc: 'illustrations/map.svg',
   },
   ourStory: {
