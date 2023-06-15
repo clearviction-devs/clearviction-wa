@@ -74,6 +74,8 @@ export default function Header() {
               aria-label="open drawer"
               sx={{ display: { xl: "none" } }}
               onClick={handleDrawerToggle}
+              data-testid="MenuIcon"
+              className="hamburger-btn"
             >
               <Menu fontSize="large" />
             </IconButton>
@@ -93,6 +95,7 @@ export default function Header() {
                   color="neutral"
                   size="small"
                   sx={{ whiteSpace: "nowrap" }}
+                  data-testid="nav-link"
                 >
                   {item.text}
                 </Button>

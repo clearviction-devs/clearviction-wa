@@ -88,6 +88,7 @@ export default function Footer() {
                     underline="hover"
                     fontSize={18}
                     noWrap
+                    data-testid="footer-link"
                   >
                     {item.text}
                   </Link>

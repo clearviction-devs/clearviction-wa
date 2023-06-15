@@ -65,7 +65,7 @@ export default function DonatePage() {
         </PaperSection>
       </SectionContainer>
       <SectionContainer>
-        <PaperSection title="Donation FAQ">
+        <PaperSection title="Donation FAQ" data-testid="donate-faq">
           {content.donateFAQS.map((donate) => (
             <Grid key={donate.id} item xs={12} sm={6} md={4}>
               <AccordionBuilder

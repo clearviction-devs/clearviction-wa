@@ -38,7 +38,7 @@ export default function HeroBanner({
   return (
     <Box sx={overrideStyles || heroStyles} textAlign="left">
       <SectionContainer>
-        <Typography variant="h1" sx={{ display: "block" }}>
+        <Typography variant="h1" sx={{ display: "block" }} data-testid="page-heading" >
           {heading}
         </Typography>
         <Box
