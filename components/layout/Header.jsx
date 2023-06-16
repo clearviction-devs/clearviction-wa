@@ -76,7 +76,7 @@ export default function Header() {
                 alignItems: 'center',
               }}
             >
-              <NavigationLogo fullSize={matches} />
+              <NavigationLogo fullSize={!matches} />
             </Box>
             {!matches && (
               <Box

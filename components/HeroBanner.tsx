@@ -70,6 +70,14 @@ export default function HeroBanner({
                     props: { variant: 'body1' } as TypographyProps,
 
                   },
+                  a:{
+                    props:{
+                      style:{
+                        color:'#ffffff',
+                        textDecoration:'underline'
+                      }
+                    }
+                  }
                 }}
               >
                 {`${subheading}`}

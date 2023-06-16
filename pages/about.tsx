@@ -53,7 +53,7 @@ export default function AboutPage() {
         sx={{ margin: 'auto', maxWidth: '65rem' }}
         maxWidth={false}
       >
-        <Typography variant="h2" sx={{ color: '#2f3554', mt: 4 }}>{aboutContent.ourStory.header}</Typography>
+        <Typography variant="h2" sx={{ color: '#2f3554', mt: 4, textAlign:{xs:'center',sm:'left'}}}>{aboutContent.ourStory.header}</Typography>
         <Typography>{aboutContent.ourStory.body}</Typography>
         <Typography sx={{ mt: 3 }}>
           {' '}
@@ -72,12 +72,15 @@ export default function AboutPage() {
                 ))}
               </Grid>
             </Grid>
-            <Box sx={{ width: '100%', textAlign: 'center', mt: '2rem' }}>
+            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', mt: '2rem' }}>
               <Button
                 href="/get-started"
                 aria-label="to Get Started"
                 variant="contained"
-                sx={{ px: 8 }}
+                sx={{
+                  px: { xs: 4, sm: 6, md: 8 },
+                  width: { xs: '80%', sm: 'auto' }
+                }}
               >
                 Learn More
               </Button>
@@ -86,40 +89,40 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
       <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
-  <Box>
-    <Grid container>
-      <Grid item xs={12}>
-        <Typography variant="h2" align="center">
-          {aboutContent.joinUs.header}
-        </Typography>
-      </Grid>
-      <Grid item sm={12} md={6}>
-        <Box
-          component="img"
-          src={aboutContent.joinUs.imgsrc}
-          alt=""
-          sx={{
-            objectFit: 'contain',
-            textAlign: 'center',
-            width: '100%',
-          }}
-        />
-      </Grid>
-      <Grid item sm={12} md={6}>
-        <Typography variant="subtitle1" sx={{ mt: '4.375rem' }}>
-          <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
-        </Typography>
-        <Stack sx={{ direction: 'column' }}>
-          <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
-          <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
-        </Stack>
-      </Grid>
-    </Grid>
-  </Box>
-</SectionContainer>
+        <Box>
+          <Grid container>
+            <Grid item xs={12}>
+              <Typography variant="h2">
+                {aboutContent.joinUs.header}
+              </Typography>
+            </Grid>
+            <Grid item sm={12} md={6}>
+              <Box
+                component="img"
+                src={aboutContent.joinUs.imgsrc}
+                alt=""
+                sx={{
+                  objectFit: 'contain',
+                  textAlign: 'center',
+                  width: '100%',
+                }}
+              />
+            </Grid>
+            <Grid item sm={12} md={6}>
+              <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign:"center" }}>
+                <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
+              </Typography>
+              <Stack sx={{ direction: 'column' }}>
+                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
+                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
+              </Stack>
+            </Grid>
+          </Grid>
+        </Box>
+      </SectionContainer>
 
       <SectionContainer id="our-team" sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
-        <Typography variant="h2">{aboutContent.ourTeam.title}</Typography>
+        <Typography variant="h2"sx={{mt:'3rem'}}>{aboutContent.ourTeam.title}</Typography>
 
         <Grid container>
           <iframe
