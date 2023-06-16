@@ -35,7 +35,8 @@ function MyApp({
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  emotionCache: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  emotionCache: PropTypes.any,
   // eslint-disable-next-line react/forbid-prop-types
   pageProps: PropTypes.any,
 };
