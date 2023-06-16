@@ -109,8 +109,8 @@ export default function AboutPage() {
                 <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
               </Typography>
               <Stack sx={{ direction: 'column' }}>
-                <Button href="#donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
-                <Button href="#get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
+                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
+                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
               </Stack>
             </Grid>
           </Grid>
