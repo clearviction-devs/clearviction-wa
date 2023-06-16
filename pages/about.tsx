@@ -86,36 +86,38 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
       <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
-        <Box>
+  <Box>
+    <Grid container>
+      <Grid item xs={12}>
+        <Typography variant="h2" align="center">
+          {aboutContent.joinUs.header}
+        </Typography>
+      </Grid>
+      <Grid item sm={12} md={6}>
+        <Box
+          component="img"
+          src={aboutContent.joinUs.imgsrc}
+          alt=""
+          sx={{
+            objectFit: 'contain',
+            textAlign: 'center',
+            width: '100%',
+          }}
+        />
+      </Grid>
+      <Grid item sm={12} md={6}>
+        <Typography variant="subtitle1" sx={{ mt: '4.375rem' }}>
+          <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
+        </Typography>
+        <Stack sx={{ direction: 'column' }}>
+          <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
+          <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
+        </Stack>
+      </Grid>
+    </Grid>
+  </Box>
+</SectionContainer>
 
-          <Grid container>
-            <Grid item sm={12} md={6}>
-              <Typography variant="h2">
-                {aboutContent.joinUs.header}
-              </Typography>
-              <Box
-                component="img"
-                src={aboutContent.joinUs.imgsrc}
-                alt=""
-                sx={{
-                  objectFit: 'contain',
-                  textAlign: 'center',
-                  width: '100%',
-                }}
-              />
-            </Grid>
-            <Grid item sm={12} md={6}>
-              <Typography variant="subtitle1" sx={{ mt: '10.375rem' }}>
-                <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
-              </Typography>
-              <Stack sx={{ direction: 'column' }}>
-                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
-                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
-              </Stack>
-            </Grid>
-          </Grid>
-        </Box>
-      </SectionContainer>
       <SectionContainer id="our-team" sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
         <Typography variant="h2">{aboutContent.ourTeam.title}</Typography>
 
