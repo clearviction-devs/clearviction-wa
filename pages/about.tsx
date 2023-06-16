@@ -85,8 +85,8 @@ export default function AboutPage() {
           </PaperSection>
         </Box>
       </SectionContainer>
-      <SectionContainer>
-        <Box style={{ width: '90%', margin: '0 auto' }}>
+      <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+        <Box>
 
           <Grid container>
             <Grid item sm={12} md={6}>
@@ -116,7 +116,7 @@ export default function AboutPage() {
           </Grid>
         </Box>
       </SectionContainer>
-      <SectionContainer id="our-team">
+      <SectionContainer id="our-team" sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
         <Typography variant="h2">{aboutContent.ourTeam.title}</Typography>
 
         <Grid container>
