@@ -14,7 +14,7 @@ import SectionContainer from './SectionContainer.tsx';
 interface HeroBannerProps {
   heading: string;
   subheading: string;
-  subheading2: string;
+  subheading2?: string;
   imgsrc?: string;
   ctaText?: string;
   ctaLink?: string;
