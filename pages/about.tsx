@@ -55,10 +55,10 @@ export default function AboutPage() {
       >
         <Typography variant="h2" sx={{ color: '#2f3554', mt: 4, textAlign: { xs: 'center', sm: 'left' } }}>{aboutContent.ourStory.header}</Typography>
         <Typography>{aboutContent.ourStory.body}</Typography>
-        <Typography sx={{ mt: 3 }}>
+        <Box sx={{ mt: 3 }}>
           {' '}
           <MuiMarkdown>{aboutContent.body[0]}</MuiMarkdown>
-        </Typography>
+        </Box>
 
         <Box>
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
