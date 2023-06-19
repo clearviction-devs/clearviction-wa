@@ -1,4 +1,7 @@
-import { Button, Paper, PaperProps, Typography } from "@mui/material";
+import {
+  Button, Paper, PaperProps, Typography,
+} from '@mui/material';
+import React from 'react';
 
 interface PaperSectionProps extends PaperProps {
   title: string;
@@ -7,7 +10,7 @@ interface PaperSectionProps extends PaperProps {
   ctaLink?: string;
 }
 
-export function PaperSection({
+export default function PaperSection({
   title,
   subtitle,
   ctaText,
@@ -16,7 +19,7 @@ export function PaperSection({
   ...props
 }: PaperSectionProps) {
   return (
-    <Paper sx={{ textAlign: "center", p: 4 }} {...props}>
+    <Paper sx={{ textAlign: 'center', p: 4 }} {...props}>
       <Typography variant="h2" sx={{ mb: 4 }}>
         {title}
       </Typography>

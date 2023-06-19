@@ -1,4 +1,4 @@
-import { groq } from "next-sanity";
+import { groq } from 'next-sanity';
 
 export const calculatorPagePaths = groq`
   *[_type == 'calculatorInfoPage' && slug.current != null].slug.current

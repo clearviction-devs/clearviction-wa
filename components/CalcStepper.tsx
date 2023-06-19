@@ -1,14 +1,14 @@
-import Box from "@mui/material/Box";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Stepper from "@mui/material/Stepper";
-import * as React from "react";
-import { useEffect } from "react";
+import Box from '@mui/material/Box';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
+import * as React from 'react';
+import { useEffect } from 'react';
 
 const steps = [
-  "your offense",
-  "surrounding circumstances",
-  "terms of offense",
+  'your offense',
+  'surrounding circumstances',
+  'terms of offense',
 ].map((step) => step.toUpperCase());
 
 export default function HorizontalLinearStepper() {
@@ -37,9 +37,9 @@ export default function HorizontalLinearStepper() {
   });
 
   return (
-    <Box id="calc-stepper" sx={{ width: "100%" }}>
+    <Box id="calc-stepper" sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep}>
-        {steps.map((label, index) => {
+        {steps.map((label) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
             optional?: React.ReactNode;

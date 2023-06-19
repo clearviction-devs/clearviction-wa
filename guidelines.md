@@ -31,27 +31,27 @@ See the section on [Links below](#links) for information on how to link between 
 ```jsx
 // NavigationLogo.jsx
 
-import { ButtonBase } from "@mui/material";
-import Link from "next/link";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { ButtonBase } from '@mui/material';
+import Link from 'next/link';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function NavigationLogo() {
   const theme = useTheme();
   // Prefer the useMediaQuery hook from MUI for
   // conditionally rendering components based on screen size.
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <ButtonBase
       href="/"
       // An object of breakpoints can be passed in to
       // create responsive designs based on screen width.
-      sx={{ p: { xs: 1, md: 2 }, height: "100%" }}
+      sx={{ p: { xs: 1, md: 2 }, height: '100%' }}
     >
       {matches ? (
-        <img src="/cv_logo_inline.svg" height={"100%"} />
+        <img src="/cv_logo_inline.svg" height={'100%'} />
       ) : (
-        <img src="/cv_logo_small.svg" height={"100%"} />
+        <img src="/cv_logo_small.svg" height={'100%'} />
       )}
     </ButtonBase>
   );
