@@ -53,7 +53,7 @@ export default function AboutPage() {
         sx={{ margin: 'auto', maxWidth: '65rem' }}
         maxWidth={false}
       >
-        <Typography variant="h2" sx={{ color: '#2f3554', mt: 4, textAlign: { xs: 'center', sm: 'left' } }}>{aboutContent.ourStory.header}</Typography>
+        <Typography variant="h2" sx={{  mt: 4, textAlign: { xs: 'center', sm: 'left' } }}>{aboutContent.ourStory.header}</Typography>
         <Typography>{aboutContent.ourStory.body}</Typography>
         <Box sx={{ mt: 3 }}>
           {' '}
