@@ -3,7 +3,7 @@ import React from 'react';
 function SocialMetaLinks() {
   return (
     <>
-      <meta property="og:url" content="//www.clearviction.org/givingtuesday" />
+      <meta property="og:url" content="https://www.clearviction.org/donate" />
       <meta property="og:type" content="article" />
       <meta
         property="og:title"
@@ -16,7 +16,7 @@ function SocialMetaLinks() {
       <meta
         name="image"
         property="og:image"
-        content="//cvp-team-photos.s3.us-west-2.amazonaws.com/Calculator_Two+Color+2..svg"
+        content="https://cvp-team-photos.s3.us-west-2.amazonaws.com/Calculator_Two+Color+2..svg"
       />
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
