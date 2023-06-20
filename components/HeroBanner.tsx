@@ -1,17 +1,18 @@
+import { JSX } from '@emotion/react/jsx-runtime';
 import {
   Box,
   Button,
   SxProps,
   Typography,
   TypographyProps,
-} from "@mui/material";
-import MuiMarkdown from "mui-markdown";
+} from '@mui/material';
+import MuiMarkdown from 'mui-markdown';
+import React from 'react';
 
-import SectionContainer from "./SectionContainer";
+import SectionContainer from './SectionContainer.tsx';
 
 interface HeroBannerProps {
   heading: string;
-  smallHeading?: string;
   subheading: string;
   imgsrc?: string;
   ctaText?: string;
@@ -21,8 +22,8 @@ interface HeroBannerProps {
 }
 
 const heroStyles: SxProps = {
-  backgroundColor: "primary.dark",
-  color: "primary.contrastText",
+  backgroundColor: 'primary.dark',
+  color: 'primary.contrastText',
   py: 8,
 };
 
@@ -43,10 +44,10 @@ export default function HeroBanner({
         </Typography>
         <Box
           sx={{
-            display: "flex",
+            display: 'flex',
             gap: 4,
-            flexWrap: "wrap",
-            flexDirection: { sm: "column", md: "row" },
+            flexWrap: 'wrap',
+            flexDirection: { sm: 'column', md: 'row' },
           }}
         >
           <Box sx={{ flex: 1 }}>
@@ -56,12 +57,12 @@ export default function HeroBanner({
                   p: {
                     component: Typography,
                     props: {
-                      variant: "subtitle1",
+                      variant: 'subtitle1',
                     } as TypographyProps,
                   },
                   span: {
                     component: Typography,
-                    props: { variant: "subtitle1" } as TypographyProps,
+                    props: { variant: 'subtitle1' } as TypographyProps,
                   },
                 }}
               >
@@ -75,9 +76,9 @@ export default function HeroBanner({
                 href={ctaLink}
                 sx={{
                   px: 4,
-                  "&:hover": {
-                    color: "primary.dark",
-                    backgroundColor: "secondary.main",
+                  '&:hover': {
+                    color: 'primary.dark',
+                    backgroundColor: 'secondary.main',
                   },
                 }}
               >
@@ -88,9 +89,9 @@ export default function HeroBanner({
           {(imgsrc || children) && (
             <Box
               sx={{
-                display: "flex",
-                margin: "30px auto",
-                justifyContent: "center",
+                display: 'flex',
+                margin: '30px auto',
+                justifyContent: 'center',
               }}
             >
               {imgsrc ? (
@@ -98,7 +99,7 @@ export default function HeroBanner({
                   component="img"
                   src={imgsrc}
                   alt=""
-                  sx={{ width: "100%" }}
+                  sx={{ width: '100%' }}
                 />
               ) : (
                 children

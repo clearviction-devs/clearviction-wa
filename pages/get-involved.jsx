@@ -8,32 +8,40 @@ import {
   Container,
   Grid,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
+import React from 'react';
 
-import { Fact } from "../components/Fact";
-import HeroBanner from "../components/HeroBanner";
-import { PaperSection } from "../components/PaperSection";
-import SectionContainer from "../components/SectionContainer";
-import content from "../content/get-involved";
+import Fact from '../components/Fact.tsx';
+import HeroBanner from '../components/HeroBanner.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
+import PaperSection from '../components/PaperSection.tsx';
+import SectionContainer from '../components/SectionContainer.tsx';
+import ShareButtons from '../components/ShareButtons.tsx';
+import content from '../content/get-involved';
 
 export default function GetInvolvedPage() {
   return (
     <>
-      <Box sx={{ bgcolor: "#2f3554", pb: "64px" }}>
+      <IndividualPageHead
+        title="Join Clearviction | Get Involved & Reduce Recidivism"
+        content="Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State"
+      />
+
+      <Box sx={{ bgcolor: '#2f3554', pb: '64px' }}>
         <HeroBanner
-          heading="Get Involved"
+          heading="Share your expertise with us"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
           overrideStyles={{
             pb: 0,
             pt: 8,
-            color: "primary.contrastText",
+            color: 'primary.contrastText',
           }}
         />
 
         <Grid
           container
           spacing={2}
-          sx={{ maxWidth: "1200px", m: "auto", mt: -8 }}
+          sx={{ maxWidth: '1200px', m: 'auto', mt: -8 }}
         >
           {content.waysToParticipate.map((card) => (
             <Grid item xs={12} sm={12} md={4} key={card.id}>
@@ -43,16 +51,16 @@ export default function GetInvolvedPage() {
                     p: 1,
                     pb: 0,
                     maxWidth: 275,
-                    textAlign: "center",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
                   }}
                 >
                   <CardContent>
                     <Typography gutterBottom>{card.body}</Typography>
                   </CardContent>
-                  <CardActions sx={{ width: "100%" }}>
+                  <CardActions sx={{ width: '100%' }}>
                     <Button
                       href={card.href}
                       color="primary"
@@ -66,7 +74,7 @@ export default function GetInvolvedPage() {
                   <CardMedia
                     component="img"
                     height="180"
-                    sx={{ objectFit: "contain" }}
+                    sx={{ objectFit: 'contain' }}
                     image={card.imgsrc}
                     title={card.title}
                   />
@@ -89,9 +97,9 @@ function Volunteer() {
         <Typography sx={{ my: 8 }} variant="h2">
           {content.volunteerPage.header}
         </Typography>
-        {content.volunteerPage.body.map((text, idx) => (
+        {content.volunteerPage.body.map((text) => (
           <Typography
-            key={`volunteerText-${idx}`}
+            key={`volunteerText-${text}`}
             variant="body1"
             sx={{ my: 3 }}
           >
@@ -116,10 +124,11 @@ function Volunteer() {
           src={content.volunteerPage.openRole.src}
           width="100%"
           height="548"
+          title="Volunteer with Clearviction"
           style={{
-            background: "transparent",
-            border: "1px solid #ccc",
-            borderRadius: "6px",
+            background: 'transparent',
+            border: '1px solid #ccc',
+            borderRadius: '6px',
           }}
           // data-testid="iframe-open-roles"
           data-testid="the-frame"
@@ -137,7 +146,7 @@ function Partner() {
           {content.partnerPage.header[0]}
         </Typography>
         <Typography variant="body1">{content.partnerPage.text[0]}</Typography>
-        <Container sx={{ display: "flex", justifyContent: "center", py: 4 }}>
+        <Container sx={{ display: 'flex', justifyContent: 'center', py: 4 }}>
           <Button
             variant="contained"
             color="primary"
@@ -149,7 +158,7 @@ function Partner() {
         </Container>
       </SectionContainer>
       <SectionContainer maxWidth="md">
-        <PaperSection title="" sx={{ margin: "auto", p: 4 }}>
+        <PaperSection title="" sx={{ margin: 'auto', p: 4 }}>
           <Grid container>
             <Grid item xs={12} sm={6}>
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
@@ -157,7 +166,7 @@ function Partner() {
               </Box>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Typography sx={{ my: 8, scrollMarginTop: "4em" }} variant="h3">
+              <Typography sx={{ my: 8, scrollMarginTop: '4em' }} variant="h3">
                 {content.partnerPage.header[1]}
               </Typography>
               <Typography sx={{ my: 3 }} variant="body1">
@@ -166,6 +175,7 @@ function Partner() {
               <Typography sx={{ my: 3 }} variant="body1">
                 {content.partnerPage.text[2]}
               </Typography>
+              <ShareButtons />
             </Grid>
           </Grid>
         </PaperSection>

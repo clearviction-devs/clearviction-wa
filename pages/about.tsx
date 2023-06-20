@@ -1,23 +1,32 @@
-import { Box, Button, ButtonGroup, Grid, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import MuiMarkdown from "mui-markdown";
+import {
+  Box, Button, ButtonGroup, Grid, Typography,
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MuiMarkdown from 'mui-markdown';
+import React from 'react';
 
-import externalLinks from "../components/externalLinks";
-import { Fact } from "../components/Fact";
-import HeroBanner from "../components/HeroBanner";
-import { PaperSection } from "../components/PaperSection";
-import SectionContainer from "../components/SectionContainer";
-import aboutContent from "../content/about";
+import externalLinks from '../components/externalLinks.tsx';
+import Fact from '../components/Fact.tsx';
+import HeroBanner from '../components/HeroBanner.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
+import PaperSection from '../components/PaperSection.tsx';
+import SectionContainer from '../components/SectionContainer.tsx';
+import aboutContent from '../content/about';
 
 export default function AboutPage() {
   const theme = useTheme();
-  const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   externalLinks();
 
   return (
     <>
+      <IndividualPageHead
+        title="The story and team behind Clearviction."
+        metaContent="We're empowering individuals with criminal records in Washington State, and building brighter futures with tools like our Eligibility Calculator."
+      />
+
       <HeroBanner
         heading={aboutContent.hero.header}
         subheading={aboutContent.hero.body}
@@ -27,7 +36,7 @@ export default function AboutPage() {
         <ButtonGroup
           variant="text"
           fullWidth
-          orientation={matchesXS ? "vertical" : "horizontal"}
+          orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
           <Button href="#our-story">Our Story</Button>
           <Button href="#our-team">Our Team</Button>
@@ -36,7 +45,7 @@ export default function AboutPage() {
 
       <SectionContainer
         id="our-story"
-        sx={{ margin: "auto", maxWidth: "772px" }}
+        sx={{ margin: 'auto', maxWidth: '772px' }}
         maxWidth={false}
       >
         <Typography variant="h2">{aboutContent.ourStory.header}</Typography>
@@ -56,7 +65,7 @@ export default function AboutPage() {
                 ))}
               </Grid>
             </Grid>
-            <Box sx={{ width: "100%", textAlign: "center", mt: "32px" }}>
+            <Box sx={{ width: '100%', textAlign: 'center', mt: '32px' }}>
               <Button
                 href="/get-started"
                 aria-label="to Get Started"
@@ -70,7 +79,7 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
       <SectionContainer>
-        <Box style={{ width: "90%", margin: "0 auto" }}>
+        <Box style={{ width: '90%', margin: '0 auto' }}>
           <Grid container>
             <Grid item sm={12} md={6}>
               <Box
@@ -78,9 +87,9 @@ export default function AboutPage() {
                 src={aboutContent.ourMission.imgsrc}
                 alt=""
                 sx={{
-                  objectFit: "contain",
-                  textAlign: "center",
-                  width: "100%",
+                  objectFit: 'contain',
+                  textAlign: 'center',
+                  width: '100%',
                 }}
               />
             </Grid>
@@ -105,9 +114,9 @@ export default function AboutPage() {
             width="100%"
             height="1048"
             style={{
-              background: "transparent",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
+              background: 'transparent',
+              border: '1px solid #ccc',
+              borderRadius: '6px',
             }}
           />
         </Grid>

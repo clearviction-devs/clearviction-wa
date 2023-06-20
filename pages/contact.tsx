@@ -1,41 +1,56 @@
-import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
-import MuiMarkdown from "mui-markdown";
-import { useState } from "react";
+import {
+  Box, Button, MenuItem, TextField, Typography,
+} from '@mui/material';
+import MuiMarkdown from 'mui-markdown';
+import React, { useState } from 'react';
 
-import SectionContainer from "../components/SectionContainer";
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
+import SectionContainer from '../components/SectionContainer.tsx';
 
 export default function ContactPage() {
   const contactTypes = [
     {
-      value: "volunteer",
-      label: "Prospective Volunteer",
+      value: 'volunteer',
+      label: 'Prospective Volunteer',
     },
     {
-      value: "benefactor",
-      label: "Prospective Benefactor",
+      value: 'benefactor',
+      label: 'Prospective Benefactor',
     },
     {
-      value: "attorney",
-      label: "Attorney",
+      value: 'attorney',
+      label: 'Attorney',
     },
     {
-      value: "partner",
-      label: "Prospective Partner",
+      value: 'partner',
+      label: 'Prospective Partner',
     },
     {
-      value: "other",
-      label: "Other Individual/Organization",
+      value: 'other',
+      label: 'Other Individual/Organization',
     },
   ];
+
+  const [toSend, setToSend] = useState({
+    name: '',
+    _replyto: '',
+    contact_type: '',
+    message: '',
+  });
+
+  const [emailError, setEmailError] = useState({
+    errorStatus: false,
+    errorMessage: '',
+  });
 
   const validateEmail = (email: string) => {
     const validEmail = /\S+@\S+\.\S+/;
     if (validEmail.test(email)) {
-      setEmailError({ errorStatus: false, errorMessage: "" });
+      setEmailError({ errorStatus: false, errorMessage: '' });
     } else {
       setEmailError({
         errorStatus: true,
-        errorMessage: "Please enter a valid email",
+        errorMessage: 'Please enter a valid email',
       });
     }
   };
@@ -45,36 +60,31 @@ export default function ContactPage() {
       ...toSend,
       [(e.target as HTMLInputElement).name]: e.target.value,
     });
-    if (e.target.name === "_replyto") {
+    if (e.target.name === '_replyto') {
       validateEmail(e.target.value);
     }
   };
 
-  const [toSend, setToSend] = useState({
-    name: "",
-    _replyto: "",
-    contact_type: "",
-    message: "",
-  });
-
-  const [emailError, setEmailError] = useState({
-    errorStatus: false,
-    errorMessage: "",
-  });
-
   return (
     <>
-      <SectionContainer sx={{ textAlign: "center", mt: 5 }}>
-        <Typography variant="h1" sx={{ textAlign: "center" }}>
-          Contact Us
+      <IndividualPageHead
+        title="Contact Us - Reach Out for Support and Information"
+        metaContent="Have questions or concerns? Contact our team, and we'll respond within 24 hours."
+      />
+      <SectionContainer sx={{ textAlign: 'center', mt: 5 }}>
+        <Typography variant="h1" sx={{ textAlign: 'center' }}>
+          Get in contact with us
         </Typography>
-        <MuiMarkdown>{`**Have questions? Send us a message and we'll get back to you within 24 hours.**`}</MuiMarkdown>
+        <MuiMarkdown>
+          **Have questions? Send us a message and we'll get back to you within
+          24 hours.**
+        </MuiMarkdown>
       </SectionContainer>
       <SectionContainer
         sx={{
-          textAlign: "center",
-          display: "flex",
-          flexDirection: { xs: "column", sm: "column", md: "row" },
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'column', md: 'row' },
         }}
       >
         <Box
@@ -84,10 +94,10 @@ export default function ContactPage() {
           action="https://formspree.io/f/mqkopnee"
           method="post"
           sx={{
-            mx: "auto",
+            mx: 'auto',
             my: 4,
-            width: { xs: "85%", sm: "70%", md: "40%" },
-            "& .MuiTextField-root": { m: 1 },
+            width: { xs: '85%', sm: '70%', md: '40%' },
+            '& .MuiTextField-root': { m: 1 },
           }}
         >
           <TextField
@@ -151,7 +161,7 @@ export default function ContactPage() {
           />
 
           <Button
-            sx={{ margin: "30px auto 50px", minWidth: "240px" }}
+            sx={{ margin: '30px auto 50px', minWidth: '240px' }}
             type="submit"
             variant="contained"
           >
@@ -164,9 +174,9 @@ export default function ContactPage() {
           alt=""
           src="/illustrations/new_message.svg"
           sx={{
-            maxWidth: "600px",
+            maxWidth: '600px',
             margin: 2,
-            display: { xs: "none", md: "block" },
+            display: { xs: 'none', md: 'block' },
           }}
         />
       </SectionContainer>

@@ -1,14 +1,19 @@
-import createEmotionServer from "@emotion/server/create-instance";
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import createEmotionServer from '@emotion/server/create-instance';
+import Document, {
+  Head, Html, Main, NextScript,
+} from 'next/document';
+import React from 'react';
 
-import theme from "../styles/themes/theme";
-import createEmotionCache from "../utils/createEmotionCache";
+import SocialMetaLinks from '../components/SocialMetaLinks';
+import theme from '../styles/themes/theme.tsx';
+import createEmotionCache from '../utils/createEmotionCache';
 
 export default class CustomDocument extends Document {
   render() {
     return (
       <Html lang="en-US">
         <Head>
+          <SocialMetaLinks />
           <link
             href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Gothic&display=swap"
             rel="stylesheet"
@@ -53,20 +58,18 @@ CustomDocument.getInitialProps = async (ctx) => {
   const cache = createEmotionCache();
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
-  ctx.renderPage = () =>
-    originalRenderPage({
-      enhanceApp: (App) =>
-        function EnhanceApp(props) {
-          return <App emotionCache={cache} {...props} />;
-        },
-    });
+  ctx.renderPage = () => originalRenderPage({
+    enhanceApp: (App) => function EnhanceApp(props) {
+      return <App emotionCache={cache} {...props} />;
+    },
+  });
 
   const initialProps = await Document.getInitialProps(ctx);
 
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(" ")}`}
+      data-emotion={`${style.key} ${style.ids.join(' ')}`}
       key={style.key}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: style.css }}
