@@ -19,7 +19,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
-import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
+// import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
 import NavigationLogo from '../NavigationLogo';
 import SkipLink from '../SkipLink.tsx';
 
@@ -62,7 +62,8 @@ export default function Header() {
 
   return (
     <>
-      <GivingTuesdayBanner />
+      {/* hide until we figure out what the cta is supposed to be */}
+      {/* <GivingTuesdayBanner /> */}
       <AppBar color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl" sx={{ p: 3 }}>
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
@@ -76,6 +77,7 @@ export default function Header() {
                 alignItems: 'center',
               }}
             >
+
               <NavigationLogo fullSize={matches} />
             </Box>
             {!matches && (
