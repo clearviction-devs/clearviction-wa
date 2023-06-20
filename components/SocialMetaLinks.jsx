@@ -4,7 +4,7 @@ function SocialMetaLinks() {
   return (
     <>
       <meta property="og:url" content="https://www.clearviction.org/donate" />
-      <meta property="og:type" content="article" />
+      <meta property="og:type" content="website" />
       <meta
         property="og:title"
         content="Clearviction.org: A fresh start for people with Washington State Convictions"
