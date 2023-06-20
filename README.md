@@ -113,6 +113,7 @@ Make sure you read the dev guide on how to use Sanity [here](https://github.com/
 - [NextJS](https://nextjs.org/) - React-based Web Framework
 - [MUI](https://mui.com/) - UI / Component Library
 - [Sanity](https://www.sanity.io/) - Content Management System / Content API
+- [Cypress](https://docs.cypress.io/guides/overview/why-cypress) - Front-end testing tool
 
 ## Get In Contact
 
