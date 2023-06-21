@@ -131,7 +131,7 @@ export default function GetStartedPage() {
               }
             </MuiMarkdown>
             <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Important Notice to Verify Legal Resources:</Typography>
-            <Typography variant="body2" sx={{my:2}}>
+            <Typography variant="body2" sx={{ my: 2 }}>
               Before proceeding with any legal resources mentioned on our website,
               we highly encourage you to contact them
               directly and verify if they are currently able to assist
