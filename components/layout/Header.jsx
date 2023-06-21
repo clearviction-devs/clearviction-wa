@@ -68,6 +68,17 @@ export default function Header() {
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
             <SkipLink color="primary" variant="contained" />
             {/* Boxes as containers for handling layout among siblings */}
+            <Box sx={{ flexGrow: 1, height: "100%" }}>
+              <NavigationLogo fullSize={matches} />
+            </Box>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ display: { xl: "none" } }}
+              onClick={handleDrawerToggle}
+            >
+              <Menu fontSize="large" />
+            </IconButton>
             <Box
               sx={{
                 flexGrow: 1,
@@ -76,7 +87,10 @@ export default function Header() {
                 alignItems: 'center',
               }}
             >
-              <NavigationLogo fullSize={matches} />
+              <NavigationLogo 
+                fullSize={matches} 
+                data-testid="MenuIcon"
+                className="hamburger-btn" />
             </Box>
             {!matches && (
               <Box
@@ -91,7 +105,8 @@ export default function Header() {
                   variant="contained"
                   color="neutral"
                   size="small"
-                  sx={{ whiteSpace: 'nowrap' }}
+                  sx={{ whiteSpace: "nowrap" }}
+                  data-testid="nav-link"
                 >
                   Access Calculator
                 </Button>

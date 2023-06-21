@@ -7,6 +7,7 @@ export default function DonationForm() {
     <Box
       id="donation-widget"
       sx={{ backgroundColor: '#fff', borderRadius: '10px', padding: '30px' }}
+      data-testid="donor-box"
     >
       {/* embedded donation widget from give lively */}
       <Script src="https://secure.givelively.org/widgets/simple_donation/clearviction.js?show_suggested_amount_buttons=true&show_in_honor_of=true&address_required=false&has_required_custom_question=null&suggested_donation_amounts[]=25&suggested_donation_amounts[]=50&suggested_donation_amounts[]=100&suggested_donation_amounts[]=250" />
