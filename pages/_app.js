@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { CacheProvider } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
@@ -21,9 +22,22 @@ function MyApp({
   emotionCache = clientSideEmotionCache,
 
 }) {
+  const router = useRouter();
+
   useEffect(() => {
+    // initializing google tag
     TagManager.initialize({ gtmId });
-  }, []);
+
+    // tracking every page via event listener when a route change is completed
+    const handleRouteChangeComplete = () => {
+      TagManager.initialize({ gtmId });
+    };
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    };
+  }, [router]);
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
