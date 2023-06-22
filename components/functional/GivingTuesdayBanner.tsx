@@ -4,7 +4,7 @@ import {
 import React, { useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 
-import theme from '../styles/themes/theme.tsx';
+import theme from '../../styles/themes/theme.tsx';
 
 function GivingTuesdayBanner() {
   const [isBannerVisible, setIsBannerVisible] = useState(true);
