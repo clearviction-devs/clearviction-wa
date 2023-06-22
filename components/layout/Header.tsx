@@ -19,6 +19,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
+import SkipLink from '../helper/SkipLink.tsx';
 // import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
@@ -66,6 +67,7 @@ export default function Header() {
       <AppBar className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl" sx={{ p: 3 }}>
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
+            <SkipLink color="primary" variant="contained" />
             {/* Boxes as containers for handling layout among siblings */}
             <Box
               sx={{
