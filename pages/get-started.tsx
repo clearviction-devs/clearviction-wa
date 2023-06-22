@@ -1,5 +1,5 @@
 import {
-  Box, Button, ButtonGroup, Grid,
+  Box, Button, ButtonGroup, Grid, Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -130,7 +130,16 @@ export default function GetStartedPage() {
                 'Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)'
               }
             </MuiMarkdown>
-            <Grid container spacing={2} sx={{ my: 1 }}>
+            <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Important Notice to Verify Legal Resources:</Typography>
+            <Typography variant="body2" sx={{ my: 2 }}>
+              Before proceeding with any legal resources mentioned on our website,
+              we highly encourage you to contact them
+              directly and verify that they are currently able to assist
+              with your specific issue. While we strive to provide accurate and up-to-date
+              information, it is important to acknowledge
+              that the priorities and availability of legal resources can evolve.
+            </Typography>
+            <Grid container spacing={2} sx={{ my: 3 }}>
               {content.legalAidForms.map((legalForm) => (
                 <Grid key={legalForm.id} item xs={12} sm={6} md={4}>
                   <AccordionBuilder
