@@ -12,11 +12,11 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import HeroBanner from '../components/HeroBanner.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import PaperSection from '../components/PaperSection.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
-import ShareButtons from '../components/ShareButtons.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import ShareButtons from '../components/helper/ShareButtons.tsx';
+import HeroBanner from '../components/layout/HeroBanner.tsx';
+import PaperSection from '../components/layout/PaperSection.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-involved.ts';
 
 type Icon = {
