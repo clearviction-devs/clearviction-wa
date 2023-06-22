@@ -134,7 +134,7 @@ export default function GetStartedPage() {
             <Typography variant="body2" sx={{ my: 2 }}>
               Before proceeding with any legal resources mentioned on our website,
               we highly encourage you to contact them
-              directly and verify if they are currently able to assist
+              directly and verify that they are currently able to assist
               with your specific issue. While we strive to provide accurate and up-to-date
               information, it is important to acknowledge
               that the priorities and availability of legal resources can evolve.
