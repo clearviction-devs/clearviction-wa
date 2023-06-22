@@ -1,3 +1,4 @@
+import { Alarm, CloudDone, Sync } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -11,83 +12,22 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import Fact from '../components/Fact.tsx';
 import HeroBanner from '../components/HeroBanner.tsx';
 import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import PaperSection from '../components/PaperSection.tsx';
 import SectionContainer from '../components/SectionContainer.tsx';
 import ShareButtons from '../components/ShareButtons.tsx';
-import content from '../content/get-involved';
+import content from '../content/get-involved.ts';
 
-export default function GetInvolvedPage() {
-  return (
-    <>
-      <IndividualPageHead
-        title="Join Clearviction | Get Involved & Reduce Recidivism"
-        content="Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State"
-      />
-
-      <Box sx={{ bgcolor: '#2f3554', pb: '64px' }}>
-        <HeroBanner
-          heading="Share your expertise with us"
-          subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
-          overrideStyles={{
-            pb: 0,
-            pt: 8,
-            color: 'primary.contrastText',
-          }}
-        />
-
-        <Grid
-          container
-          spacing={2}
-          sx={{ maxWidth: '1200px', m: 'auto', mt: -8 }}
-        >
-          {content.waysToParticipate.map((card) => (
-            <Grid item xs={12} sm={12} md={4} key={card.id}>
-              <Box display="flex" justifyContent="center" key={card.id}>
-                <Card
-                  sx={{
-                    p: 1,
-                    pb: 0,
-                    maxWidth: 275,
-                    textAlign: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                  }}
-                >
-                  <CardContent>
-                    <Typography gutterBottom>{card.body}</Typography>
-                  </CardContent>
-                  <CardActions sx={{ width: '100%' }}>
-                    <Button
-                      href={card.href}
-                      color="primary"
-                      variant="contained"
-                      fullWidth
-                    >
-                      {card.title}
-                    </Button>
-                  </CardActions>
-                  <CardMedia
-                    component="img"
-                    height="180"
-                    sx={{ objectFit: 'contain' }}
-                    image={card.imgsrc}
-                    title={card.title}
-                  />
-                </Card>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-      <Volunteer />
-      <Partner />
-    </>
-  );
+type Icon = {
+  [key: string]: React.ReactNode;
 }
+
+const iconEl: Icon = {
+  alarm: <Alarm sx={{ fontSize: '3em', color: 'rgb(255, 210, 0)' }} />,
+  cloud: <CloudDone sx={{ fontSize: '3em', color: 'rgb(255, 210, 0)' }} />,
+  sync: <Sync sx={{ fontSize: '3em', color: 'rgb(255, 210, 0)' }} />,
+};
 
 function Volunteer() {
   return (
@@ -108,7 +48,16 @@ function Volunteer() {
         <Grid container>
           {content.volunteerPage.facts.map((fact) => (
             <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
-              <Fact text={fact.text} icon={fact.icon} />
+              <Box display="flex" justifyContent="center" padding={3}>
+                {iconEl[fact.icon]}
+              </Box>
+              <Typography
+                style={{ padding: 3, margin: 20 }}
+                variant="body1"
+                align="center"
+              >
+                {fact.text}
+              </Typography>
             </Grid>
           ))}
         </Grid>
@@ -177,6 +126,76 @@ function Partner() {
           </Grid>
         </PaperSection>
       </SectionContainer>
+    </>
+  );
+}
+
+export default function GetInvolvedPage() {
+  return (
+    <>
+      <IndividualPageHead
+        title="Join Clearviction | Get Involved & Reduce Recidivism"
+        metaContent="Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State"
+      />
+
+      <Box sx={{ bgcolor: '#2f3554', pb: '64px' }}>
+        <HeroBanner
+          heading="Share your expertise with us"
+          subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
+          overrideStyles={{
+            pb: 0,
+            pt: 8,
+            color: 'primary.contrastText',
+          }}
+        />
+
+        <Grid
+          container
+          spacing={2}
+          sx={{ maxWidth: '1200px', m: 'auto', mt: -8 }}
+        >
+          {content.waysToParticipate.map((card) => (
+            <Grid item xs={12} sm={12} md={4} key={card.id}>
+              <Box display="flex" justifyContent="center" key={card.id}>
+                <Card
+                  sx={{
+                    p: 1,
+                    pb: 0,
+                    maxWidth: 275,
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                  }}
+                >
+                  <CardContent>
+                    <Typography gutterBottom>{card.body}</Typography>
+                  </CardContent>
+                  <CardActions sx={{ width: '100%' }}>
+                    <Button
+                      href={card.href}
+                      color="primary"
+                      variant="contained"
+                      fullWidth
+                    >
+                      {card.title}
+                    </Button>
+                  </CardActions>
+                  <CardMedia
+                    component="img"
+                    height="180"
+                    sx={{ objectFit: 'contain' }}
+                    image={card.imgsrc}
+                    title={card.title}
+                  />
+                </Card>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+      <Volunteer />
+      <Partner />
     </>
   );
 }

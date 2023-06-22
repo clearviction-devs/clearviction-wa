@@ -35,12 +35,16 @@ import { ButtonBase } from '@mui/material';
 import Link from 'next/link';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Image from 'next/image';
 
 export default function NavigationLogo() {
   const theme = useTheme();
   // Prefer the useMediaQuery hook from MUI for
   // conditionally rendering components based on screen size.
   const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const imgSrc = matches ? '/cv_logo_inline.svg' : '/cv_logo_small.svg';
+  const imgWidth = matches ? 50 : 273;
+
   return (
     <ButtonBase
       href="/"
@@ -48,11 +52,7 @@ export default function NavigationLogo() {
       // create responsive designs based on screen width.
       sx={{ p: { xs: 1, md: 2 }, height: '100%' }}
     >
-      {matches ? (
-        <img src="/cv_logo_inline.svg" height={'100%'} />
-      ) : (
-        <img src="/cv_logo_small.svg" height={'100%'} />
-      )}
+      <Image src={imgSrc} height={43} width={imgWidth} alt="Clearviction logo" />
     </ButtonBase>
   );
 }
