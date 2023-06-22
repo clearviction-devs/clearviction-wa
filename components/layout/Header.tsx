@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
 // import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
-import NavigationLogo from '../NavigationLogo';
+import NavigationLogo from '../NavigationLogo.tsx';
 import SkipLink from '../SkipLink.tsx';
 
 export default function Header() {
