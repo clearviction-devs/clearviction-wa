@@ -19,9 +19,9 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
+import SkipLink from '../helper/SkipLink.tsx';
 // import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
-import NavigationLogo from '../NavigationLogo.tsx';
-import SkipLink from '../SkipLink.tsx';
+import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
   const theme = useTheme();

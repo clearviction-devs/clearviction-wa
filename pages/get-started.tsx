@@ -6,13 +6,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import AccordionBuilder from '../components/AccordionBuilder.tsx';
-import externalLinks from '../components/externalLinks.tsx';
-import FactCard from '../components/FactCard.tsx';
-import GetStartedStep from '../components/GetStartedStep.tsx';
-import HeroBanner from '../components/HeroBanner.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
+import externalLinks from '../components/functional/ExternalLinks.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import FactCard from '../components/layout/FactCard.tsx';
+import GetStartedStep from '../components/layout/GetStartedStep.tsx';
+import HeroBanner from '../components/layout/HeroBanner.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started';
 
 export default function GetStartedPage() {
