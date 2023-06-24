@@ -112,7 +112,7 @@ const whyVacateContent = {
       cardItems: [
         {
           title: 'Occupational Licenses',
-          body: 'Some states’ laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.',
+          body: 'Some states\' laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.',
           imgRef: '/illustrations/career.svg',
         },
         {
