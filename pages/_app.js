@@ -32,7 +32,9 @@ function MyApp({
     const handleRouteChangeComplete = () => {
       TagManager.initialize({ gtmId });
     };
+
     router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    
     return () => {
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
