@@ -73,7 +73,7 @@ export default function HeroBanner({
                   a: {
                     props: {
                       style: {
-                        color: '#ffffff',
+                        color: '#FFD200',
                         textDecoration: 'underline',
                       },
                     },
