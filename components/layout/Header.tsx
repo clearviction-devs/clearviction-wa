@@ -19,9 +19,9 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
-import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
-import NavigationLogo from '../NavigationLogo';
-import SkipLink from '../SkipLink.tsx';
+import SkipLink from '../helper/SkipLink.tsx';
+// import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
+import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
   const theme = useTheme();
@@ -35,13 +35,13 @@ export default function Header() {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ flexGrow: 1 }}>
-      <List sx={{ my: 2 }}>
+      <List className="nav-mobile" sx={{ my: 2 }}>
         {navItems.map((item) => (
-          <ListItem key={item.text} disablePadding>
+          <ListItem key={item.text}>
             <ListItemButton
               component={Link}
               href={item.href}
-              sx={{ textAlign: 'center' }}
+              sx={{ textAlign: 'center', px: 5 }}
             >
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -62,8 +62,9 @@ export default function Header() {
 
   return (
     <>
-      <GivingTuesdayBanner />
-      <AppBar color="primary" elevation={0} component="nav" position="sticky">
+      {/* hide until we figure out what the cta is supposed to be */}
+      {/* <GivingTuesdayBanner /> */}
+      <AppBar className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl" sx={{ p: 3 }}>
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
             <SkipLink color="primary" variant="contained" />
@@ -76,10 +77,12 @@ export default function Header() {
                 alignItems: 'center',
               }}
             >
+
               <NavigationLogo fullSize={matches} />
             </Box>
             {!matches && (
               <Box
+                className="test"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -91,7 +94,8 @@ export default function Header() {
                   variant="contained"
                   color="neutral"
                   size="small"
-                  sx={{ whiteSpace: 'nowrap' }}
+                  className="calc-btn"
+                  sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
                 >
                   Access Calculator
                 </Button>
@@ -99,7 +103,10 @@ export default function Header() {
                   href="/donate"
                   variant="contained"
                   size="small"
-                  sx={{ whiteSpace: 'nowrap', bgcolor: '#72C850' }}
+                  className="donate-btn"
+                  sx={{
+                    whiteSpace: 'nowrap', bgcolor: '#72C850', py: 1, px: 4,
+                  }}
                 >
                   Donate
                 </Button>
@@ -133,11 +140,13 @@ export default function Header() {
           </Drawer>
           {!matches && (
             <Box
+              className="desktop-nav-list"
               sx={{
                 display: 'flex',
                 justifyContent: 'flex-start',
                 py: 1,
                 px: 4,
+                maxWidth: '1100px',
               }}
             >
               {navItems
@@ -151,7 +160,10 @@ export default function Header() {
                     variant="text"
                     color="neutral"
                     size="small"
-                    sx={{ whiteSpace: 'nowrap', marginLeft: { md: 0 } }}
+                    className="nav-list__item"
+                    sx={{
+                      whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: 3, py: 1,
+                    }}
                   >
                     {item.text}
                   </Button>

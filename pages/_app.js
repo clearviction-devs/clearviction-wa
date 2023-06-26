@@ -9,7 +9,7 @@ import React, { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
 
 import Footer from '../components/layout/Footer.tsx';
-import Header from '../components/layout/Header';
+import Header from '../components/layout/Header.tsx';
 import theme from '../styles/themes/theme.tsx';
 import createEmotionCache from '../utils/createEmotionCache';
 
