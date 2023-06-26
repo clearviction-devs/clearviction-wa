@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Footer from '../components/layout/Footer.tsx';
-import Header from '../components/layout/Header';
+import Header from '../components/layout/Header.tsx';
 import theme from '../styles/themes/theme.tsx';
 import createEmotionCache from '../utils/createEmotionCache';
 
@@ -35,7 +35,8 @@ function MyApp({
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  emotionCache: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  emotionCache: PropTypes.any,
   // eslint-disable-next-line react/forbid-prop-types
   pageProps: PropTypes.any,
 };

@@ -34,7 +34,7 @@ export default function InfoDropdown({
         <MuiMarkdown>{summary}</MuiMarkdown>
       </AccordionSummary>
       <AccordionDetails sx={{ backgroundColor: grey[50] }}>
-        <Box px={2}>
+        <Box px={2} sx={{ '& p': { my: 2 } }}>
           <MuiMarkdown>{details}</MuiMarkdown>
         </Box>
       </AccordionDetails>

@@ -4,7 +4,7 @@ import Document, {
 } from 'next/document';
 import React from 'react';
 
-import SocialMetaLinks from '../components/SocialMetaLinks';
+import SocialMetaLinks from '../components/helper/SocialMetaLinks.tsx';
 import theme from '../styles/themes/theme.tsx';
 import createEmotionCache from '../utils/createEmotionCache';
 

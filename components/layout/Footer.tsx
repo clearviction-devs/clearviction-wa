@@ -12,7 +12,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import navItems from '../../content/navItems.ts';
-import NavigationLogo from '../NavigationLogo';
+import NavigationLogo from './NavigationLogo.tsx';
 
 const sectionContainerStyles: SxProps = {
   flex: 1,

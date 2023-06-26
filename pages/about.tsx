@@ -7,12 +7,12 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import externalLinks from '../components/externalLinks.tsx';
-import Fact from '../components/Fact.tsx';
-import HeroBanner from '../components/HeroBanner.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import PaperSection from '../components/PaperSection.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
+import externalLinks from '../components/functional/ExternalLinks.tsx';
+// import Fact from '../components/Fact.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import HeroBanner from '../components/layout/HeroBanner.tsx';
+import PaperSection from '../components/layout/PaperSection.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
 import aboutContent from '../content/about';
 
 export default function AboutPage() {
@@ -67,7 +67,7 @@ export default function AboutPage() {
               <Grid container>
                 {aboutContent.facts.map((fact) => (
                   <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
-                    <Fact text={fact.text} icon={fact.icon} />
+                    {/* <Fact text={fact.text} icon={fact.icon} /> */}
                   </Grid>
                 ))}
               </Grid>
