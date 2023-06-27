@@ -13,7 +13,7 @@ import FactCard from '../components/layout/FactCard.tsx';
 import GetStartedStep from '../components/layout/GetStartedStep.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
-import content from '../content/get-started';
+import content from '../content/get-started.ts';
 
 export default function GetStartedPage() {
   const theme = useTheme();
@@ -50,15 +50,20 @@ export default function GetStartedPage() {
       <SectionContainer id="step-1">
         <GetStartedStep
           title="Step 1: Documents"
-          bodyText="First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
+          bodyText="First let's gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
         >
           <SectionContainer>
             <MuiMarkdown>**You'll need to know:**</MuiMarkdown>
             <Grid container spacing={8} sx={{ my: 1 }}>
               {content.needToKnowFacts.map((fact) => (
-                <FactCard key={fact.id} xs={12} md={4} body={fact.details}>
-                  {fact.icon}
-                </FactCard>
+                <FactCard
+                  className="fact-card"
+                  key={fact.id}
+                  xs={12}
+                  md={4}
+                  details={fact.details}
+                  icon={fact.icon}
+                />
               ))}
             </Grid>
           </SectionContainer>
@@ -113,7 +118,7 @@ export default function GetStartedPage() {
           </MuiMarkdown>
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
-              <FactCard key={fact.id} xs={12} md={4} body={fact.details} />
+              <FactCard className="fact-card" key={fact.id} icon="none" details={fact.details} />
             ))}
           </Grid>
         </GetStartedStep>

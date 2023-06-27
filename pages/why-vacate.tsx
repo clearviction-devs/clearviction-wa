@@ -12,7 +12,7 @@ import GridItemCard from '../components/layout/GridItem.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
-import content from '../content/why-vacate';
+import content from '../content/why-vacate.ts';
 
 export default function WhyVacatePage() {
   const theme = useTheme();

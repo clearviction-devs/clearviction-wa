@@ -1,15 +1,3 @@
-import {
-  HourglassEmpty,
-  LocalAtmOutlined,
-  PanToolOutlined,
-} from '@mui/icons-material';
-import React from 'react';
-
-const gridIconStyles = {
-  color: '#FFD200',
-  fontSize: '3em',
-};
-
 const aboutContent = {
   hero: {
     header: 'About Us',
@@ -30,18 +18,18 @@ const aboutContent = {
   facts: [
     {
       id: 'fact0',
-      icon: <HourglassEmpty sx={gridIconStyles} />,
-      text: 'It has a number of steps that require time and know-how, increasing the barrier of entry for applicants.',
+      icon: 'hourglass',
+      details: 'It has a number of steps that require time and know-how, increasing the barrier of entry for applicants.',
     },
     {
       id: 'fact1',
-      icon: <LocalAtmOutlined sx={gridIconStyles} />,
-      text: "While hiring an attorney can help simplify the process, it's unaffordable for most.",
+      icon: 'atm',
+      details: "While hiring an attorney can help simplify the process, it's unaffordable for most.",
     },
     {
       id: 'fact2',
-      icon: <PanToolOutlined sx={gridIconStyles} />,
-      text: 'Free help is sometimes available, but only very rarely and only to a tiny percentage of the folks who need it.',
+      icon: 'pan',
+      details: 'Free help is sometimes available, but only very rarely and only to a tiny percentage of the folks who need it.',
     },
   ],
   joinUs: {

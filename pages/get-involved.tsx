@@ -1,4 +1,3 @@
-import { Alarm, CloudDone, Sync } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -14,20 +13,11 @@ import React from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
+import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-involved.ts';
-
-type Icon = {
-  [key: string]: React.ReactNode;
-}
-
-const iconEl: Icon = {
-  alarm: <Alarm sx={{ fontSize: '3em', color: 'rgb(255, 210, 0)' }} />,
-  cloud: <CloudDone sx={{ fontSize: '3em', color: 'rgb(255, 210, 0)' }} />,
-  sync: <Sync sx={{ fontSize: '3em', color: 'rgb(255, 210, 0)' }} />,
-};
 
 function Volunteer() {
   return (
@@ -45,20 +35,14 @@ function Volunteer() {
             {text}
           </Typography>
         ))}
-        <Grid container>
+        <Grid container className="fact-card">
           {content.volunteerPage.facts.map((fact) => (
-            <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
-              <Box display="flex" justifyContent="center" padding={3}>
-                {iconEl[fact.icon]}
-              </Box>
-              <Typography
-                style={{ padding: 3, margin: 20 }}
-                variant="body1"
-                align="center"
-              >
-                {fact.text}
-              </Typography>
-            </Grid>
+            <FactCard
+              key={fact.id}
+              details={fact.details}
+              icon={fact.icon}
+              border={false}
+            />
           ))}
         </Grid>
       </SectionContainer>

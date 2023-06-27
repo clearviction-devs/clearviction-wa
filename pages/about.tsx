@@ -8,12 +8,12 @@ import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
-// import Fact from '../components/Fact.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
-import aboutContent from '../content/about';
+import aboutContent from '../content/about.ts';
 
 export default function AboutPage() {
   const theme = useTheme();
@@ -63,12 +63,14 @@ export default function AboutPage() {
         <Box>
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
             <Grid container spacing={4}>
-
-              <Grid container>
+              <Grid container className="fact-card">
                 {aboutContent.facts.map((fact) => (
-                  <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
-                    {/* <Fact text={fact.text} icon={fact.icon} /> */}
-                  </Grid>
+                  <FactCard
+                    key={fact.id}
+                    details={fact.details}
+                    icon={fact.icon}
+                    border={false}
+                  />
                 ))}
               </Grid>
             </Grid>

@@ -20,7 +20,6 @@ function MyApp({
   Component,
   pageProps,
   emotionCache = clientSideEmotionCache,
-
 }) {
   const router = useRouter();
 
@@ -48,7 +47,6 @@ function MyApp({
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>
