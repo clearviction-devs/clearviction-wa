@@ -37,6 +37,7 @@ const theme = createTheme({
       main: '#FFD200',
       contrastText: '#000000',
     },
+    // where did this come from?
     neutral: {
       main: '#FFFFFF',
       dark: grey[400],
@@ -53,89 +54,102 @@ const theme = createTheme({
     },
     text: {
       primary: '#000000',
-      secondary: '#AAAAAA',
+      secondary: '#4E6C99',
+    },
+    background: {
+      default: '#FAFAFA',
+      paper: '#FFFFFF',
     },
   },
   typography: {
-    fontFamily: inter.style.fontFamily,
-
     h1: {
-      fontSize: '84px',
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'normal',
-      margin: '20px auto',
+      fontSize: '5.25rem',
+      letterSpacing: '-0.0938rem',
+      marginBottom: '1.25rem',
     },
     h2: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'normal',
-      fontSize: '56px',
-      letterSpacing: '-0.5px',
-      marginBottom: '1.5em',
+      fontSize: '3.5rem',
+      letterSpacing: '-0.0313rem',
+      marginBottom: '1.5rem',
     },
     h3: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'normal',
-      fontSize: '45px',
-      letterSpacing: '0px',
-      marginBottom: '0.5em',
+      fontSize: '2.8125rem',
+      letterSpacing: '0',
+      marginBottom: '.5rem',
     },
     h4: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'bold',
-      fontSize: '32px',
-      letterSpacing: '0.25px',
-      marginBottom: '0.5em',
+      fontSize: '2rem',
+      letterSpacing: '.0156rem',
+      marginBottom: '.5rem',
     },
     h5: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'bold',
-      fontSize: '22px',
-      letterSpacing: '0px',
-      marginBottom: '0.5em',
+      fontSize: '1.625rem',
+      letterSpacing: '.0156rem',
+      marginBottom: '.5rem',
     },
     h6: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'bold',
-      fontSize: '19px',
-      letterSpacing: '0.15px',
-      marginBottom: '10px',
-    },
-    body1: {
-      fontWeight: 'normal',
-      fontSize: '20px',
-    },
-    body2: {
-      fontWeight: 'normal',
-      fontSize: '18px',
+      fontSize: '1.375rem',
+      letterSpacing: '.0094rem',
+      marginBottom: '.5rem',
     },
     subtitle1: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'normal',
-      fontSize: '22px',
-      letterSpacing: '0.15px',
-      lineHeight: '1.5',
-      marginBottom: '20px',
+      fontSize: '1.375rem',
+      letterSpacing: '.0094rem',
+      // lineHeight: '1.5',
+      marginBottom: '1.25rem',
     },
     subtitle2: {
       fontFamily: sintony.style.fontFamily,
       fontWeight: 'normal',
-      fontSize: '20px',
-      letterSpacing: '0.1px',
+      fontSize: '1.25rem',
+      letterSpacing: '.0063rem',
+      marginBottom: '1rem',
     },
-
-    caption: {
-      fontWeight: 'light',
-      fontSize: '14px',
-      letterSpacing: '0.4px',
+    body1: {
+      fontFamily: inter.style.fontFamily,
+      fontWeight: 'normal',
+      fontSize: '1.25rem',
+      letterSpacing: '.0313rem',
+      marginBottom: '0',
     },
-    overline: {
-      fontWeight: 'lighter',
-      fontSize: '12px',
-      letterSpacing: '1.5px',
+    body2: {
+      fontFamily: inter.style.fontFamily,
+      fontWeight: 'normal',
+      fontSize: '1.125rem',
+      letterSpacing: '.0156rem',
+      marginBottom: '0',
     },
     button: {
-      fontSize: '18px',
-      letterSpacing: '1px',
+      fontFamily: inter.style.fontFamily,
+      fontWeight: 'medium',
+      fontSize: '1.125rem',
+      letterSpacing: '.0625rem',
+    },
+    caption: {
+      fontFamily: inter.style.fontFamily,
+      fontWeight: 'light',
+      fontSize: '.875rem',
+      letterSpacing: '.0313rem',
+    },
+    overline: {
+      fontFamily: inter.style.fontFamily,
+      fontWeight: 'normal',
+      fontSize: '.75rem',
+      letterSpacing: '.0938rem',
     },
   },
 });
@@ -152,7 +166,7 @@ theme.components = {
     styleOverrides: {
       paper: {
         backgroundColor: theme.palette.primary.dark,
-        width: '250px',
+        width: '15.625rem',
         color: 'white',
       },
     },
@@ -176,7 +190,7 @@ theme.components = {
   MuiTab: {
     styleOverrides: {
       root: {
-        fontSize: 14,
+        fontSize: '.875rem',
         backgroundColor: theme.palette.primary.light,
       },
       selected: {
@@ -193,7 +207,7 @@ theme.components = {
       {
         props: { variant: 'outlined' },
         style: {
-          border: `1px solid ${theme.palette.primary.light}`,
+          border: `.0625rem solid ${theme.palette.primary.light}`,
           '&$expanded': {
             margin: 0,
           },
@@ -221,7 +235,7 @@ theme.components = {
         borderRadius: 50,
         textAlign: 'center',
         minWidth: 'max-content',
-        margin: '10px auto',
+        margin: '.625rem auto',
       },
     },
   },
