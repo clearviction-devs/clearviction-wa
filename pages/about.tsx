@@ -13,7 +13,7 @@ import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
-import aboutContent from '../content/about';
+import aboutContent from '../content/about.ts';
 
 export default function AboutPage() {
   const theme = useTheme();
