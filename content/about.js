@@ -47,7 +47,7 @@ const aboutContent = {
   joinUs: {
     header:
       'Join Us',
-    body: 'Interested in helping make a difference? Team up with us to effect more positive change than any of can individually.',
+    body: 'Interested in helping make a difference? Team up with us to effect more positive change than any of us can individually.',
     imgsrc: '/illustrations/checklist1.svg',
   },
   ourTeam: {
