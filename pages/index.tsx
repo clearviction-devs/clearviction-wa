@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Script from 'next/script';
 import React from 'react';
-
+import faqs from '../content/faqs.ts'
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
@@ -86,7 +86,7 @@ export default function Home({ content }: { content: typeof jsonContent }) {
         ))}
         <SectionContainer id="faq">
           <PaperSection title="FAQ">
-            {content.faqs.map((faq) => (
+            {faqs.map((faq) => (
               <AccordionBuilder key={faq.id} {...faq} />
             ))}
           </PaperSection>

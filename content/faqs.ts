@@ -53,7 +53,7 @@ const faqs = [
     id: 'faq9',
     summary: 'What is the difference between vacating and expunging?',
     details:
-      `Vacating a conviction refers to the process in which a court nullifies a previous conviction. When a conviction is vacated, it's  essentially treated as if it never existed and the lgal consequences are removed.\n\n Vacating a connviction in the state of Washington can result in removing the conviction from the individual's criminal record. However, vacating a conviction does not automatically expunge it from an individual's record.\n\n\n Expunging is a separate legal process that would completely erase a criminal conviction from an individua's criminal record.\n\n Expungement focuses on eliminating the record of the conviction, while vacating focuses on invalidating the conviction itself.`,
+      'Vacating a conviction refers to the process in which a court nullifies a previous conviction. When a conviction is vacated, it’s  essentially treated as if it never existed and the legal consequences are removed.\n\n Vacating a connviction in the state of Washington can result in removing the conviction from the individual`s criminal record. However, vacating a conviction does not automatically expunge it from an individual’s record.\n\n\n Expunging is a separate legal process that would completely erase a criminal conviction from an individual’s criminal record.\n\n Expungement focuses on eliminating the record of the conviction, while vacating focuses on invalidating the conviction itself.',
   },
 ];
 
