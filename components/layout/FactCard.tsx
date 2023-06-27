@@ -45,7 +45,6 @@ export default function FactCard({ details, icon, border = true }: FactCardProps
         border ? (
           <Paper
             sx={{
-              maxWidth: '200',
               minHeight: '250px',
               display: 'flex',
               flexDirection: 'column',
@@ -66,16 +65,16 @@ export default function FactCard({ details, icon, border = true }: FactCardProps
             pb={1}
             px={3}
             sx={{
-              maxWidth: '200',
               minHeight: '250px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center',
             }}
           >
-            {iconEl[icon]}
-            <Box>
+            <Box pt={3} pb={1} px={3}>
+              {iconEl[icon]}
+            </Box>
+            <Box sx={{}}>
               <Typography mt={2} sx={{ textAlign: 'center' }}>{details}</Typography>
             </Box>
           </Box>
