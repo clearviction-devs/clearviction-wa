@@ -34,7 +34,7 @@ function MyApp({
     };
 
     router.events.on('routeChangeComplete', handleRouteChangeComplete);
-    
+
     return () => {
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
