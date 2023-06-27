@@ -33,17 +33,17 @@ const getInvolvedContent = {
       {
         id: 'fact0',
         icon: 'alarm',
-        text: 'Can commit to 4 hours a week for at least 6 months',
+        details: 'Can commit to 4 hours a week for at least 6 months',
       },
       {
         id: 'fact1',
         icon: 'sync',
-        text: 'Want to share your expertise to help us make a better product',
+        details: 'Want to share your expertise to help us make a better product',
       },
       {
         id: 'fact2',
         icon: 'cloud',
-        text: 'Are a self-motivated individual comfortable with remote work',
+        details: 'Are a self-motivated individual comfortable with remote work',
       },
     ],
     openRole: {
