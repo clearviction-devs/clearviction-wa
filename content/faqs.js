@@ -20,27 +20,40 @@ const faqs = [
   {
     id: 'faq4',
     summary:
+      'What happens after my eligibility is determined?',
+    details:
+      'If not eligible, no further action\n\n If eligible, file with court, then court hearing.',
+  },
+  {
+    id: 'faq5',
+    summary:
       'If my conviction meets the eligibility criteria, does that guarantee that I can vacate it?',
     details:
       'A request to vacate may be denied for other reasons, and is up to the discretion of the judge. The most common reasons that a request can be denied is if:\n1. the court does not believe that vacating your conviction will be in the interest of society,\n2. you violated probation or have not paid off your fines,\n3. you are otherwise not eligible to vacate that particular conviction, or\n4. there was an inaccuracy in the court records and/or the application.',
   },
   {
-    id: 'faq5',
+    id: 'faq6',
     summary: 'How long does the process take?',
     details:
       'To vacate your Washington conviction, the process takes on average three to four months, depending on your individual circumstances, the court’s caseload at the time, and whether there are any objections to vacating your conviction.',
   },
   {
-    id: 'faq6',
+    id: 'faq7',
     summary: 'What happens after my conviction is vacated?',
     details:
       'You will receive a court order vacating the conviction—which has the effect of withdrawing the guilty judgment and dismissing the charges against you. You can then legally state that you were not convicted of the offense.',
   },
   {
-    id: 'faq7',
+    id: 'faq8',
     summary: 'Does vacating a conviction make it disappear from my record?',
     details:
       'No.\n\nYour conviction will still be in court records and computerized court indexes to court records. If a conviction was a domestic violence case, these records and indexes will still show the case type.\n\nInformation about the court records from the cases that led to the convictions are still public. You can still find them on [www.courts.wa.gov](https://www.courts.wa.gov/)\n\nProsecutors can still use evidence of vacated convictions in a later criminal prosecution. They can still use them in a sexually violent predator commitment proceeding.\n\nFBI records and private background check records may still have information about the convictions.',
+  },
+  {
+    id: 'faq9',
+    summary: 'What is the difference between vacating and expunging?',
+    details:
+      `Vacating a conviction refers to the process in which court nullifies a previous conviction. When a conviction is vacated, it's  essentially treated as if it never existed and the lgal consequences are removed.\n\n Vacating a connviction in the state of Washington can result in the removal of the conviction from the individual's criminal record. However, vacating a conviction does not automatically expunge it from an individual's record.\n\n\n Expunging is a separate legal process that would completely erase a criminal conviction from an individua's criminal record.\n\n Expungement focuses on eliminating the record of the conviction, while vacating focuses on invalidating the conviction itself.`,
   },
 ];
 
