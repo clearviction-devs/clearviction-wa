@@ -1,8 +1,9 @@
 {
   // removed prettier for now - causing conflicts
   "extends": ["next/core-web-vitals", "airbnb", "airbnb/hooks"],
-  "plugins": ["simple-import-sort"],
+  "plugins": ["import", "simple-import-sort"],
   "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     // increase the severity of rules so they are auto-fixable
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",

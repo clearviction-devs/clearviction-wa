@@ -1,27 +1,34 @@
 import '../styles/global.css';
 
-import { CacheProvider } from '@emotion/react';
+import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
 
+// import TagManager from 'react-gtm-module';
 import Footer from '../components/layout/Footer.tsx';
 import Header from '../components/layout/Header.tsx';
 import theme from '../styles/themes/theme.tsx';
-import createEmotionCache from '../utils/createEmotionCache';
+import createEmotionCache from '../utils/createEmotionCache.ts';
 
 const clientSideEmotionCache = createEmotionCache();
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
-function MyApp({
-  Component,
-  pageProps,
-  emotionCache = clientSideEmotionCache,
-}) {
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
+// const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
+export interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+  Component: React.ComponentType<any>;
+  pageProps: any;
+}
+
+export default function MyApp(
+  { Component, emotionCache = clientSideEmotionCache, pageProps }: MyAppProps,
+) {
   const router = useRouter();
+  // const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   useEffect(() => {
     // initializing google tag
@@ -53,13 +60,3 @@ function MyApp({
     </CacheProvider>
   );
 }
-
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  emotionCache: PropTypes.any,
-  // eslint-disable-next-line react/forbid-prop-types
-  pageProps: PropTypes.any,
-};
-
-export default MyApp;
