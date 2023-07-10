@@ -1,7 +1,4 @@
-export interface navItem {
-  href: string;
-  text: string;
-}
+import { navItem } from './content.types.ts';
 
 const navItems: navItem[] = [
   {

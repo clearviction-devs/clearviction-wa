@@ -1,4 +1,22 @@
-const getInvolvedContent = {
+import { AirtableEmbed, Fact, WayToParticipate } from './content.types.ts';
+
+interface GetInvolvedContent {
+  waysToParticipate: WayToParticipate[];
+  volunteerPage: {
+    header: string;
+    body: string[];
+    facts: Fact[];
+    openRole: AirtableEmbed;
+  };
+  partnerPage: {
+    header: string[];
+    text: string[];
+    href: string;
+    imgsrc: string;
+  };
+}
+
+const getInvolvedContent: GetInvolvedContent = {
   waysToParticipate: [
     {
       id: 'w2p_1',
