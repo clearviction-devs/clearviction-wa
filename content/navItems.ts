@@ -1,6 +1,6 @@
-import { navItem } from './content.types.ts';
+import { NavItem } from './content.types.ts';
 
-const navItems: navItem[] = [
+const navItems: NavItem[] = [
   {
     href: '/',
     text: 'Home',

@@ -40,7 +40,7 @@ export interface Info {
     details: string;
 }
 
-export interface navItem {
+export interface NavItem {
     href: string;
     text: string;
 }
