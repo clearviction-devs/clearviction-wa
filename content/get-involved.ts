@@ -1,7 +1,7 @@
-import { AirtableEmbed, Fact, WayToParticipate } from './content.types.ts';
+import { AirtableEmbed, Fact, GridItem } from './content.types.ts';
 
 interface GetInvolvedContent {
-  waysToParticipate: WayToParticipate[];
+  waysToParticipate: GridItem[];
   volunteerPage: {
     header: string;
     body: string[];

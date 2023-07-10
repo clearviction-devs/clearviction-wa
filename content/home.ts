@@ -1,7 +1,17 @@
-const content = {
+import {
+  FAQ, GridSection, Header, SectionNav,
+} from './content.types.ts';
+
+interface HomeContent {
+    heroBanner: Header;
+    sectionNavs: SectionNav[];
+    gridSections: GridSection[];
+    faqs: FAQ[];
+}
+
+const content: HomeContent = {
   heroBanner: {
-    heading: 'Check your eligibility to vacate a Washington State conviction',
-    smallHeading: 'Check your eligibility to vacate a Washington State conviction',
+    header: 'Check your eligibility to vacate a Washington State conviction',
     subheading: 'Our free eligibility calculator can check if your conviction qualifies for vacation in less than 10 minutes.',
     ctaLink: '/calculator/head-initial-1-cont',
     ctaText: 'Access Calculator',

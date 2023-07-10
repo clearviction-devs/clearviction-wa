@@ -3,6 +3,8 @@ export interface Header {
     body?: string;
     subheading?: string;
     subheading2?: string;
+    ctaLink?: string;
+    ctaText?: string;
     imgsrc?: string;
 }
 
@@ -24,12 +26,12 @@ export interface FAQ {
     details: string;
 }
 
-export interface WayToParticipate {
+export interface GridItem {
     id: string;
     title: string;
     body: string;
     imgsrc: string;
-    href: string;
+    href?: string;
 }
 
 export interface Info {
@@ -60,4 +62,18 @@ export interface Card {
     subtitle: string;
     cardItems: CardItem[];
     accordianItems: Info[];
+}
+
+export interface SectionNav {
+    label: string;
+    href: string;
+}
+
+export interface GridSection {
+    id: string;
+    title: string;
+    subtitle?: string;
+    ctaLink?: string;
+    ctaText?: string;
+    items: GridItem[];
 }
