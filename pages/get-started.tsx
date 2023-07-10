@@ -59,10 +59,9 @@ export default function GetStartedPage() {
                 <FactCard
                   className="fact-card"
                   key={fact.id}
-                  xs={12}
-                  md={4}
                   details={fact.details}
                   icon={fact.icon}
+                  border={false}
                 />
               ))}
             </Grid>
@@ -118,7 +117,12 @@ export default function GetStartedPage() {
           </MuiMarkdown>
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
-              <FactCard className="fact-card" key={fact.id} icon="none" details={fact.details} />
+              <FactCard
+                className="fact-card"
+                key={fact.id}
+                icon="none"
+                details={fact.details}
+              />
             ))}
           </Grid>
         </GetStartedStep>

@@ -21,7 +21,8 @@ import React from 'react';
 interface FactCardProps {
   details: string;
   icon: string;
-  border: boolean;
+  border?: boolean;
+  className?: string;
 }
 
 type Icon = {
@@ -45,7 +46,9 @@ const iconEl: Icon = {
   atm: <LocalAtmOutlined style={iconStyle} />,
 };
 
-export default function FactCard({ details, icon, border = true }: FactCardProps) {
+export default function FactCard({
+  details, icon, className, border = true,
+}: FactCardProps) {
   return (
     <Grid
       item
@@ -56,6 +59,7 @@ export default function FactCard({ details, icon, border = true }: FactCardProps
       sx={{
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '250px',
       }}
+      className={className || 'fact-card'}
     >
       {
         border ? (
