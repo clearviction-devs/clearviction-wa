@@ -59,7 +59,7 @@ export default function FactCard({
       sx={{
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '250px',
       }}
-      className={className || 'fact-card'}
+      className={className || `fact-card-${icon}`}
     >
       {
         border ? (
