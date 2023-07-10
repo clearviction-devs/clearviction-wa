@@ -29,7 +29,7 @@ export default function WhyVacatePage() {
 
       <HeroBanner
         header={content.heroBanner.header}
-        subheading={content.heroBanner.subheading!}
+        subheading={content.heroBanner.subheading}
         imgsrc={content.heroBanner.imgsrc}
       />
       <SectionContainer>
