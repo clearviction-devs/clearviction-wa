@@ -36,7 +36,7 @@ export interface GridItem {
 
 export interface Info {
     id: string;
-    summary?: string;
+    summary: string;
     details: string;
 }
 
@@ -76,4 +76,9 @@ export interface GridSection {
     ctaLink?: string;
     ctaText?: string;
     items: GridItem[];
+}
+
+export interface Reason {
+    id: string;
+    details: string;
 }

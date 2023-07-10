@@ -1,9 +1,9 @@
-import { Fact, Info } from './content.types.ts';
+import { Fact, Info, Reason } from './content.types.ts';
 
 interface GetStartedContent {
   needToKnowFacts: Fact[];
   CHRIMethods: Info[];
-  rejectionReasons: Info[];
+  rejectionReasons: Reason[];
   legalAidForms: Info[];
   financialAidForms: Info[];
   eligibilityForms: Info[];

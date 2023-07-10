@@ -29,7 +29,7 @@ export default function GetStartedPage() {
       />
 
       <HeroBanner
-        heading="Get started on the conviction vacation process"
+        header="Get started on the conviction vacation process"
         subheading="Vacate your conviction in the state of Washington by following these 4 steps!"
         imgsrc="/illustrations/chart.svg"
         ctaLink="#step-1"
