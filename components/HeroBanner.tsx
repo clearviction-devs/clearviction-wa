@@ -9,6 +9,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import Image from './Image.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
 interface HeroBannerProps {
@@ -95,11 +96,12 @@ export default function HeroBanner({
               }}
             >
               {imgsrc ? (
-                <Box
-                  component="img"
+                <Image
                   src={imgsrc}
+                  width={513}
+                  height={386}
                   alt=""
-                  sx={{ width: '100%' }}
+                  useImageDimensions
                 />
               ) : (
                 children
