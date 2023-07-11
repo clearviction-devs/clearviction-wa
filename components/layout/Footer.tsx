@@ -8,10 +8,10 @@ import {
   SxProps,
   Typography,
 } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
 
 import navItems from '../../content/navItems.ts';
+import Image from '../Image.tsx';
 import NavigationLogo from '../NavigationLogo';
 
 const sectionContainerStyles: SxProps = {
@@ -109,10 +109,10 @@ function Footer() {
                 src="/democracylab-logo.png"
                 width={412}
                 height={122}
+                useImageDimensions
                 style={{
                   maxWidth: '200px',
                   width: '100%',
-                  height: 'auto',
                   objectFit: 'contain',
                 }}
               />
@@ -123,10 +123,10 @@ function Footer() {
                 src="/openseattle-logo.png"
                 width={130}
                 height={102}
+                useImageDimensions
                 style={{
                   maxWidth: '200px',
                   width: '100%',
-                  height: 'auto',
                   objectFit: 'contain',
                 }}
               />
