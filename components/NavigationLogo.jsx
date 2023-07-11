@@ -1,7 +1,8 @@
 import { ButtonBase } from '@mui/material';
-import Image from 'next/image';
 import PropTypes from 'prop-types';
 import React from 'react';
+
+import Image from './Image.tsx';
 
 export default function NavigationLogo({ fullSize = false }) {
   // images are misnamed
