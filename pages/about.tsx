@@ -9,6 +9,7 @@ import React from 'react';
 import externalLinks from '../components/externalLinks.tsx';
 import Fact from '../components/Fact.tsx';
 import HeroBanner from '../components/HeroBanner.tsx';
+import Image from '../components/Image.tsx';
 import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import PaperSection from '../components/PaperSection.tsx';
 import SectionContainer from '../components/SectionContainer.tsx';
@@ -82,15 +83,13 @@ export default function AboutPage() {
         <Box style={{ width: '90%', margin: '0 auto' }}>
           <Grid container>
             <Grid item sm={12} md={6}>
-              <Box
-                component="img"
+              <Image
                 src={aboutContent.ourMission.imgsrc}
                 alt=""
-                sx={{
-                  objectFit: 'contain',
-                  textAlign: 'center',
-                  width: '100%',
-                }}
+                width={406}
+                height={306}
+                style={{ width: '100%' }}
+                useImageDimensions
               />
             </Grid>
             <Grid item sm={12} md={6}>

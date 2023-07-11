@@ -13,6 +13,7 @@ import React from 'react';
 
 import Fact from '../components/Fact.tsx';
 import HeroBanner from '../components/HeroBanner.tsx';
+import Image from '../components/Image.tsx';
 import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import PaperSection from '../components/PaperSection.tsx';
 import SectionContainer from '../components/SectionContainer.tsx';
@@ -159,7 +160,12 @@ function Partner() {
           <Grid container>
             <Grid item xs={12} sm={6}>
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
-                <Box component="img" src={content.partnerPage.imgsrc} />
+                <Image
+                  alt=""
+                  src={content.partnerPage.imgsrc}
+                  width={342}
+                  height={248}
+                />
               </Box>
             </Grid>
             <Grid item xs={12} sm={6}>

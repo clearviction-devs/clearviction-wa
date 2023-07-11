@@ -1,5 +1,5 @@
 import {
-  Box, Button, ButtonGroup, Grid,
+  Button, ButtonGroup, Grid,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -11,6 +11,7 @@ import externalLinks from '../components/externalLinks.tsx';
 import FactCard from '../components/FactCard.tsx';
 import GetStartedStep from '../components/GetStartedStep.tsx';
 import HeroBanner from '../components/HeroBanner.tsx';
+import Image from '../components/Image.tsx';
 import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import SectionContainer from '../components/SectionContainer.tsx';
 import content from '../content/get-started';
@@ -92,10 +93,13 @@ export default function GetStartedPage() {
         >
           <SectionContainer>
             <Grid container sx={{ alignItems: 'center' }}>
-              <Box
-                component="img"
+              <Image
+                alt=""
                 src="/quickstart.svg"
-                sx={{ padding: '1em', width: '100%' }}
+                style={{ padding: '1em', width: '100%' }}
+                width={862}
+                height={410}
+                useImageDimensions
               />
             </Grid>
           </SectionContainer>
