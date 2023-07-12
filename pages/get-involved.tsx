@@ -15,7 +15,7 @@ import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
-import Image from '../components/layout/Image.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-involved.ts';
@@ -93,7 +93,7 @@ function Partner() {
           <Grid container>
             <Grid item xs={12} sm={6}>
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
-                <Image
+                <ImageContainer
                   alt=""
                   src={content.partnerPage.imgsrc}
                   width={342}

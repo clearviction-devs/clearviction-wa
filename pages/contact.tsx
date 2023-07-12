@@ -5,7 +5,7 @@ import MuiMarkdown from 'mui-markdown';
 import React, { useState } from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
-import Image from '../components/layout/Image.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 
 export default function ContactPage() {
@@ -181,7 +181,7 @@ export default function ContactPage() {
             mx: 2,
           }}
         >
-          <Image
+          <ImageContainer
             width={406}
             height={306}
             src="/illustrations/new_message.svg"

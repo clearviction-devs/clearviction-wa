@@ -12,7 +12,7 @@ import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import GetStartedStep from '../components/layout/GetStartedStep.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
-import Image from '../components/layout/Image.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started.ts';
 
@@ -96,7 +96,7 @@ export default function GetStartedPage() {
         >
           <SectionContainer>
             <Grid container sx={{ alignItems: 'center' }}>
-              <Image
+              <ImageContainer
                 alt=""
                 src="/quickstart.svg"
                 style={{ padding: '1em', width: '100%' }}

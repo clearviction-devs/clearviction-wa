@@ -11,7 +11,7 @@ import {
 import React from 'react';
 
 import navItems from '../../content/navItems.ts';
-import Image from './Image.tsx';
+import ImageContainer from './ImageContainer.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 const sectionContainerStyles: SxProps = {
@@ -104,7 +104,7 @@ function Footer() {
             sx={{ flex: 1 }}
           >
             <Box>
-              <Image
+              <ImageContainer
                 alt=""
                 src="/democracylab-logo.png"
                 width={412}
@@ -118,7 +118,7 @@ function Footer() {
               />
             </Box>
             <Box>
-              <Image
+              <ImageContainer
                 alt=""
                 src="/openseattle-logo.png"
                 width={130}

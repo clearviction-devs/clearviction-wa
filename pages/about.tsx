@@ -11,7 +11,7 @@ import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
-import Image from '../components/layout/Image.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import aboutContent from '../content/about.ts';
@@ -103,8 +103,8 @@ export default function AboutPage() {
               </Typography>
             </Grid>
             <Grid item sm={12} md={6}>
-              <Image
-                src={aboutContent.joinUs.imgsrc}
+              <ImageContainer
+                src={aboutContent.joinUs.imgsrc as string}
                 alt=""
                 width={406}
                 height={306}

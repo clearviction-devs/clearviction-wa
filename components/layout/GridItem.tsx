@@ -4,7 +4,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import Image from './Image.tsx';
+import ImageContainer from './ImageContainer.tsx';
 
 interface GridItemCardProps extends GridProps {
   title?: string;
@@ -22,7 +22,7 @@ export default function GridItemCard({
     <Grid item {...props} sx={{ mb: 4, justifyContent: 'center' }}>
       <Box display="flex" flexDirection="column" alignItems="center">
         {imgsrc && (
-          <Image
+          <ImageContainer
             src={imgsrc}
             alt=""
             width={250}

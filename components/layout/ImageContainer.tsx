@@ -19,7 +19,7 @@ const generateStyle = (styles?: React.CSSProperties, useImageDimensions?: boolea
   return styles;
 };
 
-export default function Image({
+export default function ImageContainer({
   src, alt, width, height, style, useImageDimensions,
 }: ImageProps) {
   return (
