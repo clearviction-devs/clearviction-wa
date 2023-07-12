@@ -112,7 +112,7 @@ const whyVacateContent = {
       cardItems: [
         {
           title: 'Occupational Licenses',
-          body: 'Some states’ laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.',
+          body: 'Some states\' laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.',
           imgRef: '/illustrations/career.svg',
         },
         {
@@ -135,7 +135,7 @@ const whyVacateContent = {
           summary: 'Post-incarceration educational programs',
           details: `[Freedom Education Project](http://www.fepps.org/) 
           \n[People for People](https://mypfp.org) 
-          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills)
           \n[Post-Prison Education Program](http://postprisonedu.org/)
           \n[The STAR Project](http://thestarproject.us/)`,
         },

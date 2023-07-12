@@ -4,9 +4,9 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React, { useState } from 'react';
 
-import Image from '../components/Image.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import Image from '../components/layout/Image.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
 
 export default function ContactPage() {
   const contactTypes = [

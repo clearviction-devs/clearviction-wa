@@ -1,19 +1,20 @@
 import {
-  Box, Button, ButtonGroup, Grid, Typography,
+  Box, Button, ButtonGroup, Grid, Stack,
+  Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import externalLinks from '../components/externalLinks.tsx';
-import Fact from '../components/Fact.tsx';
-import HeroBanner from '../components/HeroBanner.tsx';
-import Image from '../components/Image.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import PaperSection from '../components/PaperSection.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
-import aboutContent from '../content/about';
+import externalLinks from '../components/functional/ExternalLinks.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import FactCard from '../components/layout/FactCard.tsx';
+import HeroBanner from '../components/layout/HeroBanner.tsx';
+import Image from '../components/layout/Image.tsx';
+import PaperSection from '../components/layout/PaperSection.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
+import aboutContent from '../content/about.ts';
 
 export default function AboutPage() {
   const theme = useTheme();
@@ -31,6 +32,7 @@ export default function AboutPage() {
       <HeroBanner
         heading={aboutContent.hero.header}
         subheading={aboutContent.hero.body}
+        subheading2={aboutContent.hero.subheading2}
         imgsrc={aboutContent.hero.imgsrc}
       />
       <SectionContainer>
@@ -43,35 +45,48 @@ export default function AboutPage() {
           <Button href="#our-team">Our Team</Button>
         </ButtonGroup>
       </SectionContainer>
+      <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
+        <Typography variant="h3">{aboutContent.ourMission.header}</Typography>
+      </SectionContainer>
 
       <SectionContainer
         id="our-story"
-        sx={{ margin: 'auto', maxWidth: '772px' }}
+        sx={{ margin: 'auto', maxWidth: '65rem' }}
         maxWidth={false}
       >
-        <Typography variant="h2">{aboutContent.ourStory.header}</Typography>
-        <Typography variant="h3">{aboutContent.ourStory.body}</Typography>
+        <Typography variant="h2" sx={{ mt: 4, textAlign: { xs: 'center', sm: 'left' } }}>{aboutContent.ourStory.header}</Typography>
+        <Typography>{aboutContent.ourStory.body}</Typography>
+        <Box sx={{ mt: 3 }}>
+          {' '}
+          <MuiMarkdown>{aboutContent.body[0]}</MuiMarkdown>
+        </Box>
 
         <Box>
           <PaperSection title="" sx={{ p: 8, my: 8 }}>
             <Grid container spacing={4}>
-              <Typography variant="subtitle1">
-                <MuiMarkdown>{aboutContent.body[0]}</MuiMarkdown>
-              </Typography>
-              <Grid container>
+              <Grid container className="fact-card">
                 {aboutContent.facts.map((fact) => (
-                  <Grid key={fact.id} item xs={12} sm={4} md={4} lg={4}>
-                    <Fact text={fact.text} icon={fact.icon} />
-                  </Grid>
+                  <FactCard
+                    key={fact.id}
+                    details={fact.details}
+                    icon={fact.icon}
+                    border={false}
+                  />
                 ))}
               </Grid>
             </Grid>
-            <Box sx={{ width: '100%', textAlign: 'center', mt: '32px' }}>
+            <Box sx={{
+              width: '100%', display: 'flex', justifyContent: 'center', mt: '2rem',
+            }}
+            >
               <Button
                 href="/get-started"
                 aria-label="to Get Started"
                 variant="contained"
-                sx={{ px: 8 }}
+                sx={{
+                  px: { xs: 4, sm: 6, md: 8 },
+                  width: { xs: '80%', sm: 'auto' },
+                }}
               >
                 Learn More
               </Button>
@@ -79,12 +94,17 @@ export default function AboutPage() {
           </PaperSection>
         </Box>
       </SectionContainer>
-      <SectionContainer>
-        <Box style={{ width: '90%', margin: '0 auto' }}>
+      <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+        <Box>
           <Grid container>
+            <Grid item xs={12}>
+              <Typography variant="h2">
+                {aboutContent.joinUs.header}
+              </Typography>
+            </Grid>
             <Grid item sm={12} md={6}>
               <Image
-                src={aboutContent.ourMission.imgsrc}
+                src={aboutContent.joinUs.imgsrc}
                 alt=""
                 width={406}
                 height={306}
@@ -93,18 +113,21 @@ export default function AboutPage() {
               />
             </Grid>
             <Grid item sm={12} md={6}>
-              <Typography variant="h4">
-                {aboutContent.ourMission.header}
+              <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign: 'center' }}>
+                <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
               </Typography>
-              <Typography variant="subtitle1">
-                <MuiMarkdown>{aboutContent.ourMission.body}</MuiMarkdown>
-              </Typography>
+              <Stack sx={{ direction: 'column' }}>
+                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
+                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
+              </Stack>
             </Grid>
           </Grid>
         </Box>
       </SectionContainer>
-      <SectionContainer id="our-team">
-        <Typography variant="h2">{aboutContent.ourTeam.title}</Typography>
+
+      <SectionContainer id="our-team" sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+        <Typography variant="h2" sx={{ mt: '3rem' }}>{aboutContent.ourTeam.title}</Typography>
+
         <Grid container>
           <iframe
             id={aboutContent.ourTeam.id}
@@ -114,8 +137,8 @@ export default function AboutPage() {
             height="1048"
             style={{
               background: 'transparent',
-              border: '1px solid #ccc',
-              borderRadius: '6px',
+              border: '0.0625rem solid #ccc',
+              borderRadius: '0.5rem',
             }}
           />
         </Grid>

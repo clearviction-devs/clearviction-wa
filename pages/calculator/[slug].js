@@ -17,10 +17,10 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import CalcStepper from '../../components/CalcStepper.tsx';
-import externalLinks from '../../components/externalLinks.tsx';
-import IndividualPageHead from '../../components/IndividualPageHead.tsx';
-import MailchimpForm from '../../components/MailchimpForm.tsx';
+import CalcStepper from '../../components/functional/CalcStepper.tsx';
+import externalLinks from '../../components/functional/ExternalLinks.tsx';
+import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
+import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
 import portableTextComponents from '../../utils/portableTextComponents';
 import {
   getCalculatorConfig,

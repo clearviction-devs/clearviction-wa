@@ -2,15 +2,15 @@ import { Grid } from '@mui/material';
 import Script from 'next/script';
 import React from 'react';
 
-import AccordionBuilder from '../components/AccordionBuilder.tsx';
-import DonationForm from '../components/DonationForm.tsx';
-import externalLinks from '../components/externalLinks.tsx';
-import GridItemCard from '../components/GridItem.tsx';
-import HeroBanner from '../components/HeroBanner.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import PaperSection from '../components/PaperSection.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
-import content from '../content/donate-faqs';
+import externalLinks from '../components/functional/ExternalLinks.tsx';
+import DonationForm from '../components/helper/DonationForm.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import GridItemCard from '../components/layout/GridItem.tsx';
+import HeroBanner from '../components/layout/HeroBanner.tsx';
+import PaperSection from '../components/layout/PaperSection.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
+import content from '../content/donate-faqs.ts';
 
 export default function DonatePage() {
   externalLinks();

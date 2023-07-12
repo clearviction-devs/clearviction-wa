@@ -11,8 +11,8 @@ import {
 import React from 'react';
 
 import navItems from '../../content/navItems.ts';
-import Image from '../Image.tsx';
-import NavigationLogo from '../NavigationLogo';
+import Image from './Image.tsx';
+import NavigationLogo from './NavigationLogo.tsx';
 
 const sectionContainerStyles: SxProps = {
   flex: 1,
