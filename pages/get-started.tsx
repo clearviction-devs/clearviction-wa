@@ -29,7 +29,7 @@ export default function GetStartedPage() {
       />
 
       <HeroBanner
-        heading="Get started on the conviction vacation process"
+        header="Get started on the conviction vacation process"
         subheading="Vacate your conviction in the state of Washington by following these 4 steps!"
         imgsrc="/illustrations/chart.svg"
         ctaLink="#step-1"
@@ -59,10 +59,9 @@ export default function GetStartedPage() {
                 <FactCard
                   className="fact-card"
                   key={fact.id}
-                  xs={12}
-                  md={4}
                   details={fact.details}
                   icon={fact.icon}
+                  border={false}
                 />
               ))}
             </Grid>
@@ -118,7 +117,12 @@ export default function GetStartedPage() {
           </MuiMarkdown>
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
-              <FactCard className="fact-card" key={fact.id} icon="none" details={fact.details} />
+              <FactCard
+                className="fact-card"
+                key={fact.id}
+                icon="none"
+                details={fact.details}
+              />
             ))}
           </Grid>
         </GetStartedStep>

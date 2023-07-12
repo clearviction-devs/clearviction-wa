@@ -1,4 +1,15 @@
-const getStartedContent = {
+import { Fact, Info, Reason } from './content.types.ts';
+
+interface GetStartedContent {
+  needToKnowFacts: Fact[];
+  CHRIMethods: Info[];
+  rejectionReasons: Reason[];
+  legalAidForms: Info[];
+  financialAidForms: Info[];
+  eligibilityForms: Info[];
+}
+
+const getStartedContent: GetStartedContent = {
   needToKnowFacts: [
     {
       id: 'n2k1',

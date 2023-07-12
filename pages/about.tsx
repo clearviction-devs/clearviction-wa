@@ -29,7 +29,7 @@ export default function AboutPage() {
       />
 
       <HeroBanner
-        heading={aboutContent.hero.header}
+        header={aboutContent.hero.header}
         subheading={aboutContent.hero.body}
         subheading2={aboutContent.hero.subheading2}
         imgsrc={aboutContent.hero.imgsrc}
