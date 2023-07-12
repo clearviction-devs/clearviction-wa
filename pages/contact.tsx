@@ -5,6 +5,7 @@ import MuiMarkdown from 'mui-markdown';
 import React, { useState } from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import Image from '../components/layout/Image.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 
 export default function ContactPage() {
@@ -170,15 +171,23 @@ export default function ContactPage() {
         </Box>
 
         <Box
-          component="img"
-          alt=""
-          src="/illustrations/new_message.svg"
           sx={{
             maxWidth: '600px',
-            margin: 2,
-            display: { xs: 'none', md: 'block' },
+            display: { xs: 'none', md: 'flex' },
+            width: '36,5%',
+            height: '100%',
+            justifyContent: 'center',
+            my: 'auto',
+            mx: 2,
           }}
-        />
+        >
+          <Image
+            width={406}
+            height={306}
+            src="/illustrations/new_message.svg"
+            alt=""
+          />
+        </Box>
       </SectionContainer>
     </>
   );

@@ -1,6 +1,7 @@
 import { ButtonBase } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
+
+import Image from './Image.tsx';
 
 interface NavigationLogoProps {
   fullSize?: boolean;

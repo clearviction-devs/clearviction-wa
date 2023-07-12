@@ -4,6 +4,8 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import Image from './Image.tsx';
+
 interface GridItemCardProps extends GridProps {
   title?: string;
   body: string;
@@ -18,17 +20,15 @@ export default function GridItemCard({
 }: GridItemCardProps) {
   return (
     <Grid item {...props} sx={{ mb: 4, justifyContent: 'center' }}>
-      <Box textAlign="center">
+      <Box display="flex" flexDirection="column" alignItems="center">
         {imgsrc && (
-          <Box
-            component="img"
+          <Image
             src={imgsrc}
             alt=""
-            sx={{
+            width={250}
+            height={200}
+            style={{
               maxWidth: '250px',
-              height: '200px',
-              objectFit: 'contain',
-              textAlign: 'center',
             }}
           />
         )}
