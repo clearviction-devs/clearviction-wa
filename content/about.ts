@@ -1,4 +1,16 @@
-const aboutContent = {
+import { AirtableEmbed, Fact, Header } from './content.types.ts';
+
+interface AboutContent {
+  hero: Header;
+  ourMission: Header;
+  ourStory: Header;
+  body: string[];
+  facts: Fact[];
+  joinUs: Header;
+  ourTeam: AirtableEmbed;
+}
+
+const aboutContent: AboutContent = {
   hero: {
     header: 'About Us',
     body: "Clearviction was founded in 2020 sparked by [Washington State's New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017), We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life. ",

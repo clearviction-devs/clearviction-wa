@@ -13,9 +13,9 @@ import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import ResearchBanner from '../components/layout/ResearchBanner.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
-import jsonContent from '../content/home.json';
+import content from '../content/home.ts';
 
-export default function Home({ content }: { content: typeof jsonContent }) {
+export default function Home() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -96,18 +96,4 @@ export default function Home({ content }: { content: typeof jsonContent }) {
       </main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  if (!jsonContent) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      content: jsonContent,
-    },
-  };
 }

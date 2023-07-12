@@ -25,7 +25,7 @@ export default function DonatePage() {
       <Script src="https://donorbox.org/widget.js" />
 
       <HeroBanner
-        heading="Your generous donation directly aids those who are limited by their convictions in Washington State"
+        header="Your generous donation directly aids those who are limited by their convictions in Washington State"
         subheading={
           'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.\n\n<span style="fontSize: 14px">Clearviction is a registered 501(c)3 nonprofit organization, EIN#88-3187952. All donations are tax deductible in full or in part.</span>'
         }

@@ -130,7 +130,7 @@ export default function GetInvolvedPage() {
 
       <Box sx={{ bgcolor: '#2f3554', pb: '64px' }}>
         <HeroBanner
-          heading="Share your expertise with us"
+          header="Share your expertise with us"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
           overrideStyles={{
             pb: 0,
