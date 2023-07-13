@@ -1,5 +1,5 @@
 import {
-  Box, Button, ButtonGroup, Grid, Typography,
+  Button, ButtonGroup, Grid, Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -12,6 +12,7 @@ import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import GetStartedStep from '../components/layout/GetStartedStep.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started.ts';
 
@@ -57,7 +58,6 @@ export default function GetStartedPage() {
             <Grid container spacing={8} sx={{ my: 1 }}>
               {content.needToKnowFacts.map((fact) => (
                 <FactCard
-                  className="fact-card"
                   key={fact.id}
                   details={fact.details}
                   icon={fact.icon}
@@ -96,10 +96,13 @@ export default function GetStartedPage() {
         >
           <SectionContainer>
             <Grid container sx={{ alignItems: 'center' }}>
-              <Box
-                component="img"
+              <ImageContainer
+                alt=""
                 src="/quickstart.svg"
-                sx={{ padding: '1em', width: '100%' }}
+                style={{ padding: '1em', width: '100%' }}
+                width={862}
+                height={410}
+                useImageDimensions
               />
             </Grid>
           </SectionContainer>

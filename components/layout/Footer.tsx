@@ -8,10 +8,10 @@ import {
   SxProps,
   Typography,
 } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
 
 import navItems from '../../content/navItems.ts';
+import ImageContainer from './ImageContainer.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 const sectionContainerStyles: SxProps = {
@@ -104,29 +104,29 @@ function Footer() {
             sx={{ flex: 1 }}
           >
             <Box>
-              <Image
+              <ImageContainer
                 alt=""
                 src="/democracylab-logo.png"
                 width={412}
                 height={122}
+                useImageDimensions
                 style={{
                   maxWidth: '200px',
                   width: '100%',
-                  height: 'auto',
                   objectFit: 'contain',
                 }}
               />
             </Box>
             <Box>
-              <Image
+              <ImageContainer
                 alt=""
                 src="/openseattle-logo.png"
                 width={130}
                 height={102}
+                useImageDimensions
                 style={{
                   maxWidth: '200px',
                   width: '100%',
-                  height: 'auto',
                   objectFit: 'contain',
                 }}
               />
