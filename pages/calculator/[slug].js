@@ -49,6 +49,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         title="Check the eligibility to vacate your misdemeanor"
         metaContent="Determine if your misdemeanor or gross misdemeanor is eligible to vacate in Washington State with Clearviction's eligibility calculator."
       />
+
+      {/* previous btn & stepper */}
       <Container id="stepper-container" sx={{ marginTop: '2rem' }}>
         {!isFirstPage(page) && (
           <Button
@@ -80,6 +82,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         )}
         {isPageIncludedInStepper(page) && <CalcStepper />}
       </Container>
+
+      {/* question and answers section */}
       <Container
         maxWidth="md"
         sx={{
@@ -96,6 +100,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             components={portableTextComponents}
           />
         </Box>
+
+        {/* choice buttons */}
         <Container maxWidth="xs" sx={{ mb: 4 }}>
           <Stack gap={2}>
             {page.choices
@@ -116,6 +122,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   </Button>
                 );
               })}
+
+            {/* not sure btn */}
             {page.isQuestion && (
               <Button
                 variant="outlined"
@@ -139,6 +147,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 >
                   {calculatorConfig.feedback.linkText}
                 </Button>
+                {/* check another conviction */}
                 <Link
                   sx={{ textAlign: 'center' }}
                   href={
@@ -170,6 +179,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         )}
         {page.isEligible && <MailchimpForm />}
       </Container>
+
+      {/* not sure button */}
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
@@ -191,6 +202,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           </Button>
         </DialogActions>
       </Dialog>
+
+      {/* error reporting form */}
       <Box
         sx={{
           textAlign: 'center',
