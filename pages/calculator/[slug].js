@@ -1,4 +1,5 @@
 import HistoryIcon from '@mui/icons-material/History';
+import IosShareIcon from '@mui/icons-material/IosShare';
 import {
   Box,
   Button,
@@ -200,6 +201,30 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           fontSize: '16px',
         }}
       >
+        {/* Share for first page */}
+        {isFirstPage(page) && (
+        <Link
+          sx={{ textAlign: 'center' }}
+          href={
+                    calculatorConfig.checkAnotherConviction.linkTo.slug.current
+                  }
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 1,
+            }}
+          >
+            <IosShareIcon />
+            {/* Changes for Scrum task */}
+            Share the calculator
+
+          </Box>
+        </Link>
+        )}
+
         <Link
           href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
           sx={{
