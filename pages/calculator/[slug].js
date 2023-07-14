@@ -158,6 +158,27 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                     {calculatorConfig.checkAnotherConviction.linkText}
                   </Box>
                 </Link>
+
+                <Link
+                  sx={{ textAlign: 'center' }}
+                  href={
+                    calculatorConfig.checkAnotherConviction.linkTo.slug.current
+                  }
+                >
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 1,
+                    }}
+                  >
+                    <IosShareIcon />
+                    Share the calculator
+
+                  </Box>
+                </Link>
+
               </>
             )}
           </Stack>
