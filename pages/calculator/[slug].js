@@ -155,8 +155,30 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   >
                     <HistoryIcon />
                     {calculatorConfig.checkAnotherConviction.linkText}
+
                   </Box>
                 </Link>
+
+                <Link
+                  sx={{ textAlign: 'center' }}
+                  href={
+                    calculatorConfig.checkAnotherConviction.linkTo.slug.current
+                  }
+                >
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 1,
+                    }}
+                  >
+                    <HistoryIcon />
+                    Share your calculator results
+
+                  </Box>
+                </Link>
+                {/* Put button */}
               </>
             )}
           </Stack>
@@ -170,6 +192,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         )}
         {page.isEligible && <MailchimpForm />}
       </Container>
+      {/* Pop-up */}
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
@@ -200,6 +223,28 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           fontSize: '16px',
         }}
       >
+        {/* Share for first page */}
+        {isFirstPage(page) && (
+        <Link
+          sx={{ textAlign: 'center' }}
+          href={
+                    calculatorConfig.checkAnotherConviction.linkTo.slug.current
+                  }
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 1,
+            }}
+          >
+            <HistoryIcon />
+            Share your calculator results
+
+          </Box>
+        </Link>
+        )}
         <Link
           href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
           sx={{
