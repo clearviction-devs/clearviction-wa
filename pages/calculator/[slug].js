@@ -1,4 +1,6 @@
 import HistoryIcon from '@mui/icons-material/History';
+import IosShareIcon from '@mui/icons-material/IosShare';
+// Share icon for scrum
 import {
   Box,
   Button,
@@ -239,8 +241,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               gap: 1,
             }}
           >
-            <HistoryIcon />
-            Share your calculator results
+            <IosShareIcon />
+            {/* Changes for Scrum task */}
+            Share the calculator
 
           </Box>
         </Link>
