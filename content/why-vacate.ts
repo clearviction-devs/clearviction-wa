@@ -74,7 +74,7 @@ const whyVacateContent: WhyVacateContent = {
       title: 'Housing',
       sectionId: 'housing',
       subtitle:
-        'A background check is an obstacle for people with a conviction and it can prevent access to certain opportunities. Here are the main challenges background checks present to those seeking an education:',
+        'A background check is an obstacle for people with a conviction and it can prevent access to certain opportunities. Here are the main challenges background checks present to those seeking housing:',
       cardItems: [
         {
           title: 'Public Housing Authorities',
