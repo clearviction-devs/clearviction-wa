@@ -141,7 +141,7 @@ export default function HeroBanner({
                   width={513}
                   height={386}
                   alt=""
-                  style={{ maxWidth: '95vw' }}
+                  style={{ maxWidth: '100%' }}
                   useImageDimensions
                 />
               ) : (
