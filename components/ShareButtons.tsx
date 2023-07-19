@@ -18,41 +18,38 @@ type ShareButtonsProps = {
   copied: boolean;
 };
 
-export default function ShareButtons({ popup, setCopied, copied }: ShareButtonsProps) {
+export default function ShareButtons({
+  popup, setCopied, copied, setShare,
+}: ShareButtonsProps) {
   const url = 'https://clearviction.org/calculator/head-initial-1-cont';
 
   const style = {
     fontSize: '20px',
     fontWeight: 400,
-    lineHeight: '22px',
-    letterSpacing: '0.25px',
+    lineHeight: '1.375rem',
+    letterSpacing: '.0156rem',
     textAlign: 'left',
     color: '#2F3554',
     textDecoration: 'underline',
-    marginLeft: '7px',
+    marginLeft: '.4375rem',
   };
 
   const handleCopyClick = async () => {
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-    } catch (error) {
-      console.error('Failed to copy URL:', error);
-    }
+    await navigator.clipboard.writeText(url);
+    setCopied(true);
   };
 
   function handleEmailClick() {
     console.log('clicked');
   }
 
-  // This is if the link is copied
   if (copied) {
     return (
       <div style={{
-        width: '325px',
-        height: '95px',
-        padding: '16px',
-        borderRadius: '6px',
+        width: '20.3125rem',
+        height: '5.9375rem',
+        padding: '1rem',
+        borderRadius: '.375rem',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -66,20 +63,20 @@ export default function ShareButtons({ popup, setCopied, copied }: ShareButtonsP
   if (popup) {
     return (
       <div style={{
-        width: '450px', height: '330px', padding: '16px', borderRadius: '6px',
+        width: '28.125rem', height: '20.625rem', padding: '1rem', borderRadius: '.375rem',
       }}
       >
 
         <Box sx={{
-          display: 'flex', flexDirection: 'column', marginLeft: '13px',
+          display: 'flex', flexDirection: 'column', marginLeft: '.8125rem',
         }}
         >
 
           <h2 style={{
-            fontSize: '25px',
+            fontSize: '1.5625rem',
             fontWeight: 700,
-            lineHeight: '23px',
-            letterSpacing: '0.15000000596046448px',
+            lineHeight: '1.4375rem',
+            letterSpacing: '.0094rem',
             textAlign: 'left',
           }}
           >
@@ -117,7 +114,6 @@ export default function ShareButtons({ popup, setCopied, copied }: ShareButtonsP
     );
   }
 
-  // This is the default share buttons
   return (
     <Grid container justifyContent="center" spacing={2}>
       <Grid item>
@@ -141,17 +137,9 @@ export default function ShareButtons({ popup, setCopied, copied }: ShareButtonsP
   );
 }
 
-// type ShareButtonsProps = {
-//   popup: boolean;
-//   setCopied: React.Dispatch<React.SetStateAction<boolean>>;
-//   copied: boolean;
-// };
-
-// ShareButtons.prototype = Object.create(React.Component.prototype);
-// ShareButtons.prototype.constructor = ShareButtons;
-
 ShareButtons.propTypes = {
   popup: PropTypes.bool.isRequired,
   setCopied: PropTypes.func.isRequired,
   copied: PropTypes.bool.isRequired,
+  setShare: PropTypes.func.isRequired,
 };

@@ -35,7 +35,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  // State for Implementing Share Button task
   const [share, setShare] = useState(false);
   const [copied, setCopied] = useState(false);
   const popup = true;
@@ -134,8 +133,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 {calculatorConfig.notSureAnswer.promptText}
               </Button>
             )}
+
             {page.isFinalPage && (
-              <>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -147,54 +147,50 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 >
                   {calculatorConfig.feedback.linkText}
                 </Button>
-                <Link
-                  sx={{ textAlign: 'center' }}
-                  href={
+
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginLeft: 7 }}>
+                  <Link
+                    sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
+                    href={
                     calculatorConfig.checkAnotherConviction.linkTo.slug.current
                   }
-                >
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 1,
-                    }}
                   >
-                    <HistoryIcon />
-                    {calculatorConfig.checkAnotherConviction.linkText}
-                  </Box>
-                </Link>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        gap: 1,
+                      }}
+                    >
+                      <HistoryIcon />
+                      {calculatorConfig.checkAnotherConviction.linkText}
+                    </Box>
+                  </Link>
 
-                {/* Changes for Scrum task */}
-                <Button
-                  component="button"
-                  sx={{ textAlign: 'center' }}
-                  onClick={() => setShare(true)}
-                  // onClick={() => console.log('open')}
-                  // href={
-                  //   calculatorConfig.checkAnotherConviction.linkTo.slug.current
-                  // }
-                >
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 1,
-                      textDecoration: 'underline',
-                      textTransform: 'none',
-                      fontSize: '20.5px',
-                      fontWeight: 350,
-                    }}
+                  <Link
+                    href={
+                  calculatorConfig.checkAnotherConviction.linkTo.slug.current
+                }
+                    component="button"
+                    sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
+                    onClick={() => setShare(true)}
                   >
-                    <IosShareIcon />
-                    Share the calculator
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        gap: 1,
+                        textDecoration: 'underline',
+                        textTransform: 'none',
+                        fontSize: '1.2813rem',
+                        fontWeight: 350,
+                      }}
+                    >
+                      <IosShareIcon />
+                      Share the calculator
 
-                  </Box>
-                </Button>
-
-              </>
+                    </Box>
+                  </Link>
+                </Box>
+              </Box>
             )}
           </Stack>
         </Container>
@@ -229,56 +225,50 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         </DialogActions>
       </Dialog>
 
-      {/* Added new share button dialogue-popup */}
       <Dialog
         open={share}
         onClose={() => setShare(false)}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
+
         <CloseIcon
           edge="end"
           color="inherit"
           onClick={() => {
-            setCopied(false);
-            setShare(false);
+            setTimeout(() => {
+              setShare(false);
+            }, 10);
+
+            setTimeout(() => {
+              setCopied(false);
+            }, 200);
           }}
           aria-label="close"
           style={{
-            position: 'absolute', top: '10px', right: '10px', cursor: 'pointer',
+            position: 'absolute', top: '.625rem', right: '.625rem', cursor: 'pointer',
           }}
         />
-        {/* <DialogTitle id="alert-dialog-title"> */}
-        {/* <h2>Share the calculator </h2> */}
 
-        {/* </DialogTitle> */}
-        {/* <DialogContent> */}
-        {/* <PortableText
-            value={calculatorConfig.notSureAnswer.content}
-            // value='hello2'
-            components={portableTextComponents}
-          /> */}
-        <ShareButtons popup={popup} setCopied={setCopied} copied={copied} />
-        {/* </DialogContent> */}
-        {/* <DialogActions>
-          <Button onClick={() => setShare(false)}>
-            Okay
-          </Button>
-        </DialogActions> */}
+        <ShareButtons popup={popup} setCopied={setCopied} copied={copied} setShare={setShare} />
+
       </Dialog>
 
       <Box
         sx={{
           textAlign: 'center',
-          mb: '30px',
+          mb: '1.875rem',
           color: 'black',
           fontWeight: 500,
-          fontSize: '16px',
+          fontSize: '1rem',
         }}
       >
-        {/* Share for first page */}
+
         {isFirstPage(page) && (
-        <Button
+        <Link
+          href={
+                  calculatorConfig.checkAnotherConviction.linkTo.slug.current
+                }
           component="button"
           onClick={() => setShare(true)}
           sx={{ textAlign: 'center' }}
@@ -292,16 +282,16 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               gap: 1,
               textDecoration: 'underline',
               textTransform: 'none',
-              fontSize: '20.5px',
+              fontSize: '1.2813rem',
               fontWeight: 350,
             }}
           >
             <IosShareIcon />
-            {/* Changes for Scrum task */}
+
             Share the calculator
 
           </Box>
-        </Button>
+        </Link>
         )}
 
         <Link
@@ -316,7 +306,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             },
           }}
         >
-          {/* The box was needed to style the error reporting text so it centers */}
+
           <Box
             sx={{
               display: 'flex',
