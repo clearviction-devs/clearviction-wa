@@ -1,4 +1,6 @@
-const faqs = [
+import { FAQ } from './content.types.ts';
+
+const faqs: FAQ[] = [
   {
     id: 'faq1',
     summary: 'What does it mean to vacate a conviction?',

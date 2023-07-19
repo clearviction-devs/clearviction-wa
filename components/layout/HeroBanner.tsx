@@ -9,11 +9,13 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import ImageContainer from './ImageContainer.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
 interface HeroBannerProps {
-  heading: string;
-  subheading: string;
+  header: string;
+  subheading?: string;
+  subheading2?: string;
   imgsrc?: string;
   ctaText?: string;
   ctaLink?: string;
@@ -28,8 +30,9 @@ const heroStyles: SxProps = {
 };
 
 export default function HeroBanner({
-  heading,
+  header,
   subheading,
+  subheading2,
   imgsrc,
   ctaText,
   ctaLink,
@@ -40,7 +43,7 @@ export default function HeroBanner({
     <Box sx={overrideStyles || heroStyles} textAlign="left">
       <SectionContainer>
         <Typography variant="h1" sx={{ display: 'block' }}>
-          {heading}
+          {header}
         </Typography>
         <Box
           sx={{
@@ -51,24 +54,62 @@ export default function HeroBanner({
           }}
         >
           <Box sx={{ flex: 1 }}>
+            <Box sx={{ mt: 2, mb: 4 }}>
+              <MuiMarkdown
+                overrides={{
+                  p: {
+                    component: Typography,
+                    props: {
+                      variant: 'body1',
+                      gutterBottom: true,
+                    } as TypographyProps,
+                  },
+
+                  span: {
+                    component: Typography,
+                    props: { variant: 'body1' } as TypographyProps,
+
+                  },
+                  a: {
+                    props: {
+                      style: {
+                        color: '#FFD200',
+                        textDecoration: 'underline',
+                      },
+                    },
+                  },
+                }}
+              >
+                {`${subheading}`}
+
+              </MuiMarkdown>
+
+            </Box>
+            {subheading2 && (
             <Box sx={{ mb: 4 }}>
               <MuiMarkdown
                 overrides={{
                   p: {
                     component: Typography,
                     props: {
-                      variant: 'subtitle1',
+                      variant: 'body1',
+                      gutterBottom: true,
                     } as TypographyProps,
                   },
+
                   span: {
                     component: Typography,
-                    props: { variant: 'subtitle1' } as TypographyProps,
+                    props: { variant: 'body1' } as TypographyProps,
+
                   },
                 }}
               >
-                {subheading}
+                {` ${subheading2}`}
+
               </MuiMarkdown>
+
             </Box>
+            )}
             {ctaText && ctaLink && (
               <Button
                 variant="contained"
@@ -95,11 +136,13 @@ export default function HeroBanner({
               }}
             >
               {imgsrc ? (
-                <Box
-                  component="img"
+                <ImageContainer
                   src={imgsrc}
+                  width={513}
+                  height={386}
                   alt=""
-                  sx={{ width: '100%' }}
+                  style={{ maxWidth: '100%' }}
+                  useImageDimensions
                 />
               ) : (
                 children
