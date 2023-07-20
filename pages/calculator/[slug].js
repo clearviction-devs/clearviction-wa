@@ -13,7 +13,9 @@ import {
   Stack,
   SvgIcon,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { PortableText } from '@portabletext/react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -47,6 +49,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   };
 
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   externalLinks();
 
@@ -135,7 +140,10 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             )}
 
             {page.isFinalPage && (
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Box sx={{
+                display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
+              }}
+              >
                 <Button
                   variant="contained"
                   color="primary"
@@ -148,7 +156,10 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   {calculatorConfig.feedback.linkText}
                 </Button>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginLeft: 7 }}>
+                <Box sx={{
+                  display: 'flex', flexDirection: 'column', gap: 1.5, marginLeft: isMobile ? 0 : 7,
+                }}
+                >
                   <Link
                     sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
                     href={
@@ -169,19 +180,18 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   <Link
                     href={
                   calculatorConfig.checkAnotherConviction.linkTo.slug.current
+
                 }
-                    component="button"
                     sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
-                    onClick={() => setShare(true)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setShare(true);
+                    }}
                   >
                     <Box
                       sx={{
                         display: 'flex',
                         gap: 1,
-                        textDecoration: 'underline',
-                        textTransform: 'none',
-                        fontSize: '1.2813rem',
-                        fontWeight: 350,
                       }}
                     >
                       <IosShareIcon />
@@ -250,7 +260,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           }}
         />
 
-        <ShareButtons popup={popup} setCopied={setCopied} copied={copied} setShare={setShare} />
+        <ShareButtons popup={popup} setCopied={setCopied} copied={copied} />
 
       </Dialog>
 
@@ -269,8 +279,10 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           href={
                   calculatorConfig.checkAnotherConviction.linkTo.slug.current
                 }
-          component="button"
-          onClick={() => setShare(true)}
+          onClick={(event) => {
+            event.preventDefault();
+            setShare(true);
+          }}
           sx={{ textAlign: 'center' }}
 
         >
@@ -280,7 +292,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               alignItems: 'center',
               justifyContent: 'center',
               gap: 1,
-              textDecoration: 'underline',
+
               textTransform: 'none',
               fontSize: '1.2813rem',
               fontWeight: 350,

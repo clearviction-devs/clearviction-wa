@@ -1,6 +1,6 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import EmailIcon from '@mui/icons-material/Email';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
@@ -19,12 +19,12 @@ type ShareButtonsProps = {
 };
 
 export default function ShareButtons({
-  popup, setCopied, copied, setShare,
+  popup, setCopied, copied,
 }: ShareButtonsProps) {
   const url = 'https://clearviction.org/calculator/head-initial-1-cont';
 
   const style = {
-    fontSize: '20px',
+    fontSize: '1.25rem',
     fontWeight: 400,
     lineHeight: '1.375rem',
     letterSpacing: '.0156rem',
@@ -40,12 +40,12 @@ export default function ShareButtons({
   };
 
   function handleEmailClick() {
-    console.log('clicked');
+
   }
 
   if (copied) {
     return (
-      <div style={{
+      <Box sx={{
         width: '20.3125rem',
         height: '5.9375rem',
         padding: '1rem',
@@ -55,61 +55,82 @@ export default function ShareButtons({
         alignItems: 'center',
       }}
       >
-        <h4>Link Copied!</h4>
-      </div>
+        <Typography
+          variant="h5"
+          sx={{
+            fontFamily: 'Sintony',
+            fontWeight: 600,
+            textAlign: 'center',
+            marginBottom: '0',
+            fontSize: '1.5rem',
+
+          }}
+        >
+          Link Copied!
+
+        </Typography>
+      </Box>
     );
   }
 
   if (popup) {
     return (
-      <div style={{
+      <Box sx={{
         width: '28.125rem', height: '20.625rem', padding: '1rem', borderRadius: '.375rem',
       }}
       >
 
         <Box sx={{
-          display: 'flex', flexDirection: 'column', marginLeft: '.8125rem',
+          display: 'flex', flexDirection: 'column', marginLeft: '1rem', gap: '.0094rem',
         }}
         >
 
-          <h2 style={{
-            fontSize: '1.5625rem',
-            fontWeight: 700,
-            lineHeight: '1.4375rem',
-            letterSpacing: '.0094rem',
-            textAlign: 'left',
-          }}
+          <Typography
+            variant="h5"
+            sx={{
+              fontSize: '1.75rem',
+              fontWeight: 700,
+              lineHeight: '1.4375rem',
+              letterSpacing: '.0094rem',
+              textAlign: 'left',
+              marginTop: '1.5625rem',
+            }}
           >
             Share the Calculator
-          </h2>
+          </Typography>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleCopyClick()}>
-            <ContentCopyIcon style={{ fontSize: 22 }} />
-            <p style={style}>Copy Link</p>
-          </Box>
-
-          <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleEmailClick()}>
-            <EmailIcon style={{ fontSize: 22 }} />
-            <p style={style}>Email Link</p>
-          </Box>
-
-          <FacebookShareButton url={url}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <FacebookIcon size={24} round />
-              <p style={style}>Share on Facebook</p>
+          <Box sx={{
+            display: 'flex', flexDirection: 'column', gap: '2.2rem', marginTop: '1.5625rem',
+          }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleCopyClick()}>
+              <ContentCopyIcon style={{ fontSize: 22 }} />
+              <Typography variant="body1" sx={style}>Copy Link</Typography>
             </Box>
-          </FacebookShareButton>
 
-          <TwitterShareButton url={url}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <TwitterIcon size={24} round />
-              <p style={style}>Share on Twitter</p>
+            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleEmailClick()}>
+              <EmailIcon style={{ fontSize: 22 }} />
+              <Typography variant="body1" sx={style}>Email Link</Typography>
             </Box>
-          </TwitterShareButton>
+
+            <FacebookShareButton url={url}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <FacebookIcon size={24} round />
+                <Typography variant="body1" sx={style}>Share on Facebook</Typography>
+              </Box>
+            </FacebookShareButton>
+
+            <TwitterShareButton url={url}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <TwitterIcon size={24} round />
+                <Typography variant="body1" sx={style}>Share on Twitter</Typography>
+              </Box>
+            </TwitterShareButton>
+          </Box>
 
         </Box>
 
-      </div>
+      </Box>
 
     );
   }
@@ -141,5 +162,4 @@ ShareButtons.propTypes = {
   popup: PropTypes.bool.isRequired,
   setCopied: PropTypes.func.isRequired,
   copied: PropTypes.bool.isRequired,
-  setShare: PropTypes.func.isRequired,
 };
