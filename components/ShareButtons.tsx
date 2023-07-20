@@ -40,7 +40,9 @@ export default function ShareButtons({
   };
 
   function handleEmailClick() {
-
+    const body = encodeURIComponent(url);
+    const mailtoUrl = `mailto:?body=${body}`;
+    window.open(mailtoUrl);
   }
 
   if (copied) {
