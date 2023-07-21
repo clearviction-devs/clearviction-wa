@@ -1,6 +1,16 @@
-const whyVacateContent = {
+import {
+  Button, Card, Header,
+} from './content.types.ts';
+
+interface WhyVacateContent {
+  heroBanner: Header;
+  buttons: Button[];
+  cards: Card[];
+}
+
+const whyVacateContent: WhyVacateContent = {
   heroBanner: {
-    heading: 'Why vacate your conviction in Washington State?',
+    header: 'Why vacate your conviction in Washington State?',
     subheading:
       'Vacating a conviction in Washington is complicated and intimidating but doing so opens opportunities in employment, housing, and education. \n\nExplore the benefits of vacating your conviction and get resources to help you along the way.',
     imgsrc: '/illustrations/team-building.svg',
@@ -64,7 +74,7 @@ const whyVacateContent = {
       title: 'Housing',
       sectionId: 'housing',
       subtitle:
-        'A background check is an obstacle for people with a conviction and it can prevent access to certain opportunities. Here are the main challenges background checks present to those seeking an education:',
+        'A background check is an obstacle for people with a conviction and it can prevent access to certain opportunities. Here are the main challenges background checks present to those seeking housing:',
       cardItems: [
         {
           title: 'Public Housing Authorities',
@@ -112,7 +122,7 @@ const whyVacateContent = {
       cardItems: [
         {
           title: 'Occupational Licenses',
-          body: 'Some states’ laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.',
+          body: 'Some states\' laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.',
           imgRef: '/illustrations/career.svg',
         },
         {
@@ -135,7 +145,7 @@ const whyVacateContent = {
           summary: 'Post-incarceration educational programs',
           details: `[Freedom Education Project](http://www.fepps.org/) 
           \n[People for People](https://mypfp.org) 
-          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills)
           \n[Post-Prison Education Program](http://postprisonedu.org/)
           \n[The STAR Project](http://thestarproject.us/)`,
         },

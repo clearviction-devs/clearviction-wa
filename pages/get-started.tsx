@@ -1,19 +1,20 @@
 import {
-  Box, Button, ButtonGroup, Grid,
+  Button, ButtonGroup, Grid, Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import AccordionBuilder from '../components/AccordionBuilder.tsx';
-import externalLinks from '../components/externalLinks.tsx';
-import FactCard from '../components/FactCard.tsx';
-import GetStartedStep from '../components/GetStartedStep.tsx';
-import HeroBanner from '../components/HeroBanner.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
-import content from '../content/get-started';
+import externalLinks from '../components/functional/ExternalLinks.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import FactCard from '../components/layout/FactCard.tsx';
+import GetStartedStep from '../components/layout/GetStartedStep.tsx';
+import HeroBanner from '../components/layout/HeroBanner.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
+import content from '../content/get-started.ts';
 
 export default function GetStartedPage() {
   const theme = useTheme();
@@ -29,7 +30,7 @@ export default function GetStartedPage() {
       />
 
       <HeroBanner
-        heading="Get started on the conviction vacation process"
+        header="Get started on the conviction vacation process"
         subheading="Vacate your conviction in the state of Washington by following these 4 steps!"
         imgsrc="/illustrations/chart.svg"
         ctaLink="#step-1"
@@ -50,15 +51,18 @@ export default function GetStartedPage() {
       <SectionContainer id="step-1">
         <GetStartedStep
           title="Step 1: Documents"
-          bodyText="First let’s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
+          bodyText="First let's gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
         >
           <SectionContainer>
             <MuiMarkdown>**You'll need to know:**</MuiMarkdown>
             <Grid container spacing={8} sx={{ my: 1 }}>
               {content.needToKnowFacts.map((fact) => (
-                <FactCard key={fact.id} xs={12} md={4} body={fact.details}>
-                  {fact.icon}
-                </FactCard>
+                <FactCard
+                  key={fact.id}
+                  details={fact.details}
+                  icon={fact.icon}
+                  border={false}
+                />
               ))}
             </Grid>
           </SectionContainer>
@@ -92,10 +96,13 @@ export default function GetStartedPage() {
         >
           <SectionContainer>
             <Grid container sx={{ alignItems: 'center' }}>
-              <Box
-                component="img"
+              <ImageContainer
+                alt=""
                 src="/quickstart.svg"
-                sx={{ padding: '1em', width: '100%' }}
+                style={{ padding: '1em', width: '100%' }}
+                width={862}
+                height={410}
+                useImageDimensions
               />
             </Grid>
           </SectionContainer>
@@ -113,7 +120,12 @@ export default function GetStartedPage() {
           </MuiMarkdown>
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
-              <FactCard key={fact.id} xs={12} md={4} body={fact.details} />
+              <FactCard
+                className="fact-card"
+                key={fact.id}
+                icon="none"
+                details={fact.details}
+              />
             ))}
           </Grid>
         </GetStartedStep>
@@ -130,7 +142,16 @@ export default function GetStartedPage() {
                 'Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)'
               }
             </MuiMarkdown>
-            <Grid container spacing={2} sx={{ my: 1 }}>
+            <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Important Notice to Verify Legal Resources:</Typography>
+            <Typography variant="body2" sx={{ my: 2 }}>
+              Before proceeding with any legal resources mentioned on our website,
+              we highly encourage you to contact them
+              directly and verify that they are currently able to assist
+              with your specific issue. While we strive to provide accurate and up-to-date
+              information, it is important to acknowledge
+              that the priorities and availability of legal resources can evolve.
+            </Typography>
+            <Grid container spacing={2} sx={{ my: 3 }}>
               {content.legalAidForms.map((legalForm) => (
                 <Grid key={legalForm.id} item xs={12} sm={6} md={4}>
                   <AccordionBuilder

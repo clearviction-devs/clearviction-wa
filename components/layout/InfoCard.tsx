@@ -4,6 +4,8 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import ImageContainer from './ImageContainer.tsx';
+
 interface InfoCardProps extends PaperProps {
   imgsrc?: string;
   title?: string;
@@ -30,7 +32,14 @@ export default function InfoCard({
         alignItems: 'center',
       }}
     >
-      <Box component="img" src={imgsrc} alt="" sx={{ width: '100%', mb: 2 }} />
+      <ImageContainer
+        src={imgsrc || ''}
+        height={250}
+        width={300}
+        style={{ marginBottom: '2px', width: '100%' }}
+        alt=""
+        useImageDimensions
+      />
       <Typography variant="h4">{title}</Typography>
       <Box px={2} pb={2} textAlign="center">
         <MuiMarkdown>{body}</MuiMarkdown>
