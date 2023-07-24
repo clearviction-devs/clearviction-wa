@@ -3,7 +3,8 @@ import createCache from '@emotion/cache';
 const isBrowser = typeof document !== 'undefined';
 
 export default function createEmotionCache() {
-  let insertionPoint;
+  // use of any
+  let insertionPoint: any;
 
   if (isBrowser) {
     const emotionInsertionPoint = document.querySelector(
