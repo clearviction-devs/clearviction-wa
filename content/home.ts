@@ -3,10 +3,10 @@ import {
 } from './content.types.ts';
 
 interface HomeContent {
-    heroBanner: Header;
-    sectionNavs: SectionNav[];
-    gridSections: GridSection[];
-    faqs: FAQ[];
+  heroBanner: Header;
+  sectionNavs: SectionNav[];
+  gridSections: GridSection[];
+  faqs: FAQ[];
 }
 
 const content: HomeContent = {
@@ -18,11 +18,24 @@ const content: HomeContent = {
     imgsrc: '/illustrations/home-hero-2color.svg',
   },
   sectionNavs: [
+    { label: 'Our Mission', href: '#our-mission' },
     { label: 'How it works', href: '#how-it-works' },
     { label: 'Why vacate', href: '#why-vacate' },
     { label: 'FAQ', href: '#faq' },
   ],
   gridSections: [
+    {
+      id: 'our-mission',
+      title: 'Our Mission',
+      // subtitle: 'A conviction vacation seals the offense from your record, and will give you more chance to access resources like:',
+      items: [
+        {
+          id: 'our-mission-item1',
+          body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017), We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life. Each year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
+          imgsrc: '/illustrations/checklist1.svg',
+        },
+      ],
+    },
     {
       id: 'how-it-works',
       title: 'How it works',
@@ -31,19 +44,19 @@ const content: HomeContent = {
       items: [
         {
           id: 'how-it-works-item1',
-          title: 'Inform',
+          // title: 'Informss',
           body: 'We break down the laws into understandable language.',
           imgsrc: '/illustrations/teamwork.svg',
         },
         {
           id: 'how-it-works-item2',
-          title: 'Assess',
+          // title: 'Assess',
           body: 'You answer a few simple yes/no questions.',
           imgsrc: '/illustrations/checklist.svg',
         },
         {
           id: 'how-it-works-item3',
-          title: 'Calculate',
+          // title: 'Calculate',
           body: 'This helps determine your vacation eligibility in Washington.',
           imgsrc: '/illustrations/teamwork-2.svg',
         },
