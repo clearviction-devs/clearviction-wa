@@ -27,11 +27,10 @@ const content: HomeContent = {
     {
       id: 'our-mission',
       title: 'Our Mission',
-      // subtitle: 'A conviction vacation seals the offense from your record, and will give you more chance to access resources like:',
       items: [
         {
           id: 'our-mission-item1',
-          body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017), We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life. Each year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
+          body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
           imgsrc: '/illustrations/checklist1.svg',
         },
       ],
@@ -44,28 +43,32 @@ const content: HomeContent = {
       items: [
         {
           id: 'how-it-works-item1',
-          // title: 'Informss',
           body: 'We break down the laws into understandable language.',
           imgsrc: '/illustrations/teamwork.svg',
         },
         {
           id: 'how-it-works-item2',
-          // title: 'Assess',
           body: 'You answer a few simple yes/no questions.',
           imgsrc: '/illustrations/checklist.svg',
         },
         {
           id: 'how-it-works-item3',
-          // title: 'Calculate',
           body: 'This helps determine your vacation eligibility in Washington.',
           imgsrc: '/illustrations/teamwork-2.svg',
+        },
+        {
+          id: 'how-it-works-item4',
+          body: 'We help you explore what comes after determining your vacation eligibility.',
+          imgsrc: '/illustrations/chart.svg',
         },
       ],
     },
     {
       id: 'why-vacate',
       title: 'Why Vacate?',
-      subtitle: 'A conviction vacation seals the offense from your record, and will give you more chance to access resources like:',
+      ctaLink: '/get-started',
+      ctaText: 'Get started',
+      subtitle: 'A conviction vacation seals the offense from your record, and will give you more chance to access:',
       items: [
         {
           id: 'why-vacate-item1',

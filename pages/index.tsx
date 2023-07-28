@@ -66,6 +66,8 @@ export default function Home() {
           <SectionContainer key={section.id} id={section.id}>
             <PaperSection
               title={section.title}
+              subtitle={section.subtitle}
+              // added subtitle above
               ctaLink={section.ctaLink}
               ctaText={section.ctaText}
             >
