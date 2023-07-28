@@ -29,24 +29,27 @@ export default function GridItemCard({
             height={200}
             style={{
               maxWidth: '250px',
+              marginBottom: '.1875rem',
             }}
           />
         )}
-        <Typography
-          variant="subtitle2"
-          sx={{
-            fontWeight: 'bold',
-            marginBottom: '10px',
-            maxWidth: '250px',
-            margin: '27px auto auto',
-            minHeight: '62px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {title}
-        </Typography>
+        {title && (
+          <Typography
+            variant="subtitle2"
+            sx={{
+              fontWeight: 'bold',
+              marginBottom: '10px',
+              maxWidth: '250px',
+              margin: '27px auto auto',
+              minHeight: '62px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {title}
+          </Typography>
+        )}
         <Box textAlign="left">
           <MuiMarkdown
             overrides={{

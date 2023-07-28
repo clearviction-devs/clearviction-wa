@@ -76,7 +76,7 @@ export default function Home() {
                   <GridItemCard
                     key={item.id}
                     xs={12}
-                    md={section.items.length % 2 ? 4 : 6}
+                    md={section.items.length % 2 ? 4 : 3}
                     title={item.title}
                     body={item.body}
                     imgsrc={item.imgsrc}
