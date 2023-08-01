@@ -28,7 +28,7 @@ export interface FAQ {
 
 export interface GridItem {
     id: string;
-    title: string;
+    title?: string;
     body: string;
     imgsrc: string;
     href?: string;

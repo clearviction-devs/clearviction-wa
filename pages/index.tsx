@@ -66,8 +66,6 @@ export default function Home() {
             ))}
           </ButtonGroup>
         </SectionContainer>
-
-        {/* added from about page - join us card */}
         <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
           <Box>
             <Grid container>
@@ -95,7 +93,6 @@ export default function Home() {
             </Grid>
           </Box>
         </SectionContainer>
-        {/* end of added */}
 
         {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>

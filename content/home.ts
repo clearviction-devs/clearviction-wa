@@ -5,6 +5,7 @@ import {
 interface HomeContent {
   heroBanner: Header;
   sectionNavs: SectionNav[];
+  ourMission: Header;
   gridSections: GridSection[];
   faqs: FAQ[];
 }
@@ -23,14 +24,12 @@ const content: HomeContent = {
     { label: 'Why vacate', href: '#why-vacate' },
     { label: 'FAQ', href: '#faq' },
   ],
-  // added from about page
   ourMission: {
     header:
       'Our Mission',
     body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\n\n\n\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
     imgsrc: '/illustrations/checklist1.svg',
   },
-  // end of added from about page
   gridSections: [
     {
       id: 'how-it-works',
