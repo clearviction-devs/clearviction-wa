@@ -1,6 +1,9 @@
-import { Button, ButtonGroup, Grid } from '@mui/material';
+import {
+  Box, Button, ButtonGroup, Grid, Typography,
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import MuiMarkdown from 'mui-markdown';
 import Script from 'next/script';
 import React from 'react';
 
@@ -10,6 +13,7 @@ import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import GridItemCard from '../components/layout/GridItem.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import ResearchBanner from '../components/layout/ResearchBanner.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
@@ -62,6 +66,37 @@ export default function Home() {
             ))}
           </ButtonGroup>
         </SectionContainer>
+
+        {/* added from about page - join us card */}
+        <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+          <Box>
+            <Grid container>
+              <Grid item xs={12}>
+                <Typography variant="h2" sx={{ textAlign: 'center' }}>
+                  {content.ourMission.header}
+                </Typography>
+              </Grid>
+              <Grid item sm={12} md={6}>
+                <ImageContainer
+                  src={content.ourMission.imgsrc as string}
+                  alt=""
+                  width={406}
+                  height={306}
+                  style={{ width: '100%' }}
+                  useImageDimensions
+                />
+              </Grid>
+              <Grid item sm={12} md={6}>
+                <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign: 'center' }}>
+                  <MuiMarkdown>{content.ourMission.body}</MuiMarkdown>
+                </Typography>
+
+              </Grid>
+            </Grid>
+          </Box>
+        </SectionContainer>
+        {/* end of added */}
+
         {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>
             <PaperSection
