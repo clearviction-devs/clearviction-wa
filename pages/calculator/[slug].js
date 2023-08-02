@@ -13,14 +13,19 @@ import {
   Typography,
 } from '@mui/material';
 import { PortableText } from '@portabletext/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import html2canvas from 'html2canvas';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { jsPDF } from 'jspdf';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import CalcStepper from '../../components/functional/CalcStepper.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
+import Results from '../../components/helper/Results.tsx';
 import portableTextComponents from '../../utils/portableTextComponents';
 import {
   getCalculatorConfig,
@@ -30,6 +35,9 @@ import {
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const [responseObject, setResponseObject] = useState({});
   const router = useRouter();
 
   const isPageIncludedInStepper = () => {
@@ -41,7 +49,51 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
 
+  const saveAsPDF = async () => {
+    /* eslint new-cap: ["error", { "newIsCap": false }] */
+    const pdf = new jsPDF('portrait', 'pt', 'a4');
+    const data1 = await html2canvas(document.querySelector('#firstPage'));
+    const img1 = data1.toDataURL('image/png');
+    const imgProperties1 = pdf.getImageProperties(img1);
+    const pdfWidth1 = pdf.internal.pageSize.getWidth();
+    const pdfHeight1 = (imgProperties1.height * pdfWidth1) / imgProperties1.width;
+
+    const data2 = await html2canvas(document.querySelector('#results-page'));
+    const img2 = data2.toDataURL('image/png');
+    const imgProperties2 = pdf.getImageProperties(img2);
+    const pdfWidth2 = pdf.internal.pageSize.getWidth();
+    const pdfHeight2 = (imgProperties2.height * pdfWidth2) / imgProperties2.width;
+
+    pdf.addImage(img1, 'PNG', 0, 0, pdfWidth1, pdfHeight1);
+    pdf.addPage('portrait', 'pt', 'a4');
+    pdf.addImage(img2, 'PNG', 0, 0, pdfWidth2, pdfHeight2);
+
+    pdf.save('clearviction_calc_results.pdf');
+  };
+  const handleDownloadClick = () => {
+    // print section must be on the page before save as pdf will work
+    setShowResults(true);
+    setTimeout(() => { saveAsPDF(); }, 500);
+  };
+
+  const addToResponses = (answer) => {
+    // delete object when start over
+    if (page.slug === 'head-initial-1-cont') setResponseObject({});
+    // slug has section ex: circumstances, terms of offense
+    if (answer !== 'Continue' && answer !== 'Next' && answer !== 'Start' && page.slug !== 'head-mis-3-cont') {
+      responseObject[page.slug] = answer;
+    }
+  };
+
+  const handleClose = () => {
+    setShowResults(false);
+  };
+
   externalLinks();
+
+  useEffect(() => {
+    if (Object.keys(responseObject).length !== 0) setShowButton(true);
+  }, [setShowButton, responseObject]);
 
   return (
     <>
@@ -49,12 +101,15 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         title="Check the eligibility to vacate your misdemeanor"
         metaContent="Determine if your misdemeanor or gross misdemeanor is eligible to vacate in Washington State with Clearviction's eligibility calculator."
       />
+      {/* previous btn & stepper */}
       <Container id="stepper-container" sx={{ marginTop: '2rem' }}>
         {!isFirstPage(page) && (
           <Button
             type="button"
             id="back-button"
-            onClick={() => router.back()}
+            onClick={() => {
+              router.back();
+            }}
             sx={{
               marginLeft: 0,
               fontWeight: 'normal',
@@ -80,6 +135,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         )}
         {isPageIncludedInStepper(page) && <CalcStepper />}
       </Container>
+      {/* question and answers section */}
       <Container
         maxWidth="md"
         sx={{
@@ -96,6 +152,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             components={portableTextComponents}
           />
         </Box>
+        {/* choice buttons */}
         <Container maxWidth="xs" sx={{ mb: 4 }}>
           <Stack gap={2}>
             {page.choices
@@ -111,11 +168,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                     color="primary"
                     href={href}
                     sx={{ width: '100%' }}
+                    onClick={() => addToResponses(choice.label)}
                   >
                     {choice.label}
                   </Button>
                 );
               })}
+            {/* not sure btn */}
             {page.isQuestion && (
               <Button
                 variant="outlined"
@@ -139,6 +198,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 >
                   {calculatorConfig.feedback.linkText}
                 </Button>
+                {/* check another conviction */}
                 <Link
                   sx={{ textAlign: 'center' }}
                   href={
@@ -166,10 +226,22 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             <Typography variant="caption" sx={{ fontWeight: 'light' }}>
               {calculatorConfig.legalDisclaimer}
             </Typography>
+            { showButton && (
+              <Button
+                sx={{ display: 'block' }}
+                onClick={() => handleDownloadClick()}
+              >
+                Download responses
+              </Button>
+            )}
+            {showResults && (
+              <Results responseObject={responseObject} handleClose={handleClose} />
+            )}
           </Box>
         )}
         {page.isEligible && <MailchimpForm />}
       </Container>
+      {/* not sure button */}
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
@@ -191,6 +263,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           </Button>
         </DialogActions>
       </Dialog>
+      {/* error reporting form */}
       <Box
         sx={{
           textAlign: 'center',
