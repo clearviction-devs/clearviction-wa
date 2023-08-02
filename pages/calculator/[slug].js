@@ -19,7 +19,7 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import CalcStepper from '../../components/functional/CalcStepper.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
@@ -36,7 +36,6 @@ import {
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const [open, setOpen] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [showButton, setShowButton] = useState(false);
   const [responseObject, setResponseObject] = useState({});
   const router = useRouter();
 
@@ -90,10 +89,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   };
 
   externalLinks();
-
-  useEffect(() => {
-    if (Object.keys(responseObject).length !== 0) setShowButton(true);
-  }, [setShowButton, responseObject]);
 
   return (
     <>
@@ -226,14 +221,12 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             <Typography variant="caption" sx={{ fontWeight: 'light' }}>
               {calculatorConfig.legalDisclaimer}
             </Typography>
-            { showButton && (
-              <Button
-                sx={{ display: 'block' }}
-                onClick={() => handleDownloadClick()}
-              >
-                Download responses
-              </Button>
-            )}
+            <Button
+              sx={{ display: 'block' }}
+              onClick={() => handleDownloadClick()}
+            >
+              Download responses
+            </Button>
             {showResults && (
               <Results responseObject={responseObject} handleClose={handleClose} />
             )}
