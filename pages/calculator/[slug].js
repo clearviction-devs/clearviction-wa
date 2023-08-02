@@ -21,7 +21,7 @@ import CalcStepper from '../../components/functional/CalcStepper.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
-import portableTextComponents from '../../utils/portableTextComponents';
+import portableTextComponents from '../../utils/portableTextComponents.tsx';
 import {
   getCalculatorConfig,
   getCalculatorPageBySlug,
