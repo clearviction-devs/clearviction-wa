@@ -9,11 +9,12 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import ImageContainer from './ImageContainer.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
 interface HeroBannerProps {
-  heading: string;
-  subheading: string;
+  header: string;
+  subheading?: string;
   subheading2?: string;
   imgsrc?: string;
   ctaText?: string;
@@ -26,11 +27,10 @@ const heroStyles: SxProps = {
   backgroundColor: 'primary.dark',
   color: 'primary.contrastText',
   py: 8,
-
 };
 
 export default function HeroBanner({
-  heading,
+  header,
   subheading,
   subheading2,
   imgsrc,
@@ -43,7 +43,7 @@ export default function HeroBanner({
     <Box sx={overrideStyles || heroStyles} textAlign="left">
       <SectionContainer>
         <Typography variant="h1" sx={{ display: 'block' }}>
-          {heading}
+          {header}
         </Typography>
         <Box
           sx={{
@@ -136,11 +136,13 @@ export default function HeroBanner({
               }}
             >
               {imgsrc ? (
-                <Box
-                  component="img"
+                <ImageContainer
                   src={imgsrc}
+                  width={513}
+                  height={386}
                   alt=""
-                  sx={{ width: '100%' }}
+                  style={{ maxWidth: '100%' }}
+                  useImageDimensions
                 />
               ) : (
                 children

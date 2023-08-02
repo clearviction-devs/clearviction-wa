@@ -15,6 +15,7 @@ import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-involved.ts';
@@ -92,7 +93,12 @@ function Partner() {
           <Grid container>
             <Grid item xs={12} sm={6}>
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
-                <Box component="img" src={content.partnerPage.imgsrc} />
+                <ImageContainer
+                  alt=""
+                  src={content.partnerPage.imgsrc}
+                  width={342}
+                  height={248}
+                />
               </Box>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -124,7 +130,7 @@ export default function GetInvolvedPage() {
 
       <Box sx={{ bgcolor: '#2f3554', pb: '64px' }}>
         <HeroBanner
-          heading="Share your expertise with us"
+          header="Share your expertise with us"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
           overrideStyles={{
             pb: 0,

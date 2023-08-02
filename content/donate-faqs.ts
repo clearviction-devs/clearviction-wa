@@ -1,4 +1,10 @@
-const donateFAQContent = {
+import { FAQ } from './content.types.ts';
+
+interface DonateFAQ {
+  donateFAQS: FAQ[];
+}
+
+const donateFAQContent: DonateFAQ = {
   donateFAQS: [
     {
       id: 'donate1',
