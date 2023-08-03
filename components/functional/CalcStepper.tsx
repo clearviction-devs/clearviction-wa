@@ -1,9 +1,12 @@
+import { useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import * as React from 'react';
 import { useEffect } from 'react';
+
+import theme from '../../styles/themes/theme.tsx';
 
 const steps = [
   'your offense',
@@ -13,6 +16,8 @@ const steps = [
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
+
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleNext = () => {
     const { pathname } = window.location;
@@ -44,9 +49,22 @@ export default function HorizontalLinearStepper() {
           const labelProps: {
             optional?: React.ReactNode;
           } = {};
-          return (
+
+          const isActiveStep = steps[activeStep] === label;
+
+          if (matchesXS) {
+            return (
+              <Step key={label} {...stepProps}>
+                <StepLabel {...labelProps}>
+                  {isActiveStep ? label : null}
+                </StepLabel>
+              </Step>
+            );
+          } return (
             <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
+              <StepLabel {...labelProps}>
+                {label}
+              </StepLabel>
             </Step>
           );
         })}
