@@ -27,7 +27,7 @@ const content: HomeContent = {
   ourMission: {
     header:
       'Our Mission',
-    body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\n\n\n\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
+    body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
     imgsrc: '/illustrations/checklist1.svg',
   },
   gridSections: [
@@ -64,7 +64,7 @@ const content: HomeContent = {
       title: 'Why Vacate?',
       ctaLink: '/get-started',
       ctaText: 'Get started',
-      subtitle: 'A conviction vacation seals the offense from your record, and will give you more chance to access:',
+      subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
       items: [
         {
           id: 'why-vacate-item1',
@@ -128,6 +128,11 @@ const content: HomeContent = {
       id: 'faq7',
       summary: 'Does vacating a conviction make it disappear from my record?',
       details: 'No.\n\nYour conviction will still be in court records and computerized court indexes to court records. If a conviction was a domestic violence case, these records and indexes will still show the case type.\n\nInformation about the court records from the cases that led to the convictions are still public. You can still find them on [www.courts.wa.gov](https://www.courts.wa.gov/)\n\nProsecutors can still use evidence of vacated convictions in a later criminal prosecution. They can still use them in a sexually violent predator commitment proceeding.\n\nFBI records and private background check records may still have information about the convictions.',
+    },
+    {
+      id: 'faq8',
+      summary: 'What do "vacating" and "expunging" mean, and what are the differences between them?',
+      details: 'There are two ways a conviction can be cleared off your record.\n\n"Vacating" **partially** erases it, and "expunging" **completely** erases it.\n\n**To vacate a conviction** means that, as far as society is concerned, the conviction never happened. Your landlord and your workplace won\'t be able to see your record, but it will still be visible to the police and courts.\n\n**To expunge a conviction** erases it entirely. Society, the police, and the courts will all treat you like the conviction never happened.',
     },
   ],
 };

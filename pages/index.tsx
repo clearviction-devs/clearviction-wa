@@ -1,5 +1,5 @@
 import {
-  Box, Button, ButtonGroup, Grid, Typography,
+  Button, ButtonGroup, Grid, Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -67,7 +67,7 @@ export default function Home() {
           </ButtonGroup>
         </SectionContainer>
         <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
-          <Box>
+          <PaperSection>
             <Grid container>
               <Grid item xs={12}>
                 <Typography variant="h2" sx={{ textAlign: 'center' }}>
@@ -91,7 +91,7 @@ export default function Home() {
 
               </Grid>
             </Grid>
-          </Box>
+          </PaperSection>
         </SectionContainer>
 
         {content.gridSections.map((section) => (
@@ -99,7 +99,6 @@ export default function Home() {
             <PaperSection
               title={section.title}
               subtitle={section.subtitle}
-              // added subtitle above
               ctaLink={section.ctaLink}
               ctaText={section.ctaText}
             >
