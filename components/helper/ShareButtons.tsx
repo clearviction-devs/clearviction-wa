@@ -46,15 +46,17 @@ export default function ShareButtons({
 
   if (copied) {
     return (
-      <Box sx={{
-        width: '20.3125rem',
-        height: '5.9375rem',
-        padding: '1rem',
-        borderRadius: '.375rem',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+      <Box
+        className="copied-message-box"
+        sx={{
+          width: '20.3125rem',
+          height: '5.9375rem',
+          padding: '1rem',
+          borderRadius: '.375rem',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
       >
         <Typography
           variant="h6"
@@ -75,14 +77,18 @@ export default function ShareButtons({
 
   if (popup) {
     return (
-      <Box sx={{
-        width: '28.125rem', height: '20.625rem', padding: '1rem', borderRadius: '.375rem',
-      }}
+      <Box
+        className="popup-main-container-box"
+        sx={{
+          width: '28.125rem', height: '20.625rem', padding: '1rem', borderRadius: '.375rem',
+        }}
       >
 
-        <Box sx={{
-          display: 'flex', flexDirection: 'column', marginLeft: '1rem', gap: '.0094rem',
-        }}
+        <Box
+          className="popup-inner-container-title-box"
+          sx={{
+            display: 'flex', flexDirection: 'column', marginLeft: '1rem', gap: '.0094rem',
+          }}
         >
 
           <Typography
@@ -99,29 +105,31 @@ export default function ShareButtons({
             Share the Calculator
           </Typography>
 
-          <Box sx={{
-            display: 'flex', flexDirection: 'column', gap: '2.2rem', marginTop: '1.5625rem',
-          }}
+          <Box
+            className="social-media-button-container-box"
+            sx={{
+              display: 'flex', flexDirection: 'column', gap: '2.2rem', marginTop: '1.5625rem',
+            }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleCopyClick()}>
+            <Box className="copy-link-container-box" sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleCopyClick()}>
               <ContentCopyIcon style={{ fontSize: 22 }} />
               <Typography variant="body1" sx={style}>Copy Link</Typography>
             </Box>
 
-            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleEmailClick()}>
+            <Box className="email-link-container-box" sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleEmailClick()}>
               <EmailIcon style={{ fontSize: 22 }} />
               <Typography variant="body1" sx={style}>Email Link</Typography>
             </Box>
 
             <FacebookShareButton url={url}>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box className="facebook-link-container-box" sx={{ display: 'flex', alignItems: 'center' }}>
                 <FacebookIcon size={24} round />
                 <Typography variant="body1" sx={style}>Share on Facebook</Typography>
               </Box>
             </FacebookShareButton>
 
             <TwitterShareButton url={url}>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box className="twitter-link-container-box" sx={{ display: 'flex', alignItems: 'center' }}>
                 <TwitterIcon size={24} round />
                 <Typography variant="body1" sx={style}>Share on Twitter</Typography>
               </Box>
