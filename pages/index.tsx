@@ -85,7 +85,16 @@ export default function Home() {
                 />
               </Grid>
               <Grid item sm={12} md={6}>
-                <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign: 'center' }}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    mt: '4.375rem',
+                    textAlign: {
+                      sm: 'center',
+                      md: 'left',
+                    },
+                  }}
+                >
                   <MuiMarkdown>{content.ourMission.body}</MuiMarkdown>
                 </Typography>
 
