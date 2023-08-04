@@ -61,15 +61,10 @@ export default function ShareButtons({
         <Typography
           variant="h6"
           sx={{
-            fontFamily: 'Sintony',
-            fontWeight: 700,
-            textAlign: 'center',
             marginBottom: '0',
-            fontSize: '1.5rem',
-
           }}
         >
-          Link Copied!
+          Link copied!
         </Typography>
       </Box>
     );
@@ -92,14 +87,14 @@ export default function ShareButtons({
         >
 
           <Typography
-            variant="h5"
+            variant="body1"
             sx={{
-              fontSize: '1.75rem',
+              fontSize: {
+                xs: '1.3rem',
+                sm: '1.55rem',
+              },
               fontWeight: 700,
-              lineHeight: '1.4375rem',
-              letterSpacing: '.0094rem',
-              textAlign: 'left',
-              marginTop: '1.5625rem',
+              marginTop: '1.5rem',
             }}
           >
             Share the Calculator

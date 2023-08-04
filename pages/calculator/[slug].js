@@ -303,7 +303,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               alignItems: 'center',
               justifyContent: 'center',
               gap: 1,
-
               textTransform: 'none',
               fontSize: '1.2813rem',
               fontWeight: 350,
@@ -335,6 +334,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              marginTop: '.8rem',
               gap: 1,
             }}
           >
