@@ -34,9 +34,8 @@ import {
 } from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
-  const [open, setOpen] = useState(false);
   const router = useRouter();
-
+  const [open, setOpen] = useState(false);
   const [share, setShare] = useState(false);
   const [copied, setCopied] = useState(false);
   const popup = true;
