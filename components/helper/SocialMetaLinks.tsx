@@ -24,6 +24,7 @@ function SocialMetaLinks() {
       <meta
         name="description"
         content="Nonprofit Clearviction provides tools and guidance for people with Washington State convictions to clear their criminal records and begin a path to a fresh start."
+        key="description"
       />
     </>
   );
