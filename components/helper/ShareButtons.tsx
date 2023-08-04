@@ -75,7 +75,7 @@ export default function ShareButtons({
       <Box
         className="popup-main-container-box"
         sx={{
-          width: '28.125rem', height: '20.625rem', padding: '1rem', borderRadius: '.375rem',
+          width: '28.1rem', height: '20.625rem', padding: '1rem', borderRadius: '.375rem',
         }}
       >
 
@@ -103,7 +103,7 @@ export default function ShareButtons({
           <Box
             className="social-media-button-container-box"
             sx={{
-              display: 'flex', flexDirection: 'column', gap: '2.2rem', marginTop: '1.5625rem',
+              display: 'flex', flexDirection: 'column', gap: '2.2rem', marginTop: '1.5rem',
             }}
           >
             <Box className="copy-link-container-box" sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleCopyClick()}>
