@@ -263,7 +263,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
             setTimeout(() => {
               setCopied(false);
-            }, 200);
+            }, 350);
           }}
           aria-label="close"
           style={{
