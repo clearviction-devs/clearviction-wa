@@ -57,10 +57,10 @@ export default function ShareButtons({
       }}
       >
         <Typography
-          variant="h5"
+          variant="h6"
           sx={{
             fontFamily: 'Sintony',
-            fontWeight: 600,
+            fontWeight: 700,
             textAlign: 'center',
             marginBottom: '0',
             fontSize: '1.5rem',
@@ -68,7 +68,6 @@ export default function ShareButtons({
           }}
         >
           Link Copied!
-
         </Typography>
       </Box>
     );
