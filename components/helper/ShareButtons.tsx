@@ -1,7 +1,6 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import EmailIcon from '@mui/icons-material/Email';
 import { Box, Grid, Typography } from '@mui/material';
-import PropTypes from 'prop-types';
 import React from 'react';
 import {
   FacebookIcon,
@@ -160,8 +159,3 @@ export default function ShareButtons({
   );
 }
 
-ShareButtons.propTypes = {
-  popup: PropTypes.bool.isRequired,
-  setCopied: PropTypes.func.isRequired,
-  copied: PropTypes.bool.isRequired,
-};
