@@ -79,12 +79,6 @@ const getStartedContent: GetStartedContent = {
     },
   ],
   financialAidForms: [
-    // {
-    //   id: 'financialform1',
-    //   summary: 'Legal Financial Obligations (LFOs)',
-    //   details:
-    //     'You may be eligible for financial assistance of fees, fines, or restitution for a misdemeanor or felony:\n\n * [CLEAR hotline](https://nwjustice.org/clear-hotline) can refer you to legal organizations\n\n* [Re-Entry Clinic](https://columbialegal.org/wp-content/uploads/2019/10/CLS-Re-Entry-Clinic-Brochure.pdf) is a joint project of Columbia Legal Services and FareStart, focusing on legal issues related to LFO’s\n\nContact us at contact@cvp.com and we will get back to you within 24 hours. If you want more info about your rights concerning LFOs, consult the website of [Washington LawHelp](https://www.washingtonlawhelp.org/issues/criminal/legal-financial-obligations-restitution-reduc-1?location=Yakima%20County).',
-    // },
     {
       id: 'financialform2',
       summary: 'Court Fees',
