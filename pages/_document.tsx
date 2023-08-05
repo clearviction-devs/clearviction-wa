@@ -27,8 +27,6 @@ export default class MyDocument extends Document {
             property="og:image"
             content="https://cvp-team-photos.s3.us-west-2.amazonaws.com/Calculator_Two+Color+2..svg"
           />
-
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
           <meta
             name="description"
