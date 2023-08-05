@@ -13,9 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import { PortableText } from '@portabletext/react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import html2canvas from 'html2canvas';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { jsPDF } from 'jspdf';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -78,7 +76,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const addToResponses = (answer) => {
     // delete object when start over
     if (page.slug === 'head-initial-1-cont') setResponseObject({});
-    // slug has section ex: circumstances, terms of offense
     if (answer !== 'Continue' && answer !== 'Next' && answer !== 'Start' && page.slug !== 'head-mis-3-cont') {
       responseObject[page.slug] = answer;
     }
@@ -225,13 +222,15 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             <Typography variant="caption" sx={{ fontWeight: 'light' }}>
               {calculatorConfig.legalDisclaimer}
             </Typography>
-            <Button
-              sx={{ display: 'block' }}
-              onClick={() => handleDownloadClick()}
-            >
-              Download responses
-            </Button>
-            {showResults && (
+            {page.isEligible && (
+              <Button
+                sx={{ display: 'block' }}
+                onClick={() => handleDownloadClick()}
+              >
+                Download responses
+              </Button>
+            )}
+            {showResults && page.isEligible && (
               <Results responseObject={responseObject} handleClose={handleClose} />
             )}
           </Box>
