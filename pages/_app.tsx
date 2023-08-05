@@ -2,7 +2,6 @@ import '../styles/global.css';
 
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
@@ -46,9 +45,6 @@ function MyApp({
 
   return (
     <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
