@@ -30,6 +30,7 @@ export default function Results({ responseObject, handleClose }: Props) {
   const questions = {
     'possession of marijuana': {
       'head-special-4-cont': 'Topic:',
+      'offense-mari-1-cont': 'Blake eligibility',
       'offense-main-2-cont': 'Was the offense a violent offense or the attempt to commit a violent offense?',
       'offense-main-3-cont': 'Was the offense a violation related to the operation of a vehicle while intoxicated?',
       'offense-main-4-cont': 'Was this a sex related offense? Such as: obscenity, pornography, sexual exploitation of children?',
@@ -138,7 +139,9 @@ export default function Results({ responseObject, handleClose }: Props) {
       sx={{
         backgroundColor: '#fafafa',
         width: '100%',
+        minWidth: '900px',
         height: '100%',
+        minHeight: '700px',
         top: '195px',
         position: 'absolute',
         overflow: 'scroll',
@@ -166,7 +169,7 @@ export default function Results({ responseObject, handleClose }: Props) {
           <Box sx={{ minWidth: '40%' }} />
         </SectionContainer>
         {/* first page middle section */}
-        <SectionContainer sx={{ textAlign: 'left', mb: 1 }}>
+        <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '730px' }}>
           <Typography variant="h5" sx={{ paddingTop: 3 }}>You May Be Eligible Because</Typography>
           <Typography id="eligibleBecause" component="div">
             <ul style={{
@@ -245,7 +248,7 @@ export default function Results({ responseObject, handleClose }: Props) {
       <Box id="results-page" style={{ backgroundColor: '#fff', padding: 5 }}>
         {/* question and answer page */}
         <Typography variant="h4" sx={{ mt: 8, mb: 4 }}>Your Conviction May Be Eligible to Vacate!</Typography>
-        <Box id="resultQuestions" sx={{ width: '90%', margin: 'auto' }}>
+        <Box id="resultQuestions" sx={{ width: '90%', margin: 'auto', minHeight: '950px' }}>
           <Typography component="div">
             <ol style={{
               columnCount: 2,
@@ -254,19 +257,43 @@ export default function Results({ responseObject, handleClose }: Props) {
               fontSize: '16px',
             }}
             >
-              { Object.keys(responseObject).map((item) => (
-                <li style={{ marginBottom: 4 }}>
-                  <div>{questions[convictionType][item]}</div>
-                  <div
-                    className="answer"
-                    style={{
-                      border: '1px solid #d4d4d4', padding: '0px 20px', marginBottom: 0, borderRadius: '20px', width: 'fit-content',
-                    }}
-                  >
-                    {responseObject[item]}
-                  </div>
+              { Object.keys(responseObject).map((item) => (item !== 'none of the above'
+                ? (
+                  <li style={{ marginBottom: 4 }}>
+                    <div>{questions[convictionType][item]}</div>
+                    <div
+                      className="answer"
+                      style={{
+                        border: '1px solid #d4d4d4',
+                        padding: '0px 20px',
+                        marginBottom: 0,
+                        borderRadius: '20px',
+                        width: 'fit-content',
+                      }}
+                    >
+                      {responseObject[item]}
+                    </div>
 
-                </li>
+                  </li>
+                )
+                : (
+                  <li style={{ marginBottom: 4 }}>
+                    <div>Not a special case</div>
+                    <div
+                      className="answer"
+                      style={{
+                        border: '1px solid #d4d4d4',
+                        padding: '0px 20px',
+                        marginBottom: 0,
+                        borderRadius: '20px',
+                        width: 'fit-content',
+                      }}
+                    >
+                      {responseObject[item]}
+                    </div>
+
+                  </li>
+                )
               ))}
             </ol>
           </Typography>
