@@ -1,5 +1,4 @@
 import HistoryIcon from '@mui/icons-material/History';
-
 // Share icon for scrum
 import {
   Box,
