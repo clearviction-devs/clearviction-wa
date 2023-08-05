@@ -140,13 +140,13 @@ export default function Results({ responseObject, handleClose }: Props) {
         backgroundColor: '#fafafa',
         width: '900px',
         height: '700px',
-        top: '195px',
+        top: '0px',
         position: 'absolute',
         overflow: 'scroll',
         left: 0,
         boxSizing: 'border-box',
         marginBottom: '100px',
-        zIndex: 2,
+        zIndex: 99999,
       }}
     >
       <Button onClick={() => handleClose()}>Close</Button>
