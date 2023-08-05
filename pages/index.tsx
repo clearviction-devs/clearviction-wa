@@ -27,6 +27,10 @@ export default function Home() {
 
   return (
     <>
+      <IndividualPageHead
+        title="Clearing Criminal Records in Washington State"
+        metaContent="Washington Law allows for vacation of select criminal records. Clearviction's free tools help individuals assess their eligibility for a fresh start."
+      />
       <div>
         {/* <!-- Google tag (gtag.js) --> */}
         {/* https://nextjs.org/docs/messages/next-script-for-ga */}
@@ -45,11 +49,6 @@ export default function Home() {
         </Script>
         {/* <!-- End Google Analytics --> */}
       </div>
-
-      <IndividualPageHead
-        title="Clearing Criminal Records in Washington State"
-        metaContent="Washington Law allows for vacation of select criminal records. Clearviction's free tools help individuals assess their eligibility for a fresh start."
-      />
 
       <main>
         <HeroBanner {...content.heroBanner} />

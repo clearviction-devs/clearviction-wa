@@ -70,12 +70,11 @@ The underlying command, `next build` generates an optimized version of your appl
 ## Development Process
 
 1. Create a `.env` file using `.env.local.example` as a guide.
-   - The secret token is used the the Sanity GROQ powered Webhooks to update the site when new content becomes available.
 2. Create your feature branch `git checkout -b feature/your-feature-name`
 3. Commit your changes `git commit -m "commit message describing your changes"`
 4. Push your changes to your feature branch `git push origin feature/your-feature-name`
 5. Create a Pull Request in GitHub against the `staging` branch
-6. Once all changes in `staging` are verified, merge `staging` to `main` (`main` should only ever be merged to from `staging`)
+6. Once all changes in `staging` are verified, `staging` is merged into `main` by Tech Foundations/reviewers ~ every 2 weeks (`main` should only ever be merged to from `staging`)
 
 ## Sanity
 
