@@ -70,7 +70,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     pdf.addImage(img2, 'PNG', 0, 0, pdfWidth2, pdfHeight2);
 
     pdf.save('clearviction_calc_results.pdf');
-    console.log(window.innerWidth < 890);
     if (window.innerWidth < 901) handleClose();
   };
   const handleDownloadClick = () => {

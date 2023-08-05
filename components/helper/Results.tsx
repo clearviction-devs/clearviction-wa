@@ -129,198 +129,210 @@ export default function Results({ responseObject, handleClose }: Props) {
     py: 2,
   };
 
+  const questionListStyle = {
+    border: '1px solid #d4d4d4',
+    padding: '0px 20px',
+    marginBottom: 0,
+    borderRadius: '20px',
+    width: 'fit-content',
+  };
+
   const convictionType = responseObject['head-special-4-cont'].toLowerCase() as string;
   const printRef = React.useRef();
 
   return (
-    <Box
-      id="download"
-      ref={printRef}
-      sx={{
-        backgroundColor: '#fafafa',
-        width: '900px',
-        height: '700px',
-        top: '0px',
-        position: 'absolute',
-        overflow: 'scroll',
-        left: 0,
-        boxSizing: 'border-box',
-        marginBottom: '100px',
-        zIndex: 99999,
-      }}
+    <Box sx={{
+      position: 'fixed',
+      width: '100vw',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0,0,0,0.6)',
+      zIndex: 9999,
+      display: 'flex',
+      justifyContent: 'center',
+      overflow: 'none',
+    }}
     >
-      <Button onClick={() => handleClose()}>Close</Button>
-      {/* first page */}
-      <Box id="firstPage">
-        {/* first page header */}
-        <SectionContainer sx={{
-          backgroundColor: Theme.palette.primary.dark, textAlign: 'left', display: 'flex', p: 1,
+      <Box
+        id="download"
+        ref={printRef}
+        sx={{
+          backgroundColor: '#fafafa',
+          width: '900px',
+          height: '700px',
+          top: '50px',
+          position: 'absolute',
+          overflow: 'scroll',
+          // left: 0,
+          boxSizing: 'border-box',
+          marginBottom: '100px',
+          // zIndex: 99999,
         }}
-        >
-          <Box>
-            <Typography variant="h3" sx={{ display: 'block', color: 'white', mb: 2 }}>Your Conviction May Be Eligible to Vacate!</Typography>
-            <Typography variant="body1" sx={{ color: 'white', paddingBottom: 2 }}>
-              According to your responses to the Clearviction eligibility
-              calculator, your Washington state conviction may be eligible to vacate.
-            </Typography>
-          </Box>
-          <Box sx={{ minWidth: '40%' }} />
-        </SectionContainer>
-        {/* first page middle section */}
-        <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '730px' }}>
-          <Typography variant="h5" sx={{ paddingTop: 3 }}>You May Be Eligible Because</Typography>
-          <Typography id="eligibleBecause" component="div">
-            <ul style={{
-              display: 'inline-grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '40px', gridRowGap: '8px', fontSize: '16px',
-            }}
-            >
-              <li>Your conviction is a misdemeanor or gross misdemeanor in Washington state.</li>
-              <li>
-                Your conviction was not a violent offense or an attempt to commit a violent offense.
-              </li>
-              <li>Your conviction was not related to operationg vehicle while intoxicated.</li>
-              <li>Your conviction was not related to a sexual offense.</li>
-              <li>Your offense was not considered domestic violence.</li>
-              <li>You do not have any pending criminal charges</li>
-              <li>You're not restrained by any court order.</li>
-              <li>Your conviction was not related to a sexual offense.</li>
-            </ul>
-          </Typography>
-        </SectionContainer>
-        {/* first page footer */}
-        <Container sx={{
-          display: 'flex', flexDirection: 'row', backgroundColor: '#fff', gap: '10px',
-        }}
-        >
-          <Box sx={footerBlockSectionStyle}>
-            <Typography variant="h5" sx={{ mt: 1, color: '#fff', textAlign: 'left' }}>We Can Help</Typography>
-            <Typography
-              variant="body2"
-              sx={footerParaStyle}
-            >
-              Your eligibility was determined by using a calculator from Clearviction,
-              a non-profit that provides tools and guidance to help people with criminal
-              convictions clear their records and begin a path to a fresh start.
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={footerParaStyle}
-            >
-              This packet was created to help you understand your eligibility, and
-              navigate some of the next steps in the vacation process.
-            </Typography>
-          </Box>
-          <Box sx={footerBlockSectionStyle}>
-            <Typography
-              variant="h5"
-              sx={{
-                mt: 1, textAlign: 'left', pb: 2, color: '#fff',
+      >
+        <Button sx={{ }} onClick={() => handleClose()}>Close</Button>
+        {/* first page */}
+        <Box id="firstPage">
+          {/* first page header */}
+          <SectionContainer sx={{
+            backgroundColor: Theme.palette.primary.dark, textAlign: 'left', display: 'flex', p: 1,
+          }}
+          >
+            <Box>
+              <Typography variant="h3" sx={{ display: 'block', color: 'white', mb: 2 }}>Your Conviction May Be Eligible to Vacate!</Typography>
+              <Typography variant="body1" sx={{ color: 'white', paddingBottom: 2 }}>
+                According to your responses to the Clearviction eligibility
+                calculator, your Washington state conviction may be eligible to vacate.
+              </Typography>
+            </Box>
+            <Box sx={{ minWidth: '40%' }} />
+          </SectionContainer>
+          {/* first page middle section */}
+          <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '730px' }}>
+            <Typography variant="h5" sx={{ paddingTop: 3 }}>You May Be Eligible Because</Typography>
+            <Typography id="eligibleBecause" component="div">
+              <ul style={{
+                display: 'inline-grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '40px', gridRowGap: '8px', fontSize: '16px',
               }}
-            >
-              This Document
+              >
+                <li>Your conviction is a misdemeanor or gross misdemeanor in Washington state.</li>
+                <li>
+                  Your conviction was not a violent offense or
+                  an attempt to commit a violent offense.
+                </li>
+                <li>Your conviction was not related to operationg vehicle while intoxicated.</li>
+                <li>Your conviction was not related to a sexual offense.</li>
+                <li>Your offense was not considered domestic violence.</li>
+                <li>You do not have any pending criminal charges</li>
+                <li>You're not restrained by any court order.</li>
+                <li>Your conviction was not related to a sexual offense.</li>
+              </ul>
             </Typography>
-            <Box sx={indexStyle}>
-              <Typography variant="body2">Packet Intro</Typography>
-              <Typography variant="body2">1</Typography>
+          </SectionContainer>
+          {/* first page footer */}
+          <Container sx={{
+            display: 'flex', flexDirection: 'row', backgroundColor: '#fff', gap: '10px',
+          }}
+          >
+            <Box sx={footerBlockSectionStyle}>
+              <Typography variant="h5" sx={{ mt: 1, color: '#fff', textAlign: 'left' }}>We Can Help</Typography>
+              <Typography
+                variant="body2"
+                sx={footerParaStyle}
+              >
+                Your eligibility was determined by using a calculator from Clearviction,
+                a non-profit that provides tools and guidance to help people with criminal
+                convictions clear their records and begin a path to a fresh start.
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={footerParaStyle}
+              >
+                This packet was created to help you understand your eligibility, and
+                navigate some of the next steps in the vacation process.
+              </Typography>
             </Box>
-            <Box sx={indexStyle}>
-              <Typography variant="body2">Legal Printout</Typography>
-              <Typography variant="body2">2</Typography>
-            </Box>
-            {/* Commented out until next sprint finishes the adding these pages */}
+            <Box sx={footerBlockSectionStyle}>
+              <Typography
+                variant="h5"
+                sx={{
+                  mt: 1, textAlign: 'left', pb: 2, color: '#fff',
+                }}
+              >
+                This Document
+              </Typography>
+              <Box sx={indexStyle}>
+                <Typography variant="body2">Packet Intro</Typography>
+                <Typography variant="body2">1</Typography>
+              </Box>
+              <Box sx={indexStyle}>
+                <Typography variant="body2">Legal Printout</Typography>
+                <Typography variant="body2">2</Typography>
+              </Box>
+              {/* Commented out until next sprint finishes the adding these pages */}
 
-            {/* <Box sx={indexStyle}
+              {/* <Box sx={indexStyle}
             >
               <Typography variant="body2">Next Steps</Typography>
               <Typography variant="body2">3</Typography>
             </Box> */}
-            {/* <Box sx={indexStyle}
+              {/* <Box sx={indexStyle}
             >
               <Typography variant="body2">Forms</Typography>
               <Typography variant="body2">4</Typography>
             </Box> */}
-          </Box>
-        </Container>
-      </Box>
-      {/* second page */}
-      <Box id="results-page" style={{ backgroundColor: '#fff', padding: 5 }}>
-        {/* question and answer page */}
-        <Typography variant="h4" sx={{ mt: 8, mb: 4 }}>Your Conviction May Be Eligible to Vacate!</Typography>
-        <Box id="resultQuestions" sx={{ width: '90%', margin: 'auto', minHeight: '950px' }}>
-          <Typography component="div">
-            <ol style={{
-              columnCount: 2,
-              textAlign: 'left',
-              gap: '10px 40px',
-              fontSize: '18px',
-            }}
-            >
-              { Object.keys(responseObject).map((item) => (responseObject[item] !== 'None of the above'
-                ? (
-                  <li style={{ marginBottom: 4, height: '100%' }}>
-                    <div>
-                      {questions[convictionType][item]}
+            </Box>
+          </Container>
+        </Box>
+        {/* second page */}
+        <Box id="results-page" style={{ backgroundColor: '#fff', padding: 5 }}>
+          {/* question and answer page */}
+          <Typography variant="h4" sx={{ mt: 8, mb: 4 }}>Your Conviction May Be Eligible to Vacate!</Typography>
+          <Box id="resultQuestions" sx={{ width: '90%', margin: 'auto', minHeight: '950px' }}>
+            <Typography component="div">
+              <ol style={{
+                columnCount: 2,
+                textAlign: 'left',
+                gap: '10px 40px',
+                fontSize: '18px',
+              }}
+              >
+                { Object.keys(responseObject).map((item) => (responseObject[item] !== 'None of the above'
+                  ? (
+                    <li style={{ marginBottom: 4, height: '100%' }}>
+                      <div style={{ paddingLeft: '20px' }}>
+                        {questions[convictionType][item]}
+                        <div
+                          className="answer"
+                          style={questionListStyle}
+                        >
+                          {responseObject[item]}
+                        </div>
+                      </div>
+
+                    </li>
+                  )
+                  : (
+                    <li style={{ marginBottom: 4 }}>
+                      <div>Topic</div>
                       <div
                         className="answer"
-                        style={{
-                          border: '1px solid #d4d4d4',
-                          padding: '0px 20px',
-                          marginBottom: 0,
-                          borderRadius: '20px',
-                          width: 'fit-content',
-                        }}
+                        style={questionListStyle}
                       >
-                        {responseObject[item]}
+                        Not a special case
                       </div>
-                    </div>
 
-                  </li>
-                )
-                : (
-                  <li style={{ marginBottom: 4 }}>
-                    <div>Topic</div>
-                    <div
-                      className="answer"
-                      style={{
-                        border: '1px solid #d4d4d4',
-                        padding: '0px 20px',
-                        marginBottom: 0,
-                        borderRadius: '20px',
-                        width: 'fit-content',
-                      }}
-                    >
-                      Not a special case
-                    </div>
-
-                  </li>
-                )
-              ))}
-            </ol>
-          </Typography>
-        </Box>
-        {/* footer */}
-        <Container style={{
-          display: 'flex', backgroundColor: '#fafafa', borderRadius: '10px', color: '#000', justifyContent: 'center', alignItems: 'center', height: '115px',
-        }}
-        >
-          <Typography variant="body2" sx={{ textAlign: 'left', width: '80%' }}>
-            Potential eligibility determined by Clearviction, a non-profit
-            that provides tools and guidance to help people with criminal
-            convictions clear their records and begin a path to a fresh start.
-          </Typography>
-          <Box sx={{ display: 'flex' }}>
-            {/* wesite https://www.qrcode-monkey.com/ */}
-            {/* use utm param to monitor who comes from qr */}
-            {/* needs to be set up in GA4 generate the url and re generate qr with the params */}
-            <ImageContainer
-              src="/qr-code.svg"
-              alt="clearviction qr code"
-              width={100}
-              height={100}
-            />
+                    </li>
+                  )
+                ))}
+              </ol>
+            </Typography>
           </Box>
-        </Container>
+          {/* footer */}
+          <Container style={{
+            display: 'flex', backgroundColor: '#fafafa', borderRadius: '10px', color: '#000', justifyContent: 'center', alignItems: 'center', height: '115px',
+          }}
+          >
+            <Typography variant="body2" sx={{ textAlign: 'left', width: '80%' }}>
+              Potential eligibility determined by Clearviction, a non-profit
+              that provides tools and guidance to help people with criminal
+              convictions clear their records and begin a path to a fresh start.
+            </Typography>
+            <Box sx={{ display: 'flex' }}>
+              {/* wesite https://www.qrcode-monkey.com/ */}
+              {/* use utm param to monitor who comes from qr */}
+              {/* needs to be set up in GA4 generate the url and re generate qr with the params */}
+              <ImageContainer
+                src="/qr-code.svg"
+                alt="clearviction qr code"
+                width={100}
+                height={100}
+              />
+            </Box>
+          </Container>
 
+        </Box>
       </Box>
     </Box>
   );
