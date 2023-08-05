@@ -138,10 +138,8 @@ export default function Results({ responseObject, handleClose }: Props) {
       ref={printRef}
       sx={{
         backgroundColor: '#fafafa',
-        width: '100%',
-        minWidth: '900px',
-        height: '100%',
-        minHeight: '700px',
+        width: '900px',
+        height: '700px',
         top: '195px',
         position: 'absolute',
         overflow: 'scroll',
@@ -254,31 +252,33 @@ export default function Results({ responseObject, handleClose }: Props) {
               columnCount: 2,
               textAlign: 'left',
               gap: '10px 40px',
-              fontSize: '16px',
+              fontSize: '18px',
             }}
             >
-              { Object.keys(responseObject).map((item) => (item !== 'none of the above'
+              { Object.keys(responseObject).map((item) => (responseObject[item] !== 'None of the above'
                 ? (
-                  <li style={{ marginBottom: 4 }}>
-                    <div>{questions[convictionType][item]}</div>
-                    <div
-                      className="answer"
-                      style={{
-                        border: '1px solid #d4d4d4',
-                        padding: '0px 20px',
-                        marginBottom: 0,
-                        borderRadius: '20px',
-                        width: 'fit-content',
-                      }}
-                    >
-                      {responseObject[item]}
+                  <li style={{ marginBottom: 4, height: '100%' }}>
+                    <div>
+                      {questions[convictionType][item]}
+                      <div
+                        className="answer"
+                        style={{
+                          border: '1px solid #d4d4d4',
+                          padding: '0px 20px',
+                          marginBottom: 0,
+                          borderRadius: '20px',
+                          width: 'fit-content',
+                        }}
+                      >
+                        {responseObject[item]}
+                      </div>
                     </div>
 
                   </li>
                 )
                 : (
                   <li style={{ marginBottom: 4 }}>
-                    <div>Not a special case</div>
+                    <div>Topic</div>
                     <div
                       className="answer"
                       style={{
@@ -289,7 +289,7 @@ export default function Results({ responseObject, handleClose }: Props) {
                         width: 'fit-content',
                       }}
                     >
-                      {responseObject[item]}
+                      Not a special case
                     </div>
 
                   </li>
