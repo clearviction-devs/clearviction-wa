@@ -26,7 +26,7 @@ import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../../components/helper/ShareButtons.tsx';
-import portableTextComponents from '../../utils/portableTextComponents';
+import portableTextComponents from '../../utils/portableTextComponents.tsx';
 import {
   getCalculatorConfig,
   getCalculatorPageBySlug,
