@@ -165,10 +165,8 @@ export default function Results({ responseObject, handleClose }: Props) {
           top: '50px',
           position: 'absolute',
           overflow: 'scroll',
-          // left: 0,
           boxSizing: 'border-box',
           marginBottom: '100px',
-          // zIndex: 99999,
         }}
       >
         <Button sx={{ }} onClick={() => handleClose()}>Close</Button>
