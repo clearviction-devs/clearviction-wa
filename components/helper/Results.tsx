@@ -278,33 +278,20 @@ export default function Results({ responseObject, handleClose }: Props) {
                 fontSize: '18px',
               }}
               >
-                { Object.keys(responseObject).map((item) => (responseObject[item] !== 'None of the above'
-                  ? (
-                    <li style={{ marginBottom: 4, height: '100%' }}>
-                      <div style={{ paddingLeft: '20px' }}>
-                        {questions[convictionType][item]}
-                        <div
-                          className="answer"
-                          style={questionListStyle}
-                        >
-                          {responseObject[item]}
-                        </div>
-                      </div>
+                { Object.keys(responseObject).map((item) => (
 
-                    </li>
-                  )
-                  : (
-                    <li style={{ marginBottom: 4 }}>
-                      <div>Topic</div>
+                  <li style={{ marginBottom: 4 }}>
+                    <div style={{ paddingLeft: '20px' }}>
+                      {responseObject[item] === 'None of the above' ? 'Topic' : questions[convictionType][item]}
                       <div
                         className="answer"
                         style={questionListStyle}
                       >
-                        Not a special case
+                        {responseObject[item] === 'None of the above' ? 'Not a special case' : responseObject[item]}
                       </div>
+                    </div>
 
-                    </li>
-                  )
+                  </li>
                 ))}
               </ol>
             </Typography>
