@@ -1,21 +1,29 @@
-import { AccountBalance, DateRange, History } from '@mui/icons-material';
-import React from 'react';
+import { Fact, Info, Reason } from './content.types.ts';
 
-const getStartedContent = {
+interface GetStartedContent {
+  needToKnowFacts: Fact[];
+  CHRIMethods: Info[];
+  rejectionReasons: Reason[];
+  legalAidForms: Info[];
+  financialAidForms: Info[];
+  eligibilityForms: Info[];
+}
+
+const getStartedContent: GetStartedContent = {
   needToKnowFacts: [
     {
       id: 'n2k1',
-      icon: <DateRange style={{ fontSize: 54 }} color="secondary" />,
+      icon: 'date',
       details: 'The date & violation of your misdemeanor conviction',
     },
     {
       id: 'n2k2',
-      icon: <History style={{ fontSize: 54 }} color="secondary" />,
+      icon: 'history',
       details: 'If and when you completed the terms of your sentence',
     },
     {
       id: 'n2k3',
-      icon: <AccountBalance style={{ fontSize: 54 }} color="secondary" />,
+      icon: 'account',
       details: 'Pending or new criminal charges & any court orders against you',
     },
   ],

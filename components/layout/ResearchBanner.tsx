@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
+import ImageContainer from './ImageContainer.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
 const researchBannerStyles: SxProps = {
@@ -39,11 +40,12 @@ export default function ResearchBanner() {
             </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Box
-              component="img"
+            <ImageContainer
               src="/illustrations/checklist1.svg"
               alt=""
-              sx={{ width: '100%' }}
+              width={406}
+              height={306}
+              style={{ width: '100%' }}
             />
           </Grid>
         </Grid>

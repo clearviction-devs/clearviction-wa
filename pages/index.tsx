@@ -4,18 +4,18 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Script from 'next/script';
 import React from 'react';
 
-import AccordionBuilder from '../components/AccordionBuilder.tsx';
-import externalLinks from '../components/externalLinks.tsx';
-import GridItemCard from '../components/GridItem.tsx';
-import HeroBanner from '../components/HeroBanner.tsx';
-import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import MailchimpForm from '../components/MailchimpForm.tsx';
-import PaperSection from '../components/PaperSection.tsx';
-import ResearchBanner from '../components/ResearchBanner.tsx';
-import SectionContainer from '../components/SectionContainer.tsx';
-import jsonContent from '../content/home.json';
+import externalLinks from '../components/functional/ExternalLinks.tsx';
+import MailchimpForm from '../components/functional/MailchimpForm.tsx';
+import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import GridItemCard from '../components/layout/GridItem.tsx';
+import HeroBanner from '../components/layout/HeroBanner.tsx';
+import PaperSection from '../components/layout/PaperSection.tsx';
+import ResearchBanner from '../components/layout/ResearchBanner.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
+import content from '../content/home.ts';
 
-export default function Home({ content }: { content: typeof jsonContent }) {
+export default function Home() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -96,18 +96,4 @@ export default function Home({ content }: { content: typeof jsonContent }) {
       </main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  if (!jsonContent) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      content: jsonContent,
-    },
-  };
 }
