@@ -3,17 +3,16 @@ import {
   Container,
   Typography,
 } from '@mui/material';
-import Image from 'next/image';
-// import React, { useState } from 'react';
 import React from 'react';
 
 import Theme from '../../styles/themes/theme.tsx';
-// import {ImageContainer} from '../layout/ImageContainer.jsx';
+import ImageContainer from '../layout/ImageContainer.tsx';
 import SectionContainer from '../layout/SectionContainer.tsx';
 
 type Answers = {
     [key: string]: string;
 }
+
 type QuestionType = {
   [key: string]: Answers,
 }
@@ -106,6 +105,29 @@ export default function Results({ responseObject, handleClose }: Props) {
     },
   } as QuestionType;
 
+  const indexStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    color: '#fff',
+    borderBottom: '1px dashed #fff',
+    mb: 4,
+  };
+
+  const footerParaStyle = {
+    textAlign: 'left',
+    pb: 3,
+    color: '#fff',
+    fontSize: '14px !important',
+  };
+
+  const footerBlockSectionStyle = {
+    width: '50%',
+    backgroundColor: Theme.palette.primary.dark,
+    borderRadius: '8px',
+    px: 3,
+    py: 2,
+  };
+
   const convictionType = responseObject['head-special-4-cont'].toLowerCase() as string;
   const printRef = React.useRef();
 
@@ -169,16 +191,11 @@ export default function Results({ responseObject, handleClose }: Props) {
           display: 'flex', flexDirection: 'row', backgroundColor: '#fff', gap: '10px',
         }}
         >
-          <Box sx={{
-            width: '50%', backgroundColor: Theme.palette.primary.dark, borderRadius: '8px', px: 3, py: 2,
-          }}
-          >
+          <Box sx={footerBlockSectionStyle}>
             <Typography variant="h5" sx={{ mt: 1, color: '#fff', textAlign: 'left' }}>We Can Help</Typography>
             <Typography
               variant="body2"
-              sx={{
-                textAlign: 'left', pb: 3, color: '#fff', fontSize: '14px !important',
-              }}
+              sx={footerParaStyle}
             >
               Your eligibility was determined by using a calculator from Clearviction,
               a non-profit that provides tools and guidance to help people with criminal
@@ -186,18 +203,13 @@ export default function Results({ responseObject, handleClose }: Props) {
             </Typography>
             <Typography
               variant="body2"
-              sx={{
-                textAlign: 'left', pb: 1, color: '#fff', fontSize: '14px !important',
-              }}
+              sx={footerParaStyle}
             >
               This packet was created to help you understand your eligibility, and
               navigate some of the next steps in the vacation process.
             </Typography>
           </Box>
-          <Box sx={{
-            width: '50%', backgroundColor: Theme.palette.primary.dark, borderRadius: '8px', px: 3, py: 2,
-          }}
-          >
+          <Box sx={footerBlockSectionStyle}>
             <Typography
               variant="h5"
               sx={{
@@ -206,34 +218,26 @@ export default function Results({ responseObject, handleClose }: Props) {
             >
               This Document
             </Typography>
-            <Box sx={{
-              display: 'flex', justifyContent: 'space-between', color: '#fff', borderBottom: '1px dashed #fff', mb: 3,
-            }}
-            >
+            <Box sx={indexStyle}>
               <Typography variant="body2">Packet Intro</Typography>
               <Typography variant="body2">1</Typography>
             </Box>
-            <Box sx={{
-              display: 'flex', justifyContent: 'space-between', color: '#fff', borderBottom: '1px dashed #fff', mb: 4,
-            }}
-            >
+            <Box sx={indexStyle}>
               <Typography variant="body2">Legal Printout</Typography>
               <Typography variant="body2">2</Typography>
             </Box>
-            <Box sx={{
-              display: 'flex', justifyContent: 'space-between', color: '#fff', borderBottom: '1px dashed #fff', mb: 4,
-            }}
+            {/* Commented out until next sprint finishes the adding these pages */}
+
+            {/* <Box sx={indexStyle}
             >
               <Typography variant="body2">Next Steps</Typography>
               <Typography variant="body2">3</Typography>
-            </Box>
-            <Box sx={{
-              display: 'flex', justifyContent: 'space-between', color: '#fff', borderBottom: '1px dashed #fff', mb: 4,
-            }}
+            </Box> */}
+            {/* <Box sx={indexStyle}
             >
               <Typography variant="body2">Forms</Typography>
               <Typography variant="body2">4</Typography>
-            </Box>
+            </Box> */}
           </Box>
         </Container>
       </Box>
@@ -281,14 +285,12 @@ export default function Results({ responseObject, handleClose }: Props) {
             {/* wesite https://www.qrcode-monkey.com/ */}
             {/* use utm param to monitor who comes from qr */}
             {/* needs to be set up in GA4 generate the url and re generate qr with the params */}
-            <Image
-              alt="clearviction qr code"
+            <ImageContainer
               src="/qr-code.svg"
+              alt="clearviction qr code"
               width={100}
               height={100}
             />
-            {/* add image container once it's merged */}
-            {/* <ImageContainer /> */}
           </Box>
         </Container>
 
