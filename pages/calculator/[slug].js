@@ -70,7 +70,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     pdf.addImage(img2, 'PNG', 0, 0, pdfWidth2, pdfHeight2);
 
     pdf.save('clearviction_calc_results.pdf');
-    handleClose();
+    console.log(window.innerWidth < 890);
+    if (window.innerWidth < 901) handleClose();
   };
   const handleDownloadClick = () => {
     // print section must be on the page before save as pdf will work
@@ -82,7 +83,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     // delete object when start over
     if (page.slug === 'head-initial-1-cont') setResponseObject({});
     if (answer !== 'Continue' && answer !== 'Next' && answer !== 'Start' && page.slug !== 'head-mis-3-cont') {
-      console.log(answer);
       responseObject[page.slug] = answer;
     }
   };
