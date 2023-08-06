@@ -3,10 +3,11 @@ import {
 } from './content.types.ts';
 
 interface HomeContent {
-    heroBanner: Header;
-    sectionNavs: SectionNav[];
-    gridSections: GridSection[];
-    faqs: FAQ[];
+  heroBanner: Header;
+  sectionNavs: SectionNav[];
+  ourMission: Header;
+  gridSections: GridSection[];
+  faqs: FAQ[];
 }
 
 const content: HomeContent = {
@@ -18,10 +19,18 @@ const content: HomeContent = {
     imgsrc: '/illustrations/home-hero-2color.svg',
   },
   sectionNavs: [
+    { label: 'Our Mission', href: '#our-mission' },
     { label: 'How it works', href: '#how-it-works' },
     { label: 'Why vacate', href: '#why-vacate' },
     { label: 'FAQ', href: '#faq' },
   ],
+  ourMission: {
+    id: 'our-mission',
+    header:
+      'Our Mission',
+    body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
+    imgsrc: '/illustrations/checklist1.svg',
+  },
   gridSections: [
     {
       id: 'how-it-works',
@@ -31,28 +40,32 @@ const content: HomeContent = {
       items: [
         {
           id: 'how-it-works-item1',
-          title: 'Inform',
           body: 'We break down the laws into understandable language.',
           imgsrc: '/illustrations/teamwork.svg',
         },
         {
           id: 'how-it-works-item2',
-          title: 'Assess',
           body: 'You answer a few simple yes/no questions.',
           imgsrc: '/illustrations/checklist.svg',
         },
         {
           id: 'how-it-works-item3',
-          title: 'Calculate',
           body: 'This helps determine your vacation eligibility in Washington.',
           imgsrc: '/illustrations/teamwork-2.svg',
+        },
+        {
+          id: 'how-it-works-item4',
+          body: 'We help you explore what comes after determining your vacation eligibility.',
+          imgsrc: '/illustrations/chart.svg',
         },
       ],
     },
     {
       id: 'why-vacate',
       title: 'Why Vacate?',
-      subtitle: 'A conviction vacation seals the offense from your record, and will give you more chance to access resources like:',
+      ctaLink: '/get-started',
+      ctaText: 'Get started',
+      subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
       items: [
         {
           id: 'why-vacate-item1',
@@ -82,6 +95,11 @@ const content: HomeContent = {
     },
   ],
   faqs: [
+    {
+      id: 'faq0',
+      summary: 'What do "vacating" and "expunging" mean, and what are the differences between them?',
+      details: 'There are two ways a conviction can be cleared off your record.\n\n"Vacating" **partially** erases it, and "expunging" **completely** erases it.\n\n**To vacate a conviction** means that, as far as society is concerned, the conviction never happened. Your landlord and your workplace won\'t be able to see your record, but it will still be visible to the police and courts.\n\n**To expunge a conviction** erases it entirely. Society, the police, and the courts will all treat you like the conviction never happened.',
+    },
     {
       id: 'faq1',
       summary: 'What does it mean to vacate a conviction?',
