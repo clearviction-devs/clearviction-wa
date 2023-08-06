@@ -247,7 +247,15 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
       <Dialog
         open={share}
-        onClose={() => setShare(false)}
+        onClose={() => {
+          setTimeout(() => {
+            setShare(false);
+          }, 10);
+
+          setTimeout(() => {
+            setCopied(false);
+          }, 350);
+        }}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -295,7 +303,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             setShare(true);
           }}
           sx={{ textAlign: 'center' }}
-
         >
           <Box
             sx={{

@@ -51,7 +51,7 @@ export default function ShareButtons({
           width: '20.3125rem',
           height: '5.9375rem',
           padding: '1rem',
-          borderRadius: '.375rem',
+          borderRadius: '6px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -74,7 +74,7 @@ export default function ShareButtons({
       <Box
         className="popup-main-container-box"
         sx={{
-          width: '28.1rem', height: '20.625rem', padding: '1rem', borderRadius: '.375rem',
+          width: '28.1rem', height: '20.625rem', padding: '1rem', borderRadius: '6px',
         }}
       >
 
