@@ -1,6 +1,8 @@
 import {
   Box, Button,
   Container,
+  List,
+  ListItem,
   Typography,
 } from '@mui/material';
 import React from 'react';
@@ -129,6 +131,17 @@ export default function Results({ responseObject, handleClose }: Props) {
     py: 2,
   };
 
+  const eligibleBecause = [
+    'Your conviction is a misdemeanor or gross misdemeanor in Washington state.',
+    'Your conviction was not a violent offense or an attempt to commit a violent offense.',
+    'Your conviction was not related to operationg vehicle while intoxicated.',
+    'Your conviction was not related to a sexual offense.',
+    'Your offense was not considered domestic violence.',
+    'You do not have any pending criminal charges.',
+    'You\'re not restrained by any court order.',
+    'Your conviction was not related to a sexual offense.',
+  ];
+
   const questionListStyle = {
     border: '1px solid #d4d4d4',
     padding: '0px 20px',
@@ -190,22 +203,16 @@ export default function Results({ responseObject, handleClose }: Props) {
           <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '730px' }}>
             <Typography variant="h5" sx={{ paddingTop: 3 }}>You May Be Eligible Because</Typography>
             <Typography id="eligibleBecause" component="div">
-              <ul style={{
+              <List style={{
                 display: 'inline-grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '40px', gridRowGap: '8px', fontSize: '16px',
               }}
               >
-                <li>Your conviction is a misdemeanor or gross misdemeanor in Washington state.</li>
-                <li>
-                  Your conviction was not a violent offense or
-                  an attempt to commit a violent offense.
-                </li>
-                <li>Your conviction was not related to operationg vehicle while intoxicated.</li>
-                <li>Your conviction was not related to a sexual offense.</li>
-                <li>Your offense was not considered domestic violence.</li>
-                <li>You do not have any pending criminal charges</li>
-                <li>You're not restrained by any court order.</li>
-                <li>Your conviction was not related to a sexual offense.</li>
-              </ul>
+                {eligibleBecause.map((item) => (
+                  <ListItem sx={{ display: 'list-item', listStyleType: 'disc', marginLeft: '20px' }}>
+                    {item}
+                  </ListItem>
+                ))}
+              </List>
             </Typography>
           </SectionContainer>
           {/* first page footer */}
@@ -269,7 +276,7 @@ export default function Results({ responseObject, handleClose }: Props) {
           <Typography variant="h4" sx={{ mt: 8, mb: 4 }}>Your Conviction May Be Eligible to Vacate!</Typography>
           <Box id="resultQuestions" sx={{ width: '90%', margin: 'auto', minHeight: '950px' }}>
             <Typography component="div">
-              <ol style={{
+              <List style={{
                 columnCount: 2,
                 textAlign: 'left',
                 gap: '10px 40px',
@@ -278,8 +285,11 @@ export default function Results({ responseObject, handleClose }: Props) {
               >
                 { Object.keys(responseObject).map((item) => (
 
-                  <li style={{ marginBottom: 4 }}>
-                    <div style={{ paddingLeft: '20px' }}>
+                  <ListItem style={{
+                    display: 'list-item', listStyleType: 'number', marginBottom: 4, marginLeft: '20px',
+                  }}
+                  >
+                    <div>
                       {responseObject[item] === 'None of the above' ? 'Topic' : questions[convictionType][item]}
                       <div
                         className="answer"
@@ -289,9 +299,9 @@ export default function Results({ responseObject, handleClose }: Props) {
                       </div>
                     </div>
 
-                  </li>
+                  </ListItem>
                 ))}
-              </ol>
+              </List>
             </Typography>
           </Box>
           {/* footer */}
