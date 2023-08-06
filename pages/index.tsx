@@ -65,7 +65,7 @@ export default function Home() {
             ))}
           </ButtonGroup>
         </SectionContainer>
-        <SectionContainer>
+        <SectionContainer id={content.ourMission.id}>
           <PaperSection>
             <Grid container>
               <Grid item xs={12}>

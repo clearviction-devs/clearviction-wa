@@ -1,4 +1,5 @@
 export interface Header {
+    id?: string;
     header: string;
     body?: string;
     subheading?: string;
