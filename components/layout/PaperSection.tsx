@@ -4,7 +4,7 @@ import {
 import React from 'react';
 
 interface PaperSectionProps extends PaperProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
