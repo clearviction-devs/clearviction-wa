@@ -204,7 +204,10 @@ export default function Results({ responseObject, handleClose }: Props) {
             <Typography variant="h5" sx={{ paddingTop: 3 }}>You May Be Eligible Because</Typography>
             <Typography id="eligibleBecause" component="div">
               <List style={{
-                display: 'inline-grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '40px', gridRowGap: '8px', fontSize: '16px',
+                display: 'inline-grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '10px 20px',
+                fontSize: '18px',
               }}
               >
                 {eligibleBecause.map((item) => (
@@ -278,18 +281,19 @@ export default function Results({ responseObject, handleClose }: Props) {
             <Typography component="div">
               <List style={{
                 columnCount: 2,
-                textAlign: 'left',
-                gap: '10px 40px',
+                gap: '10px 20px',
                 fontSize: '18px',
               }}
               >
-                { Object.keys(responseObject).map((item) => (
+                { Object.keys(responseObject).map((item, index) => (
 
-                  <ListItem style={{
-                    display: 'list-item', listStyleType: 'number', marginBottom: 4, marginLeft: '20px',
-                  }}
-                  >
-                    <div>
+                  <ListItem>
+                    <div style={{ display: 'flex', alignSelf: 'flex-start', marginRight: '10px' }}>
+                      {index + 1}
+                      .
+
+                    </div>
+                    <div style={{ display: 'inline' }}>
                       {responseObject[item] === 'None of the above' ? 'Topic' : questions[convictionType][item]}
                       <div
                         className="answer"
