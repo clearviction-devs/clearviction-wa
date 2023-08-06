@@ -25,9 +25,12 @@ export default function ShareButtons({
   const style = {
     fontWeight: 400,
     lineHeight: '1.375rem',
+    color: '#2F3554',
     textDecoration: 'underline',
     marginLeft: '.4375rem',
   };
+
+  const iconsStyle = { display: 'flex', alignItems: 'center', cursor: 'pointer' };
 
   const handleCopyClick = async () => {
     await navigator.clipboard.writeText(url);
@@ -102,25 +105,25 @@ export default function ShareButtons({
               display: 'flex', flexDirection: 'column', gap: '2.2rem', marginTop: '1.5rem',
             }}
           >
-            <Box className="copy-link-container-box" sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleCopyClick()}>
+            <Box className="copy-link-container-box" sx={iconsStyle} onClick={() => handleCopyClick()}>
               <ContentCopyIcon style={{ fontSize: 22 }} />
               <Typography variant="body1" sx={style}>Copy Link</Typography>
             </Box>
 
-            <Box className="email-link-container-box" sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleEmailClick()}>
+            <Box className="email-link-container-box" sx={iconsStyle} onClick={() => handleEmailClick()}>
               <EmailIcon style={{ fontSize: 22 }} />
               <Typography variant="body1" sx={style}>Email Link</Typography>
             </Box>
 
             <FacebookShareButton url={url}>
-              <Box className="facebook-link-container-box" sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box className="facebook-link-container-box" sx={iconsStyle}>
                 <FacebookIcon size={24} round />
                 <Typography variant="body1" sx={style}>Share on Facebook</Typography>
               </Box>
             </FacebookShareButton>
 
             <TwitterShareButton url={url}>
-              <Box className="twitter-link-container-box" sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box className="twitter-link-container-box" sx={iconsStyle}>
                 <TwitterIcon size={24} round />
                 <Typography variant="body1" sx={style}>Share on Twitter</Typography>
               </Box>
