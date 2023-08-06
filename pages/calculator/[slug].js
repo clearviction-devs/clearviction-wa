@@ -50,7 +50,17 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+
+  function closeDialog() {
+    setTimeout(() => {
+      setShare(false);
+    }, 10);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 350);
+  }
 
   externalLinks();
 
@@ -148,7 +158,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
             {page.isFinalPage && (
               <Box sx={{
-                display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
+                display: 'flex', flexDirection: matchesXS ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
               }}
               >
                 <Button
@@ -164,7 +174,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 </Button>
 
                 <Box sx={{
-                  display: 'flex', flexDirection: 'column', gap: 1.5, marginLeft: isMobile ? 0 : 7,
+                  display: 'flex', flexDirection: 'column', gap: 1.5, marginLeft: matchesXS ? 0 : 7,
                 }}
                 >
                   {/* check another conviction */}
@@ -247,15 +257,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
       <Dialog
         open={share}
-        onClose={() => {
-          setTimeout(() => {
-            setShare(false);
-          }, 10);
-
-          setTimeout(() => {
-            setCopied(false);
-          }, 350);
-        }}
+        onClose={() => closeDialog()}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -263,15 +265,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         <CloseIcon
           edge="end"
           color="inherit"
-          onClick={() => {
-            setTimeout(() => {
-              setShare(false);
-            }, 10);
-
-            setTimeout(() => {
-              setCopied(false);
-            }, 350);
-          }}
+          onClick={() => closeDialog()}
           aria-label="close"
           style={{
             position: 'absolute', top: '.625rem', right: '.625rem', cursor: 'pointer',
