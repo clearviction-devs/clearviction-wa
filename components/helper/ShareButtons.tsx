@@ -23,12 +23,8 @@ export default function ShareButtons({
   const url = 'https://clearviction.org/calculator/head-initial-1-cont';
 
   const style = {
-    fontSize: '1.25rem',
     fontWeight: 400,
     lineHeight: '1.375rem',
-    letterSpacing: '.0156rem',
-    textAlign: 'left',
-    color: '#2F3554',
     textDecoration: 'underline',
     marginLeft: '.4375rem',
   };
