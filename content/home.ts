@@ -95,6 +95,11 @@ const content: HomeContent = {
   ],
   faqs: [
     {
+      id: 'faq0',
+      summary: 'What do "vacating" and "expunging" mean, and what are the differences between them?',
+      details: 'There are two ways a conviction can be cleared off your record.\n\n"Vacating" **partially** erases it, and "expunging" **completely** erases it.\n\n**To vacate a conviction** means that, as far as society is concerned, the conviction never happened. Your landlord and your workplace won\'t be able to see your record, but it will still be visible to the police and courts.\n\n**To expunge a conviction** erases it entirely. Society, the police, and the courts will all treat you like the conviction never happened.',
+    },
+    {
       id: 'faq1',
       summary: 'What does it mean to vacate a conviction?',
       details: 'Vacating a conviction is the process of clearing a conviction from your record so it is not visible to the public anymore. Vacating your conviction can remove that crime from some background checks, and you can say legally that you were never convicted of that crime.\n\nThe courts can still reference a vacated conviction in a future criminal proceeding, and not all convictions are eligible for vacation.',
@@ -128,11 +133,6 @@ const content: HomeContent = {
       id: 'faq7',
       summary: 'Does vacating a conviction make it disappear from my record?',
       details: 'No.\n\nYour conviction will still be in court records and computerized court indexes to court records. If a conviction was a domestic violence case, these records and indexes will still show the case type.\n\nInformation about the court records from the cases that led to the convictions are still public. You can still find them on [www.courts.wa.gov](https://www.courts.wa.gov/)\n\nProsecutors can still use evidence of vacated convictions in a later criminal prosecution. They can still use them in a sexually violent predator commitment proceeding.\n\nFBI records and private background check records may still have information about the convictions.',
-    },
-    {
-      id: 'faq8',
-      summary: 'What do "vacating" and "expunging" mean, and what are the differences between them?',
-      details: 'There are two ways a conviction can be cleared off your record.\n\n"Vacating" **partially** erases it, and "expunging" **completely** erases it.\n\n**To vacate a conviction** means that, as far as society is concerned, the conviction never happened. Your landlord and your workplace won\'t be able to see your record, but it will still be visible to the police and courts.\n\n**To expunge a conviction** erases it entirely. Society, the police, and the courts will all treat you like the conviction never happened.',
     },
   ],
 };

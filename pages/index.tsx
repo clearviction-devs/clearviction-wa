@@ -65,7 +65,7 @@ export default function Home() {
             ))}
           </ButtonGroup>
         </SectionContainer>
-        <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+        <SectionContainer>
           <PaperSection>
             <Grid container>
               <Grid item xs={12}>
