@@ -54,6 +54,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
 
+  const url = "https://clearviction.org/"
+
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -245,10 +247,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   </Link>
 
                   <Link
-                    href={
-                  calculatorConfig.checkAnotherConviction.linkTo.slug.current
-
-                }
+                    href={url}
                     sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
                     onClick={(event) => {
                       event.preventDefault();
@@ -349,9 +348,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
         {isFirstPage(page) && (
         <Link
-          href={
-                  calculatorConfig.checkAnotherConviction.linkTo.slug.current
-                }
+          href={url}
           onClick={(event) => {
             event.preventDefault();
             setShare(true);
