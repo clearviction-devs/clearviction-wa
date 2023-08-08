@@ -315,6 +315,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         onClose={() => closeDialog()}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        // sx={{ overflowX: 'hidden' }}
       >
 
         <CloseIcon
@@ -359,6 +360,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
               display: 'flex',
               justifyContent: 'center',
               fontSize: '1.28rem',
+              gap: 0.5,
             }}
           >
             <IosShareIcon />
