@@ -40,7 +40,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [share, setShare] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [responseObject, setResponseObject] = useState({});
   const popup = true;
@@ -65,7 +65,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     }, 10);
 
     setTimeout(() => {
-      setCopied(false);
+      setShareLinkCopied(false);
     }, 350);
   };
 
@@ -224,10 +224,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   {calculatorConfig.feedback.linkText}
                 </Button>
 
-                <Box sx={{
-                  display: 'flex', flexDirection: 'column', gap: 1.5, marginLeft: matchesXS ? 0 : 7,
-                }}
-                >
+                <Box>
                   {/* check another conviction */}
                   <Link
                     sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
@@ -248,7 +245,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
                   <Link
                     href={calcFirstPageUrl}
-                    sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
                     onClick={(event) => {
                       event.preventDefault();
                       setShare(true);
@@ -327,11 +323,15 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           onClick={() => closeDialog()}
           aria-label="close"
           style={{
-            position: 'absolute', top: '.625rem', right: '.625rem', cursor: 'pointer',
+            position: 'absolute', top: '.625rem', right: '.625rem',
           }}
         />
 
-        <ShareButtons popup={popup} setCopied={setCopied} copied={copied} />
+        <ShareButtons
+          popup={popup}
+          setShareLinkCopied={setShareLinkCopied}
+          shareLinkCopied={shareLinkCopied}
+        />
 
       </Dialog>
 
@@ -353,17 +353,12 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             event.preventDefault();
             setShare(true);
           }}
-          sx={{ textAlign: 'center' }}
         >
           <Box
             sx={{
               display: 'flex',
-              alignItems: 'center',
               justifyContent: 'center',
-              gap: 1,
-              textTransform: 'none',
-              fontSize: '1.2813rem',
-              fontWeight: 350,
+              fontSize: '1.28rem',
             }}
           >
             <IosShareIcon />

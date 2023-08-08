@@ -13,12 +13,12 @@ import {
 
 type ShareButtonsProps = {
   popup: boolean;
-  setCopied: React.Dispatch<React.SetStateAction<boolean>>;
-  copied: boolean;
+  setShareLinkCopied: React.Dispatch<React.SetStateAction<boolean>>;
+  shareLinkCopied: boolean;
 };
 
 export default function ShareButtons({
-  popup, setCopied, copied,
+  popup, setShareLinkCopied, shareLinkCopied,
 }: ShareButtonsProps) {
   const url = 'https://clearviction.org/calculator/head-initial-1-cont';
 
@@ -34,7 +34,7 @@ export default function ShareButtons({
 
   const handleCopyClick = async () => {
     await navigator.clipboard.writeText(url);
-    setCopied(true);
+    setShareLinkCopied(true);
   };
 
   const handleEmailClick = () => {
@@ -45,7 +45,7 @@ export default function ShareButtons({
     window.open(mailtoUrl);
   };
 
-  if (copied) {
+  if (shareLinkCopied) {
     return (
       <Box
         className="copied-message-box"
