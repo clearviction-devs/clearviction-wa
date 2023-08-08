@@ -27,8 +27,8 @@ import CalcStepper from '../../components/functional/CalcStepper.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
-import ShareButtons from '../../components/helper/ShareButtons.tsx';
 import Results from '../../components/helper/Results.tsx';
+import ShareButtons from '../../components/helper/ShareButtons.tsx';
 import portableTextComponents from '../../utils/portableTextComponents.tsx';
 import {
   getCalculatorConfig,
@@ -54,7 +54,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
 
-  const url = "https://clearviction.org/"
+  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
 
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
@@ -95,7 +95,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     pdf.save('clearviction_calc_results.pdf');
     if (window.innerWidth < 901) handleClose();
   };
-  
+
   const handleDownloadClick = () => {
     // print section must be on the page before save as pdf will work
     setShowResults(true);
@@ -247,7 +247,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                   </Link>
 
                   <Link
-                    href={url}
+                    href={calcFirstPageUrl}
                     sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
                     onClick={(event) => {
                       event.preventDefault();
@@ -348,7 +348,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
 
         {isFirstPage(page) && (
         <Link
-          href={url}
+          href={calcFirstPageUrl}
           onClick={(event) => {
             event.preventDefault();
             setShare(true);
