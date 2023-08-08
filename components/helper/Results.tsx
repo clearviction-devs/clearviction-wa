@@ -200,7 +200,7 @@ export default function Results({ responseObject, handleClose }: Props) {
             <Box sx={{ minWidth: '40%' }} />
           </SectionContainer>
           {/* first page middle section */}
-          <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '730px' }}>
+          <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '650px' }}>
             <Typography variant="h5" sx={{ paddingTop: 3 }}>You May Be Eligible Because</Typography>
             <Typography id="eligibleBecause" component="div">
               <List style={{
