@@ -38,8 +38,10 @@ export default function ShareButtons({
   };
 
   function handleEmailClick() {
-    const body = encodeURIComponent(url);
-    const mailtoUrl = `mailto:?body=${body}`;
+    const subject = encodeURIComponent("Check out Clearviction's conviction vacation eligibility calculator!");
+    const preheader = encodeURIComponent('Determine if your conviction is eligible to be vacated in Washington State.');
+    const bodyText = encodeURIComponent('This easy, 10-minute process can determine if your misdemeanor conviction is eligible to be vacated in Washington State.\n\n');
+    const mailtoUrl = `mailto:?subject=${subject}&body=${preheader}%0A%0A${bodyText}%0A${encodeURIComponent(url)}`;
     window.open(mailtoUrl);
   }
 
