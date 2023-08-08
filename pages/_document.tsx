@@ -2,8 +2,9 @@ import createEmotionServer from '@emotion/server/create-instance';
 import Document, {
   Head, Html, Main, NextScript,
 } from 'next/document';
+
 import React from 'react';
-import Script from 'next/script';
+
 import theme from '../styles/themes/theme.tsx';
 import createEmotionCache from '../utils/createEmotionCache.ts';
 
@@ -59,18 +60,7 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="emotion-insertion-point" content="" />
           {(this.props as any).emotionStyleTags}
-          {/* Start Google Tag Manager */}
-      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=GTM-5SPM3GH" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'GTM-5SPM3GH');
-        `}
-      </Script>
-      {/* End Google Tag Manager */}
+          
         </Head>
         <body>
           <Main />
