@@ -37,13 +37,13 @@ export default function ShareButtons({
     setCopied(true);
   };
 
-  function handleEmailClick() {
+  const handleEmailClick = () => {
     const subject = encodeURIComponent("Check out Clearviction's conviction vacation eligibility calculator!");
     const preheader = encodeURIComponent('Determine if your conviction is eligible to be vacated in Washington State.');
     const bodyText = encodeURIComponent('This easy, 10-minute process can determine if your misdemeanor conviction is eligible to be vacated in Washington State.\n\n');
     const mailtoUrl = `mailto:?subject=${subject}&body=${preheader}%0A%0A${bodyText}%0A${encodeURIComponent(url)}`;
     window.open(mailtoUrl);
-  }
+  };
 
   if (copied) {
     return (
@@ -90,10 +90,6 @@ export default function ShareButtons({
           <Typography
             variant="body1"
             sx={{
-              fontSize: {
-                xs: '1.3rem',
-                sm: '1.55rem',
-              },
               fontWeight: 700,
               marginTop: '1.5rem',
             }}

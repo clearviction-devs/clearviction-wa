@@ -59,7 +59,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
-  function closeDialog() {
+  const closeDialog = () => {
     setTimeout(() => {
       setShare(false);
     }, 10);
@@ -67,7 +67,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     setTimeout(() => {
       setCopied(false);
     }, 350);
-  }
+  };
 
   const handleClose = () => {
     setShowResults(false);
