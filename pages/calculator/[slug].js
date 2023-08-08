@@ -36,14 +36,8 @@ import {
   getCalculatorPagePaths,
 } from '../../utils/sanity.client.ts';
 
-export default function CalculatorSlugRoute({ page, calculatorConfig }) {
+function CalcHeader({ page, isFirstPage }) {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
-  const [share, setShare] = useState(false);
-  const [shareLinkCopied, setShareLinkCopied] = useState(false);
-  const [showResults, setShowResults] = useState(false);
-  const [responseObject, setResponseObject] = useState({});
-  const popup = true;
 
   const isPageIncludedInStepper = () => {
     const excludedPageSlug = 'head';
@@ -52,27 +46,178 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     return !(isFinalPage || isPartOfHead);
   };
 
-  const isFirstPage = () => page.slug === 'head-initial-1-cont';
+  return (
+    <Container id="stepper-container" sx={{ marginTop: '2rem' }}>
 
-  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
+      {!isFirstPage(page) && (
+        <Button
+          type="button"
+          id="back-button"
+          onClick={() => {
+            router.back();
+          }}
+          sx={{
+            marginLeft: 0,
+            fontWeight: 'normal',
+            fontSize: '14px',
+            color: 'primary',
+          }}
+        >
+          <SvgIcon
+            sx={{ marginRight: '10px' }}
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="20"
+            viewBox="0 0 12 20"
+            fill="none"
+          >
+            <path
+              d="M11.8341 1.8701L10.0541 0.100098L0.164062 10.0001L10.0641 19.9001L11.8341 18.1301L3.70406 10.0001L11.8341 1.8701Z"
+              fill="#4e6c99"
+            />
+          </SvgIcon>
+          previous
+        </Button>
+      )}
 
+      {isPageIncludedInStepper(page) && <CalcStepper />}
+
+    </Container>
+  );
+}
+
+function QandASection({
+  page, calculatorConfig, addToResponses, setOpen,
+}) {
+  return (
+    <>
+      <Box mb={4}>
+        <PortableText
+          value={page.content}
+          components={portableTextComponents}
+        />
+      </Box>
+
+      <Container maxWidth="xs" sx={{ mb: 4 }}>
+        <Stack gap={2}>
+          {page.choices
+          && page.choices.map((choice) => {
+            const linkTo = choice.linkTo
+              ? `/calculator/${choice.linkTo.slug.current}`
+              : '#';
+            const href = choice.isExternalLink ? choice.url : linkTo;
+            return (
+              <Button
+                key={choice._key}
+                variant="contained"
+                color="primary"
+                href={href}
+                sx={{ width: '100%' }}
+                onClick={() => addToResponses(choice.label)}
+              >
+                {choice.label}
+              </Button>
+            );
+          })}
+
+          {page.isQuestion && (
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{ width: '100%' }}
+            onClick={() => setOpen(true)}
+          >
+            {calculatorConfig.notSureAnswer.promptText}
+          </Button>
+          )}
+        </Stack>
+      </Container>
+    </>
+  );
+}
+
+function CheckAnotherConvictionSection({ calculatorConfig }) {
+  return (
+    <Link
+      sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
+      href={
+        calculatorConfig.checkAnotherConviction.linkTo.slug.current
+          }
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 1,
+        }}
+      >
+        <HistoryIcon />
+        {calculatorConfig.checkAnotherConviction.linkText}
+      </Box>
+    </Link>
+  );
+}
+
+function FeedbackButtonSection({ page, calculatorConfig }) {
+  return (
+    <Button
+      variant="contained"
+      color="primary"
+      href={
+        page.isUndetermined
+          ? calculatorConfig.feedback.isUndeterminedUrl
+          : calculatorConfig.feedback.allOtherFeedbackUrl
+            }
+    >
+      {calculatorConfig.feedback.linkText}
+    </Button>
+  );
+}
+
+function ShareCalculatorSection({ setShare, calcFirstPageUrl }) {
+  return (
+    <Link
+      href={calcFirstPageUrl}
+      onClick={(event) => {
+        event.preventDefault();
+        setShare(true);
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 1,
+        }}
+      >
+        <IosShareIcon />
+        Share the calculator
+      </Box>
+    </Link>
+  );
+}
+
+function FinalPageLinks({
+  page, calculatorConfig, setShare, calcFirstPageUrl,
+}) {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const closeDialog = () => {
-    setTimeout(() => {
-      setShare(false);
-    }, 10);
+  if (page.isFinalPage) {
+    return (
+      <Box sx={{
+        display: 'flex', flexDirection: matchesXS ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
+      }}
+      >
+        <FeedbackButtonSection page={page} calculatorConfig={calculatorConfig} />
+        <Box>
+          <CheckAnotherConvictionSection calculatorConfig={calculatorConfig} />
+          <ShareCalculatorSection setShare={setShare} calcFirstPageUrl={calcFirstPageUrl} />
+        </Box>
+      </Box>
+    );
+  }
+}
 
-    setTimeout(() => {
-      setShareLinkCopied(false);
-    }, 350);
-  };
-
-  const handleClose = () => {
-    setShowResults(false);
-  };
-
+function DownloadResultsSection({ page, handleClose, setShowResults }) {
   const saveAsPDF = async () => {
     /* eslint new-cap: ["error", { "newIsCap": false }] */
     const pdf = new jsPDF('portrait', 'pt', 'a4');
@@ -102,12 +247,160 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
     setTimeout(() => { saveAsPDF(); }, 500);
   };
 
+  if (page.isFinalPage && page.isEligible) {
+    return (
+      <Button
+        sx={{ display: 'block' }}
+        onClick={() => handleDownloadClick()}
+      >
+        Download responses
+      </Button>
+    );
+  }
+}
+
+function ReportErrorSection({ calculatorConfig }) {
+  return (
+    <Link
+      href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
+      sx={{
+        textAlign: 'center',
+        color: 'text.primary',
+        textDecoration: 'none',
+        '&:hover': {
+          color: 'primary.main',
+          textDecoration: 'underline',
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: '.8rem',
+          gap: 1,
+        }}
+      >
+        {calculatorConfig.errorReportingForm.linkText}
+        {' '}
+      </Box>
+    </Link>
+  );
+}
+
+function FirstPageShareButton({
+  setShare, calcFirstPageUrl, isFirstPage,
+}) {
+  if (isFirstPage()) {
+    return (
+      <Link
+        href={calcFirstPageUrl}
+        onClick={(event) => {
+          event.preventDefault();
+          setShare(true);
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            fontSize: '1.28rem',
+            gap: 0.5,
+          }}
+        >
+          <IosShareIcon />
+          Share the calculator
+        </Box>
+      </Link>
+    );
+  }
+}
+
+function NotSurePopup({ calculatorConfig, open, setOpen }) {
+  return (
+    <Dialog
+      open={open}
+      onClose={() => setOpen(false)}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">
+        {calculatorConfig.notSureAnswer.header}
+      </DialogTitle>
+      <DialogContent>
+        <PortableText
+          value={calculatorConfig.notSureAnswer.content}
+          components={portableTextComponents}
+        />
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={() => setOpen(false)}>
+          {calculatorConfig.notSureAnswer.closeText}
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
+
+function ShareCalculatorPopup({ share, setShare }) {
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
+  const popup = true;
+
+  const closeDialog = () => {
+    setTimeout(() => {
+      setShare(false);
+    }, 10);
+
+    setTimeout(() => {
+      setShareLinkCopied(false);
+    }, 350);
+  };
+
+  return (
+    <Dialog
+      open={share}
+      onClose={() => closeDialog()}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <CloseIcon
+        edge="end"
+        color="inherit"
+        onClick={() => closeDialog()}
+        aria-label="close"
+        style={{
+          position: 'absolute', top: '.625rem', right: '.625rem',
+        }}
+      />
+      <ShareButtons
+        popup={popup}
+        setShareLinkCopied={setShareLinkCopied}
+        shareLinkCopied={shareLinkCopied}
+      />
+    </Dialog>
+  );
+}
+
+export default function CalculatorSlugRoute({ page, calculatorConfig }) {
+  const [open, setOpen] = useState(false);
+  const [share, setShare] = useState(false);
+  const [responseObject, setResponseObject] = useState({});
+  const [showResults, setShowResults] = useState(false);
+
+  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
+  const isFirstPage = () => page.slug === 'head-initial-1-cont';
+
   const addToResponses = (answer) => {
     // delete object when start over
     if (page.slug === 'head-initial-1-cont') setResponseObject({});
     if (answer !== 'Continue' && answer !== 'Next' && answer !== 'Start' && page.slug !== 'head-mis-3-cont') {
       responseObject[page.slug] = answer;
     }
+  };
+
+  const handleClose = () => {
+    setShowResults(false);
   };
 
   externalLinks();
@@ -119,42 +412,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         metaContent="Determine if your misdemeanor or gross misdemeanor is eligible to vacate in Washington State with Clearviction's eligibility calculator."
       />
 
-      {/* previous btn & stepper */}
-      <Container id="stepper-container" sx={{ marginTop: '2rem' }}>
-        {!isFirstPage(page) && (
-          <Button
-            type="button"
-            id="back-button"
-            onClick={() => {
-              router.back();
-            }}
-            sx={{
-              marginLeft: 0,
-              fontWeight: 'normal',
-              fontSize: '14px',
-              color: 'primary',
-            }}
-          >
-            <SvgIcon
-              sx={{ marginRight: '10px' }}
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="20"
-              viewBox="0 0 12 20"
-              fill="none"
-            >
-              <path
-                d="M11.8341 1.8701L10.0541 0.100098L0.164062 10.0001L10.0641 19.9001L11.8341 18.1301L3.70406 10.0001L11.8341 1.8701Z"
-                fill="#4e6c99"
-              />
-            </SvgIcon>
-            previous
-          </Button>
-        )}
-        {isPageIncludedInStepper(page) && <CalcStepper />}
-      </Container>
+      <CalcHeader page={page} isFirstPage={isFirstPage} />
 
-      {/* question and answers section */}
       <Container
         maxWidth="md"
         sx={{
@@ -165,178 +424,46 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         }}
         id="calculator-container-outer"
       >
-        <Box mb={4}>
-          <PortableText
-            value={page.content}
-            components={portableTextComponents}
-          />
-        </Box>
 
-        {/* choice buttons */}
-        <Container maxWidth="xs" sx={{ mb: 4 }}>
-          <Stack gap={2}>
-            {page.choices
-              && page.choices.map((choice) => {
-                const linkTo = choice.linkTo
-                  ? `/calculator/${choice.linkTo.slug.current}`
-                  : '#';
-                const href = choice.isExternalLink ? choice.url : linkTo;
-                return (
-                  <Button
-                    key={choice._key}
-                    variant="contained"
-                    color="primary"
-                    href={href}
-                    sx={{ width: '100%' }}
-                    onClick={() => addToResponses(choice.label)}
-                  >
-                    {choice.label}
-                  </Button>
-                );
-              })}
+        <QandASection
+          page={page}
+          calculatorConfig={calculatorConfig}
+          addToResponses={addToResponses}
+          setOpen={setOpen}
+        />
 
-            {/* not sure btn */}
-            {page.isQuestion && (
-              <Button
-                variant="outlined"
-                color="primary"
-                sx={{ width: '100%' }}
-                onClick={() => setOpen(true)}
-              >
-                {calculatorConfig.notSureAnswer.promptText}
-              </Button>
-            )}
+        <FinalPageLinks
+          page={page}
+          calculatorConfig={calculatorConfig}
+          setShare={setShare}
+          calcFirstPageUrl={calcFirstPageUrl}
+        />
 
-            {page.isFinalPage && (
-              <Box sx={{
-                display: 'flex', flexDirection: matchesXS ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
-              }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  href={
-                    page.isUndetermined
-                      ? calculatorConfig.feedback.isUndeterminedUrl
-                      : calculatorConfig.feedback.allOtherFeedbackUrl
-                  }
-                >
-                  {calculatorConfig.feedback.linkText}
-                </Button>
-
-                <Box>
-                  {/* check another conviction */}
-                  <Link
-                    sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
-                    href={
-                    calculatorConfig.checkAnotherConviction.linkTo.slug.current
-                  }
-                  >
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        gap: 1,
-                      }}
-                    >
-                      <HistoryIcon />
-                      {calculatorConfig.checkAnotherConviction.linkText}
-                    </Box>
-                  </Link>
-
-                  <Link
-                    href={calcFirstPageUrl}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      setShare(true);
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        gap: 1,
-                      }}
-                    >
-                      <IosShareIcon />
-                      Share the calculator
-
-                    </Box>
-                  </Link>
-                </Box>
-              </Box>
-            )}
-          </Stack>
-        </Container>
         {page.isFinalPage && (
           <Box maxWidth="60ch" textAlign="center">
             <Typography variant="caption" sx={{ fontWeight: 'light' }}>
               {calculatorConfig.legalDisclaimer}
             </Typography>
-            {page.isEligible && (
-              <Button
-                sx={{ display: 'block' }}
-                onClick={() => handleDownloadClick()}
-              >
-                Download responses
-              </Button>
-            )}
-            {showResults && page.isEligible && (
-              <Results responseObject={responseObject} handleClose={handleClose} />
-            )}
           </Box>
         )}
+
+        <DownloadResultsSection
+          page={page}
+          handleClose={handleClose}
+          setShowResults={setShowResults}
+        />
+
+        {page.isEligible && showResults && (
+          <Results responseObject={responseObject} handleClose={handleClose} />
+        )}
+
         {page.isEligible && <MailchimpForm />}
       </Container>
 
-      {/* not sure button */}
-      <Dialog
-        open={open}
-        onClose={() => setOpen(false)}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {calculatorConfig.notSureAnswer.header}
-        </DialogTitle>
-        <DialogContent>
-          <PortableText
-            value={calculatorConfig.notSureAnswer.content}
-            components={portableTextComponents}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)}>
-            {calculatorConfig.notSureAnswer.closeText}
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <NotSurePopup calculatorConfig={calculatorConfig} open={open} setOpen={setOpen} />
 
-      <Dialog
-        open={share}
-        onClose={() => closeDialog()}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        // sx={{ overflowX: 'hidden' }}
-      >
+      <ShareCalculatorPopup share={share} setShare={setShare} />
 
-        <CloseIcon
-          edge="end"
-          color="inherit"
-          onClick={() => closeDialog()}
-          aria-label="close"
-          style={{
-            position: 'absolute', top: '.625rem', right: '.625rem',
-          }}
-        />
-
-        <ShareButtons
-          popup={popup}
-          setShareLinkCopied={setShareLinkCopied}
-          shareLinkCopied={shareLinkCopied}
-        />
-
-      </Dialog>
-
-      {/* error reporting form */}
       <Box
         sx={{
           textAlign: 'center',
@@ -346,57 +473,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           fontSize: '1rem',
         }}
       >
+        <FirstPageShareButton
+          setShare={setShare}
+          calcFirstPageUrl={calcFirstPageUrl}
+          isFirstPage={isFirstPage}
+        />
 
-        {isFirstPage(page) && (
-        <Link
-          href={calcFirstPageUrl}
-          onClick={(event) => {
-            event.preventDefault();
-            setShare(true);
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              fontSize: '1.28rem',
-              gap: 0.5,
-            }}
-          >
-            <IosShareIcon />
-
-            Share the calculator
-
-          </Box>
-        </Link>
-        )}
-
-        <Link
-          href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
-          sx={{
-            textAlign: 'center',
-            color: 'text.primary',
-            textDecoration: 'none',
-            '&:hover': {
-              color: 'primary.main',
-              textDecoration: 'underline',
-            },
-          }}
-        >
-
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: '.8rem',
-              gap: 1,
-            }}
-          >
-            {calculatorConfig.errorReportingForm.linkText}
-            {' '}
-          </Box>
-        </Link>
+        <ReportErrorSection calculatorConfig={calculatorConfig} />
       </Box>
     </>
   );
