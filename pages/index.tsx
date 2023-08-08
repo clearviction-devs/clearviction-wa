@@ -31,19 +31,6 @@ export default function Home() {
         title="Clearing Criminal Records in Washington State"
         metaContent="Washington Law allows for vacation of select criminal records. Clearviction's free tools help individuals assess their eligibility for a fresh start."
       />
-      {/* Start Google Tag Manager */}
-      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=GTM-5SPM3GH" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'GTM-5SPM3GH');
-        `}
-      </Script>
-      {/* End Google Tag Manager */}
-
       <main>
         <HeroBanner {...content.heroBanner} />
         <SectionContainer>
