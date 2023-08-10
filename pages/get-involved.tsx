@@ -111,7 +111,11 @@ function Partner() {
               <Typography sx={{ my: 3 }} variant="body1">
                 {content.partnerPage.text[2]}
               </Typography>
-              <ShareButtons />
+              <ShareButtons
+                popup={false}
+                setShareLinkCopied={() => {}}
+                shareLinkCopied={false}
+              />
             </Grid>
           </Grid>
         </PaperSection>
