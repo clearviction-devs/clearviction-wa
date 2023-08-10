@@ -76,12 +76,10 @@ export default function Home() {
                 >
                   <MuiMarkdown>{content.ourMission.body}</MuiMarkdown>
                 </Typography>
-
               </Grid>
             </Grid>
           </PaperSection>
         </SectionContainer>
-
         {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>
             <PaperSection
