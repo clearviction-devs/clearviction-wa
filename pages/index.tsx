@@ -4,7 +4,6 @@ import {
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
-import Script from 'next/script';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
@@ -31,25 +30,6 @@ export default function Home() {
         title="Clearing Criminal Records in Washington State"
         metaContent="Washington Law allows for vacation of select criminal records. Clearviction's free tools help individuals assess their eligibility for a fresh start."
       />
-      <div>
-        {/* <!-- Google tag (gtag.js) --> */}
-        {/* https://nextjs.org/docs/messages/next-script-for-ga */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-QNGJLGP9B3"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-QNGJLGP9B3');
-        `}
-        </Script>
-        {/* <!-- End Google Analytics --> */}
-      </div>
-
       <main>
         <HeroBanner {...content.heroBanner} />
         <SectionContainer>
@@ -96,12 +76,10 @@ export default function Home() {
                 >
                   <MuiMarkdown>{content.ourMission.body}</MuiMarkdown>
                 </Typography>
-
               </Grid>
             </Grid>
           </PaperSection>
         </SectionContainer>
-
         {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>
             <PaperSection
