@@ -19,8 +19,8 @@ import { useTheme } from '@mui/material/styles';
 import { PortableText } from '@portabletext/react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import CalcStepper from '../../components/functional/CalcStepper.tsx';
@@ -29,14 +29,80 @@ import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
 import Results from '../../components/helper/Results.tsx';
 import ShareButtons from '../../components/helper/ShareButtons.tsx';
-import portableTextComponents from '../../utils/portableTextComponents.tsx';
+import { portableTextComponent } from '../../utils/portableTextComponents.tsx';
 import {
   getCalculatorConfig,
   getCalculatorPageBySlug,
   getCalculatorPagePaths,
 } from '../../utils/sanity.client.ts';
 
-function CalcHeader({ page, isFirstPage }) {
+export interface StaticCalcProps {
+  page: {
+    title: string;
+    slug: string;
+    content: any[];
+    choices: {
+      _key: string;
+      _type: string;
+      label: string;
+      linkTo: {
+        slug: {
+          current: string;
+        };
+      };
+      isExternalLink: boolean;
+      url: string;
+    }[];
+    isQuestion: boolean;
+    isFinalPage: boolean;
+    isEligible: boolean;
+    isUndetermined: boolean;
+  };
+  calculatorConfig: {
+    legalDisclaimer: string;
+    feedback: {
+      linkText: string;
+      allOtherFeedbackUrl: string;
+      isUndeterminedUrl: string;
+    };
+    checkAnotherConviction: {
+      linkText: string;
+      linkTo: {
+        slug: {
+          current: string;
+        };
+      };
+    };
+    errorReportingForm: {
+      linkText: string;
+      errorReportingFormUrl: string;
+    };
+    notSureAnswer: {
+      header: string;
+      promptText: string;
+      content: any[];
+      closeText: string;
+    };
+  };
+}
+
+export interface SharedCalcProps {
+  isFirstPage: () => boolean;
+  // eslint-disable-next-line no-unused-vars
+  addToResponses: (answer: string) => void;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setShare: React.Dispatch<React.SetStateAction<boolean>>;
+  calcFirstPageUrl: string;
+  handleClose: () => void;
+  setShowResults: React.Dispatch<React.SetStateAction<boolean>>;
+  open: boolean;
+  share: boolean;
+}
+
+function CalcHeader({ page, isFirstPage }:
+  { page: StaticCalcProps['page'],
+    isFirstPage: SharedCalcProps['isFirstPage']
+  }) {
   const router = useRouter();
 
   const isPageIncludedInStepper = () => {
@@ -49,7 +115,7 @@ function CalcHeader({ page, isFirstPage }) {
   return (
     <Container id="stepper-container" sx={{ marginTop: '2rem' }}>
 
-      {!isFirstPage(page) && (
+      {!isFirstPage() && (
         <Button
           type="button"
           id="back-button"
@@ -80,21 +146,23 @@ function CalcHeader({ page, isFirstPage }) {
         </Button>
       )}
 
-      {isPageIncludedInStepper(page) && <CalcStepper />}
+      {isPageIncludedInStepper() && <CalcStepper />}
 
     </Container>
   );
 }
 
-function QandASection({
+function QandAContainer({
   page, calculatorConfig, addToResponses, setOpen,
-}) {
+}: StaticCalcProps &{
+    addToResponses: SharedCalcProps['addToResponses'],
+    setOpen: SharedCalcProps['setOpen']}) {
   return (
     <>
       <Box mb={4}>
         <PortableText
           value={page.content}
-          components={portableTextComponents}
+          components={portableTextComponent}
         />
       </Box>
 
@@ -136,7 +204,9 @@ function QandASection({
   );
 }
 
-function CheckAnotherConvictionSection({ calculatorConfig }) {
+function CheckAnotherConviction({ calculatorConfig }: {
+  calculatorConfig: StaticCalcProps['calculatorConfig']
+  }) {
   return (
     <Link
       sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
@@ -157,7 +227,7 @@ function CheckAnotherConvictionSection({ calculatorConfig }) {
   );
 }
 
-function FeedbackButtonSection({ page, calculatorConfig }) {
+function FeedbackContainer({ page, calculatorConfig }: StaticCalcProps) {
   return (
     <Button
       variant="contained"
@@ -173,7 +243,10 @@ function FeedbackButtonSection({ page, calculatorConfig }) {
   );
 }
 
-function ShareCalculatorSection({ setShare, calcFirstPageUrl }) {
+function ShareCalcContainer({ setShare, calcFirstPageUrl }: {
+  setShare: SharedCalcProps['setShare'],
+  calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
+}) {
   return (
     <Link
       href={calcFirstPageUrl}
@@ -195,46 +268,50 @@ function ShareCalculatorSection({ setShare, calcFirstPageUrl }) {
   );
 }
 
-function FinalPageLinks({
+function FinalPageLinksContainer({
   page, calculatorConfig, setShare, calcFirstPageUrl,
+}: StaticCalcProps &{
+  setShare: SharedCalcProps['setShare'],
+  calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
 }) {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
-  if (page.isFinalPage) {
-    return (
-      <Box sx={{
-        display: 'flex', flexDirection: matchesXS ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
-      }}
-      >
-        <FeedbackButtonSection page={page} calculatorConfig={calculatorConfig} />
-        <Box>
-          <CheckAnotherConvictionSection calculatorConfig={calculatorConfig} />
-          <ShareCalculatorSection setShare={setShare} calcFirstPageUrl={calcFirstPageUrl} />
-        </Box>
+  return (
+    <Box sx={{
+      display: 'flex', flexDirection: matchesXS ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
+    }}
+    >
+      <FeedbackContainer page={page} calculatorConfig={calculatorConfig} />
+      <Box>
+        <CheckAnotherConviction calculatorConfig={calculatorConfig} />
+        <ShareCalcContainer setShare={setShare} calcFirstPageUrl={calcFirstPageUrl} />
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 
-function DownloadResultsSection({ page, handleClose, setShowResults }) {
+function ResultsDownloadContainer({ handleClose, setShowResults }: {
+  handleClose: SharedCalcProps['handleClose'],
+  setShowResults: SharedCalcProps['setShowResults'],
+}) {
   const saveAsPDF = async () => {
     /* eslint new-cap: ["error", { "newIsCap": false }] */
     const pdf = new jsPDF('portrait', 'pt', 'a4');
-    const data1 = await html2canvas(document.querySelector('#firstPage'));
+    const data1 = await html2canvas(document.querySelector('#firstPage')!);
     const img1 = data1.toDataURL('image/png');
     const imgProperties1 = pdf.getImageProperties(img1);
     const pdfWidth1 = pdf.internal.pageSize.getWidth();
     const pdfHeight1 = (imgProperties1.height * pdfWidth1) / imgProperties1.width;
 
-    const data2 = await html2canvas(document.querySelector('#results-page'));
+    const data2 = await html2canvas(document.querySelector('#results-page')!);
     const img2 = data2.toDataURL('image/png');
     const imgProperties2 = pdf.getImageProperties(img2);
     const pdfWidth2 = pdf.internal.pageSize.getWidth();
     const pdfHeight2 = (imgProperties2.height * pdfWidth2) / imgProperties2.width;
 
     pdf.addImage(img1, 'PNG', 0, 0, pdfWidth1, pdfHeight1);
-    pdf.addPage('portrait', 'pt', 'a4');
+    pdf.addPage('a4', 'portrait');
     pdf.addImage(img2, 'PNG', 0, 0, pdfWidth2, pdfHeight2);
 
     pdf.save('clearviction_calc_results.pdf');
@@ -247,19 +324,19 @@ function DownloadResultsSection({ page, handleClose, setShowResults }) {
     setTimeout(() => { saveAsPDF(); }, 500);
   };
 
-  if (page.isFinalPage && page.isEligible) {
-    return (
-      <Button
-        sx={{ display: 'block' }}
-        onClick={() => handleDownloadClick()}
-      >
-        Download responses
-      </Button>
-    );
-  }
+  return (
+    <Button
+      sx={{ display: 'block' }}
+      onClick={() => handleDownloadClick()}
+    >
+      Download responses
+    </Button>
+  );
 }
 
-function ReportErrorSection({ calculatorConfig }) {
+function ErrorReportContainer({ calculatorConfig }: {
+    calculatorConfig: StaticCalcProps['calculatorConfig']
+  }) {
   return (
     <Link
       href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
@@ -289,35 +366,40 @@ function ReportErrorSection({ calculatorConfig }) {
   );
 }
 
-function FirstPageShareButton({
-  setShare, calcFirstPageUrl, isFirstPage,
+function FirstPageShareContainer({
+  setShare, calcFirstPageUrl,
+}: {
+  setShare: SharedCalcProps['setShare'],
+  calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
 }) {
-  if (isFirstPage()) {
-    return (
-      <Link
-        href={calcFirstPageUrl}
-        onClick={(event) => {
-          event.preventDefault();
-          setShare(true);
+  return (
+    <Link
+      href={calcFirstPageUrl}
+      onClick={(event) => {
+        event.preventDefault();
+        setShare(true);
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          fontSize: '1.28rem',
+          gap: 0.5,
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            fontSize: '1.28rem',
-            gap: 0.5,
-          }}
-        >
-          <IosShareIcon />
-          Share the calculator
-        </Box>
-      </Link>
-    );
-  }
+        <IosShareIcon />
+        Share the calculator
+      </Box>
+    </Link>
+  );
 }
 
-function NotSurePopup({ calculatorConfig, open, setOpen }) {
+function NotSurePopup({ calculatorConfig, open, setOpen }: {
+  calculatorConfig: StaticCalcProps['calculatorConfig'],
+  open: SharedCalcProps['open'],
+  setOpen: SharedCalcProps['setOpen'],
+}) {
   return (
     <Dialog
       open={open}
@@ -331,7 +413,7 @@ function NotSurePopup({ calculatorConfig, open, setOpen }) {
       <DialogContent>
         <PortableText
           value={calculatorConfig.notSureAnswer.content}
-          components={portableTextComponents}
+          components={portableTextComponent}
         />
       </DialogContent>
       <DialogActions>
@@ -343,7 +425,10 @@ function NotSurePopup({ calculatorConfig, open, setOpen }) {
   );
 }
 
-function ShareCalculatorPopup({ share, setShare }) {
+function ShareCalculatorPopup({ share, setShare }: {
+  share: SharedCalcProps['share'],
+  setShare: SharedCalcProps['setShare'],
+}) {
   const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const popup = true;
 
@@ -365,7 +450,6 @@ function ShareCalculatorPopup({ share, setShare }) {
       aria-describedby="alert-dialog-description"
     >
       <CloseIcon
-        edge="end"
         color="inherit"
         onClick={() => closeDialog()}
         aria-label="close"
@@ -382,7 +466,8 @@ function ShareCalculatorPopup({ share, setShare }) {
   );
 }
 
-export default function CalculatorSlugRoute({ page, calculatorConfig }) {
+export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
+  // all state and functions here are shared between multiple secondary components
   const [open, setOpen] = useState(false);
   const [share, setShare] = useState(false);
   const [responseObject, setResponseObject] = useState({});
@@ -391,11 +476,11 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
 
-  const addToResponses = (answer) => {
+  const addToResponses = (answer: string) => {
     // delete object when start over
     if (page.slug === 'head-initial-1-cont') setResponseObject({});
     if (answer !== 'Continue' && answer !== 'Next' && answer !== 'Start' && page.slug !== 'head-mis-3-cont') {
-      responseObject[page.slug] = answer;
+      setResponseObject({ ...responseObject, [page.slug]: answer });
     }
   };
 
@@ -425,39 +510,50 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         id="calculator-container-outer"
       >
 
-        <QandASection
+        <QandAContainer
           page={page}
           calculatorConfig={calculatorConfig}
           addToResponses={addToResponses}
           setOpen={setOpen}
         />
 
-        <FinalPageLinks
-          page={page}
-          calculatorConfig={calculatorConfig}
-          setShare={setShare}
-          calcFirstPageUrl={calcFirstPageUrl}
-        />
+        {
+          (page.isFinalPage)
+            && (
+              <>
+                <FinalPageLinksContainer
+                  page={page}
+                  calculatorConfig={calculatorConfig}
+                  setShare={setShare}
+                  calcFirstPageUrl={calcFirstPageUrl}
+                />
+                <Box maxWidth="60ch" textAlign="center">
+                  <Typography variant="caption" sx={{ fontWeight: 'light' }}>
+                    {calculatorConfig.legalDisclaimer}
+                  </Typography>
+                </Box>
+              </>
+            )
+        }
 
-        {page.isFinalPage && (
-          <Box maxWidth="60ch" textAlign="center">
-            <Typography variant="caption" sx={{ fontWeight: 'light' }}>
-              {calculatorConfig.legalDisclaimer}
-            </Typography>
-          </Box>
-        )}
+        {
+          (page.isFinalPage && page.isEligible) && (
+            <>
+              <ResultsDownloadContainer
+                handleClose={handleClose}
+                setShowResults={setShowResults}
+              />
+              <MailchimpForm />
+            </>
+          )
+        }
 
-        <DownloadResultsSection
-          page={page}
-          handleClose={handleClose}
-          setShowResults={setShowResults}
-        />
+        {
+          (page.isEligible && showResults) && (
+            <Results responseObject={responseObject} handleClose={handleClose} />
+          )
+        }
 
-        {page.isEligible && showResults && (
-          <Results responseObject={responseObject} handleClose={handleClose} />
-        )}
-
-        {page.isEligible && <MailchimpForm />}
       </Container>
 
       <NotSurePopup calculatorConfig={calculatorConfig} open={open} setOpen={setOpen} />
@@ -473,23 +569,28 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           fontSize: '1rem',
         }}
       >
-        <FirstPageShareButton
-          setShare={setShare}
-          calcFirstPageUrl={calcFirstPageUrl}
-          isFirstPage={isFirstPage}
-        />
 
-        <ReportErrorSection calculatorConfig={calculatorConfig} />
+        {
+          isFirstPage() && (
+            <FirstPageShareContainer
+              setShare={setShare}
+              calcFirstPageUrl={calcFirstPageUrl}
+            />
+          )
+        }
+
+        <ErrorReportContainer calculatorConfig={calculatorConfig} />
       </Box>
     </>
   );
 }
 
-export async function getStaticProps(ctx) {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params = {} } = ctx;
+  const slug = params.slug as string || '';
 
   const [page, calculatorConfig] = await Promise.all([
-    getCalculatorPageBySlug({ slug: params.slug }),
+    getCalculatorPageBySlug({ slug }),
     getCalculatorConfig(),
   ]);
 
@@ -505,78 +606,13 @@ export async function getStaticProps(ctx) {
       calculatorConfig,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getCalculatorPagePaths();
 
   return {
     paths: paths?.map((slug) => `/calculator/${slug}`) || [],
     fallback: false,
   };
-}
-
-CalculatorSlugRoute.propTypes = {
-  page: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    slug: PropTypes.shape({
-      current: PropTypes.string.isRequired,
-      includes: PropTypes.func.isRequired,
-    }).isRequired,
-    content: PropTypes.arrayOf(
-      PropTypes.shape({
-        _key: PropTypes.string.isRequired,
-        _type: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
-    choices: PropTypes.arrayOf(
-      PropTypes.shape({
-        _key: PropTypes.string.isRequired,
-        _type: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-        linkTo: PropTypes.shape({
-          slug: PropTypes.shape({
-            current: PropTypes.string.isRequired,
-          }).isRequired,
-        }),
-        isExternalLink: PropTypes.bool,
-        url: PropTypes.string,
-      }),
-    ),
-    isQuestion: PropTypes.bool,
-    isFinalPage: PropTypes.bool,
-    isEligible: PropTypes.bool,
-    isUndetermined: PropTypes.bool,
-  }).isRequired,
-  calculatorConfig: PropTypes.shape({
-    legalDisclaimer: PropTypes.string.isRequired,
-    feedback: PropTypes.shape({
-      linkText: PropTypes.string.isRequired,
-      allOtherFeedbackUrl: PropTypes.string.isRequired,
-      isUndeterminedUrl: PropTypes.string.isRequired,
-    }).isRequired,
-    checkAnotherConviction: PropTypes.shape({
-      linkText: PropTypes.string.isRequired,
-      linkTo: PropTypes.shape({
-        slug: PropTypes.shape({
-          current: PropTypes.string.isRequired,
-        }).isRequired,
-      }).isRequired,
-    }).isRequired,
-    errorReportingForm: PropTypes.shape({
-      linkText: PropTypes.string.isRequired,
-      errorReportingFormUrl: PropTypes.string.isRequired,
-    }).isRequired,
-    notSureAnswer: PropTypes.shape({
-      header: PropTypes.string.isRequired,
-      promptText: PropTypes.string.isRequired,
-      content: PropTypes.arrayOf(
-        PropTypes.shape({
-          _key: PropTypes.string.isRequired,
-          _type: PropTypes.string.isRequired,
-        }),
-      ).isRequired,
-      closeText: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
 };
