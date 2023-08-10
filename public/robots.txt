@@ -1,0 +1,7 @@
+# https://nextjs.org/learn/seo/crawling-and-indexing/robots-txt
+
+# Its not necessary but was put to be clearer what is happening
+User-agent: *
+Allow: /
+
+Sitemap: https://clearviction.org/sitemap.xml
