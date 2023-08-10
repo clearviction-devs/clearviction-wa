@@ -1,10 +1,12 @@
 import '../styles/global.css';
+
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
+
 import Footer from '../components/layout/Footer.tsx';
 import Header from '../components/layout/Header.tsx';
 import theme from '../styles/themes/theme.tsx';
