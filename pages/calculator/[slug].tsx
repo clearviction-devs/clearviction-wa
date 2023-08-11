@@ -13,9 +13,7 @@ import {
   Stack,
   SvgIcon,
   Typography,
-  useMediaQuery,
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { PortableText } from '@portabletext/react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -113,7 +111,7 @@ function CalcHeader({ page, isFirstPage }:
   };
 
   return (
-    <Container id="stepper-container" sx={{ marginTop: '2rem' }}>
+    <Container id="calc-head-container" sx={{ marginTop: '2rem' }}>
 
       {!isFirstPage() && (
         <Button
@@ -166,8 +164,9 @@ function QandAContainer({
         />
       </Box>
 
-      <Container maxWidth="xs" sx={{ mb: 4 }}>
+      <Container id="choices-container" maxWidth="xs" sx={{ mb: 4 }}>
         <Stack gap={2}>
+
           {page.choices
           && page.choices.map((choice) => {
             const linkTo = choice.linkTo
@@ -198,6 +197,7 @@ function QandAContainer({
             {calculatorConfig.notSureAnswer.promptText}
           </Button>
           )}
+
         </Stack>
       </Container>
     </>
@@ -208,22 +208,19 @@ function CheckAnotherConviction({ calculatorConfig }: {
   calculatorConfig: StaticCalcProps['calculatorConfig']
   }) {
   return (
-    <Link
-      sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
-      href={
-        calculatorConfig.checkAnotherConviction.linkTo.slug.current
-          }
-    >
-      <Box
+    <Box id="check-another-conviction-container">
+      <Link
         sx={{
-          display: 'flex',
-          gap: 1,
+          textAlign: 'center', whiteSpace: 'nowrap', display: 'flex', gap: 1,
         }}
+        href={
+          calculatorConfig.checkAnotherConviction.linkTo.slug.current
+        }
       >
         <HistoryIcon />
         {calculatorConfig.checkAnotherConviction.linkText}
-      </Box>
-    </Link>
+      </Link>
+    </Box>
   );
 }
 
@@ -243,19 +240,26 @@ function FeedbackContainer({ page, calculatorConfig }: StaticCalcProps) {
   );
 }
 
-function ShareCalcContainer({ setShare, calcFirstPageUrl }: {
+function ShareCalcContainer({ setShare, calcFirstPageUrl, justify }: {
   setShare: SharedCalcProps['setShare'],
   calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
+  justify?: boolean,
 }) {
   return (
-    <Link
-      href={calcFirstPageUrl}
-      onClick={(event) => {
-        event.preventDefault();
-        setShare(true);
+    <Box
+      id="share-calc-container"
+      sx={{
+        display: 'flex',
+        gap: 1,
+        justifyContent: justify ? 'center' : 'flex-start',
       }}
     >
-      <Box
+      <Link
+        href={calcFirstPageUrl}
+        onClick={(event) => {
+          event.preventDefault();
+          setShare(true);
+        }}
         sx={{
           display: 'flex',
           gap: 1,
@@ -263,8 +267,8 @@ function ShareCalcContainer({ setShare, calcFirstPageUrl }: {
       >
         <IosShareIcon />
         Share the calculator
-      </Box>
-    </Link>
+      </Link>
+    </Box>
   );
 }
 
@@ -274,13 +278,17 @@ function FinalPageLinksContainer({
   setShare: SharedCalcProps['setShare'],
   calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
 }) {
-  const theme = useTheme();
-  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
-
   return (
-    <Box sx={{
-      display: 'flex', flexDirection: matchesXS ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
-    }}
+    <Box
+      id="finalpage-links-container"
+      sx={{
+        display: 'flex',
+        flexDirection: {
+          xs: 'column', md: 'row',
+        },
+        mb: 4,
+        gap: 2,
+      }}
     >
       <FeedbackContainer page={page} calculatorConfig={calculatorConfig} />
       <Box>
@@ -338,60 +346,34 @@ function ErrorReportContainer({ calculatorConfig }: {
     calculatorConfig: StaticCalcProps['calculatorConfig']
   }) {
   return (
-    <Link
-      href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
+    <Box
+      id="error-report-container"
       sx={{
-        textAlign: 'center',
-        color: 'text.primary',
-        textDecoration: 'none',
-        '&:hover': {
-          color: 'primary.main',
-          textDecoration: 'underline',
-        },
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '.8rem',
+        gap: 1,
+        fontSize: '1rem',
+        fontWeight: 500,
       }}
     >
-      <Box
+      <Link
+        href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
         sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: '.8rem',
-          gap: 1,
+          textAlign: 'center',
+          color: 'text.primary',
+          textDecoration: 'none',
+          '&:hover': {
+            color: 'primary.main',
+            textDecoration: 'underline',
+          },
         }}
       >
         {calculatorConfig.errorReportingForm.linkText}
         {' '}
-      </Box>
-    </Link>
-  );
-}
-
-function FirstPageShareContainer({
-  setShare, calcFirstPageUrl,
-}: {
-  setShare: SharedCalcProps['setShare'],
-  calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
-}) {
-  return (
-    <Link
-      href={calcFirstPageUrl}
-      onClick={(event) => {
-        event.preventDefault();
-        setShare(true);
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          fontSize: '1.28rem',
-          gap: 0.5,
-        }}
-      >
-        <IosShareIcon />
-        Share the calculator
-      </Box>
-    </Link>
+      </Link>
+    </Box>
   );
 }
 
@@ -518,22 +500,21 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         />
 
         {
-          (page.isFinalPage)
-            && (
-              <>
-                <FinalPageLinksContainer
-                  page={page}
-                  calculatorConfig={calculatorConfig}
-                  setShare={setShare}
-                  calcFirstPageUrl={calcFirstPageUrl}
-                />
-                <Box maxWidth="60ch" textAlign="center">
-                  <Typography variant="caption" sx={{ fontWeight: 'light' }}>
-                    {calculatorConfig.legalDisclaimer}
-                  </Typography>
-                </Box>
-              </>
-            )
+          (page.isFinalPage) && (
+            <>
+              <FinalPageLinksContainer
+                page={page}
+                calculatorConfig={calculatorConfig}
+                setShare={setShare}
+                calcFirstPageUrl={calcFirstPageUrl}
+              />
+              <Box maxWidth="60ch" textAlign="center" id="legal-disclaimer-container">
+                <Typography variant="caption" sx={{ fontWeight: 'light' }}>
+                  {calculatorConfig.legalDisclaimer}
+                </Typography>
+              </Box>
+            </>
+          )
         }
 
         {
@@ -560,27 +541,21 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
 
       <ShareCalculatorPopup share={share} setShare={setShare} />
 
-      <Box
-        sx={{
-          textAlign: 'center',
-          mb: '1.875rem',
-          color: 'black',
-          fontWeight: 500,
-          fontSize: '1rem',
-        }}
-      >
+      <Box sx={{ mb: '1.875rem' }}>
 
         {
           isFirstPage() && (
-            <FirstPageShareContainer
+            <ShareCalcContainer
               setShare={setShare}
               calcFirstPageUrl={calcFirstPageUrl}
+              justify
             />
           )
-        }
+          }
 
         <ErrorReportContainer calculatorConfig={calculatorConfig} />
       </Box>
+
     </>
   );
 }
