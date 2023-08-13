@@ -3,6 +3,7 @@ import {
   Container,
   Divider,
   Grid,
+  Hidden,
   Link,
   Stack,
   SxProps,
@@ -10,15 +11,18 @@ import {
 } from '@mui/material';
 import React from 'react';
 
+import footerContent from '../../content/footer.ts';
 import navItems from '../../content/navItems.ts';
 import ImageContainer from './ImageContainer.tsx';
-import NavigationLogo from './NavigationLogo.tsx';
 
 const sectionContainerStyles: SxProps = {
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: {
+    xs: 'center',
+    md: 'start',
+  },
 };
 
 const sectionHeaderStyles: SxProps = {
@@ -31,6 +35,7 @@ const sectionHeaderStyles: SxProps = {
 function Footer() {
   return (
     <Box
+      id="footer"
       component="footer"
       color="primary"
       sx={{
@@ -43,25 +48,30 @@ function Footer() {
         maxWidth="xl"
         sx={{
           display: 'flex',
-          textAlign: 'center',
+          textAlign: { xs: 'center', md: 'left' },
           padding: 2,
           flexDirection: { xs: 'column', md: 'row' },
           gap: 2,
         }}
       >
         <Box sx={sectionContainerStyles}>
-          <Box sx={sectionHeaderStyles}>
-            <NavigationLogo fullSize />
-          </Box>
-          <Typography variant="caption" gutterBottom>
-            Clearviction is reducing barriers faced by formerly incarcerated
-            individuals by streamlining the process of vacating eligible
-            convictions in Washington state.
-          </Typography>
-          <Typography variant="caption">
-            Clearviction is a registered 501(c)3 nonprofit organization,
-            EIN#88-3187952. All donations are tax deductible in full or in part.
-          </Typography>
+          <Hidden mdDown>
+            <Box sx={sectionHeaderStyles}>
+              <Typography variant="h4">Welcome!</Typography>
+            </Box>
+            <Box maxWidth="255px">
+              <Typography variant="caption" paragraph>
+                {footerContent.mission}
+              </Typography>
+              <Typography variant="caption" paragraph>
+                {footerContent.address.name}
+                <br />
+                {footerContent.address.street}
+                <br />
+                {footerContent.address.city}
+              </Typography>
+            </Box>
+          </Hidden>
         </Box>
 
         <Divider />
