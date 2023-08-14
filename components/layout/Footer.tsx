@@ -1,3 +1,4 @@
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {
   Box,
   Container,
@@ -80,13 +81,13 @@ function Footer() {
           <Box sx={sectionHeaderStyles}>
             <Typography variant="h4">Links</Typography>
           </Box>
-          <Grid container spacing={1} maxWidth={300}>
+          <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={8} maxWidth={400}>
             {navItems
               .filter(
-                (item) => item.text !== 'Home' && item.text !== 'Access Calculator',
+                (item) => ['Get Started', 'Get Involved', 'About Us', 'Contact'].includes(item.text),
               )
               .map((item) => (
-                <Grid key={item.text} item xs={6}>
+                <Grid key={item.text} item xs={12} md={6}>
                   <Link
                     href={item.href}
                     color="primary.contrastText"
@@ -94,7 +95,22 @@ function Footer() {
                     fontSize={18}
                     noWrap
                   >
-                    {item.text}
+                    <Box
+                      display="flex"
+                      sx={{
+                        justifyContent: {
+                          xs: 'center',
+                          md: 'space-between',
+                        },
+                      }}
+                    >
+                      <Typography variant="subtitle2" margin="0">
+                        {item.text}
+                      </Typography>
+                      <Hidden mdDown>
+                        <ArrowRightIcon />
+                      </Hidden>
+                    </Box>
                   </Link>
                 </Grid>
               ))}
