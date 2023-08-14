@@ -81,7 +81,7 @@ function Footer() {
           <Box sx={sectionHeaderStyles}>
             <Typography variant="h4">Links</Typography>
           </Box>
-          <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={8} maxWidth={400}>
+          <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={5} maxWidth={430}>
             {navItems
               .filter(
                 (item) => ['Get Started', 'Get Involved', 'About Us', 'Contact'].includes(item.text),
@@ -121,23 +121,23 @@ function Footer() {
 
         <Box sx={sectionContainerStyles}>
           <Box sx={sectionHeaderStyles}>
-            <Typography variant="h4">Partners</Typography>
+            <Typography variant="h4">Partnerships</Typography>
           </Box>
           <Stack
-            height="100%"
+            width={{ xs: '90%', md: '100%' }}
+            direction="row"
             alignItems="center"
-            justifyContent="center"
-            sx={{ flex: 1 }}
+            justifyContent="space-between"
+            spacing={3}
           >
             <Box>
               <ImageContainer
                 alt=""
                 src="/democracylab-logo.png"
-                width={412}
-                height={122}
+                width={206}
+                height={61}
                 useImageDimensions
                 style={{
-                  maxWidth: '200px',
                   width: '100%',
                   objectFit: 'contain',
                 }}
@@ -147,11 +147,9 @@ function Footer() {
               <ImageContainer
                 alt=""
                 src="/openseattle-logo.png"
-                width={130}
-                height={102}
-                useImageDimensions
+                width={124}
+                height={99}
                 style={{
-                  maxWidth: '200px',
                   width: '100%',
                   objectFit: 'contain',
                 }}
