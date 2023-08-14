@@ -158,6 +158,38 @@ function Footer() {
           </Stack>
         </Box>
       </Container>
+
+      <Container
+        maxWidth="xl"
+        sx={{
+          display: 'flex',
+          textAlign: 'center',
+          padding: 2,
+          flexDirection: 'column',
+          gap: 2,
+        }}
+      >
+        <Hidden mdUp>
+          <Divider sx={{ borderBottom: '1px solid currentColor' }} />
+          <Typography variant="caption" paragraph>
+            {footerContent.address.name}
+            <br />
+            {footerContent.address.street}
+            <br />
+            {footerContent.address.city}
+          </Typography>
+        </Hidden>
+        <Box textAlign="center">
+          <Typography variant="caption" paragraph>
+            {footerContent.warning}
+          </Typography>
+
+          <Typography variant="caption" paragraph>
+            {footerContent.information}
+          </Typography>
+        </Box>
+      </Container>
+
     </Box>
   );
 }
