@@ -47,13 +47,13 @@ function Footer() {
     >
       <Container
         maxWidth="xl"
-        sx={{
+        sx={(theme) => ({
           display: 'flex',
           textAlign: { xs: 'center', md: 'left' },
-          padding: 2,
           flexDirection: { xs: 'column', md: 'row' },
-          gap: 2,
-        }}
+          p: { xs: theme.spacing(0, 9, 0, 9), md: theme.spacing(2, 9, 0, 9) },
+          gap: { xs: 2, md: 4 },
+        })}
       >
         <Box sx={sectionContainerStyles}>
           <Hidden mdDown>
@@ -81,7 +81,7 @@ function Footer() {
           <Box sx={sectionHeaderStyles}>
             <Typography variant="h4">Links</Typography>
           </Box>
-          <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={5} maxWidth={430}>
+          <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={5} maxWidth={400}>
             {navItems
               .filter(
                 (item) => ['Get Started', 'Get Involved', 'About Us', 'Contact'].includes(item.text),
@@ -157,6 +157,16 @@ function Footer() {
             </Box>
           </Stack>
         </Box>
+        <Hidden mdUp>
+          <Divider sx={{ borderBottom: '1px solid currentColor' }} />
+          <Typography variant="caption" paragraph>
+            {footerContent.address.name}
+            <br />
+            {footerContent.address.street}
+            <br />
+            {footerContent.address.city}
+          </Typography>
+        </Hidden>
       </Container>
 
       <Container
@@ -169,16 +179,6 @@ function Footer() {
           gap: 2,
         }}
       >
-        <Hidden mdUp>
-          <Divider sx={{ borderBottom: '1px solid currentColor' }} />
-          <Typography variant="caption" paragraph>
-            {footerContent.address.name}
-            <br />
-            {footerContent.address.street}
-            <br />
-            {footerContent.address.city}
-          </Typography>
-        </Hidden>
         <Box textAlign="center">
           <Typography variant="caption" paragraph>
             {footerContent.warning}
