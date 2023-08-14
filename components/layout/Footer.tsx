@@ -31,6 +31,7 @@ const sectionHeaderStyles: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  pb: { xs: 0, md: 4 },
 };
 
 function Footer() {
