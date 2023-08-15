@@ -103,6 +103,7 @@ function Footer() {
                           xs: 'center',
                           md: 'space-between',
                         },
+                        alignItems: 'center',
                       }}
                     >
                       <Typography variant="subtitle2" margin="0">
