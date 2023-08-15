@@ -234,6 +234,7 @@ function FeedbackContainer({ page, calculatorConfig }: StaticCalcProps) {
           ? calculatorConfig.feedback.isUndeterminedUrl
           : calculatorConfig.feedback.allOtherFeedbackUrl
             }
+      sx={{ ml: 0, mr: 0 }}
     >
       {calculatorConfig.feedback.linkText}
     </Button>
@@ -286,6 +287,8 @@ function FinalPageLinksContainer({
         flexDirection: {
           xs: 'column', md: 'row',
         },
+        width: '100%',
+        justifyContent: 'space-evenly',
         mb: 4,
         gap: 2,
       }}
