@@ -289,6 +289,7 @@ function FinalPageLinksContainer({
         },
         width: '100%',
         justifyContent: 'space-evenly',
+        alignItems: 'center',
         mb: 4,
         gap: 2,
       }}
