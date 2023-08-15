@@ -144,12 +144,13 @@ function Footer() {
                 }}
               />
             </Box>
-            <Box>
+            <Box width={124}>
               <ImageContainer
                 alt=""
                 src="/openseattle-logo.png"
                 width={124}
                 height={99}
+                useImageDimensions
                 style={{
                   width: '100%',
                   objectFit: 'contain',
