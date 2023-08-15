@@ -1,4 +1,6 @@
+import CloseIcon from '@mui/icons-material/Close';
 import HistoryIcon from '@mui/icons-material/History';
+import IosShareIcon from '@mui/icons-material/IosShare';
 import {
   Box,
   Button,
@@ -11,8 +13,12 @@ import {
   Stack,
   SvgIcon,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { PortableText } from '@portabletext/react';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -21,7 +27,9 @@ import CalcStepper from '../../components/functional/CalcStepper.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
-import portableTextComponents from '../../utils/portableTextComponents';
+import Results from '../../components/helper/Results.tsx';
+import ShareButtons from '../../components/helper/ShareButtons.tsx';
+import portableTextComponents from '../../utils/portableTextComponents.tsx';
 import {
   getCalculatorConfig,
   getCalculatorPageBySlug,
@@ -29,8 +37,13 @@ import {
 } from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }) {
-  const [open, setOpen] = useState(false);
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const [share, setShare] = useState(false);
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [responseObject, setResponseObject] = useState({});
+  const popup = true;
 
   const isPageIncludedInStepper = () => {
     const excludedPageSlug = 'head';
@@ -40,6 +53,62 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
   };
 
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
+
+  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
+
+  const theme = useTheme();
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const closeDialog = () => {
+    setTimeout(() => {
+      setShare(false);
+    }, 10);
+
+    setTimeout(() => {
+      setShareLinkCopied(false);
+    }, 350);
+  };
+
+  const handleClose = () => {
+    setShowResults(false);
+  };
+
+  const saveAsPDF = async () => {
+    /* eslint new-cap: ["error", { "newIsCap": false }] */
+    const pdf = new jsPDF('portrait', 'pt', 'a4');
+    const data1 = await html2canvas(document.querySelector('#firstPage'));
+    const img1 = data1.toDataURL('image/png');
+    const imgProperties1 = pdf.getImageProperties(img1);
+    const pdfWidth1 = pdf.internal.pageSize.getWidth();
+    const pdfHeight1 = (imgProperties1.height * pdfWidth1) / imgProperties1.width;
+
+    const data2 = await html2canvas(document.querySelector('#results-page'));
+    const img2 = data2.toDataURL('image/png');
+    const imgProperties2 = pdf.getImageProperties(img2);
+    const pdfWidth2 = pdf.internal.pageSize.getWidth();
+    const pdfHeight2 = (imgProperties2.height * pdfWidth2) / imgProperties2.width;
+
+    pdf.addImage(img1, 'PNG', 0, 0, pdfWidth1, pdfHeight1);
+    pdf.addPage('portrait', 'pt', 'a4');
+    pdf.addImage(img2, 'PNG', 0, 0, pdfWidth2, pdfHeight2);
+
+    pdf.save('clearviction_calc_results.pdf');
+    if (window.innerWidth < 901) handleClose();
+  };
+
+  const handleDownloadClick = () => {
+    // print section must be on the page before save as pdf will work
+    setShowResults(true);
+    setTimeout(() => { saveAsPDF(); }, 500);
+  };
+
+  const addToResponses = (answer) => {
+    // delete object when start over
+    if (page.slug === 'head-initial-1-cont') setResponseObject({});
+    if (answer !== 'Continue' && answer !== 'Next' && answer !== 'Start' && page.slug !== 'head-mis-3-cont') {
+      responseObject[page.slug] = answer;
+    }
+  };
 
   externalLinks();
 
@@ -56,7 +125,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
           <Button
             type="button"
             id="back-button"
-            onClick={() => router.back()}
+            onClick={() => {
+              router.back();
+            }}
             sx={{
               marginLeft: 0,
               fontWeight: 'normal',
@@ -117,6 +188,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                     color="primary"
                     href={href}
                     sx={{ width: '100%' }}
+                    onClick={() => addToResponses(choice.label)}
                   >
                     {choice.label}
                   </Button>
@@ -134,8 +206,12 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 {calculatorConfig.notSureAnswer.promptText}
               </Button>
             )}
+
             {page.isFinalPage && (
-              <>
+              <Box sx={{
+                display: 'flex', flexDirection: matchesXS ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: 2,
+              }}
+              >
                 <Button
                   variant="contained"
                   color="primary"
@@ -147,26 +223,46 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
                 >
                   {calculatorConfig.feedback.linkText}
                 </Button>
-                {/* check another conviction */}
-                <Link
-                  sx={{ textAlign: 'center' }}
-                  href={
+
+                <Box>
+                  {/* check another conviction */}
+                  <Link
+                    sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}
+                    href={
                     calculatorConfig.checkAnotherConviction.linkTo.slug.current
                   }
-                >
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 1,
+                  >
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        gap: 1,
+                      }}
+                    >
+                      <HistoryIcon />
+                      {calculatorConfig.checkAnotherConviction.linkText}
+                    </Box>
+                  </Link>
+
+                  <Link
+                    href={calcFirstPageUrl}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setShare(true);
                     }}
                   >
-                    <HistoryIcon />
-                    {calculatorConfig.checkAnotherConviction.linkText}
-                  </Box>
-                </Link>
-              </>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        gap: 1,
+                      }}
+                    >
+                      <IosShareIcon />
+                      Share the calculator
+
+                    </Box>
+                  </Link>
+                </Box>
+              </Box>
             )}
           </Stack>
         </Container>
@@ -175,6 +271,17 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             <Typography variant="caption" sx={{ fontWeight: 'light' }}>
               {calculatorConfig.legalDisclaimer}
             </Typography>
+            {page.isEligible && (
+              <Button
+                sx={{ display: 'block' }}
+                onClick={() => handleDownloadClick()}
+              >
+                Download responses
+              </Button>
+            )}
+            {showResults && page.isEligible && (
+              <Results responseObject={responseObject} handleClose={handleClose} />
+            )}
           </Box>
         )}
         {page.isEligible && <MailchimpForm />}
@@ -203,19 +310,71 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
         </DialogActions>
       </Dialog>
 
+      <Dialog
+        open={share}
+        onClose={() => closeDialog()}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        // sx={{ overflowX: 'hidden' }}
+      >
+
+        <CloseIcon
+          edge="end"
+          color="inherit"
+          onClick={() => closeDialog()}
+          aria-label="close"
+          style={{
+            position: 'absolute', top: '.625rem', right: '.625rem',
+          }}
+        />
+
+        <ShareButtons
+          popup={popup}
+          setShareLinkCopied={setShareLinkCopied}
+          shareLinkCopied={shareLinkCopied}
+        />
+
+      </Dialog>
+
       {/* error reporting form */}
       <Box
         sx={{
           textAlign: 'center',
-          mb: '30px',
+          mb: '1.875rem',
           color: 'black',
           fontWeight: 500,
-          fontSize: '16px',
+          fontSize: '1rem',
         }}
       >
+
+        {isFirstPage(page) && (
+        <Link
+          href={calcFirstPageUrl}
+          onClick={(event) => {
+            event.preventDefault();
+            setShare(true);
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              fontSize: '1.28rem',
+              gap: 0.5,
+            }}
+          >
+            <IosShareIcon />
+
+            Share the calculator
+
+          </Box>
+        </Link>
+        )}
+
         <Link
           href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
           sx={{
+            textAlign: 'center',
             color: 'text.primary',
             textDecoration: 'none',
             '&:hover': {
@@ -224,8 +383,19 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }) {
             },
           }}
         >
-          {calculatorConfig.errorReportingForm.linkText}
-          {' '}
+
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: '.8rem',
+              gap: 1,
+            }}
+          >
+            {calculatorConfig.errorReportingForm.linkText}
+            {' '}
+          </Box>
         </Link>
       </Box>
     </>
