@@ -27,7 +27,7 @@ const sectionContainerStyles: SxProps = {
 };
 
 const sectionHeaderStyles: SxProps = {
-  height: 64,
+  height: { xs: 48, md: 64 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -53,7 +53,7 @@ function Footer() {
           textAlign: { xs: 'center', md: 'left' },
           flexDirection: { xs: 'column', md: 'row' },
           p: { xs: theme.spacing(0, 9, 0, 9), md: theme.spacing(2, 9, 0, 9) },
-          gap: { xs: 2, md: 4 },
+          gap: { xs: 0.5, md: 4 },
         })}
       >
         <Box sx={sectionContainerStyles}>
@@ -80,7 +80,7 @@ function Footer() {
 
         <Box sx={sectionContainerStyles}>
           <Box sx={sectionHeaderStyles}>
-            <Typography variant="h4">Links</Typography>
+            <Typography variant="h4">Explore</Typography>
           </Box>
           <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={5} maxWidth={400}>
             {navItems
@@ -126,6 +126,7 @@ function Footer() {
           </Box>
           <Stack
             width={{ xs: '90%', md: '100%' }}
+            mb={1}
             direction="row"
             alignItems="center"
             justifyContent="space-between"
@@ -161,7 +162,7 @@ function Footer() {
         </Box>
         <Hidden mdUp>
           <Divider sx={{ borderBottom: '1px solid currentColor' }} />
-          <Typography variant="caption" paragraph>
+          <Typography variant="caption">
             {footerContent.address.name}
             <br />
             {footerContent.address.street}
@@ -185,7 +186,6 @@ function Footer() {
           <Typography variant="caption" paragraph>
             {footerContent.warning}
           </Typography>
-
           <Typography variant="caption" paragraph>
             {footerContent.information}
           </Typography>
