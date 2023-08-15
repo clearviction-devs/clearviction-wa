@@ -27,7 +27,7 @@ const sectionContainerStyles: SxProps = {
 };
 
 const sectionHeaderStyles: SxProps = {
-  height: { xs: 48, md: 64 },
+  height: { xs: 40, md: 64 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -52,8 +52,8 @@ function Footer() {
           display: 'flex',
           textAlign: { xs: 'center', md: 'left' },
           flexDirection: { xs: 'column', md: 'row' },
-          p: { xs: theme.spacing(0, 9, 0, 9), md: theme.spacing(2, 9, 0, 9) },
-          gap: { xs: 0.5, md: 4 },
+          p: { xs: theme.spacing(4, 9, 0, 9), md: theme.spacing(10, 9, 0, 9) },
+          gap: { xs: 1, md: 4 },
         })}
       >
         <Box sx={sectionContainerStyles}>
