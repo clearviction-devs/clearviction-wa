@@ -12,8 +12,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import footerContent from '../../content/footer.ts';
-import navItems from '../../content/navItems.ts';
+import { footerContent, footerNavItems } from '../../content/footer.ts';
 import ImageContainer from './ImageContainer.tsx';
 
 const sectionContainerStyles: SxProps = {
@@ -83,10 +82,7 @@ function Footer() {
             <Typography variant="h4">Explore</Typography>
           </Box>
           <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={5} maxWidth={400}>
-            {navItems
-              .filter(
-                (item) => ['Get Started', 'Get Involved', 'About Us', 'Contact'].includes(item.text),
-              )
+            {footerNavItems
               .map((item) => (
                 <Grid key={item.text} item xs={12} md={6}>
                   <Link
