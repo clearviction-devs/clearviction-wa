@@ -61,7 +61,7 @@ const getStartedContent: GetStartedContent = {
   legalAidForms: [
     {
       id: 'legalform1',
-      summary: 'Assistance for Pro Se Patrons',
+      summary: 'Representing Yourself in Court',
       details:
         '[Public Law Library of King County Legal Clinics (KCLL)](https://kcll.org/contact-us/)\n\n[Walk-In Clinic](https://www.kcba.org/For-Lawyers/Pro-Bono-Services/YLD-Law-Library-Walk-in-Clinic)\n\n[King County Bar](http://www.kcba.org/For-the-Public/Free-Legal-Assistance/Neighborhood-Legal-Clinics)\n\n[Open Door Legal Services](https://www.ugm.org/what-we-do/stabilization/legal-services/#)',
     },
@@ -81,7 +81,7 @@ const getStartedContent: GetStartedContent = {
   financialAidForms: [
     {
       id: 'financialform2',
-      summary: 'Court Fees',
+      summary: 'Costs Associated with Vacation',
       details:
         'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) to find out if you are eligible to waive your fees (p. 1-2). It also includes instructions to request a fee waiver (p. 4-9) as well as all necessary forms (p. 10-14).\n\nIf you have trouble filling out the documents, use [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
     },
