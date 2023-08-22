@@ -13,8 +13,8 @@ export default function CalcHeader({ page, isFirstPage }:
 
   const isPageIncludedInStepper = () => {
     const excludedPageSlug = 'head';
-    const isPartOfHead = page.slug.includes(excludedPageSlug); // exclude
-    const { isFinalPage } = page; // exclude
+    const isPartOfHead = page.slug.includes(excludedPageSlug);
+    const { isFinalPage } = page;
     return !(isFinalPage || isPartOfHead);
   };
 
