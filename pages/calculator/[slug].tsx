@@ -58,12 +58,6 @@ function CalcHeader({ page, isFirstPage }:
           onClick={() => {
             router.back();
           }}
-          sx={{
-            marginLeft: 0,
-            fontWeight: 'normal',
-            fontSize: '14px',
-            color: 'primary',
-          }}
         >
           <SvgIcon
             sx={{ marginRight: '10px' }}
@@ -115,7 +109,6 @@ function QandAContainer({
               <Button
                 key={choice._key}
                 variant="contained"
-                color="primary"
                 href={href}
                 sx={{ width: '100%' }}
                 onClick={() => addToResponses(choice.label)}
@@ -166,7 +159,6 @@ function FeedbackContainer({ page, calculatorConfig }: StaticCalcProps) {
   return (
     <Button
       variant="contained"
-      color="primary"
       href={
         page.isUndetermined
           ? calculatorConfig.feedback.isUndeterminedUrl
@@ -189,7 +181,6 @@ function ShareCalcContainer({ setOpenSharePopup, calcFirstPageUrl, justify }: {
       id="share-calc-container"
       sx={{
         display: 'flex',
-        gap: 1,
         justifyContent: justify ? 'center' : 'flex-start',
       }}
     >
@@ -279,7 +270,6 @@ function ResultsDownloadContainer({ handleCloseResults, setShowResults }: {
 
   return (
     <Button
-      sx={{ display: 'block' }}
       onClick={() => handleDownloadClick()}
     >
       Download responses
