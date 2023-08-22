@@ -88,13 +88,13 @@ export interface SharedCalcProps {
   isFirstPage: () => boolean;
   // eslint-disable-next-line no-unused-vars
   addToResponses: (answer: string) => void;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
-  setShare: React.Dispatch<React.SetStateAction<boolean>>;
+  openNotSurePopup: boolean;
+  setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>
+  openSharePopup: boolean;
+  setOpenSharePopup: React.Dispatch<React.SetStateAction<boolean>>;
   calcFirstPageUrl: string;
-  handleClose: () => void;
+  handleCloseResults: () => void;
   setShowResults: React.Dispatch<React.SetStateAction<boolean>>;
-  open: boolean;
-  share: boolean;
 }
 
 function CalcHeader({ page, isFirstPage }:
@@ -151,10 +151,10 @@ function CalcHeader({ page, isFirstPage }:
 }
 
 function QandAContainer({
-  page, calculatorConfig, addToResponses, setOpen,
+  page, calculatorConfig, addToResponses, setOpenNotSurePopup,
 }: StaticCalcProps &{
     addToResponses: SharedCalcProps['addToResponses'],
-    setOpen: SharedCalcProps['setOpen']}) {
+    setOpenNotSurePopup: SharedCalcProps['setOpenNotSurePopup']}) {
   return (
     <>
       <Box mb={4}>
@@ -192,7 +192,7 @@ function QandAContainer({
             variant="outlined"
             color="primary"
             sx={{ width: '100%' }}
-            onClick={() => setOpen(true)}
+            onClick={() => setOpenNotSurePopup(true)}
           >
             {calculatorConfig.notSureAnswer.promptText}
           </Button>
@@ -241,8 +241,8 @@ function FeedbackContainer({ page, calculatorConfig }: StaticCalcProps) {
   );
 }
 
-function ShareCalcContainer({ setShare, calcFirstPageUrl, justify }: {
-  setShare: SharedCalcProps['setShare'],
+function ShareCalcContainer({ setOpenSharePopup, calcFirstPageUrl, justify }: {
+  setOpenSharePopup: SharedCalcProps['setOpenSharePopup'],
   calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
   justify?: boolean,
 }) {
@@ -259,7 +259,7 @@ function ShareCalcContainer({ setShare, calcFirstPageUrl, justify }: {
         href={calcFirstPageUrl}
         onClick={(event) => {
           event.preventDefault();
-          setShare(true);
+          setOpenSharePopup(true);
         }}
         sx={{
           display: 'flex',
@@ -274,9 +274,9 @@ function ShareCalcContainer({ setShare, calcFirstPageUrl, justify }: {
 }
 
 function FinalPageLinksContainer({
-  page, calculatorConfig, setShare, calcFirstPageUrl,
+  page, calculatorConfig, setOpenSharePopup, calcFirstPageUrl,
 }: StaticCalcProps &{
-  setShare: SharedCalcProps['setShare'],
+  setOpenSharePopup: SharedCalcProps['setOpenSharePopup'],
   calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
 }) {
   return (
@@ -297,14 +297,17 @@ function FinalPageLinksContainer({
       <FeedbackContainer page={page} calculatorConfig={calculatorConfig} />
       <Box>
         <CheckAnotherConviction calculatorConfig={calculatorConfig} />
-        <ShareCalcContainer setShare={setShare} calcFirstPageUrl={calcFirstPageUrl} />
+        <ShareCalcContainer
+          setOpenSharePopup={setOpenSharePopup}
+          calcFirstPageUrl={calcFirstPageUrl}
+        />
       </Box>
     </Box>
   );
 }
 
-function ResultsDownloadContainer({ handleClose, setShowResults }: {
-  handleClose: SharedCalcProps['handleClose'],
+function ResultsDownloadContainer({ handleCloseResults, setShowResults }: {
+  handleCloseResults: SharedCalcProps['handleCloseResults'],
   setShowResults: SharedCalcProps['setShowResults'],
 }) {
   const saveAsPDF = async () => {
@@ -327,7 +330,7 @@ function ResultsDownloadContainer({ handleClose, setShowResults }: {
     pdf.addImage(img2, 'PNG', 0, 0, pdfWidth2, pdfHeight2);
 
     pdf.save('clearviction_calc_results.pdf');
-    if (window.innerWidth < 901) handleClose();
+    if (window.innerWidth < 901) handleCloseResults();
   };
 
   const handleDownloadClick = () => {
@@ -381,15 +384,15 @@ function ErrorReportContainer({ calculatorConfig }: {
   );
 }
 
-function NotSurePopup({ calculatorConfig, open, setOpen }: {
+function NotSurePopup({ calculatorConfig, openNotSurePopup, setOpenNotSurePopup }: {
   calculatorConfig: StaticCalcProps['calculatorConfig'],
-  open: SharedCalcProps['open'],
-  setOpen: SharedCalcProps['setOpen'],
+  openNotSurePopup: SharedCalcProps['openNotSurePopup'],
+  setOpenNotSurePopup: SharedCalcProps['setOpenNotSurePopup'],
 }) {
   return (
     <Dialog
-      open={open}
-      onClose={() => setOpen(false)}
+      open={openNotSurePopup}
+      onClose={() => setOpenNotSurePopup(false)}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
@@ -403,7 +406,7 @@ function NotSurePopup({ calculatorConfig, open, setOpen }: {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setOpen(false)}>
+        <Button onClick={() => setOpenNotSurePopup(false)}>
           {calculatorConfig.notSureAnswer.closeText}
         </Button>
       </DialogActions>
@@ -411,16 +414,16 @@ function NotSurePopup({ calculatorConfig, open, setOpen }: {
   );
 }
 
-function ShareCalculatorPopup({ share, setShare }: {
-  share: SharedCalcProps['share'],
-  setShare: SharedCalcProps['setShare'],
+function ShareCalculatorPopup({ openSharePopup, setOpenSharePopup }: {
+  openSharePopup: SharedCalcProps['openSharePopup'],
+  setOpenSharePopup: SharedCalcProps['setOpenSharePopup'],
 }) {
   const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const popup = true;
 
   const closeDialog = () => {
     setTimeout(() => {
-      setShare(false);
+      setOpenSharePopup(false);
     }, 10);
 
     setTimeout(() => {
@@ -430,7 +433,7 @@ function ShareCalculatorPopup({ share, setShare }: {
 
   return (
     <Dialog
-      open={share}
+      open={openSharePopup}
       onClose={() => closeDialog()}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
@@ -454,8 +457,8 @@ function ShareCalculatorPopup({ share, setShare }: {
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
   // all state and functions here are shared between multiple secondary components
-  const [open, setOpen] = useState(false);
-  const [share, setShare] = useState(false);
+  const [openNotSurePopup, setOpenNotSurePopup] = useState(false);
+  const [openSharePopup, setOpenSharePopup] = useState(false);
   const [responseObject, setResponseObject] = useState({});
   const [showResults, setShowResults] = useState(false);
 
@@ -470,7 +473,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
     }
   };
 
-  const handleClose = () => {
+  const handleCloseResults = () => {
     setShowResults(false);
   };
 
@@ -500,7 +503,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           page={page}
           calculatorConfig={calculatorConfig}
           addToResponses={addToResponses}
-          setOpen={setOpen}
+          setOpenNotSurePopup={setOpenNotSurePopup}
         />
 
         {
@@ -509,7 +512,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
               <FinalPageLinksContainer
                 page={page}
                 calculatorConfig={calculatorConfig}
-                setShare={setShare}
+                setOpenSharePopup={setOpenSharePopup}
                 calcFirstPageUrl={calcFirstPageUrl}
               />
               <Box maxWidth="60ch" textAlign="center" id="legal-disclaimer-container">
@@ -525,7 +528,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           (page.isFinalPage && page.isEligible) && (
             <>
               <ResultsDownloadContainer
-                handleClose={handleClose}
+                handleCloseResults={handleCloseResults}
                 setShowResults={setShowResults}
               />
               <MailchimpForm />
@@ -535,22 +538,26 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
 
         {
           (page.isEligible && showResults) && (
-            <Results responseObject={responseObject} handleClose={handleClose} />
+            <Results responseObject={responseObject} handleCloseResults={handleCloseResults} />
           )
         }
 
       </Container>
 
-      <NotSurePopup calculatorConfig={calculatorConfig} open={open} setOpen={setOpen} />
+      <NotSurePopup
+        calculatorConfig={calculatorConfig}
+        openNotSurePopup={openNotSurePopup}
+        setOpenNotSurePopup={setOpenNotSurePopup}
+      />
 
-      <ShareCalculatorPopup share={share} setShare={setShare} />
+      <ShareCalculatorPopup openSharePopup={openSharePopup} setOpenSharePopup={setOpenSharePopup} />
 
       <Box sx={{ mb: '1.875rem' }}>
 
         {
           isFirstPage() && (
             <ShareCalcContainer
-              setShare={setShare}
+              setOpenSharePopup={setOpenSharePopup}
               calcFirstPageUrl={calcFirstPageUrl}
               justify
             />
