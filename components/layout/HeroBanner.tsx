@@ -2,7 +2,6 @@ import { JSX } from '@emotion/react/jsx-runtime';
 import {
   Box,
   Button,
-  Hidden,
   SxProps,
   Typography,
   TypographyProps,
@@ -51,32 +50,10 @@ export default function HeroBanner({
             display: 'flex',
             gap: 4,
             flexWrap: 'wrap',
-            flexDirection: { sm: 'column', md: 'row' },
+            flexDirection: { xs: 'column', md: 'row' },
           }}
         >
-
-          {imgsrc && (
-          <Hidden mdUp>
-            <Box
-              sx={{
-                display: 'flex',
-                margin: '30px auto',
-                justifyContent: 'center',
-              }}
-            >
-              <ImageContainer
-                src={imgsrc}
-                width={513}
-                height={386}
-                alt=""
-                style={{ maxWidth: '100%' }}
-                useImageDimensions
-              />
-            </Box>
-          </Hidden>
-          )}
-
-          <Box sx={{ flex: 1 }}>
+          <Box sx={{ flex: 1, order: { xs: '2', md: '1' } }}>
             <Box sx={{ mt: 2, mb: 4 }}>
               <MuiMarkdown
                 overrides={{
@@ -150,26 +127,24 @@ export default function HeroBanner({
               </Button>
             )}
           </Box>
-
           {(imgsrc || children) && (
             <Box
               sx={{
                 display: 'flex',
                 margin: '30px auto',
                 justifyContent: 'center',
+                order: { xs: '1', md: '2' },
               }}
             >
               {imgsrc ? (
-                <Hidden mdDown>
-                  <ImageContainer
-                    src={imgsrc}
-                    width={513}
-                    height={386}
-                    alt=""
-                    style={{ maxWidth: '100%' }}
-                    useImageDimensions
-                  />
-                </Hidden>
+                <ImageContainer
+                  src={imgsrc}
+                  width={513}
+                  height={386}
+                  alt=""
+                  style={{ maxWidth: '100%' }}
+                  useImageDimensions
+                />
               ) : (
                 children
               )}
