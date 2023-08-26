@@ -129,12 +129,12 @@ export default function HeroBanner({
           </Box>
           {(imgsrc || children) && (
             <Box
-              sx={{
+              sx={(theme) => ({
                 display: 'flex',
-                margin: '30px auto',
+                my: theme.spacing(3),
                 justifyContent: 'center',
                 order: { xs: '1', md: '2' },
-              }}
+              })}
             >
               {imgsrc ? (
                 <ImageContainer
