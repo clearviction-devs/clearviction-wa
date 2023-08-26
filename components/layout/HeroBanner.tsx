@@ -131,7 +131,7 @@ export default function HeroBanner({
             <Box
               sx={(theme) => ({
                 display: 'flex',
-                my: theme.spacing(3),
+                margin: theme.spacing(3, 'auto'),
                 justifyContent: 'center',
                 order: { xs: '1', md: '2' },
               })}
