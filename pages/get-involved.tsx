@@ -111,7 +111,11 @@ function Partner() {
               <Typography sx={{ my: 3 }} variant="body1">
                 {content.partnerPage.text[2]}
               </Typography>
-              <ShareButtons />
+              <ShareButtons
+                popup={false}
+                setShareLinkCopied={() => {}}
+                shareLinkCopied={false}
+              />
             </Grid>
           </Grid>
         </PaperSection>
@@ -128,7 +132,10 @@ export default function GetInvolvedPage() {
         metaContent="Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State"
       />
 
-      <Box sx={{ bgcolor: '#2f3554', pb: '64px' }}>
+      <Box sx={{
+        bgcolor: '#2f3554', pb: '64px', display: 'flex', flexDirection: 'column', alignItems: 'center',
+      }}
+      >
         <HeroBanner
           header="Share your expertise with us"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
@@ -142,7 +149,7 @@ export default function GetInvolvedPage() {
         <Grid
           container
           spacing={2}
-          sx={{ maxWidth: '1200px', m: 'auto', mt: -8 }}
+          sx={{ maxWidth: '1200px', mt: -8 }}
         >
           {content.waysToParticipate.map((card) => (
             <Grid item xs={12} sm={12} md={4} key={card.id}>
