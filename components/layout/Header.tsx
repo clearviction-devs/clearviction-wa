@@ -145,7 +145,7 @@ export default function Header() {
                 display: 'flex',
                 justifyContent: 'flex-start',
                 py: 1,
-                px: 4,
+                px: { md: 3, lg: 4 },
                 maxWidth: '1100px',
               }}
             >
@@ -162,7 +162,7 @@ export default function Header() {
                     size="small"
                     className="nav-list__item"
                     sx={{
-                      whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: 3, py: 1,
+                      whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
                     }}
                   >
                     {item.text}
