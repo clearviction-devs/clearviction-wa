@@ -1,8 +1,10 @@
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {
   Box,
   Container,
   Divider,
   Grid,
+  Hidden,
   Link,
   Stack,
   SxProps,
@@ -10,27 +12,31 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import navItems from '../../content/navItems.ts';
+import { footerContent, footerNavItems } from '../../content/footer.ts';
 import ImageContainer from './ImageContainer.tsx';
-import NavigationLogo from './NavigationLogo.tsx';
 
 const sectionContainerStyles: SxProps = {
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: {
+    xs: 'center',
+    md: 'start',
+  },
 };
 
 const sectionHeaderStyles: SxProps = {
-  height: 64,
+  height: { xs: 40, md: 64 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  pb: { xs: 0, md: 4 },
 };
 
 function Footer() {
   return (
     <Box
+      id="footer"
       component="footer"
       color="primary"
       sx={{
@@ -41,42 +47,44 @@ function Footer() {
     >
       <Container
         maxWidth="xl"
-        sx={{
+        sx={(theme) => ({
           display: 'flex',
-          textAlign: 'center',
-          padding: 2,
+          textAlign: { xs: 'center', md: 'left' },
           flexDirection: { xs: 'column', md: 'row' },
-          gap: 2,
-        }}
+          p: { xs: theme.spacing(4, 9, 0, 9), md: theme.spacing(10, 9, 0, 9) },
+          gap: { xs: 1, md: 4 },
+        })}
       >
         <Box sx={sectionContainerStyles}>
-          <Box sx={sectionHeaderStyles}>
-            <NavigationLogo fullSize />
-          </Box>
-          <Typography variant="caption" gutterBottom>
-            Clearviction is reducing barriers faced by formerly incarcerated
-            individuals by streamlining the process of vacating eligible
-            convictions in Washington state.
-          </Typography>
-          <Typography variant="caption">
-            Clearviction is a registered 501(c)3 nonprofit organization,
-            EIN#88-3187952. All donations are tax deductible in full or in part.
-          </Typography>
+          <Hidden mdDown>
+            <Box sx={sectionHeaderStyles}>
+              <Typography variant="h4">Welcome!</Typography>
+            </Box>
+            <Box maxWidth="255px">
+              <Typography variant="caption" paragraph>
+                {footerContent.mission}
+              </Typography>
+              <Typography variant="caption" paragraph>
+                {footerContent.address.name}
+                <br />
+                {footerContent.address.street}
+                <br />
+                {footerContent.address.city}
+              </Typography>
+            </Box>
+          </Hidden>
         </Box>
 
         <Divider />
 
         <Box sx={sectionContainerStyles}>
           <Box sx={sectionHeaderStyles}>
-            <Typography variant="h4">Links</Typography>
+            <Typography variant="h4">Explore</Typography>
           </Box>
-          <Grid container spacing={1} maxWidth={300}>
-            {navItems
-              .filter(
-                (item) => item.text !== 'Home' && item.text !== 'Access Calculator',
-              )
+          <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={5} maxWidth={400}>
+            {footerNavItems
               .map((item) => (
-                <Grid key={item.text} item xs={6}>
+                <Grid key={item.text} item xs={12} md={6}>
                   <Link
                     href={item.href}
                     color="primary.contrastText"
@@ -84,7 +92,23 @@ function Footer() {
                     fontSize={18}
                     noWrap
                   >
-                    {item.text}
+                    <Box
+                      display="flex"
+                      sx={{
+                        justifyContent: {
+                          xs: 'center',
+                          md: 'space-between',
+                        },
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Typography variant="subtitle2" margin="0">
+                        {item.text}
+                      </Typography>
+                      <Hidden mdDown>
+                        <ArrowRightIcon />
+                      </Hidden>
+                    </Box>
                   </Link>
                 </Grid>
               ))}
@@ -95,37 +119,37 @@ function Footer() {
 
         <Box sx={sectionContainerStyles}>
           <Box sx={sectionHeaderStyles}>
-            <Typography variant="h4">Partners</Typography>
+            <Typography variant="h4">Partnerships</Typography>
           </Box>
           <Stack
-            height="100%"
+            width={{ xs: '90%', md: '100%' }}
+            mb={1}
+            direction="row"
             alignItems="center"
-            justifyContent="center"
-            sx={{ flex: 1 }}
+            justifyContent="space-between"
+            spacing={3}
           >
             <Box>
               <ImageContainer
                 alt=""
                 src="/democracylab-logo.png"
-                width={412}
-                height={122}
+                width={206}
+                height={61}
                 useImageDimensions
                 style={{
-                  maxWidth: '200px',
                   width: '100%',
                   objectFit: 'contain',
                 }}
               />
             </Box>
-            <Box>
+            <Box width={124}>
               <ImageContainer
                 alt=""
                 src="/openseattle-logo.png"
-                width={130}
-                height={102}
+                width={124}
+                height={99}
                 useImageDimensions
                 style={{
-                  maxWidth: '200px',
                   width: '100%',
                   objectFit: 'contain',
                 }}
@@ -133,7 +157,38 @@ function Footer() {
             </Box>
           </Stack>
         </Box>
+        <Hidden mdUp>
+          <Divider sx={{ borderBottom: '1px solid currentColor' }} />
+          <Typography variant="caption">
+            {footerContent.address.name}
+            <br />
+            {footerContent.address.street}
+            <br />
+            {footerContent.address.city}
+          </Typography>
+        </Hidden>
       </Container>
+
+      <Container
+        maxWidth="xl"
+        sx={{
+          display: 'flex',
+          textAlign: 'center',
+          padding: 2,
+          flexDirection: 'column',
+          gap: 2,
+        }}
+      >
+        <Box textAlign="center">
+          <Typography variant="caption" paragraph>
+            {footerContent.warning}
+          </Typography>
+          <Typography variant="caption" paragraph>
+            {footerContent.information}
+          </Typography>
+        </Box>
+      </Container>
+
     </Box>
   );
 }
