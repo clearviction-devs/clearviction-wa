@@ -139,11 +139,6 @@ export default function GetInvolvedPage() {
         <HeroBanner
           header="Share your expertise with us"
           subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
-          overrideStyles={{
-            pb: 0,
-            pt: 8,
-            color: 'primary.contrastText',
-          }}
         />
 
         <Grid
