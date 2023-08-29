@@ -41,7 +41,7 @@ export default function HeroBanner({
 }: HeroBannerProps) {
   return (
     <Box sx={overrideStyles || heroStyles} textAlign="left">
-      <SectionContainer>
+      <SectionContainer sx={{}}>
         <Typography variant="h1" sx={{ display: 'block' }}>
           {header}
         </Typography>
