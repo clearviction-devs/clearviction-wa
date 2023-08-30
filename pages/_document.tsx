@@ -59,6 +59,7 @@ export default class MyDocument extends Document {
           />
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="emotion-insertion-point" content="" />
+          <meta name="google-site-verification" content="KCnoZn7O-gYJ4Loa2Wzn7iosA1gxamx9iOOMVLCkaVA" />
 
           {(this.props as any).emotionStyleTags}
 
