@@ -82,9 +82,9 @@ function Partner() {
             variant="contained"
             color="primary"
             sx={{ px: 8 }}
-            href={content.partnerPage.href}
+            href={content.partnerPage.buttons[0].href}
           >
-            Contact Us
+            {content.partnerPage.buttons[0].name}
           </Button>
         </Container>
       </SectionContainer>
@@ -128,8 +128,8 @@ export default function GetInvolvedPage() {
   return (
     <>
       <IndividualPageHead
-        title="Join Clearviction | Get Involved & Reduce Recidivism"
-        metaContent="Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State"
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
 
       <Box sx={{
@@ -137,8 +137,8 @@ export default function GetInvolvedPage() {
       }}
       >
         <HeroBanner
-          header="Share your expertise with us"
-          subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
+          header={content.hero.header}
+          subheading={content.hero.subheading}
           overrideStyles={{
             pb: 0,
             pt: 8,
