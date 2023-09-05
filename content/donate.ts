@@ -1,10 +1,10 @@
 import { FAQ } from './content.types.ts';
 
-interface DonateFAQ {
+interface DonateContent {
   donateFAQS: FAQ[];
 }
 
-const donateFAQContent: DonateFAQ = {
+const donateContent: DonateContent = {
   donateFAQS: [
     {
       id: 'donate1',
@@ -39,4 +39,4 @@ const donateFAQContent: DonateFAQ = {
   ],
 };
 
-export default donateFAQContent;
+export default donateContent;

@@ -10,7 +10,7 @@ import GridItemCard from '../components/layout/GridItem.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
-import content from '../content/donate-faqs.ts';
+import content from '../content/donate.ts';
 
 export default function DonatePage() {
   externalLinks();
