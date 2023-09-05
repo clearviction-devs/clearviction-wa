@@ -83,3 +83,7 @@ export interface Reason {
     id: string;
     details: string;
 }
+export interface MetaPageHead {
+    title: string;
+    content: string;
+}
