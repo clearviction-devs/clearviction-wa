@@ -25,8 +25,8 @@ export default function AboutPage() {
   return (
     <>
       <IndividualPageHead
-        title="The story and team behind Clearviction."
-        metaContent="We're empowering individuals with criminal records in Washington State, and building brighter futures with tools like our Eligibility Calculator."
+        title={aboutContent.meta.title}
+        metaContent={aboutContent.meta.content}
       />
 
       <HeroBanner
@@ -41,8 +41,8 @@ export default function AboutPage() {
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
-          <Button href="#our-story">Our Story</Button>
-          <Button href="#our-team">Our Team</Button>
+          <Button href="#our-story">{aboutContent.buttons[0].name}</Button>
+          <Button href="#our-team">{aboutContent.buttons[1].name}</Button>
         </ButtonGroup>
       </SectionContainer>
       <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
@@ -88,7 +88,7 @@ export default function AboutPage() {
                   width: { xs: '80%', sm: 'auto' },
                 }}
               >
-                Learn More
+                {aboutContent.buttons[2].name}
               </Button>
             </Box>
           </PaperSection>
@@ -117,8 +117,8 @@ export default function AboutPage() {
                 <MuiMarkdown>{aboutContent.joinUs.body}</MuiMarkdown>
               </Typography>
               <Stack sx={{ direction: 'column' }}>
-                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>Donate</Button>
-                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>Volunteer</Button>
+                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>{aboutContent.buttons[3].name}</Button>
+                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>{aboutContent.buttons[4].name}</Button>
               </Stack>
             </Grid>
           </Grid>
