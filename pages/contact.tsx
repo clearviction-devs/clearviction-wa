@@ -7,31 +7,9 @@ import React, { useState } from 'react';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
+import content from '../content/contact.ts';
 
 export default function ContactPage() {
-  const contactTypes = [
-    {
-      value: 'volunteer',
-      label: 'Prospective Volunteer',
-    },
-    {
-      value: 'benefactor',
-      label: 'Prospective Benefactor',
-    },
-    {
-      value: 'attorney',
-      label: 'Attorney',
-    },
-    {
-      value: 'partner',
-      label: 'Prospective Partner',
-    },
-    {
-      value: 'other',
-      label: 'Other Individual/Organization',
-    },
-  ];
-
   const [toSend, setToSend] = useState({
     name: '',
     _replyto: '',
@@ -69,18 +47,19 @@ export default function ContactPage() {
   return (
     <>
       <IndividualPageHead
-        title="Contact Us - Reach Out for Support and Information"
-        metaContent="Have questions or concerns? Contact our team, and we'll respond within 24 hours."
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
+
       <SectionContainer sx={{ textAlign: 'center', mt: 5 }}>
         <Typography variant="h1" sx={{ textAlign: 'center' }}>
-          Get in contact with us
+          {content.title}
         </Typography>
         <MuiMarkdown>
-          **Have questions? Send us a message and we'll get back to you within
-          24 hours.**
+          {content.subtitle}
         </MuiMarkdown>
       </SectionContainer>
+
       <SectionContainer
         sx={{
           textAlign: 'center',
@@ -105,46 +84,48 @@ export default function ContactPage() {
             id="name"
             name="name"
             autoComplete="name"
-            placeholder="Enter Your Full Name"
+            placeholder={content.form.placeholders.name}
             required
             value={toSend.name}
             onChange={handleChange}
             fullWidth
-            aria-label="your full name"
-            label="Name"
+            aria-label={content.form.ariaLabels.name}
+            label={content.form.labels.name}
           />
           <TextField
             id="email"
             name="_replyto"
             autoComplete="email"
             type="email"
-            placeholder="example@example.com"
+            placeholder={content.form.placeholders.email}
             error={emailError.errorStatus}
             helperText={emailError.errorMessage}
             required
             value={toSend._replyto}
             onChange={handleChange}
             fullWidth
-            aria-label="your email address"
-            label="Email"
+            aria-label={content.form.ariaLabels.email}
+            label={content.form.labels.email}
           />
           <TextField
             id="contact_type"
             name="contact_type"
             select
-            placeholder="Please Select An Option"
-            label="I am a(n)"
+            placeholder={content.form.placeholders.contactType}
+            label={content.form.labels.contactType}
             required
             fullWidth
             value={toSend.contact_type}
             onChange={handleChange}
-            aria-label="choose your contact type"
+            aria-label={content.form.ariaLabels.contactType}
           >
-            {contactTypes.map((option) => (
+
+            {content.contactTypes.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}
+
           </TextField>
           <TextField
             id="message"
@@ -157,8 +138,8 @@ export default function ContactPage() {
             fullWidth
             onChange={handleChange}
             type="text"
-            placeholder="Type Your Message Here"
-            aria-label="your message"
+            placeholder={content.form.placeholders.message}
+            aria-label={content.form.ariaLabels.message}
           />
 
           <Button
@@ -166,8 +147,9 @@ export default function ContactPage() {
             type="submit"
             variant="contained"
           >
-            Send message
+            {content.sendButtonText}
           </Button>
+
         </Box>
 
         <Box
