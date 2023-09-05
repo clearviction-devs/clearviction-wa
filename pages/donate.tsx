@@ -18,53 +18,51 @@ export default function DonatePage() {
   return (
     <>
       <IndividualPageHead
-        title="Support Clearviction | Reduce the odds of Recidivism"
-        metaContent="Support Clearviction—a 501(c)3 nonprofit—in its mission to transform lives and break down barriers for those with criminal records in Washington State."
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
 
       <Script src="https://donorbox.org/widget.js" />
 
       <HeroBanner
-        header="Your generous donation directly aids those who are limited by their convictions in Washington State"
-        subheading={
-          'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.\n\n<span style="fontSize: 14px">Clearviction is a registered 501(c)3 nonprofit organization, EIN#88-3187952. All donations are tax deductible in full or in part.</span>'
-        }
-        ctaLink="/about"
-        ctaText="Learn more about us"
+        header={content.heroBanner.header}
+        subheading={content.heroBanner.subheading}
+        ctaLink={content.heroBanner.ctaLink}
+        ctaText={content.heroBanner.ctaText}
       >
         <DonationForm />
       </HeroBanner>
-      <SectionContainer id="donate">
+      <SectionContainer id={content.page.id}>
         <PaperSection
-          title="How will your donations help Clearviction's goals?"
-          subtitle="Here's how your generosity can help us achieve our milestones and make it possible to connect our project with more and more people who need it:"
-          ctaLink="https://donorbox.org/clearviction"
-          ctaText="Visit our donorbox page"
+          title={content.page.title}
+          subtitle={content.page.subtitle}
+          ctaLink={content.page.ctaLink}
+          ctaText={content.page.ctaText}
         >
           <Grid container spacing={4}>
             <GridItemCard
               xs={12}
               sm={6}
-              body="Fund the technological and project management tools needed to grow our project."
-              imgsrc="/illustrations/startup.svg"
+              body={content.page.items[0].body}
+              imgsrc={content.page.items[0].imgsrc}
             />
             <GridItemCard
               xs={12}
               sm={6}
-              body="Provide vouchers for users who participate in our research."
-              imgsrc="/illustrations/science-discovery.svg"
+              body={content.page.items[1].body}
+              imgsrc={content.page.items[1].imgsrc}
             />
             <GridItemCard
               xs={12}
               sm={6}
-              body="Support low-income individuals in overcoming financial barriers blocking the vacation of their record."
-              imgsrc="/illustrations/laptop.svg"
+              body={content.page.items[2].body}
+              imgsrc={content.page.items[2].imgsrc}
             />
             <GridItemCard
               xs={12}
               sm={6}
-              body="Help people with convictions learn about and access our Conviction Vacation Eligibiliity calculator."
-              imgsrc="/illustrations/notetaking.svg"
+              body={content.page.items[3].body}
+              imgsrc={content.page.items[3].imgsrc}
             />
           </Grid>
         </PaperSection>
