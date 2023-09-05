@@ -87,3 +87,11 @@ export interface MetaPageHead {
     title: string;
     content: string;
 }
+
+export interface GetStartedStep {
+    title: string;
+    body: string;
+    ctaText?: string;
+    ctaLink?: string;
+    data: string[];
+}
