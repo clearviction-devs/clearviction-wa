@@ -35,6 +35,7 @@ export default function AboutPage() {
         subheading2={content.hero.subheading2}
         imgsrc={content.hero.imgsrc}
       />
+
       <SectionContainer>
         <ButtonGroup
           variant="text"
@@ -45,6 +46,7 @@ export default function AboutPage() {
           <Button href="#our-team">{content.buttons[1].name}</Button>
         </ButtonGroup>
       </SectionContainer>
+
       <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
         <Typography variant="h3">{content.ourMission.header}</Typography>
       </SectionContainer>
@@ -54,6 +56,7 @@ export default function AboutPage() {
         sx={{ margin: 'auto', maxWidth: '65rem' }}
         maxWidth={false}
       >
+
         <Typography variant="h2" sx={{ mt: 4, textAlign: { xs: 'center', sm: 'left' } }}>{content.ourStory.header}</Typography>
         <Typography>{content.ourStory.body}</Typography>
         <Box sx={{ mt: 3 }}>
@@ -93,7 +96,9 @@ export default function AboutPage() {
             </Box>
           </PaperSection>
         </Box>
+
       </SectionContainer>
+
       <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
         <Box>
           <Grid container>
@@ -127,7 +132,6 @@ export default function AboutPage() {
 
       <SectionContainer id="our-team" sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
         <Typography variant="h2" sx={{ mt: '3rem' }}>{content.ourTeam.title}</Typography>
-
         <Grid container>
           <iframe
             id={content.ourTeam.id}

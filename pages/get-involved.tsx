@@ -47,11 +47,11 @@ function Volunteer() {
           ))}
         </Grid>
       </SectionContainer>
+
       <SectionContainer maxWidth="md">
         <Typography variant="h2">
           {content.volunteerPage.openRole.title}
         </Typography>
-
         <iframe
           id={content.volunteerPage.openRole.id}
           src={content.volunteerPage.openRole.src}
@@ -88,8 +88,10 @@ function Partner() {
           </Button>
         </Container>
       </SectionContainer>
+
       <SectionContainer maxWidth="md">
         <PaperSection title="" sx={{ margin: 'auto', p: 4 }}>
+
           <Grid container>
             <Grid item xs={12} sm={6}>
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
@@ -101,6 +103,7 @@ function Partner() {
                 />
               </Box>
             </Grid>
+
             <Grid item xs={12} sm={6}>
               <Typography sx={{ my: 8, scrollMarginTop: '4em' }} variant="h3">
                 {content.partnerPage.header[1]}
@@ -118,6 +121,7 @@ function Partner() {
               />
             </Grid>
           </Grid>
+
         </PaperSection>
       </SectionContainer>
     </>
@@ -190,6 +194,7 @@ export default function GetInvolvedPage() {
             </Grid>
           ))}
         </Grid>
+
       </Box>
       <Volunteer />
       <Partner />

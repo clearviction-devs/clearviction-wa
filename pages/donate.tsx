@@ -32,6 +32,7 @@ export default function DonatePage() {
       >
         <DonationForm />
       </HeroBanner>
+
       <SectionContainer id={content.page.id}>
         <PaperSection
           title={content.page.title}
@@ -39,6 +40,7 @@ export default function DonatePage() {
           ctaLink={content.page.ctaLink}
           ctaText={content.page.ctaText}
         >
+
           <Grid container spacing={4}>
             <GridItemCard
               xs={12}
@@ -65,10 +67,13 @@ export default function DonatePage() {
               imgsrc={content.page.items[3].imgsrc}
             />
           </Grid>
+
         </PaperSection>
       </SectionContainer>
+
       <SectionContainer>
         <PaperSection title="Donation FAQ">
+
           {content.donateFAQS.map((donate) => (
             <Grid key={donate.id} item xs={12} sm={6} md={4}>
               <AccordionBuilder
@@ -79,6 +84,7 @@ export default function DonatePage() {
               />
             </Grid>
           ))}
+
         </PaperSection>
       </SectionContainer>
     </>
