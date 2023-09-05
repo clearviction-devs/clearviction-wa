@@ -27,8 +27,8 @@ export default function Home() {
   return (
     <>
       <IndividualPageHead
-        title="Clearing Criminal Records in Washington State"
-        metaContent="Washington Law allows for vacation of select criminal records. Clearviction's free tools help individuals assess their eligibility for a fresh start."
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
       <main>
         <HeroBanner {...content.heroBanner} />
