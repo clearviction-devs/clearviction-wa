@@ -95,3 +95,15 @@ export interface GetStartedStep {
     ctaLink?: string;
     data: string[];
 }
+
+export interface ContactType {
+    value: string;
+    label: string;
+}
+
+export interface FormInfo {
+    name: string;
+    email: string;
+    contactType: string;
+    message: string;
+}
