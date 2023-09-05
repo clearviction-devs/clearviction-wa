@@ -70,7 +70,7 @@ export default function ContactPage() {
         <Box
           component="form"
           name="contact-form"
-          accept-charset="utf-8"
+          acceptCharset="utf-8"
           action="https://formspree.io/f/mqkopnee"
           method="post"
           sx={{
