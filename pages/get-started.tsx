@@ -25,36 +25,47 @@ export default function GetStartedPage() {
   return (
     <>
       <IndividualPageHead
-        title="Vacate Your Criminal Record in 4 Steps"
-        metaContent="Get started with Clearviction's 4 step process and access our resources to vacate your criminal record in Washington State"
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
 
       <HeroBanner
-        header="Get started on the conviction vacation process"
-        subheading="Vacate your conviction in the state of Washington by following these 4 steps!"
-        imgsrc="/illustrations/chart.svg"
-        ctaLink="#step-1"
-        ctaText="Read More"
+        header={content.hero.header}
+        subheading={content.hero.subheading}
+        imgsrc={content.hero.imgsrc}
+        ctaLink={content.hero.ctaLink}
+        ctaText={content.hero.ctaText}
       />
+
       <SectionContainer>
         <ButtonGroup
           variant="text"
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
-          <Button href="#step-1"> Step 1: Documents</Button>
-          <Button href="#step-2"> Step 2: Eligibility</Button>
-          <Button href="#step-3"> Step 3: Filing</Button>
-          <Button href="#step-4"> Step 4: Court Hearing</Button>
+          <Button href="#step-1">
+            {content.buttons[0].name}
+          </Button>
+          <Button href="#step-2">
+            {content.buttons[1].name}
+          </Button>
+          <Button href="#step-3">
+            {content.buttons[2].name}
+          </Button>
+          <Button href="#step-4">
+            {content.buttons[3].name}
+          </Button>
         </ButtonGroup>
       </SectionContainer>
+
       <SectionContainer id="step-1">
         <GetStartedStep
-          title="Step 1: Documents"
-          bodyText="First let's gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction."
+          title={content.steps[0].title}
+          bodyText={content.steps[0].body}
         >
+
           <SectionContainer>
-            <MuiMarkdown>**You'll need to know:**</MuiMarkdown>
+            <MuiMarkdown>{content.steps[0].data[0]}</MuiMarkdown>
             <Grid container spacing={8} sx={{ my: 1 }}>
               {content.needToKnowFacts.map((fact) => (
                 <FactCard
@@ -66,11 +77,11 @@ export default function GetStartedPage() {
               ))}
             </Grid>
           </SectionContainer>
+
           <SectionContainer>
-            <MuiMarkdown>###CHRI (Recommended)</MuiMarkdown>
+            <MuiMarkdown>{content.steps[0].data[1]}</MuiMarkdown>
             <MuiMarkdown>
-              {/* eslint-disable-next-line max-len */}
-              A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.
+              {content.steps[0].data[2]}
             </MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 3 }}>
               {content.CHRIMethods.map((method) => (
@@ -85,15 +96,18 @@ export default function GetStartedPage() {
               ))}
             </Grid>
           </SectionContainer>
+
         </GetStartedStep>
       </SectionContainer>
+
       <SectionContainer id="step-2">
         <GetStartedStep
-          title="Step 2: Eligibility"
-          bodyText="Once you have your records and forms gathered, use our eligibilty calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes."
-          ctaText="Access Calculator"
-          ctaLink="/calculator/head-initial-1-cont"
+          title={content.steps[1].title}
+          bodyText={content.steps[1].body}
+          ctaText={content.steps[1].ctaText}
+          ctaLink={content.steps[1].ctaLink}
         >
+
           <SectionContainer>
             <Grid container sx={{ alignItems: 'center' }}>
               <ImageContainer
@@ -106,17 +120,17 @@ export default function GetStartedPage() {
               />
             </Grid>
           </SectionContainer>
+
         </GetStartedStep>
       </SectionContainer>
+
       <SectionContainer id="step-3">
         <GetStartedStep
-          title="Step 3: File with Court"
-          bodyText={
-            'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>'
-          }
+          title={content.steps[2].title}
+          bodyText={content.steps[2].body}
         >
           <MuiMarkdown>
-            **Common reasons requests to vacate may be denied:**
+            {content.steps[2].data[0]}
           </MuiMarkdown>
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
@@ -130,26 +144,21 @@ export default function GetStartedPage() {
           </Grid>
         </GetStartedStep>
       </SectionContainer>
+
       <SectionContainer id="step-4">
         <GetStartedStep
-          title="Step 4: Court Hearing"
-          bodyText="Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid."
+          title={content.steps[3].title}
+          bodyText={content.steps[3].body}
         >
+
           <SectionContainer>
-            <MuiMarkdown>###Legal Aid</MuiMarkdown>
+            <MuiMarkdown>{content.stepFourSectionNames[0]}</MuiMarkdown>
             <MuiMarkdown>
-              {
-                'Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)'
-              }
+              {content.steps[3].data[0]}
             </MuiMarkdown>
-            <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Important Notice to Verify Legal Resources:</Typography>
+            <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{content.steps[3].data[1]}</Typography>
             <Typography variant="body2" sx={{ my: 2 }}>
-              Before proceeding with any legal resources mentioned on our website,
-              we highly encourage you to contact them
-              directly and verify that they are currently able to assist
-              with your specific issue. While we strive to provide accurate and up-to-date
-              information, it is important to acknowledge
-              that the priorities and availability of legal resources can evolve.
+              {content.steps[3].data[2]}
             </Typography>
             <Grid container spacing={2} sx={{ my: 3 }}>
               {content.legalAidForms.map((legalForm) => (
@@ -164,8 +173,9 @@ export default function GetStartedPage() {
               ))}
             </Grid>
           </SectionContainer>
+
           <SectionContainer>
-            <MuiMarkdown>###Financial Aid</MuiMarkdown>
+            <MuiMarkdown>{content.stepFourSectionNames[1]}</MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.financialAidForms.map((financialForm) => (
                 <Grid key={financialForm.id} item xs={12} sm={6} md={4}>
@@ -179,8 +189,9 @@ export default function GetStartedPage() {
               ))}
             </Grid>
           </SectionContainer>
+
           <SectionContainer>
-            <MuiMarkdown>###Eligibility-Related Forms</MuiMarkdown>
+            <MuiMarkdown>{content.stepFourSectionNames[2]}</MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.eligibilityForms.map((eligibilityForm) => (
                 <Grid key={eligibilityForm.id} item xs={12} sm={6} md={4}>
@@ -194,6 +205,7 @@ export default function GetStartedPage() {
               ))}
             </Grid>
           </SectionContainer>
+
         </GetStartedStep>
       </SectionContainer>
     </>
