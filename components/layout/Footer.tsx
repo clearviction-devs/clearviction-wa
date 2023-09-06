@@ -148,7 +148,6 @@ function Footer() {
                 src="/openseattle-logo.png"
                 width={124}
                 height={99}
-                useImageDimensions
                 style={{
                   width: '100%',
                   objectFit: 'contain',
