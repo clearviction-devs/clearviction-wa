@@ -42,30 +42,17 @@ export default function DonatePage() {
         >
 
           <Grid container spacing={4}>
-            <GridItemCard
-              xs={12}
-              sm={6}
-              body={content.page.items[0].body}
-              imgsrc={content.page.items[0].imgsrc}
-            />
-            <GridItemCard
-              xs={12}
-              sm={6}
-              body={content.page.items[1].body}
-              imgsrc={content.page.items[1].imgsrc}
-            />
-            <GridItemCard
-              xs={12}
-              sm={6}
-              body={content.page.items[2].body}
-              imgsrc={content.page.items[2].imgsrc}
-            />
-            <GridItemCard
-              xs={12}
-              sm={6}
-              body={content.page.items[3].body}
-              imgsrc={content.page.items[3].imgsrc}
-            />
+            {
+            content.page.items.map((item) => (
+              <GridItemCard
+                key={item.id}
+                xs={12}
+                sm={6}
+                body={item.body}
+                imgsrc={item.imgsrc}
+              />
+            ))
+          }
           </Grid>
 
         </PaperSection>

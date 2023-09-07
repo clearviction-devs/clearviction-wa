@@ -43,18 +43,16 @@ export default function GetStartedPage() {
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
-          <Button href="#step-1">
-            {content.buttons[0].name}
-          </Button>
-          <Button href="#step-2">
-            {content.buttons[1].name}
-          </Button>
-          <Button href="#step-3">
-            {content.buttons[2].name}
-          </Button>
-          <Button href="#step-4">
-            {content.buttons[3].name}
-          </Button>
+          {
+            content.buttons.map((button) => (
+              <Button
+                key={button.href}
+                href={button.href}
+              >
+                {button.name}
+              </Button>
+            ))
+          }
         </ButtonGroup>
       </SectionContainer>
 
