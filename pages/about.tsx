@@ -42,8 +42,8 @@ export default function AboutPage() {
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
-          <Button href="#our-story">{content.buttons[0].name}</Button>
-          <Button href="#our-team">{content.buttons[1].name}</Button>
+          <Button href={content.buttons[0].href}>{content.buttons[0].name}</Button>
+          <Button href={content.buttons[1].href}>{content.buttons[1].name}</Button>
         </ButtonGroup>
       </SectionContainer>
 
