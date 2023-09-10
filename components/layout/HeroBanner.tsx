@@ -48,7 +48,6 @@ export default function HeroBanner({
         <Box
           sx={{
             display: 'flex',
-            gap: 4,
             flexWrap: 'wrap',
             flexDirection: { xs: 'column', md: 'row' },
           }}
