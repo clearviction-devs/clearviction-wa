@@ -7,7 +7,7 @@ interface AboutContent {
   body: string[];
   facts: Fact[];
   joinUs: Header;
-  ourTeam: AirtableEmbed;
+  ourTeam: AirtableEmbed[];
 }
 
 const aboutContent: AboutContent = {
@@ -50,11 +50,20 @@ const aboutContent: AboutContent = {
     body: 'Interested in helping make a difference? Team up with us to effect more positive change than any of us can individually.',
     imgsrc: '/illustrations/checklist1.svg',
   },
-  ourTeam: {
-    title: 'Our Team',
-    id: 'our-team-embed-airtable',
-    src: 'https://airtable.com/embed/shrUcTsNW8KLw3hyp',
-  },
+  ourTeam: [
+    {
+      title: 'Our Officers',
+      id: 'our-officers-embed-airtable',
+      src: 'https://airtable.com/embed/appfJZShN8K4tcWHU/shreRa9zzG3rYFvpf/tblzcGsrGCxNOuvQd?backgroundColor=tealLight',
+      height: '500px',
+    },
+    {
+      title: 'Our Team',
+      id: 'our-team-embed-airtable',
+      src: 'https://airtable.com/embed/shrUcTsNW8KLw3hyp',
+      height: '1048px',
+    },
+  ],
 };
 
 export default aboutContent;
