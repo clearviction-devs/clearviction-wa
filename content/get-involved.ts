@@ -68,6 +68,7 @@ const getInvolvedContent: GetInvolvedContent = {
       title: 'Open roles',
       id: 'roles-airtable-embed',
       src: 'https://airtable.com/embed/shrw329SZsANpPuom',
+      height: '548px',
     },
   },
   partnerPage: {
