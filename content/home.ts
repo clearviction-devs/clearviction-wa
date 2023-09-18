@@ -118,7 +118,7 @@ const content: HomeContent = {
     {
       id: 'faq4',
       summary: 'If my conviction meets the eligibility criteria, does that guarantee that I can vacate it?',
-      details: 'A request to vacate may be denied for other reasons, and is up to the discretion of the judge. The most common reasons that a request can be denied is if:\n <ol><li> the court does not believe that vacating your conviction will be in the interest of society,</li><li> you violated probation or have not paid off your fines,</li><li> you are otherwise not eligible to vacate that particular conviction, or</li><li> there was an inaccuracy in the court records and/or the application.</li></ol>',
+      details: 'A request to vacate may be denied for other reasons, and is up to the discretion of the judge. The most common reasons that a request can be denied is if:\n\n 1. the court does not believe that vacating your conviction will be in the interest of society,\n\n 2. you violated probation or have not paid off your fines,\n\n 3. you are otherwise not eligible to vacate that particular conviction, or\n\n 4. there was an inaccuracy in the court records and/or the application.',
     },
     {
       id: 'faq5',

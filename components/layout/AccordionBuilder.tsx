@@ -43,6 +43,13 @@ export default function InfoDropdown({
                 variant: 'body2',
               },
             },
+            li: {
+              component: Typography,
+              props: {
+                variant: 'body2',
+                component: 'li',
+              },
+            },
           }}
           >
             {details}
