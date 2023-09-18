@@ -19,6 +19,7 @@ export interface AirtableEmbed {
     title: string;
     id: string;
     src: string;
+    height: string;
 }
 
 export interface FAQ {
