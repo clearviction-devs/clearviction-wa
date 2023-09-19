@@ -12,7 +12,7 @@ const researchBannerStyles: SxProps = {
   py: 4,
 };
 
-const researchFormLink: string = 'https://airtable.com/shrVse6WfDrWfLOhO';
+const researchFormLink: string = 'https://airtable.com/appfJZShN8K4tcWHU/shrHf25Nfh7LMhwZg';
 
 export default function ResearchBanner() {
   return (
@@ -21,7 +21,7 @@ export default function ResearchBanner() {
         <Grid container alignItems="center">
           <Grid item xs={12} sm={6} md={8}>
             <Typography variant="h3" gutterBottom>
-              Help us improve the calculator by participating in research
+              Help improve our services!
             </Typography>
             <Button
               fullWidth
@@ -36,7 +36,7 @@ export default function ResearchBanner() {
                 },
               })}
             >
-              Learn more
+              Share your experience
             </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
