@@ -130,23 +130,26 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      <SectionContainer id="our-team" sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
-        <Typography variant="h2" sx={{ mt: '3rem' }}>{content.ourTeam.title}</Typography>
-        <Grid container>
-          <iframe
-            id={content.ourTeam.id}
-            title="our-team"
-            src={content.ourTeam.src}
-            width="100%"
-            height="1048"
-            style={{
-              background: 'transparent',
-              border: '0.0625rem solid #ccc',
-              borderRadius: '0.5rem',
-            }}
-          />
-        </Grid>
-      </SectionContainer>
+      {aboutContent.ourTeam.map((item) => (
+        <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+          <Typography variant="h2" sx={{ mt: '3rem' }}>{item.title}</Typography>
+          <Grid container>
+            <iframe
+              id={item.id}
+              title={item.title}
+              src={item.src}
+              width="100%"
+              height={item.height}
+              style={{
+                background: 'transparent',
+                border: '0.0625rem solid #ccc',
+                borderRadius: '0.5rem',
+              }}
+            />
+          </Grid>
+        </SectionContainer>
+      ))}
+
     </>
   );
 }

@@ -56,7 +56,7 @@ function Volunteer() {
           id={content.volunteerPage.openRole.id}
           src={content.volunteerPage.openRole.src}
           width="100%"
-          height="548"
+          height={content.volunteerPage.openRole.height}
           title="Volunteer with Clearviction"
           style={{
             background: 'transparent',
