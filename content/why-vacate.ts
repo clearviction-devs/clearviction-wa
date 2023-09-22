@@ -159,7 +159,7 @@ const whyVacateContent: WhyVacateContent = {
           id: 'courtform3',
           summary: 'Other Educational assistance',
           details:
-            '[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)',
+            '[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)\n',
         },
       ],
     },

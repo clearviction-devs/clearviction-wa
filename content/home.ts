@@ -123,17 +123,17 @@ const content: HomeContent = {
     {
       id: 'faq4',
       summary: 'If my conviction meets the eligibility criteria, does that guarantee that I can vacate it?',
-      details: 'A request to vacate may be denied for other reasons, and is up to the discretion of the judge. The most common reasons that a request can be denied is if:\n1. the court does not believe that vacating your conviction will be in the interest of society,\n2. you violated probation or have not paid off your fines,\n3. you are otherwise not eligible to vacate that particular conviction, or\n4. there was an inaccuracy in the court records and/or the application.',
+      details: 'A request to vacate may be denied for other reasons, and is up to the discretion of the judge. The most common reasons that a request can be denied is if:\n\n 1. the court does not believe that vacating your conviction will be in the interest of society,\n\n 2. you violated probation or have not paid off your fines,\n\n 3. you are otherwise not eligible to vacate that particular conviction, or\n\n 4. there was an inaccuracy in the court records and/or the application.',
     },
     {
       id: 'faq5',
       summary: 'How long does the process take?',
-      details: 'To vacate your Washington conviction, the process takes on average three to four months, depending on your individual circumstances, the court\'s caseload at the time, and whether there are any objections to vacating your conviction.',
+      details: 'To vacate your Washington conviction, the process takes on average three to four months, depending on your individual circumstances, the court’s caseload at the time, and whether there are any objections to vacating your conviction.\n',
     },
     {
       id: 'faq6',
       summary: 'What happens after my conviction is vacated?',
-      details: 'You will receive a court order vacating the conviction—which has the effect of withdrawing the guilty judgment and dismissing the charges against you. You can then legally state that you were not convicted of the offense.',
+      details: 'You will receive a court order vacating the conviction—which has the effect of withdrawing the guilty judgment and dismissing the charges against you. You can then legally state that you were not convicted of the offense.\n',
     },
     {
       id: 'faq7',

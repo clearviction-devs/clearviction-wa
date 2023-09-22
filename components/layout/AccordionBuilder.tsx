@@ -5,6 +5,7 @@ import {
   AccordionSummary,
   Box,
   SxProps,
+  Typography,
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import MuiMarkdown from 'mui-markdown';
@@ -35,7 +36,24 @@ export default function InfoDropdown({
       </AccordionSummary>
       <AccordionDetails sx={{ backgroundColor: grey[50] }}>
         <Box px={2} sx={{ '& p': { my: 2 } }}>
-          <MuiMarkdown>{details}</MuiMarkdown>
+          <MuiMarkdown overrides={{
+            p: {
+              component: Typography,
+              props: {
+                variant: 'body2',
+              },
+            },
+            li: {
+              component: Typography,
+              props: {
+                variant: 'body2',
+                component: 'li',
+              },
+            },
+          }}
+          >
+            {details}
+          </MuiMarkdown>
         </Box>
       </AccordionDetails>
     </Accordion>

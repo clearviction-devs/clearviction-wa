@@ -51,7 +51,7 @@ export default function WhyVacatePage() {
             <PaperSection
               title={card.title}
               subtitle={card.subtitle}
-              sx={{ textAlign: 'left', p: 4 }}
+              sx={{ textAlign: 'center', p: 4 }}
             >
               <Grid container spacing={4}>
 
