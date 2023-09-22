@@ -1,7 +1,11 @@
-import { AirtableEmbed, Fact, Header } from './content.types.ts';
+import {
+  AirtableEmbed, Button, Fact, Header, MetaPageHead,
+} from './content.types.ts';
 
 interface AboutContent {
+  meta: MetaPageHead;
   hero: Header;
+  buttons: Button[];
   ourMission: Header;
   ourStory: Header;
   body: string[];
@@ -11,12 +15,38 @@ interface AboutContent {
 }
 
 const aboutContent: AboutContent = {
+  meta: {
+    title: 'The story and team behind Clearviction.',
+    content: 'We\'re empowering individuals with criminal records in Washington State, and building brighter futures with tools like our Eligibility Calculator.',
+  },
   hero: {
     header: 'About Us',
     body: "Clearviction was founded in 2020 sparked by [Washington State's New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017), We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life. ",
     subheading2: 'Each year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
     imgsrc: 'illustrations/map.svg',
   },
+  buttons: [
+    {
+      name: 'Our Story',
+      href: '#our-story',
+    },
+    {
+      name: 'Our Team',
+      href: '#our-team',
+    },
+    {
+      name: 'Learn More',
+      href: '/get-started',
+    },
+    {
+      name: 'Donate',
+      href: '/donate',
+    },
+    {
+      name: 'Volunteer',
+      href: '/get-involved',
+    },
+  ],
   ourMission: {
     header: 'Our mission is to provide tools and guidance to help people clear their criminal records, granting them a second chance to enter society, free from the stigma of their past.',
   },

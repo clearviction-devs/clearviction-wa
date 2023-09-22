@@ -1,8 +1,9 @@
 import {
-  FAQ, GridSection, Header, SectionNav,
+  FAQ, GridSection, Header, MetaPageHead, SectionNav,
 } from './content.types.ts';
 
 interface HomeContent {
+  meta: MetaPageHead;
   heroBanner: Header;
   sectionNavs: SectionNav[];
   ourMission: Header;
@@ -11,6 +12,10 @@ interface HomeContent {
 }
 
 const content: HomeContent = {
+  meta: {
+    title: 'Clearing Criminal Records in Washington State',
+    content: 'Washington Law allows for vacation of select criminal records. Clearviction\'s free tools help individuals assess their eligibility for a fresh start.',
+  },
   heroBanner: {
     header: 'Check your eligibility to vacate a Washington State conviction',
     subheading: 'Our free eligibility calculator can check if your conviction qualifies for vacation in less than 10 minutes.',
@@ -28,7 +33,7 @@ const content: HomeContent = {
     id: 'our-mission',
     header:
       'Our Mission',
-    body: 'Clearviction was founded in 2020 sparked by [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
+    body: 'Clearviction was founded in 2020 sparked by [Washington State\'s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
     imgsrc: '/illustrations/checklist1.svg',
   },
   gridSections: [
