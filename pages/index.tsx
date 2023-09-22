@@ -27,11 +27,14 @@ export default function Home() {
   return (
     <>
       <IndividualPageHead
-        title="Clearing Criminal Records in Washington State"
-        metaContent="Washington Law allows for vacation of select criminal records. Clearviction's free tools help individuals assess their eligibility for a fresh start."
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
+
       <main>
+
         <HeroBanner {...content.heroBanner} />
+
         <SectionContainer>
           <ButtonGroup
             variant="text"
@@ -45,8 +48,10 @@ export default function Home() {
             ))}
           </ButtonGroup>
         </SectionContainer>
+
         <SectionContainer id={content.ourMission.id}>
           <PaperSection>
+
             <Grid container>
               <Grid item xs={12}>
                 <Typography variant="h2" sx={{ textAlign: 'center' }}>
@@ -76,9 +81,9 @@ export default function Home() {
                 >
                   <MuiMarkdown>{content.ourMission.body}</MuiMarkdown>
                 </Typography>
-
               </Grid>
             </Grid>
+
           </PaperSection>
         </SectionContainer>
 
@@ -105,6 +110,7 @@ export default function Home() {
             </PaperSection>
           </SectionContainer>
         ))}
+
         <SectionContainer id="faq">
           <PaperSection title="FAQ">
             {content.faqs.map((faq) => (
@@ -112,8 +118,10 @@ export default function Home() {
             ))}
           </PaperSection>
         </SectionContainer>
+
         <ResearchBanner />
         <MailchimpForm mobileMarginZero />
+
       </main>
     </>
   );

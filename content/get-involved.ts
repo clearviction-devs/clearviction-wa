@@ -1,6 +1,10 @@
-import { AirtableEmbed, Fact, GridItem } from './content.types.ts';
+import {
+  AirtableEmbed, Button, Fact, GridItem, Header, MetaPageHead,
+} from './content.types.ts';
 
 interface GetInvolvedContent {
+  meta: MetaPageHead;
+  hero: Header;
   waysToParticipate: GridItem[];
   volunteerPage: {
     header: string;
@@ -11,12 +15,20 @@ interface GetInvolvedContent {
   partnerPage: {
     header: string[];
     text: string[];
-    href: string;
     imgsrc: string;
+    buttons: Button[];
   };
 }
 
 const getInvolvedContent: GetInvolvedContent = {
+  meta: {
+    title: 'Join Clearviction | Get Involved & Reduce Recidivism"',
+    content: 'Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State',
+  },
+  hero: {
+    header: 'Share your expertise with us',
+    subheading: 'There are many ways to participate with the Clearviction team, and we appreciate all of them!',
+  },
   waysToParticipate: [
     {
       id: 'w2p_1',
@@ -45,7 +57,7 @@ const getInvolvedContent: GetInvolvedContent = {
     body: [
       'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.',
       'By volunteering, you will help us reduce barriers and streamline the process of vacating eligible convictions in Washington state to make it easier for people to move forward.',
-      "You'll be a perfect fit if you:",
+      'You\'ll be a perfect fit if you:',
     ],
     facts: [
       {
@@ -68,6 +80,7 @@ const getInvolvedContent: GetInvolvedContent = {
       title: 'Open roles',
       id: 'roles-airtable-embed',
       src: 'https://airtable.com/embed/shrw329SZsANpPuom',
+      height: '548px',
     },
   },
   partnerPage: {
@@ -76,11 +89,16 @@ const getInvolvedContent: GetInvolvedContent = {
       'Share the calculator with your community',
     ],
     text: [
-      "We appreciate finding new ways to work with organizations and people who share our goals and want to help us raise awareness. Whether it be guidance or support, we'd love to hear more.",
+      'We appreciate finding new ways to work with organizations and people who share our goals and want to help us raise awareness. Whether it be guidance or support, we\'d love to hear more.',
       'Do you know someone who could benefit from our calculator? Want to help us spread the word around your community?',
       'Share our mission on your social media or send it to someone you know needs it.',
     ],
-    href: '/contact',
+    buttons: [
+      {
+        name: 'Contact Us',
+        href: '/contact',
+      },
+    ],
     imgsrc: '../illustrations/pr.svg',
   },
 };

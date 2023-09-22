@@ -3,7 +3,9 @@ import '../styles/global.css';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import Head from 'next/head';
+
 import React from 'react';
+
 
 import Footer from '../components/layout/Footer.tsx';
 import Header from '../components/layout/Header.tsx';

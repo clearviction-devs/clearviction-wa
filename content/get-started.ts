@@ -1,6 +1,14 @@
-import { Fact, Info, Reason } from './content.types.ts';
+import {
+  Button,
+  Fact, GetStartedStep, Header, Info, MetaPageHead, Reason,
+} from './content.types.ts';
 
 interface GetStartedContent {
+  meta: MetaPageHead;
+  hero: Header;
+  buttons: Button[];
+  steps: GetStartedStep[];
+  stepFourSectionNames: string[];
   needToKnowFacts: Fact[];
   CHRIMethods: Info[];
   rejectionReasons: Reason[];
@@ -10,6 +18,60 @@ interface GetStartedContent {
 }
 
 const getStartedContent: GetStartedContent = {
+  meta: {
+    title: 'Vacate Your Criminal Record in 4 Steps',
+    content: 'Get started with Clearviction\'s 4 step process and access our resources to vacate your criminal record in Washington State',
+  },
+  hero: {
+    header: 'Get started on the conviction vacation process',
+    subheading: 'Vacate your conviction in the state of Washington by following these 4 steps!',
+    imgsrc: '/illustrations/chart.svg',
+    ctaLink: '#step-1',
+    ctaText: 'Read More',
+  },
+  buttons: [
+    {
+      name: 'Step 1: Documents',
+      href: '#step-1',
+    },
+    {
+      name: 'Step 2: Eligibility',
+      href: '#step-2',
+    },
+    {
+      name: 'Step 3: Filing',
+      href: '#step-3',
+    },
+    {
+      name: 'Step 4: Court Hearing',
+      href: '#step-4',
+    },
+  ],
+  steps: [
+    {
+      title: 'Step 1: Documents',
+      body: 'First let\'s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.',
+      data: ['**You\'ll need to know:**', '###CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
+    },
+    {
+      title: 'Step 2: Eligibility',
+      body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.',
+      ctaLink: '/calculator/head-initial-1-cont',
+      ctaText: 'Access Calculator',
+      data: [],
+    },
+    {
+      title: 'Step 3: File with Court',
+      body: 'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>',
+      data: ['**Common reasons requests to vacate may be denied:**'],
+    },
+    {
+      title: 'Step 4: Court Hearing',
+      body: 'Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.',
+      data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
+    },
+  ],
+  stepFourSectionNames: ['###Legal Aid', '###Financial Aid', '###Eligibility-Related Forms'],
   needToKnowFacts: [
     {
       id: 'n2k1',
@@ -38,7 +100,7 @@ const getStartedContent: GetStartedContent = {
       id: 'chri2',
       summary: 'Official Record Review (Fingerprint Card)',
       details:
-        '**Price: $30 - $70**\n\n**Estimated Turnaround: 2 weeks**\n\nIf the WATCH printout is not good enough, go to your local police or sheriff’s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an official copy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
+        '**Price: $30 - $70**\n\n**Estimated Turnaround: 2 weeks**\n\nIf the WATCH printout is not good enough, go to your local police or sheriff\'s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an official copy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
     },
   ],
   rejectionReasons: [
@@ -61,7 +123,7 @@ const getStartedContent: GetStartedContent = {
   legalAidForms: [
     {
       id: 'legalform1',
-      summary: 'Assistance for Pro Se Patrons',
+      summary: 'Representing Yourself in Court',
       details:
         '[Public Law Library of King County Legal Clinics (KCLL)](https://kcll.org/contact-us/)\n\n[Walk-In Clinic](https://www.kcba.org/For-Lawyers/Pro-Bono-Services/YLD-Law-Library-Walk-in-Clinic)\n\n[King County Bar](http://www.kcba.org/For-the-Public/Free-Legal-Assistance/Neighborhood-Legal-Clinics)\n\n[Open Door Legal Services](https://www.ugm.org/what-we-do/stabilization/legal-services/#)',
     },
@@ -80,14 +142,8 @@ const getStartedContent: GetStartedContent = {
   ],
   financialAidForms: [
     {
-      id: 'financialform1',
-      summary: 'Legal Financial Obligations (LFOs)',
-      details:
-        'You may be eligible for financial assistance of fees, fines, or restitution for a misdemeanor or felony:\n\n * [CLEAR hotline](https://nwjustice.org/clear-hotline) can refer you to legal organizations\n\n* [Re-Entry Clinic](https://columbialegal.org/wp-content/uploads/2019/10/CLS-Re-Entry-Clinic-Brochure.pdf) is a joint project of Columbia Legal Services and FareStart, focusing on legal issues related to LFO’s\n\nContact us at contact@cvp.com and we will get back to you within 24 hours. If you want more info about your rights concerning LFOs, consult the website of [Washington LawHelp](https://www.washingtonlawhelp.org/issues/criminal/legal-financial-obligations-restitution-reduc-1?location=Yakima%20County).',
-    },
-    {
       id: 'financialform2',
-      summary: 'Court Fees',
+      summary: 'Costs Associated with Vacation',
       details:
         'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) to find out if you are eligible to waive your fees (p. 1-2). It also includes instructions to request a fee waiver (p. 4-9) as well as all necessary forms (p. 10-14).\n\nIf you have trouble filling out the documents, use [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
     },

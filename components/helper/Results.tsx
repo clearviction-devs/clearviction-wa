@@ -25,10 +25,10 @@ type Responses = {
 
 interface Props {
   responseObject: Responses;
-  handleClose: any;
+  handleCloseResults: any;
 }
 
-export default function Results({ responseObject, handleClose }: Props) {
+export default function Results({ responseObject, handleCloseResults }: Props) {
   const questions = {
     'possession of marijuana': {
       'head-special-4-cont': 'Topic:',
@@ -182,7 +182,7 @@ export default function Results({ responseObject, handleClose }: Props) {
           marginBottom: '100px',
         }}
       >
-        <Button sx={{ }} onClick={() => handleClose()}>Close</Button>
+        <Button sx={{ }} onClick={() => handleCloseResults()}>Close</Button>
         {/* first page */}
         <Box id="firstPage">
           {/* first page header */}
@@ -200,7 +200,7 @@ export default function Results({ responseObject, handleClose }: Props) {
             <Box sx={{ minWidth: '40%' }} />
           </SectionContainer>
           {/* first page middle section */}
-          <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '730px' }}>
+          <SectionContainer sx={{ textAlign: 'left', mb: 1, minHeight: '650px' }}>
             <Typography variant="h5" sx={{ paddingTop: 3 }}>You May Be Eligible Because</Typography>
             <Typography id="eligibleBecause" component="div">
               <List style={{

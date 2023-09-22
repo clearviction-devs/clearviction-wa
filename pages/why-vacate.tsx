@@ -23,8 +23,8 @@ export default function WhyVacatePage() {
   return (
     <>
       <IndividualPageHead
-        title="Clearviction | Find out why it's important to vacate criminal records"
-        metaContent="Vacating your criminal record allows you better access to employment, housing, and educational resources so you can get your life back on track."
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
 
       <HeroBanner
@@ -32,6 +32,7 @@ export default function WhyVacatePage() {
         subheading={content.heroBanner.subheading}
         imgsrc={content.heroBanner.imgsrc}
       />
+
       <SectionContainer>
         <ButtonGroup
           variant="text"
@@ -44,6 +45,7 @@ export default function WhyVacatePage() {
             </Button>
           ))}
         </ButtonGroup>
+
         {content.cards.map((card: any) => (
           <SectionContainer id={card.sectionId} key={card.sectionId}>
             <PaperSection
@@ -52,6 +54,7 @@ export default function WhyVacatePage() {
               sx={{ textAlign: 'left', p: 4 }}
             >
               <Grid container spacing={4}>
+
                 {card.cardItems.map((cardItem: any) => (
                   <GridItemCard
                     key={cardItem.title}
@@ -62,9 +65,11 @@ export default function WhyVacatePage() {
                     imgsrc={cardItem.imgRef}
                   />
                 ))}
+
               </Grid>
-              <Typography variant="h3">Resources</Typography>
+              <Typography variant="h3">{content.resourcesText}</Typography>
               <Grid container spacing={2}>
+
                 {card.accordianItems.map((accordianItem: any) => (
                   <Grid key={accordianItem.id} item xs={12} sm={6} md={4}>
                     <AccordionBuilder
@@ -75,10 +80,12 @@ export default function WhyVacatePage() {
                     />
                   </Grid>
                 ))}
+
               </Grid>
             </PaperSection>
           </SectionContainer>
         ))}
+
       </SectionContainer>
     </>
   );

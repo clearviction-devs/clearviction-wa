@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en-US">
         <Head>
+           {/* Google Analytics */}
           <Script src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} />
           <Script id="google-tag-manager" strategy="afterInteractive">
             {`
@@ -25,6 +26,7 @@ export default class MyDocument extends Document {
             })(window,document,'script','dataLayer','${GTM_ID}');
           `}
           </Script>
+            {/* End Google Analytics */}
           <meta property="og:url" content="https://www.clearviction.org/donate" />
           <meta property="og:type" content="website" />
           <meta
@@ -71,7 +73,10 @@ export default class MyDocument extends Document {
           />
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="emotion-insertion-point" content="" />
+          <meta name="google-site-verification" content="KCnoZn7O-gYJ4Loa2Wzn7iosA1gxamx9iOOMVLCkaVA" />
+
           {(this.props as any).emotionStyleTags}
+
         </Head>
         <body>
           <noscript

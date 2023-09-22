@@ -47,16 +47,16 @@ function Volunteer() {
           ))}
         </Grid>
       </SectionContainer>
+
       <SectionContainer maxWidth="md">
         <Typography variant="h2">
           {content.volunteerPage.openRole.title}
         </Typography>
-
         <iframe
           id={content.volunteerPage.openRole.id}
           src={content.volunteerPage.openRole.src}
           width="100%"
-          height="548"
+          height={content.volunteerPage.openRole.height}
           title="Volunteer with Clearviction"
           style={{
             background: 'transparent',
@@ -82,14 +82,16 @@ function Partner() {
             variant="contained"
             color="primary"
             sx={{ px: 8 }}
-            href={content.partnerPage.href}
+            href={content.partnerPage.buttons[0].href}
           >
-            Contact Us
+            {content.partnerPage.buttons[0].name}
           </Button>
         </Container>
       </SectionContainer>
+
       <SectionContainer maxWidth="md">
         <PaperSection title="" sx={{ margin: 'auto', p: 4 }}>
+
           <Grid container>
             <Grid item xs={12} sm={6}>
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
@@ -101,6 +103,7 @@ function Partner() {
                 />
               </Box>
             </Grid>
+
             <Grid item xs={12} sm={6}>
               <Typography sx={{ my: 8, scrollMarginTop: '4em' }} variant="h3">
                 {content.partnerPage.header[1]}
@@ -111,9 +114,14 @@ function Partner() {
               <Typography sx={{ my: 3 }} variant="body1">
                 {content.partnerPage.text[2]}
               </Typography>
-              <ShareButtons />
+              <ShareButtons
+                popup={false}
+                setShareLinkCopied={() => {}}
+                shareLinkCopied={false}
+              />
             </Grid>
           </Grid>
+
         </PaperSection>
       </SectionContainer>
     </>
@@ -124,14 +132,17 @@ export default function GetInvolvedPage() {
   return (
     <>
       <IndividualPageHead
-        title="Join Clearviction | Get Involved & Reduce Recidivism"
-        metaContent="Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State"
+        title={content.meta.title}
+        metaContent={content.meta.content}
       />
 
-      <Box sx={{ bgcolor: '#2f3554', pb: '64px' }}>
+      <Box sx={{
+        bgcolor: '#2f3554', pb: '64px', display: 'flex', flexDirection: 'column', alignItems: 'center',
+      }}
+      >
         <HeroBanner
-          header="Share your expertise with us"
-          subheading="There are many ways to participate with the Clearviction team, and we appreciate all of them!"
+          header={content.hero.header}
+          subheading={content.hero.subheading}
           overrideStyles={{
             pb: 0,
             pt: 8,
@@ -142,7 +153,7 @@ export default function GetInvolvedPage() {
         <Grid
           container
           spacing={2}
-          sx={{ maxWidth: '1200px', m: 'auto', mt: -8 }}
+          sx={{ maxWidth: '1200px', mt: -8 }}
         >
           {content.waysToParticipate.map((card) => (
             <Grid item xs={12} sm={12} md={4} key={card.id}>
@@ -183,6 +194,7 @@ export default function GetInvolvedPage() {
             </Grid>
           ))}
         </Grid>
+
       </Box>
       <Volunteer />
       <Partner />
