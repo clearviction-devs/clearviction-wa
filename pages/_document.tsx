@@ -5,14 +5,12 @@ import Document, {
 import Script from 'next/script';
 import React from 'react';
 
-
 import theme from '../styles/themes/theme.tsx';
 import createEmotionCache from '../utils/createEmotionCache.ts';
 
 export default class MyDocument extends Document {
   render() {
     const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
-
 
     return (
       <Html lang="en-US">
@@ -80,7 +78,7 @@ export default class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
             }}
-            />
+          />
           <Main />
           <NextScript />
         </body>
