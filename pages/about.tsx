@@ -130,7 +130,7 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      {aboutContent.ourTeam.map((item) => (
+      {content.ourTeam.map((item) => (
         <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
           <Typography variant="h2" sx={{ mt: '3rem' }}>{item.title}</Typography>
           <Grid container>
