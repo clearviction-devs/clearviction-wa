@@ -11,6 +11,7 @@ interface AboutContent {
   body: string[];
   facts: Fact[];
   joinUs: Header;
+  ourPartners: Header;
   ourTeam: AirtableEmbed[];
 }
 
@@ -29,6 +30,14 @@ const aboutContent: AboutContent = {
     {
       name: 'Our Story',
       href: '#our-story',
+    },
+    {
+      name: 'Our Partners',
+      href: '#our-partners',
+    },
+    {
+      name: 'Our Officers',
+      href: '#our-officers',
     },
     {
       name: 'Our Team',
@@ -80,16 +89,22 @@ const aboutContent: AboutContent = {
     body: 'Interested in helping make a difference? Team up with us to effect more positive change than any of us can individually.',
     imgsrc: '/illustrations/checklist1.svg',
   },
+  ourPartners: {
+    header: 'Our Partners',
+    body: 'Tacomaprobono',
+    subheading2: 'The mission of Tacomaprobono Community Lawyers is to combat systemic racism and other forms of discrimination by expanding access to civil legal justice. ',
+    imgsrc: '/tacomaprobono-logo.png',
+  },
   ourTeam: [
     {
       title: 'Our Officers',
-      id: 'our-officers-embed-airtable',
+      id: 'our-officers',
       src: 'https://airtable.com/embed/appfJZShN8K4tcWHU/shreRa9zzG3rYFvpf/tblzcGsrGCxNOuvQd?backgroundColor=tealLight',
       height: '500px',
     },
     {
       title: 'Our Team',
-      id: 'our-team-embed-airtable',
+      id: 'our-team',
       src: 'https://airtable.com/embed/shrUcTsNW8KLw3hyp',
       height: '1048px',
     },

@@ -44,6 +44,8 @@ export default function AboutPage() {
         >
           <Button href={content.buttons[0].href}>{content.buttons[0].name}</Button>
           <Button href={content.buttons[1].href}>{content.buttons[1].name}</Button>
+          <Button href={content.buttons[2].href}>{content.buttons[2].name}</Button>
+          <Button href={content.buttons[3].href}>{content.buttons[3].name}</Button>
         </ButtonGroup>
       </SectionContainer>
 
@@ -91,7 +93,7 @@ export default function AboutPage() {
                   width: { xs: '80%', sm: 'auto' },
                 }}
               >
-                {content.buttons[2].name}
+                {content.buttons[4].name}
               </Button>
             </Box>
           </PaperSection>
@@ -122,12 +124,74 @@ export default function AboutPage() {
                 <MuiMarkdown>{content.joinUs.body}</MuiMarkdown>
               </Typography>
               <Stack sx={{ direction: 'column' }}>
-                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[3].name}</Button>
-                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[4].name}</Button>
+                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[5].name}</Button>
+                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[6].name}</Button>
               </Stack>
             </Grid>
           </Grid>
         </Box>
+      </SectionContainer>
+
+      <SectionContainer id="our-partners" sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
+        <Typography variant="h2" sx={{ my: '3rem' }}>{content.ourPartners.header}</Typography>
+        <PaperSection title="" sx={{ pt: 0, pb: 1 }}>
+          <Grid container>
+            <Grid item xs={12}>
+              <Box display="flex" justifyContent="center" sx={{ pt: 4 }}>
+                <ImageContainer
+                  alt=""
+                  src={content.ourPartners.imgsrc as string}
+                  width={700}
+                  height={450}
+                  useImageDimensions
+                  style={{
+                    height: '124px',
+                    width: '221px',
+                    objectFit: 'contain',
+                  }}
+                />
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: 'flex', flexDirection: 'column', justifyContent: 'center', pt: '0.5rem',
+              }}
+            >
+              <Typography
+                sx={{
+                  color: '#2F3554',
+                  textAlign: 'center',
+                  fontSize: '20px',
+                  fontWeight: 400,
+                  lineHeight: '28px',
+                  letterSpacing: '0.1px',
+                  my: 2,
+                }}
+                variant="subtitle1"
+              >
+                {content.ourPartners.body}
+              </Typography>
+              <Typography
+                sx={{
+                  color: '#000',
+                  textAlign: 'center',
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  lineHeight: 'normal',
+                  letterSpacing: '0.4px',
+                  display: 'flex',
+                  mt: 1,
+                  mb: 4,
+                }}
+                variant="body2"
+              >
+                {content.ourPartners.subheading2}
+              </Typography>
+            </Grid>
+          </Grid>
+        </PaperSection>
       </SectionContainer>
 
       {content.ourTeam.map((item) => (
