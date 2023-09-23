@@ -208,6 +208,7 @@ export default function AboutPage() {
                 background: 'transparent',
                 border: '0.0625rem solid #ccc',
                 borderRadius: '0.5rem',
+                marginBottom: '2rem',
               }}
             />
           </Grid>
