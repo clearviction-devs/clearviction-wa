@@ -41,19 +41,18 @@ export default function HeroBanner({
 }: HeroBannerProps) {
   return (
     <Box sx={overrideStyles || heroStyles} textAlign="left">
-      <SectionContainer>
+      <SectionContainer sx={{}}>
         <Typography variant="h1" sx={{ display: 'block' }}>
           {header}
         </Typography>
         <Box
           sx={{
             display: 'flex',
-            gap: 4,
             flexWrap: 'wrap',
-            flexDirection: { sm: 'column', md: 'row' },
+            flexDirection: { xs: 'column', md: 'row' },
           }}
         >
-          <Box sx={{ flex: 1 }}>
+          <Box sx={{ flex: 1, order: { xs: '2', md: '1' } }}>
             <Box sx={{ mt: 2, mb: 4 }}>
               <MuiMarkdown
                 overrides={{
@@ -129,11 +128,12 @@ export default function HeroBanner({
           </Box>
           {(imgsrc || children) && (
             <Box
-              sx={{
+              sx={(theme) => ({
                 display: 'flex',
-                margin: '30px auto',
+                margin: theme.spacing(3, 'auto'),
                 justifyContent: 'center',
-              }}
+                order: { xs: '1', md: '2' },
+              })}
             >
               {imgsrc ? (
                 <ImageContainer

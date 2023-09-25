@@ -1,6 +1,14 @@
-import { Fact, Info, Reason } from './content.types.ts';
+import {
+  Button,
+  Fact, GetStartedStep, Header, Info, MetaPageHead, Reason,
+} from './content.types.ts';
 
 interface GetStartedContent {
+  meta: MetaPageHead;
+  hero: Header;
+  buttons: Button[];
+  steps: GetStartedStep[];
+  stepFourSectionNames: string[];
   needToKnowFacts: Fact[];
   CHRIMethods: Info[];
   rejectionReasons: Reason[];
@@ -10,6 +18,60 @@ interface GetStartedContent {
 }
 
 const getStartedContent: GetStartedContent = {
+  meta: {
+    title: 'Vacate Your Criminal Record in 4 Steps',
+    content: 'Get started with Clearviction\'s 4 step process and access our resources to vacate your criminal record in Washington State',
+  },
+  hero: {
+    header: 'Get started on the conviction vacation process',
+    subheading: 'Vacate your conviction in the state of Washington by following these 4 steps!',
+    imgsrc: '/illustrations/chart.svg',
+    ctaLink: '#step-1',
+    ctaText: 'Read More',
+  },
+  buttons: [
+    {
+      name: 'Step 1: Documents',
+      href: '#step-1',
+    },
+    {
+      name: 'Step 2: Eligibility',
+      href: '#step-2',
+    },
+    {
+      name: 'Step 3: Filing',
+      href: '#step-3',
+    },
+    {
+      name: 'Step 4: Court Hearing',
+      href: '#step-4',
+    },
+  ],
+  steps: [
+    {
+      title: 'Step 1: Documents',
+      body: 'First let\'s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.',
+      data: ['**You\'ll need to know:**', '###CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
+    },
+    {
+      title: 'Step 2: Eligibility',
+      body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.',
+      ctaLink: '/calculator/head-initial-1-cont',
+      ctaText: 'Access Calculator',
+      data: [],
+    },
+    {
+      title: 'Step 3: File with Court',
+      body: 'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>',
+      data: ['**Common reasons requests to vacate may be denied:**'],
+    },
+    {
+      title: 'Step 4: Court Hearing',
+      body: 'Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.',
+      data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
+    },
+  ],
+  stepFourSectionNames: ['###Legal Aid', '###Financial Aid', '###Eligibility-Related Forms'],
   needToKnowFacts: [
     {
       id: 'n2k1',
@@ -38,7 +100,7 @@ const getStartedContent: GetStartedContent = {
       id: 'chri2',
       summary: 'Official Record Review (Fingerprint Card)',
       details:
-        '**Price: $30 - $70**\n\n**Estimated Turnaround: 2 weeks**\n\nIf the WATCH printout is not good enough, go to your local police or sheriff’s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an official copy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
+        '**Price: $30 - $70**\n\n**Estimated Turnaround: 2 weeks**\n\nIf the WATCH printout is not good enough, go to your local police or sheriff\'s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an official copy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
     },
   ],
   rejectionReasons: [
@@ -91,19 +153,19 @@ const getStartedContent: GetStartedContent = {
       id: 'eligibilityform1',
       summary: '(Gross) Misdeameanor Convictions',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).',
+        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).\n',
     },
     {
       id: 'eligibilityform2',
       summary: 'Marijuana Misdemeanors',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with the steps to vacate (p. 2-6), all necessary court documents (p. 8-13) and a sample letter for WSP to seal your record (p. 7).',
+        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with the steps to vacate (p. 2-6), all necessary court documents (p. 8-13) and a sample letter for WSP to seal your record (p. 7).\n',
     },
     {
       id: 'eligibilityform3',
       summary: 'Prostitution Convictions',
       details:
-        'If you were a victim of trafficking, you can use [this vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with info on the eligibility to vacate (p. 1-3), steps to take (p. 4-8), court forms (p. 10-18) and a sample letter for WSP (p. 9).',
+        'If you were a victim of trafficking, you can use [this vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with info on the eligibility to vacate (p. 1-3), steps to take (p. 4-8), court forms (p. 10-18) and a sample letter for WSP (p. 9).\n',
     },
     {
       id: 'eligibilityform4',
@@ -115,7 +177,7 @@ const getStartedContent: GetStartedContent = {
       id: 'eligibilityform5',
       summary: 'Treaty to Indian Fishing Convictions',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) including an overview of the eligibility to vacate (p. 1-2), steps to take (p. 3-7), all court forms (p. 8-16), and a sample letter for WSP (p. 17).',
+        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) including an overview of the eligibility to vacate (p. 1-2), steps to take (p. 3-7), all court forms (p. 8-16), and a sample letter for WSP (p. 17).\n',
     },
     {
       id: 'eligibilityform6',

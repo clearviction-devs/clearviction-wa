@@ -1,14 +1,20 @@
 import {
-  Button, Card, Header,
+  Button, Card, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface WhyVacateContent {
+  meta: MetaPageHead;
   heroBanner: Header;
   buttons: Button[];
   cards: Card[];
+  resourcesText: string;
 }
 
 const whyVacateContent: WhyVacateContent = {
+  meta: {
+    title: 'Clearviction | Find out why it\'s important to vacate criminal records',
+    content: 'Vacating your criminal record allows you better access to employment, housing, and educational resources so you can get your life back on track.',
+  },
   heroBanner: {
     header: 'Why vacate your conviction in Washington State?',
     subheading:
@@ -78,7 +84,7 @@ const whyVacateContent: WhyVacateContent = {
       cardItems: [
         {
           title: 'Public Housing Authorities',
-          body: '* Income capped \n* Can’t be a registered offender \n* PHAs have discretion on who they decide to house',
+          body: '* Income capped \n* Can\'t be a registered offender \n* PHAs have discretion on who they decide to house',
           imgRef: '/illustrations/city-buildings.svg',
         },
         {
@@ -153,11 +159,12 @@ const whyVacateContent: WhyVacateContent = {
           id: 'courtform3',
           summary: 'Other Educational assistance',
           details:
-            '[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)',
+            '[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)\n',
         },
       ],
     },
   ],
+  resourcesText: 'Resources',
 };
 
 export default whyVacateContent;

@@ -84,3 +84,27 @@ export interface Reason {
     id: string;
     details: string;
 }
+export interface MetaPageHead {
+    title: string;
+    content: string;
+}
+
+export interface GetStartedStep {
+    title: string;
+    body: string;
+    ctaText?: string;
+    ctaLink?: string;
+    data: string[];
+}
+
+export interface ContactType {
+    value: string;
+    label: string;
+}
+
+export interface FormInfo {
+    name: string;
+    email: string;
+    contactType: string;
+    message: string;
+}
