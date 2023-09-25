@@ -153,7 +153,7 @@ export default function GetInvolvedPage() {
         <Grid
           container
           spacing={2}
-          sx={{ maxWidth: '1200px', mt: -8 }}
+          sx={{ maxWidth: '1200px', mt: -4 }}
         >
           {content.waysToParticipate.map((card) => (
             <Grid item xs={12} sm={12} md={4} key={card.id}>

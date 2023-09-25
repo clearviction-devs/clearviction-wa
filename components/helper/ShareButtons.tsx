@@ -17,23 +17,23 @@ type ShareButtonsProps = {
   shareLinkCopied: boolean;
 };
 
+const CALCULATOR_URL = 'https://clearviction.org/calculator/head-initial-1-cont';
+
+const socialMediaTextStyles = {
+  fontWeight: 400,
+  lineHeight: '1.375rem',
+  color: '#2F3554',
+  textDecoration: 'underline',
+  marginLeft: '.4375rem',
+};
+
+const iconsStyle = { display: 'flex', alignItems: 'center', cursor: 'pointer' };
+
 export default function ShareButtons({
   popup, setShareLinkCopied, shareLinkCopied,
 }: ShareButtonsProps) {
-  const url = 'https://clearviction.org/calculator/head-initial-1-cont';
-
-  const style = {
-    fontWeight: 400,
-    lineHeight: '1.375rem',
-    color: '#2F3554',
-    textDecoration: 'underline',
-    marginLeft: '.4375rem',
-  };
-
-  const iconsStyle = { display: 'flex', alignItems: 'center', cursor: 'pointer' };
-
   const handleCopyClick = async () => {
-    await navigator.clipboard.writeText(url);
+    await navigator.clipboard.writeText(CALCULATOR_URL);
     setShareLinkCopied(true);
   };
 
@@ -41,14 +41,14 @@ export default function ShareButtons({
     const subject = encodeURIComponent("Check out Clearviction's conviction vacation eligibility calculator!");
     const preheader = encodeURIComponent('Determine if your conviction is eligible to be vacated in Washington State.');
     const bodyText = encodeURIComponent('This easy, 10-minute process can determine if your misdemeanor conviction is eligible to be vacated in Washington State.\n\n');
-    const mailtoUrl = `mailto:?subject=${subject}&body=${preheader}%0A%0A${bodyText}%0A${encodeURIComponent(url)}`;
+    const mailtoUrl = `mailto:?subject=${subject}&body=${preheader}%0A%0A${bodyText}%0A${encodeURIComponent(CALCULATOR_URL)}`;
     window.open(mailtoUrl);
   };
 
   if (shareLinkCopied) {
     return (
       <Box
-        className="copied-message-box"
+        className="copied-message"
         sx={{
           width: '20.3125rem',
           height: '5.9375rem',
@@ -74,7 +74,7 @@ export default function ShareButtons({
   if (popup) {
     return (
       <Box
-        className="popup-main-container-box"
+        className="popup-container"
         sx={{
           width: '28.1rem',
           height: '20.625rem',
@@ -85,7 +85,7 @@ export default function ShareButtons({
       >
 
         <Box
-          className="popup-inner-container-title-box"
+          className="popup-content"
           sx={{
             display: 'flex', flexDirection: 'column', marginLeft: '1rem', gap: '.0094rem',
           }}
@@ -102,32 +102,32 @@ export default function ShareButtons({
           </Typography>
 
           <Box
-            className="social-media-button-container-box"
+            className="social-media-links"
             sx={{
               display: 'flex', flexDirection: 'column', gap: '1.9rem', marginTop: '1.5rem',
             }}
           >
-            <Box className="copy-link-container-box" sx={iconsStyle} onClick={() => handleCopyClick()}>
+            <Box className="copy-link" sx={iconsStyle} onClick={() => handleCopyClick()}>
               <ContentCopyIcon style={{ fontSize: 22 }} />
-              <Typography variant="body1" sx={style}>Copy Link</Typography>
+              <Typography variant="body1" sx={socialMediaTextStyles}>Copy Link</Typography>
             </Box>
 
-            <Box className="email-link-container-box" sx={iconsStyle} onClick={() => handleEmailClick()}>
+            <Box className="email-link" sx={iconsStyle} onClick={() => handleEmailClick()}>
               <EmailIcon style={{ fontSize: 22 }} />
-              <Typography variant="body1" sx={style}>Email Link</Typography>
+              <Typography variant="body1" sx={socialMediaTextStyles}>Email Link</Typography>
             </Box>
 
-            <FacebookShareButton url={url}>
-              <Box className="facebook-link-container-box" sx={iconsStyle}>
+            <FacebookShareButton url={CALCULATOR_URL}>
+              <Box className="facebook-link" sx={iconsStyle}>
                 <FacebookIcon size={24} round />
-                <Typography variant="body1" sx={style}>Share on Facebook</Typography>
+                <Typography variant="body1" sx={socialMediaTextStyles}>Share on Facebook</Typography>
               </Box>
             </FacebookShareButton>
 
-            <TwitterShareButton url={url}>
-              <Box className="twitter-link-container-box" sx={iconsStyle}>
+            <TwitterShareButton url={CALCULATOR_URL}>
+              <Box className="twitter-link" sx={iconsStyle}>
                 <TwitterIcon size={24} round />
-                <Typography variant="body1" sx={style}>Share on Twitter</Typography>
+                <Typography variant="body1" sx={socialMediaTextStyles}>Share on Twitter</Typography>
               </Box>
             </TwitterShareButton>
           </Box>
@@ -142,19 +142,19 @@ export default function ShareButtons({
   return (
     <Grid container justifyContent="center" spacing={2}>
       <Grid item>
-        <FacebookShareButton url={url}>
+        <FacebookShareButton url={CALCULATOR_URL}>
           <FacebookIcon size={32} round />
         </FacebookShareButton>
       </Grid>
 
       <Grid item>
-        <TwitterShareButton url={url}>
+        <TwitterShareButton url={CALCULATOR_URL}>
           <TwitterIcon size={32} round />
         </TwitterShareButton>
       </Grid>
 
       <Grid item>
-        <LinkedinShareButton url={url}>
+        <LinkedinShareButton url={CALCULATOR_URL}>
           <LinkedinIcon size={32} round />
         </LinkedinShareButton>
       </Grid>
