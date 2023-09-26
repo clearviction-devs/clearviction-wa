@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en-US">
         <Head>
-           {/* Google Analytics */}
+          {/* Google Analytics */}
           <Script src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} />
           <Script id="google-tag-manager" strategy="afterInteractive">
             {`
@@ -26,7 +26,7 @@ export default class MyDocument extends Document {
             })(window,document,'script','dataLayer','${GTM_ID}');
           `}
           </Script>
-            {/* End Google Analytics */}
+          {/* gitEnd Google Analytics */}
           <meta property="og:url" content="https://www.clearviction.org/donate" />
           <meta property="og:type" content="website" />
           <meta
@@ -80,6 +80,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <noscript
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
             }}
