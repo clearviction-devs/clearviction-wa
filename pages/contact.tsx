@@ -74,6 +74,7 @@ export default function ContactPage() {
       setFormError(`Please correct the following issues before submitting: ${errors.join(', ')}`);
     } else {
       setFormError('');
+      (e.target as HTMLFormElement).submit()
     }
   };
 
