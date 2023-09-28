@@ -4,7 +4,6 @@ import {
   Container,
   Divider,
   Grid,
-  Hidden,
   Link,
   Stack,
   SxProps,
@@ -136,9 +135,9 @@ function Footer() {
                       <Typography variant="subtitle2" margin="0">
                         {item.text}
                       </Typography>
-                      <Hidden mdDown>
+                      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                         <ArrowRightIcon />
-                      </Hidden>
+                      </Box>
                     </Box>
                   </Link>
                 </Grid>
