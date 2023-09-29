@@ -134,16 +134,15 @@ export default function AboutPage() {
 
       <SectionContainer id="our-partners" sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
         <Typography variant="h2" sx={{ my: '3rem' }}>{content.ourPartners.header}</Typography>
-        <PaperSection title="" sx={{ pt: 0, pb: 1 }}>
+        <PaperSection sx={{ pt: 0, pb: 1 }}>
           <Grid container>
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center" sx={{ pt: 4 }}>
                 <ImageContainer
                   alt=""
                   src={content.ourPartners.imgsrc as string}
-                  width={700}
-                  height={450}
-                  useImageDimensions
+                  width={442}
+                  height={248}
                   style={{
                     height: '124px',
                     width: '221px',
@@ -156,17 +155,13 @@ export default function AboutPage() {
               item
               xs={12}
               sx={{
-                display: 'flex', flexDirection: 'column', justifyContent: 'center', pt: '0.5rem',
+                display: 'flex', flexDirection: 'column', pt: '0.5rem',
               }}
             >
               <Typography
                 sx={{
-                  color: '#2F3554',
+                  color: 'primary.dark',
                   textAlign: 'center',
-                  fontSize: '20px',
-                  fontWeight: 400,
-                  lineHeight: '28px',
-                  letterSpacing: '0.1px',
                   my: 2,
                 }}
                 variant="subtitle1"
@@ -175,15 +170,10 @@ export default function AboutPage() {
               </Typography>
               <Typography
                 sx={{
-                  color: '#000',
                   textAlign: 'center',
-                  fontSize: '14px',
-                  fontWeight: 300,
-                  lineHeight: 'normal',
-                  letterSpacing: '0.4px',
-                  display: 'flex',
                   mt: 1,
-                  mb: 4,
+                  mb: 3,
+                  mx: 2,
                 }}
                 variant="body2"
               >
