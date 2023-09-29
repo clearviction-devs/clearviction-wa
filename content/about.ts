@@ -92,7 +92,7 @@ const aboutContent: AboutContent = {
   ourPartners: {
     header: 'Our Partners',
     body: 'Tacomaprobono',
-    subheading2: 'The mission of Tacomaprobono Community Lawyers is to combat systemic racism and other forms of discrimination by expanding access to civil legal justice. ',
+    subheading2: 'Free Civil Legal Aid for Pierce County',
     imgsrc: '/tacomaprobono-logo.png',
   },
   ourTeam: [
