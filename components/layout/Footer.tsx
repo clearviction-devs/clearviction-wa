@@ -4,16 +4,23 @@ import {
   Container,
   Divider,
   Grid,
-  Hidden,
   Link,
   Stack,
   SxProps,
+  Theme,
   Typography,
+  TypographyProps,
 } from '@mui/material';
 import React from 'react';
 
 import { footerContent, footerNavItems } from '../../content/footer.ts';
 import ImageContainer from './ImageContainer.tsx';
+
+type FooterSectionProps = {
+  title: string;
+  children: React.ReactNode;
+  sx?: SxProps;
+}
 
 const sectionContainerStyles: SxProps = {
   flex: 1,
@@ -33,6 +40,41 @@ const sectionHeaderStyles: SxProps = {
   pb: { xs: 0, md: 4 },
 };
 
+const getFooterMainStyles = (theme: Theme) => ({
+  display: 'flex',
+  textAlign: { xs: 'center', md: 'left' },
+  flexDirection: { xs: 'column', md: 'row' },
+  p: { xs: theme.spacing(4, 9, 0, 9), md: theme.spacing(10, 9, 0, 9) },
+  gap: { xs: 1, md: 4 },
+});
+
+function FullAddress(props?: TypographyProps) {
+  return (
+    <Typography className="address" variant="caption" {...props}>
+      {footerContent.address.name}
+      <br />
+      {footerContent.address.street}
+      <br />
+      {footerContent.address.city}
+    </Typography>
+  );
+}
+
+function FooterSection({ title, children, sx }: FooterSectionProps) {
+  const footerSectionSx = { ...sectionContainerStyles, ...sx };
+  const transformTextInKebabCase = (text: string) => text.replace(/\s+/g, '-').toLowerCase();
+  const titleInKebabCase = transformTextInKebabCase(title);
+
+  return (
+    <Box className={`${titleInKebabCase}-section`} sx={footerSectionSx}>
+      <Box className={`${titleInKebabCase}-header`} sx={sectionHeaderStyles}>
+        <Typography variant="h4">{title}</Typography>
+      </Box>
+      {children}
+    </Box>
+  );
+}
+
 function Footer() {
   return (
     <Box
@@ -47,41 +89,28 @@ function Footer() {
     >
       <Container
         maxWidth="xl"
-        sx={(theme) => ({
-          display: 'flex',
-          textAlign: { xs: 'center', md: 'left' },
-          flexDirection: { xs: 'column', md: 'row' },
-          p: { xs: theme.spacing(4, 9, 0, 9), md: theme.spacing(10, 9, 0, 9) },
-          gap: { xs: 1, md: 4 },
-        })}
+        sx={getFooterMainStyles}
+        className="footer-main"
       >
-        <Box sx={sectionContainerStyles}>
-          <Hidden mdDown>
-            <Box sx={sectionHeaderStyles}>
-              <Typography variant="h4">Welcome!</Typography>
-            </Box>
-            <Box maxWidth="255px">
-              <Typography variant="caption" paragraph>
-                {footerContent.mission}
-              </Typography>
-              <Typography variant="caption" paragraph>
-                {footerContent.address.name}
-                <br />
-                {footerContent.address.street}
-                <br />
-                {footerContent.address.city}
-              </Typography>
-            </Box>
-          </Hidden>
-        </Box>
+        <FooterSection title="Welcome" sx={{ display: { xs: 'none', md: 'block' } }}>
+          <Box className="welcome-details" maxWidth="255px">
+            <Typography className="our-mission" variant="caption" paragraph>
+              {footerContent.mission}
+            </Typography>
+            <FullAddress paragraph />
+          </Box>
+        </FooterSection>
 
         <Divider />
 
-        <Box sx={sectionContainerStyles}>
-          <Box sx={sectionHeaderStyles}>
-            <Typography variant="h4">Explore</Typography>
-          </Box>
-          <Grid container rowSpacing={{ xs: 0, md: 5 }} columnSpacing={5} maxWidth={400}>
+        <FooterSection title="Explore">
+          <Grid
+            className="explore-grid"
+            container
+            rowSpacing={{ xs: 0, md: 5 }}
+            columnSpacing={5}
+            maxWidth={400}
+          >
             {footerNavItems
               .map((item) => (
                 <Grid key={item.text} item xs={12} md={6}>
@@ -91,6 +120,7 @@ function Footer() {
                     underline="hover"
                     fontSize={18}
                     noWrap
+                    className="explore-link"
                   >
                     <Box
                       display="flex"
@@ -105,22 +135,19 @@ function Footer() {
                       <Typography variant="subtitle2" margin="0">
                         {item.text}
                       </Typography>
-                      <Hidden mdDown>
+                      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                         <ArrowRightIcon />
-                      </Hidden>
+                      </Box>
                     </Box>
                   </Link>
                 </Grid>
               ))}
           </Grid>
-        </Box>
+        </FooterSection>
 
         <Divider />
 
-        <Box sx={sectionContainerStyles}>
-          <Box sx={sectionHeaderStyles}>
-            <Typography variant="h4">Partnerships</Typography>
-          </Box>
+        <FooterSection title="Partnerships">
           <Stack
             width={{ xs: '90%', md: '100%' }}
             mb={1}
@@ -128,10 +155,11 @@ function Footer() {
             alignItems="center"
             justifyContent="space-between"
             spacing={3}
+            className="partnerships-logos"
           >
-            <Box>
+            <Box className="democracylab-logo">
               <ImageContainer
-                alt=""
+                alt="Democracylab logo"
                 src="/democracylab-logo.png"
                 width={206}
                 height={61}
@@ -142,9 +170,9 @@ function Footer() {
                 }}
               />
             </Box>
-            <Box width={124}>
+            <Box className="openseattle-logo" width={124}>
               <ImageContainer
-                alt=""
+                alt="Openseattle logo"
                 src="/openseattle-logo.png"
                 width={124}
                 height={99}
@@ -155,17 +183,12 @@ function Footer() {
               />
             </Box>
           </Stack>
-        </Box>
-        <Hidden mdUp>
+        </FooterSection>
+
+        <Box sx={{ display: { md: 'none', xs: 'block' } }}>
           <Divider sx={{ borderBottom: '1px solid currentColor' }} />
-          <Typography variant="caption">
-            {footerContent.address.name}
-            <br />
-            {footerContent.address.street}
-            <br />
-            {footerContent.address.city}
-          </Typography>
-        </Hidden>
+          <FullAddress />
+        </Box>
       </Container>
 
       <Container
@@ -177,12 +200,13 @@ function Footer() {
           flexDirection: 'column',
           gap: 2,
         }}
+        className="footer-bottom"
       >
         <Box textAlign="center">
-          <Typography variant="caption" paragraph>
+          <Typography className="warning" variant="caption" paragraph>
             {footerContent.warning}
           </Typography>
-          <Typography variant="caption" paragraph>
+          <Typography className="information" variant="caption" paragraph>
             {footerContent.information}
           </Typography>
         </Box>
