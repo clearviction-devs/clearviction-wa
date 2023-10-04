@@ -138,17 +138,19 @@ export default function AboutPage() {
           <Grid container>
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center" sx={{ pt: 4 }}>
-                <ImageContainer
-                  alt=""
-                  src={content.ourPartners.imgsrc as string}
-                  width={442}
-                  height={248}
-                  style={{
-                    height: '124px',
-                    width: '221px',
-                    objectFit: 'contain',
-                  }}
-                />
+                <a href={content.ourPartners.ctaLink}>
+                  <ImageContainer
+                    alt=""
+                    src={content.ourPartners.imgsrc as string}
+                    width={442}
+                    height={248}
+                    style={{
+                      height: '124px',
+                      width: '221px',
+                      objectFit: 'contain',
+                    }}
+                  />
+                </a>
               </Box>
             </Grid>
             <Grid
@@ -162,11 +164,25 @@ export default function AboutPage() {
                 sx={{
                   color: 'primary.dark',
                   textAlign: 'center',
-                  my: 2,
+                  mt: 1,
+                  mb: 2,
                 }}
                 variant="subtitle1"
               >
-                {content.ourPartners.body}
+                <MuiMarkdown
+                  overrides={{
+                    a: {
+                      props: {
+                        style: {
+                          color: 'primary.dark',
+                          textDecoration: 'none',
+                        },
+                      },
+                    },
+                  }}
+                >
+                  {`${content.ourPartners.body}`}
+                </MuiMarkdown>
               </Typography>
               <Typography
                 sx={{
