@@ -91,7 +91,7 @@ const aboutContent: AboutContent = {
   },
   ourPartners: {
     header: 'Our Partners',
-    body: '[Tacomaprobono](https://tacomaprobono.org)',
+    body: 'Tacomaprobono',
     subheading2: 'Free Civil Legal Aid for Pierce County',
     imgsrc: '/tacomaprobono-logo.png',
     ctaLink: 'https://tacomaprobono.org',

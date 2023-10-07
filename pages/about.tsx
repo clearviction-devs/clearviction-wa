@@ -5,6 +5,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
+import Link from 'next/link';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
@@ -138,19 +139,21 @@ export default function AboutPage() {
           <Grid container>
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center" sx={{ pt: 4 }}>
-                <a href={content.ourPartners.ctaLink}>
-                  <ImageContainer
-                    alt=""
-                    src={content.ourPartners.imgsrc as string}
-                    width={442}
-                    height={248}
-                    style={{
-                      height: '124px',
-                      width: '221px',
-                      objectFit: 'contain',
-                    }}
-                  />
-                </a>
+                {content.ourPartners.ctaLink && (
+                  <Link href={content.ourPartners.ctaLink}>
+                    <ImageContainer
+                      alt=""
+                      src={content.ourPartners.imgsrc as string}
+                      width={442}
+                      height={248}
+                      style={{
+                        height: '124px',
+                        width: '221px',
+                        objectFit: 'contain',
+                      }}
+                    />
+                  </Link>
+                )}
               </Box>
             </Grid>
             <Grid
@@ -160,30 +163,20 @@ export default function AboutPage() {
                 display: 'flex', flexDirection: 'column', pt: '0.5rem',
               }}
             >
-              <Typography
-                sx={{
-                  color: 'primary.dark',
-                  textAlign: 'center',
-                  mt: 1,
-                  mb: 2,
-                }}
-                variant="subtitle1"
-              >
-                <MuiMarkdown
-                  overrides={{
-                    a: {
-                      props: {
-                        style: {
-                          color: 'primary.dark',
-                          textDecoration: 'none',
-                        },
-                      },
-                    },
+              {content.ourPartners.ctaLink && (
+                <Typography
+                  sx={{
+                    color: 'primary.dark',
+                    textAlign: 'center',
+                    my: 2,
                   }}
+                  variant="subtitle1"
                 >
-                  {`${content.ourPartners.body}`}
-                </MuiMarkdown>
-              </Typography>
+                  <Link href={content.ourPartners.ctaLink} style={{ textDecoration: 'none' }}>
+                    {content.ourPartners.body}
+                  </Link>
+                </Typography>
+              )}
               <Typography
                 sx={{
                   textAlign: 'center',
