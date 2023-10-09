@@ -19,7 +19,7 @@ interface GetStartedContent {
 
 const getStartedContent: GetStartedContent = {
   meta: {
-    title: 'Vacate Your Criminal Record in 4 Steps',
+    title: 'Clearviction | Vacate Your Criminal Record in 4 Steps',
     content: 'Get started with Clearviction\'s 4 step process and access our resources to vacate your criminal record in Washington State',
   },
   hero: {
