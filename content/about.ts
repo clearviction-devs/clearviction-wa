@@ -16,7 +16,7 @@ interface AboutContent {
 
 const aboutContent: AboutContent = {
   meta: {
-    title: 'The story and team behind Clearviction.',
+    title: 'The Story and Team behind Clearviction.',
     content: 'We\'re empowering individuals with criminal records in Washington State, and building brighter futures with tools like our Eligibility Calculator.',
   },
   hero: {
