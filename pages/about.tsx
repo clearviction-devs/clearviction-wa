@@ -5,6 +5,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
+import Link from 'next/link';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
@@ -44,6 +45,8 @@ export default function AboutPage() {
         >
           <Button href={content.buttons[0].href}>{content.buttons[0].name}</Button>
           <Button href={content.buttons[1].href}>{content.buttons[1].name}</Button>
+          <Button href={content.buttons[2].href}>{content.buttons[2].name}</Button>
+          <Button href={content.buttons[3].href}>{content.buttons[3].name}</Button>
         </ButtonGroup>
       </SectionContainer>
 
@@ -91,7 +94,7 @@ export default function AboutPage() {
                   width: { xs: '80%', sm: 'auto' },
                 }}
               >
-                {content.buttons[2].name}
+                {content.buttons[4].name}
               </Button>
             </Box>
           </PaperSection>
@@ -122,12 +125,72 @@ export default function AboutPage() {
                 <MuiMarkdown>{content.joinUs.body}</MuiMarkdown>
               </Typography>
               <Stack sx={{ direction: 'column' }}>
-                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[3].name}</Button>
-                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[4].name}</Button>
+                <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[5].name}</Button>
+                <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[6].name}</Button>
               </Stack>
             </Grid>
           </Grid>
         </Box>
+      </SectionContainer>
+
+      <SectionContainer id="our-partners" sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
+        <Typography variant="h2" sx={{ my: '3rem' }}>{content.ourPartners.header}</Typography>
+        <PaperSection sx={{ pt: 0, pb: 1 }}>
+          <Grid container>
+            <Grid item xs={12}>
+              <Box display="flex" justifyContent="center" sx={{ pt: 4 }}>
+                {content.ourPartners.ctaLink && (
+                  <Link href={content.ourPartners.ctaLink}>
+                    <ImageContainer
+                      alt=""
+                      src={content.ourPartners.imgsrc as string}
+                      width={442}
+                      height={248}
+                      style={{
+                        height: '124px',
+                        width: '221px',
+                        objectFit: 'contain',
+                      }}
+                    />
+                  </Link>
+                )}
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: 'flex', flexDirection: 'column', pt: '0.5rem',
+              }}
+            >
+              {content.ourPartners.ctaLink && (
+                <Typography
+                  sx={{
+                    color: 'primary.dark',
+                    textAlign: 'center',
+                    my: 2,
+                  }}
+                  variant="subtitle1"
+                >
+                  <Link href={content.ourPartners.ctaLink} style={{ textDecoration: 'none' }}>
+                    {content.ourPartners.body}
+                  </Link>
+                </Typography>
+              )}
+              <Typography
+                sx={{
+                  textAlign: 'center',
+                  mt: 1,
+                  mb: 3,
+                  mx: 2,
+                }}
+                variant="body2"
+              >
+                {content.ourPartners.subheading2}
+              </Typography>
+            </Grid>
+          </Grid>
+        </PaperSection>
       </SectionContainer>
 
       {content.ourTeam.map((item) => (
@@ -144,6 +207,7 @@ export default function AboutPage() {
                 background: 'transparent',
                 border: '0.0625rem solid #ccc',
                 borderRadius: '0.5rem',
+                marginBottom: '2rem',
               }}
             />
           </Grid>
