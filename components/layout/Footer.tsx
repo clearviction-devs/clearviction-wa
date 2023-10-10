@@ -135,7 +135,9 @@ function Footer() {
                       <Typography variant="subtitle2" margin="0">
                         {item.text}
                       </Typography>
-                      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                      <Box
+                        sx={{ display: { xs: 'none', md: 'flex' } }}
+                      >
                         <ArrowRightIcon />
                       </Box>
                     </Box>
