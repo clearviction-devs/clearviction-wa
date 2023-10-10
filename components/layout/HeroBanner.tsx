@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   SxProps,
+  Theme,
   Typography,
   TypographyProps,
 } from '@mui/material';
@@ -19,7 +20,7 @@ interface HeroBannerProps {
   imgsrc?: string;
   ctaText?: string;
   ctaLink?: string;
-  children?: JSX.Element;
+  children?: JSX.Element | null;
   overrideStyles?: SxProps;
 }
 
@@ -29,6 +30,13 @@ const heroStyles: SxProps = {
   py: 8,
 };
 
+const getHeroAdditionalsStyles = (theme: Theme) => ({
+  display: 'flex',
+  margin: theme.spacing(3, 'auto'),
+  justifyContent: 'center',
+  order: { xs: '1', md: '2' },
+});
+
 export default function HeroBanner({
   header,
   subheading,
@@ -36,16 +44,17 @@ export default function HeroBanner({
   imgsrc,
   ctaText,
   ctaLink,
-  children,
+  children = null,
   overrideStyles,
 }: HeroBannerProps) {
   return (
-    <Box sx={overrideStyles || heroStyles} textAlign="left">
-      <SectionContainer sx={{}}>
-        <Typography variant="h1" sx={{ display: 'block' }}>
+    <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
+      <SectionContainer>
+        <Typography className="hero-title" variant="h1" sx={{ display: 'block' }}>
           {header}
         </Typography>
         <Box
+          className="hero-content"
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -53,7 +62,7 @@ export default function HeroBanner({
           }}
         >
           <Box sx={{ flex: 1, order: { xs: '2', md: '1' } }}>
-            <Box sx={{ mt: 2, mb: 4 }}>
+            <Box className="subheading" sx={{ mt: 2, mb: 4 }}>
               <MuiMarkdown
                 overrides={{
                   p: {
@@ -85,7 +94,7 @@ export default function HeroBanner({
 
             </Box>
             {subheading2 && (
-            <Box sx={{ mb: 4 }}>
+            <Box className="subheading-secondary" sx={{ mb: 4 }}>
               <MuiMarkdown
                 overrides={{
                   p: {
@@ -128,14 +137,10 @@ export default function HeroBanner({
           </Box>
           {(imgsrc || children) && (
             <Box
-              sx={(theme) => ({
-                display: 'flex',
-                margin: theme.spacing(3, 'auto'),
-                justifyContent: 'center',
-                order: { xs: '1', md: '2' },
-              })}
+              className="hero-additionals"
+              sx={getHeroAdditionalsStyles}
             >
-              {imgsrc ? (
+              {imgsrc && (
                 <ImageContainer
                   src={imgsrc}
                   width={513}
@@ -144,9 +149,8 @@ export default function HeroBanner({
                   style={{ maxWidth: '100%' }}
                   useImageDimensions
                 />
-              ) : (
-                children
               )}
+              {children}
             </Box>
           )}
         </Box>
