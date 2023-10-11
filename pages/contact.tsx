@@ -105,7 +105,7 @@ export default function ContactPage() {
           component="form"
           name="contact-form"
           acceptCharset="utf-8"
-          action="https://formspree.io/f/mqkopnee"
+          action="https://formspree.io/f/xdorykgj"
           method="post"
           sx={{
             mx: 'auto',
