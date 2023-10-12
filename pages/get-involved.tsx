@@ -100,6 +100,7 @@ function Partner() {
                   src={content.partnerPage.imgsrc}
                   width={342}
                   height={248}
+                  priority
                 />
               </Box>
             </Grid>
