@@ -15,7 +15,7 @@ interface ContactContent {
 
 const contactContent: ContactContent = {
   meta: {
-    title: 'Contact Us - Reach Out for Support and Information',
+    title: 'Clearviction | Contact Us - Reach Out for Support and Information',
     content: 'Have questions or concerns? Contact our team, and we\'ll respond within 24 hours.',
   },
   title: 'Get in contact with us',

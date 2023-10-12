@@ -13,7 +13,7 @@ interface HomeContent {
 
 const content: HomeContent = {
   meta: {
-    title: 'Clearing Criminal Records in Washington State',
+    title: 'Clearviction | Clearing Criminal Records in Washington State',
     content: 'Washington Law allows for vacation of select criminal records. Clearviction\'s free tools help individuals assess their eligibility for a fresh start.',
   },
   heroBanner: {

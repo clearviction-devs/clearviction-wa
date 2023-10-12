@@ -22,7 +22,7 @@ interface GetInvolvedContent {
 
 const getInvolvedContent: GetInvolvedContent = {
   meta: {
-    title: 'Join Clearviction | Get Involved & Reduce Recidivism"',
+    title: 'Join Clearviction | Get Involved & Reduce Recidivism',
     content: 'Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State',
   },
   hero: {
