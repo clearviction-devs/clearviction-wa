@@ -36,7 +36,7 @@ const sectionHeaderStyles: SxProps = {
   height: { xs: 40, md: 64 },
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'start',
   pb: { xs: 0, md: 4 },
 };
 
@@ -92,7 +92,7 @@ function Footer() {
         sx={getFooterMainStyles}
         className="footer-main"
       >
-        <FooterSection title="Welcome" sx={{ display: { xs: 'none', md: 'block' } }}>
+        <FooterSection title="Welcome!" sx={{ display: { xs: 'none', md: 'block' } }}>
           <Box className="welcome-details" maxWidth="255px">
             <Typography className="our-mission" variant="caption" paragraph>
               {footerContent.mission}
@@ -135,7 +135,9 @@ function Footer() {
                       <Typography variant="subtitle2" margin="0">
                         {item.text}
                       </Typography>
-                      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                      <Box
+                        sx={{ display: { xs: 'none', md: 'flex' } }}
+                      >
                         <ArrowRightIcon />
                       </Box>
                     </Box>
