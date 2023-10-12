@@ -8,6 +8,7 @@ import MuiMarkdown from 'mui-markdown';
 import Link from 'next/link';
 import React from 'react';
 
+import CustomScroll from '../components/functional/CustomScroll.tsx';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
@@ -22,6 +23,7 @@ export default function AboutPage() {
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   externalLinks();
+  CustomScroll();
 
   return (
     <>
@@ -43,10 +45,10 @@ export default function AboutPage() {
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
-          <Button href={content.buttons[0].href}>{content.buttons[0].name}</Button>
-          <Button href={content.buttons[1].href}>{content.buttons[1].name}</Button>
-          <Button href={content.buttons[2].href}>{content.buttons[2].name}</Button>
-          <Button href={content.buttons[3].href}>{content.buttons[3].name}</Button>
+          <Button data-href={content.buttons[0].href}>{content.buttons[0].name}</Button>
+          <Button data-href={content.buttons[1].href}>{content.buttons[1].name}</Button>
+          <Button data-href={content.buttons[2].href}>{content.buttons[2].name}</Button>
+          <Button data-href={content.buttons[3].href}>{content.buttons[3].name}</Button>
         </ButtonGroup>
       </SectionContainer>
 

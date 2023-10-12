@@ -5,6 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
+import CustomScroll from '../components/functional/CustomScroll.tsx';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
@@ -19,6 +20,7 @@ export default function WhyVacatePage() {
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   externalLinks();
+  CustomScroll();
 
   return (
     <>
@@ -40,7 +42,7 @@ export default function WhyVacatePage() {
           orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
           {content.buttons.map((button: any) => (
-            <Button key={button.name} href={button.href}>
+            <Button key={button.name} data-href={button.href}>
               {button.name}
             </Button>
           ))}
