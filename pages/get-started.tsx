@@ -35,6 +35,7 @@ export default function GetStartedPage() {
         imgsrc={content.hero.imgsrc}
         ctaLink={content.hero.ctaLink}
         ctaText={content.hero.ctaText}
+        priority
       />
 
       <SectionContainer>
