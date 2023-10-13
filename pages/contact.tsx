@@ -239,6 +239,7 @@ export default function ContactPage() {
             height={306}
             src="/illustrations/new_message.svg"
             alt=""
+            priority
           />
         </Box>
       </SectionContainer>
