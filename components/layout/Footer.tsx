@@ -172,7 +172,7 @@ function Footer() {
                 }}
               />
             </Box>
-            <Box className="openseattle-logo" width={124} height="auto">
+            <Box className="openseattle-logo" width={124}>
               <ImageContainer
                 alt="Openseattle logo"
                 src="/openseattle-logo.png"
@@ -181,7 +181,7 @@ function Footer() {
                 style={{
                   width: '100%',
                   height: 'auto',
-                  objectFit: 'fill',
+                  objectFit: 'contain',
                 }}
               />
             </Box>
