@@ -172,7 +172,7 @@ function Footer() {
                 }}
               />
             </Box>
-            <Box className="openseattle-logo">
+            <Box className="openseattle-logo" width={124} height="auto">
               <ImageContainer
                 alt="Openseattle logo"
                 src="/openseattle-logo.png"
