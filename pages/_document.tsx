@@ -76,7 +76,7 @@ export default class MyDocument extends Document {
           <meta name="google-site-verification" content="KCnoZn7O-gYJ4Loa2Wzn7iosA1gxamx9iOOMVLCkaVA" />
 
           {(this.props as any).emotionStyleTags}
-
+          <script async src="https://tally.so/widgets/embed.js" />
         </Head>
         <body>
           <noscript
