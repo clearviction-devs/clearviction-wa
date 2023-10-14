@@ -7,7 +7,9 @@ interface ImageProps extends NextImageProps {
    */
   useImageDimensions?: boolean;
 
-  // optional boolean, set to true if image is Largest Contentful Paint (LCP)
+  /**
+   * If true, image will be preloaded. For images detected as Largest Contentful Paint (LCP)
+   */
   priority?: boolean;
 }
 
