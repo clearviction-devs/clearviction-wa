@@ -22,6 +22,7 @@ interface HeroBannerProps {
   ctaLink?: string;
   children?: JSX.Element | null;
   overrideStyles?: SxProps;
+  priority?: boolean;
 }
 
 const heroStyles: SxProps = {
@@ -46,6 +47,7 @@ export default function HeroBanner({
   ctaLink,
   children = null,
   overrideStyles,
+  priority = false,
 }: HeroBannerProps) {
   return (
     <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
@@ -148,6 +150,7 @@ export default function HeroBanner({
                   alt=""
                   style={{ maxWidth: '100%' }}
                   useImageDimensions
+                  priority={priority}
                 />
               )}
               {children}

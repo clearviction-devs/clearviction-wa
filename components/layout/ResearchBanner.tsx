@@ -48,6 +48,7 @@ export default function ResearchBanner() {
               width={406}
               height={306}
               style={{ width: '100%', height: 'auto' }}
+              priority
             />
           </Grid>
         </Grid>
