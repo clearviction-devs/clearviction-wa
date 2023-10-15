@@ -1,5 +1,6 @@
 import {
-  Button, ButtonGroup, Grid, Typography,
+  Button, ButtonGroup, Grid, SxProps,
+  Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -15,6 +16,10 @@ import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started.ts';
+
+const sectionContainerSxProps: SxProps = {
+  px: 0, my: 8, scrollMarginTop: 64, textAlign: 'left',
+};
 
 export default function GetStartedPage() {
   const theme = useTheme();
@@ -63,7 +68,10 @@ export default function GetStartedPage() {
           bodyText={content.steps[0].body}
         >
 
-          <SectionContainer>
+          <SectionContainer sx={{
+            ...sectionContainerSxProps,
+          }}
+          >
             <MuiMarkdown>{content.steps[0].data[0]}</MuiMarkdown>
             <Grid container spacing={8} sx={{ my: 1 }}>
               {content.needToKnowFacts.map((fact) => (
@@ -77,7 +85,10 @@ export default function GetStartedPage() {
             </Grid>
           </SectionContainer>
 
-          <SectionContainer>
+          <SectionContainer sx={{
+            ...sectionContainerSxProps,
+          }}
+          >
             <MuiMarkdown>{content.steps[0].data[1]}</MuiMarkdown>
             <MuiMarkdown>
               {content.steps[0].data[2]}
@@ -150,7 +161,10 @@ export default function GetStartedPage() {
           bodyText={content.steps[3].body}
         >
 
-          <SectionContainer>
+          <SectionContainer sx={{
+            ...sectionContainerSxProps,
+          }}
+          >
             <MuiMarkdown>{content.stepFourSectionNames[0]}</MuiMarkdown>
             <MuiMarkdown>
               {content.steps[3].data[0]}
@@ -173,7 +187,10 @@ export default function GetStartedPage() {
             </Grid>
           </SectionContainer>
 
-          <SectionContainer>
+          <SectionContainer sx={{
+            ...sectionContainerSxProps,
+          }}
+          >
             <MuiMarkdown>{content.stepFourSectionNames[1]}</MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.financialAidForms.map((financialForm) => (
@@ -189,7 +206,10 @@ export default function GetStartedPage() {
             </Grid>
           </SectionContainer>
 
-          <SectionContainer>
+          <SectionContainer sx={{
+            ...sectionContainerSxProps,
+          }}
+          >
             <MuiMarkdown>{content.stepFourSectionNames[2]}</MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.eligibilityForms.map((eligibilityForm) => (
