@@ -25,12 +25,12 @@ export default function GetStartedStep({
   ...props
 }: GetStartedStepProps) {
   return (
-    <Paper sx={{ textAlign: 'center', p: 4 }} {...props}>
+    <Paper sx={{ textAlign: 'left', p: 4 }} {...props}>
       <Typography variant="h2" sx={{ mb: 4 }}>
         {title}
       </Typography>
       {bodyText && <MuiMarkdown>{bodyText}</MuiMarkdown>}
-      <SectionContainer sx={{ textAlign: 'left', my: 3 }}>
+      <SectionContainer sx={{ textAlign: 'left', my: 3, px: 0 }}>
         {children}
       </SectionContainer>
 
