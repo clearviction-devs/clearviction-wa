@@ -2,7 +2,6 @@ import {
   Box, Button, FormHelperText, MenuItem, TextField, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
-
 import React, { useState } from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
