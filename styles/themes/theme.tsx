@@ -23,6 +23,7 @@ const LinkBehavior = forwardRef<HTMLAnchorElement, NextLinkProps>(
 );
 
 const theme = createTheme({
+
   spacing: 8,
   palette: {
     mode: 'light',
@@ -236,6 +237,14 @@ theme.components = {
         textAlign: 'center',
         minWidth: 'max-content',
         margin: '.625rem auto',
+      },
+    },
+  },
+  MuiSelect: {
+    styleOverrides: {
+      icon: {
+        fontSize: '3rem',
+        color: '#2f3554',
       },
     },
   },

@@ -2,6 +2,7 @@ import {
   Box, Button, FormHelperText, MenuItem, TextField, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
+
 import React, { useState } from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
@@ -161,6 +162,7 @@ export default function ContactPage() {
             id="contact_type"
             name="contact_type"
             select
+            size="medium"
             placeholder={content.form.placeholders.contactType}
             label={content.form.labels.contactType}
             required
