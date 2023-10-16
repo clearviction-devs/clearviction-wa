@@ -199,7 +199,7 @@ export default function ContactPage() {
             error={Boolean(formErrors.message)}
             placeholder={content.form.placeholders.message}
             aria-label={content.form.ariaLabels.message}
-            label={content.form.ariaLabels.message}
+            label={content.form.labels.message}
             aria-required="true"
             aria-describedby="message-helper-text"
             aria-invalid={Boolean(formErrors.message)}
