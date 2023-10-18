@@ -23,7 +23,6 @@ export default function ContactPage() {
     contact_type: '',
     message: '',
   };
-
   const [toSend, setToSend] = useState<FormData>(initialState);
   const [formError, setFormError] = useState<string>('');
   const [formErrors, setFormErrors] = useState<FormData>(initialState);

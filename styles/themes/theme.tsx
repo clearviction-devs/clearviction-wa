@@ -244,7 +244,7 @@ theme.components = {
     styleOverrides: {
       icon: {
         fontSize: '3rem',
-        color: '#2f3554',
+        color: theme.palette.primary.dark,
       },
     },
   },
