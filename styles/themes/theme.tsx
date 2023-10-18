@@ -23,7 +23,6 @@ const LinkBehavior = forwardRef<HTMLAnchorElement, NextLinkProps>(
 );
 
 const theme = createTheme({
-
   spacing: 8,
   palette: {
     mode: 'light',
