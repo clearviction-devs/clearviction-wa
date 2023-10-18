@@ -161,6 +161,7 @@ export default function ContactPage() {
             id="contact_type"
             name="contact_type"
             select
+            size="medium"
             placeholder={content.form.placeholders.contactType}
             label={content.form.labels.contactType}
             required
