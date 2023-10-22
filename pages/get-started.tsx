@@ -167,10 +167,21 @@ export default function GetStartedPage() {
         >
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps,
+            ...sectionContainerSxProps, my: 5,
           }}
           >
-            <MuiMarkdown>{content.stepFourSectionNames[0]}</MuiMarkdown>
+            <MuiMarkdown overrides={{
+              h3: {
+                component: Typography,
+                props: {
+                  variant: 'h3',
+                  mb: 5,
+                },
+              },
+            }}
+            >
+              {content.stepFourSectionNames[0]}
+            </MuiMarkdown>
             <MuiMarkdown>
               {content.steps[3].data[0]}
             </MuiMarkdown>
@@ -193,10 +204,21 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps,
+            ...sectionContainerSxProps, my: 5,
           }}
           >
-            <MuiMarkdown>{content.stepFourSectionNames[1]}</MuiMarkdown>
+            <MuiMarkdown overrides={{
+              h3: {
+                component: Typography,
+                props: {
+                  variant: 'h3',
+                  mb: 2,
+                },
+              },
+            }}
+            >
+              {content.stepFourSectionNames[1]}
+            </MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.financialAidForms.map((financialForm) => (
                 <Grid key={financialForm.id} item xs={12} sm={6} md={4}>
@@ -212,10 +234,21 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps,
+            ...sectionContainerSxProps, my: 5,
           }}
           >
-            <MuiMarkdown>{content.stepFourSectionNames[2]}</MuiMarkdown>
+            <MuiMarkdown overrides={{
+              h3: {
+                component: Typography,
+                props: {
+                  variant: 'h3',
+                  mb: 2,
+                },
+              },
+            }}
+            >
+              {content.stepFourSectionNames[2]}
+            </MuiMarkdown>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.eligibilityForms.map((eligibilityForm) => (
                 <Grid key={eligibilityForm.id} item xs={12} sm={6} md={4}>
