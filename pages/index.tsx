@@ -6,7 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import CustomScroll from '../components/functional/CustomScroll.tsx';
+import useScroll from '../components/functional/CustomScroll';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
@@ -22,9 +22,9 @@ import content from '../content/home.ts';
 export default function Home() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+  const { handleLinkClick } = useScroll();
 
   externalLinks();
-  CustomScroll();
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function Home() {
             orientation={matchesXS ? 'vertical' : 'horizontal'}
           >
             {content.sectionNavs.map((nav) => (
-              <Button key={nav.href} data-href={nav.href}>
+              <Button key={nav.href} data-href={nav.href} onClick={handleLinkClick}>
                 {nav.label}
               </Button>
             ))}

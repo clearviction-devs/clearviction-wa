@@ -8,7 +8,7 @@ import MuiMarkdown from 'mui-markdown';
 import Link from 'next/link';
 import React from 'react';
 
-import CustomScroll from '../components/functional/CustomScroll.tsx';
+import useScroll from '../components/functional/CustomScroll';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
@@ -21,9 +21,9 @@ import content from '../content/about.ts';
 export default function AboutPage() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+  const { handleLinkClick } = useScroll();
 
   externalLinks();
-  CustomScroll();
 
   return (
     <>
@@ -45,10 +45,30 @@ export default function AboutPage() {
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
         >
-          <Button data-href={content.buttons[0].href}>{content.buttons[0].name}</Button>
-          <Button data-href={content.buttons[1].href}>{content.buttons[1].name}</Button>
-          <Button data-href={content.buttons[2].href}>{content.buttons[2].name}</Button>
-          <Button data-href={content.buttons[3].href}>{content.buttons[3].name}</Button>
+          <Button
+            data-href={content.buttons[0].href}
+            onClick={handleLinkClick}
+          >
+            {content.buttons[0].name}
+          </Button>
+          <Button
+            data-href={content.buttons[1].href}
+            onClick={handleLinkClick}
+          >
+            {content.buttons[1].name}
+          </Button>
+          <Button
+            data-href={content.buttons[2].href}
+            onClick={handleLinkClick}
+          >
+            {content.buttons[2].name}
+          </Button>
+          <Button
+            data-href={content.buttons[3].href}
+            onClick={handleLinkClick}
+          >
+            {content.buttons[3].name}
+          </Button>
         </ButtonGroup>
       </SectionContainer>
 
