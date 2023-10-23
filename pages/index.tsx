@@ -6,7 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import useScroll from '../components/functional/CustomScroll';
+import useScroll from '../components/functional/CustomScroll.tsx';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
