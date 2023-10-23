@@ -25,7 +25,7 @@ import {
 
 export default function CalculatorSlugRoute({
   page,
-  calculatorConfig
+  calculatorConfig,
 }: StaticCalcProps) {
   // all state and functions here are shared between multiple secondary components
   const [openNotSurePopup, setOpenNotSurePopup] = useState(false);
@@ -33,8 +33,7 @@ export default function CalculatorSlugRoute({
   const [responseObject, setResponseObject] = useState({});
   const [showResults, setShowResults] = useState(false);
 
-  const calcFirstPageUrl =
-    'https://clearviction.org/calculator/head-initial-1-cont';
+  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -150,7 +149,7 @@ export default function CalculatorSlugRoute({
         <ErrorReportContainer calculatorConfig={calculatorConfig} />
       </Box>
     </>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
@@ -159,28 +158,28 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const [page, calculatorConfig] = await Promise.all([
     getCalculatorPageBySlug({ slug }),
-    getCalculatorConfig()
+    getCalculatorConfig(),
   ]);
 
   if (!page) {
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
 
   return {
     props: {
       page,
-      calculatorConfig
-    }
-  }
-}
+      calculatorConfig,
+    },
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getCalculatorPagePaths();
 
   return {
     paths: paths?.map((slug) => `/calculator/${slug}`) || [],
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
