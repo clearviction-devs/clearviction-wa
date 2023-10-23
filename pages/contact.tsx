@@ -85,8 +85,8 @@ export default function ContactPage() {
         metaContent={content.meta.content}
       />
 
-      <SectionContainer sx={{ textAlign: 'center', mt: 5 }}>
-        <Typography variant="h1" sx={{ textAlign: 'center' }}>
+      <SectionContainer sx={{ textAlign: 'left', mt: 5 }}>
+        <Typography variant="h1" sx={{ textAlign: 'left' }}>
           {content.title}
         </Typography>
         <MuiMarkdown>
