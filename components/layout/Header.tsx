@@ -64,7 +64,7 @@ export default function Header() {
     <>
       {/* hide until we figure out what the cta is supposed to be */}
       {/* <GivingTuesdayBanner /> */}
-      <AppBar className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
+      <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl" sx={{ p: 3 }}>
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
             <SkipLink color="primary" variant="contained" />

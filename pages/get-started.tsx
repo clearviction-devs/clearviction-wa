@@ -6,6 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import useScroll from '../components/functional/CustomScroll.tsx';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
@@ -19,6 +20,7 @@ import content from '../content/get-started.ts';
 export default function GetStartedPage() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+  const { handleLinkClick } = useScroll();
 
   externalLinks();
 
@@ -48,7 +50,8 @@ export default function GetStartedPage() {
             content.buttons.map((button) => (
               <Button
                 key={button.href}
-                href={button.href}
+                data-href={button.href}
+                onClick={handleLinkClick}
               >
                 {button.name}
               </Button>
