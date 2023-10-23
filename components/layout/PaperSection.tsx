@@ -1,5 +1,5 @@
 import {
-  Button, Paper, PaperProps, Typography,
+  Button, Paper, PaperProps, Stack, Typography,
 } from '@mui/material';
 import React from 'react';
 
@@ -34,9 +34,11 @@ export default function PaperSection({
       )}
       {children}
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }} aria-label={ariaLabels?.ctaButton}>
-          {ctaText}
-        </Button>
+        <Stack direction="row" justifyContent="center">
+          <Button href={ctaLink} variant="contained" sx={{ mt: 4 }} aria-label={ariaLabels?.ctaButton}>
+            {ctaText}
+          </Button>
+        </Stack>
       )}
     </Paper>
   );
