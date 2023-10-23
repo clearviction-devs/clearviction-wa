@@ -35,6 +35,12 @@ export default function DonatePage() {
           className="donation-details-section"
           title={content.page.title}
           subtitle={content.page.subtitle}
+<<<<<<< HEAD
+=======
+          ctaLink={content.page.ctaLink}
+          ctaText={content.page.ctaText}
+          sx={{ textAlign: 'left', p: 4 }}
+>>>>>>> 0374501 (Make donate page left align correctly without affecting home page)
         >
 
           <Grid container spacing={4}>
@@ -56,7 +62,7 @@ export default function DonatePage() {
       </SectionContainer>
 
       <SectionContainer>
-        <PaperSection title="Donation FAQ">
+        <PaperSection title="Donation FAQ" sx={{ textAlign: 'left', p: 4 }}>
 
           {content.donateFAQS.map((donate) => (
             <Grid className={`faq-${donate.id}`} key={donate.id} item xs={12} sm={6} md={4}>
