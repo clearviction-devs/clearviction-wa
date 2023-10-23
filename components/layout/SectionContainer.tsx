@@ -11,7 +11,8 @@ export default function SectionContainer({
       component="section"
       id={id}
       maxWidth="lg"
-      sx={{ my: 8, scrollMarginTop: 64 }}
+      disableGutters
+      sx={{ my: 8, px: 3, scrollMarginTop: 64 }}
       {...props}
     >
       {children}

@@ -1,5 +1,5 @@
 import {
-  Button, Paper, PaperProps, Typography,
+  Button, Paper, PaperProps, Stack, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
@@ -35,9 +35,11 @@ export default function GetStartedStep({
       </SectionContainer>
 
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" aria-label={ariaLabels?.ctaButton} sx={{ my: 3 }}>
-          {ctaText}
-        </Button>
+        <Stack direction="row" justifyContent="center">
+          <Button href={ctaLink} variant="contained" aria-label={ariaLabels?.ctaButton} sx={{ my: 3 }}>
+            {ctaText}
+          </Button>
+        </Stack>
       )}
     </Paper>
   );
