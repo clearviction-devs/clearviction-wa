@@ -239,6 +239,14 @@ theme.components = {
       },
     },
   },
+  MuiSelect: {
+    styleOverrides: {
+      icon: {
+        fontSize: '3rem',
+        color: theme.palette.primary.dark,
+      },
+    },
+  },
 };
 
 const responsiveTheme = responsiveFontSizes(theme);

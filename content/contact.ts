@@ -15,7 +15,7 @@ interface ContactContent {
 
 const contactContent: ContactContent = {
   meta: {
-    title: 'Contact Us - Reach Out for Support and Information',
+    title: 'Clearviction | Contact Us - Reach Out for Support and Information',
     content: 'Have questions or concerns? Contact our team, and we\'ll respond within 24 hours.',
   },
   title: 'Get in contact with us',
@@ -48,19 +48,19 @@ const contactContent: ContactContent = {
       name: 'Enter Your Full Name',
       email: 'example@example.com',
       contactType: 'Please Select An Option',
-      message: 'Message',
+      message: 'Type your message here',
     },
     labels: {
-      name: 'Name',
-      email: 'Email',
-      contactType: 'I am a(n)',
-      message: 'message',
+      name: 'FIRST/LAST NAME',
+      email: 'EMAIL',
+      contactType: 'YOUR TITLE/ROLE',
+      message: 'YOUR MESSAGE',
     },
     ariaLabels: {
-      name: 'your full name',
-      email: 'your email address',
-      contactType: 'choose your contact type',
-      message: 'your message',
+      name: 'Enter your full name',
+      email: 'Enter your email address',
+      contactType: 'Please select an option',
+      message: 'Type your message here',
     },
   },
 };

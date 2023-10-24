@@ -49,7 +49,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   return (
     <>
       <IndividualPageHead
-        title="Check the eligibility to vacate your misdemeanor"
+        title="Check the Eligibility to Vacate your Misdemeanor with Clearviction"
         metaContent="Determine if your misdemeanor or gross misdemeanor is eligible to vacate in Washington State with Clearviction's eligibility calculator."
       />
 

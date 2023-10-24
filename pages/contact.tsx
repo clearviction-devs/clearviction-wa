@@ -161,6 +161,7 @@ export default function ContactPage() {
             id="contact_type"
             name="contact_type"
             select
+            size="medium"
             placeholder={content.form.placeholders.contactType}
             label={content.form.labels.contactType}
             required
@@ -199,7 +200,7 @@ export default function ContactPage() {
             error={Boolean(formErrors.message)}
             placeholder={content.form.placeholders.message}
             aria-label={content.form.ariaLabels.message}
-            label={content.form.ariaLabels.message}
+            label={content.form.labels.message}
             aria-required="true"
             aria-describedby="message-helper-text"
             aria-invalid={Boolean(formErrors.message)}
@@ -239,6 +240,7 @@ export default function ContactPage() {
             height={306}
             src="/illustrations/new_message.svg"
             alt=""
+            priority
           />
         </Box>
       </SectionContainer>
