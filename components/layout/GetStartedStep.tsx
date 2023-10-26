@@ -1,7 +1,6 @@
 import {
   Button, Paper, PaperProps, Typography,
 } from '@mui/material';
-import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import SectionContainer from './SectionContainer.tsx';
@@ -26,7 +25,11 @@ export default function GetStartedStep({
       <Typography variant="h2" sx={{ mb: 4 }}>
         {title}
       </Typography>
-      {bodyText && <MuiMarkdown>{bodyText}</MuiMarkdown>}
+      {bodyText && (
+      <Typography
+        dangerouslySetInnerHTML={{ __html: bodyText }}
+      />
+      )}
       <SectionContainer sx={{ textAlign: 'left', my: 3 }}>
         {children}
       </SectionContainer>
