@@ -53,7 +53,6 @@ export default function Home() {
 
         <SectionContainer id={content.ourMission.id}>
           <PaperSection>
-
             <Grid container>
               <Grid item xs={12}>
                 <Typography variant="h2" sx={{ textAlign: 'center' }}>
@@ -96,6 +95,7 @@ export default function Home() {
               subtitle={section.subtitle}
               ctaLink={section.ctaLink}
               ctaText={section.ctaText}
+              ariaLabel={section.ariaLabel}
             >
               <Grid container spacing={4}>
                 {section.items.map((item) => (
