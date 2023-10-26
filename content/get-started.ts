@@ -51,7 +51,7 @@ const getStartedContent: GetStartedContent = {
     {
       title: 'Step 1: Documents',
       body: 'First let\'s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.',
-      data: ['**You\'ll need to know:**', '###CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
+      data: ['**You\'ll need to know:**', 'CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
     },
     {
       title: 'Step 2: Eligibility',
@@ -62,13 +62,13 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 3: File with Court',
-      body: 'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>',
+      body: 'Next, submit a request to have your conviction vacated (refer to <a href="https://www.courts.wa.gov/court_dir/?fa=court_dir.county" target="_blank" rel="noopener noreferrer">court directory</a>). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.<br/>',
       data: ['**Common reasons requests to vacate may be denied:**'],
     },
     {
       title: 'Step 4: Court Hearing',
       body: 'Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.',
-      data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
+      data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:', 'Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)', 'In King County: call 2-1-1 (weekdays 8am - 6pm)', 'You can also apply online at <a href="https://nwjustice.org/apply-online" target="_blank" rel="noopener noreferrer">CLEAR*Online</a>', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
     },
   ],
   stepFourSectionNames: ['###Legal Aid', '###Financial Aid', '###Eligibility-Related Forms'],
