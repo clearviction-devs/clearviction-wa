@@ -43,6 +43,7 @@ const content: HomeContent = {
       title: 'How it works',
       ctaLink: '/get-started',
       ctaText: 'Get started',
+      ariaLabel: 'Get started with the eligibilty calculator',
       items: [
         {
           id: 'how-it-works-item1',
