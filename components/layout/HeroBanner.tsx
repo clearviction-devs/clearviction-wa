@@ -23,6 +23,7 @@ interface HeroBannerProps {
   children?: JSX.Element | null;
   overrideStyles?: SxProps;
   priority?: boolean;
+  ariaLabel?: string;
 }
 
 const heroStyles: SxProps = {
@@ -48,6 +49,7 @@ export default function HeroBanner({
   children = null,
   overrideStyles,
   priority = false,
+  ariaLabel,
 }: HeroBannerProps) {
   return (
     <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
@@ -125,6 +127,7 @@ export default function HeroBanner({
                 variant="contained"
                 color="primary"
                 href={ctaLink}
+                aria-label={ariaLabel}
                 sx={{
                   px: 4,
                   '&:hover': {
