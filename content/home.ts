@@ -22,6 +22,7 @@ const content: HomeContent = {
     ctaLink: '/calculator/head-initial-1-cont',
     ctaText: 'Access Calculator',
     imgsrc: '/illustrations/home-hero-2color.svg',
+    ariaLabel: 'Access our eligibility calculator',
   },
   sectionNavs: [
     { label: 'Our Mission', href: '#our-mission' },
