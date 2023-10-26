@@ -35,7 +35,7 @@ export default function Home() {
 
       <main>
 
-        <HeroBanner {...content.heroBanner} />
+        <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabel} />
 
         <SectionContainer>
           <ButtonGroup
