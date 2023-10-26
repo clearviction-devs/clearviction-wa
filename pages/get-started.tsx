@@ -161,7 +161,7 @@ export default function GetStartedPage() {
             <Typography
               dangerouslySetInnerHTML={{ __html: content.steps[3].data[0] }}
             />
-            <ul>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
               <li>{content.steps[3].data[1]}</li>
               <li>{content.steps[3].data[2]}</li>
               <li dangerouslySetInnerHTML={{ __html: content.steps[3].data[3] }} />
