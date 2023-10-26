@@ -79,6 +79,7 @@ export interface GridSection {
     ctaLink?: string;
     ctaText?: string;
     items: GridItem[];
+    ariaLabel?: string;
 }
 
 export interface Reason {
