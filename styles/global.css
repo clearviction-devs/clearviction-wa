@@ -7,3 +7,12 @@
 main {
   height: 100%;
 }
+
+a:link {
+  color: #4E6C99;
+  text-decoration-color: rgba(78, 108, 153, 0.4);
+}
+
+a:hover {
+  text-decoration-color: #4E6C99;
+}

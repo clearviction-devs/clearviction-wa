@@ -224,11 +224,6 @@ theme.components = {
       },
     ],
   },
-  MuiButtonBase: {
-    defaultProps: {
-      LinkComponent: LinkBehavior,
-    },
-  },
   MuiButton: {
     styleOverrides: {
       root: {
