@@ -7,6 +7,7 @@ export interface Header {
     ctaLink?: string;
     ctaText?: string;
     imgsrc?: string;
+    ariaLabel?: string;
 }
 
 export interface Fact {
