@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import {
   Button, ButtonGroup, Grid, Typography,
 } from '@mui/material';
@@ -81,7 +82,9 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer>
-            <MuiMarkdown>{content.steps[0].data[1]}</MuiMarkdown>
+            <Typography variant="h3">
+              {content.steps[0].data[1]}
+            </Typography>
             <MuiMarkdown>
               {content.steps[0].data[2]}
             </MuiMarkdown>
@@ -155,12 +158,17 @@ export default function GetStartedPage() {
 
           <SectionContainer>
             <MuiMarkdown>{content.stepFourSectionNames[0]}</MuiMarkdown>
-            <MuiMarkdown>
-              {content.steps[3].data[0]}
-            </MuiMarkdown>
-            <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{content.steps[3].data[1]}</Typography>
+            <Typography
+              dangerouslySetInnerHTML={{ __html: content.steps[3].data[0] }}
+            />
+            <ul>
+              <li>{content.steps[3].data[1]}</li>
+              <li>{content.steps[3].data[2]}</li>
+              <li dangerouslySetInnerHTML={{ __html: content.steps[3].data[3] }} />
+            </ul>
+            <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{content.steps[3].data[4]}</Typography>
             <Typography variant="body2" sx={{ my: 2 }}>
-              {content.steps[3].data[2]}
+              {content.steps[3].data[5]}
             </Typography>
             <Grid container spacing={2} sx={{ my: 3 }}>
               {content.legalAidForms.map((legalForm) => (
