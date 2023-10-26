@@ -73,6 +73,7 @@ const content: HomeContent = {
       ctaLink: '/get-started',
       ctaText: 'Get started',
       subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
+      ariaLabel: 'Get started with the eligibilty calculator',
       items: [
         {
           id: 'why-vacate-item1',
