@@ -8,6 +8,7 @@ interface PaperSectionProps extends PaperProps {
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
+  ariaLabel?:string;
 }
 
 export default function PaperSection({
@@ -16,6 +17,7 @@ export default function PaperSection({
   ctaText,
   ctaLink,
   children,
+  ariaLabel,
   ...props
 }: PaperSectionProps) {
   return (
@@ -30,7 +32,7 @@ export default function PaperSection({
       )}
       {children}
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }}>
+        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }} aria-label={ariaLabel}>
           {ctaText}
         </Button>
       )}
