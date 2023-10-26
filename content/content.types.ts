@@ -96,6 +96,7 @@ export interface GetStartedStep {
     ctaText?: string;
     ctaLink?: string;
     data: string[];
+    ariaLabel?: string;
 }
 
 export interface ContactType {
