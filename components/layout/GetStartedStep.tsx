@@ -11,6 +11,7 @@ interface GetStartedStepProps extends PaperProps {
   bodyText?: string;
   ctaText?: string;
   ctaLink?: string;
+  ariaLabel?:string;
 }
 
 export default function GetStartedStep({
@@ -19,6 +20,7 @@ export default function GetStartedStep({
   ctaText,
   ctaLink,
   children,
+  ariaLabel,
   ...props
 }: GetStartedStepProps) {
   return (
@@ -32,7 +34,7 @@ export default function GetStartedStep({
       </SectionContainer>
 
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" sx={{ my: 3 }}>
+        <Button href={ctaLink} variant="contained" aria-label={ariaLabel} sx={{ my: 3 }}>
           {ctaText}
         </Button>
       )}
