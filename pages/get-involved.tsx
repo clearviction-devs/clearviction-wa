@@ -119,11 +119,6 @@ function Partner() {
                 popup={false}
                 setShareLinkCopied={() => {}}
                 shareLinkCopied={false}
-                ariaLabels={{
-                  facebook: 'Share the calculator now on facebook',
-                  twitter: 'Share the calculator now on twitter',
-                  linkedin: 'Share the calculator now on linkedin',
-                }}
               />
             </Grid>
           </Grid>

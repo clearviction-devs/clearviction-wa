@@ -15,11 +15,6 @@ type ShareButtonsProps = {
   popup: boolean;
   setShareLinkCopied: React.Dispatch<React.SetStateAction<boolean>>;
   shareLinkCopied: boolean;
-  ariaLabels: {
-    facebook: string;
-    twitter: string;
-    linkedin: string;
-  };
 };
 
 const CALCULATOR_URL = 'https://clearviction.org/calculator/head-initial-1-cont';
@@ -35,7 +30,7 @@ const socialMediaTextStyles = {
 const iconsStyle = { display: 'flex', alignItems: 'center', cursor: 'pointer' };
 
 export default function ShareButtons({
-  popup, setShareLinkCopied, shareLinkCopied, ariaLabels,
+  popup, setShareLinkCopied, shareLinkCopied,
 }: ShareButtonsProps) {
   const handleCopyClick = async () => {
     await navigator.clipboard.writeText(CALCULATOR_URL);
@@ -122,14 +117,14 @@ export default function ShareButtons({
               <Typography variant="body1" sx={socialMediaTextStyles}>Email Link</Typography>
             </Box>
 
-            <FacebookShareButton url={CALCULATOR_URL} aria-label={ariaLabels.facebook}>
+            <FacebookShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on facebook">
               <Box className="facebook-link" sx={iconsStyle}>
                 <FacebookIcon size={24} round />
                 <Typography variant="body1" sx={socialMediaTextStyles}>Share on Facebook</Typography>
               </Box>
             </FacebookShareButton>
 
-            <TwitterShareButton url={CALCULATOR_URL} aria-label={ariaLabels.twitter}>
+            <TwitterShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on twitter">
               <Box className="twitter-link" sx={iconsStyle}>
                 <TwitterIcon size={24} round />
                 <Typography variant="body1" sx={socialMediaTextStyles}>Share on Twitter</Typography>
@@ -147,19 +142,19 @@ export default function ShareButtons({
   return (
     <Grid container justifyContent="center" spacing={2}>
       <Grid item>
-        <FacebookShareButton url={CALCULATOR_URL} aria-label={ariaLabels.facebook}>
+        <FacebookShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on facebook">
           <FacebookIcon size={32} round />
         </FacebookShareButton>
       </Grid>
 
       <Grid item>
-        <TwitterShareButton url={CALCULATOR_URL} aria-label={ariaLabels.twitter}>
+        <TwitterShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on twitter">
           <TwitterIcon size={32} round />
         </TwitterShareButton>
       </Grid>
 
       <Grid item>
-        <LinkedinShareButton url={CALCULATOR_URL} aria-label={ariaLabels.linkedin}>
+        <LinkedinShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on linkedin">
           <LinkedinIcon size={32} round />
         </LinkedinShareButton>
       </Grid>
