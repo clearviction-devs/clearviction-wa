@@ -4,6 +4,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import { AriaLabels } from '../../content/content.types.ts';
 import SectionContainer from './SectionContainer.tsx';
 
 interface GetStartedStepProps extends PaperProps {
@@ -11,7 +12,7 @@ interface GetStartedStepProps extends PaperProps {
   bodyText?: string;
   ctaText?: string;
   ctaLink?: string;
-  ariaLabel?:string;
+  ariaLabels?:AriaLabels;
 }
 
 export default function GetStartedStep({
@@ -20,7 +21,7 @@ export default function GetStartedStep({
   ctaText,
   ctaLink,
   children,
-  ariaLabel,
+  ariaLabels,
   ...props
 }: GetStartedStepProps) {
   return (
@@ -34,7 +35,7 @@ export default function GetStartedStep({
       </SectionContainer>
 
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" aria-label={ariaLabel} sx={{ my: 3 }}>
+        <Button href={ctaLink} variant="contained" aria-label={ariaLabels?.ctaButton} sx={{ my: 3 }}>
           {ctaText}
         </Button>
       )}
