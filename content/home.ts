@@ -22,7 +22,7 @@ const content: HomeContent = {
     ctaLink: '/calculator/head-initial-1-cont',
     ctaText: 'Access Calculator',
     imgsrc: '/illustrations/home-hero-2color.svg',
-    ariaLabel: 'Access our eligibility calculator',
+    ariaLabels: { ctaButton: 'Access our eligibility calculator' },
   },
   sectionNavs: [
     { label: 'Our Mission', href: '#our-mission' },
@@ -43,7 +43,7 @@ const content: HomeContent = {
       title: 'How it works',
       ctaLink: '/get-started',
       ctaText: 'Get started',
-      ariaLabel: 'Get started with the eligibilty calculator',
+      ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
       items: [
         {
           id: 'how-it-works-item1',
@@ -73,7 +73,7 @@ const content: HomeContent = {
       ctaLink: '/get-started',
       ctaText: 'Get started',
       subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
-      ariaLabel: 'Get started with the eligibilty calculator',
+      ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
       items: [
         {
           id: 'why-vacate-item1',
