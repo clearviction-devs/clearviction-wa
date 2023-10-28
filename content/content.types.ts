@@ -1,3 +1,6 @@
+export interface AriaLabels {
+    ctaButton?: string
+}
 export interface Header {
     id?: string;
     header: string;
@@ -7,7 +10,7 @@ export interface Header {
     ctaLink?: string;
     ctaText?: string;
     imgsrc?: string;
-    ariaLabel?: string;
+    ariaLabels?: AriaLabels;
 }
 
 export interface Fact {
@@ -79,7 +82,7 @@ export interface GridSection {
     ctaLink?: string;
     ctaText?: string;
     items: GridItem[];
-    ariaLabel?: string;
+    ariaLabels?: AriaLabels;
 }
 
 export interface Reason {
@@ -97,7 +100,7 @@ export interface GetStartedStep {
     ctaText?: string;
     ctaLink?: string;
     data: string[];
-    ariaLabel?: string;
+    ariaLabels?: AriaLabels;
 }
 
 export interface ContactType {
