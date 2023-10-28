@@ -71,6 +71,7 @@ export default function CalculatorSlugRoute({
 
       <Container
         ref={contentRef}
+        component={Container}
         maxWidth="md"
         sx={{
           display: 'flex',
@@ -79,7 +80,7 @@ export default function CalculatorSlugRoute({
           justifyContent: 'center',
         }}
         id="calculator-container-outer"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <QandAContainer
           page={page}
