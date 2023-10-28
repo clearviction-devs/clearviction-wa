@@ -3,12 +3,14 @@ import {
 } from '@mui/material';
 import React from 'react';
 
+import { AriaLabels } from '../../content/content.types.ts';
+
 interface PaperSectionProps extends PaperProps {
   title?: string;
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
-  ariaLabel?:string;
+  ariaLabels?:AriaLabels;
 }
 
 export default function PaperSection({
@@ -17,7 +19,7 @@ export default function PaperSection({
   ctaText,
   ctaLink,
   children,
-  ariaLabel,
+  ariaLabels,
   ...props
 }: PaperSectionProps) {
   return (
@@ -32,7 +34,7 @@ export default function PaperSection({
       )}
       {children}
       {ctaText && ctaLink && (
-        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }} aria-label={ariaLabel}>
+        <Button href={ctaLink} variant="contained" sx={{ mt: 4 }} aria-label={ariaLabels?.ctaButton}>
           {ctaText}
         </Button>
       )}
