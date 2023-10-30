@@ -58,6 +58,7 @@ const getStartedContent: GetStartedContent = {
       body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.',
       ctaLink: '/calculator/head-initial-1-cont',
       ctaText: 'Access Calculator',
+      ariaLabels: { ctaButton: 'Access our eligibility calculator' },
       data: [],
     },
     {

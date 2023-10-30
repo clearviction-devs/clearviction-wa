@@ -10,6 +10,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import { AriaLabels } from '../../content/content.types.ts';
 import ImageContainer from './ImageContainer.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
@@ -23,6 +24,7 @@ interface HeroBannerProps {
   children?: JSX.Element | null;
   overrideStyles?: SxProps;
   priority?: boolean;
+  ariaLabels?: AriaLabels;
 }
 
 const heroStyles: SxProps = {
@@ -48,6 +50,7 @@ export default function HeroBanner({
   children = null,
   overrideStyles,
   priority = false,
+  ariaLabels,
 }: HeroBannerProps) {
   return (
     <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
@@ -125,6 +128,7 @@ export default function HeroBanner({
                 variant="contained"
                 color="primary"
                 href={ctaLink}
+                aria-label={ariaLabels?.ctaButton}
                 sx={{
                   px: 4,
                   '&:hover': {

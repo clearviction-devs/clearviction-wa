@@ -109,7 +109,7 @@ export default function AboutPage() {
             >
               <Button
                 href="/get-started"
-                aria-label="to Get Started"
+                aria-label="Learn more about the conviction vacation process"
                 variant="contained"
                 sx={{
                   px: { xs: 4, sm: 6, md: 8 },
