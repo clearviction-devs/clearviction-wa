@@ -1,6 +1,7 @@
 export interface AriaLabels {
     ctaButton?: string
 }
+
 export interface Header {
     id?: string;
     header: string;

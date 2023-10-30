@@ -10,7 +10,7 @@ interface PaperSectionProps extends PaperProps {
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
-  ariaLabels?:AriaLabels;
+  ariaLabels?: AriaLabels;
 }
 
 export default function PaperSection({

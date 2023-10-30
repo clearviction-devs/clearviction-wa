@@ -12,7 +12,7 @@ interface GetStartedStepProps extends PaperProps {
   bodyText?: string;
   ctaText?: string;
   ctaLink?: string;
-  ariaLabels?:AriaLabels;
+  ariaLabels?: AriaLabels;
 }
 
 export default function GetStartedStep({
