@@ -1,4 +1,8 @@
-import { Box, Container, Typography } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+} from '@mui/material';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -12,7 +16,11 @@ import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
 import Results from '../../components/helper/Results.tsx';
 import { StaticCalcProps } from '../../utils/calculator.props.ts';
-import { getCalculatorConfig, getCalculatorPageBySlug, getCalculatorPagePaths } from '../../utils/sanity.client.ts';
+import {
+  getCalculatorConfig,
+  getCalculatorPageBySlug,
+  getCalculatorPagePaths,
+} from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
   // all state and functions here are shared between multiple secondary components
@@ -78,7 +86,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         />
 
         {
-          page.isFinalPage && (
+          (page.isFinalPage) && (
             <>
               <FinalPageLinksContainer
                 page={page}
@@ -100,7 +108,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         }
 
         {
-          page.isFinalPage && page.isEligible && (
+          (page.isFinalPage && page.isEligible) && (
             <>
               <ResultsDownloadContainer
                 handleCloseResults={handleCloseResults}
@@ -112,7 +120,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         }
 
         {
-          page.isEligible && showResults && (
+          (page.isEligible && showResults) && (
             <Results
               responseObject={responseObject}
               handleCloseResults={handleCloseResults}
