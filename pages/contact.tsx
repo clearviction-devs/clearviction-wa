@@ -219,7 +219,6 @@ export default function ContactPage() {
             sx={{ margin: '30px auto 50px', minWidth: '240px' }}
             type="submit"
             variant="contained"
-            id="contact-submit-button"
           >
             {content.sendButtonText}
           </Button>
