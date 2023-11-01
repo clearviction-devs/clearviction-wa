@@ -49,24 +49,28 @@ export default function AboutPage() {
           <Button
             data-href={content.buttons[0].href}
             onClick={handleLinkClick}
+            id="our-story-button"
           >
             {content.buttons[0].name}
           </Button>
           <Button
             data-href={content.buttons[1].href}
             onClick={handleLinkClick}
+            id="our-partners-button"
           >
             {content.buttons[1].name}
           </Button>
           <Button
             data-href={content.buttons[2].href}
             onClick={handleLinkClick}
+            id="our-officers-button"
           >
             {content.buttons[2].name}
           </Button>
           <Button
             data-href={content.buttons[3].href}
             onClick={handleLinkClick}
+            id="our-team-button"
           >
             {content.buttons[3].name}
           </Button>
