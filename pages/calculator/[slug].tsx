@@ -51,11 +51,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   };
 
   externalLinks();
+
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.focus();
     }
   }, [page]);
+
   return (
     <>
       <IndividualPageHead
