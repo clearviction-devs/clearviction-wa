@@ -19,7 +19,7 @@ const contactContent: ContactContent = {
     content: 'Have questions or concerns? Contact our team, and we\'ll respond within 24 hours.',
   },
   title: 'Get in contact with us',
-  subtitle: '**Have questions? Send us a message and we\'ll get back to you within 24 hours.**',
+  subtitle: 'Have questions? Send us a message and we\'ll get back to you within 24 hours.',
   sendButtonText: 'Send message',
   contactTypes: [
     {
