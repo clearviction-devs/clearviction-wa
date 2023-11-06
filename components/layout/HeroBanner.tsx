@@ -12,7 +12,7 @@ import React from 'react';
 
 import { AriaLabels } from '../../content/content.types.ts';
 import ImageContainer from './ImageContainer.tsx';
-import SectionContainer from './SectionContainer.tsx';
+import { SectionContainer } from './SectionContainer.tsx';
 
 interface HeroBannerProps {
   header: string;

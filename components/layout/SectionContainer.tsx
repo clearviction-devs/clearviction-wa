@@ -1,7 +1,11 @@
-import { Container, ContainerProps } from '@mui/material';
+import { Container, ContainerProps, SxProps } from '@mui/material';
 import React from 'react';
 
-export default function SectionContainer({
+export const sectionContainerSxProps: SxProps = {
+  my: 8, px: 3, scrollMarginTop: 64,
+};
+
+export function SectionContainer({
   children,
   id,
   ...props
@@ -12,7 +16,7 @@ export default function SectionContainer({
       id={id}
       maxWidth="lg"
       disableGutters
-      sx={{ my: 8, px: 3, scrollMarginTop: 64 }}
+      sx={{ ...sectionContainerSxProps }}
       {...props}
     >
       {children}

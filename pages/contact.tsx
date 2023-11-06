@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import { SectionContainer } from '../components/layout/SectionContainer.tsx';
 import content from '../content/contact.ts';
 
 export default function ContactPage() {
