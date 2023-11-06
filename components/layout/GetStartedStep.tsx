@@ -5,7 +5,7 @@ import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import { AriaLabels } from '../../content/content.types.ts';
-import SectionContainer from './SectionContainer.tsx';
+import { SectionContainer } from './SectionContainer.tsx';
 
 interface GetStartedStepProps extends PaperProps {
   title?: string;

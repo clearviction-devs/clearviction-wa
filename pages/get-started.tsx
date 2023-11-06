@@ -15,11 +15,11 @@ import FactCard from '../components/layout/FactCard.tsx';
 import GetStartedStep from '../components/layout/GetStartedStep.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import { SectionContainer, sectionContainerSxProps } from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started.ts';
 
-const sectionContainerSxProps: SxProps = {
-  my: 8, scrollMarginTop: 64, textAlign: 'left',
+const newSectionContainerSxProps: SxProps = {
+  ...sectionContainerSxProps, px: 0, textAlign: 'left',
 };
 
 export default function GetStartedPage() {
@@ -73,7 +73,7 @@ export default function GetStartedPage() {
         >
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps,
+            ...newSectionContainerSxProps,
           }}
           >
             <Typography variant="h5">{content.steps[0].data[0]}</Typography>
@@ -90,7 +90,7 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps,
+            ...newSectionContainerSxProps,
           }}
           >
             <Typography variant="h3" sx={{ mb: 4 }}>{content.steps[0].data[1]}</Typography>
@@ -165,7 +165,7 @@ export default function GetStartedPage() {
         >
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps, my: 5,
+            ...newSectionContainerSxProps, my: 5,
           }}
           >
             <Typography variant="h3" sx={{ mb: 5 }}>{content.stepFourSectionNames[0]}</Typography>
@@ -191,7 +191,7 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps, my: 5,
+            ...newSectionContainerSxProps, my: 5,
           }}
           >
             <Typography variant="h3" sx={{ mb: 2 }}>{content.stepFourSectionNames[1]}</Typography>
@@ -210,7 +210,7 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps, my: 5,
+            ...newSectionContainerSxProps, my: 5,
           }}
           >
             <Typography variant="h3" sx={{ mb: 2 }}>{content.stepFourSectionNames[2]}</Typography>
