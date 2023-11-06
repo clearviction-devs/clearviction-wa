@@ -40,8 +40,8 @@ export default function InfoCard({
         alt=""
         useImageDimensions
       />
-      <Typography variant="h4">{title}</Typography>
-      <Box px={2} pb={2} textAlign="center">
+      <Typography variant="h4" id="info-title">{title}</Typography>
+      <Box px={2} pb={2} textAlign="center" id="info-body">
         <MuiMarkdown>{body}</MuiMarkdown>
       </Box>
       {ctaText && ctaLink && (
