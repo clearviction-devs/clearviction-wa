@@ -24,11 +24,11 @@ export default function PaperSection({
 }: PaperSectionProps) {
   return (
     <Paper sx={{ textAlign: 'center', p: 4 }} {...props}>
-      <Typography variant="h2" sx={{ mb: 4 }}>
+      <Typography variant="h2" sx={{ mb: 4 }} id="paper-header">
         {title}
       </Typography>
       {subtitle && (
-        <Typography variant="subtitle1" sx={{ mb: 4 }}>
+        <Typography variant="subtitle1" sx={{ mb: 4 }} id="paper-subtitle">
           {subtitle}
         </Typography>
       )}
