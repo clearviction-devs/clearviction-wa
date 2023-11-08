@@ -35,6 +35,7 @@ export default function DonatePage() {
 
       <SectionContainer id={content.page.id}>
         <PaperSection
+          idSelector={content.page.id}
           title={content.page.title}
           subtitle={content.page.subtitle}
           ctaLink={content.page.ctaLink}

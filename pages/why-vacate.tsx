@@ -51,6 +51,7 @@ export default function WhyVacatePage() {
         {content.cards.map((card: any) => (
           <SectionContainer id={card.sectionId} key={card.sectionId}>
             <PaperSection
+              idSelector={card.sectionId}
               title={card.title}
               subtitle={card.subtitle}
               sx={{ textAlign: 'center', p: 4 }}
