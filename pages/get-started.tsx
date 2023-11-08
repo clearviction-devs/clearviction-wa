@@ -108,6 +108,7 @@ export default function GetStartedPage() {
           bodyText={content.steps[1].body}
           ctaText={content.steps[1].ctaText}
           ctaLink={content.steps[1].ctaLink}
+          ariaLabels={{ ctaButton: content.steps[1].ariaLabels?.ctaButton }}
         >
 
           <SectionContainer>

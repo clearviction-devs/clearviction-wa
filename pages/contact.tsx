@@ -85,7 +85,7 @@ export default function ContactPage() {
         metaContent={content.meta.content}
       />
 
-      <SectionContainer sx={{ textAlign: 'center', mt: 5 }}>
+      <SectionContainer sx={{ textAlign: 'center', mt: 5 }} id="contact-header">
         <Typography variant="h1" sx={{ textAlign: 'center' }}>
           {content.title}
         </Typography>
@@ -100,6 +100,7 @@ export default function ContactPage() {
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'column', md: 'row' },
         }}
+        id="contact-body"
       >
         <Box
           component="form"

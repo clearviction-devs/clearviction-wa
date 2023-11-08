@@ -4,7 +4,7 @@ import {
   Typography,
 } from '@mui/material';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import CalcHeader from '../../components/calculator/misdemeanor/CalcHeader.tsx';
 import FinalPageLinksContainer, { ErrorReportContainer, ShareCalcContainer } from '../../components/calculator/misdemeanor/CTAContainers.tsx';
@@ -31,11 +31,17 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
 
   const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
   const isFirstPage = () => page.slug === 'head-initial-1-cont';
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const addToResponses = (answer: string) => {
     // delete object when start over
     if (page.slug === 'head-initial-1-cont') setResponseObject({});
-    if (answer !== 'Continue' && answer !== 'Next' && answer !== 'Start' && page.slug !== 'head-mis-3-cont') {
+    if (
+      answer !== 'Continue'
+      && answer !== 'Next'
+      && answer !== 'Start'
+      && page.slug !== 'head-mis-3-cont'
+    ) {
       setResponseObject({ ...responseObject, [page.slug]: answer });
     }
   };
@@ -45,6 +51,12 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   };
 
   externalLinks();
+
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.focus();
+    }
+  }, [page]);
 
   return (
     <>
@@ -56,6 +68,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
       <CalcHeader page={page} isFirstPage={isFirstPage} />
 
       <Container
+        ref={contentRef}
+        component={Container}
         maxWidth="md"
         sx={{
           display: 'flex',
@@ -64,8 +78,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           justifyContent: 'center',
         }}
         id="calculator-container-outer"
+        tabIndex={-1}
       >
-
         <QandAContainer
           page={page}
           calculatorConfig={calculatorConfig}
@@ -82,7 +96,11 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
                 setOpenSharePopup={setOpenSharePopup}
                 calcFirstPageUrl={calcFirstPageUrl}
               />
-              <Box maxWidth="60ch" textAlign="center" id="legal-disclaimer-container">
+              <Box
+                maxWidth="60ch"
+                textAlign="center"
+                id="legal-disclaimer-container"
+              >
                 <Typography variant="caption" sx={{ fontWeight: 'light' }}>
                   {calculatorConfig.legalDisclaimer}
                 </Typography>
@@ -105,7 +123,10 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
 
         {
           (page.isEligible && showResults) && (
-            <Results responseObject={responseObject} handleCloseResults={handleCloseResults} />
+            <Results
+              responseObject={responseObject}
+              handleCloseResults={handleCloseResults}
+            />
           )
         }
 
@@ -117,10 +138,12 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         setOpenNotSurePopup={setOpenNotSurePopup}
       />
 
-      <ShareCalculatorPopup openSharePopup={openSharePopup} setOpenSharePopup={setOpenSharePopup} />
+      <ShareCalculatorPopup
+        openSharePopup={openSharePopup}
+        setOpenSharePopup={setOpenSharePopup}
+      />
 
       <Box sx={{ mb: '1.875rem' }}>
-
         {
           isFirstPage() && (
             <ShareCalcContainer
@@ -129,7 +152,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
               justify
             />
           )
-          }
+        }
 
         <ErrorReportContainer calculatorConfig={calculatorConfig} />
       </Box>

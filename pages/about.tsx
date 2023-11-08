@@ -44,35 +44,40 @@ export default function AboutPage() {
           variant="text"
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
+          id="about-nav"
         >
           <Button
             data-href={content.buttons[0].href}
             onClick={handleLinkClick}
+            id="our-story-button"
           >
             {content.buttons[0].name}
           </Button>
           <Button
             data-href={content.buttons[1].href}
             onClick={handleLinkClick}
+            id="our-partners-button"
           >
             {content.buttons[1].name}
           </Button>
           <Button
             data-href={content.buttons[2].href}
             onClick={handleLinkClick}
+            id="our-officers-button"
           >
             {content.buttons[2].name}
           </Button>
           <Button
             data-href={content.buttons[3].href}
             onClick={handleLinkClick}
+            id="our-team-button"
           >
             {content.buttons[3].name}
           </Button>
         </ButtonGroup>
       </SectionContainer>
 
-      <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
+      <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false} id="our-mission-header">
         <Typography variant="h3">{content.ourMission.header}</Typography>
       </SectionContainer>
 
@@ -90,7 +95,7 @@ export default function AboutPage() {
         </Box>
 
         <Box>
-          <PaperSection title="" sx={{ p: 8, my: 8 }}>
+          <PaperSection title="" sx={{ p: 8, my: 8 }} id="about-facts">
             <Grid container spacing={4}>
               <Grid container className="fact-card">
                 {content.facts.map((fact) => (
@@ -109,7 +114,7 @@ export default function AboutPage() {
             >
               <Button
                 href="/get-started"
-                aria-label="to Get Started"
+                aria-label="Learn more about the conviction vacation process"
                 variant="contained"
                 sx={{
                   px: { xs: 4, sm: 6, md: 8 },
@@ -124,7 +129,7 @@ export default function AboutPage() {
 
       </SectionContainer>
 
-      <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+      <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false} id="join-us">
         <Box>
           <Grid container>
             <Grid item xs={12}>
@@ -143,10 +148,10 @@ export default function AboutPage() {
               />
             </Grid>
             <Grid item sm={12} md={6}>
-              <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign: 'center' }}>
+              <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign: 'center' }} id="join-us-body">
                 <MuiMarkdown>{content.joinUs.body}</MuiMarkdown>
               </Typography>
-              <Stack sx={{ direction: 'column' }}>
+              <Stack sx={{ direction: 'column' }} id="join-us-buttons">
                 <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[5].name}</Button>
                 <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[6].name}</Button>
               </Stack>

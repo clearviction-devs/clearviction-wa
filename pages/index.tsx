@@ -35,7 +35,7 @@ export default function Home() {
 
       <main>
 
-        <HeroBanner {...content.heroBanner} />
+        <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
 
         <SectionContainer>
           <ButtonGroup
@@ -53,7 +53,6 @@ export default function Home() {
 
         <SectionContainer id={content.ourMission.id}>
           <PaperSection>
-
             <Grid container>
               <Grid item xs={12}>
                 <Typography variant="h2" sx={{ textAlign: 'center' }}>
@@ -96,6 +95,7 @@ export default function Home() {
               subtitle={section.subtitle}
               ctaLink={section.ctaLink}
               ctaText={section.ctaText}
+              ariaLabels={{ ctaButton: section.ariaLabels?.ctaButton }}
             >
               <Grid container spacing={4}>
                 {section.items.map((item) => (

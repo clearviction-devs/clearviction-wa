@@ -96,6 +96,7 @@ export default function Header() {
                   size="small"
                   className="calc-btn"
                   sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
+                  aria-label="Access our eligibility calculator"
                 >
                   Access Calculator
                 </Button>
