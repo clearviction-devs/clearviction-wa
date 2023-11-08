@@ -8,18 +8,20 @@ import MuiMarkdown from 'mui-markdown';
 import Link from 'next/link';
 import React from 'react';
 
+import useScroll from '../components/functional/CustomScroll.tsx';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import { SectionContainer } from '../components/layout/SectionContainer.tsx';
 import content from '../content/about.ts';
 
 export default function AboutPage() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+  const { handleLinkClick } = useScroll();
 
   externalLinks();
 
@@ -42,21 +44,52 @@ export default function AboutPage() {
           variant="text"
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
+          id="about-nav"
         >
-          <Button href={content.buttons[0].href}>{content.buttons[0].name}</Button>
-          <Button href={content.buttons[1].href}>{content.buttons[1].name}</Button>
-          <Button href={content.buttons[2].href}>{content.buttons[2].name}</Button>
-          <Button href={content.buttons[3].href}>{content.buttons[3].name}</Button>
+          <Button
+            data-href={content.buttons[0].href}
+            onClick={handleLinkClick}
+            id="our-story-button"
+          >
+            {content.buttons[0].name}
+          </Button>
+          <Button
+            data-href={content.buttons[1].href}
+            onClick={handleLinkClick}
+            id="our-partners-button"
+          >
+            {content.buttons[1].name}
+          </Button>
+          <Button
+            data-href={content.buttons[2].href}
+            onClick={handleLinkClick}
+            id="our-officers-button"
+          >
+            {content.buttons[2].name}
+          </Button>
+          <Button
+            data-href={content.buttons[3].href}
+            onClick={handleLinkClick}
+            id="our-team-button"
+          >
+            {content.buttons[3].name}
+          </Button>
         </ButtonGroup>
       </SectionContainer>
 
-      <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
+      <SectionContainer
+        sx={{
+          margin: 'auto', mb: 4, px: 3, maxWidth: '65rem',
+        }}
+        maxWidth={false}
+        id="our-mission-header"
+      >
         <Typography variant="h3">{content.ourMission.header}</Typography>
       </SectionContainer>
 
       <SectionContainer
         id="our-story"
-        sx={{ margin: 'auto', maxWidth: '65rem' }}
+        sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }}
         maxWidth={false}
 
       >
@@ -69,7 +102,7 @@ export default function AboutPage() {
         </Box>
 
         <Box>
-          <PaperSection title="" sx={{ p: 8, my: 8 }}>
+          <PaperSection title="" sx={{ p: 8, my: 8 }} id="about-facts">
             <Grid container spacing={4}>
               <Grid container className="fact-card">
                 {content.facts.map((fact) => (
@@ -88,7 +121,7 @@ export default function AboutPage() {
             >
               <Button
                 href="/get-started"
-                aria-label="to Get Started"
+                aria-label="Learn more about the conviction vacation process"
                 variant="contained"
                 sx={{
                   px: { xs: 4, sm: 6, md: 8 },
@@ -103,7 +136,7 @@ export default function AboutPage() {
 
       </SectionContainer>
 
-      <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+      <SectionContainer sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false} id="join-us">
         <Box>
           <Grid container>
             <Grid item xs={12}>
@@ -122,10 +155,10 @@ export default function AboutPage() {
               />
             </Grid>
             <Grid item sm={12} md={6}>
-              <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign: 'center' }}>
+              <Typography variant="subtitle1" sx={{ mt: '4.375rem', textAlign: 'center' }} id="join-us-body">
                 <MuiMarkdown>{content.joinUs.body}</MuiMarkdown>
               </Typography>
-              <Stack sx={{ direction: 'column' }}>
+              <Stack sx={{ direction: 'column' }} id="join-us-buttons">
                 <Button href="/donate" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[5].name}</Button>
                 <Button href="/get-involved" variant="contained" sx={{ width: '15.5rem' }}>{content.buttons[6].name}</Button>
               </Stack>
@@ -134,7 +167,13 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      <SectionContainer id="our-partners" sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
+      <SectionContainer
+        id="our-partners"
+        sx={{
+          margin: 'auto', mb: 4, px: 3, maxWidth: '65rem',
+        }}
+        maxWidth={false}
+      >
         <Typography variant="h2" sx={{ my: '3rem' }}>{content.ourPartners.header}</Typography>
         <PaperSection sx={{ pt: 0, pb: 1 }}>
           <Grid container>
@@ -195,7 +234,7 @@ export default function AboutPage() {
       </SectionContainer>
 
       {content.ourTeam.map((item) => (
-        <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+        <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
           <Typography variant="h2" sx={{ mt: '3rem' }}>{item.title}</Typography>
           <Grid container>
             <iframe

@@ -4,7 +4,7 @@ import {
 import React from 'react';
 
 import ImageContainer from './ImageContainer.tsx';
-import SectionContainer from './SectionContainer.tsx';
+import { SectionContainer } from './SectionContainer.tsx';
 
 const researchBannerStyles: SxProps = {
   backgroundColor: 'primary.main',

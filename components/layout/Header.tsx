@@ -64,7 +64,7 @@ export default function Header() {
     <>
       {/* hide until we figure out what the cta is supposed to be */}
       {/* <GivingTuesdayBanner /> */}
-      <AppBar className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
+      <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl" sx={{ p: 3 }}>
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
             <SkipLink color="primary" variant="contained" />
@@ -96,6 +96,7 @@ export default function Header() {
                   size="small"
                   className="calc-btn"
                   sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
+                  aria-label="Access our eligibility calculator"
                 >
                   Access Calculator
                 </Button>
@@ -105,7 +106,7 @@ export default function Header() {
                   size="small"
                   className="donate-btn"
                   sx={{
-                    whiteSpace: 'nowrap', bgcolor: '#72C850', py: 1, px: 4,
+                    whiteSpace: 'nowrap', bgcolor: 'success.main', py: 1, px: 4,
                   }}
                 >
                   Donate

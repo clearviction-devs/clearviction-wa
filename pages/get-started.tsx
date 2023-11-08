@@ -1,12 +1,12 @@
 import {
-  Button, ButtonGroup, Grid, SxProps,
-  Typography,
+  Button, ButtonGroup, Grid, SxProps, Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import useScroll from '../components/functional/CustomScroll.tsx';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
@@ -14,16 +14,17 @@ import FactCard from '../components/layout/FactCard.tsx';
 import GetStartedStep from '../components/layout/GetStartedStep.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import { SectionContainer, sectionContainerSxProps } from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started.ts';
 
-const sectionContainerSxProps: SxProps = {
-  my: 8, scrollMarginTop: 64, textAlign: 'left',
+const newSectionContainerSxProps: SxProps = {
+  ...sectionContainerSxProps, px: 0, textAlign: 'left',
 };
 
 export default function GetStartedPage() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+  const { handleLinkClick } = useScroll();
 
   externalLinks();
 
@@ -53,7 +54,8 @@ export default function GetStartedPage() {
             content.buttons.map((button) => (
               <Button
                 key={button.href}
-                href={button.href}
+                data-href={button.href}
+                onClick={handleLinkClick}
               >
                 {button.name}
               </Button>
@@ -69,7 +71,7 @@ export default function GetStartedPage() {
         >
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps,
+            ...newSectionContainerSxProps,
           }}
           >
             <Typography variant="h5">{content.steps[0].data[0]}</Typography>
@@ -86,7 +88,7 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps,
+            ...newSectionContainerSxProps,
           }}
           >
             <Typography variant="h3" sx={{ mb: 4 }}>{content.steps[0].data[1]}</Typography>
@@ -116,6 +118,7 @@ export default function GetStartedPage() {
           bodyText={content.steps[1].body}
           ctaText={content.steps[1].ctaText}
           ctaLink={content.steps[1].ctaLink}
+          ariaLabels={{ ctaButton: content.steps[1].ariaLabels?.ctaButton }}
         >
 
           <SectionContainer>
@@ -160,7 +163,7 @@ export default function GetStartedPage() {
         >
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps, my: 5,
+            ...newSectionContainerSxProps, my: 5,
           }}
           >
             <Typography variant="h3" sx={{ mb: 5 }}>{content.stepFourSectionNames[0]}</Typography>
@@ -186,7 +189,7 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps, my: 5,
+            ...newSectionContainerSxProps, my: 5,
           }}
           >
             <Typography variant="h3" sx={{ mb: 2 }}>{content.stepFourSectionNames[1]}</Typography>
@@ -205,7 +208,7 @@ export default function GetStartedPage() {
           </SectionContainer>
 
           <SectionContainer sx={{
-            ...sectionContainerSxProps, my: 5,
+            ...newSectionContainerSxProps, my: 5,
           }}
           >
             <Typography variant="h3" sx={{ mb: 2 }}>{content.stepFourSectionNames[2]}</Typography>

@@ -9,7 +9,7 @@ import React from 'react';
 
 import Theme from '../../styles/themes/theme.tsx';
 import ImageContainer from '../layout/ImageContainer.tsx';
-import SectionContainer from '../layout/SectionContainer.tsx';
+import { SectionContainer } from '../layout/SectionContainer.tsx';
 
 type Answers = {
     [key: string]: string;

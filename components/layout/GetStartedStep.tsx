@@ -4,13 +4,15 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import SectionContainer from './SectionContainer.tsx';
+import { AriaLabels } from '../../content/content.types.ts';
+import { SectionContainer } from './SectionContainer.tsx';
 
 interface GetStartedStepProps extends PaperProps {
   title?: string;
   bodyText?: string;
   ctaText?: string;
   ctaLink?: string;
+  ariaLabels?: AriaLabels;
 }
 
 export default function GetStartedStep({
@@ -19,6 +21,7 @@ export default function GetStartedStep({
   ctaText,
   ctaLink,
   children,
+  ariaLabels,
   ...props
 }: GetStartedStepProps) {
   return (
@@ -33,7 +36,7 @@ export default function GetStartedStep({
 
       {ctaText && ctaLink && (
         <Stack direction="row" justifyContent="center">
-          <Button href={ctaLink} variant="contained" sx={{ my: 3 }}>
+          <Button href={ctaLink} variant="contained" aria-label={ariaLabels?.ctaButton} sx={{ my: 3 }}>
             {ctaText}
           </Button>
         </Stack>

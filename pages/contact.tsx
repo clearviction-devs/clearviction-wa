@@ -1,12 +1,11 @@
 import {
   Box, Button, FormHelperText, MenuItem, TextField, Typography,
 } from '@mui/material';
-import MuiMarkdown from 'mui-markdown';
 import React, { useState } from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import { SectionContainer } from '../components/layout/SectionContainer.tsx';
 import content from '../content/contact.ts';
 
 export default function ContactPage() {
@@ -85,21 +84,24 @@ export default function ContactPage() {
         metaContent={content.meta.content}
       />
 
-      <SectionContainer sx={{ textAlign: 'left', mt: 5 }}>
-        <Typography variant="h1" sx={{ textAlign: 'left' }}>
+      <SectionContainer sx={{ px: 3, textAlign: 'left', mt: 5 }} maxWidth="md" id="contact-header">
+        <Typography variant="h1">
           {content.title}
         </Typography>
-        <MuiMarkdown>
+        <Typography variant="subtitle1">
           {content.subtitle}
-        </MuiMarkdown>
+        </Typography>
       </SectionContainer>
 
       <SectionContainer
         sx={{
+          px: 3,
           textAlign: 'center',
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'column', md: 'row' },
+          flexDirection: { xs: 'column', md: 'row' },
         }}
+        maxWidth="md"
+        id="contact-body"
       >
         <Box
           component="form"
@@ -108,7 +110,6 @@ export default function ContactPage() {
           action="https://formspree.io/f/xdorykgj"
           method="post"
           sx={{
-            mx: 'auto',
             my: 4,
             width: { xs: '85%', sm: '70%', md: '40%' },
             '& .MuiTextField-root': { m: 1 },

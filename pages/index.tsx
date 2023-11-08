@@ -6,6 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import useScroll from '../components/functional/CustomScroll.tsx';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
@@ -15,12 +16,13 @@ import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import ResearchBanner from '../components/layout/ResearchBanner.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import { SectionContainer } from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
 
 export default function Home() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+  const { handleLinkClick } = useScroll();
 
   externalLinks();
 
@@ -33,7 +35,7 @@ export default function Home() {
 
       <main>
 
-        <HeroBanner {...content.heroBanner} />
+        <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
 
         <SectionContainer>
           <ButtonGroup
@@ -42,7 +44,7 @@ export default function Home() {
             orientation={matchesXS ? 'vertical' : 'horizontal'}
           >
             {content.sectionNavs.map((nav) => (
-              <Button key={nav.href} href={nav.href}>
+              <Button key={nav.href} data-href={nav.href} onClick={handleLinkClick}>
                 {nav.label}
               </Button>
             ))}
@@ -51,7 +53,6 @@ export default function Home() {
 
         <SectionContainer id={content.ourMission.id}>
           <PaperSection>
-
             <Grid container>
               <Grid item xs={12}>
                 <Typography variant="h2" sx={{ textAlign: 'center' }}>
@@ -94,6 +95,7 @@ export default function Home() {
               subtitle={section.subtitle}
               ctaLink={section.ctaLink}
               ctaText={section.ctaText}
+              ariaLabels={{ ctaButton: section.ariaLabels?.ctaButton }}
             >
               <Grid container spacing={4}>
                 {section.items.map((item) => (
