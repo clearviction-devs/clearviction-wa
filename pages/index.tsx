@@ -91,7 +91,6 @@ export default function Home() {
         {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>
             <PaperSection
-              idSelector={section.id}
               title={section.title}
               subtitle={section.subtitle}
               ctaLink={section.ctaLink}

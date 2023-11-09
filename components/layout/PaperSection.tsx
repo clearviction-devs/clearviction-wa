@@ -6,10 +6,6 @@ import React from 'react';
 import { AriaLabels } from '../../content/content.types.ts';
 
 interface PaperSectionProps extends PaperProps {
-  /**
-   * String value to make element id's unique, add if PaperSection has title and/or subtitle props
-   */
-  idSelector?: string;
   title?: string;
   subtitle?: string;
   ctaText?: string;
@@ -24,16 +20,15 @@ export default function PaperSection({
   ctaLink,
   children,
   ariaLabels,
-  idSelector,
   ...props
 }: PaperSectionProps) {
   return (
     <Paper sx={{ textAlign: 'center', p: 4 }} {...props}>
-      <Typography variant="h2" sx={{ mb: 4 }} id={idSelector && `paper-title-${idSelector}`}>
+      <Typography variant="h2" sx={{ mb: 4 }}>
         {title}
       </Typography>
       {subtitle && (
-        <Typography variant="subtitle1" sx={{ mb: 4 }} id={idSelector && `paper-subtitle-${idSelector}`}>
+        <Typography variant="subtitle1" sx={{ mb: 4 }}>
           {subtitle}
         </Typography>
       )}
