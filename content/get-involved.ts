@@ -66,12 +66,12 @@ const getInvolvedContent: GetInvolvedContent = {
         details: 'Can commit to 4 hours a week for at least 6 months',
       },
       {
-        id: 'fact-1',
+        id: 'fact-2',
         icon: 'sync',
         details: 'Want to share your expertise to help us make a better product',
       },
       {
-        id: 'fact-2',
+        id: 'fact-3',
         icon: 'cloud',
         details: 'Are a self-motivated individual comfortable with remote work',
       },
