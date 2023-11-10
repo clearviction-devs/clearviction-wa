@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material';
-import Script from 'next/script';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
@@ -21,8 +20,6 @@ export default function DonatePage() {
         title={content.meta.title}
         metaContent={content.meta.content}
       />
-
-      <Script src="https://donorbox.org/widget.js" />
 
       <HeroBanner
         header={content.heroBanner.header}
