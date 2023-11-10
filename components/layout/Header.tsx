@@ -158,6 +158,7 @@ export default function Header() {
                   <Button
                     key={item.text}
                     href={item.href}
+                    aria-label={`${item.text.toLowerCase()}`}
                     variant="text"
                     color="neutral"
                     size="small"
