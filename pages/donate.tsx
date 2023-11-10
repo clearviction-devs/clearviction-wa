@@ -34,8 +34,6 @@ export default function DonatePage() {
         <PaperSection
           title={content.page.title}
           subtitle={content.page.subtitle}
-          ctaLink={content.page.ctaLink}
-          ctaText={content.page.ctaText}
         >
 
           <Grid container spacing={4}>
