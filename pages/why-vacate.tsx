@@ -35,8 +35,9 @@ export default function WhyVacatePage() {
         imgsrc={content.heroBanner.imgsrc}
       />
 
-      <SectionContainer>
+      <SectionContainer id="why-vacate-main">
         <ButtonGroup
+          id="main-button-group"
           variant="text"
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
@@ -49,7 +50,7 @@ export default function WhyVacatePage() {
         </ButtonGroup>
 
         {content.cards.map((card: any) => (
-          <SectionContainer id={card.sectionId} key={card.sectionId}>
+          <SectionContainer id={`section-${card.sectionId}`} key={card.sectionId}>
             <PaperSection
               title={card.title}
               subtitle={card.subtitle}
@@ -69,7 +70,7 @@ export default function WhyVacatePage() {
                 ))}
 
               </Grid>
-              <Typography variant="h3">{content.resourcesText}</Typography>
+              <Typography id="heading-resources" variant="h3">{content.resourcesText}</Typography>
               <Grid container spacing={2}>
 
                 {card.accordianItems.map((accordianItem: any) => (
