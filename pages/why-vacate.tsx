@@ -35,7 +35,7 @@ export default function WhyVacatePage() {
         imgsrc={content.heroBanner.imgsrc}
       />
 
-      <SectionContainer id="main-section">
+      <SectionContainer id="why-vacate-main">
         <ButtonGroup
           id="main-button-group"
           variant="text"
