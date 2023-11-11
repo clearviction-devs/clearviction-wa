@@ -32,6 +32,7 @@ export default function DonatePage() {
 
       <SectionContainer id={content.page.id}>
         <PaperSection
+          className="donation-details-section"
           title={content.page.title}
           subtitle={content.page.subtitle}
         >
@@ -40,6 +41,7 @@ export default function DonatePage() {
             {
             content.page.items.map((item) => (
               <GridItemCard
+                className={item.id}
                 key={item.id}
                 xs={12}
                 sm={6}
@@ -57,7 +59,7 @@ export default function DonatePage() {
         <PaperSection title="Donation FAQ">
 
           {content.donateFAQS.map((donate) => (
-            <Grid key={donate.id} item xs={12} sm={6} md={4}>
+            <Grid className={`faq-${donate.id}`} key={donate.id} item xs={12} sm={6} md={4}>
               <AccordionBuilder
                 id={donate.id}
                 summary={donate.summary}
