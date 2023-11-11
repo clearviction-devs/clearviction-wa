@@ -24,8 +24,6 @@ const donateContent: DonateContent = {
     id: 'donate',
     title: 'How will your donations help Clearviction\'s goals?',
     subtitle: 'Here\'s how your generosity can help us achieve our milestones and make it possible to connect our project with more and more people who need it:',
-    ctaLink: 'https://donorbox.org/clearviction',
-    ctaText: 'Visit our donorbox page',
     items: [
       {
         id: 'donate-item1',
