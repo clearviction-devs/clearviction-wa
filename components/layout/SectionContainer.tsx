@@ -5,7 +5,7 @@ export const sectionContainerSxProps: SxProps = {
   my: 8, px: 3, scrollMarginTop: 64,
 };
 
-export function SectionContainer({
+export default function SectionContainer({
   children,
   id,
   ...props

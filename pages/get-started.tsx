@@ -15,7 +15,7 @@ import FactCard from '../components/layout/FactCard.tsx';
 import GetStartedStep from '../components/layout/GetStartedStep.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import { SectionContainer, sectionContainerSxProps } from '../components/layout/SectionContainer.tsx';
+import SectionContainer, { sectionContainerSxProps } from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started.ts';
 
 const newSectionContainerSxProps: SxProps = {
