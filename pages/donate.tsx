@@ -35,12 +35,9 @@ export default function DonatePage() {
           className="donation-details-section"
           title={content.page.title}
           subtitle={content.page.subtitle}
-<<<<<<< HEAD
-=======
           ctaLink={content.page.ctaLink}
           ctaText={content.page.ctaText}
           sx={{ textAlign: 'left', p: 4 }}
->>>>>>> 0374501 (Make donate page left align correctly without affecting home page)
         >
 
           <Grid container spacing={4}>
