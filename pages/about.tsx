@@ -15,7 +15,7 @@ import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
-import { SectionContainer } from '../components/layout/SectionContainer.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/about.ts';
 
 export default function AboutPage() {

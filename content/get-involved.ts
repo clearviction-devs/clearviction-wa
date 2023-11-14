@@ -31,21 +31,21 @@ const getInvolvedContent: GetInvolvedContent = {
   },
   waysToParticipate: [
     {
-      id: 'w2p_1',
+      id: 'ways-to-participate-1',
       title: 'volunteer',
       body: 'Join our dedicated volunteer team and help us bring the resources to those who need them.',
       imgsrc: '../illustrations/diversity-2.svg',
       href: '#volunteer',
     },
     {
-      id: 'w2p_2',
+      id: 'ways-to-participate-2',
       title: 'donate',
       body: 'Your gift makes a difference. Make it possible to continue helping our community.',
       imgsrc: '../illustrations/money-jar.svg',
       href: '/donate',
     },
     {
-      id: 'w2p_3',
+      id: 'ways-to-participate-3',
       title: 'Partner with us',
       body: 'Create change by sharing our project with others and reaching out to your peers.',
       imgsrc: '../illustrations/horn.svg',
@@ -61,17 +61,17 @@ const getInvolvedContent: GetInvolvedContent = {
     ],
     facts: [
       {
-        id: 'fact0',
+        id: 'fact-1',
         icon: 'alarm',
         details: 'Can commit to 4 hours a week for at least 6 months',
       },
       {
-        id: 'fact1',
+        id: 'fact-2',
         icon: 'sync',
         details: 'Want to share your expertise to help us make a better product',
       },
       {
-        id: 'fact2',
+        id: 'fact-3',
         icon: 'cloud',
         details: 'Are a self-motivated individual comfortable with remote work',
       },

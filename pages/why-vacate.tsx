@@ -12,7 +12,7 @@ import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import GridItemCard from '../components/layout/GridItem.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
-import { SectionContainer } from '../components/layout/SectionContainer.tsx';
+import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/why-vacate.ts';
 
 export default function WhyVacatePage() {
@@ -35,8 +35,9 @@ export default function WhyVacatePage() {
         imgsrc={content.heroBanner.imgsrc}
       />
 
-      <SectionContainer>
+      <SectionContainer id="why-vacate-main">
         <ButtonGroup
+          id="main-button-group"
           variant="text"
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
@@ -49,7 +50,7 @@ export default function WhyVacatePage() {
         </ButtonGroup>
 
         {content.cards.map((card: any) => (
-          <SectionContainer id={card.sectionId} key={card.sectionId}>
+          <SectionContainer id={`section-${card.sectionId}`} key={card.sectionId}>
             <PaperSection
               title={card.title}
               subtitle={card.subtitle}
@@ -70,7 +71,7 @@ export default function WhyVacatePage() {
                 ))}
 
               </Grid>
-              <Typography variant="h3">{content.resourcesText}</Typography>
+              <Typography id="heading-resources" variant="h3">{content.resourcesText}</Typography>
               <Grid container spacing={2}>
 
                 {card.accordianItems.map((accordianItem: any) => (
