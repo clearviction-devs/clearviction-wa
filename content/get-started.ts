@@ -31,11 +31,11 @@ const getStartedContent: GetStartedContent = {
   },
   buttons: [
     {
-      name: 'Step 1: Gather the Required Documents',
+      name: 'Step 1: Documents',
       href: '#step-1',
     },
     {
-      name: 'Step 2: Check Your Eligibility',
+      name: 'Step 2: Eligibility',
       href: '#step-2',
     },
     {
