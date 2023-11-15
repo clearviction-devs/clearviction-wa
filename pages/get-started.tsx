@@ -146,7 +146,7 @@ export default function GetStartedPage() {
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
               <FactCard
-                className="fact-card"
+                className={`fact-card-${fact.id}`}
                 key={fact.id}
                 icon="none"
                 details={fact.details}
