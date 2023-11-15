@@ -54,7 +54,7 @@ export default function WhyVacatePage() {
             <PaperSection
               title={card.title}
               subtitle={card.subtitle}
-              sx={{ textAlign: 'center', p: 4 }}
+              sx={{ textAlign: 'left', p: 4 }}
             >
               <Grid container spacing={4}>
 
@@ -66,6 +66,7 @@ export default function WhyVacatePage() {
                     title={cardItem.title}
                     body={cardItem.body}
                     imgsrc={cardItem.imgRef}
+                    textAlign="center"
                   />
                 ))}
 

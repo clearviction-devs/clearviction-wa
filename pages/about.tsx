@@ -77,17 +77,23 @@ export default function AboutPage() {
         </ButtonGroup>
       </SectionContainer>
 
-      <SectionContainer sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false} id="our-mission-header">
+      <SectionContainer
+        sx={{
+          margin: 'auto', mb: 4, px: 3, maxWidth: '65rem',
+        }}
+        maxWidth={false}
+        id="our-mission-header"
+      >
         <Typography variant="h3">{content.ourMission.header}</Typography>
       </SectionContainer>
 
       <SectionContainer
         id="our-story"
-        sx={{ margin: 'auto', maxWidth: '65rem' }}
+        sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }}
         maxWidth={false}
       >
 
-        <Typography variant="h2" sx={{ mt: 4, textAlign: { xs: 'center', sm: 'left' } }}>{content.ourStory.header}</Typography>
+        <Typography variant="h2" sx={{ mt: 4, textAlign: { xs: 'left' } }}>{content.ourStory.header}</Typography>
         <Typography>{content.ourStory.body}</Typography>
         <Box sx={{ mt: 3 }}>
           {' '}
@@ -129,7 +135,7 @@ export default function AboutPage() {
 
       </SectionContainer>
 
-      <SectionContainer sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false} id="join-us">
+      <SectionContainer sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false} id="join-us">
         <Box>
           <Grid container>
             <Grid item xs={12}>
@@ -160,7 +166,13 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      <SectionContainer id="our-partners" sx={{ margin: 'auto', mb: 4, maxWidth: '65rem' }} maxWidth={false}>
+      <SectionContainer
+        id="our-partners"
+        sx={{
+          margin: 'auto', mb: 4, px: 3, maxWidth: '65rem',
+        }}
+        maxWidth={false}
+      >
         <Typography variant="h2" sx={{ my: '3rem' }}>{content.ourPartners.header}</Typography>
         <PaperSection sx={{ pt: 0, pb: 1 }}>
           <Grid container>
@@ -221,7 +233,7 @@ export default function AboutPage() {
       </SectionContainer>
 
       {content.ourTeam.map((item) => (
-        <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', maxWidth: '65rem' }} maxWidth={false}>
+        <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
           <Typography variant="h2" sx={{ mt: '3rem' }}>{item.title}</Typography>
           <Grid container>
             <iframe

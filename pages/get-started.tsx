@@ -1,5 +1,5 @@
 import {
-  Button, ButtonGroup, Grid, Typography,
+  Button, ButtonGroup, Grid, SxProps, Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -14,8 +14,12 @@ import FactCard from '../components/layout/FactCard.tsx';
 import GetStartedStep from '../components/layout/GetStartedStep.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import SectionContainer, { sectionContainerSxProps } from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-started.ts';
+
+const newSectionContainerSxProps: SxProps = {
+  ...sectionContainerSxProps, px: 0, textAlign: 'left',
+};
 
 export default function GetStartedPage() {
   const theme = useTheme();
@@ -42,7 +46,6 @@ export default function GetStartedPage() {
 
       <SectionContainer>
         <ButtonGroup
-          className="get-started-buttons"
           variant="text"
           fullWidth
           orientation={matchesXS ? 'vertical' : 'horizontal'}
@@ -67,8 +70,11 @@ export default function GetStartedPage() {
           bodyText={content.steps[0].body}
         >
 
-          <SectionContainer>
-            <MuiMarkdown>{content.steps[0].data[0]}</MuiMarkdown>
+          <SectionContainer sx={{
+            ...newSectionContainerSxProps,
+          }}
+          >
+            <Typography variant="h5">{content.steps[0].data[0]}</Typography>
             <Grid container spacing={8} sx={{ my: 1 }}>
               {content.needToKnowFacts.map((fact) => (
                 <FactCard
@@ -81,8 +87,11 @@ export default function GetStartedPage() {
             </Grid>
           </SectionContainer>
 
-          <SectionContainer>
-            <MuiMarkdown>{content.steps[0].data[1]}</MuiMarkdown>
+          <SectionContainer sx={{
+            ...newSectionContainerSxProps,
+          }}
+          >
+            <Typography variant="h3" sx={{ mb: 4 }}>{content.steps[0].data[1]}</Typography>
             <MuiMarkdown>
               {content.steps[0].data[2]}
             </MuiMarkdown>
@@ -133,9 +142,7 @@ export default function GetStartedPage() {
           title={content.steps[2].title}
           bodyText={content.steps[2].body}
         >
-          <MuiMarkdown>
-            {content.steps[2].data[0]}
-          </MuiMarkdown>
+          <Typography variant="h5">{content.steps[2].data[0]}</Typography>
           <Grid container spacing={8} sx={{ my: 1 }}>
             {content.rejectionReasons.map((fact) => (
               <FactCard
@@ -155,8 +162,11 @@ export default function GetStartedPage() {
           bodyText={content.steps[3].body}
         >
 
-          <SectionContainer>
-            <MuiMarkdown>{content.stepFourSectionNames[0]}</MuiMarkdown>
+          <SectionContainer sx={{
+            ...newSectionContainerSxProps, my: 5,
+          }}
+          >
+            <Typography variant="h3" sx={{ mb: 5 }}>{content.stepFourSectionNames[0]}</Typography>
             <MuiMarkdown>
               {content.steps[3].data[0]}
             </MuiMarkdown>
@@ -178,8 +188,11 @@ export default function GetStartedPage() {
             </Grid>
           </SectionContainer>
 
-          <SectionContainer>
-            <MuiMarkdown>{content.stepFourSectionNames[1]}</MuiMarkdown>
+          <SectionContainer sx={{
+            ...newSectionContainerSxProps, my: 5,
+          }}
+          >
+            <Typography variant="h3" sx={{ mb: 2 }}>{content.stepFourSectionNames[1]}</Typography>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.financialAidForms.map((financialForm) => (
                 <Grid key={financialForm.id} item xs={12} sm={6} md={4}>
@@ -194,8 +207,11 @@ export default function GetStartedPage() {
             </Grid>
           </SectionContainer>
 
-          <SectionContainer>
-            <MuiMarkdown>{content.stepFourSectionNames[2]}</MuiMarkdown>
+          <SectionContainer sx={{
+            ...newSectionContainerSxProps, my: 5,
+          }}
+          >
+            <Typography variant="h3" sx={{ mb: 2 }}>{content.stepFourSectionNames[2]}</Typography>
             <Grid container spacing={2} sx={{ my: 1 }}>
               {content.eligibilityForms.map((eligibilityForm) => (
                 <Grid key={eligibilityForm.id} item xs={12} sm={6} md={4}>

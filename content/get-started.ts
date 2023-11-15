@@ -26,7 +26,7 @@ const getStartedContent: GetStartedContent = {
     header: 'Get started on the conviction vacation process',
     subheading: 'Vacate your conviction in the state of Washington by following these 4 steps!',
     imgsrc: '/illustrations/chart.svg',
-    ctaLink: '#step-1',
+    ctaLink: '#step-1-documents',
     ctaText: 'Read More',
   },
   buttons: [
@@ -51,7 +51,7 @@ const getStartedContent: GetStartedContent = {
     {
       title: 'Step 1: Gather the Required Documents',
       body: 'First let\'s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.',
-      data: ['**You\'ll need to know:**', '###CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
+      data: ['You\'ll need to know:', 'CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
     },
     {
       title: 'Step 2: Check Your Eligibility',
@@ -64,7 +64,7 @@ const getStartedContent: GetStartedContent = {
     {
       title: 'Step 3: File with Court',
       body: 'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>',
-      data: ['**Common reasons requests to vacate may be denied:**'],
+      data: ['Common reasons requests to vacate may be denied:'],
     },
     {
       title: 'Step 4: Court Hearing',
@@ -72,7 +72,7 @@ const getStartedContent: GetStartedContent = {
       data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
     },
   ],
-  stepFourSectionNames: ['###Legal Aid', '###Financial Aid', '###Eligibility-Related Forms'],
+  stepFourSectionNames: ['Legal Aid', 'Financial Aid', 'Eligibility-Related Forms'],
   needToKnowFacts: [
     {
       id: 'n2k1',
