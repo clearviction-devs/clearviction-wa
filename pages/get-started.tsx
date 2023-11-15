@@ -64,7 +64,7 @@ export default function GetStartedPage() {
         </ButtonGroup>
       </SectionContainer>
 
-      <SectionContainer id="step-1">
+      <SectionContainer id="step-1-documents">
         <GetStartedStep
           title={content.steps[0].title}
           bodyText={content.steps[0].body}
@@ -112,7 +112,7 @@ export default function GetStartedPage() {
         </GetStartedStep>
       </SectionContainer>
 
-      <SectionContainer id="step-2">
+      <SectionContainer id="step-2-eligibility">
         <GetStartedStep
           title={content.steps[1].title}
           bodyText={content.steps[1].body}
@@ -137,7 +137,7 @@ export default function GetStartedPage() {
         </GetStartedStep>
       </SectionContainer>
 
-      <SectionContainer id="step-3">
+      <SectionContainer id="step-3-file-with-court">
         <GetStartedStep
           title={content.steps[2].title}
           bodyText={content.steps[2].body}
@@ -156,7 +156,7 @@ export default function GetStartedPage() {
         </GetStartedStep>
       </SectionContainer>
 
-      <SectionContainer id="step-4">
+      <SectionContainer id="step-4-court-hearing">
         <GetStartedStep
           title={content.steps[3].title}
           bodyText={content.steps[3].body}
