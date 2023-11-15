@@ -24,15 +24,15 @@ const whyVacateContent: WhyVacateContent = {
   buttons: [
     {
       name: 'Employment',
-      href: '#employment',
+      href: '#section-employment',
     },
     {
       name: 'Housing',
-      href: '#housing',
+      href: '#section-housing',
     },
     {
       name: 'Education',
-      href: '#education',
+      href: '#section-education',
     },
   ],
   cards: [
