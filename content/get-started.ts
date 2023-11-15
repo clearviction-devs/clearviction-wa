@@ -49,12 +49,12 @@ const getStartedContent: GetStartedContent = {
   ],
   steps: [
     {
-      title: 'Step 1: Documents',
+      title: 'Step 1: Gather the Required Documents',
       body: 'First let\'s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.',
       data: ['**You\'ll need to know:**', '###CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
     },
     {
-      title: 'Step 2: Eligibility',
+      title: 'Step 2: Check Your Eligibility',
       body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.',
       ctaLink: '/calculator/head-initial-1-cont',
       ctaText: 'Access Calculator',
