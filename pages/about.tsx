@@ -91,7 +91,6 @@ export default function AboutPage() {
         id="our-story"
         sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }}
         maxWidth={false}
-
       >
 
         <Typography variant="h2" sx={{ mt: 4, textAlign: { xs: 'left' } }}>{content.ourStory.header}</Typography>
