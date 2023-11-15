@@ -24,20 +24,20 @@ const whyVacateContent: WhyVacateContent = {
   buttons: [
     {
       name: 'Employment',
-      href: '#employment',
+      href: '#section-employment',
     },
     {
       name: 'Housing',
-      href: '#housing',
+      href: '#section-housing',
     },
     {
       name: 'Education',
-      href: '#education',
+      href: '#section-education',
     },
   ],
   cards: [
     {
-      title: 'Employment',
+      title: 'Convictions and Job Barriers',
       sectionId: 'employment',
       subtitle:
         'A conviction does not prevent you from having a job, but roadblocks can pop up depending on the job or the employer. It is important to not lose hope while facing challenges such as: ',
@@ -77,7 +77,7 @@ const whyVacateContent: WhyVacateContent = {
       ],
     },
     {
-      title: 'Housing',
+      title: 'Convictions and Housing Challenges',
       sectionId: 'housing',
       subtitle:
         'A background check is an obstacle for people with a conviction and it can prevent access to certain opportunities. Here are the main challenges background checks present to those seeking housing:',
@@ -121,7 +121,7 @@ const whyVacateContent: WhyVacateContent = {
       ],
     },
     {
-      title: 'Education',
+      title: 'Convictions and Education Barriers',
       sectionId: 'education',
       subtitle:
         'With a conviction on your record, you might face some barriers when it comes to getting opportunities where a background check is performed. Here are the main educational challenges faced by those with convictions:',
