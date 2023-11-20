@@ -91,15 +91,13 @@ function Footer() {
         className="footer-main"
       >
         <FooterSection title="Welcome!" sx={{ display: { xs: 'none', md: 'block' } }}>
-          <Box className="welcome-details">
+          <Box className="welcome-details" maxWidth="540px">
             <Typography className="our-mission" variant="caption" paragraph>
               {footerContent.mission}
             </Typography>
             <FullAddress paragraph />
           </Box>
         </FooterSection>
-
-        <Divider />
 
         <FooterSection title="Explore">
           <Grid
@@ -145,10 +143,10 @@ function Footer() {
           </Grid>
         </FooterSection>
 
-        <Divider />
-
         <Box sx={{ display: { md: 'none', xs: 'block' } }}>
-          <Divider sx={{ borderBottom: '1px solid currentColor' }} />
+          <Box sx={{ py: 2 }}>
+            <Divider sx={{ borderBottom: '1px solid currentColor' }} />
+          </Box>
           <FullAddress />
         </Box>
       </Container>
