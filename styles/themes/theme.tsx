@@ -175,6 +175,11 @@ theme.components = {
     defaultProps: {
       component: LinkBehavior,
     } as LinkProps,
+    styleOverrides: {
+      root: {
+        color: '#007CFF',
+      },
+    },
   },
   MuiTabs: {
     styleOverrides: {
