@@ -5,7 +5,6 @@ import {
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
-// import Link from 'next/link';
 import React from 'react';
 
 import useScroll from '../components/functional/CustomScroll.tsx';
@@ -22,6 +21,7 @@ export default function AboutPage() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
   const { handleLinkClick } = useScroll();
+  const partner = content.ourPartners[0];
 
   externalLinks();
 
@@ -166,92 +166,24 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      {/* <SectionContainer
-        id="our-partners"
-        sx={{
-          margin: 'auto', mb: 4, px: 3, maxWidth: '65rem',
-        }}
-        maxWidth={false}
-      >
-        <Typography variant="h2" sx={{ my: '3rem' }}>{content.ourPartners.header}</Typography>
-        <PaperSection sx={{ pt: 0, pb: 1 }}>
-          <Grid container>
-            <Grid item xs={12}>
-              <Box display="flex" justifyContent="center" sx={{ pt: 4 }}>
-                {content.ourPartners.ctaLink && (
-                  <Link href={content.ourPartners.ctaLink}>
-                    <ImageContainer
-                      alt=""
-                      src={content.ourPartners.imgsrc as string}
-                      width={442}
-                      height={248}
-                      style={{
-                        height: '124px',
-                        width: '221px',
-                        objectFit: 'contain',
-                      }}
-                    />
-                  </Link>
-                )}
-              </Box>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sx={{
-                display: 'flex', flexDirection: 'column', pt: '0.5rem',
-              }}
-            >
-              {content.ourPartners.ctaLink && (
-                <Typography
-                  sx={{
-                    color: 'primary.dark',
-                    textAlign: 'center',
-                    my: 2,
-                  }}
-                  variant="subtitle1"
-                >
-                  <Link href={content.ourPartners.ctaLink} style={{ textDecoration: 'none' }}>
-                    {content.ourPartners.body}
-                  </Link>
-                </Typography>
-              )}
-              <Typography
-                sx={{
-                  textAlign: 'center',
-                  mt: 1,
-                  mb: 3,
-                  mx: 2,
-                }}
-                variant="body2"
-              >
-                {content.ourPartners.subheading2}
-              </Typography>
-            </Grid>
-          </Grid>
-        </PaperSection>
-      </SectionContainer> */}
-
-      {content.ourPartners.map((item) => (
-        <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
-          <Typography variant="h2" sx={{ mt: '3rem' }}>{item.title}</Typography>
-          <Grid container>
-            <iframe
-              id={item.id}
-              title={item.title}
-              src={item.src}
-              width="100%"
-              height={item.height}
-              style={{
-                background: 'transparent',
-                border: '1px solid #ccc',
-                borderRadius: '0.5rem',
-                marginBottom: '2rem',
-              }}
-            />
-          </Grid>
-        </SectionContainer>
-      ))}
+      <SectionContainer id={partner.id} key={partner.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
+        <Typography variant="h2" sx={{ mt: '3rem' }}>{partner.title}</Typography>
+        <Grid container>
+          <iframe
+            id={partner.id}
+            title={partner.title}
+            src={partner.src}
+            width="100%"
+            height={partner.height}
+            style={{
+              background: 'transparent',
+              border: '1px solid #ccc',
+              borderRadius: '0.5rem',
+              marginBottom: '2rem',
+            }}
+          />
+        </Grid>
+      </SectionContainer>
 
       {content.ourTeam.map((item) => (
         <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
