@@ -37,7 +37,7 @@ jobs:
             echo "$issues_content" >> pr_comment.txt
             COMMENT_BODY=$(cat pr_comment.txt)
       
-            # Get the PR number
+            # Get the PR number for comment
             PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
       
             # Debug: Print PR_NUMBER
