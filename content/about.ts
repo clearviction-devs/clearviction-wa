@@ -89,13 +89,6 @@ const aboutContent: AboutContent = {
     body: 'Interested in helping make a difference? Team up with us to effect more positive change than any of us can individually.',
     imgsrc: '/illustrations/checklist1.svg',
   },
-  // ourPartners: {
-  //   header: 'Our Partners',
-  //   body: 'Tacomaprobono',
-  //   subheading2: 'Free Civil Legal Aid for Pierce County',
-  //   imgsrc: '/tacomaprobono-logo.png',
-  //   ctaLink: 'https://tacomaprobono.org',
-  // },
   ourPartners: [
     {
       title: 'Our Partners',
