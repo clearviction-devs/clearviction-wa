@@ -5,7 +5,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
-import Link from 'next/link';
+// import Link from 'next/link';
 import React from 'react';
 
 import useScroll from '../components/functional/CustomScroll.tsx';
@@ -166,7 +166,7 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      <SectionContainer
+      {/* <SectionContainer
         id="our-partners"
         sx={{
           margin: 'auto', mb: 4, px: 3, maxWidth: '65rem',
@@ -230,7 +230,28 @@ export default function AboutPage() {
             </Grid>
           </Grid>
         </PaperSection>
-      </SectionContainer>
+      </SectionContainer> */}
+
+      {content.ourPartners.map((item) => (
+        <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
+          <Typography variant="h2" sx={{ mt: '3rem' }}>{item.title}</Typography>
+          <Grid container>
+            <iframe
+              id={item.id}
+              title={item.title}
+              src={item.src}
+              width="100%"
+              height={item.height}
+              style={{
+                background: 'transparent',
+                border: '1px solid #ccc',
+                borderRadius: '0.5rem',
+                marginBottom: '2rem',
+              }}
+            />
+          </Grid>
+        </SectionContainer>
+      ))}
 
       {content.ourTeam.map((item) => (
         <SectionContainer id={item.id} key={item.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
