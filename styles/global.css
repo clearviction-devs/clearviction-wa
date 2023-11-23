@@ -7,3 +7,7 @@
 main {
   height: 100%;
 }
+
+.custom-calc-link-style {
+  color: #1044FE !important;
+}

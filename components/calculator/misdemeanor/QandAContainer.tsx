@@ -1,11 +1,11 @@
 import {
   Box, Button, Container, Stack,
 } from '@mui/material';
-import { PortableText } from '@portabletext/react';
+import BlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 
 import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
-import { portableTextComponent } from '../../../utils/portableTextComponents.tsx';
+import portableTextComponent from '../../../utils/portableTextComponents.tsx';
 
 export default function QandAContainer({
   page, calculatorConfig, addToResponses, setOpenNotSurePopup,
@@ -15,10 +15,7 @@ export default function QandAContainer({
   return (
     <>
       <Box mb={4}>
-        <PortableText
-          value={page.content}
-          components={portableTextComponent}
-        />
+        {page.content && <BlockContent blocks={page.content} serializers={portableTextComponent} />}
       </Box>
 
       <Container id="choices-container" maxWidth="xs" sx={{ mb: 4 }}>
