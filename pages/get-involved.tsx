@@ -130,7 +130,7 @@ function Partner() {
   );
 }
 
-function GetInolvedFAQ() {
+function GetInvolvedFAQ() {
   return (
     <SectionContainer id="get-involved-faq" maxWidth="md">
       <Typography variant="h2">FAQ</Typography>
@@ -212,7 +212,7 @@ export default function GetInvolvedPage() {
 
       </Box>
       <Volunteer />
-      <GetInolvedFAQ />
+      <GetInvolvedFAQ />
       <Partner />
     </>
   );

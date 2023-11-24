@@ -123,7 +123,7 @@ const getInvolvedContent: GetInvolvedContent = {
     {
       id: 'get-involved-faq7',
       summary: 'Who would I be reporting to or working under?',
-      details: 'As a volunteer, you\'ll be a part of a team. You\'ll report directly to the team leader/and or the individual who assigns tasks. We believe in a collaborative environment where everyone has a voice.',
+      details: 'As a volunteer, you\'ll be a part of a team. You\'ll report directly to the team leader and/or the individual who assigns tasks. We believe in a collaborative environment where everyone has a voice.',
     },
   ],
   partnerPage: {
