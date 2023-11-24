@@ -13,6 +13,7 @@ import React from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
+import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
