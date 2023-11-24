@@ -129,6 +129,19 @@ function Partner() {
   );
 }
 
+function GetInolvedFAQ() {
+  return (
+    <SectionContainer id="get-involved-faq" maxWidth="md">
+      <Typography variant="h2">FAQ</Typography>
+      <PaperSection>
+        {content.faqs.map((faq) => (
+          <AccordionBuilder key={faq.id} {...faq} />
+        ))}
+      </PaperSection>
+    </SectionContainer>
+  );
+}
+
 export default function GetInvolvedPage() {
   return (
     <>
@@ -198,6 +211,7 @@ export default function GetInvolvedPage() {
 
       </Box>
       <Volunteer />
+      <GetInolvedFAQ />
       <Partner />
     </>
   );
