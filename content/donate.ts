@@ -7,6 +7,10 @@ interface DonateContent {
   heroBanner: Header;
   page: GridSection;
   donateFAQS: FAQ[];
+  donationShare: {
+    header: string[];
+    text: string[];
+  };
 }
 
 const donateContent: DonateContent = {
@@ -84,6 +88,17 @@ const donateContent: DonateContent = {
         'You can send us an email at [contact@clearviction.org](mailto:contact@clearviction.org) and we will get back to you within 24 hours.',
     },
   ],
+  donationShare: {
+    header: [
+      'Your voice is a powerful tool.',
+      'Share our fundraiser.',
+    ],
+    text: [
+      'Your donation directly supports our operations and outreach, you can donate directly to Clearviction and get the tax benefit yourself!',
+      'If you are unable to financially contribute, that is totally ok! Consider donating a moment of your time and follow us or share our content on social media.',
+    ],
+
+  },
 };
 
 export default donateContent;

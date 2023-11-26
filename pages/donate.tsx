@@ -1,8 +1,9 @@
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import ShareButtons from '../components/helper/ShareButtons.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import GivingTuesdayHeroBanner from '../components/layout/GivingTuesdayHeroBanner.tsx';
 import GridItemCard from '../components/layout/GridItem.tsx';
@@ -49,6 +50,34 @@ export default function DonatePage() {
               />
             ))
           }
+          </Grid>
+
+        </PaperSection>
+      </SectionContainer>
+
+      <SectionContainer>
+        <PaperSection sx={{ margin: 'auto', px: 4, py: 2 }}>
+
+          <Grid container>
+            <Grid item xs={12}>
+              <Typography sx={{ scrollMarginTop: '4em' }} variant="h2">
+                {content.donationShare.header[0]}
+              </Typography>
+              <Typography variant="h2">
+                {content.donationShare.header[1]}
+              </Typography>
+              <Typography sx={{ my: 4 }} variant="body1">
+                {content.donationShare.text[0]}
+              </Typography>
+              <Typography sx={{ my: 4 }} variant="body1">
+                {content.donationShare.text[1]}
+              </Typography>
+              <ShareButtons
+                popup={false}
+                setShareLinkCopied={() => {}}
+                shareLinkCopied={false}
+              />
+            </Grid>
           </Grid>
 
         </PaperSection>
