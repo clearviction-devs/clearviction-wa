@@ -20,8 +20,8 @@ interface DonateContent {
 
 const donateContent: DonateContent = {
   meta: {
-    title: 'Support Clearviction | Reduce the odds of Recidivism',
-    content: 'Support Clearviction—a 501(c)3 nonprofit—in its mission to transform lives and break down barriers for those with criminal records in Washington State.',
+    title: 'Support Clearviction | This Giving Tuesday support Clearviction and help us reduce recidivism',
+    content: 'Support Clearviction and help change lives! Washington State laws offer opportunities to clear your record. Our free tools can help you qualify.',
   },
   heroBanner: {
     header: 'Giving Tuesday',
