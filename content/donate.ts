@@ -1,5 +1,5 @@
 import {
-  FAQ, GridSection, Header, MetaPageHead,
+  Button, FAQ, GridSection, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface DonateContent {
@@ -10,6 +10,11 @@ interface DonateContent {
   donationShare: {
     header: string[];
     text: string[];
+  };
+  donateJoinTeam: {
+    header: string[];
+    text: string[];
+    buttons: Button[];
   };
 }
 
@@ -97,7 +102,21 @@ const donateContent: DonateContent = {
       'Your donation directly supports our operations and outreach, you can donate directly to Clearviction and get the tax benefit yourself!',
       'If you are unable to financially contribute, that is totally ok! Consider donating a moment of your time and follow us or share our content on social media.',
     ],
-
+  },
+  donateJoinTeam: {
+    header: [
+      'Help us break down barriers by joining our team.',
+    ],
+    text: [
+      'Still interested in learning more? Consider joining our team! We’re always looking for people to share their expertise or their criminal justice system stories.',
+      'When you share your expertise with us, we get closer to reducing barriers and timelines for individuals looking to vacate their convictions in Washington State.',
+    ],
+    buttons: [
+      {
+        name: 'Learn More',
+        href: '/about',
+      },
+    ],
   },
 };
 

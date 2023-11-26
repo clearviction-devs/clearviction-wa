@@ -1,4 +1,6 @@
-import { Grid, Typography } from '@mui/material';
+import {
+  Button, Container, Grid, Typography,
+} from '@mui/material';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
@@ -98,6 +100,26 @@ export default function DonatePage() {
           ))}
 
         </PaperSection>
+      </SectionContainer>
+
+      <SectionContainer id="partner-with-us" maxWidth="md">
+
+        <Typography sx={{ my: 8 }} variant="h2">
+          {content.donateJoinTeam.header}
+        </Typography>
+        <Typography sx={{ my: 2 }} variant="body1">{content.donateJoinTeam.text[0]}</Typography>
+        <Typography variant="body1">{content.donateJoinTeam.text[1]}</Typography>
+        <Container sx={{ py: 4 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ px: 8 }}
+            href={content.donateJoinTeam.buttons[0].href}
+          >
+            {content.donateJoinTeam.buttons[0].name}
+          </Button>
+        </Container>
+
       </SectionContainer>
     </>
   );
