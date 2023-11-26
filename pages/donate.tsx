@@ -102,9 +102,9 @@ export default function DonatePage() {
         </PaperSection>
       </SectionContainer>
 
-      <SectionContainer id="partner-with-us" maxWidth="md">
+      <SectionContainer id="donate-join-team">
 
-        <Typography sx={{ my: 8 }} variant="h2">
+        <Typography sx={{ my: 5, color: 'primary.dark' }} variant="h2">
           {content.donateJoinTeam.header}
         </Typography>
         <Typography sx={{ my: 2 }} variant="body1">{content.donateJoinTeam.text[0]}</Typography>
