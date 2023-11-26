@@ -2,11 +2,10 @@ import { Grid } from '@mui/material';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
-import DonationForm from '../components/helper/DonationForm.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import GivingTuesdayHeroBanner from '../components/layout/GivingTuesdayHeroBanner.tsx';
 import GridItemCard from '../components/layout/GridItem.tsx';
-import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/donate.ts';
@@ -21,14 +20,11 @@ export default function DonatePage() {
         metaContent={content.meta.content}
       />
 
-      <HeroBanner
+      <GivingTuesdayHeroBanner
         header={content.heroBanner.header}
         subheading={content.heroBanner.subheading}
-        ctaLink={content.heroBanner.ctaLink}
-        ctaText={content.heroBanner.ctaText}
-      >
-        <DonationForm />
-      </HeroBanner>
+        imgsrc={content.heroBanner.imgsrc}
+      />
 
       <SectionContainer id={content.page.id}>
         <PaperSection

@@ -15,10 +15,9 @@ const donateContent: DonateContent = {
     content: 'Support Clearviction—a 501(c)3 nonprofit—in its mission to transform lives and break down barriers for those with criminal records in Washington State.',
   },
   heroBanner: {
-    header: 'Your generous donation directly aids those who are limited by their convictions in Washington State',
-    subheading: 'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.\n\n<span style="fontSize: 14px">Clearviction is a registered 501(c)3 nonprofit organization, EIN#88-3187952. All donations are tax deductible in full or in part.</span>',
-    ctaLink: '/about',
-    ctaText: 'Learn more about us',
+    header: 'Giving Tuesday',
+    subheading: 'Clearviction is an open-sourced project whose goal is to help people easily navigate the legal system in Washington State.',
+    imgsrc: '/illustrations/givingtuesday.svg',
   },
   page: {
     id: 'donate',
