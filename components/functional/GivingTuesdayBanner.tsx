@@ -17,12 +17,6 @@ function GivingTuesdayBanner() {
     return null;
   }
 
-  const isTuesday = new Date().getDay() === 2;
-
-  if (!isTuesday) {
-    return null;
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -33,6 +27,8 @@ function GivingTuesdayBanner() {
           bgcolor: '#72C850',
           p: 1,
           color: 'white',
+          position: 'absolute',
+          width: '100%',
         }}
       >
         <Box sx={{ flex: '1', textAlign: 'center' }}>
