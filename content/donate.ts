@@ -1,5 +1,5 @@
 import {
-  FAQ, GridSection, Header, MetaPageHead,
+  Button, FAQ, GridSection, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface DonateContent {
@@ -7,18 +7,26 @@ interface DonateContent {
   heroBanner: Header;
   page: GridSection;
   donateFAQS: FAQ[];
+  donationShare: {
+    header: string[];
+    text: string[];
+  };
+  donateJoinTeam: {
+    header: string[];
+    text: string[];
+    buttons: Button[];
+  };
 }
 
 const donateContent: DonateContent = {
   meta: {
-    title: 'Support Clearviction | Reduce the odds of Recidivism',
-    content: 'Support Clearviction—a 501(c)3 nonprofit—in its mission to transform lives and break down barriers for those with criminal records in Washington State.',
+    title: 'Support Clearviction | This Giving Tuesday support Clearviction and help us reduce recidivism',
+    content: 'Support Clearviction and help change lives! Washington State laws offer opportunities to clear your record. Our free tools can help you qualify.',
   },
   heroBanner: {
-    header: 'Your generous donation directly aids those who are limited by their convictions in Washington State',
-    subheading: 'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.\n\n<span style="fontSize: 14px">Clearviction is a registered 501(c)3 nonprofit organization, EIN#88-3187952. All donations are tax deductible in full or in part.</span>',
-    ctaLink: '/about',
-    ctaText: 'Learn more about us',
+    header: 'Giving Tuesday',
+    subheading: 'Clearviction is an open-sourced project whose goal is to help people easily navigate the legal system in Washington State.',
+    imgsrc: '/illustrations/givingtuesday.svg',
   },
   page: {
     id: 'donate',
@@ -64,21 +72,52 @@ const donateContent: DonateContent = {
       id: 'donate3',
       summary: 'Is it safe and secure for me to donate online?',
       details:
-        "Clearviction utilizes Donorbox for safe and secure transactions. Donorbox’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Donorbox servers.\n\nFor more information, visit [Donorbox's website](https://donorbox.org).",
+        'Clearviction utilizes Give Lively for safe and secure transactions. Give Lively’s reliable security includes two-factor authentication, data encryption, fraud detection, and the assurance that none of your information is ever stored on Give Lively servers.\n\nFor more information, visit [visit GiveLively.org](https://www.givelively.org/data-privacy-and-security).',
     },
     {
       id: 'donate4',
       summary: 'How can I obtain a record of my donation for tax purposes?',
       details:
-        'Donorbox automatically sends you a receipt of your donation, even if you wish to remain anonymous. This receipt can be customized to include any information you require.\n\nClearviction is an official 501(c)(3) non-profit and donations to Clearviction are all tax deductible. Any donations greater than or equal to $250 require a receipt. View the IRS’ requirements.',
+        'Give Lively automatically sends you a receipt of your donation, even if you wish to remain anonymous. This receipt can be customized to include any information you require. Clearviction is an official 501(c)(3) non-profit and donations to Clearviction are all tax deductible. Any donations greater than or equal to $250 require a receipt. [View the IRS’ requirements](https://www.irs.gov/charities-non-profits/charitable-organizations/charitable-contributions-written-acknowledgments).',
     },
     {
       id: 'donate5',
+      summary: 'Can I make a donation by check?',
+      details:
+        'Give Lively has the capability for direct ACH payments, but you are still welcome to mail a check. Please make the check out to Clearviction and mail it to:\n\nSeamus Brugh\n\n107 Spring St\n\nSeattle, WA 98104',
+    },
+    {
+      id: 'donate6',
       summary: 'Who should I contact if I have more questions?',
       details:
         'You can send us an email at [contact@clearviction.org](mailto:contact@clearviction.org) and we will get back to you within 24 hours.',
     },
   ],
+  donationShare: {
+    header: [
+      'Your voice is a powerful tool.',
+      'Share our fundraiser.',
+    ],
+    text: [
+      'Your donation directly supports our operations and outreach, you can donate directly to Clearviction and get the tax benefit yourself!',
+      'If you are unable to financially contribute, that is totally ok! Consider donating a moment of your time and follow us or share our content on social media.',
+    ],
+  },
+  donateJoinTeam: {
+    header: [
+      'Help us break down barriers by joining our team.',
+    ],
+    text: [
+      'Still interested in learning more? Consider joining our team! We’re always looking for people to share their expertise or their criminal justice system stories.',
+      'When you share your expertise with us, we get closer to reducing barriers and timelines for individuals looking to vacate their convictions in Washington State.',
+    ],
+    buttons: [
+      {
+        name: 'Learn More',
+        href: '/about',
+      },
+    ],
+  },
 };
 
 export default donateContent;

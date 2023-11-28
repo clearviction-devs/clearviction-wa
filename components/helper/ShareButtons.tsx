@@ -7,8 +7,8 @@ import {
   FacebookShareButton,
   LinkedinIcon,
   LinkedinShareButton,
-  TwitterIcon,
   TwitterShareButton,
+  XIcon,
 } from 'react-share';
 
 type ShareButtonsProps = {
@@ -124,10 +124,10 @@ export default function ShareButtons({
               </Box>
             </FacebookShareButton>
 
-            <TwitterShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on twitter">
-              <Box className="twitter-link" sx={iconsStyle}>
-                <TwitterIcon size={24} round />
-                <Typography variant="body1" sx={socialMediaTextStyles}>Share on Twitter</Typography>
+            <TwitterShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on X">
+              <Box className="x-link" sx={iconsStyle}>
+                <XIcon size={24} round />
+                <Typography variant="body1" sx={socialMediaTextStyles}>Share on X</Typography>
               </Box>
             </TwitterShareButton>
           </Box>
@@ -148,8 +148,8 @@ export default function ShareButtons({
       </Grid>
 
       <Grid item>
-        <TwitterShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on twitter">
-          <TwitterIcon size={32} round />
+        <TwitterShareButton url={CALCULATOR_URL} aria-label="Share the calculator now on X">
+          <XIcon size={32} round />
         </TwitterShareButton>
       </Grid>
 
