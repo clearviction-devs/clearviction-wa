@@ -19,8 +19,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
-import GivingTuesdayBanner from '../functional/GivingTuesdayBanner.tsx';
 import SkipLink from '../helper/SkipLink.tsx';
+// import GivingTuesdayBanner from '../GivingTuesdayBanner.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
@@ -63,6 +63,7 @@ export default function Header() {
   return (
     <>
       {/* hide until we figure out what the cta is supposed to be */}
+      {/* <GivingTuesdayBanner /> */}
       <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
         <Container maxWidth="xl" sx={{ p: 3 }}>
           <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
@@ -171,7 +172,6 @@ export default function Header() {
                 ))}
             </Box>
           )}
-          <GivingTuesdayBanner />
         </Box>
       </AppBar>
     </>
