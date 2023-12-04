@@ -1,11 +1,10 @@
 import {
-  AirtableEmbed, Button, Fact, FAQ, GridItem, Header, MetaPageHead,
+  AirtableEmbed, Button, Fact, FAQ, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface GetInvolvedContent {
   meta: MetaPageHead;
   hero: Header;
-  waysToParticipate: GridItem[];
   volunteerPage: {
     header: string;
     body: string[];
@@ -27,37 +26,16 @@ const getInvolvedContent: GetInvolvedContent = {
     content: 'Join the Clearviction team and break down barriers for formerly incarcerated individuals by making it easier to vacate their criminal records in Washington State',
   },
   hero: {
-    header: 'Share your expertise with us',
-    subheading: 'There are many ways to participate with the Clearviction team, and we appreciate all of them!',
+    header: 'Get involved',
+    subheading: 'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\n'
+    + 'By volunteering, you will help us reduce barriers and streamline the process of vacating eligible convictions in Washington state to make it easier for people to move forward.',
+    imgsrc: '../illustrations/team-building.svg',
+    ctaLink: '#open-roles',
+    ctaText: 'Open roles',
   },
-  waysToParticipate: [
-    {
-      id: 'ways-to-participate-1',
-      title: 'volunteer',
-      body: 'Join our dedicated volunteer team and help us bring the resources to those who need them.',
-      imgsrc: '../illustrations/diversity-2.svg',
-      href: '#volunteer',
-    },
-    {
-      id: 'ways-to-participate-2',
-      title: 'donate',
-      body: 'Your gift makes a difference. Make it possible to continue helping our community.',
-      imgsrc: '../illustrations/money-jar.svg',
-      href: '/donate',
-    },
-    {
-      id: 'ways-to-participate-3',
-      title: 'Partner with us',
-      body: 'Create change by sharing our project with others and reaching out to your peers.',
-      imgsrc: '../illustrations/horn.svg',
-      href: '#partner-with-us',
-    },
-  ],
   volunteerPage: {
     header: 'Help us break down barriers by joining the team.',
     body: [
-      'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.',
-      'By volunteering, you will help us reduce barriers and streamline the process of vacating eligible convictions in Washington state to make it easier for people to move forward.',
       'You\'ll be a perfect fit if you:',
     ],
     facts: [
