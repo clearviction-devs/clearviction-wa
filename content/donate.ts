@@ -1,5 +1,5 @@
 import {
-  Button, FAQ, GridSection, Header, MetaPageHead,
+  FAQ, GridSection, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface DonateContent {
@@ -7,26 +7,18 @@ interface DonateContent {
   heroBanner: Header;
   page: GridSection;
   donateFAQS: FAQ[];
-  donationShare: {
-    header: string[];
-    text: string[];
-  };
-  donateJoinTeam: {
-    header: string[];
-    text: string[];
-    buttons: Button[];
-  };
 }
 
 const donateContent: DonateContent = {
   meta: {
-    title: 'Support Clearviction | This Giving Tuesday support Clearviction and help us reduce recidivism',
-    content: 'Support Clearviction and help change lives! Washington State laws offer opportunities to clear your record. Our free tools can help you qualify.',
+    title: 'Support Clearviction | Reduce the odds of Recidivism',
+    content: 'Support Clearviction—a 501(c)3 nonprofit—in its mission to transform lives and break down barriers for those with criminal records in Washington State.',
   },
   heroBanner: {
-    header: 'Giving Tuesday',
-    subheading: 'Clearviction is an open-sourced project whose goal is to help people easily navigate the legal system in Washington State.',
-    imgsrc: '/illustrations/givingtuesday.svg',
+    header: 'Your generous donation directly aids those who are limited by their convictions in Washington State',
+    subheading: 'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\nWith your donations, you will directly help break down barriers for people with convictions in the state of Washington.\n\n<span style="fontSize: 14px">Clearviction is a registered 501(c)3 nonprofit organization, EIN#88-3187952. All donations are tax deductible in full or in part.</span>',
+    ctaLink: '/about',
+    ctaText: 'Learn more about us',
   },
   page: {
     id: 'donate',
@@ -93,31 +85,6 @@ const donateContent: DonateContent = {
         'You can send us an email at [contact@clearviction.org](mailto:contact@clearviction.org) and we will get back to you within 24 hours.',
     },
   ],
-  donationShare: {
-    header: [
-      'Your voice is a powerful tool.',
-      'Share our fundraiser.',
-    ],
-    text: [
-      'Your donation directly supports our operations and outreach, you can donate directly to Clearviction and get the tax benefit yourself!',
-      'If you are unable to financially contribute, that is totally ok! Consider donating a moment of your time and follow us or share our content on social media.',
-    ],
-  },
-  donateJoinTeam: {
-    header: [
-      'Help us break down barriers by joining our team.',
-    ],
-    text: [
-      'Still interested in learning more? Consider joining our team! We’re always looking for people to share their expertise or their criminal justice system stories.',
-      'When you share your expertise with us, we get closer to reducing barriers and timelines for individuals looking to vacate their convictions in Washington State.',
-    ],
-    buttons: [
-      {
-        name: 'Learn More',
-        href: '/about',
-      },
-    ],
-  },
 };
 
 export default donateContent;
