@@ -1,0 +1,61 @@
+name: Dependency Check
+
+on:
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  check_dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install jq
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Check for Dependency Issues
+        run: npm audit > .github/workflows/issues/issues-file.txt || true
+
+      - name: Comment on PR with Issues
+        run: |
+          echo "PR has dependency issues:" > pr_comment.txt
+          issues_content="$(cat .github/workflows/issues/issues-file.txt)"
+          if ! echo "$issues_content" | grep -q "found 0 vulnerabilities"; then
+            echo "$issues_content" >> pr_comment.txt
+            COMMENT_BODY=$(cat pr_comment.txt)
+      
+            # Get the PR number
+            PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+      
+            # Debug: Print PR_NUMBER
+            echo "PR_NUMBER: $PR_NUMBER"
+      
+            # Comment on the PR using GitHub REST API with properly formatted JSON
+            curl -X POST \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
+              -d "{\"body\":$(echo "$COMMENT_BODY" | jq -s -R -r @json)}"
+          else
+            echo "No dependency issues found."
+          fi
+              
+      - name: Check for Critical or High Vulnerabilities
+        run: |
+          if grep -qE "critical|high" .github/workflows/issues/issues-file.txt; then
+            echo "Critical or high dependency issues found. Rejecting PR."
+            exit 1
+          fi
