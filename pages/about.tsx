@@ -165,15 +165,15 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      <SectionContainer key={content.partnersFrame[0].id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
-        <Typography variant="h2" sx={{ mt: '3rem' }}>{content.partnersFrame[0].title}</Typography>
+      <SectionContainer key={content.partnersFrame.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
+        <Typography variant="h2" sx={{ mt: '3rem' }}>{content.partnersFrame.title}</Typography>
         <Grid container>
           <iframe
-            id={`${content.partnersFrame[0].id}-partnersFrame`}
-            title={content.partnersFrame[0].title}
-            src={content.partnersFrame[0].src}
+            id={`${content.partnersFrame.id}-partnersFrame`}
+            title={content.partnersFrame.title}
+            src={content.partnersFrame.src}
             width="100%"
-            height={content.partnersFrame[0].height}
+            height={content.partnersFrame.height}
             style={{
               background: 'transparent',
               border: '1px solid #ccc',

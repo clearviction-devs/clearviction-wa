@@ -11,7 +11,7 @@ interface AboutContent {
   body: string[];
   facts: Fact[];
   joinUs: Header;
-  partnersFrame: AirtableEmbed[];
+  partnersFrame: AirtableEmbed;
   ourTeam: AirtableEmbed[];
 }
 
@@ -89,14 +89,13 @@ const aboutContent: AboutContent = {
     body: 'Interested in helping make a difference? Team up with us to effect more positive change than any of us can individually.',
     imgsrc: '/illustrations/checklist1.svg',
   },
-  partnersFrame: [
-    {
-      title: 'Our Partners',
-      id: 'our-partners',
-      src: 'https://airtable.com/embed/appfJZShN8K4tcWHU/shr6EOwMz0t728U2v?backgroundColor=tealLight',
-      height: '533px',
-    },
-  ],
+  partnersFrame:
+  {
+    title: 'Our Partners',
+    id: 'our-partners',
+    src: 'https://airtable.com/embed/appfJZShN8K4tcWHU/shr6EOwMz0t728U2v?backgroundColor=tealLight',
+    height: '533px',
+  },
   ourTeam: [
     {
       title: 'Our Officers',
