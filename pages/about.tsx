@@ -165,7 +165,7 @@ export default function AboutPage() {
         </Box>
       </SectionContainer>
 
-      <SectionContainer id="our-partners" key={content.partnersFrame.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
+      <SectionContainer id={content.partnersFrame.id} key={content.partnersFrame.id} sx={{ margin: 'auto', px: 3, maxWidth: '65rem' }} maxWidth={false}>
         <Typography variant="h2" sx={{ mt: '3rem' }}>{content.partnersFrame.title}</Typography>
         <Grid container>
           <iframe
