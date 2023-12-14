@@ -8,7 +8,7 @@ on:
         required: true
         default: 'yes'
   schedule:
-    - cron: '0 17 */15 * *'  # execute every 15 days at 17:00 UTC
+    - cron: '0 17 */14 * *'  # execute every 15 days at 17:00 UTC
 
 permissions: write-all
 
@@ -86,7 +86,7 @@ jobs:
 
     - name: Configure user
       run: |
-        git remote set-url origin "https://${{ secrets.PAT_TOKEN }}@github.com/funas-org/cv-tests.git"
+        git remote set-url origin "https://${{ secrets.CV_DEVS_PAT }}@github.com/clearviction-devs/clearviction-wa.git"
 
     - name: Get and Update staging branch
       run: |
