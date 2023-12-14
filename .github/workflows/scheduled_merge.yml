@@ -8,7 +8,7 @@ on:
         required: true
         default: 'yes'
   schedule:
-    - cron: '0 17 */14 * *'  # execute every 15 days at 17:00 UTC
+    - cron: '0 17 */14 * *'  # execute every 14 days at 17:00 UTC
 
 permissions: write-all
 
