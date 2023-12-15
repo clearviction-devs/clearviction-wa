@@ -25,11 +25,17 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install jq
-        run: sudo apt-get install -y jq
-
       - name: Check for 3rd Party Dependencies
+        id: check_dependencies
         run: |
+          # Install required tools
+          sudo apt-get install -y jq
+
+          # Fetch the base branch
+          git fetch origin ${{ github.base_ref }}
+          git checkout ${{ github.base_ref }}
+          git checkout -
+
           # Initialize a flag
           echo "DEPENDENCY_CHANGE=false" >> $GITHUB_ENV
 
@@ -49,27 +55,28 @@ jobs:
 
       - name: Post Comment
         if: ${{ env.DEPENDENCY_CHANGE == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-            PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-            echo "PR_NUMBER: $PR_NUMBER"
-        
-            COMMENT_BODY='### New 3rd Party Dependency Justification\nChanges in `package.json` or `package-lock.json` detected. Please fill out the form below to justify the inclusion of new 3rd party dependencies. If no dependencies were added, delete this comment\n\n'
-            COMMENT_BODY+='**Problem statement:**  \n- **Question:** What problem does using this package solve for us?  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Cost/subscription:**  \n- **Question:** At this time, we will not accept any libraries that are paid.  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Community:**  \n- **Question:** Is there a robust community using this package?  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Maintenance:**  \n- **Question:** How often is the package updated?  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Data privacy:**  \n- **Question:** If our data will be processed through this tool, please verify that data is not being collected or sold.  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Security:**  \n- **Question:** Verify that the package does not install malicious code.  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Maintainability:**  \n- **Question:** Does using this require a specialized skill set or have a steep learning curve?  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Other options:**  \n- **Question:** What other options have you considered?  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Can we do it ourselves:**  \n- **Question:** Why is an external solution better than a custom solution of our own?  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='**Other notes:**  \n- **Question:** Any other information you would like to share?  \n- **Answer:**  \n\n'
-            COMMENT_BODY+='Please edit this comment to fill out the form.'
-        
-            # Comment on the PR using GitHub REST API with properly formatted JSON
-            curl -X POST \
-              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          COMMENT_BODY='### New 3rd Party Dependency Justification\n'
+          COMMENT_BODY+='Changes in `package.json` or `package-lock.json` detected. Please fill out the form below to justify the inclusion of new 3rd party dependencies. If no dependencies were added, delete this comment\n\n'
+          COMMENT_BODY+='<!-- 3rd party dependency justification markdown form -->\n'
+          COMMENT_BODY+='| Topic      | Questions/considerations | Answer |\n'
+          COMMENT_BODY+='| ----------- | ----------- | ----------- |\n'
+          COMMENT_BODY+='| **Problem statement** | What problem does using this package solve for us? | ** |\n'
+          COMMENT_BODY+='| **Cost/subscription** | At this time, we will not accept any libraries that are paid. | ** |\n'
+          COMMENT_BODY+='| **Community** | Is there a robust community using this package? | ** |\n'
+          COMMENT_BODY+='| **Maintenance** | How often is the package updated? | ** |\n'
+          COMMENT_BODY+='| **Data privacy** | If our data will be processed through this tool, please verify that data is not being collected or sold. | ** |\n'
+          COMMENT_BODY+='| **Security** | Verify that the package does not install malicious code. | ** |\n'
+          COMMENT_BODY+='| **Maintainability** | Does using this require a specialized skill set or have a steep learning curve? | ** |\n'
+          COMMENT_BODY+='| **Other options** | What other options have you considered? | ** |\n'
+          COMMENT_BODY+='| **Can we do it ourselves** | Why is an external solution better than a custom solution of our own? | ** |\n'
+          COMMENT_BODY+='| **Other notes** | Any other information you would like to share? | ** |\n\n'
+          COMMENT_BODY+='Please edit this comment to fill out the form.'
+
+          # Post the comment using GitHub API
+          curl -s -H "Authorization: token $GITHUB_TOKEN" \
               -H "Accept: application/vnd.github.v3+json" \
-              "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
-              -d "{\"body\":$(echo "$COMMENT_BODY" | jq -s -R -r @json)}"
-        
+              -X POST -d "{\"body\": \"$COMMENT_BODY\"}" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
