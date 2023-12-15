@@ -1,0 +1,78 @@
+name: 3rd Party Dependency Check
+
+on:
+  pull_request:
+    branches:
+      - staging
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+  check-3rd-party:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensures all history is fetched
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Check for 3rd Party Dependencies
+        id: check_dependencies
+        run: |
+          # Install required tools
+          sudo apt-get install -y jq
+
+          # Fetch the base branch
+          git fetch origin ${{ github.base_ref }}
+          git checkout ${{ github.base_ref }}
+          git checkout -
+
+          # Initialize a flag
+          echo "DEPENDENCY_CHANGE=false" >> $GITHUB_ENV
+
+          # Compare package.json
+          echo "Checking package.json for changes..."
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'package.json'; then
+            echo "Changes detected in package.json"
+            echo "DEPENDENCY_CHANGE=true" >> $GITHUB_ENV
+          fi
+
+          # Compare package-lock.json
+          echo "Checking package-lock.json for changes..."
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'package-lock.json'; then
+            echo "Changes detected in package-lock.json"
+            echo "DEPENDENCY_CHANGE=true" >> $GITHUB_ENV
+          fi
+
+      - name: Post Comment
+        if: ${{ env.DEPENDENCY_CHANGE == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          COMMENT_BODY='### New 3rd Party Dependency Justification\n'
+          COMMENT_BODY+='Changes in `package.json` or `package-lock.json` detected. Please fill out the form below to justify the inclusion of new 3rd party dependencies. If no dependencies were added, delete this comment\n\n'
+          COMMENT_BODY+='<!-- 3rd party dependency justification markdown form -->\n'
+          COMMENT_BODY+='| Topic      | Questions/considerations | Answer |\n'
+          COMMENT_BODY+='| ----------- | ----------- | ----------- |\n'
+          COMMENT_BODY+='| **Problem statement** | What problem does using this package solve for us? | ** |\n'
+          COMMENT_BODY+='| **Cost/subscription** | At this time, we will not accept any libraries that are paid. | ** |\n'
+          COMMENT_BODY+='| **Community** | Is there a robust community using this package? | ** |\n'
+          COMMENT_BODY+='| **Maintenance** | How often is the package updated? | ** |\n'
+          COMMENT_BODY+='| **Data privacy** | If our data will be processed through this tool, please verify that data is not being collected or sold. | ** |\n'
+          COMMENT_BODY+='| **Security** | Verify that the package does not install malicious code. | ** |\n'
+          COMMENT_BODY+='| **Maintainability** | Does using this require a specialized skill set or have a steep learning curve? | ** |\n'
+          COMMENT_BODY+='| **Other options** | What other options have you considered? | ** |\n'
+          COMMENT_BODY+='| **Can we do it ourselves** | Why is an external solution better than a custom solution of our own? | ** |\n'
+          COMMENT_BODY+='| **Other notes** | Any other information you would like to share? | ** |\n\n'
+          COMMENT_BODY+='Please edit this comment to fill out the form.'
+
+          # Post the comment using GitHub API
+          curl -s -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              -X POST -d "{\"body\": \"$COMMENT_BODY\"}" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
