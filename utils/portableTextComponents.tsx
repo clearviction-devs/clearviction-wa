@@ -7,11 +7,6 @@ import React from 'react';
 
 // eslint-disable-next-line import/prefer-default-export
 
-// const renderHeading = (level: number, children:any) => (
-//   <Typography variant={`h${level}`} style={{ marginTop: '2rem', marginBottom: '1rem' }}>
-//     {children}
-//   </Typography>
-// );
 export const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -78,11 +73,9 @@ const portableTextComponent = {
   },
   marks: {
     link: ({ children, mark }: any) => {
-      // const { isFinalPage } = useContext(PageContext);
       if (!mark || typeof mark.href === 'undefined') {
         return children;
       }
-      //  const linkStyle = isFinalPage ? { color: '#1044FE' } : { color: 'palette.primary.main' };
       return <Link href={mark.href} role="link" target={mark.blank ? '_blank' : '_self'} rel="noopener no referrer">{children}</Link>;
     },
   },
