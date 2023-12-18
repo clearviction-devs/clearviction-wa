@@ -29,7 +29,7 @@ const getInvolvedContent: GetInvolvedContent = {
     header: 'Get involved',
     subheading: 'Conviction vacation makes it easier for formerly incarcerated individuals to access housing and employment, two things that are crucial for reducing the odds of re-incarceration.\n\n'
     + 'By volunteering, you will help us reduce barriers and streamline the process of vacating eligible convictions in Washington state to make it easier for people to move forward.',
-    imgsrc: '../illustrations/team-building.svg',
+    imgsrc: '../illustrations/analytics-team.svg',
     ctaLink: '#open-roles',
     ctaText: 'Open roles',
   },
