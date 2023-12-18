@@ -2,9 +2,8 @@ import { Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import React, { useContext } from 'react';
-
-import { PageContext } from '../components/helper/PageContext.tsx';
+import { Inter } from 'next/font/google';
+import React from 'react';
 
 // eslint-disable-next-line import/prefer-default-export
 
@@ -13,12 +12,15 @@ import { PageContext } from '../components/helper/PageContext.tsx';
 //     {children}
 //   </Typography>
 // );
+export const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+});
 function BlockTypeComponent(props:any) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const { node, children } = props;
-
-  const { isFinalPage } = useContext(PageContext);
 
   if (node.style === 'li') {
     const isOrderedList = node.listItem !== 'bullet'; // Check if it's an ordered list
@@ -27,39 +29,45 @@ function BlockTypeComponent(props:any) {
       <Typography style={{ marginBottom: isSmallScreen ? '1rem' : '0', ...liStyle }}>{children}</Typography>
     );
   }
-  switch (node.style) {
-    case 'h1':
-      return <Typography variant="h4" style={{ marginTop: '2rem', marginBottom: '1rem', lineHeight: '1.5rem' }}>{children}</Typography>;
-    case 'h2':
-      return <Typography variant="h2" style={{ marginTop: '2rem', marginBottom: '1rem' }}>{children}</Typography>;
-    case 'h3':
-      return <Typography variant="h3" style={{ marginTop: '2rem', marginBottom: '1rem' }}>{children}</Typography>;
-    case 'h4':
-      return <Typography variant="h4" style={{ marginTop: '2rem', lineHeight: '2.5rem', marginBottom: '1rem' }}>{children}</Typography>;
-    case 'h5':
-      return <Typography variant="h5" style={{ marginTop: '2rem', marginBottom: '1rem' }}>{children}</Typography>;
-    case 'h6': {
-      const h6Style = isFinalPage ? { fontSize: '1.375rem' } : { fontSize: '0.875rem' };
-      return (
-        <Typography
-          variant="h6"
-          style={{
-            ...h6Style, fontWeight: '700', lineHeight: '1.5rem', marginTop: '2rem', marginBottom: '1rem',
-          }}
-        >
-          {children}
-        </Typography>
-      );
-    }
-    case 'li':
-      return <Typography variant="body1" style={{ color: 'red', marginBottom: '1rem' }}>{children}</Typography>;
-    case 'listTitle':
-      return <Typography variant="body2" style={{ marginTop: '1.5rem' }}>{children}</Typography>;
-    case 'normal':
-      return <Typography className="typographyDynamic" variant="body1" style={{ marginTop: '1rem', lineHeight: '1.75rem' }}>{children}</Typography>;
-    // Add cases for other styles if needed
-    default:
-      return <Typography variant="body1" style={{ marginTop: ' 1rem ', marginBottom: '0', fontSize: '1.5rem' }}>{children}</Typography>;
+  if (node.style === 'h1') {
+    const h1Styles = isSmallScreen
+      ? {
+        fontSize: '2rem', lineHeight: '3.375rem', letterSpacing: '0.11rem', fontStyle: 'normal', fontWeight: '700', fontFamily: inter.style.fontFamily,
+      } // smaller font size for small screen
+      : {
+        fontSize: '2.5rem', lineHeight: '3.75rem', letterSpacing: '0.05rem', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
+      };
+    return (<Typography variant="h1" style={h1Styles}>{children}</Typography>);
+  }
+  if (node.style === 'h3') {
+    const h3Styles = isSmallScreen
+      ? {
+        fontSize: '1.188rem', lineHeight: '2.438rem', letterSpacing: '0', fontStyle: 'normal', fontWeight: '400', fontFamily: inter.style.fontFamily,
+      } // smaller font size for small screen
+      : {
+        fontSize: '1.25rem', lineHeight: '1.875rem,', letterSpacing: '0.00625rem', fontStyle: 'normal', fontWeight: '400', fontFamily: inter.style.fontFamily,
+      };
+    return (<Typography variant="h3" style={h3Styles}>{children}</Typography>);
+  }
+  if (node.style === 'h6') {
+    const normalStyles = isSmallScreen
+      ? {
+        fontSize: '0.75rem', lineHeight: '1.1875rem', letterSpacing: '0.0375', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
+      } // smaller font size for small screen
+      : {
+        fontSize: '0.875rem', lineHeight: 'normal', letterSpacing: '0.0175rem', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
+      };
+    return (<Typography variant="body1" style={normalStyles}>{children}</Typography>);
+  }
+  if (node.style === 'normal') {
+    const normalStyles = isSmallScreen
+      ? {
+        fontSize: '1.125rem', lineHeight: '1.625rem', letterSpacing: '0.03775', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily, marginBottom: '1rem',
+      } // smaller font size for small screen
+      : {
+        fontSize: '1.25rem', lineHeight: '1.625rem', letterSpacing: '0.03125rem', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
+      };
+    return (<Typography variant="body1" style={normalStyles}>{children}</Typography>);
   }
 }
 
@@ -70,12 +78,12 @@ const portableTextComponent = {
   },
   marks: {
     link: ({ children, mark }: any) => {
-      const { isFinalPage } = useContext(PageContext);
+      // const { isFinalPage } = useContext(PageContext);
       if (!mark || typeof mark.href === 'undefined') {
         return children;
       }
-      const linkStyle = isFinalPage ? { color: '#1044FE' } : { color: 'palette.primary.main' };
-      return <Link className="custom-calc-link-style" href={mark.href} role="link" target={mark.blank ? '_blank' : '_self'} rel="noopener no referrer" style={linkStyle}>{children}</Link>;
+      //  const linkStyle = isFinalPage ? { color: '#1044FE' } : { color: 'palette.primary.main' };
+      return <Link href={mark.href} role="link" target={mark.blank ? '_blank' : '_self'} rel="noopener no referrer">{children}</Link>;
     },
   },
   annotations: [
