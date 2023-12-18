@@ -38,8 +38,19 @@ function BlockTypeComponent(props:any) {
       return <Typography variant="h4" style={{ marginTop: '2rem', lineHeight: '2.5rem', marginBottom: '1rem' }}>{children}</Typography>;
     case 'h5':
       return <Typography variant="h5" style={{ marginTop: '2rem', marginBottom: '1rem' }}>{children}</Typography>;
-    case 'h6':
-      return <Typography variant="h6" style={{ fontSize: '0.875rem', fontWeight: '700', lineHeight: '1.5rem', marginTop: '2rem', marginBottom: '1rem' }}>{children}</Typography>;
+    case 'h6': {
+      const h6Style = isFinalPage ? { fontSize: '1.375rem' } : { fontSize: '0.875rem' };
+      return (
+        <Typography
+          variant="h6"
+          style={{
+            ...h6Style, fontWeight: '700', lineHeight: '1.5rem', marginTop: '2rem', marginBottom: '1rem',
+          }}
+        >
+          {children}
+        </Typography>
+      );
+    }
     case 'li':
       return <Typography variant="body1" style={{ color: 'red', marginBottom: '1rem' }}>{children}</Typography>;
     case 'listTitle':
