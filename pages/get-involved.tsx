@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   Grid,
+  List,
   Typography,
 } from '@mui/material';
 import React from 'react';
@@ -10,12 +11,77 @@ import React from 'react';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import BenefitListItem from '../components/layout/BenefitListItem.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-involved.ts';
+
+function BenefitsOfJoiningUs() {
+  return (
+    <SectionContainer
+      id="benefits-of-joining-us"
+      maxWidth="md"
+    >
+      <Typography variant="h2">
+        {content.benefits.header}
+      </Typography>
+      <PaperSection sx={{
+        bgcolor: 'primary.dark', color: 'primary.contrastText',
+      }}
+      >
+        <Box sx={{
+          pl: 3, py: 4,
+        }}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              pb: 3, fontWeight: '700',
+            }}
+          >
+            {content.benefits.subheader}
+          </Typography>
+          {content.benefits.body.map((text) => (
+            <Typography
+              key={`benefitsText-${text}`}
+              variant="body1"
+              sx={{ mb: 4, mr: 2 }}
+            >
+              {text}
+            </Typography>
+          ))}
+          <Box sx={{
+            position: 'relative', width: '100%', height: 'auto',
+          }}
+          >
+            <List>
+              {content.benefits.benefitItems.map((benefit) => (
+                <BenefitListItem key={`benefitItem-${benefit.id}`} {...benefit} />
+              ))}
+            </List>
+            <Box
+              component="img"
+              src={content.benefits.imgsrc}
+              sx={{
+                position: 'absolute',
+                right: '3rem',
+                bottom: {
+                  xs: '6rem', sm: '6rem', lg: '6.25rem',
+                },
+                width: 200,
+                height: 'auto',
+                transition: 'right 0.5s top 0.5s',
+              }}
+            />
+          </Box>
+        </Box>
+      </PaperSection>
+    </SectionContainer>
+  );
+}
 
 function Volunteer() {
   return (
@@ -150,7 +216,7 @@ export default function GetInvolvedPage() {
       <HeroBanner
         {...content.hero}
       />
-
+      <BenefitsOfJoiningUs />
       <Volunteer />
       <GetInvolvedFAQ />
       <Partner />

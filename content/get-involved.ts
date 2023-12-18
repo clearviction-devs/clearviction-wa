@@ -1,10 +1,17 @@
 import {
-  AirtableEmbed, Button, Fact, FAQ, Header, MetaPageHead,
+  AirtableEmbed, BenefitItem, Button, Fact, FAQ, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface GetInvolvedContent {
   meta: MetaPageHead;
   hero: Header;
+  benefits: {
+    header: string,
+    subheader: string,
+    body: string[],
+    benefitItems: BenefitItem[],
+    imgsrc: string,
+  },
   volunteerPage: {
     header: string;
     body: string[];
@@ -32,6 +39,42 @@ const getInvolvedContent: GetInvolvedContent = {
     imgsrc: '../illustrations/analytics-team.svg',
     ctaLink: '#open-roles',
     ctaText: 'Open roles',
+  },
+  benefits: {
+    header: 'Benefits of joining us',
+    subheader: 'Benefits of Joining Us...',
+    body: [
+      'At Clearviction, every volunteer is part of a transformative journey. Our dedicated team, bursting with diverse backgrounds and fueled by passion, is united by a shared mission: to provide tools and guidance to help people with criminal convictions clear their records and begin a path to a fresh start.',
+      'But Clearviction isn\'t just about the cause; it\'s about personal growth, professional experience, and community involvement. From software engineers discovering a deeper purpose beyond code to criminal justice professionals experiencing the startup hustle, every volunteer\'s story speaks to the transformative essence of our team.',
+      'You\'ll gain:',
+    ],
+    benefitItems: [
+      {
+        id: 1,
+        title: 'PROFESSIONAL GROWTH & EXPERIENCE',
+        leftOffset: 2.5,
+        rightOffset: 11.25,
+      },
+      {
+        id: 2,
+        title: 'SUPPORTIVE & COLLABORATIVE CULTURE',
+        leftOffset: 6.25,
+        rightOffset: 7.5,
+      },
+      {
+        id: 3,
+        title: 'DIVERSE CONNECTIONS & NETWORKING',
+        leftOffset: 10,
+        rightOffset: 3.75,
+      },
+      {
+        id: 4,
+        title: 'MEANINGFUL WORK & SENSE OF PURPOSE',
+        leftOffset: 13.75,
+        rightOffset: 0,
+      },
+    ],
+    imgsrc: 'illustrations/climbing-guy.svg',
   },
   volunteerPage: {
     header: 'Help us break down barriers by joining the team.',
