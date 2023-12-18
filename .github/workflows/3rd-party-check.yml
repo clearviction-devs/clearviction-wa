@@ -26,35 +26,29 @@ jobs:
           node-version: '18'
 
       - name: Check for 3rd Party Dependencies
-        id: check_dependencies
+        id: dependency_check
         run: |
-          # Install required tools
           sudo apt-get install -y jq
-
-          # Fetch the base branch
           git fetch origin ${{ github.base_ref }}
           git checkout ${{ github.base_ref }}
           git checkout -
-
-          # Initialize a flag
-          echo "DEPENDENCY_CHANGE=false" >> $GITHUB_ENV
-
-          # Compare package.json
-          echo "Checking package.json for changes..."
+      
+          PACKAGE_JSON_CHANGED=false
+          PACKAGE_LOCK_JSON_CHANGED=false
+      
           if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'package.json'; then
-            echo "Changes detected in package.json"
-            echo "DEPENDENCY_CHANGE=true" >> $GITHUB_ENV
+            PACKAGE_JSON_CHANGED=true
           fi
-
-          # Compare package-lock.json
-          echo "Checking package-lock.json for changes..."
+      
           if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'package-lock.json'; then
-            echo "Changes detected in package-lock.json"
-            echo "DEPENDENCY_CHANGE=true" >> $GITHUB_ENV
+            PACKAGE_LOCK_JSON_CHANGED=true
           fi
+      
+          echo "package_json_changed=$PACKAGE_JSON_CHANGED" >> $GITHUB_OUTPUT
+          echo "package_lock_json_changed=$PACKAGE_LOCK_JSON_CHANGED" >> $GITHUB_OUTPUT
 
       - name: Post Comment
-        if: ${{ env.DEPENDENCY_CHANGE == 'true' }}
+        if: steps.dependency_check.outputs.package_json_changed == 'true' || steps.dependency_check.outputs.package_lock_json_changed == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
