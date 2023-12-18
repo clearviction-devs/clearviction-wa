@@ -11,6 +11,7 @@ import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import { AriaLabels } from '../../content/content.types.ts';
+import useLinkHandler from '../functional/LinkHandler.tsx';
 import ImageContainer from './ImageContainer.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
@@ -52,6 +53,8 @@ export default function HeroBanner({
   priority = false,
   ariaLabels,
 }: HeroBannerProps) {
+  const { handleLinkClick } = useLinkHandler();
+
   return (
     <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
       <SectionContainer>
@@ -128,7 +131,9 @@ export default function HeroBanner({
                 variant="contained"
                 color="primary"
                 href={ctaLink}
+                data-href={ctaLink}
                 aria-label={ariaLabels?.ctaButton}
+                onClick={handleLinkClick}
                 sx={{
                   px: 4,
                   '&:hover': {
