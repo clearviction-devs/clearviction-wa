@@ -43,7 +43,8 @@ jobs:
           if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'package-lock.json'; then
             PACKAGE_LOCK_JSON_CHANGED=true
           fi
-      
+          
+          # Output Results
           echo "package_json_changed=$PACKAGE_JSON_CHANGED" >> $GITHUB_OUTPUT
           echo "package_lock_json_changed=$PACKAGE_LOCK_JSON_CHANGED" >> $GITHUB_OUTPUT
 
