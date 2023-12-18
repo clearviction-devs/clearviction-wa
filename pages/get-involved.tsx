@@ -1,10 +1,6 @@
 import {
   Box,
   Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
   Container,
   Grid,
   Typography,
@@ -13,6 +9,7 @@ import React from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
+import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
@@ -48,7 +45,7 @@ function Volunteer() {
         </Grid>
       </SectionContainer>
 
-      <SectionContainer maxWidth="md">
+      <SectionContainer id="open-roles" maxWidth="md">
         <Typography variant="h2">
           {content.volunteerPage.openRole.title}
         </Typography>
@@ -129,6 +126,19 @@ function Partner() {
   );
 }
 
+function GetInvolvedFAQ() {
+  return (
+    <SectionContainer id="get-involved-faq" maxWidth="md">
+      <Typography variant="h2">FAQ</Typography>
+      <PaperSection>
+        {content.faqs.map((faq) => (
+          <AccordionBuilder key={faq.id} {...faq} />
+        ))}
+      </PaperSection>
+    </SectionContainer>
+  );
+}
+
 export default function GetInvolvedPage() {
   return (
     <>
@@ -137,67 +147,12 @@ export default function GetInvolvedPage() {
         metaContent={content.meta.content}
       />
 
-      <Box sx={{
-        bgcolor: '#2f3554', pb: '64px', display: 'flex', flexDirection: 'column', alignItems: 'center',
-      }}
-      >
-        <HeroBanner
-          header={content.hero.header}
-          subheading={content.hero.subheading}
-          overrideStyles={{
-            pb: 0,
-            pt: 8,
-            color: 'primary.contrastText',
-          }}
-        />
+      <HeroBanner
+        {...content.hero}
+      />
 
-        <Grid
-          container
-          spacing={2}
-          sx={{ maxWidth: '1200px', mt: -4 }}
-        >
-          {content.waysToParticipate.map((card) => (
-            <Grid item xs={12} sm={12} md={4} key={card.id}>
-              <Box display="flex" justifyContent="center" key={card.id}>
-                <Card
-                  sx={{
-                    p: 1,
-                    pb: 0,
-                    maxWidth: 275,
-                    textAlign: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                  }}
-                >
-                  <CardContent>
-                    <Typography gutterBottom>{card.body}</Typography>
-                  </CardContent>
-                  <CardActions sx={{ width: '100%' }}>
-                    <Button
-                      href={card.href}
-                      color="primary"
-                      variant="contained"
-                      fullWidth
-                    >
-                      {card.title}
-                    </Button>
-                  </CardActions>
-                  <CardMedia
-                    component="img"
-                    height="180"
-                    sx={{ objectFit: 'contain' }}
-                    image={card.imgsrc}
-                    title={card.title}
-                  />
-                </Card>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-
-      </Box>
       <Volunteer />
+      <GetInvolvedFAQ />
       <Partner />
     </>
   );

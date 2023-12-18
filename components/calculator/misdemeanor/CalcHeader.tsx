@@ -19,7 +19,7 @@ export default function CalcHeader({ page, isFirstPage }:
   };
 
   return (
-    <Container id="calc-head-container" sx={{ marginTop: '2rem' }}>
+    <Container id="calc-head-container" sx={{ marginTop: '2rem', marginBottom: '2rem' }}>
 
       {!isFirstPage() && (
       <Button

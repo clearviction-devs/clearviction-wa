@@ -5,6 +5,16 @@ import { Inter, Sintony } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
 
+declare module '@mui/material/styles' {
+  interface Palette {
+    link: Palette['primary'];
+  }
+
+  interface PaletteOptions {
+    link?: PaletteOptions['primary'];
+  }
+}
+
 export const sintony = Sintony({
   weight: ['400', '700'],
   subsets: ['latin'],
@@ -59,6 +69,9 @@ const theme = createTheme({
     background: {
       default: '#FAFAFA',
       paper: '#FFFFFF',
+    },
+    link: {
+      main: '#007CFF',
     },
   },
   typography: {
@@ -175,6 +188,11 @@ theme.components = {
     defaultProps: {
       component: LinkBehavior,
     } as LinkProps,
+    styleOverrides: {
+      root: {
+        color: theme.palette.link.main,
+      },
+    },
   },
   MuiTabs: {
     styleOverrides: {

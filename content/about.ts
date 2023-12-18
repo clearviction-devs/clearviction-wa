@@ -11,7 +11,7 @@ interface AboutContent {
   body: string[];
   facts: Fact[];
   joinUs: Header;
-  ourPartners: Header;
+  partnersFrame: AirtableEmbed;
   ourTeam: AirtableEmbed[];
 }
 
@@ -89,12 +89,12 @@ const aboutContent: AboutContent = {
     body: 'Interested in helping make a difference? Team up with us to effect more positive change than any of us can individually.',
     imgsrc: '/illustrations/checklist1.svg',
   },
-  ourPartners: {
-    header: 'Our Partners',
-    body: 'Tacomaprobono',
-    subheading2: 'Free Civil Legal Aid for Pierce County',
-    imgsrc: '/tacomaprobono-logo.png',
-    ctaLink: 'https://tacomaprobono.org',
+  partnersFrame:
+  {
+    title: 'Our Partners',
+    id: 'our-partners',
+    src: 'https://airtable.com/embed/appfJZShN8K4tcWHU/shr6EOwMz0t728U2v?backgroundColor=tealLight',
+    height: '533px',
   },
   ourTeam: [
     {
