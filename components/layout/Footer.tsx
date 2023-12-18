@@ -5,7 +5,6 @@ import {
   Divider,
   Grid,
   Link,
-  Stack,
   SxProps,
   Theme,
   Typography,
@@ -14,7 +13,6 @@ import {
 import React from 'react';
 
 import { footerContent, footerNavItems } from '../../content/footer.ts';
-import ImageContainer from './ImageContainer.tsx';
 
 type FooterSectionProps = {
   title: string;
@@ -93,15 +91,13 @@ function Footer() {
         className="footer-main"
       >
         <FooterSection title="Welcome!" sx={{ display: { xs: 'none', md: 'block' } }}>
-          <Box className="welcome-details" maxWidth="255px">
+          <Box className="welcome-details" maxWidth="540px">
             <Typography className="our-mission" variant="caption" paragraph>
               {footerContent.mission}
             </Typography>
             <FullAddress paragraph />
           </Box>
         </FooterSection>
-
-        <Divider />
 
         <FooterSection title="Explore">
           <Grid
@@ -145,55 +141,6 @@ function Footer() {
                 </Grid>
               ))}
           </Grid>
-        </FooterSection>
-
-        <Divider />
-
-        <FooterSection title="Partnerships">
-          <Stack
-            width={{ xs: '90%', md: '100%' }}
-            mb={1}
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-            spacing={3}
-            className="partnerships-logos"
-          >
-            <Box className="democracylab-logo">
-              <ImageContainer
-                alt="Democracylab logo"
-                src="/democracylab-logo.png"
-                width={206}
-                height={61}
-                useImageDimensions
-                style={{
-                  width: '100%',
-                  objectFit: 'contain',
-                }}
-              />
-            </Box>
-            <Box
-              className="openseattle-logo"
-              width={124}
-              style={{
-                position: 'relative',
-                width: 'auto',
-                height: 'auto',
-              }}
-            >
-              <ImageContainer
-                alt="Openseattle logo"
-                src="/openseattle-logo.png"
-                width={124}
-                height={99}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'contain',
-                }}
-              />
-            </Box>
-          </Stack>
         </FooterSection>
 
         <Box sx={{ display: { md: 'none', xs: 'block' } }}>
