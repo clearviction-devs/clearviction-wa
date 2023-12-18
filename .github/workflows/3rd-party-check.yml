@@ -1,4 +1,4 @@
-name: 3rd Party Dependency Check
+name: New 3rd Party Dependency Check
 
 on:
   pull_request:
