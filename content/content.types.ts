@@ -115,3 +115,9 @@ export interface FormInfo {
     contactType: string;
     message: string;
 }
+
+export interface PerfectFitCard {
+    id: string;
+    header: string;
+    body:string;
+}
