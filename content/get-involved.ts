@@ -1,5 +1,5 @@
 import {
-  AirtableEmbed, Button, Fact, FAQ, Header, MetaPageHead,
+  AirtableEmbed, Button, Fact, FAQ, Header, MetaPageHead, PerfectFitCard,
 } from './content.types.ts';
 
 interface GetInvolvedContent {
@@ -18,6 +18,12 @@ interface GetInvolvedContent {
     buttons: Button[];
   };
   faqs: FAQ[];
+  perfectFit: {
+    header: string;
+    body: string;
+    perfectFitCards: PerfectFitCard[];
+    imgSrc: string;
+  }
 }
 
 const getInvolvedContent: GetInvolvedContent = {
@@ -104,6 +110,38 @@ const getInvolvedContent: GetInvolvedContent = {
       details: 'As a volunteer, you\'ll be a part of a team. You\'ll report directly to the team leader and/or the individual who assigns tasks. We believe in a collaborative environment where everyone has a voice.',
     },
   ],
+  perfectFit: {
+    header: 'You\'ll Be Perfect If...',
+    body: 'You will thrive and feel connected within Clearviction if you embody the following key attributes and share these values...',
+    imgSrc: '/illustrations/perfect-fit-lightbulb.svg',
+    perfectFitCards: [
+      {
+        id: 'community-focus',
+        header: 'COMMUNITY FOCUS',
+        body: 'Show a sincere commitment to the community\'s well-being and recognize the wider impact of your role',
+      },
+      {
+        id: 'strong-communication',
+        header: 'STRONG COMMUNICATION',
+        body: 'Maintain clear, positive, and effective communication to cultivate collaboration and a supportive community.',
+      },
+      {
+        id: 'commitment',
+        header: 'COMMITMENT & CONSISTENCY',
+        body: 'Dedicate at least 4 hours per week for a minimum of 6 months, showcasing your reliability and long-term dedication.',
+      },
+      {
+        id: 'adaptability',
+        header: 'ADAPTABILITY & RESILIENCE',
+        body: 'Be ready to tackle challenges, adjust to various needs, and continuously learn in your role. ',
+      },
+      {
+        id: 'continuous-learning',
+        header: 'CONTINOUS LEARNING & DEVELOPMENT',
+        body: 'Pursue personal and professional growth, seeking opportunities to enhance your skills and knowledge.',
+      },
+    ],
+  },
   partnerPage: {
     header: [
       'Help us bring a message of hope into your community.',
