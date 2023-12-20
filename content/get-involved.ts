@@ -7,10 +7,11 @@ interface GetInvolvedContent {
   hero: Header;
   benefits: {
     header: string,
-    subheader: string,
     body: string[],
+    listHeader: string,
     benefitItems: BenefitItem[],
     imgsrc: string,
+    mobileImgsrc: string,
   },
   volunteerPage: {
     header: string;
@@ -42,12 +43,11 @@ const getInvolvedContent: GetInvolvedContent = {
   },
   benefits: {
     header: 'Benefits of joining us',
-    subheader: 'Benefits of Joining Us...',
     body: [
       'At Clearviction, every volunteer is part of a transformative journey. Our dedicated team, bursting with diverse backgrounds and fueled by passion, is united by a shared mission: to provide tools and guidance to help people with criminal convictions clear their records and begin a path to a fresh start.',
       'But Clearviction isn\'t just about the cause; it\'s about personal growth, professional experience, and community involvement. From software engineers discovering a deeper purpose beyond code to criminal justice professionals experiencing the startup hustle, every volunteer\'s story speaks to the transformative essence of our team.',
-      'You\'ll gain:',
     ],
+    listHeader: 'You\'ll gain:',
     benefitItems: [
       {
         id: 1,
@@ -75,6 +75,7 @@ const getInvolvedContent: GetInvolvedContent = {
       },
     ],
     imgsrc: 'illustrations/climbing-guy.svg',
+    mobileImgsrc: 'illustrations/checklist.svg',
   },
   volunteerPage: {
     header: 'Help us break down barriers by joining the team.',

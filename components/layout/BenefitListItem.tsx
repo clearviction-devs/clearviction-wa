@@ -10,16 +10,17 @@ interface BenefitItemProps {
   title: string;
   leftOffset: number;
   rightOffset: number;
+  isSmallScreen?: boolean;
 }
 
 interface BenefitBoxProps {
-  leftOffset: number;
-  rightOffset: number;
+  leftoffset: number; // custom DOM elements must be all lowercase
+  rightoffset: number;
 }
 
-const BenefitBox = styled(Box)<BenefitBoxProps>(({ leftOffset, rightOffset, theme }) => ({
-  paddingLeft: `${leftOffset}rem`,
-  paddingRight: `${rightOffset}rem`,
+const BenefitBox = styled(Box)<BenefitBoxProps>(({ leftoffset, rightoffset, theme }) => ({
+  paddingLeft: `${leftoffset}rem`,
+  paddingRight: `${rightoffset}rem`,
   paddingBottom: theme.spacing(3),
 }));
 
@@ -43,10 +44,18 @@ const ItemNumber = styled(Avatar)(() => ({
 }));
 
 export default function BenefitItem({
-  id, title, leftOffset, rightOffset,
+  id, title, leftOffset, rightOffset, isSmallScreen = false,
 }: BenefitItemProps) {
+  let adjustedLeftOffset = leftOffset;
+  let adjustedRightOffset = rightOffset;
+
+  if (isSmallScreen) {
+    adjustedLeftOffset = 0;
+    adjustedRightOffset = 0;
+  }
+
   return (
-    <BenefitBox leftOffset={leftOffset} rightOffset={rightOffset}>
+    <BenefitBox leftoffset={adjustedLeftOffset} rightoffset={adjustedRightOffset}>
       <BenefitListItem>
         <ListItemAvatar sx={{ minWidth: 'auto', mr: 0.5, ml: -1 }}>
           <ItemNumber>
