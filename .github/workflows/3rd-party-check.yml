@@ -1,0 +1,79 @@
+name: New 3rd Party Dependency Check
+
+on:
+  pull_request:
+    branches:
+      - staging
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-3rd-party:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensures all history is fetched
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Check for 3rd Party Dependencies
+        id: dependency_check
+        run: |
+          sudo apt-get install -y jq
+          git fetch origin ${{ github.base_ref }}
+          git checkout ${{ github.base_ref }}
+          git checkout -
+      
+          PACKAGE_JSON_CHANGED=false
+          PACKAGE_LOCK_JSON_CHANGED=false
+      
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'package.json'; then
+            PACKAGE_JSON_CHANGED=true
+          fi
+      
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'package-lock.json'; then
+            PACKAGE_LOCK_JSON_CHANGED=true
+          fi
+          
+          # Output Results
+          echo "package_json_changed=$PACKAGE_JSON_CHANGED" >> $GITHUB_OUTPUT
+          echo "package_lock_json_changed=$PACKAGE_LOCK_JSON_CHANGED" >> $GITHUB_OUTPUT
+
+      - name: Post Comment
+        if: steps.dependency_check.outputs.package_json_changed == 'true' || steps.dependency_check.outputs.package_lock_json_changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          echo "PR_NUMBER: $PR_NUMBER"
+  
+          COMMENT_BODY="### New 3rd party dependency justification\n"
+          COMMENT_BODY+="@$PR_AUTHOR, we have detected new changes to the package.json file, if you are looking to implement a new library as part of your pull request, you **must** fill out the information required in the form. Type your answers between the two \`| |\` at the end of each line. _If this is just an update to an already existing package, you can ignore this._\n\n"
+          COMMENT_BODY+="| Topic      | Questions/considerations | Answer |\n"
+          COMMENT_BODY+="| ----------- | ----------- | ----------- |\n"
+          COMMENT_BODY+="| **Problem statement** | What problem does using this package solve for us? Please provide a concise description of the problem that the proposed package aims to address. This should offer a high-level understanding of why integrating this package is necessary for our project. |   |\n"
+          COMMENT_BODY+="| **Cost/subscription** | At this time, we will not accept any libraries that are paid. However, if we are able to use a free tier, it MUST allow unlimited seats and be available for use outside of personal or private repositories. _Please tell us which category this falls under._ |   |\n"
+          COMMENT_BODY+="| **Community** | Is there a robust community using this package? _(Weekly downloads, stars and forks on GitHub)_ |   |\n"
+          COMMENT_BODY+="| **Maintenance** | How often is the package updated? _(Release frequency, number of issues open on GitHub, is the package new?)_ At a minimum, the latest release should be within the past year. |   |\n"
+          COMMENT_BODY+="| **Data privacy** | If our data will be processed through this tool, please verify that data is not being collected or sold for nefarious purposes. _(Please tell us how you verified)_ |   |\n"
+          COMMENT_BODY+="| **Security** | Verify that the package does not install malicious code. _(Please tell us how you verified)_ |   |\n"
+          COMMENT_BODY+="| **Maintainability** | Does using this require a specialized skill set or have a steep learning curve? Would someone need to take a course in order to learn how to use this library? How extensive is the documentation for this tool? _(Ex: [Draft.js](https://draftjs.org/) and [RxJS](https://rxjs.dev/) are difficult to learn, but [Moment.js](https://momentjs.com/) or [Lodash](https://lodash.com/) are easier to learn)_ |   |\n"
+          COMMENT_BODY+="| **Other options** | What other options have you considered, and why did you choose this package? |   |\n"
+          COMMENT_BODY+="| **Can we do it ourselves** | Why is an external solution better than a custom solution of our own? |   |\n"
+          COMMENT_BODY+="| **Other notes** | Is there any other information you would like to share? |   |\n\n"
+  
+          # Post the comment using GitHub API
+          curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+                -H "Accept: application/vnd.github.v3+json" \
+                -X POST -d "{\"body\": \"$COMMENT_BODY\"}" \
+                "https://api.github.com/repos/${{ github.repository }}/issues/$PR_NUMBER/comments"
