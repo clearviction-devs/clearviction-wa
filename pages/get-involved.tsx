@@ -139,6 +139,45 @@ function GetInvolvedFAQ() {
   );
 }
 
+function PerfectFit() {
+  return (
+    <SectionContainer id="perfect-fit">
+      <Typography variant="h2" fontWeight="bold">{content.perfectFit.header}</Typography>
+      <Typography>{content.perfectFit.body}</Typography>
+      <Grid container spacing={{ xs: 3, sm: 3, md: 10 }} paddingTop={4}>
+        {
+        content.perfectFit.perfectFitCards.map((card) => (
+          <Grid item key={card.id} xs={12} sm={12} md={6} paddingX={4}>
+            <Box
+              id={`${card.id}-card`}
+              maxWidth="md"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              sx={{
+                background: '#546B95', borderRadius: '20px', textAlign: 'center', color: 'white', minHeight: '12rem',
+              }}
+            >
+              <Typography fontWeight="bold" paddingBottom={2}>{card.header}</Typography>
+              <Typography>{card.body}</Typography>
+            </Box>
+          </Grid>
+        ))
+      }
+        <Grid item display={{ xs: 'none', md: 'block' }} maxWidth="md" alignItems="center">
+          <ImageContainer
+            alt="lightbulb"
+            src={content.perfectFit.imgSrc}
+            width={524}
+            height={321}
+            priority
+          />
+        </Grid>
+      </Grid>
+    </SectionContainer>
+  );
+}
+
 export default function GetInvolvedPage() {
   return (
     <>
@@ -151,6 +190,7 @@ export default function GetInvolvedPage() {
         {...content.hero}
       />
 
+      <PerfectFit />
       <Volunteer />
       <GetInvolvedFAQ />
       <Partner />
