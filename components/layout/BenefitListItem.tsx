@@ -62,7 +62,7 @@ export default function BenefitItem({
         <ListItemText
           primary={title}
           primaryTypographyProps={{
-              fontSize: { sm: '1rem', md: '1.25rem' },
+            fontSize: { sm: '1rem', md: '1.25rem' },
           }}
         />
       </BenefitListItem>
