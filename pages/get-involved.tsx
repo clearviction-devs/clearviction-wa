@@ -10,7 +10,6 @@ import React from 'react';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
-import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
@@ -19,50 +18,23 @@ import content from '../content/get-involved.ts';
 
 function Volunteer() {
   return (
-    <>
-      <SectionContainer id="volunteer" maxWidth="md">
-        <Typography sx={{ my: 8 }} variant="h2">
-          {content.volunteerPage.header}
-        </Typography>
-        {content.volunteerPage.body.map((text) => (
-          <Typography
-            key={`volunteerText-${text}`}
-            variant="body1"
-            sx={{ my: 3 }}
-          >
-            {text}
-          </Typography>
-        ))}
-        <Grid container className="fact-card">
-          {content.volunteerPage.facts.map((fact) => (
-            <FactCard
-              key={fact.id}
-              details={fact.details}
-              icon={fact.icon}
-              border={false}
-            />
-          ))}
-        </Grid>
-      </SectionContainer>
-
-      <SectionContainer id="open-roles" maxWidth="md">
-        <Typography variant="h2">
-          {content.volunteerPage.openRole.title}
-        </Typography>
-        <iframe
-          id={content.volunteerPage.openRole.id}
-          src={content.volunteerPage.openRole.src}
-          width="100%"
-          height={content.volunteerPage.openRole.height}
-          title="Volunteer with Clearviction"
-          style={{
-            background: 'transparent',
-            border: '1px solid #ccc',
-            borderRadius: '6px',
-          }}
-        />
-      </SectionContainer>
-    </>
+    <SectionContainer id="open-roles" maxWidth="md">
+      <Typography variant="h2">
+        {content.volunteerPage.openRole.title}
+      </Typography>
+      <iframe
+        id={content.volunteerPage.openRole.id}
+        src={content.volunteerPage.openRole.src}
+        width="100%"
+        height={content.volunteerPage.openRole.height}
+        title="Volunteer with Clearviction"
+        style={{
+          background: 'transparent',
+          border: '1px solid #ccc',
+          borderRadius: '6px',
+        }}
+      />
+    </SectionContainer>
   );
 }
 
@@ -141,7 +113,12 @@ function GetInvolvedFAQ() {
 
 function PerfectFit() {
   return (
-    <SectionContainer id="perfect-fit">
+    <SectionContainer
+      id="perfect-fit"
+      sx={{
+        background: 'white', paddingLeft: '3rem', paddingTop: '3rem', marginTop: '3rem',
+      }}
+    >
       <Typography variant="h2" fontWeight="bold">{content.perfectFit.header}</Typography>
       <Typography>{content.perfectFit.body}</Typography>
       <Grid container spacing={{ xs: 3, sm: 3, md: 10 }} paddingTop={4}>
