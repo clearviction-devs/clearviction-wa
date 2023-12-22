@@ -129,7 +129,7 @@ function PerfectFit() {
     <SectionContainer
       id="perfect-fit"
       sx={{
-        background: 'white', paddingLeft: '3rem', paddingTop: '3rem', marginTop: '3rem',
+        background: 'white', paddingLeft: '1.5rem', paddingTop: '3rem', marginTop: '3rem',
       }}
     >
       <Typography variant="h2" fontWeight="bold">{content.perfectFit.header}</Typography>
