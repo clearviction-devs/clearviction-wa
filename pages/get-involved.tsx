@@ -22,6 +22,18 @@ function Volunteer() {
       <Typography variant="h2">
         {content.volunteerPage.openRole.title}
       </Typography>
+
+      <SectionContainer id="volunteer" maxWidth="md">
+        {content.volunteerPage.body.map((text) => (
+          <Typography
+            key={`volunteerText-${text}`}
+            variant="body1"
+            sx={{ my: 3 }}
+          >
+            {text}
+          </Typography>
+        ))}
+      </SectionContainer>
       <iframe
         id={content.volunteerPage.openRole.id}
         src={content.volunteerPage.openRole.src}
