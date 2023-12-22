@@ -75,7 +75,7 @@ const getInvolvedContent: GetInvolvedContent = {
       },
     ],
     imgsrc: 'illustrations/climbing-guy.svg',
-    mobileImgsrc: 'illustrations/checklist.svg',
+    mobileImgsrc: 'illustrations/checklist1.svg',
   },
   volunteerPage: {
     header: 'Help us break down barriers by joining the team.',
