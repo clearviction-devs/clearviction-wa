@@ -90,6 +90,9 @@ jobs:
           COMMENT_BODY+="| **Other options** | What other options have you considered, and why did you choose this package? |   |\n"
           COMMENT_BODY+="| **Can we do it ourselves** | Why is an external solution better than a custom solution of our own? |   |\n"
           COMMENT_BODY+="| **Other notes** | Is there any other information you would like to share? |   |\n\n"
+
+          # Add a unique tag to the comment to identify it later
+          COMMENT_BODY+="<!-- DependencyCheckTag -->\n"
   
           # Post the comment using GitHub API
           curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
