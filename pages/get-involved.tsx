@@ -29,6 +29,7 @@ function Volunteer() {
             key={`volunteerText-${text}`}
             variant="body1"
             sx={{ my: 3 }}
+            display={{ xs: 'none', md: 'block' }}
           >
             {text}
           </Typography>
