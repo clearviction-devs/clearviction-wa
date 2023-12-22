@@ -61,10 +61,8 @@ export default function BenefitItem({
         </ListItemAvatar>
         <ListItemText
           primary={title}
-          sx={{
-            '.MuiTypography-body1': {
+          primaryTypographyProps={{
               fontSize: { sm: '1rem', md: '1.25rem' },
-            },
           }}
         />
       </BenefitListItem>
