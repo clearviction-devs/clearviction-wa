@@ -6,8 +6,6 @@ import {
   List,
   Typography,
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
@@ -22,16 +20,6 @@ import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/get-involved.ts';
 
 function BenefitsOfJoiningUs() {
-  const theme = useTheme();
-  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
-  const matchesSM = useMediaQuery(theme.breakpoints.down('md'));
-
-  let bottomImageAdjust;
-  if (matchesSM) {
-    bottomImageAdjust = '9.8rem';
-  } else {
-    bottomImageAdjust = '6.6rem';
-  }
   return (
     <SectionContainer
       id="benefits-of-joining-us"
@@ -57,54 +45,47 @@ function BenefitsOfJoiningUs() {
               {text}
             </Typography>
           ))}
-          {matchesXS ? (
-            <Grid container alignItems="flex-start">
-              <Grid item xs={5}>
-                <Typography variant="body1" paragraph>
-                  {content.benefits.listHeader}
-                </Typography>
-              </Grid>
-              <Grid item xs={7}>
-                <ImageContainer
-                  src={content.benefits.mobileImgsrc}
-                  width={95}
-                  height={95}
-                  alt=""
-                  useImageDimensions
-                />
-              </Grid>
-            </Grid>
-          )
-            : (
+          <Grid container alignItems="flex-start">
+            <Grid item xs={5}>
               <Typography variant="body1" paragraph>
                 {content.benefits.listHeader}
               </Typography>
-            )}
+            </Grid>
+            <Grid item xs={7} sx={{ display: { xs: 'inherit', sm: 'none' } }}>
+              <ImageContainer
+                src={content.benefits.mobileImgsrc}
+                width={95}
+                height={95}
+                alt=""
+                useImageDimensions
+              />
+            </Grid>
+          </Grid>
           <Box sx={{
             position: 'relative', width: '100%', height: 'auto',
           }}
           >
             <List>
               {content.benefits.benefitItems.map((benefit) => (
-                <BenefitListItem key={`benefitItem-${benefit.id}`} isSmallScreen={matchesXS} {...benefit} />
+                <BenefitListItem key={`benefitItem-${benefit.id}`} {...benefit} />
               ))}
             </List>
-            {!matchesXS
-            && (
+            <Box
+              sx={{
+                position: 'absolute',
+                right: '3rem',
+                bottom: '5.4rem',
+                display: { xs: 'none', sm: 'inherit' },
+              }}
+            >
               <ImageContainer
                 src={content.benefits.imgsrc}
                 alt=""
                 width={200}
                 height={200}
-                style={{
-                  position: 'absolute',
-                  right: '3rem',
-                  bottom: `${bottomImageAdjust}`,
-                  transition: 'right 0.5s top 0.5s',
-                }}
                 useImageDimensions
               />
-            )}
+            </Box>
           </Box>
         </Box>
       </PaperSection>

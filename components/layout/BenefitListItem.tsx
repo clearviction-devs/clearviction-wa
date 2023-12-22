@@ -10,7 +10,6 @@ interface BenefitItemProps {
   title: string;
   leftOffset: number;
   rightOffset: number;
-  isSmallScreen?: boolean;
 }
 
 interface BenefitBoxProps {
@@ -22,6 +21,12 @@ const BenefitBox = styled(Box)<BenefitBoxProps>(({ leftoffset, rightoffset, them
   paddingLeft: `${leftoffset}rem`,
   paddingRight: `${rightoffset}rem`,
   paddingBottom: theme.spacing(3),
+  height: '3.5rem',
+  [theme.breakpoints.down('sm')]: {
+    height: '4.75rem',
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
 }));
 
 const BenefitListItem = styled(ListItem)(({ theme }) => ({
@@ -44,25 +49,24 @@ const ItemNumber = styled(Avatar)(() => ({
 }));
 
 export default function BenefitItem({
-  id, title, leftOffset, rightOffset, isSmallScreen = false,
+  id, title, leftOffset, rightOffset,
 }: BenefitItemProps) {
-  let adjustedLeftOffset = leftOffset;
-  let adjustedRightOffset = rightOffset;
-
-  if (isSmallScreen) {
-    adjustedLeftOffset = 0;
-    adjustedRightOffset = 0;
-  }
-
   return (
-    <BenefitBox leftoffset={adjustedLeftOffset} rightoffset={adjustedRightOffset}>
+    <BenefitBox leftoffset={leftOffset} rightoffset={rightOffset}>
       <BenefitListItem>
         <ListItemAvatar sx={{ minWidth: 'auto', mr: 0.5, ml: -1 }}>
           <ItemNumber>
             {id}
           </ItemNumber>
         </ListItemAvatar>
-        <ListItemText primary={title} />
+        <ListItemText
+          primary={title}
+          sx={{
+            '.MuiTypography-body1': {
+              fontSize: { sm: '1rem', md: '1.25rem' },
+            },
+          }}
+        />
       </BenefitListItem>
     </BenefitBox>
   );
