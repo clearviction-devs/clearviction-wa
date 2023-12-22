@@ -54,10 +54,10 @@ function BenefitsOfJoiningUs() {
             <Grid item xs={7} sx={{ display: { xs: 'inherit', sm: 'none' } }}>
               <ImageContainer
                 src={content.benefits.mobileImgsrc}
-                width={95}
+                width={110}
                 height={95}
+                style={{ marginTop: -35 }}
                 alt=""
-                useImageDimensions
               />
             </Grid>
           </Grid>
