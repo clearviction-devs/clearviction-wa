@@ -68,11 +68,16 @@ This GitHub Actions workflow is designed to automatically scrutinize pull reques
     - checks for changes in `package.json` or `package-lock.json`
     - sets the flags `PACKAGE_JSON_CHANGED` and `PACKAGE_LOCK_JSON_CHANGED` to `true` if changes are detected in respective files
     - these flags are then written to the `$GITHUB_OUTPUT` variable to be used by subsequent steps
+1. **Check if Comment Already Posted**
+    - fetches all existing comments from the pull request using the GitHub API
+    - searches these comments for a unique tag `<!-- DependencyCheckTag -->`. This tag is used to identify if the automated comment has already been posted
+    - if the tag is found, it sets a flag `comment_already_posted=true` to prevent reposting. Otherwise, it sets `comment_already_posted=false`
 1. **Post comment with form**
-    - this step is conditional and only executes if changes are detected in either of the specified files
+    - this step is conditional and only executes if changes are detected in either of the specified files and the comment has not already been posted (`comment_already_posted=false`)
     - constructs a detailed comment body asking the pull request author to justify the inclusion of new third party dependencies
     - uses the GitHub API to post this comment on the pull request, and tags the author, thus ensuring the author is aware of the need to provide the necessary justification
     - the comment includes a structured form with specific questions and considerations regarding the new dependencies
+    - to prevent duplicate comments on subsequent pushes to the same PR, the comment includes a unique tag `<!-- DependencyCheckTag -->` at the end
 
 ## Merge Staging -> Main Cron Job
 This workflow merges the `staging` branch into `main` every other Tuesday. This is a process that is necessary to update the production website with new changes from development/the staging branch. Some basic verifications are done before the merge process to ensure that this can be completed successfully, and if something goes wrong, an issue is created to inform that the process failed.

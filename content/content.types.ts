@@ -121,3 +121,10 @@ export interface PerfectFitCard {
     header: string;
     body:string;
 }
+
+export interface BenefitItem {
+    id: number;
+    title: string;
+    leftOffset: number;
+    rightOffset: number;
+}
