@@ -2,10 +2,18 @@ import { Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Inter } from 'next/font/google';
-import React from 'react';
+import { Inter, Sintony } from 'next/font/google';
+import React, { useContext } from 'react';
+
+import { PageContext } from '../components/helper/PageContext.tsx';
 
 export const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+});
+export const sintony = Sintony({
+  weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -14,6 +22,10 @@ function BlockTypeComponent(props:any) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const { node, children } = props;
+
+  const { isFinalPage } = useContext(PageContext);
+  const font = isFinalPage ? { fontFamily: sintony.style.fontFamily }
+    : { fontFamily: inter.style.fontFamily };
 
   if (node.style === 'li') {
     const isOrderedList = node.listItem !== 'bullet'; // Check if it's an ordered list
@@ -25,10 +37,10 @@ function BlockTypeComponent(props:any) {
   if (node.style === 'h1') {
     const h1Styles = isSmallScreen
       ? {
-        fontSize: '2rem', lineHeight: '3.375rem', letterSpacing: '0.11rem', fontStyle: 'normal', fontWeight: '700', fontFamily: inter.style.fontFamily,
+        fontSize: '2rem', lineHeight: '3.375rem', letterSpacing: '0.11rem', fontStyle: 'normal', fontWeight: '700', fontFamily: font,
       } // smaller font size for small screen
       : {
-        fontSize: '2.5rem', lineHeight: '3.75rem', letterSpacing: '0.05rem', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
+        fontSize: '2.5rem', lineHeight: '3.75rem', letterSpacing: '0.05rem', fontStyle: 'normal', fontWeight: '600', fontFamily: font,
       };
     return (<Typography variant="h1" style={h1Styles}>{children}</Typography>);
   }
