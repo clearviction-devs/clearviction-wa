@@ -122,3 +122,9 @@ export interface BenefitItem {
     leftOffset: number;
     rightOffset: number;
 }
+
+export interface PerfectFitCard {
+    id: string;
+    header: string;
+    body:string;
+}
