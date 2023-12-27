@@ -1,5 +1,5 @@
 import {
-  AirtableEmbed, BenefitItem, Button, Fact, FAQ, Header, MetaPageHead,
+  AirtableEmbed, BenefitItem, Button, Fact, FAQ, Header, MetaPageHead, PerfectFitCard,
 } from './content.types.ts';
 
 interface GetInvolvedContent {
@@ -26,6 +26,12 @@ interface GetInvolvedContent {
     buttons: Button[];
   };
   faqs: FAQ[];
+  perfectFit: {
+    header: string;
+    body: string;
+    perfectFitCards: PerfectFitCard[];
+    imgSrc: string;
+  };
 }
 
 const getInvolvedContent: GetInvolvedContent = {
