@@ -5,8 +5,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Inter } from 'next/font/google';
 import React from 'react';
 
-// eslint-disable-next-line import/prefer-default-export
-
 export const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
