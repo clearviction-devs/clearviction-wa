@@ -195,7 +195,7 @@ function Partner() {
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
                 <ImageContainer
                   alt=""
-                  src={content.partnerPage.imgsrc}
+                  src={content.partnerPage.imagesrc}
                   width={342}
                   height={248}
                   priority

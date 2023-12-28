@@ -230,7 +230,7 @@ const getInvolvedContent: GetInvolvedContent = {
         href: '/contact',
       },
     ],
-    imgsrc: '../illustrations/pr.svg',
+    imagesrc: '../illustrations/pr.svg',
   },
 };
 
