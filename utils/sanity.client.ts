@@ -2,11 +2,9 @@ import { createClient } from 'next-sanity';
 
 import { apiVersion, dataset, projectId } from './sanity.api.ts';
 import {
+  basePagePathsQuery,
+  basePagesBySlugQuery,
   calculatorConfigQuery,
-  calculatorFelonyPagePaths,
-  calculatorFelonyPagesBySlugQuery,
-  calculatorMisdemeanorPagePaths,
-  calculatorMisdemeanorPagesBySlugQuery,
 } from './sanity.queries.ts';
 
 const sanityClient = (token?: string) => {
@@ -20,32 +18,40 @@ const sanityClient = (token?: string) => {
   return projectId ? createClientCall : null;
 };
 
-export async function getCalculatorMisdemeanorPageBySlug({
-  slug,
-  token,
-}: {
+interface CalcPageBySlugParams {
   slug: string;
   token?: string;
-}) {
-  return sanityClient(token)?.fetch(calculatorMisdemeanorPagesBySlugQuery, { slug });
 }
 
-export async function getCalculatorMisdemeanorPagePaths(): Promise<string[] | undefined> {
-  return sanityClient()?.fetch(calculatorMisdemeanorPagePaths);
+// `calculatorInfoPage` is the name of the Sanity MISDEMEANOR page, where the visual "title" for
+// Sanity Studio is "Calculator Misdemeanor Page"
+
+export async function getMisdemeanorPageBySlug({ slug, token }: CalcPageBySlugParams) {
+  return sanityClient(token)?.fetch(
+    basePagesBySlugQuery,
+    { slug, pageType: 'calculatorInfoPage' },
+  );
 }
 
-export async function getCalculatorFelonyPageBySlug({
-  slug,
-  token,
-}: {
-  slug: string;
-  token?: string;
-}) {
-  return sanityClient(token)?.fetch(calculatorFelonyPagesBySlugQuery, { slug });
+export async function getMisdemeanorPagePaths(): Promise<string[] | undefined> {
+  return sanityClient()?.fetch(
+    basePagePathsQuery,
+    { pageType: 'calculatorInfoPage' },
+  );
 }
 
-export async function getCalculatorFelonyPagePaths(): Promise<string[] | undefined> {
-  return sanityClient()?.fetch(calculatorFelonyPagePaths);
+export async function getFelonyPageBySlug({ slug, token }: CalcPageBySlugParams) {
+  return sanityClient(token)?.fetch(
+    basePagesBySlugQuery,
+    { slug, pageType: 'calculatorFelonyPage' },
+  );
+}
+
+export async function getFelonyPagePaths(): Promise<string[] | undefined> {
+  return sanityClient()?.fetch(
+    basePagePathsQuery,
+    { pageType: 'calculatorFelonyPage' },
+  );
 }
 
 export async function getCalculatorConfig() {
