@@ -2,6 +2,13 @@ import {
   AirtableEmbed, BenefitItem, Button, Fact, FAQ, Header, MetaPageHead,
 } from './content.types.ts';
 
+export interface Testimonies {
+  id: number;
+  testimonial: string;
+  imageSrc: string;
+  name: string;
+  cvrole: string;
+}
 interface GetInvolvedContent {
   meta: MetaPageHead;
   hero: Header;
@@ -22,10 +29,11 @@ interface GetInvolvedContent {
   partnerPage: {
     header: string[];
     text: string[];
-    imgsrc: string;
+    imagesrc: string;
     buttons: Button[];
   };
   faqs: FAQ[];
+  testimonies: Testimonies[]
 }
 
 const getInvolvedContent: GetInvolvedContent = {
@@ -77,6 +85,64 @@ const getInvolvedContent: GetInvolvedContent = {
     imgsrc: 'illustrations/climbing-guy.svg',
     mobileImgsrc: 'illustrations/checklist1.svg',
   },
+  testimonies: [
+    {
+      id: 1,
+      testimonial: 'What initially drew me to Clearviction was their unwavering commitment to making a positive impact on the lives of people with convictions. But what has made me want to stay and contribute long-term is the team and the environment we work in.',
+      imageSrc: '/illustrations/gabriel.png',
+      name: 'GABRIEL EGER',
+      cvrole: 'Software Engineer',
+
+    },
+    {
+      id: 2,
+      testimonial: 'When I started at Clearviction, the project was just starting, so I can proudly say I was part of the first launch ever of the eligibility calculator! After honing my design skills, I became part of the product team where I now have the opportunity to help decide how to improve the project and guide the team towards bigger and better things.',
+      imageSrc: '/illustrations/judit.png',
+      name: 'JUDIT SERRAL',
+      cvrole: 'PRODUCT TEAM LEAD',
+
+    },
+    {
+      id: 3,
+      testimonial: 'I joined CV primarily looking for a way to gain more experience as a software engineer, but I also believe deeply that our so-called justice system is totally broken, and am glad to be able to help those folds who are unfairly impacted.',
+      imageSrc: '/illustrations/Eleni.png',
+      name: 'ELENI PAPANICOLAS',
+      cvrole: 'Software Engineer',
+
+    },
+    {
+      id: 4,
+      testimonial: 'I went to school for Criminal Justice and worked as a courtroom clerk in my home state\'s criminal court. Through Clearviction I\'ve had the opportunity to experience working for a true startup, and what it means to bootstrap whatever you can to get things done.',
+      imageSrc: '/illustrations/Dendra.png',
+      name: 'DENDRA ABDINOOR',
+      cvrole: 'UX Researcher',
+
+    },
+    {
+      id: 5,
+      testimonial: 'What I truly love about CV is its culture. It’s a place where respect, responsibility, and support for each project and team member are deeply embedded.',
+      imageSrc: '/illustrations/Hui.jpeg',
+      name: 'HUI ZHENG',
+      cvrole: 'Business Analyst',
+
+    },
+    {
+      id: 6,
+      testimonial: 'The first thing that surprised me was the cause behind the whole project. I loved people\'s enthusiasm to work and volunteer their time, helping each other understand the process and supporting each other in personal growth.',
+      imageSrc: '/illustrations/Somi.jpeg',
+      name: 'SOMI SHEIKHI',
+      cvrole: 'Product Designer',
+
+    },
+    {
+      id: 7,
+      testimonial: 'I didn’t know much about the cause before but believe we’re creating a really practical tool that helps people take the first step to improving their lives. CV Provides individuals with any professional experience they are seeking, from developing products to leadership and management.',
+      imageSrc: '/illustrations/Emily.jpeg',
+      name: 'EMILY LEUNG',
+      cvrole: 'Fundraising Team Lead',
+
+    },
+  ],
   volunteerPage: {
     header: 'Help us break down barriers by joining the team.',
     body: [

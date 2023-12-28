@@ -17,6 +17,7 @@ import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
+import Testimonials from '../components/layout/Testimonials.tsx';
 import content from '../content/get-involved.ts';
 
 function BenefitsOfJoiningUs() {
@@ -93,6 +94,30 @@ function BenefitsOfJoiningUs() {
   );
 }
 
+function TestimonialSection() {
+  return (
+    <SectionContainer
+      id="testimonies"
+      maxWidth="xl"
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        mb: 2,
+      }}
+    >
+      {content.testimonies.map((testimony) => (
+        <Testimonials
+          key={testimony.id}
+          testimonial={testimony.testimonial}
+          imageSrc={testimony.imageSrc}
+          name={testimony.name}
+          cvrole={testimony.cvrole}
+        />
+      ))}
+    </SectionContainer>
+  );
+}
 function Volunteer() {
   return (
     <>
@@ -214,7 +239,6 @@ function GetInvolvedFAQ() {
     </SectionContainer>
   );
 }
-
 export default function GetInvolvedPage() {
   return (
     <>
@@ -227,6 +251,7 @@ export default function GetInvolvedPage() {
         {...content.hero}
       />
       <BenefitsOfJoiningUs />
+      <TestimonialSection />
       <Volunteer />
       <GetInvolvedFAQ />
       <Partner />
