@@ -93,6 +93,41 @@ function BenefitsOfJoiningUs() {
   );
 }
 
+function PerfectFit() {
+  return (
+    <SectionContainer id="perfect-fit" maxWidth="md">
+      <Typography variant="h2" alignItems="stretch">
+        {content.perfectFit.header}
+      </Typography>
+      <PaperSection sx={{
+        color: 'primary.contrastText', bgcolor: 'background.paper', px: 4, py: 1,
+      }}
+      >
+        <Typography color="text.primary">{content.perfectFit.body}</Typography>
+
+        <Grid container spacing={8} marginY={1}>
+          { content.perfectFit.perfectFitCards.map((card) => (
+            <Grid item sx={{ width: '100%', height: 'full' }} xs={12} md={6} key={`fit-card-${card.id}`} rowSpacing={2}>
+              <Box sx={{ backgroundColor: 'primary.dark', textAlign: 'center' }} height="100%" paddingLeft={1} borderRadius="20px">
+                <Typography fontWeight="bold" variant="subtitle1">{card.header}</Typography>
+                <Typography variant="body2" paddingBottom={1}>{card.body}</Typography>
+              </Box>
+            </Grid>
+          ))}
+          <Grid item sx={{ width: '100%', height: 'full' }} xs={12} md={6} rowSpacing={2}>
+            <ImageContainer
+              src={content.perfectFit.imgSrc}
+              width={300}
+              height={154}
+              alt=""
+            />
+          </Grid>
+        </Grid>
+      </PaperSection>
+    </SectionContainer>
+  );
+}
+
 function Volunteer() {
   return (
     <>
@@ -227,6 +262,7 @@ export default function GetInvolvedPage() {
         {...content.hero}
       />
       <BenefitsOfJoiningUs />
+      <PerfectFit />
       <Volunteer />
       <GetInvolvedFAQ />
       <Partner />
