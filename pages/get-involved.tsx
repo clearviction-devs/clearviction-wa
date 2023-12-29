@@ -108,7 +108,7 @@ function TestimonialSection() {
     infinite: true,
     // autoplaySpeed: 5000,
     // autoplay: true,
-    slidesToShow: isMdOrLarger ? 3 : 2,
+    slidesToShow: isMdOrLarger ? 2 : 1,
     slidesToScroll: 1,
   };
 

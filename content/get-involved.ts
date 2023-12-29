@@ -99,7 +99,7 @@ const getInvolvedContent: GetInvolvedContent = {
       testimonial: 'When I started at Clearviction, the project was just starting, so I can proudly say I was part of the first launch ever of the eligibility calculator! After honing my design skills, I became part of the product team where I now have the opportunity to help decide how to improve the project and guide the team towards bigger and better things.',
       imageSrc: '/illustrations/judit.png',
       name: 'JUDIT SERRAL',
-      cvrole: 'PRODUCT TEAM LEAD',
+      cvrole: 'Product Team Lead',
 
     },
     {
