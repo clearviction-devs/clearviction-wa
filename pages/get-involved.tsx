@@ -1,3 +1,6 @@
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import {
   Box,
   Button,
@@ -5,8 +8,11 @@ import {
   Grid,
   List,
   Typography,
+  useTheme,
 } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
+import Slider from 'react-slick';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
@@ -95,27 +101,58 @@ function BenefitsOfJoiningUs() {
 }
 
 function TestimonialSection() {
+  const theme = useTheme();
+  const isMdOrLarger = useMediaQuery(theme.breakpoints.up('md'));
+  const settings = {
+    dots: true,
+    infinite: true,
+    // autoplaySpeed: 5000,
+    // autoplay: true,
+    slidesToShow: isMdOrLarger ? 3 : 2,
+    slidesToScroll: 1,
+  };
+
   return (
-    <SectionContainer
-      id="testimonies"
-      maxWidth="xl"
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        mb: 2,
-      }}
-    >
-      {content.testimonies.map((testimony) => (
-        <Testimonials
-          key={testimony.id}
-          testimonial={testimony.testimonial}
-          imageSrc={testimony.imageSrc}
-          name={testimony.name}
-          cvrole={testimony.cvrole}
-        />
-      ))}
-    </SectionContainer>
+    <Box>
+      {isMdOrLarger ? (
+
+        <Slider {...settings}>
+          {content.testimonies.map((testimony) => (
+            <Testimonials
+              key={testimony.id}
+              testimonial={testimony.testimonial}
+              imageSrc={testimony.imageSrc}
+              name={testimony.name}
+              cvrole={testimony.cvrole}
+            />
+          ))}
+        </Slider>
+
+      ) : (
+        <SectionContainer
+          id="testimonies"
+          maxWidth="xl"
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            mb: 2,
+            mx: 2,
+          }}
+        >
+          {content.testimonies.map((testimony) => (
+            <Testimonials
+              key={testimony.id}
+              testimonial={testimony.testimonial}
+              imageSrc={testimony.imageSrc}
+              name={testimony.name}
+              cvrole={testimony.cvrole}
+            />
+          ))}
+        </SectionContainer>
+      )}
+    </Box>
+
   );
 }
 function Volunteer() {
