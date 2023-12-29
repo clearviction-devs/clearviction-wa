@@ -109,7 +109,7 @@ function TestimonialSection() {
     // autoplaySpeed: 5000,
     // autoplay: true,
     slidesToShow: isMdOrLarger ? 2 : 1,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
   };
 
   return (

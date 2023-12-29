@@ -104,7 +104,7 @@ const getInvolvedContent: GetInvolvedContent = {
     },
     {
       id: 3,
-      testimonial: 'I joined CV primarily looking for a way to gain more experience as a software engineer, but I also believe deeply that our so-called justice system is totally broken, and am glad to be able to help those folds who are unfairly impacted.',
+      testimonial: 'I joined CV primarily looking for a way to gain more experience as a software engineer, but I also believe deeply that our so-called justice system is totally broken, and am glad to be able to help those folks who are unfairly impacted.',
       imageSrc: '/illustrations/Eleni.png',
       name: 'ELENI PAPANICOLAS',
       cvrole: 'Software Engineer',
