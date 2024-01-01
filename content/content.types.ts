@@ -126,5 +126,5 @@ export interface BenefitItem {
 export interface PerfectFitCard {
     id: string;
     header: string;
-    body:string;
+    body: string;
 }
