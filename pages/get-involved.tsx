@@ -113,7 +113,15 @@ function PerfectFit() {
               </Box>
             </Grid>
           ))}
-          <Grid item sx={{ width: '100%', height: 'full' }} xs={12} md={6} rowSpacing={2}>
+          <Grid
+            item
+            sx={{
+              display: 'flex', justifyContent: 'center', width: '100%', height: 'full',
+            }}
+            xs={12}
+            md={6}
+            rowSpacing={2}
+          >
             <ImageContainer
               src={content.perfectFit.imgSrc}
               width={300}
