@@ -83,7 +83,7 @@ const getInvolvedContent: GetInvolvedContent = {
     mobileImgsrc: 'illustrations/checklist1.svg',
   },
   perfectFit: {
-    header: 'You\'ll Be Perfect If...',
+    header: 'You\'ll be perfect if...',
     body: 'You will thrive and feel connected within Clearviction if you embody the following key attributes and share these values...',
     imgSrc: '/illustrations/perfect-fit-lightbulb.svg',
     perfectFitCards: [
