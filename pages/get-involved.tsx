@@ -127,7 +127,7 @@ function PerfectFit() {
   );
 }
 
-function Volunteer() {
+function OpenRoles() {
   return (
     <SectionContainer id="open-roles" maxWidth="md">
       <Typography variant="h2">
@@ -244,7 +244,7 @@ export default function GetInvolvedPage() {
       />
       <BenefitsOfJoiningUs />
       <PerfectFit />
-      <Volunteer />
+      <OpenRoles />
       <GetInvolvedFAQ />
       <Partner />
     </>
