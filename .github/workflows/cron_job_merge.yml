@@ -1,4 +1,4 @@
-name: Schedule Merge Staging into Main
+name: Cron job Merge Staging into Main
 
 on:
   workflow_dispatch:
