@@ -102,8 +102,7 @@ function PerfectFit() {
         color: 'primary.contrastText', bgcolor: 'background.paper', px: 4, py: 1,
       }}
       >
-        <Typography color="text.primary">{content.perfectFit.body}</Typography>
-
+        <Typography color="text.primary">{content.perfectFit.valuesDescription}</Typography>
         <Grid container spacing={8} marginY={1}>
           { content.perfectFit.perfectFitCards.map((card) => (
             <Grid item sx={{ width: '100%', height: 'full' }} xs={12} md={6} key={`fit-card-${card.id}`} rowSpacing={2}>

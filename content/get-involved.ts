@@ -27,7 +27,7 @@ interface GetInvolvedContent {
   faqs: FAQ[];
   perfectFit: {
     header: string;
-    body: string;
+    valuesDescription: string;
     perfectFitCards: PerfectFitCard[];
     imgSrc: string;
   };
@@ -84,7 +84,7 @@ const getInvolvedContent: GetInvolvedContent = {
   },
   perfectFit: {
     header: 'You\'ll be a perfect if...',
-    body: 'You will thrive and feel connected within Clearviction if you embody the following key attributes and share these values...',
+    valuesDescription: 'You will thrive and feel connected within Clearviction if you embody the following key attributes and share these values...',
     imgSrc: '/illustrations/perfect-fit-lightbulb.svg',
     perfectFitCards: [
       {
