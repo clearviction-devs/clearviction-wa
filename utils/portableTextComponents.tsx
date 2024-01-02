@@ -18,60 +18,92 @@ export const sintony = Sintony({
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
+
+// This block is needed to override the sanity cms built in styling for the calculator
+// Only h1,h3,h6,p tags are defined because those are the only styles currently getting used.
+// if additional element tags are needed then write another if statement following the logic below.
+
 function BlockTypeComponent(props:any) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const { node, children } = props;
 
   const { isFinalPage } = useContext(PageContext);
-  const font = isFinalPage ? { fontFamily: sintony.style.fontFamily }
-    : { fontFamily: inter.style.fontFamily };
+  const font = isFinalPage ? sintony.style.fontFamily : inter.style.fontFamily;
 
   if (node.style === 'li') {
     const isOrderedList = node.listItem !== 'bullet'; // Check if it's an ordered list
     const liStyle = isOrderedList ? { textDecoration: 'none' } : {};
+
     return (
       <Typography style={{ marginBottom: isSmallScreen ? '1rem' : '0', ...liStyle }}>{children}</Typography>
     );
   }
+
   if (node.style === 'h1') {
     const h1Styles = isSmallScreen
       ? {
-        fontSize: '2rem', lineHeight: '3.375rem', letterSpacing: '0.11rem', fontStyle: 'normal', fontWeight: '700', fontFamily: font,
-      } // smaller font size for small screen
+        ...theme.calculatorTypography?.h1,
+        fontSize: '2rem',
+        lineHeight: '3.375rem',
+        letterSpacing: '0.11rem',
+        fontWeight: '700',
+        fontFamily: font,
+      }
       : {
-        fontSize: '2.5rem', lineHeight: '3.75rem', letterSpacing: '0.05rem', fontStyle: 'normal', fontWeight: '600', fontFamily: font,
+        ...theme.calculatorTypography?.h1,
+        fontFamily: font,
       };
+
     return (<Typography variant="h1" style={h1Styles}>{children}</Typography>);
   }
+
   if (node.style === 'h3') {
     const h3Styles = isSmallScreen
       ? {
-        fontSize: '1.188rem', lineHeight: '2.438rem', letterSpacing: '0', fontStyle: 'normal', fontWeight: '400', fontFamily: inter.style.fontFamily,
-      } // smaller font size for small screen
+        ...theme.calculatorTypography?.h3,
+        fontSize: '1.1875rem',
+        lineHeight: '2.438rem',
+        letterSpacing: '0',
+        fontFamily: font,
+      }
       : {
-        fontSize: '1.25rem', lineHeight: '1.875rem,', letterSpacing: '0.00625rem', fontStyle: 'normal', fontWeight: '400', fontFamily: inter.style.fontFamily,
+        ...theme.calculatorTypography?.h3,
+        fontFamily: font,
       };
+
     return (<Typography variant="h3" style={h3Styles}>{children}</Typography>);
   }
+
   if (node.style === 'h6') {
     const normalStyles = isSmallScreen
       ? {
-        fontSize: '0.75rem', lineHeight: '1.1875rem', letterSpacing: '0.0375', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
-      } // smaller font size for small screen
+        ...theme.calculatorTypography?.h6,
+        fontSize: '0.75rem',
+        lineHeight: '1.1875rem',
+        letterSpacing: '0.0375rem',
+        fontFamily: font,
+      }
       : {
-        fontSize: '0.875rem', lineHeight: 'normal', letterSpacing: '0.0175rem', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
+        ...theme.calculatorTypography?.h6,
+        fontFamily: font,
       };
-    return (<Typography variant="body1" style={normalStyles}>{children}</Typography>);
+    return (<Typography variant="h6" style={normalStyles}>{children}</Typography>);
   }
+
   if (node.style === 'normal') {
     const normalStyles = isSmallScreen
       ? {
-        fontSize: '1.125rem', lineHeight: '1.625rem', letterSpacing: '0.03775', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily, marginBottom: '1rem',
-      } // smaller font size for small screen
+        ...theme.calculatorTypography?.body1,
+        fontSize: '1.125rem',
+        letterSpacing: '0.03775',
+        fontFamily: font,
+      }
       : {
-        fontSize: '1.25rem', lineHeight: '1.625rem', letterSpacing: '0.03125rem', fontStyle: 'normal', fontWeight: '600', fontFamily: inter.style.fontFamily,
+        ...theme.calculatorTypography?.body1,
+        fontFamily: font,
       };
+
     return (<Typography variant="body1" style={normalStyles}>{children}</Typography>);
   }
 }

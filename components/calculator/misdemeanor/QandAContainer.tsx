@@ -1,10 +1,12 @@
 import {
   Box, Button, Container, Stack,
 } from '@mui/material';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useMemo } from 'react';
 
 import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
+// eslint-disable-next-line import/no-named-as-default
 import portableTextComponent from '../../../utils/portableTextComponents.tsx';
 import { PageContext } from '../../helper/PageContext.tsx';
 
@@ -16,17 +18,18 @@ export default function QandAContainer({
   const contextValue = useMemo(() => ({
     isFinalPage: page.isFinalPage,
   }), [page.isFinalPage]);
+
   return (
     <>
       <PageContext.Provider value={contextValue}>
         <Box mb={4}>
           {
-  page.content && (
-    <BlockContent
-      blocks={page.content}
-      serializers={portableTextComponent}
-    />
-  )
+            page.content && (
+            <BlockContent
+              blocks={page.content}
+              serializers={portableTextComponent}
+            />
+            )
 }
 
         </Box>
