@@ -12,7 +12,6 @@ import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import BenefitListItem from '../components/layout/BenefitListItem.tsx';
-import FactCard from '../components/layout/FactCard.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
@@ -93,52 +92,76 @@ function BenefitsOfJoiningUs() {
   );
 }
 
-function Volunteer() {
+function PerfectFit() {
   return (
-    <>
-      <SectionContainer id="volunteer" maxWidth="md">
-        <Typography sx={{ my: 8 }} variant="h2">
-          {content.volunteerPage.header}
-        </Typography>
-        {content.volunteerPage.body.map((text) => (
-          <Typography
-            key={`volunteerText-${text}`}
-            variant="body1"
-            sx={{ my: 3 }}
-          >
-            {text}
-          </Typography>
-        ))}
-        <Grid container className="fact-card">
-          {content.volunteerPage.facts.map((fact) => (
-            <FactCard
-              key={fact.id}
-              details={fact.details}
-              icon={fact.icon}
-              border={false}
-            />
+    <SectionContainer id="perfect-fit" maxWidth="md">
+      <Typography variant="h2" alignItems="stretch">
+        {content.perfectFit.header}
+      </Typography>
+      <PaperSection sx={{
+        color: 'primary.contrastText', bgcolor: 'background.paper', px: 4, py: 1,
+      }}
+      >
+        <Typography color="text.primary">{content.perfectFit.valuesDescription}</Typography>
+        <Grid container spacing={8} marginY={1}>
+          { content.perfectFit.perfectFitCards.map((card) => (
+            <Grid item sx={{ width: '100%', height: 'full' }} xs={12} md={6} key={`fit-card-${card.id}`} rowSpacing={2}>
+              <Box sx={{ backgroundColor: 'secondary.dark', textAlign: 'center' }} height="100%" paddingLeft={1} borderRadius="20px">
+                <Typography fontWeight="bold" variant="subtitle1">{card.header}</Typography>
+                <Typography variant="body2" paddingBottom={1}>{card.body}</Typography>
+              </Box>
+            </Grid>
           ))}
+          <Grid
+            item
+            sx={{
+              display: 'flex', justifyContent: 'center', width: '100%', height: 'full',
+            }}
+            xs={12}
+            md={6}
+            rowSpacing={2}
+          >
+            <ImageContainer
+              src={content.perfectFit.imgSrc}
+              width={300}
+              height={154}
+              alt=""
+            />
+          </Grid>
         </Grid>
-      </SectionContainer>
+      </PaperSection>
+    </SectionContainer>
+  );
+}
 
-      <SectionContainer id="open-roles" maxWidth="md">
-        <Typography variant="h2">
-          {content.volunteerPage.openRole.title}
+function OpenRoles() {
+  return (
+    <SectionContainer id="open-roles" maxWidth="md">
+      <Typography variant="h2">
+        {content.volunteerPage.openRole.title}
+      </Typography>
+      {content.volunteerPage.body.map((text) => (
+        <Typography
+          key={`volunteerText-${text}`}
+          variant="body1"
+          sx={{ my: 3 }}
+        >
+          {text}
         </Typography>
-        <iframe
-          id={content.volunteerPage.openRole.id}
-          src={content.volunteerPage.openRole.src}
-          width="100%"
-          height={content.volunteerPage.openRole.height}
-          title="Volunteer with Clearviction"
-          style={{
-            background: 'transparent',
-            border: '1px solid #ccc',
-            borderRadius: '6px',
-          }}
-        />
-      </SectionContainer>
-    </>
+      ))}
+      <iframe
+        id={content.volunteerPage.openRole.id}
+        src={content.volunteerPage.openRole.src}
+        width="100%"
+        height={content.volunteerPage.openRole.height}
+        title="Volunteer with Clearviction"
+        style={{
+          background: 'transparent',
+          border: '1px solid #ccc',
+          borderRadius: '6px',
+        }}
+      />
+    </SectionContainer>
   );
 }
 
@@ -227,7 +250,8 @@ export default function GetInvolvedPage() {
         {...content.hero}
       />
       <BenefitsOfJoiningUs />
-      <Volunteer />
+      <PerfectFit />
+      <OpenRoles />
       <GetInvolvedFAQ />
       <Partner />
     </>
