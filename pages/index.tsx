@@ -37,7 +37,7 @@ export default function Home() {
 
         <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
 
-        <SectionContainer id="button-group">
+        <SectionContainer id="home-nav-section">
           <ButtonGroup
             variant="text"
             fullWidth
