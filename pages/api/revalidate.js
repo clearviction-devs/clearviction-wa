@@ -11,17 +11,11 @@ export const config = {
 };
 
 const revalidateLookup = {
-  // keys are sourced from clearviction-sanity's repo --> schema folder --> file --> name
+  // keys are sourced from cv-sanity repo -> schema folder -> index -> export schema types
   calculatorInfoPage(body) {
     return `/calculator/${body.slug.current}`;
   },
   calculatorConfig() {
-    return '/calculator/';
-  },
-  calculatorPage() {
-    return '/calculator/';
-  },
-  choiceButton() {
     return '/calculator/';
   },
 };
