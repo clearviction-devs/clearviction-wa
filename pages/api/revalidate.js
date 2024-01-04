@@ -11,7 +11,7 @@ export const config = {
 };
 
 const revalidateLookup = {
-  // keys are sourced from cv-sanity repo -> schema folder -> index -> export schema types
+  // keys are sourced from cv-devs/cv-sanity/schemas/index.ts
   calculatorInfoPage(body) {
     return `/calculator/${body.slug.current}`;
   },
@@ -31,7 +31,6 @@ async function readBody(readable) {
 }
 
 export default async function handler(req, res) {
-  // eslint-disable-next-line no-console
   console.log('update request received');
   try {
     const secret = process.env.NEXT_REVALIDATE || 'false';
@@ -49,12 +48,10 @@ export default async function handler(req, res) {
     const updateURL = updateFunction(jsonBody);
     await res.revalidate(updateURL);
 
-    // eslint-disable-next-line no-console
     console.log(' successfully revalidated: ', updateURL);
 
     res.json({ revalidated: true });
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('revalidate error', err);
 
     // If there was an error, Next.js will continue

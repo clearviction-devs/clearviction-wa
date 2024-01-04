@@ -38,3 +38,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+## ignore api/revalidate console.logs
+/pages/api/revalidate.js
