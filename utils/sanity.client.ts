@@ -23,8 +23,8 @@ interface CalcPageBySlugParams {
   token?: string;
 }
 
-// `calculatorInfoPage` is the name of the Sanity MISDEMEANOR page, where the visual "title" for
-// Sanity Studio is "Calculator Misdemeanor Page"
+// `calculatorInfoPage` is the id/name of the Sanity MISDEMEANOR page however,
+// the visual "title" for Sanity Studio is "Calculator Misdemeanor Page"
 
 export async function getMisdemeanorPageBySlug({ slug, token }: CalcPageBySlugParams) {
   return sanityClient(token)?.fetch(
