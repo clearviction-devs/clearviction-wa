@@ -1,5 +1,5 @@
 import {
-  AirtableEmbed, BenefitItem, Button, Fact, FAQ, Header, MetaPageHead, PerfectFitCard,
+  AirtableEmbed, BenefitItem, Button, FAQ, Header, MetaPageHead, PerfectFitCard,
 } from './content.types.ts';
 
 export interface Testimonies {
@@ -23,7 +23,6 @@ interface GetInvolvedContent {
   volunteerPage: {
     header: string;
     body: string[];
-    facts: Fact[];
     openRole: AirtableEmbed;
   };
   partnerPage: {
@@ -184,24 +183,7 @@ const getInvolvedContent: GetInvolvedContent = {
   volunteerPage: {
     header: 'Help us break down barriers by joining the team.',
     body: [
-      'You\'ll be a perfect fit if you:',
-    ],
-    facts: [
-      {
-        id: 'fact-1',
-        icon: 'alarm',
-        details: 'Can commit to 4 hours a week for at least 6 months',
-      },
-      {
-        id: 'fact-2',
-        icon: 'sync',
-        details: 'Want to share your expertise to help us make a better product',
-      },
-      {
-        id: 'fact-3',
-        icon: 'cloud',
-        details: 'Are a self-motivated individual comfortable with remote work',
-      },
+      'Every individual at Clearviction plays a crucial role in advancing our mission and tools within the Washington community. While we offer specific teams and roles, we highly value cross-functional collaboration and seek individuals who demonstrate adaptability and a dedicated commitment to our pursuit of forward justice.',
     ],
     openRole: {
       title: 'Open roles',
