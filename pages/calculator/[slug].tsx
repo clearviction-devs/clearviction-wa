@@ -18,8 +18,8 @@ import Results from '../../components/helper/Results.tsx';
 import { StaticCalcProps } from '../../utils/calculator.props.ts';
 import {
   getCalculatorConfig,
-  getCalculatorPageBySlug,
-  getCalculatorPagePaths,
+  getMisdemeanorPageBySlug,
+  getMisdemeanorPagePaths,
 } from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
@@ -166,7 +166,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = params.slug as string || '';
 
   const [page, calculatorConfig] = await Promise.all([
-    getCalculatorPageBySlug({ slug }),
+    getMisdemeanorPageBySlug({ slug }),
     getCalculatorConfig(),
   ]);
 
@@ -185,7 +185,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getCalculatorPagePaths();
+  const paths = await getMisdemeanorPagePaths();
 
   return {
     paths: paths?.map((slug) => `/calculator/${slug}`) || [],

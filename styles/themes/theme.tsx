@@ -46,6 +46,7 @@ const theme = createTheme({
       light: '#FFEEA3',
       main: '#FFD200',
       contrastText: '#000000',
+      dark: '#546B95',
     },
     // where did this come from?
     neutral: {
