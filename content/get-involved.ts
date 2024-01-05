@@ -1,5 +1,5 @@
 import {
-  AirtableEmbed, BenefitItem, Button, Fact, FAQ, Header, MetaPageHead,
+  AirtableEmbed, BenefitItem, Button, Fact, FAQ, Header, MetaPageHead, PerfectFitCard,
 } from './content.types.ts';
 
 export interface Testimonies {
@@ -33,7 +33,13 @@ interface GetInvolvedContent {
     buttons: Button[];
   };
   faqs: FAQ[];
-  testimonies: Testimonies[]
+  testimonies: Testimonies[];
+  perfectFit: {
+    header: string;
+    valuesDescription: string;
+    perfectFitCards: PerfectFitCard[];
+    imgSrc: string;
+  };
 }
 
 const getInvolvedContent: GetInvolvedContent = {
@@ -85,6 +91,38 @@ const getInvolvedContent: GetInvolvedContent = {
     imgsrc: 'illustrations/climbing-guy.svg',
     mobileImgsrc: 'illustrations/checklist1.svg',
   },
+  perfectFit: {
+    header: 'You\'ll be a perfect fit if',
+    valuesDescription: 'You will thrive and feel connected within Clearviction if you embody the following key attributes and share these values...',
+    imgSrc: '/illustrations/perfect-fit-lightbulb.svg',
+    perfectFitCards: [
+      {
+        id: 'community-focus',
+        header: 'COMMUNITY FOCUS',
+        body: 'Show a sincere commitment to the community\'s well-being and recognize the wider impact of your role',
+      },
+      {
+        id: 'strong-communication',
+        header: 'STRONG COMMUNICATION',
+        body: 'Maintain clear, positive, and effective communication to cultivate collaboration and a supportive community.',
+      },
+      {
+        id: 'commitment',
+        header: 'COMMITMENT & CONSISTENCY',
+        body: 'Dedicate at least 4 hours per week for a minimum of 6 months, showcasing your reliability and long-term dedication.',
+      },
+      {
+        id: 'adaptability',
+        header: 'ADAPTABILITY & RESILIENCE',
+        body: 'Be ready to tackle challenges, adjust to various needs, and continuously learn in your role. ',
+      },
+      {
+        id: 'continuous-learning',
+        header: 'CONTINOUS LEARNING & DEVELOPMENT',
+        body: 'Pursue personal and professional growth, seeking opportunities to enhance your skills and knowledge.',
+      },
+    ],
+  },
   testimonies: [
     {
       id: 1,
@@ -104,7 +142,7 @@ const getInvolvedContent: GetInvolvedContent = {
     },
     {
       id: 3,
-      testimonial: 'I joined CV primarily looking for a way to gain more experience as a software engineer, but I also believe deeply that our so-called justice system is totally broken, and am glad to be able to help those folks who are unfairly impacted.',
+      testimonial: 'I joined CV primarily looking for a way to gain more experience as a software engineer, but I also believe deeply that our so-called justice system is totally broken, and am glad to be able to help those folds who are unfairly impacted.',
       imageSrc: '/illustrations/Eleni.png',
       name: 'ELENI PAPANICOLAS',
       cvrole: 'Software Engineer',
