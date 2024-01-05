@@ -34,8 +34,8 @@ _Include relevant screenshots_
 Please self review your work before requesting further review. _Wait until you reach the next screen to check off the boxes._
 
 #### Preview
+Use your local or the preview build.
 
-- [ ] Pull down the branch and run the code locally or use Preview build
 - [ ] Everything works as expected
 - [ ] Check changed page(s)
 - [ ] Click through calculator if changes were made
@@ -84,4 +84,5 @@ _Please delete any options that are not relevant_
 - [ ] My changes generate no new warnings in the console
 - [ ] There are no new linting errors/problems in my code
 - [ ] I have added tests that prove my fix is effective or that my feature works (if applicable)
+- [ ] I have filled out the new 3rd party dependency checklist (if applicable)
 - [ ] I have filled this PR out fully, and cleaned up any extraneous items so that it is clear and easy to understand
