@@ -115,3 +115,16 @@ export interface FormInfo {
     contactType: string;
     message: string;
 }
+
+export interface BenefitItem {
+    id: number;
+    title: string;
+    leftOffset: number;
+    rightOffset: number;
+}
+
+export interface PerfectFitCard {
+    id: string;
+    header: string;
+    body: string;
+}

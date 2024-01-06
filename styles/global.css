@@ -4,9 +4,6 @@
   flex-direction: column;
 }
 
-
-
-
-/* .custom-calc-link-style {
-  color: #1044FE !important;
-} */
+main {
+  height: 100%;
+}

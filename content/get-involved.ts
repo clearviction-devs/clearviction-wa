@@ -1,14 +1,21 @@
 import {
-  AirtableEmbed, Button, Fact, FAQ, Header, MetaPageHead,
+  AirtableEmbed, BenefitItem, Button, FAQ, Header, MetaPageHead, PerfectFitCard,
 } from './content.types.ts';
 
 interface GetInvolvedContent {
   meta: MetaPageHead;
   hero: Header;
+  benefits: {
+    header: string,
+    body: string[],
+    listHeader: string,
+    benefitItems: BenefitItem[],
+    imgsrc: string,
+    mobileImgsrc: string,
+  },
   volunteerPage: {
     header: string;
     body: string[];
-    facts: Fact[];
     openRole: AirtableEmbed;
   };
   partnerPage: {
@@ -18,6 +25,12 @@ interface GetInvolvedContent {
     buttons: Button[];
   };
   faqs: FAQ[];
+  perfectFit: {
+    header: string;
+    valuesDescription: string;
+    perfectFitCards: PerfectFitCard[];
+    imgSrc: string;
+  };
 }
 
 const getInvolvedContent: GetInvolvedContent = {
@@ -33,27 +46,78 @@ const getInvolvedContent: GetInvolvedContent = {
     ctaLink: '#open-roles',
     ctaText: 'Open roles',
   },
+  benefits: {
+    header: 'Benefits of joining us',
+    body: [
+      'At Clearviction, every volunteer is part of a transformative journey. Our dedicated team, bursting with diverse backgrounds and fueled by passion, is united by a shared mission: to provide tools and guidance to help people with criminal convictions clear their records and begin a path to a fresh start.',
+      'But Clearviction isn\'t just about the cause; it\'s about personal growth, professional experience, and community involvement. From software engineers discovering a deeper purpose beyond code to criminal justice professionals experiencing the startup hustle, every volunteer\'s story speaks to the transformative essence of our team.',
+    ],
+    listHeader: 'You\'ll gain:',
+    benefitItems: [
+      {
+        id: 1,
+        title: 'PROFESSIONAL GROWTH & EXPERIENCE',
+        leftOffset: 2.5,
+        rightOffset: 11.25,
+      },
+      {
+        id: 2,
+        title: 'SUPPORTIVE & COLLABORATIVE CULTURE',
+        leftOffset: 6.25,
+        rightOffset: 7.5,
+      },
+      {
+        id: 3,
+        title: 'DIVERSE CONNECTIONS & NETWORKING',
+        leftOffset: 10,
+        rightOffset: 3.75,
+      },
+      {
+        id: 4,
+        title: 'MEANINGFUL WORK & SENSE OF PURPOSE',
+        leftOffset: 13.75,
+        rightOffset: 0,
+      },
+    ],
+    imgsrc: 'illustrations/climbing-guy.svg',
+    mobileImgsrc: 'illustrations/checklist1.svg',
+  },
+  perfectFit: {
+    header: 'You\'ll be a perfect fit if',
+    valuesDescription: 'You will thrive and feel connected within Clearviction if you embody the following key attributes and share these values...',
+    imgSrc: '/illustrations/perfect-fit-lightbulb.svg',
+    perfectFitCards: [
+      {
+        id: 'community-focus',
+        header: 'COMMUNITY FOCUS',
+        body: 'Show a sincere commitment to the community\'s well-being and recognize the wider impact of your role',
+      },
+      {
+        id: 'strong-communication',
+        header: 'STRONG COMMUNICATION',
+        body: 'Maintain clear, positive, and effective communication to cultivate collaboration and a supportive community.',
+      },
+      {
+        id: 'commitment',
+        header: 'COMMITMENT & CONSISTENCY',
+        body: 'Dedicate at least 4 hours per week for a minimum of 6 months, showcasing your reliability and long-term dedication.',
+      },
+      {
+        id: 'adaptability',
+        header: 'ADAPTABILITY & RESILIENCE',
+        body: 'Be ready to tackle challenges, adjust to various needs, and continuously learn in your role. ',
+      },
+      {
+        id: 'continuous-learning',
+        header: 'CONTINOUS LEARNING & DEVELOPMENT',
+        body: 'Pursue personal and professional growth, seeking opportunities to enhance your skills and knowledge.',
+      },
+    ],
+  },
   volunteerPage: {
     header: 'Help us break down barriers by joining the team.',
     body: [
-      'You\'ll be a perfect fit if you:',
-    ],
-    facts: [
-      {
-        id: 'fact-1',
-        icon: 'alarm',
-        details: 'Can commit to 4 hours a week for at least 6 months',
-      },
-      {
-        id: 'fact-2',
-        icon: 'sync',
-        details: 'Want to share your expertise to help us make a better product',
-      },
-      {
-        id: 'fact-3',
-        icon: 'cloud',
-        details: 'Are a self-motivated individual comfortable with remote work',
-      },
+      'Every individual at Clearviction plays a crucial role in advancing our mission and tools within the Washington community. While we offer specific teams and roles, we highly value cross-functional collaboration and seek individuals who demonstrate adaptability and a dedicated commitment to our pursuit of forward justice.',
     ],
     openRole: {
       title: 'Open roles',

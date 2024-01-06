@@ -48,8 +48,27 @@ jobs:
           echo "package_json_changed=$PACKAGE_JSON_CHANGED" >> $GITHUB_OUTPUT
           echo "package_lock_json_changed=$PACKAGE_LOCK_JSON_CHANGED" >> $GITHUB_OUTPUT
 
+      - name: Check if Comment Already Posted
+        id: check_comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          COMMENTS_URL="https://api.github.com/repos/${{ github.repository }}/issues/$PR_NUMBER/comments"
+          COMMENT_TAG="<!-- DependencyCheckTag -->"
+  
+          # Fetch comments
+          COMMENTS=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "$COMMENTS_URL")
+  
+          # Check if our unique tag is already in the comments
+          if echo "$COMMENTS" | grep -q "$COMMENT_TAG"; then
+            echo "comment_already_posted=true" >> $GITHUB_OUTPUT
+          else
+            echo "comment_already_posted=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Post Comment
-        if: steps.dependency_check.outputs.package_json_changed == 'true' || steps.dependency_check.outputs.package_lock_json_changed == 'true'
+        if: (steps.dependency_check.outputs.package_json_changed == 'true' || steps.dependency_check.outputs.package_lock_json_changed == 'true') && steps.check_comment.outputs.comment_already_posted == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -65,12 +84,15 @@ jobs:
           COMMENT_BODY+="| **Cost/subscription** | At this time, we will not accept any libraries that are paid. However, if we are able to use a free tier, it MUST allow unlimited seats and be available for use outside of personal or private repositories. _Please tell us which category this falls under._ |   |\n"
           COMMENT_BODY+="| **Community** | Is there a robust community using this package? _(Weekly downloads, stars and forks on GitHub)_ |   |\n"
           COMMENT_BODY+="| **Maintenance** | How often is the package updated? _(Release frequency, number of issues open on GitHub, is the package new?)_ At a minimum, the latest release should be within the past year. |   |\n"
-          COMMENT_BODY+="| **Data privacy** | If our data will be processed through this tool, please verify that data is not being collected or sold for nefarious purposes. _(Please tell us how you verified)_ |   |\n"
-          COMMENT_BODY+="| **Security** | Verify that the package does not install malicious code. _(Please tell us how you verified)_ |   |\n"
+          COMMENT_BODY+="| **Data privacy** | If our data will be processed through this tool, please verify that data is not being collected or sold for nefarious purposes. _Some ways to verify include:_ read the documentation and privacy policy, review the code, network activity during runtime. _(Please tell us how you verified)_ |   |\n"
+          COMMENT_BODY+="| **Security** | Verify that the package does not install malicious code. _Some ways to verify include:_ review the code, community feedback via comments, check the author and their Github, use `npm install --integrity` or `npm audit` for known vulnerabilities. _(Please tell us how you verified)_ |   |\n"
           COMMENT_BODY+="| **Maintainability** | Does using this require a specialized skill set or have a steep learning curve? Would someone need to take a course in order to learn how to use this library? How extensive is the documentation for this tool? _(Ex: [Draft.js](https://draftjs.org/) and [RxJS](https://rxjs.dev/) are difficult to learn, but [Moment.js](https://momentjs.com/) or [Lodash](https://lodash.com/) are easier to learn)_ |   |\n"
           COMMENT_BODY+="| **Other options** | What other options have you considered, and why did you choose this package? |   |\n"
           COMMENT_BODY+="| **Can we do it ourselves** | Why is an external solution better than a custom solution of our own? |   |\n"
           COMMENT_BODY+="| **Other notes** | Is there any other information you would like to share? |   |\n\n"
+
+          # Add a unique tag to the comment to identify it later
+          COMMENT_BODY+="<!-- DependencyCheckTag -->\n"
   
           # Post the comment using GitHub API
           curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \

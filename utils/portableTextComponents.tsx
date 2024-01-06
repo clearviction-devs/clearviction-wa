@@ -109,7 +109,6 @@ function BlockTypeComponent(props:any) {
 }
 
 const portableTextComponent = {
-
   types: {
     block: BlockTypeComponent,
   },

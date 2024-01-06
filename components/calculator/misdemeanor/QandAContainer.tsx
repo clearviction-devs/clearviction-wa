@@ -1,12 +1,10 @@
 import {
   Box, Button, Container, Stack,
 } from '@mui/material';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useMemo } from 'react';
 
 import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
-// eslint-disable-next-line import/no-named-as-default
 import portableTextComponent from '../../../utils/portableTextComponents.tsx';
 import { PageContext } from '../../helper/PageContext.tsx';
 
