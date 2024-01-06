@@ -2,9 +2,10 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import {
   Box, Card, CardContent, SxProps, Theme, Typography, useTheme,
 } from '@mui/material';
-import Image from 'next/image';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
+import ImageContainer from './ImageContainer.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
 interface TestimonialCardProps {
@@ -13,13 +14,16 @@ interface TestimonialCardProps {
     cvrole: string;
     imageSrc: string;
     sx?: SxProps<Theme>;
-
   }
 
 export default function Testimonials({
   testimonial, name, cvrole, imageSrc, ...props
 }: TestimonialCardProps) {
   const theme = useTheme();
+  const isMdScreen = useMediaQuery(theme.breakpoints.up('md'));
+
+  // Determine size based on the breakpoint
+  const size = isMdScreen ? 96.779 : 66.201;
 
   return (
     <SectionContainer
@@ -67,10 +71,19 @@ export default function Testimonials({
         }}
         >
           <Box sx={{
-            width: { md: 96.779, sm: 66.201 }, height: { md: 87.467, sm: 66.201 }, bgcolor: 'white', borderRadius: '50%', border: 2, overflow: 'hidden', position: 'relative', minHeight: '3.75rem', minWidth: '3.125rem',
+            width: { md: 96.779 }, height: { md: 96.779 }, bgcolor: 'white', borderRadius: '50%', border: 2, overflow: 'hidden', position: 'relative', minHeight: '3.75rem', minWidth: '3.75rem',
           }}
           >
-            <Image src={imageSrc} alt={name} style={{ objectFit: 'cover' }} fill sizes="(max-width: 6.049rem) 100vw, 33vw" />
+            <ImageContainer
+              src={imageSrc}
+              alt={name}
+              style={{
+                objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+              }}
+              width={size}
+              height={size}
+              sizes="(max-width: 6.049rem) 100vw, 33vw"
+            />
           </Box>
           <Box>
             <Typography variant="subtitle1" sx={{ lineHeight: '1.5', letterSpacing: 0.15 }}>

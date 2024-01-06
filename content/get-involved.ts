@@ -17,7 +17,7 @@ interface GetInvolvedContent {
     body: string[],
     listHeader: string,
     benefitItems: BenefitItem[],
-    imgsrc: string,
+    imageSrc: string,
     mobileImgsrc: string,
   },
   volunteerPage: {
@@ -28,7 +28,7 @@ interface GetInvolvedContent {
   partnerPage: {
     header: string[];
     text: string[];
-    imagesrc: string;
+    imageSrc: string;
     buttons: Button[];
   };
   faqs: FAQ[];
@@ -37,7 +37,7 @@ interface GetInvolvedContent {
     header: string;
     valuesDescription: string;
     perfectFitCards: PerfectFitCard[];
-    imgSrc: string;
+    imageSrc: string;
   };
 }
 
@@ -87,13 +87,13 @@ const getInvolvedContent: GetInvolvedContent = {
         rightOffset: 0,
       },
     ],
-    imgsrc: 'illustrations/climbing-guy.svg',
+    imageSrc: 'illustrations/climbing-guy.svg',
     mobileImgsrc: 'illustrations/checklist1.svg',
   },
   perfectFit: {
     header: 'You\'ll be a perfect fit if',
     valuesDescription: 'You will thrive and feel connected within Clearviction if you embody the following key attributes and share these values...',
-    imgSrc: '/illustrations/perfect-fit-lightbulb.svg',
+    imageSrc: '/illustrations/perfect-fit-lightbulb.svg',
     perfectFitCards: [
       {
         id: 'community-focus',
@@ -250,7 +250,7 @@ const getInvolvedContent: GetInvolvedContent = {
         href: '/contact',
       },
     ],
-    imagesrc: '../illustrations/pr.svg',
+    imageSrc: '../illustrations/pr.svg',
   },
 };
 

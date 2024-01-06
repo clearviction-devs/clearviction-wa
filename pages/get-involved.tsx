@@ -85,7 +85,7 @@ function BenefitsOfJoiningUs() {
               }}
             >
               <ImageContainer
-                src={content.benefits.imgsrc}
+                src={content.benefits.imageSrc}
                 alt=""
                 width={200}
                 height={200}
@@ -129,7 +129,7 @@ function PerfectFit() {
             rowSpacing={2}
           >
             <ImageContainer
-              src={content.perfectFit.imgSrc}
+              src={content.perfectFit.imageSrc}
               width={300}
               height={154}
               alt=""
@@ -150,7 +150,7 @@ function TestimonialSection() {
     // autoplaySpeed: 5000,
     // autoplay: true,
     slidesToShow: isMdOrLarger ? 2 : 1,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
   };
 
   return (
@@ -170,6 +170,7 @@ function TestimonialSection() {
         </Slider>
 
       ) : (
+
         <SectionContainer
           id="testimonies"
           maxWidth="xl"
@@ -255,7 +256,7 @@ function Partner() {
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
                 <ImageContainer
                   alt=""
-                  src={content.partnerPage.imagesrc}
+                  src={content.partnerPage.imageSrc}
                   width={342}
                   height={248}
                   priority
