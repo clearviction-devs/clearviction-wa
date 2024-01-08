@@ -34,7 +34,7 @@ _Include relevant screenshots_
 Please self review your work before requesting further review. _Wait until you reach the next screen to check off the boxes._
 
 #### Preview
-Use your local or the preview build.
+Use your local.
 
 - [ ] Everything works as expected
 - [ ] Check changed page(s)
