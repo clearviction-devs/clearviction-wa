@@ -1,6 +1,7 @@
 import {
   Button,
-  Fact, GetStartedStep, Header, Info, MetaPageHead, Reason,
+  Fact, GetStartedStep, Header, Info, InfoWithoutSummary,
+  MetaPageHead,
 } from './content.types.ts';
 
 interface GetStartedContent {
@@ -11,7 +12,8 @@ interface GetStartedContent {
   stepFourSectionNames: string[];
   needToKnowFacts: Fact[];
   CHRIMethods: Info[];
-  rejectionReasons: Reason[];
+  step3Substeps: InfoWithoutSummary[];
+  rejectionReasons: InfoWithoutSummary[];
   legalAidForms: Info[];
   financialAidForms: Info[];
   eligibilityForms: Info[];
@@ -63,8 +65,8 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 3: File with Court',
-      body: 'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>',
-      data: ['Common reasons requests to vacate may be denied:'],
+      body: 'Once you have determined you are eligible to vacate your conviction using the Eligibility Calculator, you must submit a request to have your conviction vacated at the court where you were sentenced.\n\n<br/>',
+      data: ['Your request to vacate may be denied if:'],
     },
     {
       title: 'Step 4: Court Hearing',
@@ -102,6 +104,23 @@ const getStartedContent: GetStartedContent = {
       summary: 'Official Record Review (Fingerprint Card)',
       details:
         '**Price: $30 - $70**\n\n**Estimated Turnaround: 2 weeks**\n\nIf the WATCH printout is not good enough, go to your local police or sheriff\'s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an official copy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
+    },
+  ],
+  step3Substeps: [
+    {
+      id: 'Step 3.1',
+      details:
+        'Read "Instructions for Vacating Misdemeanor and Gross Misdemeanor Convictions": CrRLJ 09.0300 from the Washington Courts website.',
+    },
+    {
+      id: 'Step 3.2',
+      details:
+        'Fill out a "Petition and Declaration for Order Vacating Conviction" form: CrRLJ 09.0100 from the Washington Courts website.',
+    },
+    {
+      id: 'Step 3.3',
+      details:
+      'Read more about misdemeanor conviction vacation here from the WashingtonLawHelp.org website',
     },
   ],
   rejectionReasons: [

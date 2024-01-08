@@ -142,17 +142,17 @@ export default function GetStartedPage() {
           title={content.steps[2].title}
           bodyText={content.steps[2].body}
         >
-          <Typography variant="h5">{content.steps[2].data[0]}</Typography>
-          <Grid container spacing={8} sx={{ my: 1 }}>
-            {content.rejectionReasons.map((fact) => (
+          <Grid container spacing={8} sx={{ mb: 8 }}>
+            {content.step3Substeps.map((step3Substep) => (
               <FactCard
-                className={`fact-card-${fact.id}`}
-                key={fact.id}
-                icon="none"
-                details={fact.details}
+                className={`fact-card-${step3Substep.id}`}
+                key={step3Substep.id}
+                title={step3Substep.id}
+                details={step3Substep.details}
               />
             ))}
           </Grid>
+          <Typography variant="h5">{content.steps[2].data[0]}</Typography>
         </GetStartedStep>
       </SectionContainer>
 

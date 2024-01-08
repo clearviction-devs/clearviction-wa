@@ -19,8 +19,9 @@ import {
 import React from 'react';
 
 interface FactCardProps {
+  title?: string;
   details: string;
-  icon: string;
+  icon?: string;
   border?: boolean;
   className?: string;
 }
@@ -47,7 +48,7 @@ const iconEl: Icon = {
 };
 
 export default function FactCard({
-  details, icon, className, border = true,
+  icon, title, details, className, border = true,
 }: FactCardProps) {
   return (
     <Grid
@@ -72,9 +73,16 @@ export default function FactCard({
               justifyContent: 'center',
             }}
           >
+            {icon && (
             <Box pt={3} pb={1} px={3}>
               {iconEl[icon]}
             </Box>
+            )}
+            {title && (
+              <Typography variant="h5">
+                {title}
+              </Typography>
+            )}
             <Box pb={3} px={3}>
               <Typography sx={{ textAlign: 'center' }}>{details}</Typography>
             </Box>
@@ -91,9 +99,11 @@ export default function FactCard({
               alignItems: 'center',
             }}
           >
-            <Box pt={3} pb={1} px={3}>
-              {iconEl[icon]}
-            </Box>
+            {icon && (
+              <Box pt={3} pb={1} px={3}>
+                {iconEl[icon]}
+              </Box>
+            )}
             <Box sx={{}}>
               <Typography mt={2} sx={{ textAlign: 'center' }}>{details}</Typography>
             </Box>

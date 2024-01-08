@@ -86,10 +86,11 @@ export interface GridSection {
     ariaLabels?: AriaLabels;
 }
 
-export interface Reason {
+export interface InfoWithoutSummary {
     id: string;
     details: string;
 }
+
 export interface MetaPageHead {
     title: string;
     content: string;
