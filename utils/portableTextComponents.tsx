@@ -25,7 +25,7 @@ function BlockTypeComponent(props:any) {
     const liStyle = isOrderedList ? { textDecoration: 'none' } : {};
 
     return (
-      <Typography style={{ marginBottom: matchesXS ? '1rem' : '0', ...liStyle }}>{children}</Typography>
+      <Typography sx={{ marginBottom: { sm: '1rem', md: '0' }, ...liStyle }}>{children}</Typography>
     );
   }
 
