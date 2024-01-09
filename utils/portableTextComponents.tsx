@@ -6,7 +6,6 @@ import React, { useContext } from 'react';
 
 import { PageContext } from '../components/helper/PageContext.tsx';
 import { inter, sintony } from '../styles/themes/theme.tsx';
-import { match } from 'assert';
 
 // This block is needed to override the sanity cms built in styling for the calculator
 // Only h1,h3,h6,p tags are defined because those are the only styles currently getting used.
