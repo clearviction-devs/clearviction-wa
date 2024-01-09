@@ -1,4 +1,8 @@
-import { Box, Container, Typography } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+} from '@mui/material';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -47,11 +51,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   };
 
   externalLinks();
+
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.focus();
     }
   }, [page]);
+
   return (
     <>
       <IndividualPageHead
@@ -82,43 +88,48 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         />
 
         {
-        page.isFinalPage && (
-          <>
-            <FinalPageLinksContainer
-              page={page}
-              calculatorConfig={calculatorConfig}
-              setOpenSharePopup={setOpenSharePopup}
-              calcFirstPageUrl={calcFirstPageUrl}
-            />
-            <Box
-              maxWidth="60ch"
-              textAlign="center"
-              id="legal-disclaimer-container"
-            >
-              <Typography variant="caption" sx={{ fontWeight: 'light' }}>
-                {calculatorConfig.legalDisclaimer}
-              </Typography>
-            </Box>
-          </>
-        )
-}
+          (page.isFinalPage) && (
+            <>
+              <FinalPageLinksContainer
+                page={page}
+                calculatorConfig={calculatorConfig}
+                setOpenSharePopup={setOpenSharePopup}
+                calcFirstPageUrl={calcFirstPageUrl}
+              />
+              <Box
+                maxWidth="60ch"
+                textAlign="center"
+                id="legal-disclaimer-container"
+              >
+                <Typography variant="caption" sx={{ fontWeight: 'light' }}>
+                  {calculatorConfig.legalDisclaimer}
+                </Typography>
+              </Box>
+            </>
+          )
+        }
 
-        {page.isFinalPage && page.isEligible && (
-          <>
-            <ResultsDownloadContainer
+        {
+          (page.isFinalPage && page.isEligible) && (
+            <>
+              <ResultsDownloadContainer
+                handleCloseResults={handleCloseResults}
+                setShowResults={setShowResults}
+              />
+              <MailchimpForm />
+            </>
+          )
+        }
+
+        {
+          (page.isEligible && showResults) && (
+            <Results
+              responseObject={responseObject}
               handleCloseResults={handleCloseResults}
-              setShowResults={setShowResults}
             />
-            <MailchimpForm />
-          </>
-        )}
+          )
+        }
 
-        {page.isEligible && showResults && (
-          <Results
-            responseObject={responseObject}
-            handleCloseResults={handleCloseResults}
-          />
-        )}
       </Container>
 
       <NotSurePopup
@@ -133,23 +144,26 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
       />
 
       <Box sx={{ mb: '1.875rem' }}>
-        {isFirstPage() && (
-          <ShareCalcContainer
-            setOpenSharePopup={setOpenSharePopup}
-            calcFirstPageUrl={calcFirstPageUrl}
-            justify
-          />
-        )}
+        {
+          isFirstPage() && (
+            <ShareCalcContainer
+              setOpenSharePopup={setOpenSharePopup}
+              calcFirstPageUrl={calcFirstPageUrl}
+              justify
+            />
+          )
+        }
 
         <ErrorReportContainer calculatorConfig={calculatorConfig} />
       </Box>
+
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params = {} } = ctx;
-  const slug = (params.slug as string) || '';
+  const slug = params.slug as string || '';
 
   const [page, calculatorConfig] = await Promise.all([
     getMisdemeanorPageBySlug({ slug }),
