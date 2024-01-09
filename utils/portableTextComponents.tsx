@@ -2,22 +2,10 @@ import { Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Inter, Sintony } from 'next/font/google';
 import React, { useContext } from 'react';
 
 import { PageContext } from '../components/helper/PageContext.tsx';
-
-export const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  fallback: ['Helvetica', 'Arial', 'sans-serif'],
-});
-export const sintony = Sintony({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  fallback: ['Helvetica', 'Arial', 'sans-serif'],
-});
+import { inter, sintony } from '../styles/themes/theme.tsx';
 
 // This block is needed to override the sanity cms built in styling for the calculator
 // Only h1,h3,h6,p tags are defined because those are the only styles currently getting used.
