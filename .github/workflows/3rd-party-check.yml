@@ -94,11 +94,11 @@ jobs:
           # Add a unique tag to the comment to identify it later
           COMMENT_BODY+="<!-- DependencyCheckTag -->\n"
 
-          # Convert COMMENT_BODY to a JSON payload using jq
-          JSON_PAYLOAD=$(jq -n --arg body "$COMMENT_BODY" '{body: $body}')
+          # Use echo -e to interpret backslash escapes and enclose the body in escaped double quotes
+          COMMENT_BODY=$(echo -e "$COMMENT_BODY")
   
           # Post the comment using GitHub API
           curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
                 -H "Accept: application/vnd.github.v3+json" \
-                -X POST -d "$JSON_PAYLOAD" \
+                -X POST -d "{\"body\": \"$COMMENT_BODY\"}" \
                 "https://api.github.com/repos/${{ github.repository }}/issues/$PR_NUMBER/comments"
