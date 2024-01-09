@@ -6,6 +6,7 @@ import React, { useContext } from 'react';
 
 import { PageContext } from '../components/helper/PageContext.tsx';
 import { inter, sintony } from '../styles/themes/theme.tsx';
+import { match } from 'assert';
 
 // This block is needed to override the sanity cms built in styling for the calculator
 // Only h1,h3,h6,p tags are defined because those are the only styles currently getting used.
@@ -13,7 +14,7 @@ import { inter, sintony } from '../styles/themes/theme.tsx';
 
 function BlockTypeComponent(props:any) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
   const { node, children } = props;
 
   const { isFinalPage } = useContext(PageContext);
@@ -24,12 +25,12 @@ function BlockTypeComponent(props:any) {
     const liStyle = isOrderedList ? { textDecoration: 'none' } : {};
 
     return (
-      <Typography style={{ marginBottom: isSmallScreen ? '1rem' : '0', ...liStyle }}>{children}</Typography>
+      <Typography style={{ marginBottom: matchesXS ? '1rem' : '0', ...liStyle }}>{children}</Typography>
     );
   }
 
   if (node.style === 'h1') {
-    const h1Styles = isSmallScreen
+    const h1Styles = matchesXS
       ? {
         ...theme.calculatorTypography?.h1,
         fontSize: '2rem',
@@ -47,7 +48,7 @@ function BlockTypeComponent(props:any) {
   }
 
   if (node.style === 'h3') {
-    const h3Styles = isSmallScreen
+    const h3Styles = matchesXS
       ? {
         ...theme.calculatorTypography?.h3,
         fontSize: '1.1875rem',
@@ -64,7 +65,7 @@ function BlockTypeComponent(props:any) {
   }
 
   if (node.style === 'h6') {
-    const normalStyles = isSmallScreen
+    const normalStyles = matchesXS
       ? {
         ...theme.calculatorTypography?.h6,
         fontSize: '0.75rem',
@@ -80,7 +81,7 @@ function BlockTypeComponent(props:any) {
   }
 
   if (node.style === 'normal') {
-    const normalStyles = isSmallScreen
+    const normalStyles = matchesXS
       ? {
         ...theme.calculatorTypography?.body1,
         fontSize: '1.125rem',
