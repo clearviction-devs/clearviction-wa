@@ -105,7 +105,7 @@ const portableTextComponent = {
       if (!mark || typeof mark.href === 'undefined') {
         return children;
       }
-      return <Link href={mark.href} role="link" target={mark.blank ? '_blank' : '_self'} rel="noopener no referrer">{children}</Link>;
+      return <Link href={mark.href} role="link" target={mark.blank ? '_blank' : '_self'} rel="noopener noreferrer">{children}</Link>;
     },
   },
   annotations: [
