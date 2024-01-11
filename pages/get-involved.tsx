@@ -51,6 +51,7 @@ function BenefitsOfJoiningUs() {
               {text}
             </Typography>
           ))}
+
           <Grid container alignItems="flex-start">
             <Grid item xs={5}>
               <Typography variant="body1" paragraph>
@@ -67,6 +68,7 @@ function BenefitsOfJoiningUs() {
               />
             </Grid>
           </Grid>
+
           <Box sx={{
             position: 'relative', width: '100%', height: 'auto',
           }}
@@ -119,6 +121,7 @@ function PerfectFit() {
               </Box>
             </Grid>
           ))}
+
           <Grid
             item
             sx={{
@@ -146,9 +149,6 @@ function TestimonialSection() {
   const isMdOrLarger = useMediaQuery(theme.breakpoints.up('md'));
   const settings = {
     dots: true,
-    infinite: true,
-    // autoplaySpeed: 5000,
-    // autoplay: true,
     slidesToShow: isMdOrLarger ? 2 : 1,
     slidesToScroll: 2,
   };
@@ -197,6 +197,7 @@ function TestimonialSection() {
 
   );
 }
+
 function OpenRoles() {
   return (
     <SectionContainer id="open-roles" maxWidth="md">
@@ -212,6 +213,7 @@ function OpenRoles() {
           {text}
         </Typography>
       ))}
+
       <iframe
         id={content.volunteerPage.openRole.id}
         src={content.volunteerPage.openRole.src}
@@ -300,6 +302,7 @@ function GetInvolvedFAQ() {
     </SectionContainer>
   );
 }
+
 export default function GetInvolvedPage() {
   return (
     <>

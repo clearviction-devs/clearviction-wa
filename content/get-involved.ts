@@ -1,14 +1,7 @@
 import {
-  AirtableEmbed, BenefitItem, Button, FAQ, Header, MetaPageHead, PerfectFitCard,
+  AirtableEmbed, BenefitItem, Button, FAQ, Header, MetaPageHead, PerfectFitCard, TestimonyCard,
 } from './content.types.ts';
 
-export interface Testimonies {
-  id: number;
-  testimonial: string;
-  imageSrc: string;
-  name: string;
-  cvrole: string;
-}
 interface GetInvolvedContent {
   meta: MetaPageHead;
   hero: Header;
@@ -32,7 +25,7 @@ interface GetInvolvedContent {
     buttons: Button[];
   };
   faqs: FAQ[];
-  testimonies: Testimonies[];
+  testimonies: TestimonyCard[];
   perfectFit: {
     header: string;
     valuesDescription: string;
@@ -129,7 +122,6 @@ const getInvolvedContent: GetInvolvedContent = {
       imageSrc: '/illustrations/gabriel.png',
       name: 'GABRIEL EGER',
       cvrole: 'Software Engineer',
-
     },
     {
       id: 2,
@@ -137,7 +129,6 @@ const getInvolvedContent: GetInvolvedContent = {
       imageSrc: '/illustrations/judit.png',
       name: 'JUDIT SERRAL',
       cvrole: 'Product Team Lead',
-
     },
     {
       id: 3,
@@ -145,7 +136,6 @@ const getInvolvedContent: GetInvolvedContent = {
       imageSrc: '/illustrations/Eleni.png',
       name: 'ELENI PAPANICOLAS',
       cvrole: 'Software Engineer',
-
     },
     {
       id: 4,
@@ -153,7 +143,6 @@ const getInvolvedContent: GetInvolvedContent = {
       imageSrc: '/illustrations/Dendra.png',
       name: 'DENDRA ABDINOOR',
       cvrole: 'UX Researcher',
-
     },
     {
       id: 5,
@@ -161,7 +150,6 @@ const getInvolvedContent: GetInvolvedContent = {
       imageSrc: '/illustrations/Hui.jpeg',
       name: 'HUI ZHENG',
       cvrole: 'Business Analyst',
-
     },
     {
       id: 6,
@@ -169,7 +157,6 @@ const getInvolvedContent: GetInvolvedContent = {
       imageSrc: '/illustrations/Somi.jpeg',
       name: 'SOMI SHEIKHI',
       cvrole: 'Product Designer',
-
     },
     {
       id: 7,
@@ -177,7 +164,6 @@ const getInvolvedContent: GetInvolvedContent = {
       imageSrc: '/illustrations/Emily.jpeg',
       name: 'EMILY LEUNG',
       cvrole: 'Fundraising Team Lead',
-
     },
   ],
   volunteerPage: {

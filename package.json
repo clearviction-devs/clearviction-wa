@@ -21,7 +21,7 @@
     "@mui/material": "^5.13.1",
     "@mui/system": "^5.13.1",
     "@mui/x-date-pickers": "^5.0.12",
-    "@portabletext/react": "^2.0.1",
+    "@portabletext/react": "^2.0.3",
     "@sanity/image-url": "^1.0.2",
     "@sanity/webhook": "^2.0.0",
     "@types/slick-carousel": "^1.6.40",
