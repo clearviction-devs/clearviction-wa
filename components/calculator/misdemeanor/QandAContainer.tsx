@@ -28,7 +28,7 @@ export default function QandAContainer({
               serializers={portableTextComponent}
             />
             )
-}
+          }
 
         </Box>
       </PageContext.Provider>
