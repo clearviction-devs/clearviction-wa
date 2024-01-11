@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - staging
+      
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   check_dependencies:
