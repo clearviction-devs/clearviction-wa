@@ -13,9 +13,11 @@ declare module '@mui/material/styles' {
   interface PaletteOptions {
     link?: PaletteOptions['primary'];
   }
+
   interface Theme {
     calculatorTypography: Theme['typography'];
   }
+
   interface ThemeOptions{
     calculatorTypography?: ThemeOptions['typography'];
   }
