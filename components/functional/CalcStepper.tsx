@@ -42,7 +42,7 @@ export default function HorizontalLinearStepper() {
   });
 
   return (
-    <Box id="calc-stepper" sx={{ width: '100%' }}>
+    <Box id="calc-stepper" sx={{ width: '100%', marginBottom: '2rem' }}>
       <Stepper activeStep={activeStep}>
         {steps.map((label) => {
           const stepProps: { completed?: boolean } = {};

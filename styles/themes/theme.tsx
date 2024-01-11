@@ -13,6 +13,14 @@ declare module '@mui/material/styles' {
   interface PaletteOptions {
     link?: PaletteOptions['primary'];
   }
+
+  interface Theme {
+    calculatorTypography: Theme['typography'];
+  }
+
+  interface ThemeOptions{
+    calculatorTypography?: ThemeOptions['typography'];
+  }
 }
 
 export const sintony = Sintony({
@@ -164,6 +172,37 @@ const theme = createTheme({
       fontWeight: 'normal',
       fontSize: '.75rem',
       letterSpacing: '.0938rem',
+    },
+  },
+  calculatorTypography: {
+    h1: {
+      fontSize: '2.5rem',
+      lineHeight: '3.75rem',
+      letterSpacing: '0.05rem',
+      fontStyle: 'normal',
+      fontWeight: '600',
+    },
+    h3: {
+      fontSize: '1.25rem',
+      lineHeight: '1.875rem',
+      letterSpacing: '0.00625rem',
+      fontStyle: 'normal',
+      fontWeight: '400',
+    },
+    h6: {
+      fontSize: '0.875rem',
+      lineHeight: 'normal',
+      letterSpacing: '0.0175rem',
+      fontStyle: 'normal',
+      fontWeight: '600',
+    },
+    body1: {
+      fontSize: '1.25rem',
+      lineHeight: '1.625rem',
+      letterSpacing: '0.03125rem',
+      fontStyle: 'normal',
+      fontWeight: '600',
+      marginBottom: '1rem',
     },
   },
 });
