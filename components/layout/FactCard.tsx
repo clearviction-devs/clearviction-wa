@@ -14,7 +14,7 @@ import {
   Sync,
 } from '@mui/icons-material';
 import {
-  Box, Grid, Paper, Typography,
+  Box, Grid, Paper, SxProps, Typography,
 } from '@mui/material';
 import React from 'react';
 
@@ -24,6 +24,7 @@ interface FactCardProps {
   icon?: string;
   border?: boolean;
   className?: string;
+  sxProps?: SxProps;
 }
 
 type Icon = {
@@ -48,7 +49,7 @@ const iconEl: Icon = {
 };
 
 export default function FactCard({
-  icon, title, details, className, border = true,
+  icon, title, details, className, border = true, sxProps,
 }: FactCardProps) {
   return (
     <Grid
@@ -71,6 +72,7 @@ export default function FactCard({
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
+              ...sxProps,
             }}
           >
             {icon && (
@@ -79,7 +81,7 @@ export default function FactCard({
             </Box>
             )}
             {title && (
-              <Typography variant="h5">
+              <Typography variant="h5" mt={6} mb={4}>
                 {title}
               </Typography>
             )}

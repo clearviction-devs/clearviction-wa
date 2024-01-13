@@ -149,6 +149,7 @@ export default function GetStartedPage() {
                 key={step3Substep.id}
                 title={step3Substep.id}
                 details={step3Substep.details}
+                sxProps={{ height: '100%', justifyContent: 'flex-start' }}
               />
             ))}
           </Grid>
