@@ -40,7 +40,7 @@ export default function Testimonials({
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          width: { xs: '17.438rem', md: '38.063rem' },
+          width: { xs: '15.438rem', sm: '20.438rem', md: '38.063rem' },
           bgcolor: theme.palette.primary.main,
           color: theme.palette.primary.contrastText,
           borderRadius: 1.375,

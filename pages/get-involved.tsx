@@ -179,6 +179,7 @@ function TestimonialSection() {
             flexWrap: 'wrap',
             justifyContent: 'center',
             mb: 2,
+            mx: { sm: 0, md: 2 },
           }}
         >
           {content.testimonies.map((testimony) => (
