@@ -34,7 +34,6 @@ export default function Testimonials({
         flexWrap: 'wrap',
         justifyContent: 'center',
         mb: 2,
-        mx: 2,
       }}
     >
       <Card
