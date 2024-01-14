@@ -25,7 +25,7 @@ const generateStyle = (styles?: React.CSSProperties, useImageDimensions?: boolea
 };
 
 export default function ImageContainer({
-  src, alt, width, height, style, useImageDimensions, priority = false,
+  src, alt, width, height, style, useImageDimensions, priority = false, sizes,
 }: ImageProps) {
   return (
     <ImageNext
@@ -35,6 +35,7 @@ export default function ImageContainer({
       src={src}
       style={generateStyle(style, useImageDimensions)}
       priority={priority}
+      sizes={sizes}
     />
   );
 }

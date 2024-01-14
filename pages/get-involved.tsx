@@ -1,3 +1,6 @@
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import {
   Box,
   Button,
@@ -5,8 +8,11 @@ import {
   Grid,
   List,
   Typography,
+  useTheme,
 } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
+import Slider from 'react-slick';
 
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ShareButtons from '../components/helper/ShareButtons.tsx';
@@ -16,6 +22,7 @@ import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
+import Testimonials from '../components/layout/Testimonials.tsx';
 import content from '../content/get-involved.ts';
 
 function BenefitsOfJoiningUs() {
@@ -44,6 +51,7 @@ function BenefitsOfJoiningUs() {
               {text}
             </Typography>
           ))}
+
           <Grid container alignItems="flex-start">
             <Grid item xs={5}>
               <Typography variant="body1" paragraph>
@@ -60,6 +68,7 @@ function BenefitsOfJoiningUs() {
               />
             </Grid>
           </Grid>
+
           <Box sx={{
             position: 'relative', width: '100%', height: 'auto',
           }}
@@ -78,7 +87,7 @@ function BenefitsOfJoiningUs() {
               }}
             >
               <ImageContainer
-                src={content.benefits.imgsrc}
+                src={content.benefits.imageSrc}
                 alt=""
                 width={200}
                 height={200}
@@ -112,6 +121,7 @@ function PerfectFit() {
               </Box>
             </Grid>
           ))}
+
           <Grid
             item
             sx={{
@@ -122,7 +132,7 @@ function PerfectFit() {
             rowSpacing={2}
           >
             <ImageContainer
-              src={content.perfectFit.imgSrc}
+              src={content.perfectFit.imageSrc}
               width={300}
               height={154}
               alt=""
@@ -131,6 +141,60 @@ function PerfectFit() {
         </Grid>
       </PaperSection>
     </SectionContainer>
+  );
+}
+
+function TestimonialSection() {
+  const theme = useTheme();
+  const isMdOrLarger = useMediaQuery(theme.breakpoints.up('md'));
+  const settings = {
+    dots: true,
+    slidesToShow: isMdOrLarger ? 2 : 1,
+    slidesToScroll: 2,
+  };
+
+  return (
+    <Box>
+      {isMdOrLarger ? (
+
+        <Slider {...settings}>
+          {content.testimonies.map((testimony) => (
+            <Testimonials
+              key={testimony.id}
+              testimonial={testimony.testimonial}
+              imageSrc={testimony.imageSrc}
+              name={testimony.name}
+              cvrole={testimony.cvrole}
+            />
+          ))}
+        </Slider>
+
+      ) : (
+
+        <SectionContainer
+          id="testimonies"
+          maxWidth="xl"
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            mb: 2,
+            mx: { sm: 0, md: 2 },
+          }}
+        >
+          {content.testimonies.map((testimony) => (
+            <Testimonials
+              key={testimony.id}
+              testimonial={testimony.testimonial}
+              imageSrc={testimony.imageSrc}
+              name={testimony.name}
+              cvrole={testimony.cvrole}
+            />
+          ))}
+        </SectionContainer>
+      )}
+    </Box>
+
   );
 }
 
@@ -149,6 +213,7 @@ function OpenRoles() {
           {text}
         </Typography>
       ))}
+
       <iframe
         id={content.volunteerPage.openRole.id}
         src={content.volunteerPage.openRole.src}
@@ -193,7 +258,7 @@ function Partner() {
               <Box display="flex" justifyContent="center" sx={{ px: 2 }}>
                 <ImageContainer
                   alt=""
-                  src={content.partnerPage.imgsrc}
+                  src={content.partnerPage.imageSrc}
                   width={342}
                   height={248}
                   priority
@@ -251,6 +316,7 @@ export default function GetInvolvedPage() {
       />
       <BenefitsOfJoiningUs />
       <PerfectFit />
+      <TestimonialSection />
       <OpenRoles />
       <GetInvolvedFAQ />
       <Partner />

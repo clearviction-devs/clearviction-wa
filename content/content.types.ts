@@ -128,3 +128,11 @@ export interface PerfectFitCard {
     header: string;
     body: string;
 }
+
+export interface TestimonyCard {
+    id: number;
+    testimonial: string;
+    imageSrc: string;
+    name: string;
+    cvrole: string;
+}
