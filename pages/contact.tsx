@@ -8,6 +8,8 @@ import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/contact.ts';
 
+const API_ENDPOINT = 'https://gv6n06a4h2.execute-api.us-west-2.amazonaws.com/Prod/contact-form';
+
 export default function ContactPage() {
   interface FormData {
     name: string;
@@ -26,6 +28,7 @@ export default function ContactPage() {
   const [toSend, setToSend] = useState<FormData>(initialState);
   const [formError, setFormError] = useState<string>('');
   const [formErrors, setFormErrors] = useState<FormData>(initialState);
+  const [formSuccess, setFormSuccess] = useState<string>('');
 
   const validateField = (key: keyof FormData, value: string): boolean => {
     let error = '';
@@ -55,11 +58,12 @@ export default function ContactPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    setFormSuccess('');
     setToSend({ ...toSend, [name]: value });
     validateField(name as keyof FormData, value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errors: string[] = [];
 
@@ -71,9 +75,31 @@ export default function ContactPage() {
 
     if (errors.length) {
       setFormError(`Please correct the following issues before submitting: ${errors.join(', ')}`);
-    } else {
-      setFormError('');
-      (e.target as HTMLFormElement).submit();
+      return;
+    }
+
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(toSend),
+      });
+
+      if (response.ok) {
+        setFormError('');
+        setFormSuccess('Your message was sent successfully!');
+      } else {
+        const errorText = await response.text();
+        setFormError(`Server error: ${errorText}`);
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setFormError(`Network error: ${error.message}`);
+      } else {
+        setFormError('An unknown error occurred');
+      }
     }
   };
 
@@ -107,8 +133,6 @@ export default function ContactPage() {
           component="form"
           name="contact-form"
           acceptCharset="utf-8"
-          action="https://formspree.io/f/xdorykgj"
-          method="post"
           sx={{
             my: 4,
             width: { xs: '85%', sm: '70%', md: '40%' },
@@ -213,6 +237,12 @@ export default function ContactPage() {
           {formError && (
           <FormHelperText id="formError" error aria-live="assertive">
             {formError}
+          </FormHelperText>
+          )}
+
+          {formSuccess && (
+          <FormHelperText id="formSuccess" aria-live="polite" style={{ color: 'green', fontSize: '1.1rem' }}>
+            {formSuccess}
           </FormHelperText>
           )}
           <Button
