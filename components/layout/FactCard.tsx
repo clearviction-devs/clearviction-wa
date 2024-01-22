@@ -16,6 +16,7 @@ import {
 import {
   Box, Grid, Paper, SxProps, Typography,
 } from '@mui/material';
+import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 interface FactCardProps {
@@ -85,8 +86,10 @@ export default function FactCard({
                 {title}
               </Typography>
             )}
-            <Box pb={3} px={3}>
-              <Typography sx={{ textAlign: 'center' }}>{details}</Typography>
+            <Box pb={3} px={3} textAlign="center">
+              <MuiMarkdown>
+                {details}
+              </MuiMarkdown>
             </Box>
           </Paper>
         ) : (

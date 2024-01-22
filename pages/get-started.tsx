@@ -153,7 +153,13 @@ export default function GetStartedPage() {
               />
             ))}
           </Grid>
-          <Typography variant="h5">{content.steps[2].data[0]}</Typography>
+          <MuiMarkdown>
+            {content.steps[2].data[0]}
+          </MuiMarkdown>
+          <Typography variant="h5" sx={{ my: 4 }}>{content.steps[2].data[1]}</Typography>
+          <MuiMarkdown>
+            {content.rejectionReasons.details}
+          </MuiMarkdown>
         </GetStartedStep>
       </SectionContainer>
 
