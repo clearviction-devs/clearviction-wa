@@ -66,7 +66,7 @@ const getStartedContent: GetStartedContent = {
     {
       title: 'Step 3: File with Court',
       body: 'Once you have determined you are eligible to vacate your conviction using the Eligibility Calculator, you must submit a request to have your conviction vacated at the court where you were sentenced.\n\n<br/>',
-      data: ['To find where to file your petitition to vacate, you can go the Washington State Courts Website, [https://www.courts.wa.gov/court_dir/](https://www.courts.wa.gov/court_dir/) for a statewide directory of courts, with addresses and numbers.', 'Your request to vacate may be denied if:'],
+      data: ['To find where to file your petitition to vacate, you can go the [Washington State Courts Website](https://www.courts.wa.gov/court_dir/) for a statewide directory of courts, with addresses and numbers.', 'Your request to vacate may be denied if:'],
     },
     {
       title: 'Step 4: Court Hearing',
