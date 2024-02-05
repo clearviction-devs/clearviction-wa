@@ -1,8 +1,9 @@
 import {
   Box, Button, FormHelperText, MenuItem, TextField, Typography,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+import usePostRequest from '../components/functional/usePostRequest.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
@@ -28,7 +29,12 @@ export default function ContactPage() {
   const [toSend, setToSend] = useState<FormData>(initialState);
   const [formError, setFormError] = useState<string>('');
   const [formErrors, setFormErrors] = useState<FormData>(initialState);
-  const [formSuccess, setFormSuccess] = useState<string>('');
+  const { makeRequest, isSuccess, errorMessage } = usePostRequest(API_ENDPOINT);
+
+  useEffect(() => {
+    if (isSuccess) setFormError('');
+    if (errorMessage) setFormError(errorMessage);
+  }, [isSuccess, errorMessage]);
 
   const validateField = (key: keyof FormData, value: string): boolean => {
     let error = '';
@@ -58,7 +64,6 @@ export default function ContactPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormSuccess('');
     setToSend({ ...toSend, [name]: value });
     validateField(name as keyof FormData, value);
   };
@@ -78,29 +83,7 @@ export default function ContactPage() {
       return;
     }
 
-    try {
-      const response = await fetch(API_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(toSend),
-      });
-
-      if (response.ok) {
-        setFormError('');
-        setFormSuccess('Your message was sent successfully!');
-      } else {
-        const errorText = await response.text();
-        setFormError(`Server error: ${errorText}`);
-      }
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        setFormError(`Network error: ${error.message}`);
-      } else {
-        setFormError('An unknown error occurred');
-      }
-    }
+    makeRequest(toSend);
   };
 
   return (
@@ -240,9 +223,9 @@ export default function ContactPage() {
           </FormHelperText>
           )}
 
-          {formSuccess && (
+          {isSuccess && (
           <FormHelperText id="formSuccess" aria-live="polite" style={{ color: 'green', fontSize: '1.1rem' }}>
-            {formSuccess}
+            Your message was sent successfully!
           </FormHelperText>
           )}
           <Button
