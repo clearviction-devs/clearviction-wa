@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const usePostRequest = (url: any) => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
