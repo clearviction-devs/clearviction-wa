@@ -6,7 +6,6 @@ on:
       - staging
     paths:
       - 'package.json'
-      - 'package-lock.json'
 
 permissions:
   contents: read
@@ -77,7 +76,7 @@ jobs:
           echo "PR_NUMBER: $PR_NUMBER"
   
           COMMENT_BODY="### New 3rd party dependency justification\n"
-          COMMENT_BODY+="@$PR_AUTHOR, we have detected new changes to the package.json file, if you are looking to implement a new library as part of your pull request, you **must** fill out the information required in the form. Type your answers between the two \`| |\` at the end of each line. _If this is just an update to an already existing package, you can ignore this._\n\n"
+          COMMENT_BODY+="@$PR_AUTHOR, we have detected new changes to the package.json file, if you are looking to implement a new library as part of your pull request, you **must** fill out the information required in the form. Type your answers between the two \`| |\` at the end of each line. \n\n"
           COMMENT_BODY+="| Topic      | Questions/considerations | Answer |\n"
           COMMENT_BODY+="| ----------- | ----------- | ----------- |\n"
           COMMENT_BODY+="| **Problem statement** | What problem does using this package solve for us? Please provide a concise description of the problem that the proposed package aims to address. This should offer a high-level understanding of why integrating this package is necessary for our project. |   |\n"
