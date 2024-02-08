@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from moto import mock_ses
+from moto import mock_aws
 from contact_form.contact_form_handler import lambda_handler, send_email
 import json
 
@@ -14,7 +14,7 @@ class TestLambdaFunction(unittest.TestCase):
             'message': message
         }
 
-    @mock_ses
+    @mock_aws
     def test_send_email_success(self):
         mock_ses_client = MagicMock()
         event = self.mock_event()
@@ -39,7 +39,7 @@ class TestLambdaFunction(unittest.TestCase):
                 Source='info@clearviction.org'
             )
 
-    @mock_ses
+    @mock_aws
     def test_send_email_exception(self):
         mock_ses_client = MagicMock()
         mock_ses_client.send_email.side_effect = Exception("Test Exception")
@@ -51,7 +51,7 @@ class TestLambdaFunction(unittest.TestCase):
 
             self.assertTrue('Test Exception' in str(context.exception))
 
-    @mock_ses
+    @mock_aws
     def test_lambda_handler_success(self):
         event = self.mock_event()
 
