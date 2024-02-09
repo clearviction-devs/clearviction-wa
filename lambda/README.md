@@ -15,7 +15,7 @@ This directory houses our AWS Lambda functions, with each subdirectory represent
 
 It's recommended to use a virtual environment:
 ```
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate  # On Unix or MacOS
 .venv\Scripts\activate     # On Windows
 ```
@@ -38,7 +38,7 @@ python3 -m unittest contact_form/tests/test_contact_form_handler.py
 For Windows, you can download and run the AWS CLI MSI installer from the AWS CLI website.
 For macOS and Linux:
 ```
-pip install awscli
+pip3 install awscli
 ```
 
 ### 2. Configuring the AWS CLI with Appropriate Access
