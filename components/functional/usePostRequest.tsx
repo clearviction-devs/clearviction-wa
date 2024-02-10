@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 interface EmailRequest {
   name: string;
-  email: string;
+  _replyto: string;
   contact_type: string;
   message: string;
 }
