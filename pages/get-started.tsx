@@ -159,7 +159,7 @@ export default function GetStartedPage() {
           <Typography variant="h5" sx={{ my: 4 }}>{content.steps[2].data[1]}</Typography>
           <List sx={{ py: 0 }}>
             {content.rejectionReasons.map((item) => (
-              <ListItem sx={{ display: 'list-item', listStyleType: 'disc', ml: '40px' }}>
+              <ListItem sx={{ display: 'list-item', listStyleType: 'disc', ml: '40px' }} key={item.id}>
                 {item.details}
               </ListItem>
             ))}
