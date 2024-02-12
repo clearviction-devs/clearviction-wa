@@ -13,7 +13,7 @@ interface GetStartedContent {
   needToKnowFacts: Fact[];
   CHRIMethods: Info[];
   step3Substeps: InfoWithoutSummary[];
-  rejectionReasons: InfoWithoutSummary;
+  rejectionReasons: InfoWithoutSummary[];
   legalAidForms: Info[];
   financialAidForms: Info[];
   eligibilityForms: Info[];
@@ -65,7 +65,7 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 3: File with Court',
-      body: 'Once you have determined you are eligible to vacate your conviction using the Eligibility Calculator, you must submit a request to have your conviction vacated at the court where you were sentenced.\n\n<br/>',
+      body: 'Once you have determined you are eligible to vacate your conviction using the Eligibility Calculator, you must submit a request to have your conviction vacated at the court where you were sentenced.',
       data: ['To find where to file your petitition to vacate, you can go the [Washington State Courts Website](https://www.courts.wa.gov/court_dir/) for a statewide directory of courts, with addresses and numbers.', 'Your request to vacate may be denied if:'],
     },
     {
@@ -108,26 +108,35 @@ const getStartedContent: GetStartedContent = {
   ],
   step3Substeps: [
     {
-      id: 'Step 3.1',
+      id: 'step_1',
       details:
         'Read "**Instructions for Vacating Misdemeanor and Gross Misdemeanor Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
     },
     {
-      id: 'Step 3.2',
+      id: 'step_2',
       details:
         'Fill out a "**Petition and Declaration for Order Vacating Conviction**" form: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
     },
     {
-      id: 'Step 3.3',
+      id: 'step_3',
       details:
-      'Read more about misdemeanor conviction vacation [here](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record) from the **WashingtonLawHelp.org** website',
+      'Read more about misdemeanor conviction vacation [here](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record) from the Washington Law Help website.',
     },
   ],
-  rejectionReasons:
-  {
-    id: 'rejections',
-    details: '* The court does not believe that vacating your conviction will be in the interest of society\n\n* There are inaccuracies in your court records and/or the application\n\n* You violated probation, have not paid off your fines or are otherwise not eligible to vacate that conviction ',
-  },
+  rejectionReasons: [
+    {
+      id: 'reason1',
+      details: 'The court does not believe that vacating your conviction will be in the interest of society.',
+    },
+    {
+      id: 'reason2',
+      details: 'There are inaccuracies in your court records and/or the application.',
+    },
+    {
+      id: 'reason3',
+      details: 'You violated probation, have not paid off your fines or are otherwise not eligible to vacate that conviction.',
+    },
+  ],
   legalAidForms: [
     {
       id: 'legalform1',
