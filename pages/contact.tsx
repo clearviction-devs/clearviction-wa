@@ -1,12 +1,15 @@
 import {
   Box, Button, FormHelperText, MenuItem, TextField, Typography,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+import usePostRequest from '../components/functional/usePostRequest.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/contact.ts';
+
+const API_ENDPOINT = 'https://gv6n06a4h2.execute-api.us-west-2.amazonaws.com/Prod/contact-form';
 
 export default function ContactPage() {
   interface FormData {
@@ -26,6 +29,12 @@ export default function ContactPage() {
   const [toSend, setToSend] = useState<FormData>(initialState);
   const [formError, setFormError] = useState<string>('');
   const [formErrors, setFormErrors] = useState<FormData>(initialState);
+  const { makeRequest, isSuccess, errorMessage } = usePostRequest(API_ENDPOINT);
+
+  useEffect(() => {
+    if (isSuccess) setFormError('');
+    if (errorMessage) setFormError(errorMessage);
+  }, [isSuccess, errorMessage]);
 
   const validateField = (key: keyof FormData, value: string): boolean => {
     let error = '';
@@ -59,7 +68,7 @@ export default function ContactPage() {
     validateField(name as keyof FormData, value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errors: string[] = [];
 
@@ -71,10 +80,10 @@ export default function ContactPage() {
 
     if (errors.length) {
       setFormError(`Please correct the following issues before submitting: ${errors.join(', ')}`);
-    } else {
-      setFormError('');
-      (e.target as HTMLFormElement).submit();
+      return;
     }
+
+    makeRequest(toSend);
   };
 
   return (
@@ -107,8 +116,6 @@ export default function ContactPage() {
           component="form"
           name="contact-form"
           acceptCharset="utf-8"
-          action="https://formspree.io/f/xdorykgj"
-          method="post"
           sx={{
             my: 4,
             width: { xs: '85%', sm: '70%', md: '40%' },
@@ -213,6 +220,12 @@ export default function ContactPage() {
           {formError && (
           <FormHelperText id="formError" error aria-live="assertive">
             {formError}
+          </FormHelperText>
+          )}
+
+          {isSuccess && (
+          <FormHelperText id="formSuccess" aria-live="polite" style={{ color: 'green', fontSize: '1.1rem' }}>
+            Your message was sent successfully!
           </FormHelperText>
           )}
           <Button
