@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-const usePostRequest = (url: any) => {
+const usePostRequest = (url: string) => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const makeRequest = async (requestBody: any) => {
+  const makeRequest = async <TReqBody, >(requestBody: TReqBody): Promise<void> => {
     setIsSuccess(false);
     try {
       const response = await fetch(url, {
