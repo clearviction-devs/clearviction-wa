@@ -157,9 +157,12 @@ export default function GetStartedPage() {
             {content.steps[2].data[0]}
           </MuiMarkdown>
           <Typography variant="h5" sx={{ mt: 4, mb: 3 }}>{content.steps[2].data[1]}</Typography>
-          <List sx={{ py: 0, mr: 4 }}>
+          <List sx={{ py: 0, pl: 4 }}>
             {content.rejectionReasons.map((item) => (
-              <ListItem sx={{ display: 'list-item', listStyleType: 'disc', ml: 4 }} key={item.id}>
+              <ListItem
+                sx={{ display: 'list-item', listStyleType: 'disc', px: 0 }}
+                key={item.id}
+              >
                 {item.details}
               </ListItem>
             ))}
