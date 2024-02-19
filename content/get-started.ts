@@ -70,7 +70,7 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 4: Court Hearing',
-      body: 'Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.',
+      body: 'Last but not least, schedule a hearing with a judge, following the "**Instructions for Vacating Misdemeanor and Gross Misdemeanor Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/documents/CrRLJ%2009.0300%20InstructVacateMisdConvictions_2022%2007.pdf) above. Below are resources for financial & legal aid.',
       data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
     },
   ],
