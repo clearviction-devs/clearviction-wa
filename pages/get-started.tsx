@@ -142,13 +142,14 @@ export default function GetStartedPage() {
           title={content.steps[2].title}
           bodyText={content.steps[2].body}
         >
-          <Grid container columnSpacing={8} sx={{ my: 8 }}>
+          <Grid container spacing={5} sx={{ mb: 8, mt: 0 }}>
             {content.step3Substeps.map((step3Substep) => (
               <FactCard
                 className={`fact-card-${step3Substep.id}`}
                 key={step3Substep.id}
                 title={`Step ${step3Substep.id.slice(-1)}`}
                 details={step3Substep.details}
+                gridItemSize={{ xs: 12, sm: 6, md: 4 }}
                 sxProps={{ height: '100%', justifyContent: 'flex-start' }}
               />
             ))}

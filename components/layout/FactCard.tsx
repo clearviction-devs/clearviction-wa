@@ -19,12 +19,20 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+interface GridItemSize {
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+}
+
 interface FactCardProps {
   title?: string;
   details: string;
   icon?: string;
   border?: boolean;
   className?: string;
+  gridItemSize?: GridItemSize;
   sxProps?: SxProps;
 }
 
@@ -50,15 +58,12 @@ const iconEl: Icon = {
 };
 
 export default function FactCard({
-  icon, title, details, className, border = true, sxProps,
+  icon, title, details, className, border = true, gridItemSize = { xs: 12, sm: 4 }, sxProps,
 }: FactCardProps) {
   return (
     <Grid
       item
-      xs={12}
-      sm={4}
-      md={4}
-      lg={4}
+      {...gridItemSize}
       sx={{
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '250px',
       }}
