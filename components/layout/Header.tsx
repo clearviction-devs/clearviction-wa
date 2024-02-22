@@ -55,8 +55,7 @@ export default function Header() {
             legal advice.
           </Typography>
         </ListItem>
-      </List>async
-      
+      </List>
     </Box>
   );
 
