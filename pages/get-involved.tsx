@@ -154,7 +154,7 @@ function TestimonialSection() {
   };
 
   return (
-    <Box>
+    <Box sx={{ overflow: 'hidden' }}>
       {isMdOrLarger ? (
 
         <Slider {...settings}>
