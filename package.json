@@ -20,7 +20,7 @@
     "@mui/material": "^5.15.10",
     "@mui/system": "^5.15.8",
     "@sanity/block-content-to-react": "^3.0.0",
-    "@sanity/webhook": "^4.0.1",
+    "@sanity/webhook": "^4.0.2",
     "eslint": "8.56.0",
     "eslint-config-next": "^13.2.4",
     "html2canvas": "^1.4.1",
