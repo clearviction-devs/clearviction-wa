@@ -22,7 +22,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/webhook": "^4.0.1",
     "eslint": "8.56.0",
-    "eslint-config-next": "^13.2.4",
+    "eslint-config-next": "^14.1.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "mui-markdown": "^1.1.13",
