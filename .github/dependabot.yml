@@ -19,5 +19,7 @@ updates:
         dependency-type: "production"
         
     ignore:
-      - dependency-name: "next, next-sanity"
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "next-sanity"
         update-types: ["version-update:semver-major"]
