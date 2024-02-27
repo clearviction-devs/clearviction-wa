@@ -14,16 +14,10 @@ updates:
     groups:
       dev:
         dependency-type: "development"
-        update-types:
-        - "minor"
-        - "major"
 
       prod:
         dependency-type: "production"
-        update-types:
-        - "minor"
-        - "major"
         
     ignore:
-      - dependency-name: "next"
+      - dependency-name: "next, next-sanity"
         update-types: ["version-update:semver-major"]
