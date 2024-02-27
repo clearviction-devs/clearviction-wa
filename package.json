@@ -36,7 +36,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "20.11.19",
+    "@types/node": "20.11.20",
     "@types/react-slick": "^0.23.13",
     "@types/slick-carousel": "^1.6.40",
     "eslint-config-airbnb": "^19.0.4",
