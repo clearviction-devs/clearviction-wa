@@ -17,9 +17,9 @@ import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
 import Results from '../../components/helper/Results.tsx';
 import { StaticCalcProps } from '../../utils/calculator.props.ts';
 import {
+  getAllPagePaths,
+  getAllPagesBySlug,
   getCalculatorConfig,
-  getMisdemeanorPageBySlug,
-  getMisdemeanorPagePaths,
 } from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
@@ -29,13 +29,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   const [responseObject, setResponseObject] = useState({});
   const [showResults, setShowResults] = useState(false);
 
-  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
-  const isFirstPage = () => page.slug === 'head-initial-1-cont';
+  const calcFirstPageUrl = 'https://clearviction.org/calculator/test-initial-1-cont';
+  const isFirstPage = () => page.slug === 'test-initial-1-cont';
   const contentRef = useRef<HTMLDivElement>(null);
 
   const addToResponses = (answer: string) => {
     // delete object when start over
-    if (page.slug === 'head-initial-1-cont') setResponseObject({});
+    if (page.slug === 'test-initial-1-cont') setResponseObject({});
     if (
       answer !== 'Continue'
       && answer !== 'Next'
@@ -166,7 +166,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = params.slug as string || '';
 
   const [page, calculatorConfig] = await Promise.all([
-    getMisdemeanorPageBySlug({ slug }),
+    getAllPagesBySlug({ slug }),
     getCalculatorConfig(),
   ]);
 
@@ -185,7 +185,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getMisdemeanorPagePaths();
+  const paths = await getAllPagePaths();
 
   return {
     paths: paths?.map((slug) => `/calculator/${slug}`) || [],

@@ -19,7 +19,7 @@ const content: HomeContent = {
   heroBanner: {
     header: 'Check your eligibility to vacate a Washington State conviction',
     subheading: 'Our free eligibility calculator can check if your conviction qualifies for vacation in less than 10 minutes.',
-    ctaLink: '/calculator/head-initial-1-cont',
+    ctaLink: '/calculator/test-initial-1-cont',
     ctaText: 'Access Calculator',
     imgsrc: '/illustrations/home-hero-2color.svg',
     ariaLabels: { ctaButton: 'Access our eligibility calculator' },

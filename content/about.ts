@@ -64,7 +64,7 @@ const aboutContent: AboutContent = {
     body: 'While the project started in Seattle, we now have volunteers all across the country and the world dedicating time outside of full-time jobs, graduate programs, and busy lives, to help folks clear their criminal records - giving them a fighting chance to escape a life full of poverty, homelessness, and recidivism.',
   },
   body: [
-    'To support this mission, we have started by creating a [Conviction Eligibility Calculator](https://clearviction.org/calculator/head-initial-1-cont), getting people started down the path of clearing their convictions and starting their life again. The process of vacating a conviction is very convoluted, making it difficult to navigate:',
+    'To support this mission, we have started by creating a [Conviction Eligibility Calculator](https://clearviction.org/calculator/test-initial-1-cont), getting people started down the path of clearing their convictions and starting their life again. The process of vacating a conviction is very convoluted, making it difficult to navigate:',
   ],
   facts: [
     {
