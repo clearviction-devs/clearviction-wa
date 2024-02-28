@@ -1,7 +1,6 @@
 import {
   Box, Button, Container, Stack,
 } from '@mui/material';
-// eslint-disable-next-line import/no-unresolved
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useMemo } from 'react';
 
