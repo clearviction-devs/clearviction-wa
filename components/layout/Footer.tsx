@@ -146,8 +146,13 @@ function Footer() {
           </Grid>
         </FooterSection>
 
-        <FooterSection title="Find us on socials" sx={{ display: { xs: 'none', md: 'block' } }}>
-          <Stack className="social-links" direction="row" spacing={1.5}>
+        <FooterSection title="Find us on socials" sx={{ display: { xs: 0, md: 'block' } }}>
+          <Stack
+            className="social-links"
+            direction="row"
+            spacing={1.5}
+            sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}
+          >
             <Link
               color="inherit"
               href="https://www.linkedin.com/company/clearviction"
