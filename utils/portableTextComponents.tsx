@@ -2,10 +2,7 @@ import { Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import React, { useContext } from 'react';
-
-import { PageContext } from '../components/helper/PageContext.tsx';
-import { inter, sintony } from '../styles/themes/theme.tsx';
+import React from 'react';
 
 // This block is needed to override the sanity cms built in styling for the calculator
 // Only h1,h3,h6,p tags are defined because those are the only styles currently getting used.
@@ -16,8 +13,8 @@ function BlockTypeComponent(props:any) {
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
   const { node, children } = props;
 
-  const { isFinalPage } = useContext(PageContext);
-  const font = isFinalPage ? sintony.style.fontFamily : inter.style.fontFamily;
+  // only use if we will need to change styling for final page
+  // const { isFinalPage } = useContext(PageContext);
 
   if (node.style === 'li') {
     const isOrderedList = node.listItem !== 'bullet'; // Check if it's an ordered list
@@ -36,11 +33,9 @@ function BlockTypeComponent(props:any) {
         lineHeight: '3.375rem',
         letterSpacing: '0.11rem',
         fontWeight: '700',
-        fontFamily: font,
       }
       : {
         ...theme.calculatorTypography?.h1,
-        fontFamily: font,
       };
 
     return (<Typography variant="h1" style={h1Styles}>{children}</Typography>);
@@ -53,11 +48,9 @@ function BlockTypeComponent(props:any) {
         fontSize: '1.1875rem',
         lineHeight: '2.438rem',
         letterSpacing: '0',
-        fontFamily: font,
       }
       : {
         ...theme.calculatorTypography?.h3,
-        fontFamily: font,
       };
 
     return (<Typography variant="h3" style={h3Styles}>{children}</Typography>);
@@ -70,11 +63,9 @@ function BlockTypeComponent(props:any) {
         fontSize: '0.75rem',
         lineHeight: '1.1875rem',
         letterSpacing: '0.0375rem',
-        fontFamily: font,
       }
       : {
         ...theme.calculatorTypography?.h6,
-        fontFamily: font,
       };
     return (<Typography variant="h6" style={normalStyles}>{children}</Typography>);
   }
@@ -85,11 +76,9 @@ function BlockTypeComponent(props:any) {
         ...theme.calculatorTypography?.body1,
         fontSize: '1.125rem',
         letterSpacing: '0.03775',
-        fontFamily: font,
       }
       : {
         ...theme.calculatorTypography?.body1,
-        fontFamily: font,
       };
 
     return (<Typography variant="body1" style={normalStyles}>{children}</Typography>);
