@@ -110,7 +110,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         }
 
         {
-          (page.isFinalPage && page.isEligible) && (
+          (page.isFinalPage && page.isEligible && !page.slug.startsWith('f')) && (
             <>
               <ResultsDownloadContainer
                 handleCloseResults={handleCloseResults}
