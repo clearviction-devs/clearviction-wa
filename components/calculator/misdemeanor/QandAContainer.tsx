@@ -17,6 +17,16 @@ export default function QandAContainer({
     isFinalPage: page.isFinalPage,
   }), [page.isFinalPage]);
 
+  const linkToPage = (choice) => {
+    if (choice.linkTo) {
+      return `/calculator/${choice.linkTo.slug.current}`;
+    }
+    if (choice.linkToOtherPageType) {
+      return `/calculator/${choice.linkToOtherPageType.slug.current}`;
+    }
+    return '#';
+  };
+
   return (
     <>
       <PageContext.Provider value={contextValue}>
@@ -37,9 +47,7 @@ export default function QandAContainer({
 
           {page.choices
             && page.choices.map((choice) => {
-              const linkTo = choice.linkTo
-                ? `/calculator/${choice.linkTo.slug.current}`
-                : '#';
+              const linkTo = linkToPage(choice);
               const href = choice.isExternalLink ? choice.url : linkTo;
               return (
                 <Button
