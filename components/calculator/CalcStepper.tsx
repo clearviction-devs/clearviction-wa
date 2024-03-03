@@ -16,11 +16,16 @@ const defaultSteps = [
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [isProPath, setIsProPath] = React.useState(false);
+
+  const steps = isProPath ? defaultSteps.slice(0, 2) : defaultSteps;
 
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleNext = () => {
     const { pathname } = window.location;
+
+    if (pathname.includes('classcpro') || pathname.includes('classbpro')) setIsProPath(true);
 
     type Items = {
       [key: string]: number;
