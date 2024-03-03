@@ -1,10 +1,13 @@
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import {
+  ArrowRight, FacebookRounded, LinkedIn, X,
+} from '@mui/icons-material';
 import {
   Box,
   Container,
   Divider,
   Grid,
   Link,
+  Stack,
   SxProps,
   Theme,
   Typography,
@@ -134,13 +137,47 @@ function Footer() {
                       <Box
                         sx={{ display: { xs: 'none', md: 'flex' } }}
                       >
-                        <ArrowRightIcon />
+                        <ArrowRight />
                       </Box>
                     </Box>
                   </Link>
                 </Grid>
               ))}
           </Grid>
+        </FooterSection>
+
+        <FooterSection title="Find us on socials">
+          <Stack
+            className="social-links"
+            direction="row"
+            spacing={1.5}
+            sx={{ justifyContent: { sm: 'center', md: 'flex-start' } }}
+          >
+            <Link
+              color="inherit"
+              href="https://www.linkedin.com/company/clearviction"
+              className="linkedin-link"
+              aria-label="Click to visit Clearviction's LinkedIn"
+            >
+              <LinkedIn sx={{ fontSize: '2.05rem' }} />
+            </Link>
+            <Link
+              color="inherit"
+              href="https://www.facebook.com/clearviction/"
+              className="facebook-link"
+              aria-label="Click to visit Clearviction's Facebook"
+            >
+              <FacebookRounded sx={{ fontSize: '2.05rem' }} />
+            </Link>
+            <Link
+              color="inherit"
+              href="https://twitter.com/Clearviction"
+              className="x-link"
+              aria-label="Click to visit Clearviction's X"
+            >
+              <X sx={{ fontSize: '2rem' }} />
+            </Link>
+          </Stack>
         </FooterSection>
 
         <Box sx={{ display: { md: 'none', xs: 'block' } }}>
