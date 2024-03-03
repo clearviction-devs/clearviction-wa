@@ -6,11 +6,11 @@ import {
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 
-import CalcHeader from '../../components/calculator/misdemeanor/CalcHeader.tsx';
-import FinalPageLinksContainer, { ErrorReportContainer, ShareCalcContainer } from '../../components/calculator/misdemeanor/CTAContainers.tsx';
-import NotSurePopup, { ShareCalculatorPopup } from '../../components/calculator/misdemeanor/PopupContainers.tsx';
-import QandAContainer from '../../components/calculator/misdemeanor/QandAContainer.tsx';
-import ResultsDownloadContainer from '../../components/calculator/misdemeanor/ResultsDownloadContainer.tsx';
+import CalcHeader from '../../components/calculator/CalcHeader.tsx';
+import FinalPageLinksContainer, { ErrorReportContainer, ShareCalcContainer } from '../../components/calculator/CTAContainers.tsx';
+import NotSurePopup, { ShareCalculatorPopup } from '../../components/calculator/PopupContainers.tsx';
+import QandAContainer from '../../components/calculator/QandAContainer.tsx';
+import ResultsDownloadContainer from '../../components/calculator/ResultsDownloadContainer.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
