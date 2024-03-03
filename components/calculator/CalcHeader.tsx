@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
-import CalcStepper from '../functional/CalcStepper.tsx';
+import CalcStepper from './CalcStepper.tsx';
 
 export default function CalcHeader({ page, isFirstPage }:
     { page: StaticCalcProps['page'],
