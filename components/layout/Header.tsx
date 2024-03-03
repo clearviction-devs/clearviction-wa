@@ -171,7 +171,7 @@ export default function Header() {
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           sx={{
-            display: { xs: 'block', xl: 'none' },
+            display: { xs: 'block', md: 'none' },
             textAlign: 'center',
           }}
           anchor="right"
