@@ -146,12 +146,12 @@ function Footer() {
           </Grid>
         </FooterSection>
 
-        <FooterSection title="Find us on socials" sx={{ display: { xs: 0, md: 'block' } }}>
+        <FooterSection title="Find us on socials">
           <Stack
             className="social-links"
             direction="row"
             spacing={1.5}
-            sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}
+            sx={{ justifyContent: { sm: 'center', md: 'flex-start' } }}
           >
             <Link
               color="inherit"
@@ -159,7 +159,7 @@ function Footer() {
               className="linkedin-link"
               aria-label="Click to visit Clearviction's LinkedIn"
             >
-              <LinkedIn sx={{ fontSize: 32 }} />
+              <LinkedIn sx={{ fontSize: '2.05rem' }} />
             </Link>
             <Link
               color="inherit"
@@ -167,7 +167,7 @@ function Footer() {
               className="facebook-link"
               aria-label="Click to visit Clearviction's Facebook"
             >
-              <FacebookRounded sx={{ fontSize: 32 }} />
+              <FacebookRounded sx={{ fontSize: '2.05rem' }} />
             </Link>
             <Link
               color="inherit"
@@ -175,7 +175,7 @@ function Footer() {
               className="x-link"
               aria-label="Click to visit Clearviction's X"
             >
-              <X sx={{ fontSize: 30 }} />
+              <X sx={{ fontSize: '2rem' }} />
             </Link>
           </Stack>
         </FooterSection>
