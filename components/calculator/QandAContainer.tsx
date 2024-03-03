@@ -4,9 +4,9 @@ import {
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useMemo } from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
-import portableTextComponent from '../../../utils/portableTextComponents.tsx';
-import { PageContext } from '../../helper/PageContext.tsx';
+import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import portableTextComponent from '../../utils/portableTextComponents.tsx';
+import { PageContext } from '../helper/PageContext.tsx';
 
 export default function QandAContainer({
   page, calculatorConfig, addToResponses, setOpenNotSurePopup,
