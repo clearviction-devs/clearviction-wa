@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 
-const steps = [
+const defaultSteps = [
   'your offense',
   'surrounding circumstances',
   'terms of offense',
