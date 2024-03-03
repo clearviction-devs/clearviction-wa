@@ -4,9 +4,30 @@ import {
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useMemo } from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
-import portableTextComponent from '../../../utils/portableTextComponents.tsx';
-import { PageContext } from '../../helper/PageContext.tsx';
+import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import portableTextComponent from '../../utils/portableTextComponents.tsx';
+import { PageContext } from '../helper/PageContext.tsx';
+
+interface Choice {
+  _key?: string;
+  label: string;
+  isExternalLink: boolean;
+  url?: string;
+  linkTo?: {
+    _ref?: string;
+    _type?: string;
+    slug: {
+      current: string;
+    };
+  };
+  linkToOtherPageType?: {
+    _ref?: string;
+    _type?: string;
+    slug: {
+      current: string;
+    };
+  };
+}
 
 export default function QandAContainer({
   page, calculatorConfig, addToResponses, setOpenNotSurePopup,
@@ -17,7 +38,7 @@ export default function QandAContainer({
     isFinalPage: page.isFinalPage,
   }), [page.isFinalPage]);
 
-  const linkToPage = (choice) => {
+  const linkToPage = (choice: Choice) => {
     if (choice.linkTo) {
       return `/calculator/${choice.linkTo.slug.current}`;
     }
