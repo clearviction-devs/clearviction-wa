@@ -1,3 +1,4 @@
+import CloseIcon from '@mui/icons-material/Close';
 import Menu from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -5,6 +6,7 @@ import {
   Button,
   Container,
   Drawer,
+  Grid,
   IconButton,
   List,
   ListItem,
@@ -34,22 +36,64 @@ export default function Header() {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ flexGrow: 1 }}>
-      <List className="nav-mobile" sx={{ my: 2 }}>
-        {navItems.map((item) => (
-          <ListItem key={item.text}>
-            <ListItemButton
-              component={Link}
-              href={item.href}
-              sx={{ textAlign: 'center', px: 5 }}
-            >
-              <ListItemText primary={item.text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+      <Grid item xs={12} sx={{ textAlign: 'right', mr: 0.5 }}>
+        <IconButton
+          color="inherit"
+          aria-label="Close navigation"
+        >
+          <CloseIcon fontSize="large" />
+        </IconButton>
+      </Grid>
+      <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
+        {navItems
+          .filter(
+            (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
+          )
+          .map((item) => (
+            <ListItem key={item.text}>
+              <ListItemButton
+                component={Link}
+                href={item.href}
+                sx={{ textAlign: 'center', px: 5 }}
+              >
+                <ListItemText primary={item.text} sx={{ my: 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        <Button
+          href="/calculator/head-initial-1-cont"
+          variant="contained"
+          color="neutral"
+          size="small"
+          className="calc-btn"
+          sx={{
+            whiteSpace: 'nowrap', py: 1, width: '80%', mt: 3,
+          }}
+          aria-label="Access our eligibility calculator"
+        >
+          <Typography variant="body2" sx={{ fontSize: '12px' }}>
+            Access Calculator
+          </Typography>
+        </Button>
+        <Button
+          href="/donate"
+          variant="contained"
+          size="small"
+          className="donate-btn"
+          sx={{
+            whiteSpace: 'nowrap', bgcolor: 'success.main', py: 1, width: '80%', mt: 2,
+          }}
+        >
+          <Typography variant="body2" sx={{ fontSize: '12px' }}>
+            Donate
+          </Typography>
+        </Button>
         <ListItem key="disclaimer">
           <Typography
             variant="caption"
-            sx={{ mb: 2, px: 2, textAlign: 'center' }}
+            sx={{
+              mt: 3, mb: 2, px: 2, textAlign: 'center',
+            }}
           >
             The information on this site is not, nor should it be considered
             legal advice.
@@ -73,7 +117,6 @@ export default function Header() {
               alignItems: 'center',
             }}
           >
-
             <NavigationLogo fullSize={matches} />
           </Box>
           {!matches && (
