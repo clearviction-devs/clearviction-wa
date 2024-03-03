@@ -176,6 +176,7 @@ const theme = createTheme({
   },
   calculatorTypography: {
     h1: {
+      fontFamily: inter.style.fontFamily,
       fontSize: '2.5rem',
       lineHeight: '3.75rem',
       letterSpacing: '0.05rem',
@@ -183,6 +184,7 @@ const theme = createTheme({
       fontWeight: '600',
     },
     h3: {
+      fontFamily: inter.style.fontFamily,
       fontSize: '1.25rem',
       lineHeight: '1.875rem',
       letterSpacing: '0.00625rem',
@@ -190,6 +192,7 @@ const theme = createTheme({
       fontWeight: '400',
     },
     h6: {
+      fontFamily: inter.style.fontFamily,
       fontSize: '0.875rem',
       lineHeight: 'normal',
       letterSpacing: '0.0175rem',
@@ -197,6 +200,7 @@ const theme = createTheme({
       fontWeight: '600',
     },
     body1: {
+      fontFamily: inter.style.fontFamily,
       fontSize: '1.25rem',
       lineHeight: '1.625rem',
       letterSpacing: '0.03125rem',

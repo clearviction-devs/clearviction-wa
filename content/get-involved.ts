@@ -110,7 +110,7 @@ const getInvolvedContent: GetInvolvedContent = {
       },
       {
         id: 'continuous-learning',
-        header: 'CONTINOUS LEARNING & DEVELOPMENT',
+        header: 'CONTINUOUS LEARNING & DEVELOPMENT',
         body: 'Pursue personal and professional growth, seeking opportunities to enhance your skills and knowledge.',
       },
     ],
