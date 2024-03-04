@@ -1,5 +1,5 @@
 import {
-  Button, ButtonGroup, Grid, SxProps, Typography,
+  Button, ButtonGroup, Grid, List, ListItem, SxProps, Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -142,17 +142,32 @@ export default function GetStartedPage() {
           title={content.steps[2].title}
           bodyText={content.steps[2].body}
         >
-          <Typography variant="h5">{content.steps[2].data[0]}</Typography>
-          <Grid container spacing={8} sx={{ my: 1 }}>
-            {content.rejectionReasons.map((fact) => (
+          <Grid container spacing={5} sx={{ mb: 8, mt: 0 }}>
+            {content.step3Substeps.map((step3Substep) => (
               <FactCard
-                className={`fact-card-${fact.id}`}
-                key={fact.id}
-                icon="none"
-                details={fact.details}
+                className={`fact-card-${step3Substep.id}`}
+                key={step3Substep.id}
+                title={`Step ${step3Substep.id.slice(-1)}`}
+                details={step3Substep.details}
+                gridItemSize={{ xs: 12, sm: 6, md: 4 }}
+                sxProps={{ height: '100%', justifyContent: 'flex-start' }}
               />
             ))}
           </Grid>
+          <MuiMarkdown>
+            {content.steps[2].data[0]}
+          </MuiMarkdown>
+          <Typography variant="h5" sx={{ mt: 4, mb: 3 }}>{content.steps[2].data[1]}</Typography>
+          <List sx={{ py: 0, pl: 4 }}>
+            {content.rejectionReasons.map((item) => (
+              <ListItem
+                sx={{ display: 'list-item', listStyleType: 'disc', px: 0 }}
+                key={item.id}
+              >
+                {item.details}
+              </ListItem>
+            ))}
+          </List>
         </GetStartedStep>
       </SectionContainer>
 

@@ -1,6 +1,7 @@
 import {
   Button,
-  Fact, GetStartedStep, Header, Info, MetaPageHead, Reason,
+  Fact, GetStartedStep, Header, Info, InfoWithoutSummary,
+  MetaPageHead,
 } from './content.types.ts';
 
 interface GetStartedContent {
@@ -11,7 +12,8 @@ interface GetStartedContent {
   stepFourSectionNames: string[];
   needToKnowFacts: Fact[];
   CHRIMethods: Info[];
-  rejectionReasons: Reason[];
+  step3Substeps: InfoWithoutSummary[];
+  rejectionReasons: InfoWithoutSummary[];
   legalAidForms: Info[];
   financialAidForms: Info[];
   eligibilityForms: Info[];
@@ -63,12 +65,12 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 3: File with Court',
-      body: 'Next, submit a request to have your conviction vacated (refer to [court directory](https://www.courts.wa.gov/court_dir/?fa=court_dir.county)). Please note that the request to vacate is up to the discretion of the judge and may be denied for a variety of reasons.\n\n<br/>',
-      data: ['Common reasons requests to vacate may be denied:'],
+      body: 'Once you have determined you are eligible to vacate your conviction using the Eligibility Calculator, you must submit a request to have your conviction vacated at the court where you were sentenced.',
+      data: ['To find where to file your petitition to vacate, you can go the [Washington State Courts Website](https://www.courts.wa.gov/court_dir/) for a statewide directory of courts, with addresses and numbers.', 'Your request to vacate may be denied if:'],
     },
     {
       title: 'Step 4: Court Hearing',
-      body: 'Last but not least, schedule a hearing with a judge! Below are resources for financial & legal aid.',
+      body: 'Last but not least, schedule a hearing with a judge, following the "**Instructions for Vacating Misdemeanor and Gross Misdemeanor Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/documents/CrRLJ%2009.0300%20InstructVacateMisdConvictions_2022%2007.pdf) above. Below are resources for financial & legal aid.',
       data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
     },
   ],
@@ -104,21 +106,35 @@ const getStartedContent: GetStartedContent = {
         '**Price: $30 - $70**\n\n**Estimated Turnaround: 2 weeks**\n\nIf the WATCH printout is not good enough, go to your local police or sheriff\'s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an official copy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
     },
   ],
+  step3Substeps: [
+    {
+      id: 'step_1',
+      details:
+        'Read "**Instructions for Vacating Misdemeanor and Gross Misdemeanor Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
+    },
+    {
+      id: 'step_2',
+      details:
+        'Fill out a "**Petition and Declaration for Order Vacating Conviction**" form: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
+    },
+    {
+      id: 'step_3',
+      details:
+      'Read more about misdemeanor conviction vacation [here](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record) from the Washington Law Help website.',
+    },
+  ],
   rejectionReasons: [
     {
-      id: 'rejection1',
-      details:
-        'The court does not believe that vacating your conviction will be in the interest of society',
+      id: 'reason1',
+      details: 'The court does not believe that vacating your conviction will be in the interest of society.',
     },
     {
-      id: 'rejection2',
-      details:
-        'There are inaccuracies in the court records and/or the application',
+      id: 'reason2',
+      details: 'There are inaccuracies in your court records and/or the application.',
     },
     {
-      id: 'rejection3',
-      details:
-        'There is a record of violated probation, unpaid fines, or other offenses',
+      id: 'reason3',
+      details: 'You violated probation, have not paid off your fines or are otherwise not eligible to vacate that conviction.',
     },
   ],
   legalAidForms: [

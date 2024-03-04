@@ -14,15 +14,26 @@ import {
   Sync,
 } from '@mui/icons-material';
 import {
-  Box, Grid, Paper, Typography,
+  Box, Grid, Paper, SxProps, Typography,
 } from '@mui/material';
+import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+interface GridItemSize {
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+}
+
 interface FactCardProps {
+  title?: string;
   details: string;
-  icon: string;
+  icon?: string;
   border?: boolean;
   className?: string;
+  gridItemSize?: GridItemSize;
+  sxProps?: SxProps;
 }
 
 type Icon = {
@@ -47,15 +58,12 @@ const iconEl: Icon = {
 };
 
 export default function FactCard({
-  details, icon, className, border = true,
+  icon, title, details, className, border = true, gridItemSize = { xs: 12, sm: 4 }, sxProps,
 }: FactCardProps) {
   return (
     <Grid
       item
-      xs={12}
-      sm={4}
-      md={4}
-      lg={4}
+      {...gridItemSize}
       sx={{
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '250px',
       }}
@@ -70,13 +78,23 @@ export default function FactCard({
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
+              ...sxProps,
             }}
           >
+            {icon && (
             <Box pt={3} pb={1} px={3}>
               {iconEl[icon]}
             </Box>
-            <Box pb={3} px={3}>
-              <Typography sx={{ textAlign: 'center' }}>{details}</Typography>
+            )}
+            {title && (
+              <Typography variant="h5" mt={6} mb={4}>
+                {title}
+              </Typography>
+            )}
+            <Box pb={3} px={3} textAlign="center">
+              <MuiMarkdown>
+                {details}
+              </MuiMarkdown>
             </Box>
           </Paper>
         ) : (
@@ -91,9 +109,11 @@ export default function FactCard({
               alignItems: 'center',
             }}
           >
-            <Box pt={3} pb={1} px={3}>
-              {iconEl[icon]}
-            </Box>
+            {icon && (
+              <Box pt={3} pb={1} px={3}>
+                {iconEl[icon]}
+              </Box>
+            )}
             <Box sx={{}}>
               <Typography mt={2} sx={{ textAlign: 'center' }}>{details}</Typography>
             </Box>
