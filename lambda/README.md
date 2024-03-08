@@ -4,6 +4,7 @@ This directory houses our AWS Lambda functions, with each subdirectory represent
 
 ## Structure
 - **/contact_form**: Contains the AWS Lambda function for handling email sending via a contact form.
+- **/log_puller**: Contains the AWS Lambda function for pulling Amplify preview build failure logs and pasting them on the relevant PR.
 - Other directories: Other Lambda functions can be structured similarly in their own directories.
 
 ## Prerequisites
