@@ -2,10 +2,10 @@ import {
   Header, MetaPageHead,
 } from './content.types.ts';
 
-    interface NotFoundPageContent {
-      meta: MetaPageHead
-      page: Header;
-    }
+interface NotFoundPageContent {
+  meta: MetaPageHead;
+  page: Header;
+}
 
 const donateContent: NotFoundPageContent = {
   meta: {
