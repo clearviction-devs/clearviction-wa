@@ -1,15 +1,12 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 
-import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/404.ts';
 
 export default function PageNotFound() {
-  externalLinks();
-
   return (
     <>
       <IndividualPageHead
