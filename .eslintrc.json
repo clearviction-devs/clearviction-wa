@@ -1,5 +1,4 @@
 {
-  // removed prettier for now - causing conflicts
   "extends": ["next/core-web-vitals", "airbnb", "airbnb/hooks", "plugin:cypress/recommended"],
   "plugins": ["simple-import-sort"],
   "rules": {
@@ -11,6 +10,7 @@
     "react/jsx-props-no-spreading": "off",
     "no-underscore-dangle": "off",
     "no-restricted-syntax": "off",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
