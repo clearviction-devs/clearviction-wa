@@ -14,7 +14,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4.0.0
         with:
-          node-version: '^18.0.0'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install
@@ -33,7 +33,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4.0.0
         with:
-          node-version: '^18.0.0'
+          node-version: '20'
           cache: 'npm'
 
       - uses: actions/cache@v3.3.2
