@@ -80,7 +80,7 @@ This GitHub Actions workflow is designed to automatically scrutinize pull reques
     - to prevent duplicate comments on subsequent pushes to the same PR, the comment includes a unique tag `<!-- DependencyCheckTag -->` at the end
 
 ## Merge Staging -> Main Cron Job
-This workflow merges the `staging` branch into `main` every other Tuesday. This is a process that is necessary to update the production website with new changes from development/the staging branch. Some basic verifications are done before the merge process to ensure that this can be completed successfully, and if something goes wrong, an issue is created to inform that the process failed.
+This workflow merges the `staging` branch into `main` on first and 15th day of each month. This is a process that is necessary to update the production website with new changes from development/the staging branch. Some basic verifications are done before the merge process to ensure that this can be completed successfully, and if something goes wrong, an issue is created to inform that the process failed.
 
 ### Tools Used:
 **Github Actions**
@@ -136,6 +136,22 @@ This workflow for preview builds is automated through AWS Amplify. Developers in
 1. **Install dependencies** - runs a clean install of all project dependencies
 1. **Build** - builds the project, and requires that secrets be saved in `settings -> actions -> secrets`, and then pulled into the workflow file via environment variables
 1. **Test** - runs tests if the test script is present in the `package.json` file
+
+## Pull Request Testing
+This workflow rund test suites on every Pull Request against `staging` branch.
+It is focused on garantee that any new code will not break our application, enhancing confiability.
+
+### Tools Used:
+**Github Actions**
+  - `actions/checkout@v4`: checks out the repository code
+  - `actions/setup-node@v4`: manages and runs javascript code
+  - `actions/cache@v3`: caches next.js files for use in other jobs
+  - `cypress-io/github-action@v6`: run cypress in our environment
+
+### Steps:
+1. **Open Pull Request** - developers open a pull request targeting the `staging` branch in the GitHub repository
+2. **Dependencies and Build** - Dependencies are installed and a build is created.
+3. **Run tests** - Tests start to run checking the code.
 
 # Criteria For Adding New Workflows
 
