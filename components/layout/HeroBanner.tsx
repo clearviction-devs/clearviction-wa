@@ -31,7 +31,10 @@ interface HeroBannerProps {
 const heroStyles: SxProps = {
   backgroundColor: 'primary.dark',
   color: 'primary.contrastText',
-  py: 8,
+  py: {
+    xs: .5,
+    md: 8,
+  },
 };
 
 const getHeroAdditionalsStyles = (theme: Theme) => ({
