@@ -32,7 +32,7 @@ const heroStyles: SxProps = {
   backgroundColor: 'primary.dark',
   color: 'primary.contrastText',
   py: {
-    xs: .5,
+    xs: 0.5,
     md: 8,
   },
 };
