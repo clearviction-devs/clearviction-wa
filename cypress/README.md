@@ -2,7 +2,7 @@
 Testing are important to enhance confiability, making sure that every new code will not lead in a unexpected break.
 There are some ways to test code, but here we are focused on E2E tests, simulating user actions.
 
-### Cypress
+# Cypress
 Cypress is a comprehensive testing framework used primarily for end-to-end testing of web applications. It provides developers with a powerful set of tools to write, automate, and execute tests that simulate real user interactions within a web browser. With Cypress, developers can create tests that cover various scenarios and functionalities of their web applications. 
 
 One of the key features of Cypress is its ability to perform tests directly within the browser, allowing developers to see exactly what is happening at each step of the test execution.
@@ -17,5 +17,64 @@ Those are the steps to run tests in your local machine:
     
     b.`cy:open`: will open a testing window where you can see much more info, but it`s slower.   
 
+### Best practices
+- `Organized Structure`: Maintain an organized structure for your tests, dividing them into relevant files or folders to help maintenance and scalability.
+- `DRY (Dont Repeat Yourself)`: Avoid duplication of code/tests, because if something change, we will need to fix in all those duplicated spots.
+- `Descriptive Tests`: Write descriptive and clear tests that reflect the expected behavior of the application, using meaningful test names and understandable assertion messages.
+
+### Things to Avoid
+- `External State Dependency`: Avoid tests that depend on external states or data that may vary, as this can make tests inconsistent and prone to failure.
+- `Long and Complex Tests`: Break long and complex tests into smaller, more focused tests to facilitate debugging and maintenance.
+- `Ignoring Broken Tests`: Do not ignore broken tests; instead, prioritize fixing them to maintain the integrity of the test suite.
+
+### Best Practices with Cypress
+- Take a look on Cypress [doc](https://docs.cypress.io/guides/references/best-practices) section about this to test with best practices.
+
 ### Learn more
 To learn more about how to write tests using cypress, just take a look in [cypress doc](https://docs.cypress.io/guides/overview/why-cypress)
+
+# Test Plan
+
+### Overview
+As important as testing is to have a plan about how to test. Because of that, this section is focused on give information about how to maintain and create new tests on CV`s website repository.
+
+### Main Objectives
+- `Calculator Working`: We need great reliability on our most important feature, so we need to ensure that either eligible and not elibible paths will show what we expect.
+- `Donations`: As a non profit organization, we need to ensure that all donators can donate using our website.
+
+### Calculator Situation
+Actually we have:
+
+1. `Misdemeanor Tree`: this tree has 4 paths
+    - Possesion of Marijuana
+    - Prostitution
+    - Fishing Violation
+    - General Criteria
+
+2. `Felony Tree`: comming soon...
+
+### How to test Calculator
+One of our focus is try to duplicate code as less as possible, and to do that we can't test each calculator's path because this would cause too much of duplicated code.
+
+![Duplication problem](https://github.com/clearviction-devs/clearviction-wa/assets/80538553/82a7ef65-4d7c-4851-bcc8-7df6453b5e48)
+
+We can note that in a hypothetical path, if we try to test all the path from "Entering into Calculator" to "Eligible Page" and from "Entering into Calculator" to "One Inelegible Page", this will cause a duplication of code on `Calculator Home`, `Page1` and `Page2` components, because they have same path. Now imagine this on plenty of paths 😨.
+
+To avoid that we suggest to do this:
+
+1. Start by testing our "Happy Path" (Eligible Path).
+    - At this stage we will not check for example if some `title` is there, we will only check if the flow is happening.
+    - Using our Hypothetical Eligible Path above will be as below.
+![Eligible path](https://github.com/clearviction-devs/clearviction-wa/assets/80538553/8ad02e68-9079-496c-b1ce-779827520451)
+    - Note that we just need to check if we are at the page we expect and then interact with the eligible choise.
+
+2. With stage 1 done, we can guarantee that eligible choises send user to the right page, but we can't guarantee that those pages show the right content.
+
+3. Let's test each page individually.
+    - Each page should have some expected data and some other behavior.
+    - Here we will test if `Page 1` on not eligible choise will send user to `Inelegible Page`.
+    - Here we can test if a `title` is what we are supposing.
+
+ ![Testing a page](https://github.com/clearviction-devs/clearviction-wa/assets/80538553/531c910c-0c87-4e7c-b52c-2947c3b93359)
+
+4. By doing that we are trying to not duplicate code, because we already know that eligible path send to where it's supposed to send, we just check other expected behaviors.
