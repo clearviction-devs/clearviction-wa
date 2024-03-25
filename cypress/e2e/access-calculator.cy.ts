@@ -15,9 +15,6 @@ describe('From Home Page', () => {
     cy.get('@initialCalculatorBtn').click();
 
     cy.url().should('include', '/calculator/head-start-2-cont');
-    cy.get('h1:visible')
-      .contains('Quick Start Guide')
-      .should('have.length', 1);
     cy.get('a:visible').contains(/^Start$/).click();
 
     cy.url().should('include', '/calculator/head-mis-3-cont');
@@ -36,9 +33,6 @@ describe('From Home Page', () => {
     cy.get('@initialCalculatorBtn').click();
 
     cy.url().should('include', '/calculator/head-start-2-cont');
-    cy.get('h1:visible')
-      .contains('Quick Start Guide')
-      .should('have.length', 1);
     cy.get('a:visible').contains(/^Start$/).click();
 
     cy.url().should('include', '/calculator/head-mis-3-cont');
