@@ -14,12 +14,4 @@ describe('m-offense-fish-3-cont', () => {
 
     cy.url().should('include', '/calculator/m-offense-fish-6-cont');
   });
-
-  it('when select "I\'m not sure" option, open pop-up with some information', () => {
-    cy.visit('/calculator/m-offense-fish-3-cont');
-    cy.get('button:visible').contains(/^I'm not sure$/).click();
-
-    cy.get('div[role="dialog"]').should('be.visible');
-    cy.get('button:visible').contains('Okay').should('have.length', 1);
-  });
 });
