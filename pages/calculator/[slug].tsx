@@ -40,7 +40,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
       answer !== 'Continue'
       && answer !== 'Next'
       && answer !== 'Start'
-      && page.slug !== 'head-mis-3-cont'
+      && page.slug !== 'head-start-3-cont'
     ) {
       setResponseObject({ ...responseObject, [page.slug]: answer });
     }
