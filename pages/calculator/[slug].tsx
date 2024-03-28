@@ -101,7 +101,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
                 textAlign="center"
                 id="legal-disclaimer-container"
               >
-                <Typography variant="caption" sx={{ fontWeight: 'light' }}>
+                <Typography variant="caption" data-cy="legal-disclaimer" sx={{ fontWeight: 'light' }}>
                   {calculatorConfig.legalDisclaimer}
                 </Typography>
               </Box>
