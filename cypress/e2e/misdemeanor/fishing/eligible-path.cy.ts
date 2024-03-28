@@ -5,7 +5,7 @@ describe('From Calculator first question', () => {
 
       cy.get('strong:contains("Was this offense any of the following in Washington state?")')
         .should('be.visible');
-      cy.get('a:visible').contains('Yes').click();
+      cy.get('a:visible').contains('Misdemeanor').click();
 
       cy.url().should('include', '/calculator/head-mis-4-cont');
       cy.get('a:visible')
