@@ -20,7 +20,7 @@ export default function QandAContainer({
   return (
     <>
       <PageContext.Provider value={contextValue}>
-        <Box mb={4}>
+        <Box data-cy="calc-block-of-content" mb={4}>
           {
             page.content && (
             <BlockContent
@@ -29,14 +29,12 @@ export default function QandAContainer({
             />
             )
           }
-
         </Box>
       </PageContext.Provider>
       <Container id="choices-container" maxWidth="xs" sx={{ mb: 4 }}>
         <Stack gap={2}>
-
           {page.choices
-            && page.choices.map((choice) => {
+            && page.choices.map((choice, index) => {
               const linkTo = choice.linkTo
                 ? `/calculator/${choice.linkTo.slug.current}`
                 : '#';
@@ -46,6 +44,7 @@ export default function QandAContainer({
                   key={choice._key}
                   variant="contained"
                   href={href}
+                  data-cy={`calc-choice-${index}`}
                   sx={{ width: '100%' }}
                   onClick={() => addToResponses(choice.label)}
                 >
@@ -58,6 +57,7 @@ export default function QandAContainer({
             <Button
               variant="outlined"
               color="primary"
+              data-cy="not-sure-button"
               sx={{ width: '100%' }}
               onClick={() => setOpenNotSurePopup(true)}
             >
