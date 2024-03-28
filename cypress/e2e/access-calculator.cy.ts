@@ -17,7 +17,7 @@ describe('From Home Page', () => {
 
     cy.url().should('include', '/calculator/head-start-2-cont');
     cy.get('[data-cy="calc-choice-0"]:visible')
-      .should('have.attr', 'href', '/calculator/head-mis-3-cont')
+      .should('have.attr', 'href', '/calculator/head-start-3-cont')
       .click();
 
     cy.url().should('include', '/calculator/head-start-3-cont');
@@ -38,7 +38,7 @@ describe('From Home Page', () => {
 
     cy.url().should('include', '/calculator/head-start-2-cont');
     cy.get('[data-cy="calc-choice-0"]:visible')
-      .should('have.attr', 'href', '/calculator/head-mis-3-cont')
+      .should('have.attr', 'href', '/calculator/head-start-3-cont')
       .click();
 
     cy.url().should('include', '/calculator/head-start-3-cont');
