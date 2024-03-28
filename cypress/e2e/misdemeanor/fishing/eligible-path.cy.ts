@@ -3,7 +3,7 @@ describe('From Calculator first question', () => {
     it('can access Fishing Violation initial page', () => {
       cy.visit('/calculator/head-start-3-cont');
 
-      cy.get('strong:contains("Was this offense a misdemeanor or gross misdemeanor in Washington state?")')
+      cy.get('strong:contains("Was this offense any of the following in Washington state?")')
         .should('be.visible');
       cy.get('a:visible').contains('Yes').click();
 
