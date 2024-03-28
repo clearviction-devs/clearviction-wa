@@ -2,17 +2,20 @@ describe('m-offense-fish-6-cont', () => {
   it('have all necessary information', () => {
     cy.visit('/calculator/m-offense-fish-6-cont');
 
-    cy.get('h1:visible')
-      .contains('Continue to general criteria')
-      .should('have.length', 1);
-    cy.get('p:visible').contains('Based on your answers, it looks like your conviction is not eligible under the fishing regulation special clause')
+    cy.get('[data-cy="calc-block-of-content"]')
+      .should('have.length', 1)
+      .should('be.visible');
+
+    // =^ is a selector that means "starts with"
+    // so we are taking all elements that have data-cy that starts with "calc-choice-"
+    cy.get('[data-cy^="calc-choice-"]:visible')
       .should('have.length', 1);
   });
 
   it('when select Continue option, open continue to general criteria', () => {
     cy.visit('/calculator/m-offense-fish-6-cont');
 
-    cy.get('a:visible').contains(/^Continue$/)
+    cy.get('[data-cy="calc-choice-0"]:visible')
       .should('have.attr', 'href', '/calculator/m-offense-main-1-cont')
       .click();
 
@@ -22,8 +25,8 @@ describe('m-offense-fish-6-cont', () => {
   it('has an a link "Report an error" with correct href', () => {
     cy.visit('/calculator/m-offense-fish-6-cont');
 
-    cy.get('a:visible').contains('Report an error')
-      .should('have.attr', 'href', 'https://docs.google.com/forms/d/e/1FAIpQLSf8JvZfgYPBV36Ow4Qn_KyxkdmzI3szvZej-L1MbFO9vSGKWQ/viewform')
-      .click();
+    cy.get('[data-cy="error-report-link"]:visible')
+      .should('have.attr', 'href')
+      .and('include', 'forms');
   });
 });

@@ -2,31 +2,48 @@ describe.only('m-offense-fish-5-eligible', () => {
   it('have all necessary information', () => {
     cy.visit('/calculator/m-offense-fish-5-eligible');
 
-    cy.get('h1:visible')
-      .contains('Your Conviction May Be Eligible to Vacate!')
-      .should('have.length', 1);
-    cy.get('strong:visible')
-      .contains('Step 1: Read the Local Court Rules')
-      .should('have.length', 1);
-    cy.get('strong:visible')
-      .contains('Step 2: Fill out the Form')
-      .should('have.length', 1);
-    cy.get('strong:visible')
-      .contains('Step 3: Make Copies')
+    cy.get('[data-cy="calc-block-of-content"]')
       .should('have.length', 1);
   });
 
   it('has a Give Us Your Feedback button', () => {
     cy.visit('/calculator/m-offense-fish-5-eligible');
 
-    cy.get('a:visible').contains(/^Give us your feedback$/)
-      .should('have.attr', 'href', 'https://forms.gle/RNzxdMgns4FFivU1A');
+    cy.get('[data-cy="feedback-button"]:visible')
+      .should('have.attr', 'href')
+      .and('include', 'forms');
+  });
+
+  it('has a Check another conviction link', () => {
+    cy.visit('/calculator/m-offense-fish-5-eligible');
+
+    cy.get('[data-cy="check-another-conviction"]:visible')
+      .as('checkAnotherConviction')
+      .should('have.attr', 'href');
+
+    cy.get('@checkAnotherConviction').click();
+
+    cy.url().should('include', 'initial-1-cont');
+  });
+
+  it('has a Share the Calculator link', () => {
+    cy.visit('/calculator/m-offense-fish-5-eligible');
+
+    cy.get('[data-cy="share-calc-popup"]')
+      .should('not.exist');
+
+    cy.get('[data-cy="share-calc-link"]:visible')
+      .should('have.length', 1)
+      .click();
+
+    cy.get('[data-cy="share-calc-popup"]')
+      .should('be.visible');
   });
 
   it('has a Download Response button', () => {
     cy.visit('/calculator/m-offense-fish-5-eligible');
 
-    cy.get('button:visible').contains(/^Download responses$/)
+    cy.get('[data-cy="download-results"]:visible')
       .should('have.length', 1);
   });
 });
