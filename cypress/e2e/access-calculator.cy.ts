@@ -20,7 +20,7 @@ describe('From Home Page', () => {
       .should('have.length', 1);
     cy.get('a:visible').contains(/^Start$/).click();
 
-    cy.url().should('include', '/calculator/head-mis-3-cont');
+    cy.url().should('include', '/calculator/head-start-3-cont');
   });
 
   it('its possible to access calculator from Hero btn', () => {
@@ -41,6 +41,6 @@ describe('From Home Page', () => {
       .should('have.length', 1);
     cy.get('a:visible').contains(/^Start$/).click();
 
-    cy.url().should('include', '/calculator/head-mis-3-cont');
+    cy.url().should('include', '/calculator/head-start-3-cont');
   });
 });

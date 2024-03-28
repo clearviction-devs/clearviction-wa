@@ -31,7 +31,7 @@ interface Props {
 export default function Results({ responseObject, handleCloseResults }: Props) {
   const questions = {
     'possession of marijuana': {
-      'head-special-4-cont': 'Topic:',
+      'head-mis-4-cont': 'Topic:',
       'm-offense-mari-1-cont': 'Blake eligibility',
       'm-offense-main-2-cont': 'Was the offense a violent offense or the attempt to commit a violent offense?',
       'm-offense-main-3-cont': 'Was the offense a violation related to the operation of a vehicle while intoxicated?',
@@ -46,7 +46,7 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
       'm-terms-main-3-cont': 'Have 3 years passed since completing the terms of your sentence including financial obligations?',
     },
     prostitution: {
-      'head-special-4-cont': 'Topic:',
+      'head-mis-4-cont': 'Topic:',
       'm-offense-pro-2-cont': 'Was the conviction a result of being a victim of sex trafficking, prostitution, commercial sexual abuse of a minor, sexual assault, or domestic violence?',
       'm-offense-pro-3-cont': 'Has the crime victim penalty assessment, RCW 7.68.035, been paid in full?',
       'm-offense-pro-4-cont': 'If applicable, has restitution owed to any victim, excluding restitution owed to any insurance provider under Title 48 RCW, been paid in full?',
@@ -69,7 +69,7 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
       'm-terms-main-3-cont': 'Have 3 years passed since completing the terms of your sentence including financial obligations?',
     },
     'fishing violation': {
-      'head-special-4-cont': 'Topic:',
+      'head-mis-4-cont': 'Topic:',
       'm-circ-main-2-cont': 'Do you have any pending charges in any court in WA, another state, or in any federal court?',
       'm-circ-main-3-cont': 'In the last 3 years, have you been convicted of a new crime in WA or any other state?',
       'm-circ-main-4-cont': 'Are you currently restrained by a domestic violence protection order, a no-contact order, an anti-harassment order, or a civil restraining order which restrains one party from contacting the other party?',
@@ -89,7 +89,7 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
       'm-terms-main-3-cont': 'Have 3 years passed since completing the terms of your sentence including financial obligations?',
     },
     'none of the above': {
-      'head-special-4-cont': 'Topic:',
+      'head-mis-4-cont': 'Topic:',
       'm-circ-main-2-cont': 'Do you have any pending charges in any court in WA, another state, or in any federal court?',
       'm-circ-main-3-cont': 'In the last 3 years, have you been convicted of a new crime in WA or any other state?',
       'm-circ-main-4-cont': 'Are you currently restrained by a domestic violence protection order, a no-contact order, an anti-harassment order, or a civil restraining order which restrains one party from contacting the other party?',
@@ -150,7 +150,7 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
     width: 'fit-content',
   };
 
-  const convictionType = responseObject['head-special-4-cont'].toLowerCase() as string;
+  const convictionType = responseObject['head-mis-4-cont'].toLowerCase() as string;
   const printRef = React.useRef();
 
   return (

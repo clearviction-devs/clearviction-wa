@@ -17,7 +17,7 @@
 
 ## About The Project
 
-We are a civic-tech open source project and part of the [Democracy Lab](https://www.democracylab.org/projects/226) organization, which is a project within the [Open Seattle](https://openseattle.org/projects/) organization.
+We are a civic-tech open source project and part of the [Democracy Lab](https://www.democracylab.org/projects/226) organization.
 
 One in four Washingtonians have been involved in the criminal justice system. Those with a criminal record in Washington face significant barriers to daily life after completing their prison terms, making it harder to find housing and employment, to gain professional credentials, and to be involved in the life of their community. [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017) makes it easier for people with past criminal records to have their convictions vacated. Even then, the process of vacating a conviction is very convoluted, making it difficult for most people to navigate.
 
@@ -90,7 +90,7 @@ Make sure you read the dev guide on how to use Sanity [here](https://github.com/
 
 ## Get In Contact
 
-Find more information about this project, and Open Seattle [here](https://democracylab.org/index/?section=AboutProject&id=226).
+Find more information about this project [here](https://democracylab.org/index/?section=AboutProject&id=226).
 
 ## License
 

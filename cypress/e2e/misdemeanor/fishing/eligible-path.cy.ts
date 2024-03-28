@@ -1,13 +1,13 @@
 describe('From Calculator first question', () => {
   describe('user choosing Eligible options', () => {
     it('can access Fishing Violation initial page', () => {
-      cy.visit('/calculator/head-mis-3-cont');
+      cy.visit('/calculator/head-start-3-cont');
 
       cy.get('strong:contains("Was this offense a misdemeanor or gross misdemeanor in Washington state?")')
         .should('be.visible');
       cy.get('a:visible').contains('Yes').click();
 
-      cy.url().should('include', '/calculator/head-special-4-cont');
+      cy.url().should('include', '/calculator/head-mis-4-cont');
       cy.get('a:visible')
         .contains('Fishing Violation')
         .as('fishingViolationBtn')

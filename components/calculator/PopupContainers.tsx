@@ -6,9 +6,9 @@ import {
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useState } from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
-import portableTextComponent from '../../../utils/portableTextComponents.tsx';
-import ShareButtons from '../../helper/ShareButtons.tsx';
+import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import portableTextComponent from '../../utils/portableTextComponents.tsx';
+import ShareButtons from '../helper/ShareButtons.tsx';
 
 export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOpenNotSurePopup }: {
     calculatorConfig: StaticCalcProps['calculatorConfig'],
