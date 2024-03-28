@@ -12,7 +12,7 @@ export default function CalcHeader({ page, isFirstPage }:
   const router = useRouter();
 
   const isPageIncludedInStepper = () => {
-    const excludedPageSlugs = ['test', 'start', 'head'];
+    const excludedPageSlugs = ['start', 'head'];
     const isPartOfHead = excludedPageSlugs.some((slug) => page.slug.includes(slug));
     const { isFinalPage } = page;
     return !(isFinalPage || isPartOfHead);

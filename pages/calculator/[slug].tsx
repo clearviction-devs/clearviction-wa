@@ -29,13 +29,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   const [responseObject, setResponseObject] = useState({});
   const [showResults, setShowResults] = useState(false);
 
-  const calcFirstPageUrl = 'https://clearviction.org/calculator/test-initial-1-cont';
-  const isFirstPage = () => page.slug === 'test-initial-1-cont';
+  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
+  const isFirstPage = () => page.slug === 'head-initial-1-cont';
   const contentRef = useRef<HTMLDivElement>(null);
 
   const addToResponses = (answer: string) => {
     // delete object when start over
-    if (page.slug === 'test-initial-1-cont') setResponseObject({});
+    if (page.slug === 'head-initial-1-cont') setResponseObject({});
     if (
       answer !== 'Continue'
       && answer !== 'Next'

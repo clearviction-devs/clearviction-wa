@@ -63,26 +63,28 @@ export default function QandAContainer({
 
         </Box>
       </PageContext.Provider>
+
       <Container id="choices-container" maxWidth="xs" sx={{ mb: 4 }}>
-        {(page.choices || page.isQuestion)
-        && (
+
+        {(page.choices || page.isQuestion) && (
+
         <Stack gap={2} role="group" aria-label="Choice options">
           {page.choices
-            && page.choices.map((choice) => {
-              const linkTo = linkToPage(choice);
-              const href = choice.isExternalLink ? choice.url : linkTo;
-              return (
-                <Button
-                  key={choice._key}
-                  variant="contained"
-                  href={href}
-                  sx={{ width: '100%' }}
-                  onClick={() => addToResponses(choice.label)}
-                >
-                  {choice.label}
-                </Button>
-              );
-            })}
+                && page.choices.map((choice) => {
+                  const linkTo = linkToPage(choice);
+                  const href = choice.isExternalLink ? choice.url : linkTo;
+                  return (
+                    <Button
+                      key={choice._key}
+                      variant="contained"
+                      href={href}
+                      sx={{ width: '100%' }}
+                      onClick={() => addToResponses(choice.label)}
+                    >
+                      {choice.label}
+                    </Button>
+                  );
+                })}
 
           {page.isQuestion && (
           <Button

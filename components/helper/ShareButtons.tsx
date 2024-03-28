@@ -17,7 +17,7 @@ type ShareButtonsProps = {
   shareLinkCopied: boolean;
 };
 
-const CALCULATOR_URL = 'https://clearviction.org/calculator/test-initial-1-cont';
+const CALCULATOR_URL = 'https://clearviction.org/calculator/head-initial-1-cont';
 
 const socialMediaTextStyles = {
   fontWeight: 400,
