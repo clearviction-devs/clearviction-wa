@@ -41,6 +41,7 @@ export default function ResultsDownloadContainer({ handleCloseResults, setShowRe
   return (
     <Button
       onClick={() => handleDownloadClick()}
+      data-cy="download-results"
     >
       Download responses
     </Button>
