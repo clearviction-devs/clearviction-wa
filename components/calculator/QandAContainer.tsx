@@ -51,7 +51,7 @@ export default function QandAContainer({
   return (
     <>
       <PageContext.Provider value={contextValue}>
-        <Box mb={4}>
+        <Box data-cy="calc-block-of-content" mb={4}>
           {
             page.content && (
             <BlockContent
@@ -70,7 +70,7 @@ export default function QandAContainer({
 
         <Stack gap={2} role="group" aria-label="Choice options">
           {page.choices
-                && page.choices.map((choice) => {
+                && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
                   const href = choice.isExternalLink ? choice.url : linkTo;
                   return (
@@ -78,6 +78,7 @@ export default function QandAContainer({
                       key={choice._key}
                       variant="contained"
                       href={href}
+                      data-cy={`calc-choice-${index}`}
                       sx={{ width: '100%' }}
                       onClick={() => addToResponses(choice.label)}
                     >
@@ -90,6 +91,7 @@ export default function QandAContainer({
           <Button
             variant="outlined"
             color="primary"
+            data-cy="not-sure-button"
             sx={{ width: '100%' }}
             onClick={() => setOpenNotSurePopup(true)}
           >
