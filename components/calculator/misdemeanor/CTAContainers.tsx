@@ -17,6 +17,7 @@ function CheckAnotherConviction({ calculatorConfig }: {
         href={
             calculatorConfig.checkAnotherConviction.linkTo.slug.current
           }
+        data-cy="check-another-conviction"
       >
         <HistoryIcon />
         {calculatorConfig.checkAnotherConviction.linkText}
@@ -28,6 +29,7 @@ function CheckAnotherConviction({ calculatorConfig }: {
 function FeedbackContainer({ page, calculatorConfig }: StaticCalcProps) {
   return (
     <Button
+      data-cy="feedback-button"
       variant="contained"
       href={
           page.isUndetermined
@@ -64,6 +66,7 @@ export function ShareCalcContainer({ setOpenSharePopup, calcFirstPageUrl, justif
           display: 'flex',
           gap: 1,
         }}
+        data-cy="share-calc-link"
       >
         <IosShareIcon />
         Share the calculator
@@ -99,6 +102,7 @@ export function ErrorReportContainer({ calculatorConfig }: {
             textDecoration: 'underline',
           },
         }}
+        data-cy="error-report-link"
       >
         {calculatorConfig.errorReportingForm.linkText}
         {' '}
