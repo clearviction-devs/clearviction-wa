@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 
-const steps = [
+const defaultSteps = [
   'your offense',
   'surrounding circumstances',
   'terms of offense',
@@ -16,11 +16,21 @@ const steps = [
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [isProPath, setIsProPath] = React.useState(false);
+  const [isMisSpecialCase, setIsMisSpecialCase] = React.useState(false);
+
+  const steps = isProPath ? defaultSteps.slice(0, 2) : defaultSteps;
 
   const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleNext = () => {
     const { pathname } = window.location;
+
+    if (pathname.includes('classcpro') || pathname.includes('classbpro')) setIsProPath(true);
+
+    if (pathname.includes('m-offense-pro') || pathname.includes('m-offense-mari') || pathname.includes('m-offense-fish')) setIsMisSpecialCase(true);
+
+    if (pathname.includes('m-offense-main-1-cont')) setIsMisSpecialCase(false);
 
     type Items = {
       [key: string]: number;
@@ -44,7 +54,7 @@ export default function HorizontalLinearStepper() {
   return (
     <Box id="calc-stepper" sx={{ width: '100%', marginBottom: '2rem' }}>
       <Stepper activeStep={activeStep}>
-        {steps.map((label) => {
+        {!isMisSpecialCase && steps.map((label) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
             optional?: React.ReactNode;

@@ -3,7 +3,7 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import React from 'react';
 
-import { SharedCalcProps } from '../../../utils/calculator.props.ts';
+import { SharedCalcProps } from '../../utils/calculator.props.ts';
 
 export default function ResultsDownloadContainer({ handleCloseResults, setShowResults }: {
     handleCloseResults: SharedCalcProps['handleCloseResults'],
@@ -41,6 +41,7 @@ export default function ResultsDownloadContainer({ handleCloseResults, setShowRe
   return (
     <Button
       onClick={() => handleDownloadClick()}
+      data-cy="download-results"
     >
       Download responses
     </Button>

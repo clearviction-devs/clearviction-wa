@@ -1,11 +1,11 @@
 import { groq } from 'next-sanity';
 
 export const basePagePathsQuery = groq`
-  *[_type == $pageType && slug.current != null].slug.current
+  *[slug.current != null].slug.current
 `;
 
 export const basePagesBySlugQuery = groq`
-*[_type == $pageType && slug.current == $slug][0] {
+*[slug.current == $slug][0] {
   _id,
   title,
   content,
@@ -13,7 +13,7 @@ export const basePagesBySlugQuery = groq`
   isFinalPage,
   isEligible,
   isUndetermined,
-  "choices": choices[]{_key, url, isExternalLink, label, linkTo->{slug}},
+  "choices": choices[]{_key, url, isExternalLink, label, linkTo->{slug}, linkToOtherPageType->{slug}},
   "slug": slug.current,
 }
 `;

@@ -6,20 +6,20 @@ import {
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 
-import CalcHeader from '../../components/calculator/misdemeanor/CalcHeader.tsx';
-import FinalPageLinksContainer, { ErrorReportContainer, ShareCalcContainer } from '../../components/calculator/misdemeanor/CTAContainers.tsx';
-import NotSurePopup, { ShareCalculatorPopup } from '../../components/calculator/misdemeanor/PopupContainers.tsx';
-import QandAContainer from '../../components/calculator/misdemeanor/QandAContainer.tsx';
-import ResultsDownloadContainer from '../../components/calculator/misdemeanor/ResultsDownloadContainer.tsx';
+import CalcHeader from '../../components/calculator/CalcHeader.tsx';
+import FinalPageLinksContainer, { ErrorReportContainer, ShareCalcContainer } from '../../components/calculator/CTAContainers.tsx';
+import NotSurePopup, { ShareCalculatorPopup } from '../../components/calculator/PopupContainers.tsx';
+import QandAContainer from '../../components/calculator/QandAContainer.tsx';
+import Results from '../../components/calculator/Results.tsx';
+import ResultsDownloadContainer from '../../components/calculator/ResultsDownloadContainer.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
-import Results from '../../components/helper/Results.tsx';
 import { StaticCalcProps } from '../../utils/calculator.props.ts';
 import {
+  getAllPagePaths,
+  getAllPagesBySlug,
   getCalculatorConfig,
-  getMisdemeanorPageBySlug,
-  getMisdemeanorPagePaths,
 } from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
@@ -40,7 +40,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
       answer !== 'Continue'
       && answer !== 'Next'
       && answer !== 'Start'
-      && page.slug !== 'head-mis-3-cont'
+      && page.slug !== 'head-start-3-cont'
     ) {
       setResponseObject({ ...responseObject, [page.slug]: answer });
     }
@@ -56,6 +56,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
     if (contentRef.current) {
       contentRef.current.focus();
     }
+    window.scrollTo(0, 0);
   }, [page]);
 
   return (
@@ -72,6 +73,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         component={Container}
         maxWidth="md"
         sx={{
+          minHeight: '35rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -101,7 +103,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
                 textAlign="center"
                 id="legal-disclaimer-container"
               >
-                <Typography variant="caption" sx={{ fontWeight: 'light' }}>
+                <Typography variant="caption" data-cy="legal-disclaimer" sx={{ fontWeight: 'light' }}>
                   {calculatorConfig.legalDisclaimer}
                 </Typography>
               </Box>
@@ -110,7 +112,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         }
 
         {
-          (page.isFinalPage && page.isEligible) && (
+          (page.isFinalPage && page.isEligible && !page.slug.startsWith('f')) && (
             <>
               <ResultsDownloadContainer
                 handleCloseResults={handleCloseResults}
@@ -166,7 +168,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = params.slug as string || '';
 
   const [page, calculatorConfig] = await Promise.all([
-    getMisdemeanorPageBySlug({ slug }),
+    getAllPagesBySlug({ slug }),
     getCalculatorConfig(),
   ]);
 
@@ -185,7 +187,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getMisdemeanorPagePaths();
+  const paths = await getAllPagePaths();
 
   return {
     paths: paths?.map((slug) => `/calculator/${slug}`) || [],

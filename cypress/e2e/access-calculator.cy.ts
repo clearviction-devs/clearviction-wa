@@ -9,18 +9,18 @@ describe('From Home Page', () => {
     cy.get('@accessCalculatorBtns').first().click();
     cy.url().should('include', '/calculator/head-initial-1-cont');
 
-    cy.get('a:visible').contains(/^Next$/)
+    cy.get('[data-cy="calc-choice-0"]:visible')
       .as('initialCalculatorBtn')
-      .should('have.length', 1);
+      .should('have.length', 1)
+      .should('have.attr', 'href', '/calculator/head-start-2-cont');
     cy.get('@initialCalculatorBtn').click();
 
     cy.url().should('include', '/calculator/head-start-2-cont');
-    cy.get('h1:visible')
-      .contains('Quick Start Guide')
-      .should('have.length', 1);
-    cy.get('a:visible').contains(/^Start$/).click();
+    cy.get('[data-cy="calc-choice-0"]:visible')
+      .should('have.attr', 'href', '/calculator/head-start-3-cont')
+      .click();
 
-    cy.url().should('include', '/calculator/head-mis-3-cont');
+    cy.url().should('include', '/calculator/head-start-3-cont');
   });
 
   it('its possible to access calculator from Hero btn', () => {
@@ -30,17 +30,17 @@ describe('From Home Page', () => {
     cy.get('@accessCalculatorBtns').eq(1).click();
     cy.url().should('include', '/calculator/head-initial-1-cont');
 
-    cy.get('a:visible').contains(/^Next$/)
+    cy.get('[data-cy="calc-choice-0"]:visible')
       .as('initialCalculatorBtn')
-      .should('have.length', 1);
+      .should('have.length', 1)
+      .should('have.attr', 'href', '/calculator/head-start-2-cont');
     cy.get('@initialCalculatorBtn').click();
 
     cy.url().should('include', '/calculator/head-start-2-cont');
-    cy.get('h1:visible')
-      .contains('Quick Start Guide')
-      .should('have.length', 1);
-    cy.get('a:visible').contains(/^Start$/).click();
+    cy.get('[data-cy="calc-choice-0"]:visible')
+      .should('have.attr', 'href', '/calculator/head-start-3-cont')
+      .click();
 
-    cy.url().should('include', '/calculator/head-mis-3-cont');
+    cy.url().should('include', '/calculator/head-start-3-cont');
   });
 });

@@ -2,8 +2,8 @@ import { Button, Container, SvgIcon } from '@mui/material';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
-import CalcStepper from '../../functional/CalcStepper.tsx';
+import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import CalcStepper from './CalcStepper.tsx';
 
 export default function CalcHeader({ page, isFirstPage }:
     { page: StaticCalcProps['page'],
@@ -12,8 +12,8 @@ export default function CalcHeader({ page, isFirstPage }:
   const router = useRouter();
 
   const isPageIncludedInStepper = () => {
-    const excludedPageSlug = 'head';
-    const isPartOfHead = page.slug.includes(excludedPageSlug);
+    const excludedPageSlugs = ['start', 'head'];
+    const isPartOfHead = excludedPageSlugs.some((slug) => page.slug.includes(slug));
     const { isFinalPage } = page;
     return !(isFinalPage || isPartOfHead);
   };

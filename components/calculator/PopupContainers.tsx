@@ -6,9 +6,9 @@ import {
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useState } from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
-import portableTextComponent from '../../../utils/portableTextComponents.tsx';
-import ShareButtons from '../../helper/ShareButtons.tsx';
+import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import portableTextComponent from '../../utils/portableTextComponents.tsx';
+import ShareButtons from '../helper/ShareButtons.tsx';
 
 export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOpenNotSurePopup }: {
     calculatorConfig: StaticCalcProps['calculatorConfig'],
@@ -21,6 +21,7 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
       onClose={() => setOpenNotSurePopup(false)}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      data-cy="not-sure-popup"
     >
       <DialogTitle id="alert-dialog-title">
         {calculatorConfig.notSureAnswer.header}
@@ -32,7 +33,7 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setOpenNotSurePopup(false)}>
+        <Button onClick={() => setOpenNotSurePopup(false)} data-cy="not-sure-pop-up-close">
           {calculatorConfig.notSureAnswer.closeText}
         </Button>
       </DialogActions>
@@ -63,6 +64,7 @@ export function ShareCalculatorPopup({ openSharePopup, setOpenSharePopup }: {
       onClose={() => closeDialog()}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      data-cy="share-calc-popup"
     >
       <CloseIcon
         color="inherit"

@@ -21,11 +21,11 @@
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.11.4",
     "@emotion/server": "^11.10.0",
-    "@mui/icons-material": "^5.15.12",
-    "@mui/material": "^5.15.12",
+    "@mui/icons-material": "^5.15.14",
+    "@mui/material": "^5.15.14",
     "@mui/system": "^5.15.8",
     "@sanity/block-content-to-react": "^3.0.0",
-    "@sanity/webhook": "^4.0.2",
+    "@sanity/webhook": "^4.0.3",
     "eslint": "8.57.0",
     "eslint-config-next": "^14.1.4",
     "html2canvas": "^1.4.1",
@@ -41,18 +41,18 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "20.11.26",
+    "@types/node": "20.11.30",
     "@types/react-slick": "^0.23.13",
     "@types/slick-carousel": "^1.6.40",
-    "cypress": "^13.6.6",
+    "cypress": "^13.7.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "husky": "^9.0.11",
-    "typescript": "5.4.2"
+    "typescript": "5.4.3"
   }
 }
