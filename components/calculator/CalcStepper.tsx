@@ -17,7 +17,7 @@ const defaultSteps = [
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isProPath, setIsProPath] = React.useState(false);
-  const [isProMis, setIsProMis] = React.useState(false);
+  const [isMisSpecialCase, setIsMisSpecialCase] = React.useState(false);
 
   const steps = isProPath ? defaultSteps.slice(0, 2) : defaultSteps;
 
@@ -28,7 +28,12 @@ export default function HorizontalLinearStepper() {
 
     if (pathname.includes('classcpro') || pathname.includes('classbpro')) setIsProPath(true);
 
-    if (pathname.includes('m-offense-pro')) setIsProMis(true);
+    if (pathname.includes('m-offense-pro') || pathname.includes('m-offense-mari') || pathname.includes('m-offense-fish')) setIsMisSpecialCase(true);
+
+    if (pathname.includes('m-offense-main-1-cont')) {
+      setIsProPath(false);
+      setIsMisSpecialCase(false);
+    }
 
     type Items = {
       [key: string]: number;
@@ -52,7 +57,7 @@ export default function HorizontalLinearStepper() {
   return (
     <Box id="calc-stepper" sx={{ width: '100%', marginBottom: '2rem' }}>
       <Stepper activeStep={activeStep}>
-        {!isProMis && steps.map((label) => {
+        {!isMisSpecialCase && steps.map((label) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
             optional?: React.ReactNode;
