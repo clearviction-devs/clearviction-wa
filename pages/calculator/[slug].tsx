@@ -56,6 +56,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
     if (contentRef.current) {
       contentRef.current.focus();
     }
+    window.scrollTo(0, 0);
   }, [page]);
 
   return (
@@ -72,6 +73,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         component={Container}
         maxWidth="md"
         sx={{
+          minHeight: '35rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
