@@ -56,6 +56,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
     if (contentRef.current) {
       contentRef.current.focus();
     }
+    window.scrollTo(0, 0);
   }, [page]);
 
   return (
@@ -102,7 +103,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
                 textAlign="center"
                 id="legal-disclaimer-container"
               >
-                <Typography variant="caption" data-cy="legal-disclaimer" sx={{ fontWeight: 'light' }}>
+                <Typography variant="caption" sx={{ fontWeight: 'light' }}>
                   {calculatorConfig.legalDisclaimer}
                 </Typography>
               </Box>
