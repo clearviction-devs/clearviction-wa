@@ -20,14 +20,12 @@ export interface StaticCalcProps {
       isQuestion: boolean;
       isFinalPage: boolean;
       isEligible: boolean;
-      isUndetermined: boolean;
     };
     calculatorConfig: {
       legalDisclaimer: string;
       feedback: {
         linkText: string;
-        allOtherFeedbackUrl: string;
-        isUndeterminedUrl: string;
+        feedbackUrl: string;
       };
       checkAnotherConviction: {
         linkText: string;

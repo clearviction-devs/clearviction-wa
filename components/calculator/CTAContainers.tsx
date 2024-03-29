@@ -26,16 +26,12 @@ function CheckAnotherConviction({ calculatorConfig }: {
   );
 }
 
-function FeedbackContainer({ page, calculatorConfig }: StaticCalcProps) {
+function FeedbackContainer({ calculatorConfig }: StaticCalcProps) {
   return (
     <Button
       data-cy="feedback-button"
       variant="contained"
-      href={
-          page.isUndetermined
-            ? calculatorConfig.feedback.isUndeterminedUrl
-            : calculatorConfig.feedback.allOtherFeedbackUrl
-              }
+      href={calculatorConfig.feedback.feedbackUrl}
       sx={{ ml: 0, mr: 0 }}
     >
       {calculatorConfig.feedback.linkText}
