@@ -14,6 +14,11 @@ export interface StaticCalcProps {
             current: string;
           };
         };
+        linkToOtherPageType: {
+          slug: {
+            current: string;
+          };
+        };
         isExternalLink: boolean;
         url: string;
       }[];
