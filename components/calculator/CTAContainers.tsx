@@ -26,7 +26,9 @@ function CheckAnotherConviction({ calculatorConfig }: {
   );
 }
 
-function FeedbackContainer({ calculatorConfig }: StaticCalcProps) {
+function FeedbackContainer({ calculatorConfig }: {
+  calculatorConfig: StaticCalcProps['calculatorConfig']
+}) {
   return (
     <Button
       data-cy="feedback-button"
@@ -108,8 +110,9 @@ export function ErrorReportContainer({ calculatorConfig }: {
 }
 
 export default function FinalPageLinksContainer({
-  page, calculatorConfig, setOpenSharePopup, calcFirstPageUrl,
-}: StaticCalcProps &{
+  calculatorConfig, setOpenSharePopup, calcFirstPageUrl,
+}: {
+    calculatorConfig: StaticCalcProps['calculatorConfig'],
     setOpenSharePopup: SharedCalcProps['setOpenSharePopup'],
     calcFirstPageUrl: SharedCalcProps['calcFirstPageUrl'],
   }) {
@@ -128,7 +131,8 @@ export default function FinalPageLinksContainer({
         gap: 2,
       }}
     >
-      <FeedbackContainer page={page} calculatorConfig={calculatorConfig} />
+      <FeedbackContainer calculatorConfig={calculatorConfig} />
+
       <Box>
         <CheckAnotherConviction calculatorConfig={calculatorConfig} />
         <ShareCalcContainer
