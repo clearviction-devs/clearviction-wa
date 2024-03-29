@@ -31,7 +31,6 @@ export default function HorizontalLinearStepper() {
     if (pathname.includes('m-offense-pro') || pathname.includes('m-offense-mari') || pathname.includes('m-offense-fish')) setIsMisSpecialCase(true);
 
     if (pathname.includes('m-offense-main-1-cont')) {
-      setIsProPath(false);
       setIsMisSpecialCase(false);
     }
 
