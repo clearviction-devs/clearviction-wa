@@ -3,7 +3,7 @@ import IosShareIcon from '@mui/icons-material/IosShare';
 import { Box, Button, Link } from '@mui/material';
 import React from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../../utils/calculator.props.ts';
+import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
 
 function CheckAnotherConviction({ calculatorConfig }: {
     calculatorConfig: StaticCalcProps['calculatorConfig']
