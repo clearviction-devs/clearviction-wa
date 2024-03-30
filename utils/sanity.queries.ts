@@ -12,7 +12,6 @@ export const basePagesBySlugQuery = groq`
   isQuestion,
   isFinalPage,
   isEligible,
-  isUndetermined,
   "choices": choices[]{_key, url, isExternalLink, label, linkTo->{slug}, linkToOtherPageType->{slug}},
   "slug": slug.current,
 }

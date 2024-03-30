@@ -14,20 +14,23 @@ export interface StaticCalcProps {
             current: string;
           };
         };
+        linkToOtherPageType: {
+          slug: {
+            current: string;
+          };
+        };
         isExternalLink: boolean;
         url: string;
       }[];
       isQuestion: boolean;
       isFinalPage: boolean;
       isEligible: boolean;
-      isUndetermined: boolean;
     };
     calculatorConfig: {
       legalDisclaimer: string;
       feedback: {
         linkText: string;
-        allOtherFeedbackUrl: string;
-        isUndeterminedUrl: string;
+        feedbackUrl: string;
       };
       checkAnotherConviction: {
         linkText: string;

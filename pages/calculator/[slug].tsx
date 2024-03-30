@@ -93,7 +93,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           (page.isFinalPage) && (
             <>
               <FinalPageLinksContainer
-                page={page}
                 calculatorConfig={calculatorConfig}
                 setOpenSharePopup={setOpenSharePopup}
                 calcFirstPageUrl={calcFirstPageUrl}
