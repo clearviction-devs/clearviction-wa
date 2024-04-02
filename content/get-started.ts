@@ -57,7 +57,7 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 2: Check Your Eligibility',
-      body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor or felony conviciton. It is expected to take 10-30 minutes.',
+      body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor or felony conviction. It is expected to take 10-30 minutes.',
       ctaLink: '/calculator/head-initial-1-cont',
       ctaText: 'Access Calculator',
       ariaLabels: { ctaButton: 'Access our eligibility calculator' },
@@ -110,7 +110,7 @@ const getStartedContent: GetStartedContent = {
     {
       id: 'step_1',
       details:
-        'Read "**Instructions for Vacating Misdemeanors or Felony Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) / [CrRLJ 08.0930](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
+        'Read "**Instructions for Vacating Misdemeanor or Felony Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) / [CrRLJ 08.0930](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
     },
     {
       id: 'step_2',
