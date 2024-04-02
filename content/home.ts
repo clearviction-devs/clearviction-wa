@@ -121,7 +121,7 @@ const content: HomeContent = {
     {
       id: 'faq3',
       summary: 'How do I know if my conviction is eligible to vacate?',
-      details: 'To be eligible to vacate, there are specific criteria that your conviction must meet.\n\nFor misdemeanors, you can use our eligibility calculator to know if you are eligible.\n\nFor felonies, please refer to [RCW 9.94A.640](https://apps.leg.wa.gov/RCW/default.aspx?cite=9.94a.640). An easy to read resource to understand your eligibility is available at [Washington Law Help](https://www.washingtonlawhelp.org/search?q=vacation).',
+      details: 'To be eligible to vacate, there are specific criteria that your conviction must meet.\n\nYou can use our eligibility calculator to check if your misdemeanor or felony qualifies for vacation.',
     },
     {
       id: 'faq4',
