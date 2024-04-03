@@ -7,9 +7,9 @@ describe("Felony Classification Page", () => {
       .should('be.visible')
       .should('contain', 'Felony Class A')
       .click();
-    cy.url().should('include', 'calculator/f-classa-main-1-ineligble');
+    cy.url().should('include', 'calculator/f-classa-main-1-ineligible');
   })
   it('should display ineligibility content due to RCW 9.94A.030', () => {
-    testIneligiblePage('f-classa-main-1-ineligble', 'RCW 9.94A.030', 'https://app.leg.wa.gov/RCW/default.aspx?cite=9.94A.030');
+    testIneligiblePage('f-classa-main-1-ineligible', 'RCW 9.94A.030', 'https://app.leg.wa.gov/RCW/default.aspx?cite=9.94A.030');
   })
 })
