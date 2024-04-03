@@ -9,7 +9,7 @@ describe("Felony Classification Page", () => {
       .click();
     cy.url().should('include', 'calculator/f-classa-main-1-ineligble');
   })
-  it('should display ineligibility content for RCW 9.94A.030', () => {
+  it('should display ineligibility content due to RCW 9.94A.030', () => {
     testIneligiblePage('f-classa-main-1-ineligble', 'RCW 9.94A.030', 'https://app.leg.wa.gov/RCW/default.aspx?cite=9.94A.030');
   })
 })
