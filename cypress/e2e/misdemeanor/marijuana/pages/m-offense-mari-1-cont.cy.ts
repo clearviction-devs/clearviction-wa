@@ -7,8 +7,7 @@ describe('m-offense-mari-1-cont', () => {
       .should('be.visible');
 
     cy.get('a:visible')
-      .filter((_index, element: any) => element.getAttribute('href')
-        .includes('determining-blake-eligibility'))
+      .filter((_index, element: HTMLAnchorElement) => element.href.includes('determining-blake-eligibility'))
       .should('have.length', 1)
       .should('have.attr', 'href', 'https://civilsurvival.org/guides/determining-blake-eligibility/');
   });
