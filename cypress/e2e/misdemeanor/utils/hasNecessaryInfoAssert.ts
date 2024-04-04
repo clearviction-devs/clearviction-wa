@@ -1,4 +1,4 @@
-export default function haveNecessaryInfoAssert(url: string) {
+export default function hasNecessaryInfoAssert(url: string) {
   cy.visit(url);
 
   cy.get('[data-cy="calc-block-of-content"]')
