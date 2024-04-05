@@ -1,3 +1,5 @@
+import testNotSureModal from "../../utils/testNotSureModal";
+
 describe("Felony Class B Page", () => {
   beforeEach(() => {
     cy.visit('/calculator/f-start-classb-1-cont');
@@ -19,14 +21,5 @@ describe("Felony Class B Page", () => {
       .click();
     cy.url().should('include', 'calculator/f-offense-classb-1-main');
   })
-  it('should open "I\'m not sure" modal when choosing "I\'m not sure" option', () => {
-    cy.get('[data-cy="not-sure-button"]')
-      .should('be.visible')
-      .click();
-    cy.get('[data-cy="not-sure-pop-up-close"]')
-      .should('be.visible')
-      .click();
-    cy.get('[data-cy="not-sure-popup"]')
-      .should('not.exist')
-  })
+  testNotSureModal();
 })
