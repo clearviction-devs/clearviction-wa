@@ -1,3 +1,5 @@
+import testNotSureModal from "../../../../utils/testNotSureModal";
+
 describe("Felony Class B No-Pros Fourth Page", () => {
   beforeEach(() => {
     cy.visit('/calculator/f-offense-classb-4-cont');
@@ -22,4 +24,5 @@ describe("Felony Class B No-Pros Fourth Page", () => {
       .click();
     cy.url().should('include', 'calculator/f-offense-classb-4-ineligible')
   })
+  testNotSureModal();
 })
