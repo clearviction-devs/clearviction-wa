@@ -57,7 +57,7 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 2: Check Your Eligibility',
-      body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor conviction. It is expected to take 10-30 minutes.',
+      body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor or felony conviction. It is expected to take 10-30 minutes.',
       ctaLink: '/calculator/head-initial-1-cont',
       ctaText: 'Access Calculator',
       ariaLabels: { ctaButton: 'Access our eligibility calculator' },
@@ -70,7 +70,7 @@ const getStartedContent: GetStartedContent = {
     },
     {
       title: 'Step 4: Court Hearing',
-      body: 'Last but not least, schedule a hearing with a judge, following the "**Instructions for Vacating Misdemeanor and Gross Misdemeanor Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/documents/CrRLJ%2009.0300%20InstructVacateMisdConvictions_2022%2007.pdf) above. Below are resources for financial & legal aid.',
+      body: 'Last but not least, schedule a hearing with a judge, following the "**Instructions for Vacating Misdemeanor and Felony Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/documents/CrRLJ%2009.0300%20InstructVacateMisdConvictions_2022%2007.pdf) / [CrRLJ 08.0930](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) above.',
       data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
     },
   ],
@@ -79,7 +79,7 @@ const getStartedContent: GetStartedContent = {
     {
       id: 'n2k1',
       icon: 'date',
-      details: 'The date & violation of your misdemeanor conviction',
+      details: 'The date & violation of your misdemeanor or felony conviction',
     },
     {
       id: 'n2k2',
@@ -110,17 +110,17 @@ const getStartedContent: GetStartedContent = {
     {
       id: 'step_1',
       details:
-        'Read "**Instructions for Vacating Misdemeanor and Gross Misdemeanor Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
+        'Read "**Instructions for Vacating Misdemeanor or Felony Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) / [CrRLJ 08.0930](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
     },
     {
       id: 'step_2',
       details:
-        'Fill out a "**Petition and Declaration for Order Vacating Conviction**" form: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
+        'Fill out form: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/documents/CrRLJ%2009.0100%20PetitionDecVacateConviction_2022%2001.pdf) for misdemeanors or [CR 08.0900](https://www.courts.wa.gov/forms/documents/CR08.0900_Mt%20and%20Decl%20for%20Or%20Vacating%20Record%20of%20Felony_2023%2007.pdf) for felonies from the Washington Courts website to vacate your conviction.',
     },
     {
       id: 'step_3',
       details:
-      'Read more about misdemeanor conviction vacation [here](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record) from the Washington Law Help website.',
+      'Read more about misdemeanor or felony conviction vacation [here](https://www.washingtonlawhelp.org/resource/criminal-historyrecords-when-and-how-to-vacat) from the Washington Law Help website.',
     },
   ],
   rejectionReasons: [
@@ -188,7 +188,7 @@ const getStartedContent: GetStartedContent = {
       id: 'eligibilityform4',
       summary: 'Non-Violent Class B or C Felony',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) including an overview of the eligibility to vacate (p. 3-5), steps to vacate (p. 7-12), all necessary court documents (p. 13-23) and a sample letter to WSP (p. 24).\n\nTo vacate a felony conviction, you will also need a Certificate of Discharge. If the court has not issued the Certificate of Discharge yet, you must file for a certificate before you can vacate the felony. [This packet](https://www.courts.wa.gov/forms/documents/CR08.0670_Obtaining%20a%20Certificate%20of%20Discharge_2019%2007.pdf) will assist you to obtain a Certificate of Discharge in Washington State.',
+        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/criminal-historyrecords-when-and-how-to-vacat) including an overview of the requirements to vacate (p. 4-6), how to file motion (p. 8), all necessary court documents (p. 8-9), preparations (p. 10-12), and a sample letter to WSP (p. 14). Additional resources can be found at the end of the document after p. 14.\n\nTo vacate a felony conviction, you will also need a Certificate of Discharge. If the court has not issued the Certificate of Discharge yet, you must file for a certificate before you can vacate the felony. [This packet](https://www.courts.wa.gov/forms/documents/CR08.0670_Obtaining%20a%20Certificate%20of%20Discharge_2019%2007.pdf) will assist you to obtain a Certificate of Discharge in Washington State.',
     },
     {
       id: 'eligibilityform5',

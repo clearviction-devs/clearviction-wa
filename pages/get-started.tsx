@@ -125,7 +125,7 @@ export default function GetStartedPage() {
             <Grid container sx={{ alignItems: 'center' }}>
               <ImageContainer
                 alt=""
-                src="/quickstart.svg"
+                src="/quickstartupdate.svg"
                 style={{ padding: '1em', width: '100%' }}
                 width={862}
                 height={410}
