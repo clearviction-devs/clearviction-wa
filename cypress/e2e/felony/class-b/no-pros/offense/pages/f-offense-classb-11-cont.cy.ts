@@ -1,8 +1,8 @@
-import testNotSureModal from "../../../../utils/testNotSureModal";
+import testNotSureModal from "../../../../../utils/testNotSureModal";
 
-describe("Felony Class B No-Pros Seventh Page", () => {
+describe("Felony Class B No-Pros Eleventh Page", () => {
   beforeEach(() => {
-    cy.visit('/calculator/f-offense-classb-7-cont');
+    cy.visit('/calculator/f-offense-classb-11-cont');
   })
   it('should display "RCW 9.94A.640(2)(b)" as a link to its respective WA State Legislature page', () => {
     cy.contains('9.94A.640(2)(b)')
@@ -12,9 +12,9 @@ describe("Felony Class B No-Pros Seventh Page", () => {
     cy.get('[data-cy="calc-choice-0"]')
       .should('be.visible')
       .click();
-    cy.url().should('include', 'calculator/f-offense-classb-7-ineligible')
+    cy.url().should('include', 'calculator/f-offense-classb-11-ineligible')
   })
-  it('should redirect users to Felony Class B No-Pros Surrounding Circumstances when "no" button is clicked', () => {
+  it('should redirect users to Felony Class B No-Pros Surrounding Circumstances Main Page when "no" button is clicked', () => {
     cy.get('[data-cy="calc-choice-1"]')
       .should('be.visible')
       .click();
