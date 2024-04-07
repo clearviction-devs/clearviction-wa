@@ -33,7 +33,6 @@ export default function Testimonials({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        mb: 2,
       }}
     >
       <Card
