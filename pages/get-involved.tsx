@@ -151,10 +151,11 @@ function TestimonialSection() {
     dots: true,
     slidesToShow: isMdOrLarger ? 2 : 1,
     slidesToScroll: 2,
+    arrows: false,
   };
 
   return (
-    <Box sx={{ overflow: 'hidden' }}>
+    <Box id="testimonies">
       {isMdOrLarger ? (
 
         <Slider {...settings}>
@@ -172,7 +173,6 @@ function TestimonialSection() {
       ) : (
 
         <SectionContainer
-          id="testimonies"
           maxWidth="xl"
           sx={{
             display: 'flex',
