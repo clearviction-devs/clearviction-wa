@@ -1,3 +1,4 @@
+import testPreviousButton from "../../../../../utils/previousButton";
 import testNotSureModal from "../../../../../utils/testNotSureModal";
 
 describe('f-offense-classc-2-cont', () => {
@@ -32,4 +33,5 @@ describe('f-offense-classc-2-cont', () => {
     cy.url().should('include', '/calculator/f-offense-classc-3-cont')
   })
   testNotSureModal();
+  testPreviousButton('f-offense-classc-2-cont')
 })

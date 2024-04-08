@@ -1,3 +1,5 @@
+import testPreviousButton from "../../../../../utils/previousButton"
+
 describe('f-offense-classc-1-main', () => {
   beforeEach(() => {
     cy.visit('/calculator/f-offense-classc-1-main')
@@ -17,4 +19,5 @@ describe('f-offense-classc-1-main', () => {
       .should('have.attr', 'href')
       .and('include', 'forms');
   })
+  testPreviousButton('f-offense-classc-1-main')
 })
