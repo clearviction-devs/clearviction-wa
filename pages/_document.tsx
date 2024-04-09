@@ -40,7 +40,7 @@ export default class MyDocument extends Document {
           <meta
             name="image"
             property="og:image"
-            content="https://cvp-team-photos.s3.us-west-2.amazonaws.com/Calculator_Two+Color+2..svg"
+            content="https://clearviction.org/illustrations/home-hero-2color.svg"
           />
           <meta name="theme-color" content="#000000" />
           <meta
