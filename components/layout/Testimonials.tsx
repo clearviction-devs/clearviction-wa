@@ -33,18 +33,17 @@ export default function Testimonials({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        mb: 2,
       }}
     >
       <Card
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          width: { xs: '15.438rem', sm: '20.438rem', md: '38.063rem' },
+          width: { md: '38.063rem' },
           bgcolor: theme.palette.primary.main,
           color: theme.palette.primary.contrastText,
           borderRadius: 1.375,
-          m: 1,
+          m: 3,
           ...props.sx,
         }}
       >
@@ -53,7 +52,11 @@ export default function Testimonials({
           <Typography
             variant="body1"
             sx={{
-              lineHeight: 2, letterSpacing: 0.5, mt: 3.125, mb: 2, mx: 2.25,
+              lineHeight: 2,
+              letterSpacing: 0.5,
+              mt: [2, 2, 3.125],
+              mb: 2,
+              mx: [1, 1, 2.25],
             }}
           >
             {testimonial}
@@ -62,11 +65,11 @@ export default function Testimonials({
         <Box sx={{
           display: 'flex',
           flexDirection: 'row',
-          alignItems: 'center',
+          alignItems: ['start', 'start', 'end'],
           gap: 2,
           mx: 2,
           mb: 3,
-          mt: 3,
+          mt: [1, 1, 2.25],
         }}
         >
           <Box sx={{
@@ -85,10 +88,9 @@ export default function Testimonials({
             />
           </Box>
           <Box>
-            <Typography variant="subtitle1" sx={{ lineHeight: '1.5', letterSpacing: 0.15 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 'normal', lineHeight: '1.5', letterSpacing: 0.15 }}>
               {name}
-            </Typography>
-            <Typography variant="subtitle2" sx={{ fontWeight: 'normal', lineHeight: '1.5', letterSpacing: 0.15 }}>
+              <br />
               {cvrole}
             </Typography>
           </Box>
