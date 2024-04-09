@@ -41,7 +41,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "20.12.5",
+    "@types/node": "20.12.7",
     "@types/react-slick": "^0.23.13",
     "@types/slick-carousel": "^1.6.40",
     "cypress": "^13.7.2",
