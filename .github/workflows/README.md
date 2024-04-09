@@ -96,8 +96,8 @@ This workflow for preview builds is automated through AWS Amplify. Developers in
 1. **Review Preview Changes** - Developers can access the automatically generated Amplify Preview URL provided in a comment on the pull request to review and test the changes that were made
 
 ## Pull Request Testing
-This workflow rund test suites on every Pull Request against `staging` branch.
-It is focused on garantee that any new code will not break our application, enhancing confiability.
+This workflow runs our test suite on every pull request against the `staging` branch.
+It is focused on guaranteeing that any new code will not break our application, enhancing reliability.
 
 ### Tools Used:
 **Github Actions**
