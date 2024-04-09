@@ -26,30 +26,6 @@ A software development practice where code changes are automatically deployed to
 - We can streamline the process of periodically merging staging to main through automation
 
 # Workflows Explained
-## Dependency Check
-This workflow ensures that pull requests targeting the `staging` branch are checked for dependency issues, and comments are added to the PR with audit details. If critical or high vulnerabilities are found, the workflow rejects the PR.
-
-### Tools Used:
-**Node.js** `actions/setup-node@v4`: a tool for managing and running JavaScript applications on the server side  
-**GitHub Actions** `actions/checkout@v4`: automates the process of checking out your code repository  
-**Jq**: a lightweight and flexible command-line JSON processor  
-**NPM**: the Node Package Manager, used to install and manage project dependencies  
-
-### Steps:
-1. **Trigger** - the workflow is triggered on pull requests targeting the `staging` branch
-1. **Set up Node.js** - use the `actions/setup-node@v4` action to set up Node.js v18
-1. **Checkout code** - use the `actions/checkout@v4` action to fetch the code from the repository
-1. **Install Jq** - install the `jq` tool to process JSON data
-1. **Install dependencies** - run `npm install` to install project dependencies
-1. **Check for dependency issues**
-    - run `npm audit` to check for dependency issues and save the results to a file (`issues-file.txt`)
-    - the `||` true ensures that the workflow continues even if vulnerabilities are found
-1. **Comment on PR with issues**
-    - create a comment file (`pr_comment.txt`) indicating if there are dependency issues
-    - if issues are found, retrieve the PR number and use the GitHub REST API to comment on the PR with the issues
-1. **Check for critical and high vulnerabilities**
-    - check if the `issues-file.txt` contains critical or high vulnerabilities
-    - if found, reject the PR by exiting with `code 1`
 
 ## New 3rd Party Dependency Check
 This GitHub Actions workflow is designed to automatically scrutinize pull requests for any changes to `package.json` or `package-lock.json` files. The workflow targets the `staging` branch and ensures that any new third-party dependencies introduced in a pull request are properly justified.
@@ -119,24 +95,6 @@ This workflow for preview builds is automated through AWS Amplify. Developers in
 1. **Amplify Environment Setup** - Amplify automatically sets up a preview environment for the pull request, creating a unique URL for developers to preview the changes
 1. **Review Preview Changes** - Developers can access the automatically generated Amplify Preview URL provided in a comment on the pull request to review and test the changes that were made
 
-## Build-Test
-**This workflow is not yet implemented, but is designed and ready to ensure a seamless integration for testing when we are ready.** This workflow fires whenever a pull request is opened against the `staging` branch, and will build the application and run any tests associated. If any of the tests fail, checks will fail and the PR will not be allowed to merge.
-
-### Tools Used:
-**NPM**: Node package manager  
-**Github Actions**  
-  - `actions/checkout@v4`: checks out the repository code
-  - `actions/setup-node@v4`: manages and runs javascript code
-  - `actions/cache@v3`: caches next.js files for use in other jobs
-
-### Steps:
-1. **Trigger** - on pull request to the `staging` branch
-1. **Checkout repository code and setup Node v18**
-1. **Next cache** - to improve build performance Next saves a cache that is shared between builds
-1. **Install dependencies** - runs a clean install of all project dependencies
-1. **Build** - builds the project, and requires that secrets be saved in `settings -> actions -> secrets`, and then pulled into the workflow file via environment variables
-1. **Test** - runs tests if the test script is present in the `package.json` file
-
 ## Pull Request Testing
 This workflow rund test suites on every Pull Request against `staging` branch.
 It is focused on garantee that any new code will not break our application, enhancing confiability.
@@ -149,8 +107,8 @@ It is focused on garantee that any new code will not break our application, enha
   - `cypress-io/github-action@v6`: run cypress in our environment
 
 ### Steps:
-1. **Open Pull Request** - developers open a pull request targeting the `staging` branch in the GitHub repository
-2. **Dependencies and Build** - Dependencies are installed and a build is created.
+1. **Open pull request** - developers open a pull request targeting the `staging` branch in the GitHub repository
+2. **Install dependencies and build** - Dependencies are installed and a build is created.
 3. **Run tests** - Tests start to run checking the code.
 
 # Criteria For Adding New Workflows
