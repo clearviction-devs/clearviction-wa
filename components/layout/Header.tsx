@@ -47,7 +47,7 @@ export default function Header() {
       <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
         {navItems
           .filter(
-            (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
+            (item) => item.text !== 'Access Calculator',
           )
           .map((item) => (
             <ListItem key={item.text}>
@@ -73,19 +73,6 @@ export default function Header() {
         >
           <Typography variant="body2" sx={{ fontSize: '12px' }}>
             Access Calculator
-          </Typography>
-        </Button>
-        <Button
-          href="/donate"
-          variant="contained"
-          size="small"
-          className="donate-btn"
-          sx={{
-            whiteSpace: 'nowrap', bgcolor: 'success.main', py: 1, width: '80%', mt: 2,
-          }}
-        >
-          <Typography variant="body2" sx={{ fontSize: '12px' }}>
-            Donate
           </Typography>
         </Button>
         <ListItem key="disclaimer">
@@ -117,7 +104,7 @@ export default function Header() {
               alignItems: 'center',
             }}
           >
-            <NavigationLogo fullSize={matches} />
+            <NavigationLogo />
           </Box>
           {!matches && (
           <Box
@@ -138,17 +125,6 @@ export default function Header() {
               aria-label="Access our eligibility calculator"
             >
               Access Calculator
-            </Button>
-            <Button
-              href="/donate"
-              variant="contained"
-              size="small"
-              className="donate-btn"
-              sx={{
-                whiteSpace: 'nowrap', bgcolor: 'success.main', py: 1, px: 4,
-              }}
-            >
-              Donate
             </Button>
           </Box>
           )}

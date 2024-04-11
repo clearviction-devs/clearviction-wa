@@ -1,8 +1,8 @@
-# Clearviction
+# Clearing Convictions
 
 ## Table of Contents
 
-- [Clearviction](#clearviction)
+- [Clearing Convictions](#clearing-convictions)
   - [Table of Contents](#table-of-contents)
   - [About The Project](#about-the-project)
   - [Our Mission](#our-mission)
@@ -17,7 +17,7 @@
 
 ## About The Project
 
-We are a civic-tech open source project and part of the [Democracy Lab](https://www.democracylab.org/projects/226) organization.
+We are a civic-tech open source project.
 
 One in four Washingtonians have been involved in the criminal justice system. Those with a criminal record in Washington face significant barriers to daily life after completing their prison terms, making it harder to find housing and employment, to gain professional credentials, and to be involved in the life of their community. [Washington State’s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017) makes it easier for people with past criminal records to have their convictions vacated. Even then, the process of vacating a conviction is very convoluted, making it difficult for most people to navigate.
 

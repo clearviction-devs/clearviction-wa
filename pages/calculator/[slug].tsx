@@ -13,7 +13,6 @@ import QandAContainer from '../../components/calculator/QandAContainer.tsx';
 import Results from '../../components/calculator/Results.tsx';
 import ResultsDownloadContainer from '../../components/calculator/ResultsDownloadContainer.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
-import MailchimpForm from '../../components/functional/MailchimpForm.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
 import { StaticCalcProps } from '../../utils/calculator.props.ts';
 import {
@@ -62,8 +61,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   return (
     <>
       <IndividualPageHead
-        title="Check the Eligibility to Vacate your Misdemeanor with Clearviction"
-        metaContent="Determine if your misdemeanor or gross misdemeanor is eligible to vacate in Washington State with Clearviction's eligibility calculator."
+        title="Check the Eligibility to Vacate your Misdemeanor or Felony conviction"
+        metaContent="Determine if your misdemeanor or felony is eligible to vacate in Washington State with our eligibility calculator."
       />
 
       <CalcHeader page={page} isFirstPage={isFirstPage} />
@@ -112,13 +111,10 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
 
         {
           (page.isFinalPage && page.isEligible && !page.slug.startsWith('f')) && (
-            <>
-              <ResultsDownloadContainer
-                handleCloseResults={handleCloseResults}
-                setShowResults={setShowResults}
-              />
-              <MailchimpForm />
-            </>
+            <ResultsDownloadContainer
+              handleCloseResults={handleCloseResults}
+              setShowResults={setShowResults}
+            />
           )
         }
 

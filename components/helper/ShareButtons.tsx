@@ -38,9 +38,9 @@ export default function ShareButtons({
   };
 
   const handleEmailClick = () => {
-    const subject = encodeURIComponent("Check out Clearviction's conviction vacation eligibility calculator!");
+    const subject = encodeURIComponent('Check out this conviction vacation eligibility calculator!');
     const preheader = encodeURIComponent('Determine if your conviction is eligible to be vacated in Washington State.');
-    const bodyText = encodeURIComponent('This easy, 10-minute process can determine if your misdemeanor conviction is eligible to be vacated in Washington State.\n\n');
+    const bodyText = encodeURIComponent('This easy, 10-minute process can determine if your misdemeanor or felony conviction is eligible to be vacated in Washington State.\n\n');
     const mailtoUrl = `mailto:?subject=${subject}&body=${preheader}%0A%0A${bodyText}%0A${encodeURIComponent(CALCULATOR_URL)}`;
     window.open(mailtoUrl);
   };
