@@ -1,4 +1,4 @@
-import testPreviousButton from '../../../../../utils/previousButton.ts';
+import testPreviousButton from '../../../../../utils/testPreviousButton.ts';
 
 describe('f-offense-classc-1-main', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
-import testPreviousButton from '../../../../../utils/previousButton.ts';
 import testNotSureModal from '../../../../../utils/testNotSureModal.ts';
+import testPreviousButton from '../../../../../utils/testPreviousButton.ts';
 
 describe('f-offense-classc-7-cont', () => {
   beforeEach(() => {

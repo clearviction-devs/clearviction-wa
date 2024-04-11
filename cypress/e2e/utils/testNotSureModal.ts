@@ -7,6 +7,6 @@ export default function testNotSureModal() {
       .should('be.visible')
       .click();
     cy.get('[data-cy="not-sure-popup"]')
-      .should('not.exist')
-  })
+      .should('not.exist');
+  });
 }
