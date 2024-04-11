@@ -1,4 +1,4 @@
-import testNotSureModal from '../../../../../utils/testNotSureModal';
+import testNotSureModal from '../../../../../utils/testNotSureModal.ts';
 
 describe('Felony Class B No-Pros Surrounding Circumstances First Page', () => {
   beforeEach(() => {

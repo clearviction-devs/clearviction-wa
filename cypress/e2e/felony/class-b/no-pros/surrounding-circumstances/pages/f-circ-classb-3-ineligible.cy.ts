@@ -1,4 +1,4 @@
-import testIneligiblePage from '../../../../../utils/testIneligiblePage';
+import testIneligiblePage from '../../../../../utils/testIneligiblePage.ts';
 
 describe('Felony Class B Ineligible Page', () => {
   it('should display ineligibility content due to RCW 9.94A.640(2)(e)', () => {
