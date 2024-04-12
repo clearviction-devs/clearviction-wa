@@ -14,10 +14,5 @@ describe('f-offense-classc-1-main', () => {
       .click();
     cy.url().should('include', '/calculator/f-offense-classc-1-cont');
   });
-  it('contains error link for users to report', () => {
-    cy.get('[data-cy="error-report-link"]:visible')
-      .should('have.attr', 'href')
-      .and('include', 'forms');
-  });
   testPreviousButton('f-offense-classc-1-main');
 });

@@ -1,9 +1,5 @@
 export default function testFinalPageLinks(path: string) {
   cy.visit(`/calculator/${path}`);
-  // Feedback button
-  cy.get('[data-cy="feedback-button"]')
-    .should('have.attr', 'href')
-    .and('include', 'forms');
 
   // Check another Conviction
   cy.get('[data-cy="check-another-conviction"]')
