@@ -86,6 +86,7 @@ export default function ShareButtons({
 
         <Box
           className="popup-content"
+          data-cy="share-calc-modal"
           sx={{
             display: 'flex', flexDirection: 'column', marginLeft: '1rem', gap: '.0094rem',
           }}

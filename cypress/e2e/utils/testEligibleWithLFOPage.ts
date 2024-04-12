@@ -1,4 +1,4 @@
-export default function testEligibleWithLFOPage(path: string, rcwAnchorText: string, rcwHref: string) {
+function testEligibleWithLFOPage(path: string, rcwAnchorText: string, rcwHref: string) {
   cy.visit(`/calculator/${path}`);
   cy.contains('may be eligible', { matchCase: false })
     .should('be.visible');
@@ -7,3 +7,5 @@ export default function testEligibleWithLFOPage(path: string, rcwAnchorText: str
   cy.contains(rcwAnchorText)
     .should('have.attr', 'href', rcwHref);
 }
+
+export default testEligibleWithLFOPage;
