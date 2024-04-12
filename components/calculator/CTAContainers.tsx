@@ -1,6 +1,6 @@
 import HistoryIcon from '@mui/icons-material/History';
 import IosShareIcon from '@mui/icons-material/IosShare';
-import { Box, Button, Link } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import React from 'react';
 
 import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
@@ -23,21 +23,6 @@ function CheckAnotherConviction({ calculatorConfig }: {
         {calculatorConfig.checkAnotherConviction.linkText}
       </Link>
     </Box>
-  );
-}
-
-function FeedbackContainer({ calculatorConfig }: {
-  calculatorConfig: StaticCalcProps['calculatorConfig']
-}) {
-  return (
-    <Button
-      data-cy="feedback-button"
-      variant="contained"
-      href={calculatorConfig.feedback.feedbackUrl}
-      sx={{ ml: 0, mr: 0 }}
-    >
-      {calculatorConfig.feedback.linkText}
-    </Button>
   );
 }
 
@@ -73,42 +58,6 @@ export function ShareCalcContainer({ setOpenSharePopup, calcFirstPageUrl, justif
   );
 }
 
-export function ErrorReportContainer({ calculatorConfig }: {
-    calculatorConfig: StaticCalcProps['calculatorConfig']
-  }) {
-  return (
-    <Box
-      id="error-report-container"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: '.8rem',
-        gap: 1,
-        fontSize: '1rem',
-        fontWeight: 500,
-      }}
-    >
-      <Link
-        href={calculatorConfig.errorReportingForm.errorReportingFormUrl}
-        sx={{
-          textAlign: 'center',
-          color: 'text.primary',
-          textDecoration: 'none',
-          '&:hover': {
-            color: 'primary.main',
-            textDecoration: 'underline',
-          },
-        }}
-        data-cy="error-report-link"
-      >
-        {calculatorConfig.errorReportingForm.linkText}
-        {' '}
-      </Link>
-    </Box>
-  );
-}
-
 export default function FinalPageLinksContainer({
   calculatorConfig, setOpenSharePopup, calcFirstPageUrl,
 }: {
@@ -128,18 +77,13 @@ export default function FinalPageLinksContainer({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         mb: 4,
-        gap: 2,
       }}
     >
-      <FeedbackContainer calculatorConfig={calculatorConfig} />
-
-      <Box>
-        <CheckAnotherConviction calculatorConfig={calculatorConfig} />
-        <ShareCalcContainer
-          setOpenSharePopup={setOpenSharePopup}
-          calcFirstPageUrl={calcFirstPageUrl}
-        />
-      </Box>
+      <CheckAnotherConviction calculatorConfig={calculatorConfig} />
+      <ShareCalcContainer
+        setOpenSharePopup={setOpenSharePopup}
+        calcFirstPageUrl={calcFirstPageUrl}
+      />
     </Box>
   );
 }

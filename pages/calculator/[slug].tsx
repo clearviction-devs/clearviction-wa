@@ -7,7 +7,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 
 import CalcHeader from '../../components/calculator/CalcHeader.tsx';
-import FinalPageLinksContainer, { ErrorReportContainer, ShareCalcContainer } from '../../components/calculator/CTAContainers.tsx';
+import FinalPageLinksContainer, { ShareCalcContainer } from '../../components/calculator/CTAContainers.tsx';
 import NotSurePopup, { ShareCalculatorPopup } from '../../components/calculator/PopupContainers.tsx';
 import QandAContainer from '../../components/calculator/QandAContainer.tsx';
 import Results from '../../components/calculator/Results.tsx';
@@ -150,8 +150,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
             />
           )
         }
-
-        <ErrorReportContainer calculatorConfig={calculatorConfig} />
       </Box>
 
     </>
