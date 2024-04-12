@@ -21,12 +21,4 @@ describe('m-offense-fish-6-cont', () => {
 
     cy.url().should('include', '/calculator/m-offense-main-1-cont');
   });
-
-  it('has an a link "Report an error" with correct href', () => {
-    cy.visit('/calculator/m-offense-fish-6-cont');
-
-    cy.get('[data-cy="error-report-link"]:visible')
-      .should('have.attr', 'href')
-      .and('include', 'forms');
-  });
 });

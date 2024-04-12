@@ -1,20 +1,24 @@
 import {
-  FAQ, GridSection, Header, MetaPageHead, SectionNav,
+  FAQ, GridSection, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface HomeContent {
   meta: MetaPageHead;
   heroBanner: Header;
-  sectionNavs: SectionNav[];
-  ourMission: Header;
+  ourMission: {
+    id: string;
+    header: string;
+    body: string;
+    body2: string;
+  };
   gridSections: GridSection[];
   faqs: FAQ[];
 }
 
 const content: HomeContent = {
   meta: {
-    title: 'Clearviction | Clearing Criminal Records in Washington State',
-    content: 'Washington Law allows for vacation of select criminal records. Clearviction\'s free tools help individuals assess their eligibility for a fresh start.',
+    title: 'Clearing Criminal Records in Washington State',
+    content: 'Washington Law allows for vacation of select criminal records. Our free tools help individuals assess their eligibility for a fresh start.',
   },
   heroBanner: {
     header: 'Check your eligibility to vacate a Washington State conviction',
@@ -24,18 +28,12 @@ const content: HomeContent = {
     imgsrc: '/illustrations/home-hero-2color.svg',
     ariaLabels: { ctaButton: 'Access our eligibility calculator' },
   },
-  sectionNavs: [
-    { label: 'Our Mission', href: '#our-mission' },
-    { label: 'How it works', href: '#how-it-works' },
-    { label: 'Why vacate', href: '#why-vacate' },
-    { label: 'FAQ', href: '#faq' },
-  ],
   ourMission: {
     id: 'our-mission',
     header:
-      'Our Mission',
-    body: 'Clearviction was founded in 2020 sparked by [Washington State\'s New Hope Act](https://app.leg.wa.gov/billsummary?BillNumber=2890&Year=2017). We are a 501(c)(3) non-profit organization committed to helping people with convictions improve their quality of life.\n\nEach year, nearly 98k people are added to the millions across Washington State already burdened with a criminal record. The justice-impacted folks will face significant barriers to their day to day life after completing their prison terms.',
-    imgsrc: '/illustrations/checklist1.svg',
+      'Open Source Project',
+    body: 'We are an open source initiative that emerged following the enactment of Washington State\'s New Hope Act. Annually, close to 98,000 individuals join the ranks of millions across Washington State who bear the weight of a criminal record. Those impacted by the justice system encounter substantial obstacles in their daily lives even after serving their prison sentences.',
+    body2: 'Formerly known as Clearviction, our project has transitioned from a volunteer led non-profit to an open-source model, inviting collaboration and contributions so we can better serve our community. If you would like to contribute to the project, please reach out on [Github](https://github.com/clearviction-devs).',
   },
   gridSections: [
     {

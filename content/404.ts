@@ -9,7 +9,7 @@ interface NotFoundPageContent {
 
 const donateContent: NotFoundPageContent = {
   meta: {
-    title: 'Page Not Found | Clearviction',
+    title: 'Page Not Found',
     content: 'You have reached a page route that does not exist. Please check the URL and try again.',
   },
   page: {

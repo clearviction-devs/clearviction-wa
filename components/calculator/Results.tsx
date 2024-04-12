@@ -193,7 +193,7 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
             <Box>
               <Typography variant="h3" sx={{ display: 'block', color: 'white', mb: 2 }}>Your Conviction May Be Eligible to Vacate!</Typography>
               <Typography variant="body1" sx={{ color: 'white', paddingBottom: 2 }}>
-                According to your responses to the Clearviction eligibility
+                According to your responses to the eligibility
                 calculator, your Washington state conviction may be eligible to vacate.
               </Typography>
             </Box>
@@ -229,8 +229,8 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
                 variant="body2"
                 sx={footerParaStyle}
               >
-                Your eligibility was determined by using a calculator from Clearviction,
-                a non-profit that provides tools and guidance to help people with criminal
+                Your eligibility was determined by using a calculator from an open-source project
+                that provides tools and guidance to help people with criminal
                 convictions clear their records and begin a path to a fresh start.
               </Typography>
               <Typography
@@ -314,7 +314,7 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
           }}
           >
             <Typography variant="body2" sx={{ textAlign: 'left', width: '80%' }}>
-              Potential eligibility determined by Clearviction, a non-profit
+              Potential eligibility determined by an open-source project
               that provides tools and guidance to help people with criminal
               convictions clear their records and begin a path to a fresh start.
             </Typography>
@@ -324,7 +324,7 @@ export default function Results({ responseObject, handleCloseResults }: Props) {
               {/* needs to be set up in GA4 generate the url and re generate qr with the params */}
               <ImageContainer
                 src="/qr-code.svg"
-                alt="clearviction qr code"
+                alt="qr code"
                 width={100}
                 height={100}
               />

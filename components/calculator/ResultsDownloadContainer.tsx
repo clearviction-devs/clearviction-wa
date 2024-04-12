@@ -28,7 +28,7 @@ export default function ResultsDownloadContainer({ handleCloseResults, setShowRe
     pdf.addPage('a4', 'portrait');
     pdf.addImage(img2, 'PNG', 0, 0, pdfWidth2, pdfHeight2);
 
-    pdf.save('clearviction_calc_results.pdf');
+    pdf.save('conviction_eligibility_calc_results.pdf');
     if (window.innerWidth < 901) handleCloseResults();
   };
 

@@ -12,7 +12,7 @@ interface WhyVacateContent {
 
 const whyVacateContent: WhyVacateContent = {
   meta: {
-    title: 'Clearviction | Find out why it\'s important to vacate criminal records',
+    title: 'Find out why it\'s important to vacate criminal records',
     content: 'Vacating your criminal record allows you better access to employment, housing, and educational resources so you can get your life back on track.',
   },
   heroBanner: {

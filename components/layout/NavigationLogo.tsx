@@ -8,12 +8,11 @@ interface NavigationLogoProps {
 }
 
 export default function NavigationLogo({ fullSize = false }: NavigationLogoProps) {
-  // images are misnamed
-  const imgSrc = fullSize ? '/cv_logo_small.svg' : '/cv_logo_inline.svg';
-  const imgWidth = fullSize ? 50 : 273;
+  const imgSrc = fullSize ? '/cvlogo-sm.svg' : '/cvlogo-lg.svg';
+  const imgWidth = fullSize ? 50 : 275;
   return (
     <ButtonBase className="nav-logo" href="/" sx={{ py: fullSize ? 2 : 1, height: '100%' }}>
-      <ImageContainer src={imgSrc} height={43} width={imgWidth} alt="Clearviction" />
+      <ImageContainer src={imgSrc} height={100} width={imgWidth} alt="Clearing Convictions" />
     </ButtonBase>
   );
 }

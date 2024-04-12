@@ -298,6 +298,7 @@ theme.components = {
         textAlign: 'center',
         minWidth: 'max-content',
         margin: '.625rem auto',
+        fontWeight: 'bold',
       },
     },
   },

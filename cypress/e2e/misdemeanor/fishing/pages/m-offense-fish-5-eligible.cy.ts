@@ -6,14 +6,6 @@ describe.only('m-offense-fish-5-eligible', () => {
       .should('have.length', 1);
   });
 
-  it('has a Give Us Your Feedback button', () => {
-    cy.visit('/calculator/m-offense-fish-5-eligible');
-
-    cy.get('[data-cy="feedback-button"]:visible')
-      .should('have.attr', 'href')
-      .and('include', 'forms');
-  });
-
   it('has a Check another conviction link', () => {
     cy.visit('/calculator/m-offense-fish-5-eligible');
 

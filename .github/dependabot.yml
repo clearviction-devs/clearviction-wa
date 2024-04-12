@@ -6,9 +6,9 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/" 
+    directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
 
     # this will raise a single pull request for all updates to a group. this separates dev and prod dependencies into two pull requests
     groups:
@@ -18,8 +18,6 @@ updates:
       prod:
         dependency-type: "production"
 
-      
-        
     ignore:
       - dependency-name: "next"
         update-types: ["version-update:semver-major"]
