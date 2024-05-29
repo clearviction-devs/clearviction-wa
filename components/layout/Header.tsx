@@ -94,55 +94,6 @@ export default function Header() {
 
   return (
     <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
-      <Container maxWidth="xl" sx={{ p: 3 }}>
-        <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
-          <SkipLink color="primary" variant="contained" />
-          {/* Boxes as containers for handling layout among siblings */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <NavigationLogo fullSize={matches} />
-          </Box>
-          {!matches && (
-            <Box
-              className="test"
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 2,
-              }}
-            >
-              <Button
-                href="/calculator/head-initial-1-cont"
-                variant="contained"
-                color="tertiary"
-                size="small"
-                className="calc-btn"
-                sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
-                aria-label="Access our eligibility calculator"
-              >
-                Check Eligibility
-              </Button>
-            </Box>
-          )}
-          {matches && (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ display: { xl: 'none' } }}
-              onClick={handleDrawerToggle}
-            >
-              <Menu fontSize="large" />
-            </IconButton>
-          )}
-        </Toolbar>
-      </Container>
-
       <Box component="nav">
         <Drawer
           open={mobileOpen}
@@ -190,6 +141,18 @@ export default function Header() {
           </Box>
         )}
       </Box>
+      <NavigationLogo />
+      <Button
+        href="/calculator/head-initial-1-cont"
+        variant="contained"
+        color="tertiary"
+        size="small"
+        className="calc-btn"
+        sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
+        aria-label="Access our eligibility calculator"
+      >
+        Check Eligibility
+      </Button>
     </AppBar>
   );
 }
