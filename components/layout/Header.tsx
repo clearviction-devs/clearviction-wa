@@ -18,6 +18,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
@@ -25,6 +26,7 @@ import SkipLink from '../helper/SkipLink.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
+  const pathname = usePathname();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -90,6 +92,32 @@ export default function Header() {
     </Box>
   );
 
+  function renderNavButtons(item: { href: string, text: string }) {
+    let variantType: 'text' | 'contained' = 'text';
+    if (pathname === '/' && pathname === item.href) {
+      variantType = 'contained';
+    } else if (pathname === item.href) {
+      variantType = 'contained';
+    }
+
+    return (
+      <Button
+        key={item.text}
+        href={item.href}
+        aria-label={`${item.text.toLowerCase()}`}
+        variant={variantType}
+        color="neutral"
+        size="small"
+        className="nav-list__item"
+        sx={{
+          whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
+        }}
+      >
+        {item.text}
+      </Button>
+    );
+  }
+
   return (
     <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
       <Container maxWidth="xl" sx={{ p: 3 }}>
@@ -107,36 +135,36 @@ export default function Header() {
             <NavigationLogo fullSize={matches} />
           </Box>
           {!matches && (
-          <Box
-            className="test"
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 2,
-            }}
-          >
-            <Button
-              href="/calculator/head-initial-1-cont"
-              variant="contained"
-              color="neutral"
-              size="small"
-              className="calc-btn"
-              sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
-              aria-label="Access our eligibility calculator"
+            <Box
+              className="test"
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2,
+              }}
             >
-              Access Calculator
-            </Button>
-          </Box>
+              <Button
+                href="/calculator/head-initial-1-cont"
+                variant="contained"
+                color="neutral"
+                size="small"
+                className="calc-btn"
+                sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
+                aria-label="Access our eligibility calculator"
+              >
+                Access Calculator
+              </Button>
+            </Box>
           )}
           {matches && (
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ display: { xl: 'none' } }}
-            onClick={handleDrawerToggle}
-          >
-            <Menu fontSize="large" />
-          </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ display: { xl: 'none' } }}
+              onClick={handleDrawerToggle}
+            >
+              <Menu fontSize="large" />
+            </IconButton>
           )}
         </Toolbar>
       </Container>
@@ -155,37 +183,22 @@ export default function Header() {
           {drawer}
         </Drawer>
         {!matches && (
-        <Box
-          className="desktop-nav-list"
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            py: 1,
-            px: { md: 3, lg: 4 },
-            maxWidth: '1100px',
-          }}
-        >
-          {navItems
-            .filter(
-              (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
-            )
-            .map((item) => (
-              <Button
-                key={item.text}
-                href={item.href}
-                aria-label={`${item.text.toLowerCase()}`}
-                variant="text"
-                color="neutral"
-                size="small"
-                className="nav-list__item"
-                sx={{
-                  whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
-                }}
-              >
-                {item.text}
-              </Button>
-            ))}
-        </Box>
+          <Box
+            className="desktop-nav-list"
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              py: 1,
+              px: { md: 3, lg: 4 },
+              maxWidth: '1100px',
+            }}
+          >
+            {navItems
+              .filter(
+                (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
+              )
+              .map((item) => renderNavButtons(item))}
+          </Box>
         )}
       </Box>
     </AppBar>
