@@ -93,12 +93,7 @@ export default function Header() {
   );
 
   function renderNavButtons(item: { href: string, text: string }) {
-    let variantType: 'text' | 'contained' = 'text';
-    if (pathname === '/' && pathname === item.href) {
-      variantType = 'contained';
-    } else if (pathname === item.href) {
-      variantType = 'contained';
-    }
+    const variantType: 'text' | 'contained' = (pathname === item.href) ? 'contained' : 'text';
 
     return (
       <Button
