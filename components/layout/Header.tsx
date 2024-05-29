@@ -90,65 +90,71 @@ export default function Header() {
 
   return (
     <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
-      <Box component="nav">
-        <Drawer
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{ keepMounted: true }}
-          sx={{
-            display: { xs: 'block', md: 'none' },
-            textAlign: 'center',
-          }}
-          anchor="right"
-        >
-          {drawer}
-        </Drawer>
-        {!matches && (
-          <Box
-            className="desktop-nav-list"
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              py: 1,
-              px: { md: 3, lg: 4 },
-              maxWidth: '1100px',
-            }}
-          >
-            {navItems
-              .filter(
-                (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
-              )
-              .map((item) => (
-                <Button
-                  key={item.text}
-                  href={item.href}
-                  aria-label={`${item.text.toLowerCase()}`}
-                  variant={(pathname === item.href) ? 'contained' : 'text'}
-                  color={(pathname === item.href) ? 'active' : 'inactive'}
-                  size="small"
-                  className="nav-list__item"
-                  sx={{
-                    whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
-                  }}
-                >
-                  {item.text}
-                </Button>
-              ))}
-          </Box>
-        )}
-      </Box>
-      <NavigationLogo />
-      <Button
-        href="/calculator/head-initial-1-cont"
-        variant="contained"
-        color="tertiary"
-        size="small"
-        className="calc-btn"
-        sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
-        aria-label="Access our eligibility calculator"
+      <Box
+        sx={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        }}
       >
-        Check Eligibility
-      </Button>
+        <Box component="nav">
+          <Drawer
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{ keepMounted: true }}
+            sx={{
+              display: { xs: 'block', md: 'none' },
+              textAlign: 'center',
+            }}
+            anchor="right"
+          >
+            {drawer}
+          </Drawer>
+          {!matches && (
+            <Box
+              className="desktop-nav-list"
+              sx={{
+                display: 'flex',
+                justifyContent: 'flex-start',
+                py: 1,
+                px: { md: 3, lg: 4 },
+                maxWidth: '1100px',
+              }}
+            >
+              {navItems
+                .filter(
+                  (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
+                )
+                .map((item) => (
+                  <Button
+                    key={item.text}
+                    href={item.href}
+                    aria-label={`${item.text.toLowerCase()}`}
+                    variant={(pathname === item.href) ? 'contained' : 'text'}
+                    color={(pathname === item.href) ? 'active' : 'inactive'}
+                    size="small"
+                    className="nav-list__item"
+                    sx={{
+                      whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                ))}
+            </Box>
+          )}
+        </Box>
+        <NavigationLogo />
+        <Button
+          href="/calculator/head-initial-1-cont"
+          variant="contained"
+          color="tertiary"
+          size="small"
+          className="calc-btn"
+          sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
+          aria-label="Access our eligibility calculator"
+        >
+          Check Eligibility
+        </Button>
+      </Box>
     </AppBar>
   );
 }
