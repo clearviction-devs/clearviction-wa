@@ -8,7 +8,7 @@ interface NavigationLogoProps {
 }
 
 export default function NavigationLogo({ fullSize = false }: NavigationLogoProps) {
-  const imgSrc = fullSize ? '/cvlogo-sm.svg' : '/cvlogo-lg.svg';
+  const imgSrc = '/cvlogo-sm.svg';
   const imgWidth = fullSize ? 50 : 275;
   return (
     <ButtonBase className="nav-logo" href="/" sx={{ py: fullSize ? 2 : 1, height: '100%' }}>

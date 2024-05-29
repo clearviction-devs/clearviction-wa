@@ -65,7 +65,7 @@ export default function Header() {
         <Button
           href="/calculator/head-initial-1-cont"
           variant="contained"
-          color="neutral"
+          color="tertiary"
           size="small"
           className="calc-btn"
           sx={{
@@ -120,13 +120,13 @@ export default function Header() {
               <Button
                 href="/calculator/head-initial-1-cont"
                 variant="contained"
-                color="neutral"
+                color="tertiary"
                 size="small"
                 className="calc-btn"
                 sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
                 aria-label="Access our eligibility calculator"
               >
-                Access Calculator
+                Check Eligibility
               </Button>
             </Box>
           )}
@@ -143,7 +143,7 @@ export default function Header() {
         </Toolbar>
       </Container>
 
-      <Box component="nav" sx={{ bgcolor: '#1A1D2E' }}>
+      <Box component="nav">
         <Drawer
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -177,7 +177,7 @@ export default function Header() {
                   href={item.href}
                   aria-label={`${item.text.toLowerCase()}`}
                   variant={(pathname === item.href) ? 'contained' : 'text'}
-                  color="primary"
+                  color={(pathname === item.href) ? 'active' : 'inactive'}
                   size="small"
                   className="nav-list__item"
                   sx={{

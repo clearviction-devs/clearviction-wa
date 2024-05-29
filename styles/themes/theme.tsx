@@ -5,13 +5,29 @@ import { Inter, Sintony } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
 
+declare module '@mui/material/Button' {
+  // eslint-disable-next-line no-unused-vars
+  interface ButtonPropsColorOverrides {
+    link: true;
+    tertiary: true;
+    active: true;
+    inactive: true;
+  }
+}
+
 declare module '@mui/material/styles' {
   interface Palette {
     link: Palette['primary'];
+    tertiary: Palette['primary'];
+    active: Palette['primary'];
+    inactive: Palette['primary'];
   }
 
   interface PaletteOptions {
     link?: PaletteOptions['primary'];
+    tertiary?: PaletteOptions['primary'];
+    active?: PaletteOptions['primary'];
+    inactive?: PaletteOptions['primary'];
   }
 
   interface Theme {
@@ -56,7 +72,18 @@ const theme = createTheme({
       contrastText: '#000000',
       dark: '#00513C',
     },
-    // where did this come from?
+    tertiary: {
+      light: '#FFD5CC',
+      main: '#FF7F66',
+      contrastText: '#121A33',
+    },
+    active: {
+      main: '#9ECAFC',
+      contrastText: '#121A33',
+    },
+    inactive: {
+      main: '#FFFEFC',
+    },
     neutral: {
       main: '#FFFFFF',
       dark: grey[400],
