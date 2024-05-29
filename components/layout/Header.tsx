@@ -92,27 +92,6 @@ export default function Header() {
     </Box>
   );
 
-  function renderNavButtons(item: { href: string, text: string }) {
-    const variantType: 'text' | 'contained' = (pathname === item.href) ? 'contained' : 'text';
-
-    return (
-      <Button
-        key={item.text}
-        href={item.href}
-        aria-label={`${item.text.toLowerCase()}`}
-        variant={variantType}
-        color="neutral"
-        size="small"
-        className="nav-list__item"
-        sx={{
-          whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
-        }}
-      >
-        {item.text}
-      </Button>
-    );
-  }
-
   return (
     <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
       <Container maxWidth="xl" sx={{ p: 3 }}>
@@ -192,7 +171,22 @@ export default function Header() {
               .filter(
                 (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
               )
-              .map((item) => renderNavButtons(item))}
+              .map((item) => (
+                <Button
+                  key={item.text}
+                  href={item.href}
+                  aria-label={`${item.text.toLowerCase()}`}
+                  variant={(pathname === item.href) ? 'contained' : 'text'}
+                  color="primary"
+                  size="small"
+                  className="nav-list__item"
+                  sx={{
+                    whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
+                  }}
+                >
+                  {item.text}
+                </Button>
+              ))}
           </Box>
         )}
       </Box>
