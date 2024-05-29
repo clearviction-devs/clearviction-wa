@@ -18,7 +18,7 @@ declare module '@mui/material/styles' {
     calculatorTypography: Theme['typography'];
   }
 
-  interface ThemeOptions{
+  interface ThemeOptions {
     calculatorTypography?: ThemeOptions['typography'];
   }
 }
@@ -45,16 +45,16 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      light: '#A7B5CC',
-      main: '#4E6C99',
-      dark: '#2F3554',
+      light: '#D0E4FF',
+      main: '#9ECAFC',
+      dark: '#003256',
       contrastText: '#ffffff',
     },
     secondary: {
-      light: '#FFEEA3',
-      main: '#FFD200',
+      light: '#DCFAEF',
+      main: '#A5F2D3',
       contrastText: '#000000',
-      dark: '#546B95',
+      dark: '#00513C',
     },
     // where did this come from?
     neutral: {
