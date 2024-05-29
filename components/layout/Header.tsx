@@ -1,10 +1,8 @@
 import CloseIcon from '@mui/icons-material/Close';
-import Menu from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
   Button,
-  Container,
   Drawer,
   Grid,
   IconButton,
@@ -12,7 +10,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Toolbar,
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -22,7 +19,6 @@ import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
-import SkipLink from '../helper/SkipLink.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
