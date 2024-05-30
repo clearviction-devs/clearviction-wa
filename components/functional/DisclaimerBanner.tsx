@@ -24,7 +24,7 @@ function DisclaimerBanner() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          bgcolor: '#207C56',
+          bgcolor: 'secondary.dark',
           p: 1,
           color: 'white',
         }}
