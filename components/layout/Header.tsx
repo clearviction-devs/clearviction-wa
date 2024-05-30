@@ -15,14 +15,12 @@ import {
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
 import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
-  const pathname = usePathname();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -128,8 +126,6 @@ export default function Header() {
                     key={item.text}
                     href={item.href}
                     aria-label={`${item.text.toLowerCase()}`}
-                    variant={(pathname === item.href) ? 'contained' : 'text'}
-                    color={(pathname === item.href) ? 'active' : 'inactive'}
                     size="small"
                     className="nav-list__item"
                     sx={{
@@ -149,8 +145,16 @@ export default function Header() {
           color="tertiary"
           size="small"
           className="calc-btn"
-          sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
           aria-label="Access our eligibility calculator"
+          sx={{
+            whiteSpace: 'nowrap',
+            py: 1,
+            px: 3,
+            color: 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'tertiary.light',
+            },
+          }}
         >
           Check Eligibility
         </Button>

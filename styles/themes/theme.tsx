@@ -10,8 +10,6 @@ declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     link: true;
     tertiary: true;
-    active: true;
-    inactive: true;
   }
 }
 
@@ -19,15 +17,11 @@ declare module '@mui/material/styles' {
   interface Palette {
     link: Palette['primary'];
     tertiary: Palette['primary'];
-    active: Palette['primary'];
-    inactive: Palette['primary'];
   }
 
   interface PaletteOptions {
     link?: PaletteOptions['primary'];
     tertiary?: PaletteOptions['primary'];
-    active?: PaletteOptions['primary'];
-    inactive?: PaletteOptions['primary'];
   }
 
   interface Theme {
@@ -77,13 +71,6 @@ const theme = createTheme({
       main: '#FF7F66',
       contrastText: '#121A33',
     },
-    active: {
-      main: '#9ECAFC',
-      contrastText: '#121A33',
-    },
-    inactive: {
-      main: '#FFFEFC',
-    },
     neutral: {
       main: '#FFFFFF',
       dark: grey[400],
@@ -100,7 +87,8 @@ const theme = createTheme({
     },
     text: {
       primary: '#000000',
-      secondary: '#4E6C99',
+      secondary: '#121A33',
+      disabled: '#FFFEFC',
     },
     background: {
       default: '#FAFAFA',
@@ -326,6 +314,15 @@ theme.components = {
         minWidth: 'max-content',
         margin: '.625rem auto',
         fontWeight: 'bold',
+        color: theme.palette.text.disabled,
+        '&:focus': {
+          color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.primary.main,
+        },
+        '&:hover': {
+          color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.primary.main,
+        },
       },
     },
   },
