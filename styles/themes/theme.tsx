@@ -5,6 +5,12 @@ import { Inter, Sintony } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
 
+declare module '@mui/material/styles/createPalette' {
+  interface TypeText {
+    light?: string
+  }
+}
+
 declare module '@mui/material/Button' {
   // eslint-disable-next-line no-unused-vars
   interface ButtonPropsColorOverrides {
@@ -88,7 +94,7 @@ const theme = createTheme({
     text: {
       primary: '#000000',
       secondary: '#121A33',
-      disabled: '#FFFEFC',
+      light: '#FFFEFC',
     },
     background: {
       default: '#FAFAFA',
@@ -314,7 +320,7 @@ theme.components = {
         minWidth: 'max-content',
         margin: '.625rem auto',
         fontWeight: 'bold',
-        color: theme.palette.text.disabled,
+        color: theme.palette.text.light,
         '&:focus': {
           color: theme.palette.text.secondary,
           backgroundColor: theme.palette.primary.main,
