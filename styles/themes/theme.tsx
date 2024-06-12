@@ -5,20 +5,36 @@ import { Inter, Sintony } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
 
+declare module '@mui/material/styles/createPalette' {
+  interface TypeText {
+    light?: string
+  }
+}
+
+declare module '@mui/material/Button' {
+  // eslint-disable-next-line no-unused-vars
+  interface ButtonPropsColorOverrides {
+    link: true;
+    tertiary: true;
+  }
+}
+
 declare module '@mui/material/styles' {
   interface Palette {
     link: Palette['primary'];
+    tertiary: Palette['primary'];
   }
 
   interface PaletteOptions {
     link?: PaletteOptions['primary'];
+    tertiary?: PaletteOptions['primary'];
   }
 
   interface Theme {
     calculatorTypography: Theme['typography'];
   }
 
-  interface ThemeOptions{
+  interface ThemeOptions {
     calculatorTypography?: ThemeOptions['typography'];
   }
 }
@@ -45,18 +61,22 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      light: '#A7B5CC',
-      main: '#4E6C99',
-      dark: '#2F3554',
+      light: '#D0E4FF',
+      main: '#9ECAFC',
+      dark: '#003256',
       contrastText: '#ffffff',
     },
     secondary: {
-      light: '#FFEEA3',
-      main: '#FFD200',
+      light: '#DCFAEF',
+      main: '#A5F2D3',
       contrastText: '#000000',
-      dark: '#546B95',
+      dark: '#00513C',
     },
-    // where did this come from?
+    tertiary: {
+      light: '#FFD5CC',
+      main: '#FF7F66',
+      contrastText: '#121A33',
+    },
     neutral: {
       main: '#FFFFFF',
       dark: grey[400],
@@ -73,7 +93,8 @@ const theme = createTheme({
     },
     text: {
       primary: '#000000',
-      secondary: '#4E6C99',
+      secondary: '#121A33',
+      light: '#FFFEFC',
     },
     background: {
       default: '#FAFAFA',
@@ -289,6 +310,7 @@ theme.components = {
   MuiButtonBase: {
     defaultProps: {
       LinkComponent: LinkBehavior,
+      disableRipple: true,
     },
   },
   MuiButton: {
@@ -299,6 +321,7 @@ theme.components = {
         minWidth: 'max-content',
         margin: '.625rem auto',
         fontWeight: 'bold',
+        color: theme.palette.text.light,
       },
     },
   },
