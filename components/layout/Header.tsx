@@ -1,3 +1,4 @@
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   AppBar,
@@ -179,6 +180,7 @@ export default function Header() {
             }}
           >
             Check Eligibility
+            <ArrowForwardIcon />
           </Button>
 
         </Box>
