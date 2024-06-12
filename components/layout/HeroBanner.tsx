@@ -1,16 +1,15 @@
+import Image from 'next/image';
 import React from 'react';
-
-import ImageContainer from './ImageContainer.tsx';
 
 export default function HeroBanner() {
   return (
-    <ImageContainer
+    <Image
       src="/illustrations/h1-home-desktop.png"
-      width={1440}
-      height={660}
-      alt=""
-      style={{ maxWidth: '100%' }}
-      useImageDimensions
+      width={0}
+      height={0}
+      sizes="100vw"
+      alt="h1 home image"
+      style={{ width: '100%', height: 'auto' }}
     />
   );
 }
