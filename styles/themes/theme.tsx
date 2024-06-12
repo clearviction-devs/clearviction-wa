@@ -310,6 +310,7 @@ theme.components = {
   MuiButtonBase: {
     defaultProps: {
       LinkComponent: LinkBehavior,
+      disableRipple: true,
     },
   },
   MuiButton: {
@@ -321,13 +322,18 @@ theme.components = {
         margin: '.625rem auto',
         fontWeight: 'bold',
         color: theme.palette.text.light,
-        '&:focus': {
-          color: theme.palette.text.secondary,
-          backgroundColor: theme.palette.primary.main,
-        },
         '&:hover': {
           color: theme.palette.text.secondary,
           backgroundColor: theme.palette.primary.main,
+        },
+        '&:active': {
+          color: theme.palette.text.light,
+          backgroundColor: '#002138',
+        },
+        '&:focus': {
+          color: theme.palette.text.light,
+          backgroundColor: theme.palette.primary.dark,
+          boxShadow: '0 0 0 4px #0000EE99',
         },
       },
     },
