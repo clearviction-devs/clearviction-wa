@@ -129,7 +129,23 @@ export default function Header() {
                     size="small"
                     className="nav-list__item"
                     sx={{
-                      whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
+                      whiteSpace: 'nowrap',
+                      marginLeft: { md: 0 },
+                      px: { md: 2, lg: 3 },
+                      py: 1,
+                      '&:hover': {
+                        color: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.primary.main,
+                      },
+                      '&:active': {
+                        color: theme.palette.text.light,
+                        backgroundColor: '#002138',
+                      },
+                      '&:focus': {
+                        color: theme.palette.text.light,
+                        backgroundColor: theme.palette.primary.dark,
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
                     }}
                   >
                     {item.text}
@@ -153,6 +169,13 @@ export default function Header() {
             color: 'text.secondary',
             '&:hover': {
               backgroundColor: 'tertiary.light',
+            },
+            '&:active': {
+              backgroundColor: '#FF5F40',
+            },
+            '&:focus': {
+              backgroundColor: 'tertiary',
+              boxShadow: '0 0 0 4px #0000EE99',
             },
           }}
         >
