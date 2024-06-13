@@ -1,3 +1,4 @@
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
   Button,
@@ -29,12 +30,19 @@ export default function Home() {
         <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
 
         <SectionContainer>
-          <Grid container id={`${content.background.id}-main-grid`} direction="row" justifyContent="space-between">
-            <Grid item md={6.5} sx={{ mb: 8 }}>
-              <Typography variant="h7" sx={{ textAlign: 'left' }}>
+          <Grid container justifyContent="space-between" id={`${content.background.id}-main-grid`}>
+            <Grid md={7} sx={{ mb: 8 }}>
+              <Typography
+                variant="h3"
+                sx={{
+                  textAlign: 'left',
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 600,
+                  color: '#121A33',
+                }}
+              >
                 {content.background.title}
               </Typography>
-              <br />
               <br />
               <MuiMarkdown>{content.background.body}</MuiMarkdown>
               <br />
@@ -42,11 +50,8 @@ export default function Home() {
               <MuiMarkdown>{content.background.body2}</MuiMarkdown>
             </Grid>
             <Grid
-              item
-              md={3}
-              sx={{
-                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '250px',
-              }}
+              md={3.7}
+              alignContent="center"
             >
               <Box
                 sx={{
@@ -66,24 +71,49 @@ export default function Home() {
           </Grid>
         </SectionContainer>
 
-        <Grid container sx={{ backgroundColor: '#DCFAEF' }} direction="row">
-          <Typography>{content.eligibilityCTA.title}</Typography>
-          <Button
-            href="/calculator/head-initial-1-cont"
-            variant="contained"
-            color="primary"
-            size="small"
-            className="calc-btn"
-            aria-label="Access our eligibility calculator"
-            sx={{
-              whiteSpace: 'nowrap',
-              py: 1,
-              px: 3,
-              backgroundColor: '#003256',
-            }}
-          >
-            Check Eligibility
-          </Button>
+        <Grid
+          container
+          sx={{
+            backgroundColor: '#DCFAEF',
+          }}
+        >
+          <SectionContainer>
+            <Grid container justifyContent="space-between">
+              <Grid md={8} sx={{ py: 3 }} alignContent="center">
+                <Typography
+                  variant="h4"
+                  sx={{
+                    textAlign: 'left',
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 500,
+                    color: '#121A33',
+                  }}
+                >
+                  {content.eligibilityCTA.title}
+                </Typography>
+              </Grid>
+              <Grid>
+                <Button
+                  href="/calculator/head-initial-1-cont"
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  className="calc-btn"
+                  aria-label="Access our eligibility calculator"
+                  sx={{
+                    whiteSpace: 'nowrap',
+                    py: 1,
+                    px: 3,
+                    backgroundColor: '#003256',
+                  }}
+                >
+                  Check your conviction
+                  <Box component="span" sx={{ ml: 1 }} />
+                  <ArrowForwardIcon />
+                </Button>
+              </Grid>
+            </Grid>
+          </SectionContainer>
         </Grid>
 
         {/* {content.gridSections.map((section) => (
