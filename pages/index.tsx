@@ -79,7 +79,7 @@ export default function Home() {
         >
           <SectionContainer>
             <Grid container justifyContent="space-between">
-              <Grid md={8} sx={{ py: 3 }} alignContent="center">
+              <Grid container md={8} sx={{ py: 3 }} justifyContent="center" alignItems="center">
                 <Typography
                   variant="h4"
                   sx={{
@@ -92,7 +92,7 @@ export default function Home() {
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid>
+              <Grid container md={2} justifyContent="center">
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
