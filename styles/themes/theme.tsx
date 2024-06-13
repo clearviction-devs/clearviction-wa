@@ -332,6 +332,7 @@ theme.components = {
   MuiButtonBase: {
     defaultProps: {
       LinkComponent: LinkBehavior,
+      disableRipple: true,
     },
   },
   MuiButton: {
@@ -343,14 +344,6 @@ theme.components = {
         margin: '.625rem auto',
         fontWeight: 'bold',
         color: theme.palette.text.light,
-        '&:focus': {
-          color: theme.palette.text.secondary,
-          backgroundColor: theme.palette.primary.main,
-        },
-        '&:hover': {
-          color: theme.palette.text.secondary,
-          backgroundColor: theme.palette.primary.main,
-        },
       },
     },
   },
