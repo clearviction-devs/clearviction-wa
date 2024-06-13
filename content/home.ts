@@ -11,7 +11,20 @@ interface HomeContent {
     body: string;
     body2: string;
   };
-  gridSections: GridSection[];
+  background: {
+    id: string;
+    title: string;
+    body: string;
+    body2: string;
+    iconText: string;
+    iconText2: string;
+  }
+  eligibilityCTA: {
+    id: string;
+    title: string;
+    ctaButton: string;
+  }
+  // gridSections: GridSection[];
   faqs: FAQ[];
 }
 
@@ -35,71 +48,84 @@ const content: HomeContent = {
     body: 'We are an open source initiative that emerged following the enactment of Washington State\'s New Hope Act. Annually, close to 98,000 individuals join the ranks of millions across Washington State who bear the weight of a criminal record. Those impacted by the justice system encounter substantial obstacles in their daily lives even after serving their prison sentences.',
     body2: 'Formerly known as Clearviction, our project has transitioned from a volunteer led non-profit to an open-source model, inviting collaboration and contributions so we can better serve our community. If you would like to contribute to the project, please reach out on [Github](https://github.com/clearviction-devs).',
   },
-  gridSections: [
-    {
-      id: 'how-it-works',
-      title: 'How it works',
-      ctaLink: '/get-started',
-      ctaText: 'Get started',
-      ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
-      items: [
-        {
-          id: 'how-it-works-item1',
-          body: 'We break down the laws into understandable language.',
-          imgsrc: '/illustrations/teamwork.svg',
-        },
-        {
-          id: 'how-it-works-item2',
-          body: 'You answer a few simple yes/no questions.',
-          imgsrc: '/illustrations/checklist.svg',
-        },
-        {
-          id: 'how-it-works-item3',
-          body: 'This helps determine your vacation eligibility in Washington.',
-          imgsrc: '/illustrations/teamwork-2.svg',
-        },
-        {
-          id: 'how-it-works-item4',
-          body: 'We help you explore what comes after determining your vacation eligibility.',
-          imgsrc: '/illustrations/chart.svg',
-        },
-      ],
-    },
-    {
-      id: 'why-vacate',
-      title: 'Why Vacate?',
-      ctaLink: '/get-started',
-      ctaText: 'Get started',
-      subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
-      ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
-      items: [
-        {
-          id: 'why-vacate-item1',
-          title: 'Housing',
-          body: 'Make it easier to find and be approved for rent or purchasing a home.',
-          imgsrc: '/illustrations/city-buildings.svg',
-        },
-        {
-          id: 'why-vacate-item2',
-          title: 'Employment',
-          body: 'Reduce barriers to finding and obtaining employment.',
-          imgsrc: '/illustrations/employment.svg',
-        },
-        {
-          id: 'why-vacate-item3',
-          title: 'Education',
-          body: 'Apply for scholarships, programs, degrees, or certificates.',
-          imgsrc: '/illustrations/graduation.svg',
-        },
-        {
-          id: 'why-vacate-item4',
-          title: 'Government Assistance',
-          body: 'Receive government help and support.',
-          imgsrc: '/illustrations/lawyer.svg',
-        },
-      ],
-    },
-  ],
+  background: {
+    id: 'background-information',
+    title: 'Vacated convictions do not appear on background checks',
+    body: 'In Washington state, a **vacated** conviction will no longer appear on state or federal background checks, opening up opportunities in employment, housing, and education.',
+    body2: 'Our **Eligibility Tool** helps free those impacted by the justice system from the harmful consequences of a lifetime of discrimination because of their record, even decades after it occurred.',
+    iconText: 'Of the 1M+ Washingtonians eligible to vacate',
+    iconText2: 'Less than 3% have actually vacated their convictions',
+  },
+  eligibilityCTA: {
+    id: 'eligibility-cta',
+    title: 'Are you one of the 97% of people eligible to vacate?',
+    ctaButton: 'Check your conviction',
+  },
+  // gridSections: [
+  //   {
+  //     id: 'how-it-works',
+  //     title: 'How it works',
+  //     ctaLink: '/get-started',
+  //     ctaText: 'Get started',
+  //     ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
+  //     items: [
+  //       {
+  //         id: 'how-it-works-item1',
+  //         body: 'We break down the laws into understandable language.',
+  //         imgsrc: '/illustrations/teamwork.svg',
+  //       },
+  //       {
+  //         id: 'how-it-works-item2',
+  //         body: 'You answer a few simple yes/no questions.',
+  //         imgsrc: '/illustrations/checklist.svg',
+  //       },
+  //       {
+  //         id: 'how-it-works-item3',
+  //         body: 'This helps determine your vacation eligibility in Washington.',
+  //         imgsrc: '/illustrations/teamwork-2.svg',
+  //       },
+  //       {
+  //         id: 'how-it-works-item4',
+  //         body: 'We help you explore what comes after determining your vacation eligibility.',
+  //         imgsrc: '/illustrations/chart.svg',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     id: 'why-vacate',
+  //     title: 'Why Vacate?',
+  //     ctaLink: '/get-started',
+  //     ctaText: 'Get started',
+  //     subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
+  //     ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
+  //     items: [
+  //       {
+  //         id: 'why-vacate-item1',
+  //         title: 'Housing',
+  //         body: 'Make it easier to find and be approved for rent or purchasing a home.',
+  //         imgsrc: '/illustrations/city-buildings.svg',
+  //       },
+  //       {
+  //         id: 'why-vacate-item2',
+  //         title: 'Employment',
+  //         body: 'Reduce barriers to finding and obtaining employment.',
+  //         imgsrc: '/illustrations/employment.svg',
+  //       },
+  //       {
+  //         id: 'why-vacate-item3',
+  //         title: 'Education',
+  //         body: 'Apply for scholarships, programs, degrees, or certificates.',
+  //         imgsrc: '/illustrations/graduation.svg',
+  //       },
+  //       {
+  //         id: 'why-vacate-item4',
+  //         title: 'Government Assistance',
+  //         body: 'Receive government help and support.',
+  //         imgsrc: '/illustrations/lawyer.svg',
+  //       },
+  //     ],
+  //   },
+  // ],
   faqs: [
     {
       id: 'faq0',

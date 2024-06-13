@@ -1,4 +1,6 @@
 import {
+  Box,
+  Button,
   Grid, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
@@ -7,7 +9,6 @@ import React from 'react';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
-import GridItemCard from '../components/layout/GridItem.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
@@ -27,24 +28,65 @@ export default function Home() {
 
         <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
 
-        <SectionContainer id={content.ourMission.id}>
-          <PaperSection>
-            <Grid container id={`${content.ourMission.id}-main-grid`}>
-              <Grid item xs={12}>
-                <Typography variant="h2" sx={{ textAlign: 'center' }}>
-                  {content.ourMission.header}
-                </Typography>
-                <MuiMarkdown>{content.ourMission.body}</MuiMarkdown>
-                <br />
-                <br />
-                <MuiMarkdown>{content.ourMission.body2}</MuiMarkdown>
-              </Grid>
+        <SectionContainer>
+          <Grid container id={`${content.background.id}-main-grid`} direction="row" justifyContent="space-between">
+            <Grid item md={6.5} sx={{ mb: 8 }}>
+              <Typography variant="h7" sx={{ textAlign: 'left' }}>
+                {content.background.title}
+              </Typography>
+              <br />
+              <br />
+              <MuiMarkdown>{content.background.body}</MuiMarkdown>
+              <br />
+              <br />
+              <MuiMarkdown>{content.background.body2}</MuiMarkdown>
             </Grid>
-
-          </PaperSection>
+            <Grid
+              item
+              md={3}
+              sx={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '250px',
+              }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  bgcolor: '#003256',
+                  color: '#FFFEFC',
+                  padding: '20px',
+                }}
+              >
+                <Typography variant="h8" align="center">{content.background.iconText}</Typography>
+                <Typography variant="h8" align="center">{content.background.iconText2}</Typography>
+              </Box>
+            </Grid>
+          </Grid>
         </SectionContainer>
 
-        {content.gridSections.map((section) => (
+        <Grid container sx={{ backgroundColor: '#DCFAEF' }} direction="row">
+          <Typography>{content.eligibilityCTA.title}</Typography>
+          <Button
+            href="/calculator/head-initial-1-cont"
+            variant="contained"
+            color="primary"
+            size="small"
+            className="calc-btn"
+            aria-label="Access our eligibility calculator"
+            sx={{
+              whiteSpace: 'nowrap',
+              py: 1,
+              px: 3,
+              backgroundColor: '#003256',
+            }}
+          >
+            Check Eligibility
+          </Button>
+        </Grid>
+
+        {/* {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>
             <PaperSection
               title={section.title}
@@ -67,7 +109,7 @@ export default function Home() {
               </Grid>
             </PaperSection>
           </SectionContainer>
-        ))}
+        ))} */}
 
         <SectionContainer id="faq">
           <PaperSection title="FAQ">
