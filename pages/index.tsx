@@ -60,10 +60,10 @@ export default function Home() {
               <Typography variant="h7" align="center">{content.background.iconText}</Typography>
               <ImageContainer
                 src="/illustrations/3-percent.png"
-                width={600}
-                height={386}
+                width={200}
+                height={120}
                 alt=""
-                style={{ maxWidth: '100%' }}
+                style={{ maxWidth: '100%', height: 'auto' }}
                 useImageDimensions
               />
               <Typography variant="h7" align="center">{content.background.iconText2}</Typography>
