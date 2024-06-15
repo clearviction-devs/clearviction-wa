@@ -11,6 +11,7 @@ import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
@@ -31,18 +32,13 @@ export default function Home() {
 
         <SectionContainer>
           <Grid container justifyContent="space-between" id={`${content.background.id}-main-grid`}>
-            <Grid md={7} sx={{ mb: 8 }}>
+            <Grid md={7}>
               <Typography
-                variant="h3"
-                sx={{
-                  textAlign: 'left',
-                  fontFamily: 'Poppins, sans-serif',
-                  fontWeight: 600,
-                  color: '#121A33',
-                }}
+                variant="h8"
               >
                 {content.background.title}
               </Typography>
+              <br />
               <br />
               <MuiMarkdown>{content.background.body}</MuiMarkdown>
               <br />
@@ -52,21 +48,25 @@ export default function Home() {
             <Grid
               md={3.7}
               alignContent="center"
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'space-evenly',
+                bgcolor: '#003256',
+                color: '#FFFEFC',
+              }}
             >
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  bgcolor: '#003256',
-                  color: '#FFFEFC',
-                  padding: '20px',
-                }}
-              >
-                <Typography variant="h8" align="center">{content.background.iconText}</Typography>
-                <Typography variant="h8" align="center">{content.background.iconText2}</Typography>
-              </Box>
+              <Typography variant="h7" align="center">{content.background.iconText}</Typography>
+              <ImageContainer
+                src="/illustrations/3-percent.png"
+                width={600}
+                height={386}
+                alt=""
+                style={{ maxWidth: '100%' }}
+                useImageDimensions
+              />
+              <Typography variant="h7" align="center">{content.background.iconText2}</Typography>
             </Grid>
           </Grid>
         </SectionContainer>
@@ -79,20 +79,14 @@ export default function Home() {
         >
           <SectionContainer>
             <Grid container justifyContent="space-between">
-              <Grid container md={8} sx={{ py: 3 }} justifyContent="center" alignItems="center">
+              <Grid container md={8} alignItems="center">
                 <Typography
-                  variant="h4"
-                  sx={{
-                    textAlign: 'left',
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 500,
-                    color: '#121A33',
-                  }}
+                  variant="h9"
                 >
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid container md={2} justifyContent="center">
+              <Grid container md={3.7} justifyContent="center">
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"

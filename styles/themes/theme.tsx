@@ -54,7 +54,7 @@ export const inter = Inter({
 });
 
 export const poppins = Poppins({
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -157,16 +157,23 @@ const theme = createTheme({
     },
     h7: {
       fontFamily: poppins.style.fontFamily,
-      fontWeight: 'bold',
-      fontSize: '2rem',
+      fontWeight: '600',
+      fontSize: '1.25rem',
       letterSpacing: '.0156rem',
       marginBottom: '.5rem',
     },
     h8: {
       fontFamily: poppins.style.fontFamily,
-      fontWeight: 'bold',
-      fontSize: '1.25rem',
-      letterSpacing: '.0156rem',
+      fontWeight: '600',
+      fontSize: '2.5rem',
+      letterSpacing: '.0rem',
+      marginBottom: '.5rem',
+    },
+    h9: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '500',
+      fontSize: '1.7rem',
+      letterSpacing: '.0rem',
       marginBottom: '.5rem',
     },
     subtitle1: {
