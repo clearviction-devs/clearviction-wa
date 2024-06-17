@@ -2,21 +2,11 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import {
   Box, ThemeProvider,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 
 function DisclaimerBanner() {
-  const [isBannerVisible, setIsBannerVisible] = useState(true);
-
-  const closeBanner = () => {
-    setIsBannerVisible(false);
-  };
-
-  if (!isBannerVisible) {
-    return null;
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -28,7 +18,6 @@ function DisclaimerBanner() {
           p: 1,
           color: 'white',
         }}
-        onClick={closeBanner}
       >
         <Box sx={{ display: 'flex', paddingLeft: '112px' }}>
           <ErrorOutlineIcon sx={{ width: '24px', height: '32px' }} />
