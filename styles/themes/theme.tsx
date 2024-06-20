@@ -1,7 +1,8 @@
 import { grey } from '@mui/material/colors';
 import { LinkProps } from '@mui/material/Link';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { Inter, Sintony } from 'next/font/google';
+import { fontFamily, fontWeight, letterSpacing } from '@mui/system';
+import { Inter, Poppins, Sintony } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
 
@@ -47,6 +48,13 @@ export const sintony = Sintony({
 });
 
 export const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+});
+
+export const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -145,6 +153,27 @@ const theme = createTheme({
       fontWeight: 'bold',
       fontSize: '1.375rem',
       letterSpacing: '.0094rem',
+      marginBottom: '.5rem',
+    },
+    h7: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '600',
+      fontSize: '1.25rem',
+      letterSpacing: '.0156rem',
+      marginBottom: '.5rem',
+    },
+    h8: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '600',
+      fontSize: '2.5rem',
+      letterSpacing: '.0rem',
+      marginBottom: '.5rem',
+    },
+    h9: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '500',
+      fontSize: '1.7rem',
+      letterSpacing: '.0rem',
       marginBottom: '.5rem',
     },
     subtitle1: {
