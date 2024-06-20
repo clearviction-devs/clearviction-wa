@@ -1,53 +1,12 @@
-import { grey } from '@mui/material/colors';
 import { LinkProps } from '@mui/material/Link';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { fontFamily, fontWeight, letterSpacing } from '@mui/system';
-import { Inter, Poppins, Sintony } from 'next/font/google';
+// eslint-disable-next-line camelcase
+import { Open_Sans, Poppins } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
 
-declare module '@mui/material/styles/createPalette' {
-  interface TypeText {
-    light?: string
-  }
-}
-
-declare module '@mui/material/Button' {
-  // eslint-disable-next-line no-unused-vars
-  interface ButtonPropsColorOverrides {
-    link: true;
-    tertiary: true;
-  }
-}
-
-declare module '@mui/material/styles' {
-  interface Palette {
-    link: Palette['primary'];
-    tertiary: Palette['primary'];
-  }
-
-  interface PaletteOptions {
-    link?: PaletteOptions['primary'];
-    tertiary?: PaletteOptions['primary'];
-  }
-
-  interface Theme {
-    calculatorTypography: Theme['typography'];
-  }
-
-  interface ThemeOptions {
-    calculatorTypography?: ThemeOptions['typography'];
-  }
-}
-
-export const sintony = Sintony({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  fallback: ['Helvetica', 'Arial', 'sans-serif'],
-});
-
-export const inter = Inter({
+export const openSans = Open_Sans({
+  weight: ['400'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -72,29 +31,20 @@ const theme = createTheme({
       light: '#D0E4FF',
       main: '#9ECAFC',
       dark: '#003256',
-      contrastText: '#ffffff',
+      contrastText: '#121A33',
     },
     secondary: {
       light: '#DCFAEF',
       main: '#A5F2D3',
-      contrastText: '#000000',
       dark: '#00513C',
+      contrastText: '#003326',
     },
     tertiary: {
       light: '#FFD5CC',
       main: '#FF7F66',
-      contrastText: '#121A33',
-    },
-    neutral: {
-      main: '#FFFFFF',
-      dark: grey[400],
-      contrastText: '#2F3554',
     },
     error: {
       main: '#DF1F1F',
-    },
-    info: {
-      main: '#007CFF',
     },
     success: {
       main: '#2A8613',
@@ -103,160 +53,88 @@ const theme = createTheme({
       primary: '#000000',
       secondary: '#121A33',
       light: '#FFFEFC',
+      focus: '#6363F2',
     },
     background: {
-      default: '#FAFAFA',
-      paper: '#FFFFFF',
+      default: '#FFFEFC',
+      dark: '#003256',
+      alternative: '#FF7F66',
     },
     link: {
-      main: '#007CFF',
+      main: '#1872BE',
+      dark: '#08A0EC',
     },
   },
   typography: {
     h1: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '5.25rem',
-      letterSpacing: '-0.0938rem',
-      marginBottom: '1.25rem',
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '700',
+      fontSize: '36px',
+      letterSpacing: '0',
+      leading: '80px',
     },
     h2: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '3.5rem',
-      letterSpacing: '-0.0313rem',
-      marginBottom: '1.5rem',
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '600',
+      fontSize: '32px',
+      letterSpacing: '0',
+      leading: '58px',
     },
     h3: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '2.8125rem',
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '600',
+      fontSize: '24px',
       letterSpacing: '0',
-      marginBottom: '.5rem',
-    },
-    h4: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'bold',
-      fontSize: '2rem',
-      letterSpacing: '.0156rem',
-      marginBottom: '.5rem',
-    },
-    h5: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'bold',
-      fontSize: '1.625rem',
-      letterSpacing: '.0156rem',
-      marginBottom: '.5rem',
-    },
-    h6: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'bold',
-      fontSize: '1.375rem',
-      letterSpacing: '.0094rem',
-      marginBottom: '.5rem',
-    },
-    h7: {
-      fontFamily: poppins.style.fontFamily,
-      fontWeight: '600',
-      fontSize: '1.25rem',
-      letterSpacing: '.0156rem',
-      marginBottom: '.5rem',
-    },
-    h8: {
-      fontFamily: poppins.style.fontFamily,
-      fontWeight: '600',
-      fontSize: '2.5rem',
-      letterSpacing: '.0rem',
-      marginBottom: '.5rem',
-    },
-    h9: {
-      fontFamily: poppins.style.fontFamily,
-      fontWeight: '500',
-      fontSize: '1.7rem',
-      letterSpacing: '.0rem',
-      marginBottom: '.5rem',
-    },
-    subtitle1: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '1.375rem',
-      letterSpacing: '.0094rem',
-      // lineHeight: '1.5',
-      marginBottom: '1.25rem',
-    },
-    subtitle2: {
-      fontFamily: sintony.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '1.25rem',
-      letterSpacing: '.0063rem',
-      marginBottom: '1rem',
-    },
-    body1: {
-      fontFamily: inter.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '1.25rem',
-      letterSpacing: '.0313rem',
-      marginBottom: '0',
-    },
-    body2: {
-      fontFamily: inter.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '1.125rem',
-      letterSpacing: '.0156rem',
-      marginBottom: '0',
-    },
-    button: {
-      fontFamily: inter.style.fontFamily,
-      fontWeight: 'medium',
-      fontSize: '1.125rem',
-      letterSpacing: '.0625rem',
-    },
-    caption: {
-      fontFamily: inter.style.fontFamily,
-      fontWeight: 'light',
-      fontSize: '.875rem',
-      letterSpacing: '.0313rem',
+      leading: '38px',
     },
     overline: {
-      fontFamily: inter.style.fontFamily,
-      fontWeight: 'normal',
-      fontSize: '.75rem',
-      letterSpacing: '.0938rem',
-    },
-  },
-  calculatorTypography: {
-    h1: {
-      fontFamily: inter.style.fontFamily,
-      fontSize: '2.5rem',
-      lineHeight: '3.75rem',
-      letterSpacing: '0.05rem',
-      fontStyle: 'normal',
-      fontWeight: '600',
-    },
-    h3: {
-      fontFamily: inter.style.fontFamily,
-      fontSize: '1.25rem',
-      lineHeight: '1.875rem',
-      letterSpacing: '0.00625rem',
-      fontStyle: 'normal',
+      fontFamily: poppins.style.fontFamily,
       fontWeight: '400',
-    },
-    h6: {
-      fontFamily: inter.style.fontFamily,
-      fontSize: '0.875rem',
-      lineHeight: 'normal',
-      letterSpacing: '0.0175rem',
-      fontStyle: 'normal',
-      fontWeight: '600',
+      fontSize: '20px',
+      letterSpacing: '0',
+      leading: '19px',
     },
     body1: {
-      fontFamily: inter.style.fontFamily,
-      fontSize: '1.25rem',
-      lineHeight: '1.625rem',
-      letterSpacing: '0.03125rem',
-      fontStyle: 'normal',
+      fontFamily: openSans.style.fontFamily,
+      fontWeight: '400',
+      fontSize: '18px',
+      letterSpacing: '0',
+      leading: '22px',
+    },
+    body2: {
+      fontFamily: openSans.style.fontFamily,
+      fontWeight: '400',
+      fontSize: '16px',
+      letterSpacing: '0',
+      leading: '18px',
+    },
+    button: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '700',
+      fontSize: '16px',
+      letterSpacing: '1px',
+      leading: '20px',
+    },
+    button2: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '500',
+      fontSize: '16px',
+      letterSpacing: '0',
+      leading: '19px',
+    },
+    caption: {
+      fontFamily: openSans.style.fontFamily,
+      fontWeight: '400',
+      fontSize: '14px',
+      letterSpacing: '.5px',
+      leading: '15px',
+    },
+    headingCalculator: {
+      fontFamily: poppins.style.fontFamily,
       fontWeight: '600',
-      marginBottom: '1rem',
+      fontSize: '18px',
+      letterSpacing: '0',
+      leading: '15px',
     },
   },
 });
@@ -273,7 +151,7 @@ theme.components = {
     styleOverrides: {
       paper: {
         backgroundColor: theme.palette.primary.dark,
-        width: '15.625rem',
+        width: '250px',
         color: 'white',
       },
     },
@@ -302,12 +180,12 @@ theme.components = {
   MuiTab: {
     styleOverrides: {
       root: {
-        fontSize: '.875rem',
+        fontSize: '14px',
         backgroundColor: theme.palette.primary.light,
       },
       selected: {
         color: theme.palette.primary.dark,
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.primary.light,
       },
     },
   },
@@ -319,7 +197,7 @@ theme.components = {
       {
         props: { variant: 'outlined' },
         style: {
-          border: `.0625rem solid ${theme.palette.primary.light}`,
+          border: `1px solid ${theme.palette.primary.light}`,
           '&$expanded': {
             margin: 0,
           },
@@ -348,8 +226,7 @@ theme.components = {
         borderRadius: 50,
         textAlign: 'center',
         minWidth: 'max-content',
-        margin: '.625rem auto',
-        fontWeight: 'bold',
+        margin: '10px auto',
         color: theme.palette.text.light,
       },
     },
@@ -357,7 +234,7 @@ theme.components = {
   MuiSelect: {
     styleOverrides: {
       icon: {
-        fontSize: '3rem',
+        fontSize: '48px',
         color: theme.palette.primary.dark,
       },
     },
