@@ -32,7 +32,7 @@ export default function Home() {
 
         <SectionContainer>
           <Grid container justifyContent="space-between" id={`${content.background.id}-main-grid`}>
-            <Grid md={7}>
+            <Grid item xs={12} md={7}>
               <Typography
                 variant="h8"
               >
@@ -46,28 +46,38 @@ export default function Home() {
               <MuiMarkdown>{content.background.body2}</MuiMarkdown>
             </Grid>
             <Grid
-              md={3.7}
-              alignContent="center"
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
-                bgcolor: '#003256',
-                color: '#FFFEFC',
-              }}
+              item
+              xs={12}
+              md={4}
+              display="flex"
+              justifyContent="center"
             >
-              <Typography variant="h7" align="center">{content.background.iconText}</Typography>
-              <ImageContainer
-                src="/illustrations/3-percent.png"
-                width={200}
-                height={120}
-                alt=""
-                style={{ maxWidth: '100%', height: 'auto' }}
-                useImageDimensions
-              />
-              <Typography variant="h7" align="center">{content.background.iconText2}</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-evenly',
+                  alignItems: 'center',
+                  bgcolor: '#003256',
+                  color: '#FFFEFC',
+                  paddingY: 4,
+                  maxWidth: 312,
+                  width: '100%',
+                }}
+              >
+                <Typography variant="h7" align="center">{content.background.iconText}</Typography>
+                <ImageContainer
+                  src="/illustrations/3-percent.png"
+                  width={200}
+                  height={120}
+                  alt=""
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                  useImageDimensions
+                />
+                <Typography variant="h7" align="center">{content.background.iconText2}</Typography>
+              </Box>
             </Grid>
+
           </Grid>
         </SectionContainer>
 
@@ -79,14 +89,14 @@ export default function Home() {
         >
           <SectionContainer>
             <Grid container justifyContent="space-between">
-              <Grid container md={8} alignItems="center">
+              <Grid container xs={12} md={8} alignItems="center">
                 <Typography
                   variant="h9"
                 >
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid container md={3.7} justifyContent="center">
+              <Grid container xs={12} md={4}>
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
