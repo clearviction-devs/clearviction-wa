@@ -1,5 +1,6 @@
 import { LinkProps } from '@mui/material/Link';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+// eslint-disable-next-line camelcase
 import { Open_Sans, Poppins } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
@@ -144,6 +145,9 @@ theme.components = {
       colorPrimary: {
         backgroundColor: theme.palette.primary.dark,
       },
+      colorSecondary: {
+        backgroundColor: theme.palette.secondary.dark,
+      },
     },
   },
   MuiDrawer: {
@@ -227,6 +231,7 @@ theme.components = {
         minWidth: 'max-content',
         margin: '10px auto',
         color: theme.palette.text.light,
+        textTransform: 'none',
       },
     },
   },
