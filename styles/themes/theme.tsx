@@ -1,50 +1,8 @@
 import { LinkProps } from '@mui/material/Link';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
 import { Open_Sans, Poppins } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import React, { forwardRef } from 'react';
-
-declare module '@mui/material/styles/createPalette' {
-  interface TypeText {
-    light?: string
-    focus?: string
-  }
-
-  interface TypeBackground {
-    dark?: string
-    alternative?: string
-  }
-}
-
-declare module '@mui/material/Button' {
-  interface ButtonPropsColorOverrides {
-    link: true;
-    tertiary: true;
-  }
-}
-
-declare module '@mui/material/styles' {
-  interface PaletteOptions {
-    link?: PaletteOptions['primary'];
-    tertiary?: PaletteOptions['primary'];
-  }
-
-  interface Palette {
-    link: Palette['primary'];
-    tertiary: Palette['primary'];
-  }
-
-  interface TypographyVariants {
-    button2: TypographyStyleOptions;
-    headingCalculator: TypographyStyleOptions;
-  }
-
-  interface TypographyVariantsOptions {
-    button2?: TypographyStyleOptions;
-    headingCalculator?: TypographyStyleOptions;
-  }
-}
 
 export const openSans = Open_Sans({
   weight: ['400'],

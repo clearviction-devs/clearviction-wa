@@ -1,18 +1,45 @@
 import '@mui/material';
 import '@mui/material/styles';
 
-declare module '@mui/material/styles' {
-  interface Palette {
-    neutral?: Palette['primary'];
+import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
+
+declare module '@mui/material/styles/createPalette' {
+  interface TypeText {
+    light?: string
+    focus?: string
   }
 
-  interface PaletteOptions {
-    neutral?: PaletteOptions['primary'];
+  interface TypeBackground {
+    dark?: string
+    alternative?: string
   }
 }
 
-declare module '@mui/material' {
+declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
-    neutral;
+    link: true;
+    tertiary: true;
+  }
+}
+
+declare module '@mui/material/styles' {
+  interface PaletteOptions {
+    link?: PaletteOptions['primary'];
+    tertiary?: PaletteOptions['primary'];
+  }
+
+  interface Palette {
+    link: Palette['primary'];
+    tertiary: Palette['primary'];
+  }
+
+  interface TypographyVariants {
+    button2: TypographyStyleOptions;
+    headingCalculator: TypographyStyleOptions;
+  }
+
+  interface TypographyVariantsOptions {
+    button2?: TypographyStyleOptions;
+    headingCalculator?: TypographyStyleOptions;
   }
 }

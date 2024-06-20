@@ -38,9 +38,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+mui.d.ts
 
 # ignore api/revalidate console.logs
 /pages/api/revalidate.js
 
-# ignore theme file type extensions
-theme.tsx
