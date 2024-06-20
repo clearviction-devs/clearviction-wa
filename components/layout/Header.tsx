@@ -63,7 +63,7 @@ export default function Header() {
         <Button
           href="/calculator/head-initial-1-cont"
           variant="contained"
-          color="neutral"
+          // color="neutral"
           size="small"
           className="calc-btn"
           sx={{
@@ -118,7 +118,7 @@ export default function Header() {
             <Button
               href="/calculator/head-initial-1-cont"
               variant="contained"
-              color="neutral"
+              // color="neutral"
               size="small"
               className="calc-btn"
               sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
@@ -175,7 +175,7 @@ export default function Header() {
                 href={item.href}
                 aria-label={`${item.text.toLowerCase()}`}
                 variant="text"
-                color="neutral"
+                // color="neutral"
                 size="small"
                 className="nav-list__item"
                 sx={{
