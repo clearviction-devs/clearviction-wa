@@ -1,5 +1,6 @@
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import {
-  Box, Button, ThemeProvider,
+  Box, ThemeProvider,
 } from '@mui/material';
 import React, { useState } from 'react';
 
@@ -23,22 +24,19 @@ function DisclaimerBanner() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          bgcolor: '#207C56',
+          bgcolor: 'secondary.dark',
           p: 1,
           color: 'white',
         }}
+        onClick={closeBanner}
       >
-        <Box sx={{ flex: '1', textAlign: 'center' }}>
-          {/* eslint-disable-next-line max-len */}
-          Disclaimer: Please note that as an open-source project, we do not actively work on the website, and as a result, some links may be broken or outdated. We apologize for any inconvenience this may cause.
-          <p style={{ marginTop: 0, marginBottom: 0, fontSize: '12px' }}>Last updated: 2024-04-12</p>
+        <Box sx={{ display: 'flex', paddingLeft: '112px' }}>
+          <ErrorOutlineIcon sx={{ width: '24px', height: '32px' }} />
+          <Box sx={{ paddingLeft: '8px' }}>
+            {/* eslint-disable-next-line max-len */}
+            Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
+          </Box>
         </Box>
-        <Button
-          onClick={closeBanner}
-          sx={{ marginLeft: 'auto', color: 'white' }}
-        >
-          X
-        </Button>
       </Box>
     </ThemeProvider>
   );

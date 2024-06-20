@@ -1,10 +1,9 @@
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CloseIcon from '@mui/icons-material/Close';
-import Menu from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
   Button,
-  Container,
   Drawer,
   Grid,
   IconButton,
@@ -12,7 +11,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Toolbar,
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -21,7 +19,6 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
-import SkipLink from '../helper/SkipLink.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
@@ -63,7 +60,7 @@ export default function Header() {
         <Button
           href="/calculator/head-initial-1-cont"
           variant="contained"
-          color="neutral"
+          color="tertiary"
           size="small"
           className="calc-btn"
           sx={{
@@ -92,101 +89,101 @@ export default function Header() {
 
   return (
     <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
-      <Container maxWidth="xl" sx={{ p: 3 }}>
-        <Toolbar disableGutters sx={{ height: { xs: 64 } }}>
-          <SkipLink color="primary" variant="contained" />
-          {/* Boxes as containers for handling layout among siblings */}
-          <Box
+      <Box
+        sx={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 10.5,
+        }}
+      >
+        <Box component="nav">
+          <Drawer
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{ keepMounted: true }}
             sx={{
-              flexGrow: 1,
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
+              display: { xs: 'block', md: 'none' },
+              textAlign: 'center',
             }}
+            anchor="right"
           >
-            <NavigationLogo fullSize={matches} />
-          </Box>
+            {drawer}
+          </Drawer>
           {!matches && (
-          <Box
-            className="test"
+            <Box
+              className="desktop-nav-list"
+              sx={{
+                display: 'flex',
+                justifyContent: 'flex-start',
+                maxWidth: '1100px',
+              }}
+            >
+              {navItems
+                .filter(
+                  (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
+                )
+                .map((item) => (
+                  <Button
+                    key={item.text}
+                    href={item.href}
+                    aria-label={`${item.text.toLowerCase()}`}
+                    size="small"
+                    className="nav-list__item"
+                    sx={{
+                      whiteSpace: 'nowrap',
+                      marginLeft: { md: 0 },
+                      px: { md: 2, lg: 3 },
+                      py: 1,
+                      '&:hover': {
+                        color: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.primary.main,
+                      },
+                      '&:active': {
+                        color: theme.palette.text.light,
+                        backgroundColor: '#002138',
+                      },
+                      '&:focus': {
+                        color: theme.palette.text.light,
+                        backgroundColor: theme.palette.primary.dark,
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                ))}
+            </Box>
+          )}
+        </Box>
+        <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
+        <Box>
+          <Button
+            href="/calculator/head-initial-1-cont"
+            variant="contained"
+            color="tertiary"
+            size="small"
+            className="calc-btn"
+            aria-label="Access our eligibility calculator"
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 2,
+              whiteSpace: 'nowrap',
+              py: 1,
+              px: 3,
+              color: 'text.secondary',
+              '&:hover': {
+                backgroundColor: 'tertiary.light',
+              },
+              '&:active': {
+                backgroundColor: '#FF5F40',
+              },
+              '&:focus': {
+                backgroundColor: 'tertiary',
+                boxShadow: '0 0 0 4px #0000EE99',
+              },
             }}
           >
-            <Button
-              href="/calculator/head-initial-1-cont"
-              variant="contained"
-              color="neutral"
-              size="small"
-              className="calc-btn"
-              sx={{ whiteSpace: 'nowrap', py: 1, px: 3 }}
-              aria-label="Access our eligibility calculator"
-            >
-              Access Calculator
-            </Button>
-          </Box>
-          )}
-          {matches && (
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ display: { xl: 'none' } }}
-            onClick={handleDrawerToggle}
-          >
-            <Menu fontSize="large" />
-          </IconButton>
-          )}
-        </Toolbar>
-      </Container>
+            Check Eligibility
+            <ArrowForwardIcon />
+          </Button>
 
-      <Box component="nav" sx={{ bgcolor: '#1A1D2E' }}>
-        <Drawer
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{ keepMounted: true }}
-          sx={{
-            display: { xs: 'block', md: 'none' },
-            textAlign: 'center',
-          }}
-          anchor="right"
-        >
-          {drawer}
-        </Drawer>
-        {!matches && (
-        <Box
-          className="desktop-nav-list"
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            py: 1,
-            px: { md: 3, lg: 4 },
-            maxWidth: '1100px',
-          }}
-        >
-          {navItems
-            .filter(
-              (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
-            )
-            .map((item) => (
-              <Button
-                key={item.text}
-                href={item.href}
-                aria-label={`${item.text.toLowerCase()}`}
-                variant="text"
-                color="neutral"
-                size="small"
-                className="nav-list__item"
-                sx={{
-                  whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
-                }}
-              >
-                {item.text}
-              </Button>
-            ))}
         </Box>
-        )}
       </Box>
     </AppBar>
   );
