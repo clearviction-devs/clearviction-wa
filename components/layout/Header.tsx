@@ -21,7 +21,11 @@ import React, { useState } from 'react';
 import navItems from '../../content/navItems.ts';
 import NavigationLogo from './NavigationLogo.tsx';
 
-export default function Header() {
+interface HeaderProps {
+  isCalc: boolean;
+}
+
+export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -88,7 +92,7 @@ export default function Header() {
   );
 
   return (
-    <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
+    <AppBar id="main-header" className="nav-desktop" color={isCalc ? 'secondary' : 'primary'} elevation={0} component="nav" position="sticky">
       <Box
         sx={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 10.5,

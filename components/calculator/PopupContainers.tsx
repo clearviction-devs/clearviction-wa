@@ -33,7 +33,7 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setOpenNotSurePopup(false)} data-cy="not-sure-pop-up-close">
+        <Button onClick={() => setOpenNotSurePopup(false)} data-cy="not-sure-pop-up-close" sx={{ backgroundColor: 'secondary.dark' }}>
           {calculatorConfig.notSureAnswer.closeText}
         </Button>
       </DialogActions>

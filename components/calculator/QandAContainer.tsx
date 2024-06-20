@@ -4,6 +4,7 @@ import {
 import BlockContent from '@sanity/block-content-to-react';
 import React, { useMemo } from 'react';
 
+import theme from '../../styles/themes/theme.tsx';
 import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
 import { PageContext } from '../helper/PageContext.tsx';
@@ -48,6 +49,8 @@ export default function QandAContainer({
     return '#';
   };
 
+  const useColumnForChoices = page.choices && page.choices.length > 3;
+
   return (
     <>
       <PageContext.Provider value={contextValue}>
@@ -64,11 +67,22 @@ export default function QandAContainer({
         </Box>
       </PageContext.Provider>
 
-      <Container id="choices-container" maxWidth="xs" sx={{ mb: 4 }}>
+      <Container
+        id="choices-container"
+        maxWidth="xs"
+        sx={{
+          mb: 4, display: 'flex', flexDirection: 'column',
+        }}
+      >
 
         {(page.choices || page.isQuestion) && (
 
-        <Stack gap={2} role="group" aria-label="Choice options">
+        <Stack
+          gap={2}
+          role="group"
+          aria-label="Choice options"
+          direction={useColumnForChoices ? 'column' : 'row'}
+        >
           {page.choices
                 && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
@@ -79,28 +93,27 @@ export default function QandAContainer({
                       variant="contained"
                       href={href}
                       data-cy={`calc-choice-${index}`}
-                      sx={{ width: '100%' }}
+                      sx={{ backgroundColor: theme.palette.secondary.dark, width: '50%' }}
                       onClick={() => addToResponses(choice.label)}
                     >
                       {choice.label}
                     </Button>
                   );
                 })}
-
-          {page.isQuestion && (
+        </Stack>
+        )}
+        {page.isQuestion && (
           <Button
-            variant="outlined"
-            color="primary"
             data-cy="not-sure-button"
-            sx={{ width: '100%' }}
+            sx={{
+              width: '100%', backgroundColor: 'inherit', color: theme.palette.secondary.dark, textDecoration: 'underline',
+            }}
             onClick={() => setOpenNotSurePopup(true)}
           >
             {calculatorConfig.notSureAnswer.promptText}
           </Button>
-          )}
-
-        </Stack>
         )}
+
       </Container>
     </>
   );

@@ -145,6 +145,9 @@ theme.components = {
       colorPrimary: {
         backgroundColor: theme.palette.primary.dark,
       },
+      colorSecondary: {
+        backgroundColor: theme.palette.secondary.dark,
+      },
     },
   },
   MuiDrawer: {
@@ -228,6 +231,7 @@ theme.components = {
         minWidth: 'max-content',
         margin: '10px auto',
         color: theme.palette.text.light,
+        textTransform: 'none',
       },
     },
   },

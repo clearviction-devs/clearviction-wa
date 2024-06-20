@@ -65,7 +65,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         metaContent="Determine if your misdemeanor or felony is eligible to vacate in Washington State with our eligibility calculator."
       />
 
-      <CalcHeader page={page} isFirstPage={isFirstPage} />
+      <CalcHeader page={page} />
 
       <Container
         ref={contentRef}

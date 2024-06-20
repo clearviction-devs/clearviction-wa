@@ -17,16 +17,19 @@ const getFooterMainStyles = (theme: Theme) => ({
   gap: { xs: 1, md: 4 },
 });
 
-function Footer() {
+interface FooterProps {
+  isCalc: boolean;
+}
+
+function Footer({ isCalc }: FooterProps) {
   return (
     <Box
       id="footer"
       component="footer"
-      color="primary"
       sx={{
         mt: 'auto',
-        backgroundColor: 'primary.dark',
-        color: 'primary.contrastText',
+        backgroundColor: isCalc ? 'secondary.dark' : 'primary.dark',
+        color: isCalc ? 'secondary.light' : 'primary.light',
       }}
     >
       <Container

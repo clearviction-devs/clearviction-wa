@@ -1,87 +1,40 @@
 import { Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
 // This block is needed to override the sanity cms built in styling for the calculator
-// Only h1,h3,h6,p tags are defined because those are the only styles currently getting used.
-// if additional element tags are needed then write another if statement following the logic below.
 
 function BlockTypeComponent(props:any) {
   const theme = useTheme();
-  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
   const { node, children } = props;
 
-  // only use if we will need to change styling for final page
-  // const { isFinalPage } = useContext(PageContext);
-
-  if (node.style === 'li') {
-    const isOrderedList = node.listItem !== 'bullet'; // Check if it's an ordered list
-    const liStyle = isOrderedList ? { textDecoration: 'none' } : {};
-
-    return (
-      <Typography sx={{ marginBottom: { sm: '1rem', md: '0' }, ...liStyle }}>{children}</Typography>
-    );
+  if (node.style === 'h1') {
+    return (<Typography variant="h1" style={theme.typography.h1}>{children}</Typography>);
   }
 
-  if (node.style === 'h1') {
-    const h1Styles = matchesXS
-      ? {
-        ...theme.calculatorTypography?.h1,
-        fontSize: '2rem',
-        lineHeight: '3.375rem',
-        letterSpacing: '0.11rem',
-        fontWeight: '700',
-      }
-      : {
-        ...theme.calculatorTypography?.h1,
-      };
-
-    return (<Typography variant="h1" style={h1Styles}>{children}</Typography>);
+  if (node.style === 'h2') {
+    return (<Typography variant="h2" style={theme.typography.h2}>{children}</Typography>);
   }
 
   if (node.style === 'h3') {
-    const h3Styles = matchesXS
-      ? {
-        ...theme.calculatorTypography?.h3,
-        fontSize: '1.1875rem',
-        lineHeight: '2.438rem',
-        letterSpacing: '0',
-      }
-      : {
-        ...theme.calculatorTypography?.h3,
-      };
-
-    return (<Typography variant="h3" style={h3Styles}>{children}</Typography>);
-  }
-
-  if (node.style === 'h6') {
-    const normalStyles = matchesXS
-      ? {
-        ...theme.calculatorTypography?.h6,
-        fontSize: '0.75rem',
-        lineHeight: '1.1875rem',
-        letterSpacing: '0.0375rem',
-      }
-      : {
-        ...theme.calculatorTypography?.h6,
-      };
-    return (<Typography variant="h6" style={normalStyles}>{children}</Typography>);
+    return (<Typography variant="h3" style={theme.typography.h3}>{children}</Typography>);
   }
 
   if (node.style === 'normal') {
-    const normalStyles = matchesXS
-      ? {
-        ...theme.calculatorTypography?.body1,
-        fontSize: '1.125rem',
-        letterSpacing: '0.03775',
-      }
-      : {
-        ...theme.calculatorTypography?.body1,
-      };
+    return (<Typography variant="body1" style={theme.typography.body1}>{children}</Typography>);
+  }
 
-    return (<Typography variant="body1" style={normalStyles}>{children}</Typography>);
+  if (node.style === 'h4') {
+    return (<Typography style={theme.typography.body2}>{children}</Typography>);
+  }
+
+  if (node.style === 'h5') {
+    return (<Typography style={theme.typography.headingCalculator}>{children}</Typography>);
+  }
+
+  if (node.style === 'h6') {
+    return (<Typography style={theme.typography.caption}>{children}</Typography>);
   }
 }
 
