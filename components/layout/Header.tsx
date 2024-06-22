@@ -60,7 +60,7 @@ export default function Header() {
         <Button
           href="/calculator/head-initial-1-cont"
           variant="contained"
-          color="tertiary"
+          // color="tertiary"
           size="small"
           className="calc-btn"
           sx={{
