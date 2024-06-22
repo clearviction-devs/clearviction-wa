@@ -24,9 +24,7 @@ export default function Home() {
       />
 
       <main>
-
         <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
-
         <SectionContainer id={content.ourMission.id}>
           <PaperSection>
             <Grid container id={`${content.ourMission.id}-main-grid`}>
