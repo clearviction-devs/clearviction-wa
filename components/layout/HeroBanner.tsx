@@ -6,6 +6,8 @@ import {
 import Image from 'next/image';
 import React from 'react';
 
+import SectionContainer from './SectionContainer';
+
 interface HeroBannerProps {
   header: string;
   overrideStyles?: SxProps;
@@ -26,9 +28,11 @@ export default function HeroBanner({
 }: HeroBannerProps) {
   return (
     <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
-      <Typography className="hero-title" variant="h1" sx={{ display: 'block' }}>
-        {header}
-      </Typography>
+      <SectionContainer>
+        <Typography className="hero-title" variant="h1" sx={{ display: 'block', color: 'text.light' }}>
+          {header}
+        </Typography>
+      </SectionContainer>
       <Image
         src="/illustrations/h1-home-desktop.png"
         width={0}
