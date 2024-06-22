@@ -6,7 +6,7 @@ import {
 import Image from 'next/image';
 import React from 'react';
 
-import SectionContainer from './SectionContainer';
+import SectionContainer from './SectionContainer.tsx';
 
 interface HeroBannerProps {
   header: string;
