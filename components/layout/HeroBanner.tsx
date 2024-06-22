@@ -6,6 +6,7 @@ import {
 import Image from 'next/image';
 import React from 'react';
 
+import EligibilityButton from '../helper/EligibilityButton.tsx';
 import SectionContainer from './SectionContainer.tsx';
 
 interface HeroBannerProps {
@@ -32,6 +33,7 @@ export default function HeroBanner({
         <Typography className="hero-title" variant="h1" sx={{ display: 'block', color: 'text.light' }}>
           {header}
         </Typography>
+        <EligibilityButton />
       </SectionContainer>
       <Image
         src="/illustrations/h1-home-desktop.png"

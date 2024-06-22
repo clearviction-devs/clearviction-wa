@@ -1,4 +1,3 @@
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   AppBar,
@@ -19,6 +18,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
+import EligibilityButton from '../helper/EligibilityButton.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
@@ -155,34 +155,7 @@ export default function Header() {
         </Box>
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
         <Box>
-          <Button
-            href="/calculator/head-initial-1-cont"
-            variant="contained"
-            color="tertiary"
-            size="small"
-            className="calc-btn"
-            aria-label="Access our eligibility calculator"
-            sx={{
-              whiteSpace: 'nowrap',
-              py: 1,
-              px: 3,
-              color: 'text.secondary',
-              '&:hover': {
-                backgroundColor: 'tertiary.light',
-              },
-              '&:active': {
-                backgroundColor: '#FF5F40',
-              },
-              '&:focus': {
-                backgroundColor: 'tertiary',
-                boxShadow: '0 0 0 4px #0000EE99',
-              },
-            }}
-          >
-            Check Eligibility
-            <ArrowForwardIcon />
-          </Button>
-
+          <EligibilityButton />
         </Box>
       </Box>
     </AppBar>
