@@ -10,6 +10,7 @@ import CalcHeader from '../../components/calculator/CalcHeader.tsx';
 import FinalPageLinksContainer from '../../components/calculator/CTAContainers.tsx';
 import NotSurePopup from '../../components/calculator/PopupContainers.tsx';
 import QandAContainer from '../../components/calculator/QandAContainer.tsx';
+import RCWLinkInfo from '../../components/calculator/RCWLinkInfo.tsx';
 import Results from '../../components/calculator/Results.tsx';
 import ResultsDownloadContainer from '../../components/calculator/ResultsDownloadContainer.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
@@ -62,6 +63,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         metaContent="Determine if your misdemeanor or felony is eligible to vacate in Washington State with our eligibility calculator."
       />
 
+      {/* Stepper */}
       <CalcHeader page={page} />
 
       <Container
@@ -72,12 +74,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           minHeight: '35rem',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          alignItems: 'left',
+          // justifyContent: 'center',
         }}
         id="calculator-container-outer"
         tabIndex={-1}
       >
+        {/* Sanity content */}
         <QandAContainer
           page={page}
           calculatorConfig={calculatorConfig}
@@ -85,25 +88,37 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           setOpenNotSurePopup={setOpenNotSurePopup}
         />
 
+        {/* RCW Link Infographic - !! update page slugs to include all pages */}
+        {(page.slug === 'head-initial-1-cont' || page.slug === 'start-page-test') && (
+          <RCWLinkInfo />
+        )}
+
+        {/* Link to more resources & check another conviction */}
         {
           (page.isFinalPage) && (
-            <>
-              <FinalPageLinksContainer
-                calculatorConfig={calculatorConfig}
-              />
-              <Box
-                maxWidth="60ch"
-                textAlign="center"
-                id="legal-disclaimer-container"
-              >
-                <Typography variant="caption" data-cy="legal-disclaimer" sx={{ fontWeight: 'light' }}>
-                  {calculatorConfig.legalDisclaimer}
-                </Typography>
-              </Box>
-            </>
+          <Box sx={{ marginBottom: '40px', padding: '32px 24px 40px 24px' }}>
+            <FinalPageLinksContainer
+              calculatorConfig={calculatorConfig}
+            />
+          </Box>
           )
         }
 
+        {/* Legal disclaimer */}
+        {
+          (page.isFinalPage) && (
+          <Box
+            maxWidth="md"
+            id="legal-disclaimer-container"
+          >
+            <Typography variant="caption" data-cy="legal-disclaimer">
+              {calculatorConfig.legalDisclaimer}
+            </Typography>
+          </Box>
+          )
+        }
+
+        {/* Download results button on misdemeanor pages */}
         {
           (page.isFinalPage && page.isEligible && !page.slug.startsWith('f')) && (
             <ResultsDownloadContainer
@@ -113,6 +128,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           )
         }
 
+        {/* Display downloadable results */}
         {
           (page.isEligible && showResults) && (
             <Results

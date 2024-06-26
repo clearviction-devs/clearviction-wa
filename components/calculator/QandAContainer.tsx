@@ -52,9 +52,9 @@ export default function QandAContainer({
   const useColumnForChoices = page.choices && page.choices.length > 3;
 
   return (
-    <>
+    <Box>
       <PageContext.Provider value={contextValue}>
-        <Box data-cy="calc-block-of-content" mb={4}>
+        <Box data-cy="calc-block-of-content" sx={{ marginBottom: '100px' }}>
           {
             page.content && (
             <PortableText
@@ -102,6 +102,7 @@ export default function QandAContainer({
                 })}
         </Stack>
         )}
+
         {page.isQuestion && (
           <Button
             data-cy="not-sure-button"
@@ -115,6 +116,6 @@ export default function QandAContainer({
         )}
 
       </Container>
-    </>
+    </Box>
   );
 }
