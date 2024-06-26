@@ -24,6 +24,16 @@ const LinkBehavior = forwardRef<HTMLAnchorElement, NextLinkProps>(
 );
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 360,
+      sm: 599,
+      md: 999,
+      lg: 1000,
+      xl: 1440,
+      xxl: 1600,
+    },
+  },
   spacing: 8,
   palette: {
     mode: 'light',
