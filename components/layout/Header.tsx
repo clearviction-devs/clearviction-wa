@@ -18,6 +18,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
+import EligibilityButton from '../helper/EligibilityButton.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 export default function Header() {
@@ -59,7 +60,7 @@ export default function Header() {
         <Button
           href="/calculator/head-initial-1-cont"
           variant="contained"
-          color="tertiary"
+          // color="tertiary"
           size="small"
           className="calc-btn"
           sx={{
@@ -90,7 +91,7 @@ export default function Header() {
     <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
       <Box
         sx={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 10.5,
         }}
       >
         <Box component="nav">
@@ -112,8 +113,6 @@ export default function Header() {
               sx={{
                 display: 'flex',
                 justifyContent: 'flex-start',
-                py: 1,
-                px: { md: 3, lg: 4 },
                 maxWidth: '1100px',
               }}
             >
@@ -129,7 +128,23 @@ export default function Header() {
                     size="small"
                     className="nav-list__item"
                     sx={{
-                      whiteSpace: 'nowrap', marginLeft: { md: 0 }, px: { md: 2, lg: 3 }, py: 1,
+                      whiteSpace: 'nowrap',
+                      marginLeft: { md: 0 },
+                      px: { md: 2, lg: 3 },
+                      py: 1,
+                      '&:hover': {
+                        color: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.primary.main,
+                      },
+                      '&:active': {
+                        color: theme.palette.text.light,
+                        backgroundColor: '#002138',
+                      },
+                      '&:focus': {
+                        color: theme.palette.text.light,
+                        backgroundColor: theme.palette.primary.dark,
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
                     }}
                   >
                     {item.text}
@@ -138,26 +153,10 @@ export default function Header() {
             </Box>
           )}
         </Box>
-        <NavigationLogo />
-        <Button
-          href="/calculator/head-initial-1-cont"
-          variant="contained"
-          color="tertiary"
-          size="small"
-          className="calc-btn"
-          aria-label="Access our eligibility calculator"
-          sx={{
-            whiteSpace: 'nowrap',
-            py: 1,
-            px: 3,
-            color: 'text.secondary',
-            '&:hover': {
-              backgroundColor: 'tertiary.light',
-            },
-          }}
-        >
-          Check Eligibility
-        </Button>
+        <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
+        <Box>
+          <EligibilityButton />
+        </Box>
       </Box>
     </AppBar>
   );

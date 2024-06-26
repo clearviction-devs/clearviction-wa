@@ -2,7 +2,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
   Button,
-  Grid, Typography,
+  Grid, ImageList, ImageListItem, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
@@ -10,6 +10,7 @@ import React from 'react';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
@@ -35,7 +36,7 @@ export default function Home() {
           <Grid container justifyContent="space-between" id={`${content.background.id}-main-grid`}>
             <Grid item xs={12} md={7}>
               <Typography
-                variant="h8"
+                variant="h2"
               >
                 {content.background.title}
               </Typography>
@@ -66,7 +67,7 @@ export default function Home() {
                   width: '100%',
                 }}
               >
-                <Typography variant="h7" align="center">{content.background.iconText}</Typography>
+                <Typography variant="headingCalculator" align="center">{content.background.iconText}</Typography>
                 <ImageContainer
                   src="/illustrations/3-percent.png"
                   width={200}
@@ -75,7 +76,7 @@ export default function Home() {
                   style={{ maxWidth: '100%', height: 'auto' }}
                   useImageDimensions
                 />
-                <Typography variant="h7" align="center">{content.background.iconText2}</Typography>
+                <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
               </Box>
             </Grid>
 
@@ -92,7 +93,8 @@ export default function Home() {
             <Grid container justifyContent="space-between">
               <Grid container xs={12} md={8} alignItems="center">
                 <Typography
-                  variant="h9"
+                  variant="h3"
+                  sx={{ fontWeight: 500 }}
                 >
                   {content.eligibilityCTA.title}
                 </Typography>
@@ -112,9 +114,9 @@ export default function Home() {
                     backgroundColor: '#003256',
                   }}
                 >
-                  Check your conviction
+                  <Typography variant="button" sx={{ textTransform: 'none' }}>Check your conviction</Typography>
                   <Box component="span" sx={{ ml: 1 }} />
-                  <ArrowForwardIcon />
+                  <ArrowForwardIcon sx={{ stroke: '#FFFEFC', strokeWidth: 1.5 }} />
                 </Button>
               </Grid>
             </Grid>
@@ -122,33 +124,29 @@ export default function Home() {
         </Grid>
 
         <SectionContainer>
-          <PlayCard backgroundColor="#003256" textColor="#FFFEFC" />
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <Typography variant="h2">How can we help you vacate a conviction?</Typography>
+            </Grid>
+            <Grid item xs={12} display="flex" justifyContent="center">
+              <ImageList sx={{ overflowX: 'auto', rowHeight: 'auto' }}>
+                <Grid container spacing={18} sx={{ flexWrap: 'nowrap' }}>
+                  {content.carousel.map((card) => (
+                    <Grid item key={card.title}>
+                      <PlayCard
+                        {...card}
+                        cardWidth={274}
+                        cardHeight={362}
+                        backgroundColor="#003256"
+                        textColor="#FFFEFC"
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+              </ImageList>
+            </Grid>
+          </Grid>
         </SectionContainer>
-
-        {/* {content.gridSections.map((section) => (
-          <SectionContainer key={section.id} id={section.id}>
-            <PaperSection
-              title={section.title}
-              subtitle={section.subtitle}
-              ctaLink={section.ctaLink}
-              ctaText={section.ctaText}
-              ariaLabels={{ ctaButton: section.ariaLabels?.ctaButton }}
-            >
-              <Grid container spacing={4} id={`${section.id}-main-grid`}>
-                {section.items.map((item) => (
-                  <GridItemCard
-                    key={item.id}
-                    xs={12}
-                    md={section.items.length % 2 ? 4 : 3}
-                    title={item.title}
-                    body={item.body}
-                    imgsrc={item.imgsrc}
-                  />
-                ))}
-              </Grid>
-            </PaperSection>
-          </SectionContainer>
-        ))} */}
 
         <SectionContainer id="faq">
           <PaperSection title="FAQ">

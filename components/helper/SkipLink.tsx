@@ -22,7 +22,7 @@ interface Props extends ButtonProps {
 
 export default function SkipLink({ skipTo }: Props) {
   return (
-    <Button sx={styles} href={skipTo} variant="contained" color="neutral">
+    <Button sx={styles} href={skipTo} variant="contained">
       Skip to Content
     </Button>
   );
