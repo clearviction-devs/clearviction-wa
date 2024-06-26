@@ -40,10 +40,6 @@ export interface StaticCalcProps {
           };
         };
       };
-      errorReportingForm: {
-        linkText: string;
-        errorReportingFormUrl: string;
-      };
       notSureAnswer: {
         header: string;
         promptText: string;
@@ -54,14 +50,10 @@ export interface StaticCalcProps {
   }
 
 export interface SharedCalcProps {
-    isFirstPage: () => boolean;
     // eslint-disable-next-line no-unused-vars
     addToResponses: (answer: string) => void;
     openNotSurePopup: boolean;
     setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>
-    openSharePopup: boolean;
-    setOpenSharePopup: React.Dispatch<React.SetStateAction<boolean>>;
-    calcFirstPageUrl: string;
     handleCloseResults: () => void;
     setShowResults: React.Dispatch<React.SetStateAction<boolean>>;
   }

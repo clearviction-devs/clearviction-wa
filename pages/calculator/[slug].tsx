@@ -7,8 +7,8 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 
 import CalcHeader from '../../components/calculator/CalcHeader.tsx';
-import FinalPageLinksContainer, { ShareCalcContainer } from '../../components/calculator/CTAContainers.tsx';
-import NotSurePopup, { ShareCalculatorPopup } from '../../components/calculator/PopupContainers.tsx';
+import FinalPageLinksContainer from '../../components/calculator/CTAContainers.tsx';
+import NotSurePopup from '../../components/calculator/PopupContainers.tsx';
 import QandAContainer from '../../components/calculator/QandAContainer.tsx';
 import Results from '../../components/calculator/Results.tsx';
 import ResultsDownloadContainer from '../../components/calculator/ResultsDownloadContainer.tsx';
@@ -24,12 +24,9 @@ import {
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
   // all state and functions here are shared between multiple secondary components
   const [openNotSurePopup, setOpenNotSurePopup] = useState(false);
-  const [openSharePopup, setOpenSharePopup] = useState(false);
   const [responseObject, setResponseObject] = useState({});
   const [showResults, setShowResults] = useState(false);
 
-  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
-  const isFirstPage = () => page.slug === 'head-initial-1-cont';
   const contentRef = useRef<HTMLDivElement>(null);
 
   const addToResponses = (answer: string) => {
@@ -93,8 +90,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
             <>
               <FinalPageLinksContainer
                 calculatorConfig={calculatorConfig}
-                setOpenSharePopup={setOpenSharePopup}
-                calcFirstPageUrl={calcFirstPageUrl}
               />
               <Box
                 maxWidth="60ch"
@@ -134,23 +129,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         openNotSurePopup={openNotSurePopup}
         setOpenNotSurePopup={setOpenNotSurePopup}
       />
-
-      <ShareCalculatorPopup
-        openSharePopup={openSharePopup}
-        setOpenSharePopup={setOpenSharePopup}
-      />
-
-      <Box sx={{ mb: '1.875rem' }}>
-        {
-          isFirstPage() && (
-            <ShareCalcContainer
-              setOpenSharePopup={setOpenSharePopup}
-              calcFirstPageUrl={calcFirstPageUrl}
-              justify
-            />
-          )
-        }
-      </Box>
 
     </>
   );
