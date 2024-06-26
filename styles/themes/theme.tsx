@@ -1,5 +1,5 @@
 import { LinkProps } from '@mui/material/Link';
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 // eslint-disable-next-line camelcase
 import { Open_Sans, Poppins } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
@@ -245,6 +245,7 @@ theme.components = {
   },
 };
 
-const responsiveTheme = responsiveFontSizes(theme);
+// const responsiveTheme = responsiveFontSizes(theme);
 
-export default responsiveTheme;
+// export default responsiveTheme;
+export default theme;

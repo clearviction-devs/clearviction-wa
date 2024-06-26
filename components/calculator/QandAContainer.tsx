@@ -1,7 +1,7 @@
 import {
   Box, Button, Container, Stack,
 } from '@mui/material';
-import BlockContent from '@sanity/block-content-to-react';
+import { PortableText } from '@portabletext/react';
 import React, { useMemo } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
@@ -57,9 +57,9 @@ export default function QandAContainer({
         <Box data-cy="calc-block-of-content" mb={4}>
           {
             page.content && (
-            <BlockContent
-              blocks={page.content}
-              serializers={portableTextComponent}
+            <PortableText
+              value={page.content}
+              components={portableTextComponent}
             />
             )
           }

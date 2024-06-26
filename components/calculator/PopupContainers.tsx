@@ -3,7 +3,7 @@ import {
   Button,
   Dialog, DialogActions, DialogContent, DialogTitle,
 } from '@mui/material';
-import BlockContent from '@sanity/block-content-to-react';
+import { PortableText } from '@portabletext/react';
 import React, { useState } from 'react';
 
 import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
@@ -27,9 +27,9 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
         {calculatorConfig.notSureAnswer.header}
       </DialogTitle>
       <DialogContent>
-        <BlockContent
-          blocks={calculatorConfig.notSureAnswer.content}
-          serializers={portableTextComponent}
+        <PortableText
+          value={calculatorConfig.notSureAnswer.content}
+          components={portableTextComponent}
         />
       </DialogContent>
       <DialogActions>
