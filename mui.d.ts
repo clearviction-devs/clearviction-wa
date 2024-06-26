@@ -3,6 +3,7 @@ import '@mui/material/styles';
 
 import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
 
+
 declare module '@mui/material/styles/createPalette' {
   interface TypeText {
     light?: string

@@ -28,7 +28,6 @@ export default function Home() {
       />
 
       <main>
-
         <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
 
         <SectionContainer>
