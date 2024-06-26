@@ -2,7 +2,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
   Button,
-  Grid, ImageList, Typography,
+  Grid, ImageList, ImageListItem, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
@@ -44,6 +44,8 @@ export default function Home() {
               <br />
               <br />
               <MuiMarkdown>{content.background.body2}</MuiMarkdown>
+              <br />
+              <br />
             </Grid>
             <Grid
               item
@@ -61,6 +63,7 @@ export default function Home() {
                   bgcolor: '#003256',
                   color: '#FFFEFC',
                   paddingY: 4,
+                  height: 364,
                   maxWidth: 312,
                   width: '100%',
                 }}
@@ -71,7 +74,6 @@ export default function Home() {
                   width={200}
                   height={120}
                   alt=""
-                  style={{ maxWidth: '100%', height: 'auto' }}
                   useImageDimensions
                 />
                 <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
@@ -88,8 +90,8 @@ export default function Home() {
           }}
         >
           <SectionContainer>
-            <Grid container justifyContent="space-between">
-              <Grid container xs={12} md={8} alignItems="center">
+            <Grid container justifyContent="space-between" alignItems="center">
+              <Grid container xs={12} md={8}>
                 <Typography
                   variant="h3"
                   sx={{ fontWeight: 500 }}
@@ -97,7 +99,7 @@ export default function Home() {
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid container xs={12} md={4}>
+              <Grid container xs={12} md={4} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, mt: { xs: 2, md: 0 } }}>
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
@@ -112,7 +114,7 @@ export default function Home() {
                     backgroundColor: '#003256',
                   }}
                 >
-                  <Typography variant="button" sx={{ textTransform: 'none' }}>Check your conviction</Typography>
+                  <Typography variant="button" sx={{ textTransform: 'none' }}>{content.eligibilityCTA.ctaButton}</Typography>
                   <Box component="span" sx={{ ml: 1 }} />
                   <ArrowForwardIcon sx={{ stroke: '#FFFEFC', strokeWidth: 1.5 }} />
                 </Button>
@@ -123,14 +125,25 @@ export default function Home() {
 
         <SectionContainer>
           <Grid container spacing={4}>
-            <Grid item xs={12}>
+            <Grid item xs={12} textAlign={{ xs: 'center', sm: 'left' }}>
               <Typography variant="h2">How can we help you vacate a conviction?</Typography>
             </Grid>
-            <Grid item xs={12} display="flex" justifyContent="center">
-              <ImageList sx={{ overflowX: 'auto', rowHeight: 'auto' }}>
-                <Grid container spacing={18} sx={{ flexWrap: 'nowrap' }}>
+            <Grid item xs={12}>
+              <ImageList sx={{
+                overflowX: 'auto', rowHeight: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%',
+              }}
+              >
+                <ImageListItem sx={{
+                  display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'nowrap', width: '100%',
+                }}
+                >
                   {content.carousel.map((card) => (
-                    <Grid item key={card.title}>
+                    <Box
+                      key={card.title}
+                      sx={{
+                        flex: '1 1 0', minWidth: 274, maxWidth: 274, marginRight: '32px',
+                      }}
+                    >
                       <PlayCard
                         {...card}
                         cardWidth={274}
@@ -138,9 +151,9 @@ export default function Home() {
                         backgroundColor="#003256"
                         textColor="#FFFEFC"
                       />
-                    </Grid>
+                    </Box>
                   ))}
-                </Grid>
+                </ImageListItem>
               </ImageList>
             </Grid>
           </Grid>
