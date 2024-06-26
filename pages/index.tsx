@@ -13,6 +13,7 @@ import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
+import PlayCard from '../components/layout/PlayCard.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
 
@@ -119,6 +120,10 @@ export default function Home() {
             </Grid>
           </SectionContainer>
         </Grid>
+
+        <SectionContainer>
+          <PlayCard backgroundColor="#003256" textColor="#FFFEFC" />
+        </SectionContainer>
 
         {/* {content.gridSections.map((section) => (
           <SectionContainer key={section.id} id={section.id}>

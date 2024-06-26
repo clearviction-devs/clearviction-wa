@@ -1,5 +1,6 @@
 import {
-  FAQ, GridSection, Header, MetaPageHead,
+  FAQ, GridSection, Header, HomePlayCards,
+  MetaPageHead,
 } from './content.types.ts';
 
 interface HomeContent {
@@ -24,6 +25,7 @@ interface HomeContent {
     title: string;
     ctaButton: string;
   }
+  carousel: HomePlayCards[];
   // gridSections: GridSection[];
   faqs: FAQ[];
 }
@@ -61,6 +63,23 @@ const content: HomeContent = {
     title: 'Are you one of the 97% of people eligible to vacate?',
     ctaButton: 'Check your conviction',
   },
+  carousel: [
+    {
+      title: 'Step 1',
+      details: 'Gather all the documentation you have regarding your conviction. That includes previous records and all other legal documents.',
+      ctaButton: 'Learn more',
+    },
+    {
+      title: 'Step 2',
+      details: 'Use the Eligibility Tool  to determine your eligibility to vacate your misdemeanor or felony conviction by answering a few yes or no questions.',
+      ctaButton: 'Check eligibility',
+    },
+    {
+      title: 'Step 3',
+      details: 'We help you explore what comes after your eligibility is determined.',
+      ctaButton: 'Learn more',
+    },
+  ],
   // gridSections: [
   //   {
   //     id: 'how-it-works',
