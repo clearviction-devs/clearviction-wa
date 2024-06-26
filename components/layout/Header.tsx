@@ -10,6 +10,8 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -25,6 +27,14 @@ export default function Header() {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleMenuHover = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -124,34 +134,48 @@ export default function Header() {
             >
               {navItems
                 .map((item) => (
-                  <Button
-                    key={item.text}
-                    href={item.href}
-                    aria-label={`${item.text.toLowerCase()}`}
-                    size="small"
-                    className="nav-list__item"
-                    sx={{
-                      whiteSpace: 'nowrap',
-                      marginLeft: { md: 0 },
-                      px: { md: 2, lg: 3 },
-                      py: 1,
-                      '&:hover': {
-                        color: theme.palette.text.secondary,
-                        backgroundColor: theme.palette.primary.main,
-                      },
-                      '&:active': {
-                        color: theme.palette.text.light,
-                        backgroundColor: '#002138',
-                      },
-                      '&:focus': {
-                        color: theme.palette.text.light,
-                        backgroundColor: theme.palette.primary.dark,
-                        boxShadow: '0 0 0 4px #0000EE99',
-                      },
-                    }}
-                  >
-                    {item.text}
-                  </Button>
+                  <>
+                    <Button
+                      key={item.text}
+                      href={item.href}
+                      aria-label={`${item.text.toLowerCase()}`}
+                      size="small"
+                      className="nav-list__item"
+                      onMouseOver={handleMenuHover}
+                      sx={{
+                        whiteSpace: 'nowrap',
+                        marginLeft: { md: 0 },
+                        px: { md: 2, lg: 3 },
+                        py: 1,
+                        '&:hover': {
+                          color: theme.palette.text.secondary,
+                          backgroundColor: theme.palette.primary.main,
+                        },
+                        '&:active': {
+                          color: theme.palette.text.light,
+                          backgroundColor: '#002138',
+                        },
+                        '&:focus': {
+                          color: theme.palette.text.light,
+                          backgroundColor: theme.palette.primary.dark,
+                          boxShadow: '0 0 0 4px #0000EE99',
+                        },
+                      }}
+                    >
+                      {item.text}
+                    </Button>
+                    <Menu
+                      id="basic-menu"
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleMenuClose}
+                      MenuListProps={{ onMouseLeave: handleMenuClose }}
+                    >
+                      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+                      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+                    </Menu>
+                  </>
                 ))}
             </Box>
           )}
