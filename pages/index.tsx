@@ -74,6 +74,7 @@ export default function Home() {
                   width={200}
                   height={120}
                   alt=""
+                  style={{ width: 200, height: 'auto' }}
                   useImageDimensions
                 />
                 <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
@@ -91,15 +92,15 @@ export default function Home() {
         >
           <SectionContainer>
             <Grid container justifyContent="space-between" alignItems="center">
-              <Grid container xs={12} md={8}>
+              <Grid item xs={12} md={8}>
                 <Typography
                   variant="h3"
-                  sx={{ fontWeight: 500 }}
+                  sx={{ fontWeight: 500, textAlign: { xs: 'center', md: 'left' } }}
                 >
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid container xs={12} md={4} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, mt: { xs: 2, md: 0 } }}>
+              <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, mt: { xs: 2, md: 0 } }}>
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
