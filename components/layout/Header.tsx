@@ -1,20 +1,11 @@
-import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
   Button,
-  Drawer,
-  Grid,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
@@ -25,67 +16,11 @@ export default function Header() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setDrawerOpen(!drawerOpen);
   };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ flexGrow: 1 }}>
-      <Grid item xs={12} sx={{ textAlign: 'right', mr: 0.5 }}>
-        <IconButton
-          color="inherit"
-          aria-label="Close navigation"
-        >
-          <CloseIcon fontSize="large" />
-        </IconButton>
-      </Grid>
-      <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
-        {navItems
-          .filter(
-            (item) => item.text !== 'Access Calculator',
-          )
-          .map((item) => (
-            <ListItem key={item.text}>
-              <ListItemButton
-                component={Link}
-                href={item.href}
-                sx={{ textAlign: 'center', px: 5 }}
-              >
-                <ListItemText primary={item.text} sx={{ my: 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        <Button
-          href="/calculator/head-initial-1-cont"
-          variant="contained"
-          // color="tertiary"
-          size="small"
-          className="calc-btn"
-          sx={{
-            whiteSpace: 'nowrap', py: 1, width: '80%', mt: 3,
-          }}
-          aria-label="Access our eligibility calculator"
-        >
-          <Typography variant="body2" sx={{ fontSize: '12px' }}>
-            Access Calculator
-          </Typography>
-        </Button>
-        <ListItem key="disclaimer">
-          <Typography
-            variant="caption"
-            sx={{
-              mt: 3, mb: 2, px: 2, textAlign: 'center',
-            }}
-          >
-            The information on this site is not, nor should it be considered
-            legal advice.
-          </Typography>
-        </ListItem>
-      </List>
-    </Box>
-  );
 
   return (
     <AppBar id="main-header" className="nav-desktop" color="primary" elevation={0} component="nav" position="sticky">
@@ -94,26 +29,26 @@ export default function Header() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 10.5,
         }}
       >
-        <Box component="nav">
-          <Drawer
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{ keepMounted: true }}
-            sx={{
-              display: { xs: 'block', md: 'none' },
-              textAlign: 'center',
-            }}
-            anchor="right"
-          >
-            {drawer}
-          </Drawer>
+        <Box component="nav" sx={{ width: '100%' }}>
+          {matches && (
+            <Box id="box1" sx={{ display: 'flex', width: '100%' }}>
+              <MenuIcon
+                sx={{
+                  color: theme.palette.text.light, marginLeft: 'auto',
+                }}
+                fontSize="large"
+                onClick={handleDrawerToggle}
+              />
+            </Box>
+          )}
           {!matches && (
             <Box
               className="desktop-nav-list"
               sx={{
                 display: 'flex',
                 justifyContent: 'flex-start',
-                maxWidth: '1100px',
+                width: '450px',
+                paddingRight: '32px',
               }}
             >
               {navItems
