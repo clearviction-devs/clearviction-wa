@@ -10,8 +10,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Menu,
-  MenuItem,
+  Tooltip,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -27,14 +26,6 @@ export default function Header() {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const handleMenuHover = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -58,36 +49,32 @@ export default function Header() {
         </IconButton>
       </Box>
       <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
-        {navItems
-          .map(({ href, text, sublist }) => (
-            <>
-              <ListItem key={text}>
-                <ListItemButton
-                  component={Link}
-                  href={href}
-                >
-                  <ListItemText
-                    primary={text}
-                    primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
-                  />
-                </ListItemButton>
-              </ListItem>
-              <List sx={{ paddingLeft: '32px' }}>
-                {sublist?.map((item) => (
-                  <ListItem key={item} disablePadding>
-                    <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
-                      <ListItemText
-                        primary={item}
-                        primaryTypographyProps={{
-                          style: { fontSize: '16px', fontWeight: '500' },
-                        }}
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </>
-          ))}
+        {navItems.map(({ href, text, sublist }) => (
+          <div key={text}>
+            <ListItem>
+              <ListItemButton component={Link} href={href}>
+                <ListItemText
+                  primary={text}
+                  primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
+                />
+              </ListItemButton>
+            </ListItem>
+            <List sx={{ paddingLeft: '32px' }}>
+              {sublist?.map((item) => (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
+                    <ListItemText
+                      primary={item}
+                      primaryTypographyProps={{
+                        style: { fontSize: '16px', fontWeight: '500' },
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </div>
+        ))}
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <EligibilityButton />
         </Box>
@@ -132,51 +119,37 @@ export default function Header() {
                 paddingRight: '32px',
               }}
             >
-              {navItems
-                .map((item) => (
-                  <>
-                    <Button
-                      key={item.text}
-                      href={item.href}
-                      aria-label={`${item.text.toLowerCase()}`}
-                      size="small"
-                      className="nav-list__item"
-                      onMouseOver={handleMenuHover}
-                      sx={{
-                        whiteSpace: 'nowrap',
-                        marginLeft: { md: 0 },
-                        px: { md: 2, lg: 3 },
-                        py: 1,
-                        '&:hover': {
-                          color: theme.palette.text.secondary,
-                          backgroundColor: theme.palette.primary.main,
-                        },
-                        '&:active': {
-                          color: theme.palette.text.light,
-                          backgroundColor: '#002138',
-                        },
-                        '&:focus': {
-                          color: theme.palette.text.light,
-                          backgroundColor: theme.palette.primary.dark,
-                          boxShadow: '0 0 0 4px #0000EE99',
-                        },
-                      }}
-                    >
-                      {item.text}
-                    </Button>
-                    <Menu
-                      id="basic-menu"
-                      anchorEl={anchorEl}
-                      open={Boolean(anchorEl)}
-                      onClose={handleMenuClose}
-                      MenuListProps={{ onMouseLeave: handleMenuClose }}
-                    >
-                      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-                      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
-                    </Menu>
-                  </>
-                ))}
+              {navItems.map((item) => (
+                <Tooltip key={item.text} title={item.sublist?.join(', ') || ''} placement="bottom-start">
+                  <Button
+                    component={Link}
+                    href={item.href}
+                    size="small"
+                    className="nav-list__item"
+                    sx={{
+                      whiteSpace: 'nowrap',
+                      marginLeft: { md: 0 },
+                      px: { md: 2, lg: 3 },
+                      py: 1,
+                      '&:hover': {
+                        color: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.primary.main,
+                      },
+                      '&:active': {
+                        color: theme.palette.text.light,
+                        backgroundColor: '#002138',
+                      },
+                      '&:focus': {
+                        color: theme.palette.text.light,
+                        backgroundColor: theme.palette.primary.dark,
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                </Tooltip>
+              ))}
             </Box>
           )}
         </Box>
