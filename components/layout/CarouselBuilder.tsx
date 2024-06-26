@@ -1,20 +1,19 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import React from 'react';
-import Slider from 'react-slick';
 
 import PlayCard from './PlayCard.tsx';
 
-const settings = {
-  dots: true,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 3,
-  initialSlide: 0,
-};
+// const settings = {
+//   dots: true,
+//   infinite: false,
+//   speed: 500,
+//   slidesToShow: 1,
+//   slidesToScroll: 3,
+//   initialSlide: 0,
+// };
 
 interface Card {
   title: string;

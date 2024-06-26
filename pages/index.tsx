@@ -2,7 +2,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
   Button,
-  Grid, ImageList, ImageListItem, Typography,
+  Grid, ImageList, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
@@ -10,7 +10,6 @@ import React from 'react';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
-import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PaperSection from '../components/layout/PaperSection.tsx';
