@@ -154,9 +154,11 @@ export default function Header() {
           )}
         </Box>
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
-        <Box>
-          <EligibilityButton />
-        </Box>
+        {!matches && (
+          <Box>
+            <EligibilityButton />
+          </Box>
+        )}
       </Box>
     </AppBar>
   );

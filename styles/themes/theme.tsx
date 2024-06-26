@@ -27,11 +27,10 @@ const theme = createTheme({
   breakpoints: {
     values: {
       xs: 360,
-      sm: 599,
-      md: 999,
-      lg: 1000,
-      xl: 1440,
-      xxl: 1600,
+      sm: 600,
+      md: 1000,
+      lg: 1440,
+      xl: 1600,
     },
   },
   spacing: 8,
