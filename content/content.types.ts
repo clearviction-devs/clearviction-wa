@@ -50,6 +50,7 @@ export interface Info {
 export interface NavItem {
     href: string;
     text: string;
+    sublist?: string[];
 }
 
 export interface Button {

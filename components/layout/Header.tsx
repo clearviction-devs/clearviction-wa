@@ -1,17 +1,15 @@
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import CloseIcon from '@mui/icons-material/Close';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
   Button,
   Drawer,
-  Grid,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -19,6 +17,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
+import EligibilityButton from '../helper/EligibilityButton.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 interface HeaderProps {
@@ -29,64 +28,63 @@ export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setDrawerOpen(!drawerOpen);
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ flexGrow: 1 }}>
-      <Grid item xs={12} sx={{ textAlign: 'right', mr: 0.5 }}>
+    <Box onClick={handleDrawerToggle}>
+      <Box>
         <IconButton
-          color="inherit"
           aria-label="Close navigation"
+          sx={{
+            marginRight: 'auto',
+          }}
         >
-          <CloseIcon fontSize="large" />
+          <ArrowForwardIosIcon
+            fontSize="large"
+            sx={{
+              color: theme.palette.text.light,
+            }}
+          />
         </IconButton>
-      </Grid>
+      </Box>
       <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
         {navItems
-          .filter(
-            (item) => item.text !== 'Access Calculator',
-          )
-          .map((item) => (
-            <ListItem key={item.text}>
-              <ListItemButton
-                component={Link}
-                href={item.href}
-                sx={{ textAlign: 'center', px: 5 }}
-              >
-                <ListItemText primary={item.text} sx={{ my: 0 }} />
-              </ListItemButton>
-            </ListItem>
+          .map(({ href, text, sublist }) => (
+            <>
+              <ListItem key={text}>
+                <ListItemButton
+                  component={Link}
+                  href={href}
+                >
+                  <ListItemText
+                    primary={text}
+                    primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
+                  />
+                </ListItemButton>
+              </ListItem>
+              <List sx={{ paddingLeft: '32px' }}>
+                {sublist?.map((item) => (
+                  <ListItem key={item} disablePadding>
+                    <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
+                      <ListItemText
+                        primary={item}
+                        primaryTypographyProps={{
+                          style: { fontSize: '16px', fontWeight: '500' },
+                        }}
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </>
           ))}
-        <Button
-          href="/calculator/head-initial-1-cont"
-          variant="contained"
-          color="tertiary"
-          size="small"
-          className="calc-btn"
-          sx={{
-            whiteSpace: 'nowrap', py: 1, width: '80%', mt: 3,
-          }}
-          aria-label="Access our eligibility calculator"
-        >
-          <Typography variant="body2" sx={{ fontSize: '12px' }}>
-            Access Calculator
-          </Typography>
-        </Button>
-        <ListItem key="disclaimer">
-          <Typography
-            variant="caption"
-            sx={{
-              mt: 3, mb: 2, px: 2, textAlign: 'center',
-            }}
-          >
-            The information on this site is not, nor should it be considered
-            legal advice.
-          </Typography>
-        </ListItem>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <EligibilityButton />
+        </Box>
       </List>
     </Box>
   );
@@ -94,36 +92,41 @@ export default function Header({ isCalc }: HeaderProps) {
   return (
     <AppBar id="main-header" className="nav-desktop" color={isCalc ? 'secondary' : 'primary'} elevation={0} component="nav" position="sticky">
       <Box
+        component="nav"
         sx={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 10.5,
         }}
       >
-        <Box component="nav">
-          <Drawer
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{ keepMounted: true }}
-            sx={{
-              display: { xs: 'block', md: 'none' },
-              textAlign: 'center',
-            }}
-            anchor="right"
-          >
-            {drawer}
-          </Drawer>
+        <Drawer
+          open={drawerOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{ keepMounted: true }}
+          anchor="right"
+        >
+          {drawer}
+        </Drawer>
+        <Box sx={{ width: '100%' }}>
+          {matches && (
+            <IconButton aria-label="open sidebar menu" onClick={handleDrawerToggle} sx={{ display: 'flex', width: '100%' }}>
+              <MenuIcon
+                sx={{
+                  color: theme.palette.text.light, marginLeft: 'auto',
+                }}
+                fontSize="large"
+              />
+            </IconButton>
+          )}
           {!matches && (
             <Box
               className="desktop-nav-list"
               sx={{
                 display: 'flex',
                 justifyContent: 'flex-start',
-                maxWidth: '1100px',
+                width: '450px',
+                paddingRight: '32px',
               }}
             >
               {navItems
-                .filter(
-                  (item) => item.text !== 'Access Calculator' && item.text !== 'Donate',
-                )
                 .map((item) => (
                   <Button
                     key={item.text}
@@ -158,36 +161,11 @@ export default function Header({ isCalc }: HeaderProps) {
           )}
         </Box>
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
-        <Box>
-          <Button
-            href="/calculator/head-initial-1-cont"
-            variant="contained"
-            color="tertiary"
-            size="small"
-            className="calc-btn"
-            aria-label="Access our eligibility calculator"
-            sx={{
-              whiteSpace: 'nowrap',
-              py: 1,
-              px: 3,
-              color: 'text.secondary',
-              '&:hover': {
-                backgroundColor: 'tertiary.light',
-              },
-              '&:active': {
-                backgroundColor: '#FF5F40',
-              },
-              '&:focus': {
-                backgroundColor: 'tertiary',
-                boxShadow: '0 0 0 4px #0000EE99',
-              },
-            }}
-          >
-            Check Eligibility
-            <ArrowForwardIcon />
-          </Button>
-
-        </Box>
+        {!matches && (
+          <Box>
+            <EligibilityButton />
+          </Box>
+        )}
       </Box>
     </AppBar>
   );

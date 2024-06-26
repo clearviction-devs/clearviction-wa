@@ -1,15 +1,49 @@
-import Image from 'next/image';
+import {
+  Box,
+  Container,
+  SxProps,
+  Typography,
+} from '@mui/material';
 import React from 'react';
 
-export default function HeroBanner() {
+import EligibilityButton from '../helper/EligibilityButton.tsx';
+
+interface HeroBannerProps {
+  header: string;
+  overrideStyles?: SxProps;
+}
+
+const heroStyles: SxProps = {
+  backgroundImage: 'url(/illustrations/h1-home-desktop.png)',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  color: 'primary.contrastText',
+  width: '100%',
+  height: '100vh',
+  py: {
+    xs: 0.5,
+    md: 8,
+  },
+};
+
+export default function HeroBanner({
+  header,
+  overrideStyles,
+}: HeroBannerProps) {
   return (
-    <Image
-      src="/illustrations/h1-home-desktop.png"
-      width={0}
-      height={0}
-      sizes="100vw"
-      alt="h1 home image"
-      style={{ width: '100%', height: 'auto' }}
-    />
+    <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
+      <Container>
+        <Typography
+          className="hero-title"
+          variant="h1"
+          sx={{
+            display: 'flex', color: 'text.light', justifyContent: 'center', paddingTop: '320px', paddingBottom: '32px',
+          }}
+        >
+          {header}
+        </Typography>
+        <EligibilityButton />
+      </Container>
+    </Box>
   );
 }

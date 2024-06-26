@@ -24,7 +24,7 @@ interface HomeContent {
     title: string;
     ctaButton: string;
   }
-  // gridSections: GridSection[];
+  gridSections: GridSection[];
   faqs: FAQ[];
 }
 
@@ -34,7 +34,7 @@ const content: HomeContent = {
     content: 'Washington Law allows for vacation of select criminal records. Our free tools help individuals assess their eligibility for a fresh start.',
   },
   heroBanner: {
-    header: 'Check your eligibility to vacate a Washington State conviction',
+    header: 'Check if your WA state conviction can be vacated by answering a few questions.',
     subheading: 'Our free eligibility calculator can check if your conviction qualifies for vacation in less than 10 minutes.',
     ctaLink: '/calculator/head-initial-1-cont',
     ctaText: 'Access Calculator',
@@ -61,71 +61,71 @@ const content: HomeContent = {
     title: 'Are you one of the 97% of people eligible to vacate?',
     ctaButton: 'Check your conviction',
   },
-  // gridSections: [
-  //   {
-  //     id: 'how-it-works',
-  //     title: 'How it works',
-  //     ctaLink: '/get-started',
-  //     ctaText: 'Get started',
-  //     ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
-  //     items: [
-  //       {
-  //         id: 'how-it-works-item1',
-  //         body: 'We break down the laws into understandable language.',
-  //         imgsrc: '/illustrations/teamwork.svg',
-  //       },
-  //       {
-  //         id: 'how-it-works-item2',
-  //         body: 'You answer a few simple yes/no questions.',
-  //         imgsrc: '/illustrations/checklist.svg',
-  //       },
-  //       {
-  //         id: 'how-it-works-item3',
-  //         body: 'This helps determine your vacation eligibility in Washington.',
-  //         imgsrc: '/illustrations/teamwork-2.svg',
-  //       },
-  //       {
-  //         id: 'how-it-works-item4',
-  //         body: 'We help you explore what comes after determining your vacation eligibility.',
-  //         imgsrc: '/illustrations/chart.svg',
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     id: 'why-vacate',
-  //     title: 'Why Vacate?',
-  //     ctaLink: '/get-started',
-  //     ctaText: 'Get started',
-  //     subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
-  //     ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
-  //     items: [
-  //       {
-  //         id: 'why-vacate-item1',
-  //         title: 'Housing',
-  //         body: 'Make it easier to find and be approved for rent or purchasing a home.',
-  //         imgsrc: '/illustrations/city-buildings.svg',
-  //       },
-  //       {
-  //         id: 'why-vacate-item2',
-  //         title: 'Employment',
-  //         body: 'Reduce barriers to finding and obtaining employment.',
-  //         imgsrc: '/illustrations/employment.svg',
-  //       },
-  //       {
-  //         id: 'why-vacate-item3',
-  //         title: 'Education',
-  //         body: 'Apply for scholarships, programs, degrees, or certificates.',
-  //         imgsrc: '/illustrations/graduation.svg',
-  //       },
-  //       {
-  //         id: 'why-vacate-item4',
-  //         title: 'Government Assistance',
-  //         body: 'Receive government help and support.',
-  //         imgsrc: '/illustrations/lawyer.svg',
-  //       },
-  //     ],
-  //   },
-  // ],
+  gridSections: [
+    {
+      id: 'how-it-works',
+      title: 'How it works',
+      ctaLink: '/get-started',
+      ctaText: 'Get started',
+      ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
+      items: [
+        {
+          id: 'how-it-works-item1',
+          body: 'We break down the laws into understandable language.',
+          imgsrc: '/illustrations/teamwork.svg',
+        },
+        {
+          id: 'how-it-works-item2',
+          body: 'You answer a few simple yes/no questions.',
+          imgsrc: '/illustrations/checklist.svg',
+        },
+        {
+          id: 'how-it-works-item3',
+          body: 'This helps determine your vacation eligibility in Washington.',
+          imgsrc: '/illustrations/teamwork-2.svg',
+        },
+        {
+          id: 'how-it-works-item4',
+          body: 'We help you explore what comes after determining your vacation eligibility.',
+          imgsrc: '/illustrations/chart.svg',
+        },
+      ],
+    },
+    {
+      id: 'why-vacate',
+      title: 'Why Vacate?',
+      ctaLink: '/get-started',
+      ctaText: 'Get started',
+      subtitle: 'A conviction vacation seals the offense from your record, giving you a better chance at access to:',
+      ariaLabels: { ctaButton: 'Get started with the eligibilty calculator' },
+      items: [
+        {
+          id: 'why-vacate-item1',
+          title: 'Housing',
+          body: 'Make it easier to find and be approved for rent or purchasing a home.',
+          imgsrc: '/illustrations/city-buildings.svg',
+        },
+        {
+          id: 'why-vacate-item2',
+          title: 'Employment',
+          body: 'Reduce barriers to finding and obtaining employment.',
+          imgsrc: '/illustrations/employment.svg',
+        },
+        {
+          id: 'why-vacate-item3',
+          title: 'Education',
+          body: 'Apply for scholarships, programs, degrees, or certificates.',
+          imgsrc: '/illustrations/graduation.svg',
+        },
+        {
+          id: 'why-vacate-item4',
+          title: 'Government Assistance',
+          body: 'Receive government help and support.',
+          imgsrc: '/illustrations/lawyer.svg',
+        },
+      ],
+    },
+  ],
   faqs: [
     {
       id: 'faq0',
