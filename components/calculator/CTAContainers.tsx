@@ -3,6 +3,7 @@ import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 import { StaticCalcProps } from '../../utils/calculator.props.ts';
+import { CalculatorButton } from '../helper/EligibilityButton.tsx';
 
 export default function FinalPageLinksContainer({
   calculatorConfig,
@@ -15,10 +16,12 @@ export default function FinalPageLinksContainer({
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        // width: '360px',
+        justifyContent: 'flex-start',
+        width: '360px',
       }}
     >
-      <Button variant="contained" href="/resources" sx={{ backgroundColor: theme.palette.secondary.dark }}>See more resources</Button>
+      {/* invalid placeholder url */}
+      <CalculatorButton href="/file-with-the-court" hasArrow>See more resources </CalculatorButton>
 
       <Button
         variant="text"

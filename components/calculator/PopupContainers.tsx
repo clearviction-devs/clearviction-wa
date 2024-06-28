@@ -21,16 +21,30 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
       aria-describedby="alert-dialog-description"
       data-cy="not-sure-popup"
     >
-      <DialogTitle id="alert-dialog-title">
+      <DialogTitle
+        id="alert-dialog-title"
+        sx={{
+          backgroundColor: 'secondary.dark',
+          color: 'text.light',
+        }}
+      >
         {calculatorConfig.notSureAnswer.header}
       </DialogTitle>
-      <DialogContent>
+      <DialogContent sx={{
+        backgroundColor: 'secondary.dark',
+        color: 'text.light',
+      }}
+      >
         <PortableText
           value={calculatorConfig.notSureAnswer.content}
           components={portableTextComponent}
         />
       </DialogContent>
-      <DialogActions>
+      <DialogActions sx={{
+        backgroundColor: 'secondary.dark',
+        color: 'text.light',
+      }}
+      >
         <Button onClick={() => setOpenNotSurePopup(false)} data-cy="not-sure-pop-up-close" sx={{ backgroundColor: 'secondary.dark' }}>
           {calculatorConfig.notSureAnswer.closeText}
         </Button>

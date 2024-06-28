@@ -33,3 +33,42 @@ export default function EligibilityButton() {
     </Button>
   );
 }
+
+export function CalculatorButton({
+  href, hasArrow, children, handleClick,
+}: {
+  href?: string,
+  hasArrow?: boolean,
+  children?: React.ReactNode,
+  handleClick?: () => void,
+}) {
+  return (
+    <Button
+      href={href}
+      variant="contained"
+      size="small"
+      sx={{
+        whiteSpace: 'nowrap',
+        py: 1,
+        px: 3,
+        color: 'text.light',
+        backgroundColor: 'secondary.dark',
+        '&:hover': {
+          color: 'text.secondary',
+          backgroundColor: 'secondary.main',
+        },
+        '&:active': {
+          backgroundColor: 'secondary.variant',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 4px #0000EE99',
+        },
+        boxShadow: 'none',
+      }}
+      onClick={handleClick}
+    >
+      { children }
+      { hasArrow && <ArrowForwardIcon /> }
+    </Button>
+  );
+}

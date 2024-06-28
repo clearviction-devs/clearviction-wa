@@ -69,12 +69,13 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
       <Container
         ref={contentRef}
         component={Container}
-        maxWidth="md"
+        // maxWidth="md"
         sx={{
           minHeight: '35rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'left',
+          maxWidth: '724px',
           // justifyContent: 'center',
         }}
         id="calculator-container-outer"
@@ -96,11 +97,9 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         {/* Link to more resources & check another conviction */}
         {
           (page.isFinalPage) && (
-          <Box sx={{ marginBottom: '40px', padding: '32px 24px 40px 24px' }}>
             <FinalPageLinksContainer
               calculatorConfig={calculatorConfig}
             />
-          </Box>
           )
         }
 

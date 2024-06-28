@@ -7,6 +7,7 @@ import React, { useMemo } from 'react';
 import theme from '../../styles/themes/theme.tsx';
 import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
+import { CalculatorButton } from '../helper/EligibilityButton.tsx';
 import { PageContext } from '../helper/PageContext.tsx';
 
 interface Choice {
@@ -52,9 +53,9 @@ export default function QandAContainer({
   const useColumnForChoices = page.choices && page.choices.length > 3;
 
   return (
-    <Box>
+    <Box maxWidth="724px" margin="0 auto">
       <PageContext.Provider value={contextValue}>
-        <Box data-cy="calc-block-of-content" sx={{ marginBottom: '100px' }}>
+        <Box data-cy="calc-block-of-content" mb="32px">
           {
             page.content && (
             <PortableText
@@ -71,7 +72,15 @@ export default function QandAContainer({
         id="choices-container"
         maxWidth="xs"
         sx={{
-          mb: 4, display: 'flex', flexDirection: 'column',
+          width: '360px',
+          // mb: 4,
+          margin: 0,
+          padding: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          // position: 'absolute',
+          // top: '440px',
+          // left: '98px',
         }}
       >
 
@@ -87,17 +96,18 @@ export default function QandAContainer({
                 && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
                   const href = choice.isExternalLink ? choice.url : linkTo;
+                  const arrow = choice.label === 'Check my eligibility' || choice.label === 'Continue' || false;
+
                   return (
-                    <Button
+                    <CalculatorButton
                       key={choice._key}
-                      variant="contained"
                       href={href}
                       data-cy={`calc-choice-${index}`}
-                      sx={{ backgroundColor: theme.palette.secondary.dark, width: '50%' }}
-                      onClick={() => addToResponses(choice.label)}
+                      handleClick={() => addToResponses(choice.label)}
+                      hasArrow={arrow}
                     >
                       {choice.label}
-                    </Button>
+                    </CalculatorButton>
                   );
                 })}
         </Stack>
