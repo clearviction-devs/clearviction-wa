@@ -153,11 +153,6 @@ export default function Header() {
                         color: theme.palette.text.light,
                         backgroundColor: '#002138',
                       },
-                      '&:focus': {
-                        color: theme.palette.text.light,
-                        backgroundColor: theme.palette.primary.dark,
-                        boxShadow: '0 0 0 4px #0000EE99',
-                      },
                     }}
                   >
                     {item.text}
