@@ -169,7 +169,7 @@ export default function Header() {
                       sx={{
                         display: 'block',
                         position: 'absolute',
-                        backgroundColor: '#f1f1f1',
+                        backgroundColor: theme.palette.primary.dark,
                         minWidth: '160px',
                         boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
                         zIndex: 1,
@@ -180,11 +180,11 @@ export default function Header() {
                           <Box
                             component="a"
                             sx={{
-                              color: 'black',
+                              color: theme.palette.text.light,
                               padding: '12px 16px',
                               textDecoration: 'none',
                               display: 'block',
-                              '&:hover': { backgroundColor: '#ddd' },
+                              '&:hover': { backgroundColor: theme.palette.text.secondary },
                             }}
                           >
                             {link}
