@@ -10,8 +10,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Menu,
-  MenuItem,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -27,17 +25,18 @@ export default function Header() {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const handleMenuHover = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
   };
 
   const drawer = (
@@ -58,36 +57,35 @@ export default function Header() {
         </IconButton>
       </Box>
       <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
-        {navItems
-          .map(({ href, text, sublist }) => (
-            <>
-              <ListItem key={text}>
-                <ListItemButton
-                  component={Link}
-                  href={href}
-                >
-                  <ListItemText
-                    primary={text}
-                    primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
-                  />
-                </ListItemButton>
-              </ListItem>
-              <List sx={{ paddingLeft: '32px' }}>
-                {sublist?.map((item) => (
-                  <ListItem key={item} disablePadding>
-                    <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
-                      <ListItemText
-                        primary={item}
-                        primaryTypographyProps={{
-                          style: { fontSize: '16px', fontWeight: '500' },
-                        }}
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </>
-          ))}
+        {navItems.map(({ href, text, sublist }) => (
+          <>
+            <ListItem key={text}>
+              <ListItemButton
+                component={Link}
+                href={href}
+              >
+                <ListItemText
+                  primary={text}
+                  primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
+                />
+              </ListItemButton>
+            </ListItem>
+            <List sx={{ paddingLeft: '32px' }}>
+              {sublist?.map((item) => (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
+                    <ListItemText
+                      primary={item}
+                      primaryTypographyProps={{
+                        style: { fontSize: '16px', fontWeight: '500' },
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </>
+        ))}
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <EligibilityButton />
         </Box>
@@ -132,51 +130,71 @@ export default function Header() {
                 paddingRight: '32px',
               }}
             >
-              {navItems
-                .map((item) => (
-                  <>
-                    <Button
-                      key={item.text}
-                      href={item.href}
-                      aria-label={`${item.text.toLowerCase()}`}
-                      size="small"
-                      className="nav-list__item"
-                      onMouseOver={handleMenuHover}
+              {navItems.map((item, index) => (
+                <Box
+                  key={item.text}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Button
+                    href={item.href}
+                    aria-label={`${item.text.toLowerCase()}`}
+                    size="small"
+                    className="nav-list__item"
+                    sx={{
+                      whiteSpace: 'nowrap',
+                      marginLeft: { md: 0 },
+                      px: { md: 2, lg: 3 },
+                      py: 1,
+                      '&:hover': {
+                        color: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.primary.main,
+                      },
+                      '&:active': {
+                        color: theme.palette.text.light,
+                        backgroundColor: '#002138',
+                      },
+                      '&:focus': {
+                        color: theme.palette.text.light,
+                        backgroundColor: theme.palette.primary.dark,
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                  {hoveredIndex === index && (
+                    <Box
+                      className="dropdown-content"
                       sx={{
-                        whiteSpace: 'nowrap',
-                        marginLeft: { md: 0 },
-                        px: { md: 2, lg: 3 },
-                        py: 1,
-                        '&:hover': {
-                          color: theme.palette.text.secondary,
-                          backgroundColor: theme.palette.primary.main,
-                        },
-                        '&:active': {
-                          color: theme.palette.text.light,
-                          backgroundColor: '#002138',
-                        },
-                        '&:focus': {
-                          color: theme.palette.text.light,
-                          backgroundColor: theme.palette.primary.dark,
-                          boxShadow: '0 0 0 4px #0000EE99',
-                        },
+                        display: 'block',
+                        position: 'absolute',
+                        backgroundColor: '#f1f1f1',
+                        minWidth: '160px',
+                        boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+                        zIndex: 1,
                       }}
                     >
-                      {item.text}
-                    </Button>
-                    <Menu
-                      id="basic-menu"
-                      anchorEl={anchorEl}
-                      open={Boolean(anchorEl)}
-                      onClose={handleMenuClose}
-                      MenuListProps={{ onMouseLeave: handleMenuClose }}
-                    >
-                      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-                      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
-                    </Menu>
-                  </>
-                ))}
+                      {item.sublist?.map((link) => (
+                        <Link key={link} href="/" passHref>
+                          <Box
+                            component="a"
+                            sx={{
+                              color: 'black',
+                              padding: '12px 16px',
+                              textDecoration: 'none',
+                              display: 'block',
+                              '&:hover': { backgroundColor: '#ddd' },
+                            }}
+                          >
+                            {link}
+                          </Box>
+                        </Link>
+                      ))}
+                    </Box>
+                  )}
+                </Box>
+              ))}
             </Box>
           )}
         </Box>
