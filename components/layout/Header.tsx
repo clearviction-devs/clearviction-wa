@@ -1,5 +1,4 @@
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import MenuIcon from '@mui/icons-material/Menu';
+import { ArrowForwardIos, ChevronRight, Menu } from '@mui/icons-material';
 import {
   AppBar,
   Box,
@@ -48,7 +47,7 @@ export default function Header() {
             marginRight: 'auto',
           }}
         >
-          <ArrowForwardIosIcon
+          <ArrowForwardIos
             fontSize="large"
             sx={{
               color: theme.palette.text.light,
@@ -112,7 +111,7 @@ export default function Header() {
         <Box sx={{ width: '100%' }}>
           {matches && (
             <IconButton aria-label="open sidebar menu" onClick={handleDrawerToggle} sx={{ display: 'flex', width: '100%' }}>
-              <MenuIcon
+              <Menu
                 sx={{
                   color: theme.palette.text.light, marginLeft: 'auto',
                 }}
@@ -170,24 +169,30 @@ export default function Header() {
                         display: 'block',
                         position: 'absolute',
                         backgroundColor: theme.palette.primary.dark,
-                        minWidth: '160px',
+                        maxWidth: '284px',
                         boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
                         zIndex: 1,
                       }}
                     >
                       {item.sublist?.map((link) => (
-                        <Link key={link} href="/" passHref>
+                        <Link key={link} href="/" passHref style={{ textDecoration: 'none' }}>
                           <Box
                             component="a"
                             sx={{
                               color: theme.palette.text.light,
-                              padding: '12px 16px',
+                              padding: '12px 16px 12px 24px',
                               textDecoration: 'none',
-                              display: 'block',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              borderRadius: '125px',
+                              fontSize: '16px',
+                              maxWidth: '260px',
                               '&:hover': { backgroundColor: theme.palette.text.secondary },
                             }}
                           >
                             {link}
+                            <ChevronRight />
                           </Box>
                         </Link>
                       ))}
