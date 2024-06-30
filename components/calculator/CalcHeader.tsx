@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import React from 'react';
 
-import { StaticCalcProps } from '../../utils/calculator.props.ts';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import CalcStepper from './CalcStepper.tsx';
 
 export default function CalcHeader({ page }:

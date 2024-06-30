@@ -17,11 +17,4 @@ describe.only('m-offense-fish-5-eligible', () => {
 
     cy.url().should('include', 'initial-1-cont');
   });
-
-  it('has a Download Response button', () => {
-    cy.visit('/calculator/m-offense-fish-5-eligible');
-
-    cy.get('[data-cy="download-results"]:visible')
-      .should('have.length', 1);
-  });
 });

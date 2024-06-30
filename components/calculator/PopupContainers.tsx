@@ -5,13 +5,13 @@ import {
 import { PortableText } from '@portabletext/react';
 import React from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
 
 export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOpenNotSurePopup }: {
     calculatorConfig: StaticCalcProps['calculatorConfig'],
-    openNotSurePopup: SharedCalcProps['openNotSurePopup'],
-    setOpenNotSurePopup: SharedCalcProps['setOpenNotSurePopup'],
+    openNotSurePopup: boolean,
+    setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>,
   }) {
   return (
     <Dialog

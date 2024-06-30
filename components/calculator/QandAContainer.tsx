@@ -5,7 +5,7 @@ import { PortableText } from '@portabletext/react';
 import React, { useMemo } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
-import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
 import { CalculatorButton } from '../helper/EligibilityButton.tsx';
 import { PageContext } from '../helper/PageContext.tsx';
@@ -32,10 +32,9 @@ interface Choice {
 }
 
 export default function QandAContainer({
-  page, calculatorConfig, addToResponses, setOpenNotSurePopup,
+  page, calculatorConfig, setOpenNotSurePopup,
 }: StaticCalcProps &{
-      addToResponses: SharedCalcProps['addToResponses'],
-      setOpenNotSurePopup: SharedCalcProps['setOpenNotSurePopup']}) {
+      setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>}) {
   const contextValue = useMemo(() => ({
     isFinalPage: page.isFinalPage,
   }), [page.isFinalPage]);
@@ -103,7 +102,6 @@ export default function QandAContainer({
                       key={choice._key}
                       href={href}
                       data-cy={`calc-choice-${index}`}
-                      handleClick={() => addToResponses(choice.label)}
                       hasArrow={arrow}
                     >
                       {choice.label}

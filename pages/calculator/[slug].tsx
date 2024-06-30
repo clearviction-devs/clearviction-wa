@@ -11,11 +11,9 @@ import FinalPageLinksContainer from '../../components/calculator/CTAContainers.t
 import NotSurePopup from '../../components/calculator/PopupContainers.tsx';
 import QandAContainer from '../../components/calculator/QandAContainer.tsx';
 import RCWLinkInfo from '../../components/calculator/RCWLinkInfo.tsx';
-import Results from '../../components/calculator/Results.tsx';
-import ResultsDownloadContainer from '../../components/calculator/ResultsDownloadContainer.tsx';
 import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
-import { StaticCalcProps } from '../../utils/calculator.props.ts';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import {
   getAllPagePaths,
   getAllPagesBySlug,
@@ -25,27 +23,8 @@ import {
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
   // all state and functions here are shared between multiple secondary components
   const [openNotSurePopup, setOpenNotSurePopup] = useState(false);
-  const [responseObject, setResponseObject] = useState({});
-  const [showResults, setShowResults] = useState(false);
 
   const contentRef = useRef<HTMLDivElement>(null);
-
-  const addToResponses = (answer: string) => {
-    // delete object when start over
-    if (page.slug === 'head-initial-1-cont') setResponseObject({});
-    if (
-      answer !== 'Continue'
-      && answer !== 'Next'
-      && answer !== 'Start'
-      && page.slug !== 'head-start-3-cont'
-    ) {
-      setResponseObject({ ...responseObject, [page.slug]: answer });
-    }
-  };
-
-  const handleCloseResults = () => {
-    setShowResults(false);
-  };
 
   externalLinks();
 
@@ -85,7 +64,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         <QandAContainer
           page={page}
           calculatorConfig={calculatorConfig}
-          addToResponses={addToResponses}
           setOpenNotSurePopup={setOpenNotSurePopup}
         />
 
@@ -114,26 +92,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
               {calculatorConfig.legalDisclaimer}
             </Typography>
           </Box>
-          )
-        }
-
-        {/* Download results button on misdemeanor pages */}
-        {
-          (page.isFinalPage && page.isEligible && !page.slug.startsWith('f')) && (
-            <ResultsDownloadContainer
-              handleCloseResults={handleCloseResults}
-              setShowResults={setShowResults}
-            />
-          )
-        }
-
-        {/* Display downloadable results */}
-        {
-          (page.isEligible && showResults) && (
-            <Results
-              responseObject={responseObject}
-              handleCloseResults={handleCloseResults}
-            />
           )
         }
 

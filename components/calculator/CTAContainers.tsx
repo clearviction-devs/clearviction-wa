@@ -2,7 +2,7 @@ import { Box, Button } from '@mui/material';
 import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
-import { StaticCalcProps } from '../../utils/calculator.props.ts';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import { CalculatorButton } from '../helper/EligibilityButton.tsx';
 
 export default function FinalPageLinksContainer({
