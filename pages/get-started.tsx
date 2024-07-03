@@ -37,11 +37,6 @@ export default function GetStartedPage() {
 
       <HeroBanner
         header={content.hero.header}
-        subheading={content.hero.subheading}
-        imgsrc={content.hero.imgsrc}
-        ctaLink={content.hero.ctaLink}
-        ctaText={content.hero.ctaText}
-        priority
       />
 
       <SectionContainer>
