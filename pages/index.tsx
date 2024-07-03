@@ -68,7 +68,7 @@ export default function Home() {
                   width: '100%',
                 }}
               >
-                <Typography variant="headingCalculator" align="center">{content.background.iconText}</Typography>
+                <Typography align="center">{content.background.iconText}</Typography>
                 <ImageContainer
                   src="/illustrations/3-percent.png"
                   width={200}
@@ -77,7 +77,7 @@ export default function Home() {
                   style={{ width: 200, height: 'auto' }}
                   useImageDimensions
                 />
-                <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
+                <Typography align="center">{content.background.iconText2}</Typography>
               </Box>
             </Grid>
 
