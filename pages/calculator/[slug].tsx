@@ -21,7 +21,6 @@ import {
 } from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
-  // all state and functions here are shared between multiple secondary components
   const [openNotSurePopup, setOpenNotSurePopup] = useState(false);
 
   const contentRef = useRef<HTMLDivElement>(null);
@@ -48,14 +47,11 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
       <Container
         ref={contentRef}
         component={Container}
-        // maxWidth="md"
         sx={{
           minHeight: '35rem',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'left',
           maxWidth: '724px',
-          // justifyContent: 'center',
         }}
         id="calculator-container-outer"
         tabIndex={-1}
@@ -67,7 +63,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           setOpenNotSurePopup={setOpenNotSurePopup}
         />
 
-        {/* RCW Link Infographic - !! update page slugs to include all pages */}
+        {/* RCW Link Infographic - !! remove test page */}
         {(page.slug === 'head-initial-1-cont' || page.slug === 'start-page-test') && (
           <RCWLinkInfo />
         )}
@@ -87,6 +83,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           <Box
             maxWidth="md"
             id="legal-disclaimer-container"
+            marginBottom="24px"
           >
             <Typography variant="caption" data-cy="legal-disclaimer">
               {calculatorConfig.legalDisclaimer}

@@ -16,7 +16,7 @@ const portableTextComponent: PortableTextComponents = {
     caption: ({ children }: any) => <Typography variant="caption" style={theme.typography.caption}>{children}</Typography>,
   },
   marks: {
-    link: ({ children, value }: any) => <Link href={value.href} role="link" target={value.blank ? '_blank' : '_self'} rel="noopener noreferrer">{children}</Link>,
+    link: ({ children, value }: any) => <Link href={value.href || ''} role="link" target={value.blank ? '_blank' : '_self'} rel="noopener noreferrer">{children}</Link>,
   },
 };
 

@@ -52,9 +52,9 @@ export default function QandAContainer({
   const useColumnForChoices = page.choices && page.choices.length > 3;
 
   return (
-    <Box maxWidth="724px" margin="0 auto">
+    <Box maxWidth="724px">
       <PageContext.Provider value={contextValue}>
-        <Box data-cy="calc-block-of-content" mb="32px">
+        <Box data-cy="calc-block-of-content" mb={6}>
           {
             page.content && (
             <PortableText
@@ -69,17 +69,14 @@ export default function QandAContainer({
 
       <Container
         id="choices-container"
-        maxWidth="xs"
+        // maxWidth="xs"
         sx={{
           width: '360px',
-          // mb: 4,
-          margin: 0,
+          mt: 2,
+          mx: 0,
           padding: 0,
           display: 'flex',
           flexDirection: 'column',
-          // position: 'absolute',
-          // top: '440px',
-          // left: '98px',
         }}
       >
 
