@@ -1,5 +1,4 @@
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import MenuIcon from '@mui/icons-material/Menu';
+import { ArrowForwardIos, ChevronRight, Menu } from '@mui/icons-material';
 import {
   AppBar,
   Box,
@@ -29,9 +28,18 @@ export default function Header({ isCalc }: HeaderProps) {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
   };
 
   const drawer = (
@@ -43,7 +51,7 @@ export default function Header({ isCalc }: HeaderProps) {
             marginRight: 'auto',
           }}
         >
-          <ArrowForwardIosIcon
+          <ArrowForwardIos
             fontSize="large"
             sx={{
               color: theme.palette.text.light,
@@ -52,36 +60,35 @@ export default function Header({ isCalc }: HeaderProps) {
         </IconButton>
       </Box>
       <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
-        {navItems
-          .map(({ href, text, sublist }) => (
-            <>
-              <ListItem key={text}>
-                <ListItemButton
-                  component={Link}
-                  href={href}
-                >
-                  <ListItemText
-                    primary={text}
-                    primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
-                  />
-                </ListItemButton>
-              </ListItem>
-              <List sx={{ paddingLeft: '32px' }}>
-                {sublist?.map((item) => (
-                  <ListItem key={item} disablePadding>
-                    <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
-                      <ListItemText
-                        primary={item}
-                        primaryTypographyProps={{
-                          style: { fontSize: '16px', fontWeight: '500' },
-                        }}
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </>
-          ))}
+        {navItems.map(({ href, text, sublist }) => (
+          <>
+            <ListItem key={text}>
+              <ListItemButton
+                component={Link}
+                href={href}
+              >
+                <ListItemText
+                  primary={text}
+                  primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
+                />
+              </ListItemButton>
+            </ListItem>
+            <List sx={{ paddingLeft: '32px' }}>
+              {sublist?.map((item) => (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
+                    <ListItemText
+                      primary={item}
+                      primaryTypographyProps={{
+                        style: { fontSize: '16px', fontWeight: '500' },
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </>
+        ))}
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <EligibilityButton />
         </Box>
@@ -108,7 +115,7 @@ export default function Header({ isCalc }: HeaderProps) {
         <Box sx={{ width: '100%' }}>
           {matches && (
             <IconButton aria-label="open sidebar menu" onClick={handleDrawerToggle} sx={{ display: 'flex', width: '100%' }}>
-              <MenuIcon
+              <Menu
                 sx={{
                   color: theme.palette.text.light, marginLeft: 'auto',
                 }}
@@ -126,10 +133,13 @@ export default function Header({ isCalc }: HeaderProps) {
                 paddingRight: '32px',
               }}
             >
-              {navItems
-                .map((item) => (
+              {navItems.map((item, index) => (
+                <Box
+                  key={item.text}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <Button
-                    key={item.text}
                     href={item.href}
                     aria-label={`${item.text.toLowerCase()}`}
                     size="small"
@@ -147,16 +157,48 @@ export default function Header({ isCalc }: HeaderProps) {
                         color: theme.palette.text.light,
                         backgroundColor: '#002138',
                       },
-                      '&:focus': {
-                        color: theme.palette.text.light,
-                        backgroundColor: theme.palette.primary.dark,
-                        boxShadow: '0 0 0 4px #0000EE99',
-                      },
                     }}
                   >
                     {item.text}
                   </Button>
-                ))}
+                  {hoveredIndex === index && (
+                    <Box
+                      className="dropdown-content"
+                      sx={{
+                        display: 'block',
+                        position: 'absolute',
+                        backgroundColor: theme.palette.primary.dark,
+                        maxWidth: '284px',
+                        boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+                        zIndex: 1,
+                      }}
+                    >
+                      {item.sublist?.map((link) => (
+                        <Link key={link} href="/" passHref style={{ textDecoration: 'none' }}>
+                          <Box
+                            component="a"
+                            sx={{
+                              color: theme.palette.text.light,
+                              padding: '12px 16px 12px 24px',
+                              textDecoration: 'none',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              borderRadius: '125px',
+                              fontSize: '16px',
+                              maxWidth: '260px',
+                              '&:hover': { backgroundColor: theme.palette.text.secondary },
+                            }}
+                          >
+                            {link}
+                            <ChevronRight />
+                          </Box>
+                        </Link>
+                      ))}
+                    </Box>
+                  )}
+                </Box>
+              ))}
             </Box>
           )}
         </Box>
