@@ -22,6 +22,7 @@ import {
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
   const [openNotSurePopup, setOpenNotSurePopup] = useState(false);
+  const isPartOfHead = page.slug.includes('head');
 
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -55,6 +56,10 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
             sm: '724px',
             md: '724px',
             lg: '724px',
+          },
+          justifyContent: {
+            xs: isPartOfHead ? 'normal' : 'space-between',
+            sm: 'normal',
           },
         }}
         id="calculator-container-outer"

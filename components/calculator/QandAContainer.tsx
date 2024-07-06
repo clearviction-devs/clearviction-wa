@@ -39,6 +39,8 @@ export default function QandAContainer({
     isFinalPage: page.isFinalPage,
   }), [page.isFinalPage]);
 
+  const isPartOfHead = page.slug.includes('head');
+
   const linkToPage = (choice: Choice) => {
     if (choice.linkTo) {
       return `/calculator/${choice.linkTo.slug.current}`;
@@ -49,13 +51,14 @@ export default function QandAContainer({
     return '#';
   };
 
-  const useColumnForChoices = page.choices && page.choices.length > 3;
+  const useColumnForChoices = isPartOfHead || (page.choices && page.choices.length > 3);
 
   return (
-    <Box maxWidth="724px">
-      <PageContext.Provider value={contextValue}>
-        <Box data-cy="calc-block-of-content" mb={6}>
-          {
+    <>
+      <Box>
+        <PageContext.Provider value={contextValue}>
+          <Box data-cy="calc-block-of-content" mb={6}>
+            {
             page.content && (
             <PortableText
               value={page.content}
@@ -64,31 +67,40 @@ export default function QandAContainer({
             )
           }
 
-        </Box>
-      </PageContext.Provider>
+          </Box>
+        </PageContext.Provider>
+      </Box>
+      <Box>
+        <Container
+          id="choices-container"
+          sx={{
+            width: {
+              xs: '100%',
+              sm: '360px',
+            },
+            mt: 2,
+            mx: 0,
+            display: 'flex',
+            flexDirection: 'column',
 
-      <Container
-        id="choices-container"
-        // maxWidth="xs"
-        sx={{
-          width: '360px',
-          mt: 2,
-          mx: 0,
-          padding: 0,
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-
-        {(page.choices || page.isQuestion) && (
-
-        <Stack
-          gap={2}
-          role="group"
-          aria-label="Choice options"
-          direction={useColumnForChoices ? 'column' : 'row'}
+          }}
         >
-          {page.choices
+
+          {(page.choices || page.isQuestion) && (
+
+          <Stack
+            gap={2}
+            role="group"
+            aria-label="Choice options"
+            direction={useColumnForChoices ? 'column' : 'row'}
+            sx={{
+              justifyContent: {
+                xs: 'space-between',
+                sm: 'normal',
+              },
+            }}
+          >
+            {page.choices
                 && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
                   const href = choice.isExternalLink ? choice.url : linkTo;
@@ -105,10 +117,10 @@ export default function QandAContainer({
                     </CalculatorButton>
                   );
                 })}
-        </Stack>
-        )}
+          </Stack>
+          )}
 
-        {page.isQuestion && (
+          {page.isQuestion && (
           <Button
             data-cy="not-sure-button"
             sx={{
@@ -118,9 +130,10 @@ export default function QandAContainer({
           >
             {calculatorConfig.notSureAnswer.promptText}
           </Button>
-        )}
+          )}
 
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </>
   );
 }
