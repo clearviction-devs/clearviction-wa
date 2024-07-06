@@ -51,7 +51,11 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
           minHeight: '35rem',
           display: 'flex',
           flexDirection: 'column',
-          maxWidth: '724px',
+          maxWidth: {
+            sm: '724px',
+            md: '724px',
+            lg: '724px',
+          },
         }}
         id="calculator-container-outer"
         tabIndex={-1}
