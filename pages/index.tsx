@@ -126,7 +126,7 @@ export default function Home() {
             <Grid item xs={12} textAlign={{ xs: 'center', sm: 'left' }}>
               <Typography variant="h2">How can we help you vacate a conviction?</Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} md={10}>
               <ImageList sx={{
                 overflowX: 'auto', rowHeight: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%',
               }}
