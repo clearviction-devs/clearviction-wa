@@ -161,7 +161,7 @@ export default function Home() {
         </SectionContainer>
 
         <SectionContainer id="faq">
-          <PaperSection title="FAQ">
+          <PaperSection title="Conviction Vacation FAQs">
             {content.faqs.map((faq) => (
               <AccordionBuilder key={faq.id} {...faq} />
             ))}
