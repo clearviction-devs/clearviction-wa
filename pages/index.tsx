@@ -35,17 +35,14 @@ export default function Home() {
             <Grid item xs={12} md={7}>
               <Typography
                 variant="h2"
+                sx={{ lineHeight: '40px' }}
               >
                 {content.background.title}
               </Typography>
-              <br />
-              <br />
               <MuiMarkdown>{content.background.body}</MuiMarkdown>
               <br />
               <br />
               <MuiMarkdown>{content.background.body2}</MuiMarkdown>
-              <br />
-              <br />
             </Grid>
             <Grid
               item
@@ -68,7 +65,7 @@ export default function Home() {
                   width: '100%',
                 }}
               >
-                <Typography align="center">{content.background.iconText}</Typography>
+                <Typography variant="headingCalculator" align="center">{content.background.iconText}</Typography>
                 <ImageContainer
                   src="/illustrations/3-percent.png"
                   width={200}
@@ -77,7 +74,7 @@ export default function Home() {
                   style={{ width: 200, height: 'auto' }}
                   useImageDimensions
                 />
-                <Typography align="center">{content.background.iconText2}</Typography>
+                <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
               </Box>
             </Grid>
 
@@ -100,7 +97,7 @@ export default function Home() {
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, mt: { xs: 2, md: 0 } }}>
+              <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: { xs: 'center' }, mt: { xs: 2, md: 0 } }}>
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
@@ -115,7 +112,7 @@ export default function Home() {
                     backgroundColor: '#003256',
                   }}
                 >
-                  <Typography variant="button" sx={{ textTransform: 'none' }}>{content.eligibilityCTA.ctaButton}</Typography>
+                  <Typography variant="button" sx={{ textTransform: 'none', marginBottom: '0px' }}>{content.eligibilityCTA.ctaButton}</Typography>
                   <Box component="span" sx={{ ml: 1 }} />
                   <ArrowForwardIcon sx={{ stroke: '#FFFEFC', strokeWidth: 1.5 }} />
                 </Button>

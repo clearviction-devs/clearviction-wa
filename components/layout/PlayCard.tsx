@@ -36,14 +36,14 @@ export default function PlayCard({
     >
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Grid container direction="column" justifyContent="space-between" sx={{ flexGrow: 1 }}>
-          <Grid item>
+          <Grid item sx={{ mt: 4 }}>
             <Typography variant="overline" sx={{ fontWeight: 700, textTransform: 'none' }}>{title}</Typography>
           </Grid>
-          <Grid item sx={{ mt: 2 }}>
-            <Typography variant="body2">{details}</Typography>
+          <Grid item sx={{ mt: 4 }}>
+            <Typography sx={{ lineHeight: '21.79px' }} variant="body2">{details}</Typography>
           </Grid>
           {iconSource && (
-            <Grid item sx={{ mt: 2 }}>
+            <Grid item sx={{ mt: 4 }}>
               <ImageContainer
                 src={iconSource}
                 width={200}
@@ -54,25 +54,34 @@ export default function PlayCard({
               />
             </Grid>
           )}
-          <Grid item sx={{ mt: 'auto' }}>
-            <Button
-              href="/calculator/head-initial-1-cont"
-              variant="contained"
-              color="tertiary"
-              size="small"
-              className="calc-btn"
-              aria-label="Access our eligibility calculator"
-              sx={{
-                whiteSpace: 'nowrap',
-                py: 1,
-                px: 3,
-                backgroundColor: '#FFFEFC',
-              }}
-            >
-              <Typography variant="button" sx={{ color: '#121A33', textTransform: 'none' }}>{ctaButton}</Typography>
-              <Box component="span" sx={{ ml: 1 }} />
-              <ArrowForwardIcon sx={{ color: '#121A33', stroke: '#121A33', strokeWidth: 1.5 }} />
-            </Button>
+          <Grid container sx={{ mt: 'auto' }}>
+            <Grid item>
+              <Button
+                href="/calculator/head-initial-1-cont"
+                variant="contained"
+                color="tertiary"
+                size="small"
+                className="calc-btn"
+                aria-label="Access our eligibility calculator"
+                sx={{
+                  whiteSpace: 'nowrap',
+                  py: 1,
+                  px: 3,
+                  backgroundColor: '#FFFEFC',
+                }}
+              >
+                <Typography
+                  variant="button"
+                  sx={{
+                    color: '#121A33', textTransform: 'none', marginBottom: '0px', letterSpacing: '0',
+                  }}
+                >
+                  {ctaButton}
+                </Typography>
+                <Box component="span" sx={{ ml: 1 }} />
+                <ArrowForwardIcon sx={{ color: '#121A33', stroke: '#121A33', strokeWidth: 1.5 }} />
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       </CardContent>
