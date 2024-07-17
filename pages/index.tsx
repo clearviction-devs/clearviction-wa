@@ -12,7 +12,6 @@ import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import PaperSection from '../components/layout/PaperSection.tsx';
 import PlayCard from '../components/layout/PlayCard.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
@@ -39,10 +38,19 @@ export default function Home() {
               >
                 {content.background.title}
               </Typography>
-              <MuiMarkdown>{content.background.body}</MuiMarkdown>
-              <br />
-              <br />
-              <MuiMarkdown>{content.background.body2}</MuiMarkdown>
+              <MuiMarkdown overrides={{
+                p: {
+                  component: Typography,
+                  props: {
+                    variant: 'body2',
+                    fontSize: '18px',
+                    lineHeight: '22px',
+                  },
+                },
+              }}
+              >
+                {content.background.body}
+              </MuiMarkdown>
             </Grid>
             <Grid
               item
@@ -158,11 +166,10 @@ export default function Home() {
         </SectionContainer>
 
         <SectionContainer id="faq">
-          <PaperSection title="Conviction Vacation FAQs">
-            {content.faqs.map((faq) => (
-              <AccordionBuilder key={faq.id} {...faq} />
-            ))}
-          </PaperSection>
+          <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px' }}>Conviction Vacation FAQs</Typography>
+          {content.faqs.map((faq) => (
+            <AccordionBuilder key={faq.id} {...faq} />
+          ))}
         </SectionContainer>
 
       </main>
