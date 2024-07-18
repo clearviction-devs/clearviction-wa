@@ -5,6 +5,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  SxProps,
   Typography,
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
@@ -15,12 +16,14 @@ interface InfoDropdownProps {
   id: string;
   summary: string;
   details: string;
+  sx?: SxProps;
 }
 
 export default function InfoDropdown({
   id,
   summary,
   details,
+  sx,
 }: InfoDropdownProps) {
   const [expanded, setExpanded] = useState<string | false>(false);
 
@@ -38,7 +41,7 @@ export default function InfoDropdown({
         id={`${id}-header`}
         aria-controls={`${id}-content`}
         expandIcon={expanded === id ? <RemoveIcon /> : <AddIcon />}
-        sx={{ backgroundColor: '#D0E4FF' }}
+        sx={{ ...sx }}
       >
         <MuiMarkdown overrides={{
           span: {

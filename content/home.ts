@@ -10,12 +10,12 @@ interface HomeContent {
     id: string;
     header: string;
     body: string;
+    body2: string;
   };
   background: {
     id: string;
     title: string;
     body: string;
-    body2: string;
     iconText: string;
     iconText2: string;
   }

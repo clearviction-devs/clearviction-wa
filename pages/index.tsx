@@ -73,7 +73,7 @@ export default function Home() {
                   width: '100%',
                 }}
               >
-                <Typography variant="headingCalculator" align="center">{content.background.iconText}</Typography>
+                <Typography variant="h2" sx={{ fontSize: '18px', lineHeight: '25px' }} align="center">{content.background.iconText}</Typography>
                 <ImageContainer
                   src="/illustrations/3-percent.png"
                   width={200}
@@ -82,7 +82,7 @@ export default function Home() {
                   style={{ width: 200, height: 'auto' }}
                   useImageDimensions
                 />
-                <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
+                <Typography variant="h2" sx={{ fontSize: '18px', lineHeight: '25px' }} align="center">{content.background.iconText2}</Typography>
               </Box>
             </Grid>
 
@@ -168,7 +168,7 @@ export default function Home() {
         <SectionContainer id="faq">
           <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px' }}>Conviction Vacation FAQs</Typography>
           {content.faqs.map((faq) => (
-            <AccordionBuilder key={faq.id} {...faq} />
+            <AccordionBuilder key={faq.id} {...faq} sx={{ backgroundColor: '#D0E4FF' }} />
           ))}
         </SectionContainer>
 
