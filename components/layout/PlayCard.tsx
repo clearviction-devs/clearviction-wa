@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
+import theme from '../../styles/themes/theme.tsx';
 import ImageContainer from './ImageContainer.tsx';
 
 interface PlayCardProps {
@@ -67,19 +68,24 @@ export default function PlayCard({
                   whiteSpace: 'nowrap',
                   py: 1,
                   px: 3,
-                  backgroundColor: '#FFFEFC',
+                  backgroundColor: theme.palette.background.default,
                 }}
               >
                 <Typography
                   variant="button"
                   sx={{
-                    color: '#121A33', textTransform: 'none', marginBottom: '0px', letterSpacing: '0',
+                    color: theme.palette.text.secondary, textTransform: 'none', marginBottom: '0px', letterSpacing: '0',
                   }}
                 >
                   {ctaButton}
                 </Typography>
                 <Box component="span" sx={{ ml: 1 }} />
-                <ArrowForwardIcon sx={{ color: '#121A33', stroke: '#121A33', strokeWidth: 1.5 }} />
+                <ArrowForwardIcon sx={{
+                  color: theme.palette.text.secondary,
+                  stroke: theme.palette.text.secondary,
+                  strokeWidth: 1.5,
+                }}
+                />
               </Button>
             </Grid>
           </Grid>

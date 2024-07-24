@@ -15,6 +15,7 @@ import ImageContainer from '../components/layout/ImageContainer.tsx';
 import PlayCard from '../components/layout/PlayCard.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
+import theme from '../styles/themes/theme.tsx';
 
 export default function Home() {
   externalLinks();
@@ -65,8 +66,8 @@ export default function Home() {
                   flexDirection: 'column',
                   justifyContent: 'space-evenly',
                   alignItems: 'center',
-                  bgcolor: '#003256',
-                  color: '#FFFEFC',
+                  bgcolor: theme.palette.primary.dark,
+                  color: theme.palette.text.light,
                   paddingY: 4,
                   height: 364,
                   maxWidth: 312,
@@ -92,7 +93,7 @@ export default function Home() {
         <Grid
           container
           sx={{
-            backgroundColor: '#DCFAEF',
+            backgroundColor: theme.palette.secondary.light,
           }}
         >
           <SectionContainer>
@@ -117,12 +118,12 @@ export default function Home() {
                     whiteSpace: 'nowrap',
                     py: 1,
                     px: 3,
-                    backgroundColor: '#003256',
+                    backgroundColor: theme.palette.background.dark,
                   }}
                 >
                   <Typography variant="button" sx={{ textTransform: 'none', marginBottom: '0px' }}>{content.eligibilityCTA.ctaButton}</Typography>
                   <Box component="span" sx={{ ml: 1 }} />
-                  <ArrowForwardIcon sx={{ stroke: '#FFFEFC', strokeWidth: 1.5 }} />
+                  <ArrowForwardIcon sx={{ stroke: theme.palette.text.light, strokeWidth: 1.5 }} />
                 </Button>
               </Grid>
             </Grid>
@@ -154,8 +155,8 @@ export default function Home() {
                         {...card}
                         cardWidth={274}
                         cardHeight={362}
-                        backgroundColor="#003256"
-                        textColor="#FFFEFC"
+                        backgroundColor={theme.palette.background.dark as string}
+                        textColor={theme.palette.text.light as string}
                       />
                     </Box>
                   ))}
@@ -168,7 +169,11 @@ export default function Home() {
         <SectionContainer id="faq">
           <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px' }}>Conviction Vacation FAQs</Typography>
           {content.faqs.map((faq) => (
-            <AccordionBuilder key={faq.id} {...faq} sx={{ backgroundColor: '#D0E4FF' }} />
+            <AccordionBuilder
+              key={faq.id}
+              {...faq}
+              sx={{ backgroundColor: theme.palette.primary.light }}
+            />
           ))}
         </SectionContainer>
 
