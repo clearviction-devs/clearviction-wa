@@ -104,14 +104,14 @@ export default function QandAContainer({
                 && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
                   const href = choice.isExternalLink ? choice.url : linkTo;
-                  const arrow = choice.label === 'Check my eligibility' || choice.label === 'Continue' || false;
+                  const pageShouldHaveArrow = choice.label === 'Check my eligibility' || choice.label === 'Continue' || false;
 
                   return (
                     <CalculatorButton
                       key={choice._key}
                       href={href}
                       data-cy={`calc-choice-${index}`}
-                      hasArrow={arrow}
+                      hasArrow={pageShouldHaveArrow}
                     >
                       {choice.label}
                     </CalculatorButton>

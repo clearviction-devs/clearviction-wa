@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import MuiMarkdown from 'mui-markdown';
-import React from 'react';
+import React, { useState } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 import { CalculatorButton } from '../helper/EligibilityButton.tsx';
@@ -14,9 +14,8 @@ const details2 = 'The RCW links throughout the calculator send you to the online
 const details3 = 'Your WATCH report should list the crime name, degree of the offense, and the **RCW** law that was violated.';
 
 export default function RCWLinkInfo() {
-  const [infoPopup, setInfoPopup] = React.useState(false);
-
-  const [RCWPopup, setRCWPopup] = React.useState(false);
+  const [infoPopup, setInfoPopup] = useState(false);
+  const [RCWPopup, setRCWPopup] = useState(false);
 
   return (
     <>

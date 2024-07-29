@@ -2,7 +2,7 @@ import {
   Box, Container, Step, StepConnector, Stepper, styled,
   Typography,
 } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
@@ -20,23 +20,36 @@ const defaultSteps = [
 ];
 
 function CustomHorizontalStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [isProPath, setIsProPath] = React.useState(false);
-  const [isMisSpecialCase, setIsMisSpecialCase] = React.useState(false);
-  const [isEndPage, setIsEndPage] = React.useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+  const [isProPath, setIsProPath] = useState(false);
+  const [isMisSpecialCase, setIsMisSpecialCase] = useState(false);
+  const [isEndPage, setIsEndPage] = useState(false);
 
   const steps = isProPath ? defaultSteps.slice(0, 2) : defaultSteps;
 
   const handleNext = () => {
     const { pathname } = window.location;
 
-    if (pathname.includes('classcpro') || pathname.includes('classbpro')) setIsProPath(true);
-
-    if (pathname.includes('m-offense-pro') || pathname.includes('m-offense-mari') || pathname.includes('m-offense-fish')) setIsMisSpecialCase(true);
-
-    if (pathname.includes('m-offense-main-1-cont')) setIsMisSpecialCase(false);
-
-    if (pathname.includes('eligible') || pathname.includes('ineligible')) setIsEndPage(true);
+    switch (true) {
+      case pathname.includes('classcpro'):
+      case pathname.includes('classbpro'):
+        setIsProPath(true);
+        break;
+      case pathname.includes('m-offense-pro'):
+      case pathname.includes('m-offense-mari'):
+      case pathname.includes('m-offense-fish'):
+        setIsMisSpecialCase(true);
+        break;
+      case pathname.includes('m-offense-main-1-cont'):
+        setIsMisSpecialCase(false);
+        break;
+      case pathname.includes('eligible'):
+      case pathname.includes('ineligible'):
+        setIsEndPage(true);
+        break;
+      default:
+        break;
+    }
 
     type Items = {
       [key: string]: number;
