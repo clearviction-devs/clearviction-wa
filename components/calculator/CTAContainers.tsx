@@ -3,13 +3,13 @@ import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
-import { CalculatorButton } from '../helper/EligibilityButton.tsx';
+import { CalculatorButton } from '../helper/CustomButtons.tsx';
 
 export default function FinalPageLinksContainer({
   calculatorConfig,
 }: {
-    calculatorConfig: StaticCalcProps['calculatorConfig'],
-  }) {
+  calculatorConfig: StaticCalcProps['calculatorConfig'],
+}) {
   return (
     <Box
       id="finalpage-links-container"

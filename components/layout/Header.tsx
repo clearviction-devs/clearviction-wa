@@ -16,7 +16,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
-import EligibilityButton from '../helper/EligibilityButton.tsx';
+import { EligibilityButton } from '../helper/CustomButtons.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 interface HeaderProps {

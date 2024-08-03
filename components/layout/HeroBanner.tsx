@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import EligibilityButton from '../helper/EligibilityButton.tsx';
+import { EligibilityButton } from '../helper/CustomButtons.tsx';
 
 interface HeroBannerProps {
   header: string;

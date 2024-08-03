@@ -7,7 +7,7 @@ import MuiMarkdown from 'mui-markdown';
 import React, { useState } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
-import { CalculatorButton } from '../helper/EligibilityButton.tsx';
+import { CalculatorButton } from '../helper/CustomButtons.tsx';
 
 const details1 = '**RCW** stands for “Revised Code of Washington,” which is the collection of all permanent laws. ';
 const details2 = 'The RCW links throughout the calculator send you to the online version of the RCW on the [state legislature website](https://app.leg.wa.gov/rcw/).';

@@ -7,7 +7,7 @@ import React, { useMemo } from 'react';
 import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
-import { CalculatorButton } from '../helper/EligibilityButton.tsx';
+import { CalculatorButton } from '../helper/CustomButtons.tsx';
 import { PageContext } from '../helper/PageContext.tsx';
 
 interface Choice {
@@ -33,8 +33,9 @@ interface Choice {
 
 export default function QandAContainer({
   page, calculatorConfig, setOpenNotSurePopup,
-}: StaticCalcProps &{
-      setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>}) {
+}: StaticCalcProps & {
+  setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>
+}) {
   const contextValue = useMemo(() => ({
     isFinalPage: page.isFinalPage,
   }), [page.isFinalPage]);
@@ -59,13 +60,13 @@ export default function QandAContainer({
         <PageContext.Provider value={contextValue}>
           <Box data-cy="calc-block-of-content" mb={6}>
             {
-            page.content && (
-            <PortableText
-              value={page.content}
-              components={portableTextComponent}
-            />
-            )
-          }
+              page.content && (
+                <PortableText
+                  value={page.content}
+                  components={portableTextComponent}
+                />
+              )
+            }
 
           </Box>
         </PageContext.Provider>
@@ -88,19 +89,19 @@ export default function QandAContainer({
 
           {(page.choices || page.isQuestion) && (
 
-          <Stack
-            gap={2}
-            role="group"
-            aria-label="Choice options"
-            direction={useColumnForChoices ? 'column' : 'row'}
-            sx={{
-              justifyContent: {
-                xs: 'space-between',
-                sm: 'normal',
-              },
-            }}
-          >
-            {page.choices
+            <Stack
+              gap={2}
+              role="group"
+              aria-label="Choice options"
+              direction={useColumnForChoices ? 'column' : 'row'}
+              sx={{
+                justifyContent: {
+                  xs: 'space-between',
+                  sm: 'normal',
+                },
+              }}
+            >
+              {page.choices
                 && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
                   const href = choice.isExternalLink ? choice.url : linkTo;
@@ -117,19 +118,19 @@ export default function QandAContainer({
                     </CalculatorButton>
                   );
                 })}
-          </Stack>
+            </Stack>
           )}
 
           {page.isQuestion && (
-          <Button
-            data-cy="not-sure-button"
-            sx={{
-              width: '100%', backgroundColor: 'inherit', color: theme.palette.secondary.dark, textDecoration: 'underline',
-            }}
-            onClick={() => setOpenNotSurePopup(true)}
-          >
-            {calculatorConfig.notSureAnswer.promptText}
-          </Button>
+            <Button
+              data-cy="not-sure-button"
+              sx={{
+                width: '100%', backgroundColor: 'inherit', color: theme.palette.secondary.dark, textDecoration: 'underline',
+              }}
+              onClick={() => setOpenNotSurePopup(true)}
+            >
+              {calculatorConfig.notSureAnswer.promptText}
+            </Button>
           )}
 
         </Container>

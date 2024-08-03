@@ -2,7 +2,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button } from '@mui/material';
 import React from 'react';
 
-export default function EligibilityButton() {
+export function EligibilityButton() {
   return (
     <Button
       href="/calculator/head-initial-1-cont"
@@ -67,8 +67,8 @@ export function CalculatorButton({
       }}
       onClick={handleClick}
     >
-      { children }
-      { hasArrow && <ArrowForwardIcon /> }
+      {children}
+      {hasArrow && <ArrowForwardIcon />}
     </Button>
   );
 }
