@@ -22,7 +22,6 @@ const defaultSteps = [
 function CustomHorizontalStepper() {
   const [activeStep, setActiveStep] = useState(0);
   const [isProPath, setIsProPath] = useState(false);
-  const [isMisSpecialCase, setIsMisSpecialCase] = useState(false);
   const [isEndPage, setIsEndPage] = useState(false);
 
   const steps = isProPath ? defaultSteps.slice(0, 2) : defaultSteps;
@@ -34,14 +33,6 @@ function CustomHorizontalStepper() {
       case pathname.includes('classcpro'):
       case pathname.includes('classbpro'):
         setIsProPath(true);
-        break;
-      case pathname.includes('m-offense-pro'):
-      case pathname.includes('m-offense-mari'):
-      case pathname.includes('m-offense-fish'):
-        setIsMisSpecialCase(true);
-        break;
-      case pathname.includes('m-offense-main-1-cont'):
-        setIsMisSpecialCase(false);
         break;
       case pathname.includes('eligible'):
       case pathname.includes('ineligible'):
@@ -74,7 +65,7 @@ function CustomHorizontalStepper() {
     const isActiveStep = steps[activeStep] === label;
     const isCompleted = steps.indexOf(label) < activeStep;
 
-    return (isActiveStep || isCompleted)
+    return (isActiveStep || isCompleted || isEndPage)
       ? theme.palette.secondary.dark : theme.palette.secondary.main;
   };
 
@@ -82,7 +73,7 @@ function CustomHorizontalStepper() {
     <Box sx={{ width: '100%', margin: '0 auto', maxWidth: '724px' }}>
 
       <Stepper alternativeLabel activeStep={activeStep} connector={<CustomConnector />}>
-        {!isMisSpecialCase && steps.map((label) => {
+        {steps.map((label) => {
           const stepProps: { completed?: boolean } = {};
 
           const isFinalStep = steps.indexOf(label) === steps.length - 1;
@@ -151,9 +142,10 @@ export default function CalcHeader({ page }:
     { page: StaticCalcProps['page']
     }) {
   const isPageIncludedInStepper = () => {
+    const isMisSpecialCase = page.slug.includes('m-offense-pro') || page.slug.includes('m-offense-mari') || page.slug.includes('m-offense-fish');
     const excludedPageSlugs = ['start', 'head'];
     const isPartOfHead = excludedPageSlugs.some((slug) => page.slug.includes(slug));
-    return !isPartOfHead;
+    return !isPartOfHead && !isMisSpecialCase;
   };
 
   return (

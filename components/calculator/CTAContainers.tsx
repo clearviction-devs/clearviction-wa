@@ -18,8 +18,7 @@ export default function FinalPageLinksContainer({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         width: '360px',
-        mt: '24px',
-        mb: '24px',
+        my: '24px',
       }}
     >
       {/* invalid placeholder url */}

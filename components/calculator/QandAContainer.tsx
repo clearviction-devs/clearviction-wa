@@ -81,6 +81,7 @@ export default function QandAContainer({
             },
             mt: 2,
             mx: 0,
+            pl: 0,
             display: 'flex',
             flexDirection: 'column',
 
@@ -99,20 +100,21 @@ export default function QandAContainer({
                   xs: 'space-between',
                   sm: 'normal',
                 },
+                pl: 0,
               }}
             >
               {page.choices
                 && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
                   const href = choice.isExternalLink ? choice.url : linkTo;
-                  const pageShouldHaveArrow = choice.label === 'Check my eligibility' || choice.label === 'Continue' || false;
+                  const buttonShouldHaveArrow = choice.label === 'Check my eligibility' || choice.label === 'Continue' || false;
 
                   return (
                     <CalculatorButton
                       key={choice._key}
                       href={href}
                       data-cy={`calc-choice-${index}`}
-                      hasArrow={pageShouldHaveArrow}
+                      hasArrow={buttonShouldHaveArrow}
                     >
                       {choice.label}
                     </CalculatorButton>
