@@ -46,20 +46,25 @@ export default function RCWLinkInfo() {
 
         {infoPopup && (
           <Box>
-            <Typography variant="body2" sx={{ color: theme.palette.secondary.dark, display: 'inline' }}>
+            <Typography variant="body2" sx={{ color: 'black', display: 'inline' }}>
               Throughout the calculator, you may need to view the
               {' '}
             </Typography>
             <Typography
               variant="body2"
               sx={{
-                color: theme.palette.secondary.dark, display: 'inline', textDecoration: 'underline', cursor: 'pointer', '&:hover': { textDecoration: 'none' },
+                color: theme.palette.secondary.dark,
+                fontWeight: 'bold',
+                display: 'inline',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                '&:hover': { textDecoration: 'none' },
               }}
               onClick={() => setRCWPopup(true)}
             >
               RCW links
             </Typography>
-            <Typography variant="body2" sx={{ color: theme.palette.secondary.dark, display: 'inline' }}> provided for each question to determine your answers</Typography>
+            <Typography variant="body2" sx={{ color: 'black', display: 'inline' }}> provided for each question to determine your answers.</Typography>
           </Box>
         )}
       </Box>
