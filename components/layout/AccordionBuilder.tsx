@@ -35,7 +35,7 @@ export default function InfoDropdown({
     <Accordion
       expanded={expanded === id}
       onChange={handleChange(id)}
-      sx={{ textAlign: 'left', mb: 1 }}
+      sx={{ textAlign: 'left', mb: 1, boxShadow: 'none' }}
     >
       <AccordionSummary
         id={`${id}-header`}
