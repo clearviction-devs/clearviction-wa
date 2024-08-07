@@ -74,6 +74,7 @@ export default function QandAContainer({
       <Box>
         <Container
           id="choices-container"
+          disableGutters
           sx={{
             width: {
               xs: '100%',
