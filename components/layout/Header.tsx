@@ -157,6 +157,7 @@ export default function Header({ isCalc }: HeaderProps) {
                         color: theme.palette.text.light,
                         backgroundColor: '#002138',
                       },
+                      margin: '.625rem auto',
                     }}
                   >
                     {item.text}
