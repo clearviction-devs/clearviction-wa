@@ -14,9 +14,16 @@ export default function SectionContainer({
     <Container
       component="section"
       id={id}
-      maxWidth="lg"
+      maxWidth={false}
       disableGutters
-      sx={{ ...sectionContainerSxProps }}
+      sx={{
+        ...sectionContainerSxProps,
+        maxWidth: {
+          lg: '936px',
+        },
+        mx: 'auto',
+        my: '100px',
+      }}
       {...props}
     >
       {children}

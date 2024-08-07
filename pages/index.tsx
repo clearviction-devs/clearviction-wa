@@ -106,7 +106,7 @@ export default function Home() {
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: { xs: 'center' }, mt: { xs: 2, md: 0 } }}>
+              <Grid item xs={12} md={3.5} sx={{ display: 'flex', justifyContent: { xs: 'center' }, mt: { xs: 2, md: 0 } }}>
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
@@ -135,7 +135,7 @@ export default function Home() {
             <Grid item xs={12} textAlign={{ xs: 'center', sm: 'left' }}>
               <Typography variant="h2">How can we help you vacate a conviction?</Typography>
             </Grid>
-            <Grid item xs={12} md={10}>
+            <Grid item xs={12}>
               <ImageList sx={{
                 overflowX: 'auto', rowHeight: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%',
               }}
