@@ -73,7 +73,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         />
 
         {/* RCW Link Infographic - !! remove test page */}
-        {(page.slug === 'head-initial-1-cont' || page.slug === 'start-page-test') && (
+        {page.slug === 'head-initial-1-cont' && (
           <RCWLinkInfo />
         )}
 

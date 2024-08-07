@@ -119,7 +119,7 @@ const theme = createTheme({
       fontWeight: '400',
       fontSize: '16px',
       letterSpacing: '0',
-      lineHeight: '18px',
+      lineHeight: '22px',
       marginBottom: '18px',
     },
     button: {
@@ -151,7 +151,7 @@ const theme = createTheme({
       fontWeight: '600',
       fontSize: '18px',
       letterSpacing: '0',
-      lineHeight: '15px',
+      lineHeight: '25px',
       marginBottom: '24px',
     },
   },
