@@ -32,12 +32,12 @@ export default function HeroBanner({
 }: HeroBannerProps) {
   return (
     <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
-      <Container>
+      <Container sx={{ width: '936px', height: '277px' }}>
         <Typography
           className="hero-title"
           variant="h1"
           sx={{
-            display: 'flex', color: 'text.light', justifyContent: 'center', paddingTop: '320px', paddingBottom: '32px',
+            color: 'text.light', pt: 40, fontSize: 48, lineHeight: 1,
           }}
         >
           {header}
