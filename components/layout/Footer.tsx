@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
 
 const getFooterMainStyles = (theme: Theme) => ({
   display: 'flex',
@@ -53,14 +52,22 @@ function Footer({ isCalc }: FooterProps) {
         }}
         className="footer-bottom"
       >
-        <Box textAlign="center">
-          <Typography className="warning" variant="caption" paragraph>
-            {/* eslint-disable-next-line max-len */}
-            Formerly known as Clearviction, our project has transitioned to an open-source model, inviting collaboration and contributions so we can better serve our community.
+        <Box>
+          <Typography variant="footerTitle">Conviction Vacation Initiative is an open source project</Typography>
+          <Typography className="warning" variant="footerCaption" paragraph sx={{ mt: 5 }}>
+            We are an open source initiative that emerged following Washington State's New Hope Act.
           </Typography>
-          <Link sx={{ color: 'white' }} href="https://github.com/clearviction-devs" target="_blank" rel="noopener noreferrer">
-            <FaGithub />
-          </Link>
+          <Typography className="warning" variant="footerCaption" paragraph>
+            {/* eslint-disable-next-line max-len */}
+            Formerly known as Clearviction, our project has transitioned to an open-source model, inviting collaboration so we can better serve our community.
+          </Typography>
+          <Typography className="warning" variant="footerCaption" paragraph>
+            If you would like to contribute to the project, please reach out on
+            {' '}
+            <Link href="https://github.com/clearviction-devs" target="_blank" rel="noopener noreferrer">Github</Link>
+            .
+          </Typography>
+
         </Box>
       </Container>
 
