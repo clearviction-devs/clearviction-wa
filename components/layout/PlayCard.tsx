@@ -41,28 +41,26 @@ export default function PlayCard({
           <Grid item sx={{ mt: 4 }}>
             <Typography variant="overline" sx={{ fontWeight: 700, textTransform: 'none' }}>{title}</Typography>
           </Grid>
-          <Grid item sx={{ mt: 4 }}>
+          <Grid item sx={{ mt: 4, fontSize: '16px' }}>
             <MuiMarkdown
               overrides={{
                 span: {
                   component: Typography,
                   props: {
                     variant: 'body2',
-                    fontSize: '16px',
                   },
                 },
                 p: {
                   component: Typography,
                   props: {
                     variant: 'body2',
-                    sx: { fontSize: '16px' },
                   },
                 },
                 strong: {
                   component: Typography,
                   props: {
                     variant: 'body2',
-                    sx: { fontWeight: 'bold', fontSize: '16px', display: 'inline' },
+                    sx: { fontWeight: 'bold', display: 'inline' },
                   },
                 },
               }}
