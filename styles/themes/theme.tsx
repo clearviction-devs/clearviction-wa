@@ -154,6 +154,20 @@ const theme = createTheme({
       lineHeight: '25px',
       marginBottom: '24px',
     },
+    footerTitle: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '600',
+      fontSize: '18px',
+      letterSpacing: '0',
+      lineHeight: '25px',
+    },
+    footerCaption: {
+      fontFamily: openSans.style.fontFamily,
+      fontWeight: '700',
+      fontSize: '14px',
+      letterSpacing: '.5px',
+      lineHeight: '19.07px',
+    },
   },
 });
 
