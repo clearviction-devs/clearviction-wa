@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   Divider,
   Link,
@@ -52,7 +53,7 @@ function Footer({ isCalc }: FooterProps) {
         }}
         className="footer-bottom"
       >
-        <Box>
+        <Box id="footerContent">
           <Typography variant="footerTitle">Conviction Vacation Initiative is an open source project</Typography>
           <Typography className="warning" variant="footerCaption" paragraph sx={{ mt: 5 }}>
             We are an open source initiative that emerged following Washington State's New Hope Act.
@@ -68,6 +69,11 @@ function Footer({ isCalc }: FooterProps) {
             .
           </Typography>
 
+        </Box>
+        <Box id="footerDisclaimers">
+          <Divider sx={{ borderBottom: '1px solid currentColor' }} />
+          <Button sx={{ lineHeight: '24px' }}>LEGAL DISCLAIMER</Button>
+          <Button sx={{ lineHeight: '24px' }}>PRIVACY NOTICE</Button>
         </Box>
       </Container>
 
