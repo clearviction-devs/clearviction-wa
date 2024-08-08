@@ -69,7 +69,7 @@ const content: HomeContent = {
     },
     {
       title: 'Step 2',
-      details: 'Use the Eligibility Tool  to determine your eligibility to vacate your misdemeanor or felony conviction by answering a few yes or no questions.',
+      details: 'Use the **Eligibility Tool**  to determine your eligibility to vacate your misdemeanor or felony conviction by answering a few **yes** or **no** questions.',
       ctaButton: 'Check eligibility',
     },
     {
