@@ -25,7 +25,7 @@ interface HeaderProps {
 
 export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('lg'));
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
