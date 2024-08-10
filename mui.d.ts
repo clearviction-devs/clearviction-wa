@@ -39,6 +39,8 @@ declare module '@mui/material/styles' {
     headingCalculator: TypographyStyleOptions;
     footerTitle: TypographyStyleOptions;
     footerCaption: TypographyStyleOptions;
+    footerDisclaimers: TypographyStyleOptions;
+
   }
 
   interface TypographyVariantsOptions {
@@ -46,6 +48,8 @@ declare module '@mui/material/styles' {
     headingCalculator?: TypographyStyleOptions;
     footerTitle?: TypographyStyleOptions;
     footerCaption?: TypographyStyleOptions;
+    footerDisclaimers?: TypographyStyleOptions;
+
   }
 }
 
@@ -54,5 +58,6 @@ declare module '@mui/material/Typography' {
     headingCalculator: true;
     footerTitle: true;
     footerCaption: true;
+    footerDisclaimers: true;
   }
 }

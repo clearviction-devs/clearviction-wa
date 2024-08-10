@@ -168,6 +168,12 @@ const theme = createTheme({
       letterSpacing: '.5px',
       lineHeight: '19.07px',
     },
+    footerDisclaimers: {
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: '700',
+      fontSize: '16px',
+      lineHeight: '24px',
+    },
   },
 });
 
