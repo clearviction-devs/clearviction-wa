@@ -60,55 +60,66 @@ function Footer({ isCalc }: FooterProps) {
           className="footer-bottom"
           direction="row"
           sx={{
-            pt: 4,
-            pr: 41.5,
-            pb: 4,
-            pl: 41.5,
-            justifyContent: 'space-between',
+            paddingTop: '80px',
+            paddingBottom: '80px',
+            gap: '94px',
+            justifyContent: 'center',
           }}
         >
-          <Stack
+          <Box
             sx={{
-              flex: 1,
-              mr: 2,
+              height: '211px',
+              width: '522px',
             }}
-            spacing={2}
           >
-            <Typography className="warning" variant="footerTitle">
-              Conviction Vacation Initiative is an open source project
-            </Typography>
-            <Typography className="warning" variant="footerCaption">
-              {/* eslint-disable-next-line max-len */}
-              We are an open source initiative that emerged following Washington State's New Hope Act.
-            </Typography>
-            <Typography className="warning" variant="footerCaption">
-              {/* eslint-disable-next-line max-len */}
-              Formerly known as Clearviction, our project has transitioned to an open-source model, inviting collaboration so we can better serve our community.
-            </Typography>
-            <Typography className="warning" variant="footerCaption">
-              If you would like to contribute to the project, please reach out on
-              {' '}
-              <Link href="https://github.com/clearviction-devs" target="_blank" rel="noopener noreferrer">
-                Github
-              </Link>
-              .
-            </Typography>
-          </Stack>
-          <Stack
+            <Stack
+              sx={{
+                flex: 1,
+              }}
+              spacing={2}
+            >
+              <Typography className="warning" variant="footerTitle">
+                Conviction Vacation Initiative is an open source project
+              </Typography>
+              <Typography className="warning" variant="footerCaption">
+                {/* eslint-disable-next-line max-len */}
+                We are an open source initiative that emerged following Washington State's New Hope Act.
+              </Typography>
+              <Typography className="warning" variant="footerCaption">
+                {/* eslint-disable-next-line max-len */}
+                Formerly known as Clearviction, our project has transitioned to an open-source model, inviting collaboration so we can better serve our community.
+              </Typography>
+              <Typography className="warning" variant="footerCaption">
+                If you would like to contribute to the project, please reach out on
+                {' '}
+                <Link href="https://github.com/clearviction-devs" target="_blank" rel="noopener noreferrer">
+                  Github
+                </Link>
+                .
+              </Typography>
+            </Stack>
+          </Box>
+          <Box
             sx={{
-              flex: 1,
-              ml: 2,
+              height: '109px',
+              width: '329px',
             }}
-            spacing={2}
           >
-            <Divider sx={{ borderBottom: `1px solid ${theme.palette.primary.main}` }} />
-            <Typography className="warning" variant="footerDisclaimers" display="block">
-              LEGAL DISCLAIMER
-            </Typography>
-            <Typography className="warning" variant="footerDisclaimers" display="block">
-              PRIVACY NOTICE
-            </Typography>
-          </Stack>
+            <Stack
+              sx={{
+                flex: 1,
+              }}
+              spacing={2}
+            >
+              <Divider sx={{ borderBottom: `1px solid ${theme.palette.primary.main}` }} />
+              <Typography className="warning" variant="footerDisclaimers" display="block">
+                LEGAL DISCLAIMER
+              </Typography>
+              <Typography className="warning" variant="footerDisclaimers" display="block">
+                PRIVACY NOTICE
+              </Typography>
+            </Stack>
+          </Box>
         </Stack>
       )}
 
