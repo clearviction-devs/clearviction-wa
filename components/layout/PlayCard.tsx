@@ -44,7 +44,7 @@ export default function PlayCard({
             <Typography sx={{ lineHeight: '21.79px' }} variant="body2">{details}</Typography>
           </Grid>
           {iconSource && (
-            <Grid item sx={{ mt: 4 }}>
+            <Grid item sx={{ mt: 4, fontSize: '16px' }}>
               <ImageContainer
                 src={iconSource}
                 width={200}

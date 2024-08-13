@@ -19,7 +19,7 @@ export default function SectionContainer({
       sx={{
         ...sectionContainerSxProps,
         maxWidth: {
-          lg: '936px',
+          md: '936px',
         },
         mx: 'auto',
         my: '100px',
