@@ -81,7 +81,6 @@ export default function Home() {
                   height={120}
                   alt=""
                   style={{ width: 200, height: 'auto' }}
-                  useImageDimensions
                 />
                 <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
               </Box>

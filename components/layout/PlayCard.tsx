@@ -38,10 +38,10 @@ export default function PlayCard({
     >
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Grid container direction="column" justifyContent="space-between" sx={{ flexGrow: 1 }}>
-          <Grid item sx={{ mt: 4 }}>
+          <Grid item sx={{ mt: 1 }}>
             <Typography variant="overline" sx={{ fontWeight: 700, textTransform: 'none' }}>{title}</Typography>
           </Grid>
-          <Grid item sx={{ mt: 4, fontSize: '16px' }}>
+          <Grid item sx={{ mt: 1, fontSize: '16px', lineHeight: '21.79px' }}>
             <MuiMarkdown
               overrides={{
                 span: {

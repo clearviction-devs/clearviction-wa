@@ -38,6 +38,7 @@ export default function CarouselBuilder({
       {cards.map((card) => (
         <PlayCard
           {...card}
+          key={card.title}
           cardWidth={cardWidth}
           cardHeight={cardHeight}
           backgroundColor={backgroundColor}
