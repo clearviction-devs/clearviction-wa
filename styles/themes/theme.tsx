@@ -1,5 +1,5 @@
 import { LinkProps } from '@mui/material/Link';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 // eslint-disable-next-line camelcase
 import { Open_Sans, Poppins } from 'next/font/google';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
@@ -80,7 +80,6 @@ const theme = createTheme({
       fontWeight: '700',
       fontSize: '36px',
       letterSpacing: '0',
-      lineHeight: '80px',
       marginBottom: '24px',
     },
     h2: {
@@ -88,7 +87,6 @@ const theme = createTheme({
       fontWeight: '600',
       fontSize: '32px',
       letterSpacing: '0',
-      lineHeight: '58px',
       marginBottom: '24px',
     },
     h3: {
@@ -96,7 +94,6 @@ const theme = createTheme({
       fontWeight: '600',
       fontSize: '24px',
       letterSpacing: '0',
-      lineHeight: '38px',
       marginBottom: '24px',
     },
     overline: {
@@ -104,14 +101,12 @@ const theme = createTheme({
       fontWeight: '400',
       fontSize: '20px',
       letterSpacing: '0',
-      lineHeight: '19px',
     },
     body1: {
       fontFamily: openSans.style.fontFamily,
       fontWeight: '400',
       fontSize: '18px',
       letterSpacing: '0',
-      lineHeight: '22px',
       marginBottom: '22px',
     },
     body2: {
@@ -119,7 +114,6 @@ const theme = createTheme({
       fontWeight: '400',
       fontSize: '16px',
       letterSpacing: '0',
-      lineHeight: '22px',
       marginBottom: '18px',
     },
     button: {
@@ -127,7 +121,6 @@ const theme = createTheme({
       fontWeight: '700',
       fontSize: '16px',
       letterSpacing: '1px',
-      lineHeight: '20px',
       marginBottom: '20px',
     },
     button2: {
@@ -135,7 +128,6 @@ const theme = createTheme({
       fontWeight: '500',
       fontSize: '16px',
       letterSpacing: '0',
-      lineHeight: '19px',
       marginBottom: '19px',
     },
     caption: {
@@ -143,7 +135,6 @@ const theme = createTheme({
       fontWeight: '400',
       fontSize: '14px',
       letterSpacing: '.5px',
-      lineHeight: '15px',
       marginBottom: '15px',
     },
     headingCalculator: {
@@ -151,7 +142,6 @@ const theme = createTheme({
       fontWeight: '600',
       fontSize: '18px',
       letterSpacing: '0',
-      lineHeight: '25px',
       marginBottom: '24px',
     },
     footerTitle: {
@@ -159,20 +149,17 @@ const theme = createTheme({
       fontWeight: '600',
       fontSize: '18px',
       letterSpacing: '0',
-      lineHeight: '25px',
     },
     footerCaption: {
       fontFamily: openSans.style.fontFamily,
       fontWeight: '700',
       fontSize: '14px',
       letterSpacing: '.5px',
-      lineHeight: '19.07px',
     },
     footerDisclaimers: {
       fontFamily: poppins.style.fontFamily,
       fontWeight: '700',
       fontSize: '16px',
-      lineHeight: '24px',
     },
   },
 });
@@ -277,7 +264,6 @@ theme.components = {
         fontSize: theme.typography.button.fontSize,
         fontWeight: theme.typography.button.fontWeight,
         letterSpacing: theme.typography.button.letterSpacing,
-        lineHeight: theme.typography.button.lineHeight,
       },
     },
   },
@@ -291,7 +277,6 @@ theme.components = {
   },
 };
 
-// const responsiveTheme = responsiveFontSizes(theme);
+const responsiveTheme = responsiveFontSizes(theme);
 
-// export default responsiveTheme;
-export default theme;
+export default responsiveTheme;
