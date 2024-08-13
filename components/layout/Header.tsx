@@ -90,7 +90,7 @@ export default function Header({ isCalc }: HeaderProps) {
           </React.Fragment>
         ))}
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <EligibilityButton />
+          <EligibilityButton ariaLabels="Access our eligibility calculator" />
         </Box>
       </List>
     </Box>
@@ -205,7 +205,7 @@ export default function Header({ isCalc }: HeaderProps) {
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
         {!matches && (
           <Box>
-            <EligibilityButton />
+            <EligibilityButton ariaLabels="Access our eligibility calculator" />
           </Box>
         )}
       </Box>
