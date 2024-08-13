@@ -11,6 +11,8 @@ import { EligibilityButton } from '../helper/CustomButtons.tsx';
 interface HeroBannerProps {
   header: string;
   background?: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 const heroStyles: SxProps = {
@@ -28,6 +30,8 @@ const heroStyles: SxProps = {
 export default function HeroBanner({
   header,
   background,
+  ctaText,
+  ctaLink,
 }: HeroBannerProps) {
   return (
     <Box className="hero-banner" sx={{ ...heroStyles, backgroundImage: background }} textAlign="left">
@@ -41,7 +45,9 @@ export default function HeroBanner({
         >
           {header}
         </Typography>
-        <EligibilityButton />
+        {ctaText && ctaLink && (
+          <EligibilityButton />
+        )}
       </Container>
     </Box>
   );
