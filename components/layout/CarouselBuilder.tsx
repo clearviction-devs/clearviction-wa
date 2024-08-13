@@ -6,15 +6,6 @@ import React from 'react';
 
 import PlayCard from './PlayCard.tsx';
 
-// const settings = {
-//   dots: true,
-//   infinite: false,
-//   speed: 500,
-//   slidesToShow: 1,
-//   slidesToScroll: 3,
-//   initialSlide: 0,
-// };
-
 interface Card {
   title: string;
   details: string;

@@ -19,10 +19,14 @@ interface PlayCardProps {
   backgroundColor: string;
   cardWidth: number,
   cardHeight: number,
+  buttonHRef: string;
+  buttonClassName: string;
+  buttonAriaLabel: string;
 }
 
 export default function PlayCard({
   title, details, iconSource, ctaButton, textColor, backgroundColor, cardWidth, cardHeight,
+  buttonHRef, buttonClassName, buttonAriaLabel,
 }: PlayCardProps) {
   return (
     <Card
@@ -84,16 +88,12 @@ export default function PlayCard({
           <Grid container sx={{ mt: 'auto' }}>
             <Grid item>
               <Button
-                href="/calculator/head-initial-1-cont"
+                href={buttonHRef}
                 variant="contained"
-                color="tertiary"
                 size="small"
-                className="calc-btn"
-                aria-label="Access our eligibility calculator"
+                className={buttonClassName}
+                aria-label={buttonAriaLabel}
                 sx={{
-                  whiteSpace: 'nowrap',
-                  py: 1,
-                  px: 3,
                   backgroundColor: theme.palette.background.default,
                 }}
               >

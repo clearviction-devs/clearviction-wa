@@ -156,6 +156,10 @@ export default function Home() {
                         cardHeight={362}
                         backgroundColor={theme.palette.background.dark as string}
                         textColor={theme.palette.text.light as string}
+                        buttonHRef="/calculator/head-initial-1-cont"
+                        buttonColor="tertiary"
+                        buttonClassName="calc-btn"
+                        buttonAriaLabel="Access our eligibility calculator"
                       />
                     </Box>
                   ))}
