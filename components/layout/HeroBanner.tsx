@@ -10,10 +10,10 @@ import { EligibilityButton } from '../helper/CustomButtons.tsx';
 
 interface HeroBannerProps {
   header: string;
+  background: string;
 }
 
 const heroStyles: SxProps = {
-  backgroundImage: 'url(/illustrations/h1-home-desktop.png)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   color: 'primary.contrastText',
@@ -27,9 +27,10 @@ const heroStyles: SxProps = {
 
 export default function HeroBanner({
   header,
+  background,
 }: HeroBannerProps) {
   return (
-    <Box className="hero-banner" sx={heroStyles} textAlign="left">
+    <Box className="hero-banner" sx={{ ...heroStyles, backgroundImage: background }} textAlign="left">
       <Container sx={{ width: '936px', height: '277px' }}>
         <Typography
           className="hero-title"
