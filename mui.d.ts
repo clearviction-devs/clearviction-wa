@@ -37,10 +37,27 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     button2: TypographyStyleOptions;
     headingCalculator: TypographyStyleOptions;
+    footerTitle: TypographyStyleOptions;
+    footerCaption: TypographyStyleOptions;
+    footerDisclaimers: TypographyStyleOptions;
+
   }
 
   interface TypographyVariantsOptions {
     button2?: TypographyStyleOptions;
     headingCalculator?: TypographyStyleOptions;
+    footerTitle?: TypographyStyleOptions;
+    footerCaption?: TypographyStyleOptions;
+    footerDisclaimers?: TypographyStyleOptions;
+
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    headingCalculator: true;
+    footerTitle: true;
+    footerCaption: true;
+    footerDisclaimers: true;
   }
 }

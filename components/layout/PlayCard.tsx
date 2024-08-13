@@ -4,6 +4,7 @@ import {
   Button,
   Card, CardContent, Grid, Typography,
 } from '@mui/material';
+import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
@@ -40,8 +41,33 @@ export default function PlayCard({
           <Grid item sx={{ mt: 4 }}>
             <Typography variant="overline" sx={{ fontWeight: 700, textTransform: 'none' }}>{title}</Typography>
           </Grid>
-          <Grid item sx={{ mt: 4 }}>
-            <Typography sx={{ lineHeight: '21.79px' }} variant="body2">{details}</Typography>
+          <Grid item sx={{ mt: 4, fontSize: '16px' }}>
+            <MuiMarkdown
+              overrides={{
+                span: {
+                  component: Typography,
+                  props: {
+                    variant: 'body2',
+                  },
+                },
+                p: {
+                  component: Typography,
+                  props: {
+                    variant: 'body2',
+                  },
+                },
+                strong: {
+                  component: Typography,
+                  props: {
+                    variant: 'body2',
+                    sx: { fontWeight: 'bold', display: 'inline' },
+                  },
+                },
+              }}
+            >
+              {details}
+            </MuiMarkdown>
+
           </Grid>
           {iconSource && (
             <Grid item sx={{ mt: 4, fontSize: '16px' }}>

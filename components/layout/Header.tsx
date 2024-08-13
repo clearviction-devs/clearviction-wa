@@ -61,8 +61,8 @@ export default function Header({ isCalc }: HeaderProps) {
       </Box>
       <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
         {navItems.map(({ href, text, sublist }) => (
-          <>
-            <ListItem key={text}>
+          <React.Fragment key={text}>
+            <ListItem>
               <ListItemButton
                 component={Link}
                 href={href}
@@ -87,7 +87,7 @@ export default function Header({ isCalc }: HeaderProps) {
                 </ListItem>
               ))}
             </List>
-          </>
+          </React.Fragment>
         ))}
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <EligibilityButton />
@@ -177,7 +177,6 @@ export default function Header({ isCalc }: HeaderProps) {
                       {item.sublist?.map((link) => (
                         <Link key={link} href="/" passHref style={{ textDecoration: 'none' }}>
                           <Box
-                            component="a"
                             sx={{
                               color: theme.palette.text.light,
                               padding: '12px 16px 12px 24px',

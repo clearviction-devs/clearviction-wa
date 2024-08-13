@@ -28,7 +28,7 @@ export default function Home() {
       />
 
       <main>
-        <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
+        <HeroBanner {...content.heroBanner} background="url(/illustrations/h1-home-desktop.png)" />
 
         <SectionContainer>
           <Grid container justifyContent="space-between" id={`${content.background.id}-main-grid`}>
