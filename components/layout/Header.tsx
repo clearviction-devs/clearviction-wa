@@ -177,7 +177,6 @@ export default function Header({ isCalc }: HeaderProps) {
                       {item.sublist?.map((link) => (
                         <Link key={link} href="/" passHref style={{ textDecoration: 'none' }}>
                           <Box
-                            component="a"
                             sx={{
                               color: theme.palette.text.light,
                               padding: '12px 16px 12px 24px',
