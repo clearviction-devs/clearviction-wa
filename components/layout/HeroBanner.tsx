@@ -10,7 +10,7 @@ import { EligibilityButton } from '../helper/CustomButtons.tsx';
 
 interface HeroBannerProps {
   header: string;
-  background: string;
+  background?: string;
 }
 
 const heroStyles: SxProps = {
