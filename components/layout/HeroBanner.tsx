@@ -10,7 +10,6 @@ import { EligibilityButton } from '../helper/CustomButtons.tsx';
 
 interface HeroBannerProps {
   header: string;
-  overrideStyles?: SxProps;
 }
 
 const heroStyles: SxProps = {
@@ -28,10 +27,9 @@ const heroStyles: SxProps = {
 
 export default function HeroBanner({
   header,
-  overrideStyles,
 }: HeroBannerProps) {
   return (
-    <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
+    <Box className="hero-banner" sx={heroStyles} textAlign="left">
       <Container sx={{ width: '936px', height: '277px' }}>
         <Typography
           className="hero-title"
