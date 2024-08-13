@@ -2,13 +2,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button } from '@mui/material';
 import React from 'react';
 
-interface EligibilityButtonProps {
-  ariaLabels: string;
-}
-
-export function EligibilityButton({
-  ariaLabels,
-}: EligibilityButtonProps) {
+export function EligibilityButton() {
   return (
     <Button
       href="/calculator/head-initial-1-cont"
@@ -16,7 +10,7 @@ export function EligibilityButton({
       color="tertiary"
       size="small"
       className="calc-btn"
-      aria-label={ariaLabels}
+      aria-label="Access our eligibility calculator"
       sx={{
         whiteSpace: 'nowrap',
         py: 1,

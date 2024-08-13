@@ -90,7 +90,7 @@ export default function Header({ isCalc }: HeaderProps) {
           </React.Fragment>
         ))}
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <EligibilityButton ariaLabels="Access our eligibility calculator" />
+          <EligibilityButton />
         </Box>
       </List>
     </Box>
@@ -177,6 +177,7 @@ export default function Header({ isCalc }: HeaderProps) {
                       {item.sublist?.map((link) => (
                         <Link key={link} href="/" passHref style={{ textDecoration: 'none' }}>
                           <Box
+                            component="a"
                             sx={{
                               color: theme.palette.text.light,
                               padding: '12px 16px 12px 24px',
@@ -205,7 +206,7 @@ export default function Header({ isCalc }: HeaderProps) {
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
         {!matches && (
           <Box>
-            <EligibilityButton ariaLabels="Access our eligibility calculator" />
+            <EligibilityButton />
           </Box>
         )}
       </Box>
