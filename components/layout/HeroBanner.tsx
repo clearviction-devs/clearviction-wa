@@ -11,7 +11,7 @@ import { EligibilityButton } from '../helper/CustomButtons.tsx';
 interface HeroBannerProps {
   header: string;
   background: string;
-  ariaLabels: {
+  ariaLabels?: {
     ctaButton: string;
   };
 }
@@ -45,7 +45,9 @@ export default function HeroBanner({
         >
           {header}
         </Typography>
-        <EligibilityButton ariaLabels={ariaLabels?.ctaButton || 'Access our eligibility button'} />
+        {ariaLabels?.ctaButton && (
+          <EligibilityButton ariaLabels={ariaLabels.ctaButton} />
+        )}
       </Container>
     </Box>
   );
