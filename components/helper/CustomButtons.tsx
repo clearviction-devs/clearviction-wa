@@ -29,7 +29,7 @@ export function EligibilityButton() {
         margin: '.625rem auto',
       }}
     >
-      Check Eligibility
+      Check eligibility
       <ArrowForwardIcon />
     </Button>
   );
