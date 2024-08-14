@@ -14,12 +14,17 @@ function DisclaimerBanner() {
           display: 'flex',
           alignItems: 'center',
           bgcolor: 'secondary.dark',
-          pt: 1,
+          py: 1,
           color: 'white',
         }}
       >
-        <Box sx={{ display: 'flex', paddingLeft: '112px' }}>
-          <ErrorOutlineIcon sx={{ width: '24px', height: '32px', pb: 1 }} />
+        <Box sx={{ display: 'flex', px: 2 }}>
+          <ErrorOutlineIcon sx={{
+            // width: '24px',
+            // height: '32px',
+            // pb: 1,
+          }}
+          />
           <Box sx={{ pl: 1 }}>
             {/* eslint-disable-next-line max-len */}
             Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
