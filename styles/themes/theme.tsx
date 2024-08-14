@@ -252,6 +252,7 @@ theme.components = {
     styleOverrides: {
       root: {
         borderRadius: 100,
+        boxShadow: 'none',
         textAlign: 'center',
         minWidth: '140px',
         maxWidth: 'fit-content',
