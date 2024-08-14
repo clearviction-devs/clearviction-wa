@@ -34,13 +34,25 @@ export default function HeroBanner({
   ctaLink,
 }: HeroBannerProps) {
   return (
-    <Box className="hero-banner" sx={{ ...heroStyles, backgroundImage: background }} textAlign="left">
-      <Container sx={{ width: '936px', height: '277px' }}>
+    <Box
+      className="hero-banner"
+      sx={{
+        ...heroStyles,
+        backgroundImage: background,
+      }}
+      textAlign="left"
+    >
+      <Container sx={{
+      }}
+      >
         <Typography
           className="hero-title"
           variant="h1"
           sx={{
-            color: 'text.light', pt: 40, fontSize: 48, lineHeight: 1,
+            color: 'text.light',
+            pt: 40,
+            fontSize: 48,
+            // lineHeight: '68px',
           }}
         >
           {header}
