@@ -43,6 +43,11 @@ export default function HeroBanner({
       textAlign="left"
     >
       <Container sx={{
+        maxWidth: '936px',
+        width: {
+          lg: '936px',
+          xl: '936px',
+        },
       }}
       >
         <Typography
@@ -52,7 +57,6 @@ export default function HeroBanner({
             color: 'text.light',
             pt: 40,
             fontSize: 48,
-            // lineHeight: '68px',
           }}
         >
           {header}
