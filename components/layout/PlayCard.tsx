@@ -109,7 +109,7 @@ export default function PlayCard({
                 <ArrowForwardIcon sx={{
                   color: theme.palette.text.secondary,
                   stroke: theme.palette.text.secondary,
-                  strokeWidth: 1.5,
+                  strokeWidth: 0.5,
                 }}
                 />
               </Button>

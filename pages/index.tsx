@@ -122,7 +122,7 @@ export default function Home() {
                 >
                   <Typography variant="button" sx={{ textTransform: 'none', marginBottom: '0px' }}>{content.eligibilityCTA.ctaButton}</Typography>
                   <Box component="span" sx={{ ml: 1 }} />
-                  <ArrowForwardIcon sx={{ stroke: theme.palette.text.light, strokeWidth: 1.5 }} />
+                  <ArrowForwardIcon sx={{ stroke: theme.palette.text.light, strokeWidth: 0.5 }} />
                 </Button>
               </Grid>
             </Grid>

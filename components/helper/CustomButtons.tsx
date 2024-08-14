@@ -2,6 +2,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button } from '@mui/material';
 import React from 'react';
 
+import theme from '../../styles/themes/theme.tsx';
+
 export function EligibilityButton() {
   return (
     <Button
@@ -30,7 +32,11 @@ export function EligibilityButton() {
       }}
     >
       Check eligibility
-      <ArrowForwardIcon />
+      <ArrowForwardIcon sx={{
+        stroke: theme.palette.text.secondary,
+        strokeWidth: 0.5,
+      }}
+      />
     </Button>
   );
 }
