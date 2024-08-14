@@ -59,7 +59,7 @@ const theme = createTheme({
       main: '#2A8613',
     },
     text: {
-      primary: '#000000',
+      primary: '#121A33',
       secondary: '#121A33',
       light: '#FFFEFC',
       focus: '#6363F2',
