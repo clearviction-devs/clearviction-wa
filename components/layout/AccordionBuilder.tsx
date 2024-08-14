@@ -12,6 +12,8 @@ import { grey } from '@mui/material/colors';
 import MuiMarkdown from 'mui-markdown';
 import React, { useState } from 'react';
 
+import theme from '../../styles/themes/theme.tsx';
+
 interface InfoDropdownProps {
   id: string;
   summary: string;
@@ -56,7 +58,7 @@ export default function InfoDropdown({
           {summary}
         </MuiMarkdown>
       </AccordionSummary>
-      <AccordionDetails sx={{ backgroundColor: grey[50] }}>
+      <AccordionDetails sx={{ backgroundColor: grey[50], border: '4px solid', borderColor: theme.palette.primary.light }}>
         <Box px={2} sx={{ '& p': { my: 2 } }}>
           <MuiMarkdown overrides={{
             p: {
