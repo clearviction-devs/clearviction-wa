@@ -19,9 +19,9 @@ interface PlayCardProps {
   backgroundColor: string;
   cardWidth: number,
   cardHeight: number,
-  buttonHRef: string;
-  buttonClassName: string;
-  buttonAriaLabel: string;
+  buttonHRef?: string;
+  buttonClassName?: string;
+  buttonAriaLabel?: string;
 }
 
 export default function PlayCard({
