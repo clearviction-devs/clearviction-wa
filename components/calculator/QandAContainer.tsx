@@ -85,7 +85,8 @@ export default function QandAContainer({
             pl: 0,
             display: 'flex',
             flexDirection: 'column',
-
+            position: isPartOfHead ? 'static' : 'absolute',
+            top: '536px',
           }}
         >
 
