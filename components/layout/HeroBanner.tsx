@@ -39,6 +39,9 @@ export default function HeroBanner({
       sx={{
         ...heroStyles,
         backgroundImage: background,
+        height: {
+          lg: '660px',
+        },
       }}
       textAlign="left"
     >
