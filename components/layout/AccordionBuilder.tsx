@@ -1,4 +1,5 @@
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import {
   Accordion,
   AccordionDetails,
@@ -9,7 +10,9 @@ import {
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import MuiMarkdown from 'mui-markdown';
-import React from 'react';
+import React, { useState } from 'react';
+
+import theme from '../../styles/themes/theme.tsx';
 
 interface InfoDropdownProps {
   id: string;
@@ -24,17 +27,38 @@ export default function InfoDropdown({
   details,
   sx,
 }: InfoDropdownProps) {
+  const [expanded, setExpanded] = useState<string | false>(false);
+
+  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
-    <Accordion sx={{ textAlign: 'left' }}>
+    <Accordion
+      expanded={expanded === id}
+      onChange={handleChange(id)}
+      sx={{ textAlign: 'left', mb: 1, boxShadow: 'none' }}
+    >
       <AccordionSummary
         id={`${id}-header`}
         aria-controls={`${id}-content`}
-        expandIcon={<ExpandMore />}
+        expandIcon={expanded === id ? <RemoveIcon /> : <AddIcon />}
         sx={{ ...sx }}
       >
-        <MuiMarkdown>{summary}</MuiMarkdown>
+        <MuiMarkdown overrides={{
+          span: {
+            component: Typography,
+            props: {
+              variant: 'headingCalculator',
+              sx: { my: 2 },
+            },
+          },
+        }}
+        >
+          {summary}
+        </MuiMarkdown>
       </AccordionSummary>
-      <AccordionDetails sx={{ backgroundColor: grey[50] }}>
+      <AccordionDetails sx={{ backgroundColor: grey[50], border: '4px solid', borderColor: theme.palette.primary.light }}>
         <Box px={2} sx={{ '& p': { my: 2 } }}>
           <MuiMarkdown overrides={{
             p: {

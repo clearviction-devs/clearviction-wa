@@ -27,7 +27,6 @@
   "include": [
     "next-env.d.ts",
     "mui.d.ts",
-    "clearviction-wa/sanity-block-content-to-react.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],

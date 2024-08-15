@@ -1,44 +1,35 @@
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import {
-  Box, Button, ThemeProvider,
+  Box, ThemeProvider,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 
 function DisclaimerBanner() {
-  const [isBannerVisible, setIsBannerVisible] = useState(true);
-
-  const closeBanner = () => {
-    setIsBannerVisible(false);
-  };
-
-  if (!isBannerVisible) {
-    return null;
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
-          bgcolor: '#207C56',
-          p: 1,
+          bgcolor: 'secondary.dark',
+          py: 1,
           color: 'white',
         }}
       >
-        <Box sx={{ flex: '1', textAlign: 'center' }}>
-          {/* eslint-disable-next-line max-len */}
-          Disclaimer: Please note that as an open-source project, we do not actively work on the website, and as a result, some links may be broken or outdated. We apologize for any inconvenience this may cause.
-          <p style={{ marginTop: 0, marginBottom: 0, fontSize: '12px' }}>Last updated: 2024-04-12</p>
+        <Box sx={{ display: 'flex', px: 2 }}>
+          <ErrorOutlineIcon sx={{
+            // width: '24px',
+            // height: '32px',
+            // pb: 1,
+          }}
+          />
+          <Box sx={{ pl: 1 }}>
+            {/* eslint-disable-next-line max-len */}
+            Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
+          </Box>
         </Box>
-        <Button
-          onClick={closeBanner}
-          sx={{ marginLeft: 'auto', color: 'white' }}
-        >
-          X
-        </Button>
       </Box>
     </ThemeProvider>
   );

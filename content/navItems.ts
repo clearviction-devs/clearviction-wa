@@ -7,15 +7,13 @@ const navItems: NavItem[] = [
   },
   {
     href: '/get-started',
-    text: 'Get Started',
+    text: 'Get started',
+    sublist: ['Gather your documentation', 'Determine your eligibility', 'File with the court'],
   },
   {
     href: '/why-vacate',
-    text: 'Why Vacate',
-  },
-  {
-    href: '/calculator/head-initial-1-cont',
-    text: 'Access Calculator',
+    text: 'Why vacate',
+    sublist: ['Employment benefits', 'Housing benefits', 'Education benefits'],
   },
 ];
 

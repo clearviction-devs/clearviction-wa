@@ -1,52 +1,168 @@
-import { Button, Container, SvgIcon } from '@mui/material';
-import { useRouter } from 'next/router';
-import React from 'react';
+import {
+  Box, Container, Step, StepConnector, Stepper, styled,
+  Typography,
+} from '@mui/material';
+import React, { useEffect, useState } from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
-import CalcStepper from './CalcStepper.tsx';
+import theme from '../../styles/themes/theme.tsx';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 
-export default function CalcHeader({ page, isFirstPage }:
-    { page: StaticCalcProps['page'],
-      isFirstPage: SharedCalcProps['isFirstPage']
-    }) {
-  const router = useRouter();
+const CustomConnector = styled(StepConnector)(() => ({
+  '& .MuiStepConnector-line': {
+    display: 'none',
+  },
+}));
 
-  const isPageIncludedInStepper = () => {
-    const excludedPageSlugs = ['start', 'head'];
-    const isPartOfHead = excludedPageSlugs.some((slug) => page.slug.includes(slug));
-    const { isFinalPage } = page;
-    return !(isFinalPage || isPartOfHead);
+const defaultSteps = [
+  'Your offense',
+  'Surrounding circumstances',
+  'Terms of offense',
+];
+
+function CustomHorizontalStepper() {
+  const [activeStep, setActiveStep] = useState(0);
+  const [isProPath, setIsProPath] = useState(false);
+  const [isEndPage, setIsEndPage] = useState(false);
+
+  const steps = isProPath ? defaultSteps.slice(0, 2) : defaultSteps;
+
+  const handleNext = () => {
+    const { pathname } = window.location;
+
+    switch (true) {
+      case pathname.includes('classcpro'):
+      case pathname.includes('classbpro'):
+        setIsProPath(true);
+        break;
+      case pathname.includes('eligible'):
+      case pathname.includes('ineligible'):
+        setIsEndPage(true);
+        break;
+      default:
+        break;
+    }
+
+    type Items = {
+      [key: string]: number;
+    };
+
+    const routes: Items = {
+      offense: 0,
+      circ: 1,
+      terms: 2,
+    };
+
+    Object.keys(routes).forEach((key) => {
+      if (pathname.includes(key)) setActiveStep(routes[key]);
+    });
+  };
+
+  useEffect(() => {
+    handleNext();
+  });
+
+  const getBackgroundColor = (label: string) => {
+    const isActiveStep = steps[activeStep] === label;
+    const isCompleted = steps.indexOf(label) < activeStep;
+
+    return (isActiveStep || isCompleted || isEndPage)
+      ? theme.palette.secondary.dark : theme.palette.secondary.main;
   };
 
   return (
-    <Container id="calc-head-container" sx={{ marginTop: '2rem', marginBottom: '2rem' }}>
+    <Box sx={{ width: '100%', margin: '0 auto', maxWidth: '724px' }}>
 
-      {!isFirstPage() && (
-      <Button
-        type="button"
-        id="back-button"
-        onClick={() => {
-          router.back();
-        }}
-      >
-        <SvgIcon
-          sx={{ marginRight: '10px' }}
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="20"
-          viewBox="0 0 12 20"
-          fill="none"
-        >
-          <path
-            d="M11.8341 1.8701L10.0541 0.100098L0.164062 10.0001L10.0641 19.9001L11.8341 18.1301L3.70406 10.0001L11.8341 1.8701Z"
-            fill="#4e6c99"
-          />
-        </SvgIcon>
-        previous
-      </Button>
-      )}
+      <Stepper alternativeLabel activeStep={activeStep} connector={<CustomConnector />}>
+        {steps.map((label) => {
+          const stepProps: { completed?: boolean } = {};
 
-      {isPageIncludedInStepper() && <CalcStepper />}
+          const isFinalStep = steps.indexOf(label) === steps.length - 1;
+
+          const stepSxProps = {
+            height: 4,
+            borderRadius: 50,
+            backgroundColor: getBackgroundColor(label),
+            width: '100%',
+          };
+
+          return (
+            <Box
+              key={label}
+              sx={{
+                display: 'flex',
+                width: '100%',
+                height: 4,
+                borderRadius: 50,
+                margin: 1,
+              }}
+            >
+              {/* Displays the steps that are NOT the final step, including the end pages */}
+              <Step
+                {...stepProps}
+                sx={{
+                  ...stepSxProps,
+                  display: (!isEndPage && isFinalStep) ? 'none' : 'block',
+                }}
+              />
+
+              {/* Displays just the final step so that it can have special styling */}
+              <Step
+                {...stepProps}
+                sx={{
+                  ...stepSxProps,
+                  display: (!isEndPage && isFinalStep) ? 'block' : 'none',
+                  borderTopRightRadius: 0,
+                  borderBottomRightRadius: 0,
+                }}
+              />
+              <Box sx={{
+                display: (!isEndPage && isFinalStep) ? 'block' : 'none',
+                borderTopRightRadius: 50,
+                borderBottomRightRadius: 50,
+                borderTopLeftRadius: 0,
+                borderBottomLeftRadius: 0,
+                backgroundColor: theme.palette.secondary.main,
+                width: '15%',
+              }}
+              />
+
+            </Box>
+          );
+        })}
+      </Stepper>
+      <Typography variant="caption" sx={{ color: theme.palette.secondary.dark, ml: 1 }}>
+        {!isEndPage && steps[activeStep]}
+      </Typography>
+
+    </Box>
+  );
+}
+
+export default function CalcHeader({ page }:
+    { page: StaticCalcProps['page']
+    }) {
+  const isPageIncludedInStepper = () => {
+    const isMisSpecialCase = page.slug.includes('m-offense-pro') || page.slug.includes('m-offense-mari') || page.slug.includes('m-offense-fish');
+    const excludedPageSlugs = ['start', 'head'];
+    const isPartOfHead = excludedPageSlugs.some((slug) => page.slug.includes(slug));
+    return !isPartOfHead && !isMisSpecialCase;
+  };
+
+  return (
+    <Container
+      id="calc-head-container"
+      sx={{
+        marginTop: {
+          xs: '40px',
+          md: '80px',
+        },
+        px: 0,
+        marginBottom: '32px',
+        color: theme.palette.secondary.dark,
+      }}
+    >
+
+      {isPageIncludedInStepper() && <CustomHorizontalStepper />}
 
     </Container>
   );

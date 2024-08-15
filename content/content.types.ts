@@ -33,6 +33,12 @@ export interface FAQ {
     details: string;
 }
 
+export interface HomePlayCards {
+    title: string;
+    details: string;
+    ctaButton: string;
+}
+
 export interface GridItem {
     id: string;
     title?: string;
@@ -50,6 +56,7 @@ export interface Info {
 export interface NavItem {
     href: string;
     text: string;
+    sublist?: string[];
 }
 
 export interface Button {
