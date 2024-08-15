@@ -5,6 +5,7 @@ import {
 import { PortableText } from '@portabletext/react';
 import React from 'react';
 
+import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
 
@@ -26,6 +27,7 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
         sx={{
           backgroundColor: 'secondary.dark',
           color: 'text.light',
+          fontFamily: theme.typography.h3.fontFamily,
         }}
       >
         {calculatorConfig.notSureAnswer.header}
