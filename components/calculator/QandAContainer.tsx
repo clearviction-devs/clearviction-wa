@@ -82,7 +82,7 @@ export default function QandAContainer({
             pl: 0,
             display: 'flex',
             flexDirection: 'column',
-            position: isPartOfHead ? 'static' : 'absolute',
+            position: (isPartOfHead || page.slug === 'm-offense-mari-1-cont') ? 'static' : 'absolute',
             top: '536px',
           }}
         >
