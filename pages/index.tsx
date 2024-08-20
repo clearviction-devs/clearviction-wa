@@ -59,6 +59,7 @@ export default function Home() {
               md={4}
               display="flex"
               justifyContent="center"
+              sx={{ marginTop: { xs: 8, md: 0 } }}
             >
               <Box
                 sx={{
