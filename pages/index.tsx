@@ -105,24 +105,43 @@ export default function Home() {
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={3.5} sx={{ display: 'flex', justifyContent: { xs: 'center' }, mt: { xs: 2, md: 0 } }}>
+              <Grid item>
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
-                  color="primary"
                   size="small"
                   className="calc-btn"
                   aria-label="Access our eligibility calculator"
                   sx={{
-                    whiteSpace: 'nowrap',
-                    py: 1,
-                    px: 3,
                     backgroundColor: theme.palette.background.dark,
+                    '&:hover': {
+                      color: theme.palette.text.secondary,
+                      backgroundColor: theme.palette.primary.main,
+                      '& .MuiTypography-root': {
+                        color: theme.palette.text.secondary,
+                      },
+                      '& .MuiSvgIcon-root': {
+                        color: theme.palette.text.secondary,
+                        stroke: theme.palette.text.secondary,
+                      },
+                    },
                   }}
                 >
-                  <Typography variant="button" sx={{ textTransform: 'none', marginBottom: '0px' }}>{content.eligibilityCTA.ctaButton}</Typography>
+                  <Typography
+                    variant="button"
+                    sx={{
+                      color: theme.palette.text.light, textTransform: 'none', marginBottom: '0px', letterSpacing: '0',
+                    }}
+                  >
+                    {content.eligibilityCTA.ctaButton}
+                  </Typography>
                   <Box component="span" sx={{ ml: 1 }} />
-                  <ArrowForwardIcon sx={{ stroke: theme.palette.text.light, strokeWidth: 0.5 }} />
+                  <ArrowForwardIcon sx={{
+                    color: theme.palette.text.light,
+                    stroke: theme.palette.text.light,
+                    strokeWidth: 0.5,
+                  }}
+                  />
                 </Button>
               </Grid>
             </Grid>
