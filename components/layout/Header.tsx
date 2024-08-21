@@ -123,7 +123,7 @@ export default function Header({ isCalc }: HeaderProps) {
       <Box
         component="nav"
         sx={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 10.5,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 2,
         }}
       >
         <Drawer
