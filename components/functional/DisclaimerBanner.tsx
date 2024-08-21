@@ -15,6 +15,7 @@ function DisclaimerBanner() {
           alignItems: 'center',
           bgcolor: 'secondary.dark',
           py: 1,
+          px: 14,
           color: 'white',
         }}
       >
