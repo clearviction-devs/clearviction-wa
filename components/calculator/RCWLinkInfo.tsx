@@ -21,7 +21,7 @@ export default function RCWLinkInfo() {
     <>
       <Box
         padding="32px 0px"
-        minHeight="108px"
+        minHeight="124px"
         sx={{
           display: 'flex',
           gap: '8px',
@@ -46,7 +46,7 @@ export default function RCWLinkInfo() {
 
         {infoPopup && (
           <Box>
-            <Typography variant="body2" sx={{ color: 'black', display: 'inline' }}>
+            <Typography variant="body2" sx={{ color: theme.palette.text.primary, display: 'inline' }}>
               Throughout the calculator, you may need to view the
               {' '}
             </Typography>
@@ -64,7 +64,7 @@ export default function RCWLinkInfo() {
             >
               RCW links
             </Typography>
-            <Typography variant="body2" sx={{ color: 'black', display: 'inline' }}> provided for each question to determine your answers.</Typography>
+            <Typography variant="body2" sx={{ color: theme.palette.text.primary, display: 'inline' }}> provided for each question to determine your answers.</Typography>
           </Box>
         )}
       </Box>
