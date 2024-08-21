@@ -62,25 +62,32 @@ export default function Header({ isCalc }: HeaderProps) {
       <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
         {navItems.map(({ href, text, sublist }) => (
           <React.Fragment key={text}>
-            <ListItem>
+            <ListItem sx={{ margin: '0px', padding: '0px' }}>
               <ListItemButton
                 component={Link}
                 href={href}
               >
                 <ListItemText
                   primary={text}
-                  primaryTypographyProps={{ style: { fontSize: '16px', fontWeight: '700' } }}
+                  primaryTypographyProps={{
+                    style: {
+                      fontSize: '16px', fontWeight: '700', margin: '0px',
+                    },
+                  }}
                 />
               </ListItemButton>
             </ListItem>
             <List sx={{ paddingLeft: '32px' }}>
               {sublist?.map((item) => (
                 <ListItem key={item} disablePadding>
-                  <ListItemButton sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
+                  <ListItemButton sx={{
+                    paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px',
+                  }}
+                  >
                     <ListItemText
                       primary={item}
                       primaryTypographyProps={{
-                        style: { fontSize: '16px', fontWeight: '500' },
+                        style: { fontSize: '16px', fontWeight: '500', margin: '0px' },
                       }}
                     />
                   </ListItemButton>
