@@ -45,12 +45,12 @@ const whyVacateContent: WhyVacateContent = {
         {
           title: 'Fair chance at employment',
           body: 'You can tell potential employers that you have not been convicted of a crime. This reduces discrimination and gets you fairer treatment by employers during the hiring process.',
-          imgRef: '/employ_fair-chance.svg',
+          imgRef: '/employ_fair-chance.png',
         },
         {
           title: 'Access to professional licenses',
           body: 'Improve your eligibility to obtain or maintain a professional license to help you get on your feet. These are often unattainable by people with certain convictions.',
-          imgRef: '/employ_licenses.svg',
+          imgRef: '/employ_licenses.png',
         },
       ],
       accordianItems: [
@@ -80,17 +80,17 @@ const whyVacateContent: WhyVacateContent = {
         {
           title: 'Eligibility for housing assistance programs',
           body: 'You may become eligible for more and/or better housing assistance programs and opportunities  that cater to specific populations (such as individuals experiencing homelessness or those with disabilities).',
-          imgRef: '/housing_assistance.svg',
+          imgRef: '/housing_assistance.png',
         },
         {
           title: 'More access to rental opportunities',
           body: 'By preventing potential landlords from seeing your criminal history, you increase your chances of being approved for rental housing. ',
-          imgRef: '/housing_rental.svg',
+          imgRef: '/housing_rental.png',
         },
         {
           title: 'Increased access to government assistance',
           body: 'You might also have easier access to government-assisted housing, such as  public housing and Section 8 Housing Choice Vouchers.',
-          imgRef: '/housing_gov.svg',
+          imgRef: '/housing_gov.png',
         },
       ],
       accordianItems: [
@@ -120,22 +120,22 @@ const whyVacateContent: WhyVacateContent = {
         {
           title: 'Open doors to higher education',
           body: 'By vacating your conviction you can overcome the admission barriers that some colleges and universities place on enrollment due to certain criminal convictions.',
-          imgRef: '/edu_open-doors.svg',
+          imgRef: '/edu_open-doors.png',
         },
         {
           title: 'Broader access to financial aid',
           body: 'Access federal Pell Grants, financial aid, and student loans to increase your ability to afford tuition, fees, and other educational expenses.',
-          imgRef: '/edu_broader-access.svg',
+          imgRef: '/edu_broader-access.png',
         },
         {
           title: 'Equitable treatment in the application process',
           body: 'You can receive increased assistance and equitable treatment in the application process, as well as reduced stigma and discrimination from financial aid offices.',
-          imgRef: '/edu_applications.svg',
+          imgRef: '/edu_applications.png',
         },
         {
           title: 'Eligible for more types of professional and occupational licenses',
           body: 'Vacating our conviction helps you overcome the barrier of automatic disqualification for some professional licenses and certificates.',
-          imgRef: '/edu_licenses.svg',
+          imgRef: '/edu_licenses.png',
         },
       ],
       accordianItems: [
