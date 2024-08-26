@@ -6,16 +6,16 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import useScroll from '../components/functional/CustomScroll.tsx';
-import externalLinks from '../components/functional/ExternalLinks.tsx';
-import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
-import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
-import FactCard from '../components/layout/FactCard.tsx';
-import GetStartedStep from '../components/layout/GetStartedStep.tsx';
-import HeroBanner from '../components/layout/HeroBanner.tsx';
-import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer, { sectionContainerSxProps } from '../components/layout/SectionContainer.tsx';
-import content from '../content/get-started.ts';
+import useScroll from '../../components/functional/CustomScroll.tsx';
+import externalLinks from '../../components/functional/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
+import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
+import FactCard from '../../components/layout/FactCard.tsx';
+import GetStartedStep from '../../components/layout/GetStartedStep.tsx';
+import HeroBanner from '../../components/layout/HeroBanner.tsx';
+import ImageContainer from '../../components/layout/ImageContainer.tsx';
+import SectionContainer, { sectionContainerSxProps } from '../../components/layout/SectionContainer.tsx';
+import content from '../../content/get-started.ts';
 
 const newSectionContainerSxProps: SxProps = {
   ...sectionContainerSxProps, px: 0, textAlign: 'left',
