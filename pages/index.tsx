@@ -106,7 +106,15 @@ export default function Home() {
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid
+                item
+                xs={12}
+                md="auto"
+                sx={{
+                  display: 'flex',
+                  justifyContent: { xs: 'center', md: 'flex-start' },
+                }}
+              >
                 <Button
                   href="/calculator/head-initial-1-cont"
                   variant="contained"
