@@ -62,15 +62,13 @@ export default function BenefitCard({
       </CardContent>
 
       <Box sx={{
-        width: {
-          xs: '100%',
-          sm: '100%',
-          md: '100%',
-          lg: '360px',
-        },
+        width: '100%',
         height: '284px',
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
+        backgroundPosition: {
+          sm: 'center',
+        },
         order: { md: index % 2 === 0 ? 1 : 0 },
       }}
       />
