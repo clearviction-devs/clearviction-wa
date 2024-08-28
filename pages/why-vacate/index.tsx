@@ -5,15 +5,15 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
-import useScroll from '../components/functional/CustomScroll.tsx';
-import externalLinks from '../components/functional/ExternalLinks.tsx';
-import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
-import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
-import GridItemCard from '../components/layout/GridItem.tsx';
-import HeroBanner from '../components/layout/HeroBanner.tsx';
-import PaperSection from '../components/layout/PaperSection.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
-import content from '../content/why-vacate.ts';
+import useScroll from '../../components/functional/CustomScroll.tsx';
+import externalLinks from '../../components/functional/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
+import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
+import GridItemCard from '../../components/layout/GridItem.tsx';
+import HeroBanner from '../../components/layout/HeroBanner.tsx';
+import PaperSection from '../../components/layout/PaperSection.tsx';
+import SectionContainer from '../../components/layout/SectionContainer.tsx';
+import content from '../../content/why-vacate.ts';
 
 export default function WhyVacatePage() {
   const theme = useTheme();

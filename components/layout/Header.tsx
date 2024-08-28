@@ -94,7 +94,7 @@ export default function Header({ isCalc }: HeaderProps) {
                 <ListItem key={item} disablePadding>
                   <ListItemButton>
                     <ListItemText
-                      primary={item}
+                      primary={item.text}
                       primaryTypographyProps={{
                         style: {
                           fontSize: '16px', fontWeight: '500', fontFamily: theme.typography.button.fontFamily, marginBottom: 0,
@@ -197,7 +197,7 @@ export default function Header({ isCalc }: HeaderProps) {
                       }}
                     >
                       {item.sublist?.map((link) => (
-                        <Link key={link} href="/" passHref style={{ textDecoration: 'none' }}>
+                        <Link key={link.text} href={link.href} passHref style={{ textDecoration: 'none' }}>
                           <Box
                             sx={{
                               color: theme.palette.text.light,
@@ -212,7 +212,7 @@ export default function Header({ isCalc }: HeaderProps) {
                               '&:hover': { backgroundColor: theme.palette.text.secondary },
                             }}
                           >
-                            {link}
+                            {link.text}
                             <ChevronRight />
                           </Box>
                         </Link>

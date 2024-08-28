@@ -56,7 +56,10 @@ export interface Info {
 export interface NavItem {
     href: string;
     text: string;
-    sublist?: string[];
+    sublist?: {
+        text: string;
+        href: string;
+    }[];
 }
 
 export interface Button {
