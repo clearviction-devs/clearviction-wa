@@ -20,7 +20,7 @@ function DisclaimerBanner() {
         }}
       >
         <Box sx={{
-          display: 'flex', px: 2, width: { xs: '100%', md: '80%' },
+          display: 'flex', px: 2, width: { xs: '100%', md: '85%' },
         }}
         >
           <ErrorOutlineIcon sx={{
