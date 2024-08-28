@@ -49,6 +49,7 @@ export default function Header({ isCalc }: HeaderProps) {
           aria-label="Close navigation"
           sx={{
             marginRight: 'auto',
+            paddingY: 4,
           }}
         >
           <ArrowForwardIos
