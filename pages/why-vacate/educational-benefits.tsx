@@ -23,12 +23,13 @@ export default function EducationalBenefits() {
       </SectionContainer>
       <SectionContainer sx={{ my: 0 }}>
         {
-            content.cards[2].cardItems.map((benefit) => (
+            content.cards[2].cardItems.map((benefit, index) => (
               <BenefitCard
                 key={benefit.title}
                 title={benefit.title}
                 content={benefit.body}
                 image={benefit.imgRef}
+                index={index}
               />
             ))
         }

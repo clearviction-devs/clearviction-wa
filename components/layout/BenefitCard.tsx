@@ -8,10 +8,11 @@ interface BenefitCardProps {
     title: string;
     content: string;
     image: string;
+    index: number;
 }
 
 export default function BenefitCard({
-  title, content, image,
+  title, content, image, index,
 }: BenefitCardProps) {
   return (
     <Card sx={{
@@ -24,6 +25,7 @@ export default function BenefitCard({
       maxWidth: '902px',
       mx: 'auto',
       my: 3,
+      borderRadius: '0px',
     }}
     >
       <CardContent
@@ -32,7 +34,12 @@ export default function BenefitCard({
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          px: '24px',
+          padding: {
+            xs: '32px 24px',
+            sm: '32px 64px',
+            md: '32px 24px',
+          },
+          order: { md: index % 2 === 0 ? 0 : 1 },
         }}
       >
         <Typography
@@ -64,6 +71,7 @@ export default function BenefitCard({
         height: '284px',
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
+        order: { md: index % 2 === 0 ? 1 : 0 },
       }}
       />
 
