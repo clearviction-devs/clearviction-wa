@@ -171,10 +171,12 @@ export default function Header({ isCalc }: HeaderProps) {
                     <Box
                       className="dropdown-content"
                       sx={{
-                        display: 'block',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
                         position: 'absolute',
                         backgroundColor: theme.palette.primary.dark,
-                        maxWidth: '284px',
+                        width: '284px',
                         boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
                         zIndex: 1,
                       }}
@@ -191,7 +193,7 @@ export default function Header({ isCalc }: HeaderProps) {
                               justifyContent: 'space-between',
                               borderRadius: '125px',
                               fontSize: '16px',
-                              maxWidth: '260px',
+                              width: '260px',
                               '&:hover': { backgroundColor: theme.palette.text.secondary },
                             }}
                           >
