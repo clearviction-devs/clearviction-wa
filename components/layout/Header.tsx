@@ -91,7 +91,7 @@ export default function Header({ isCalc }: HeaderProps) {
             </ListItem>
             <List sx={{ paddingLeft: '32px' }}>
               {sublist?.map((item) => (
-                <ListItem key={item} disablePadding>
+                <ListItem key={item.text} disablePadding>
                   <ListItemButton>
                     <ListItemText
                       primary={item.text}
