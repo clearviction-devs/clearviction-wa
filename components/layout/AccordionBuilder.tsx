@@ -74,6 +74,14 @@ export default function InfoDropdown({
                 component: 'li',
               },
             },
+            a: {
+              component: 'a',
+              props: {
+                target: '_blank',
+                rel: 'noreferrer',
+                style: { color: theme.palette.link.main },
+              },
+            },
           }}
           >
             {details}
