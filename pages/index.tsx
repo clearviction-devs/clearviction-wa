@@ -2,7 +2,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
   Button,
-  Grid, ImageList, ImageListItem, Typography,
+  Grid,
+  Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
@@ -10,9 +11,9 @@ import React from 'react';
 import externalLinks from '../components/functional/ExternalLinks.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import PlayCard from '../components/layout/PlayCard.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
 import theme from '../styles/themes/theme.tsx';
@@ -112,6 +113,7 @@ export default function Home() {
                 md="auto"
                 sx={{
                   display: 'flex',
+                  paddingTop: { xs: 2, md: 0 },
                   justifyContent: { xs: 'center', md: 'flex-start' },
                 }}
               >
@@ -162,38 +164,16 @@ export default function Home() {
             <Grid item xs={12} textAlign={{ xs: 'center', sm: 'left' }}>
               <Typography variant="h2">How can we help you vacate a conviction?</Typography>
             </Grid>
-            <Grid item xs={12}>
-              <ImageList sx={{
-                overflowX: 'auto', rowHeight: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%',
-              }}
-              >
-                <ImageListItem sx={{
-                  display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'nowrap', width: '100%',
-                }}
-                >
-                  {content.carousel.map((card) => (
-                    <Box
-                      key={card.title}
-                      sx={{
-                        flex: '1 1 0', minWidth: 274, maxWidth: 274, marginRight: '32px',
-                      }}
-                    >
-                      <PlayCard
-                        {...card}
-                        cardWidth={274}
-                        cardHeight={362}
-                        backgroundColor={theme.palette.background.dark as string}
-                        textColor={theme.palette.text.light as string}
-                        buttonHRef="/calculator/head-initial-1-cont"
-                        // buttonColor="tertiary"
-                        buttonClassName="calc-btn"
-                        buttonAriaLabel="Access our eligibility calculator"
-                      />
-                    </Box>
-                  ))}
-                </ImageListItem>
-              </ImageList>
-            </Grid>
+            <CarouselBuilder
+              cards={content.carousel}
+              cardWidth={274}
+              cardHeight={362}
+              backgroundColor={theme.palette.background.dark as string}
+              textColor={theme.palette.text.light as string}
+              buttonHRef="/calculator/head-initial-1-cont"
+              buttonClassName="calc-btn"
+              buttonAriaLabel="Access our eligibility calculator"
+            />
           </Grid>
         </SectionContainer>
 
