@@ -80,6 +80,7 @@ export default function SeeMoreResources() {
             height: '44px',
             color: theme.palette.link.main,
             wordBreak: 'break-all',
+            width: 'fit-content',
           }}
         >
           <Typography variant="body1" sx={{ mb: 0 }}>
@@ -95,6 +96,7 @@ export default function SeeMoreResources() {
             height: '44px',
             color: theme.palette.link.main,
             wordBreak: 'break-all',
+            width: 'fit-content',
           }}
         >
           <Typography variant="body1" sx={{ mb: 0 }}>
