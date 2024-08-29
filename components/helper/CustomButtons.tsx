@@ -79,3 +79,65 @@ export function CalculatorButton({
     </Button>
   );
 }
+
+export function StepsForFilingButton() {
+  return (
+    <Button
+      href="/get-started/file-with-the-court"
+      variant="contained"
+      aria-label="steps for filing with the court"
+      sx={{
+        whiteSpace: 'nowrap',
+        py: 1,
+        margin: '.625rem 0',
+        letterSpacing: 0,
+        color: theme.palette.text.light,
+        backgroundColor: theme.palette.primary.dark,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.text.primary,
+        },
+        '&:active': {
+          backgroundColor: '#002183',
+        },
+        '&:focus': {
+          backgroundColor: theme.palette.primary.dark,
+          boxShadow: '0 0 0 4px #0000EE99',
+        },
+      }}
+    >
+      Steps for filing with the court
+      <ArrowForwardIcon />
+    </Button>
+  );
+}
+
+export function ResourcesButton({ text, href }: {text: string, href: string}) {
+  return (
+    <Button
+      href={href}
+      variant="text"
+      aria-label={text}
+      sx={{
+        whiteSpace: 'nowrap',
+        py: 1,
+        margin: '.625rem 0',
+        letterSpacing: 0,
+        color: theme.palette.secondary.dark,
+        textDecoration: 'underline',
+        '&:hover': {
+          backgroundColor: theme.palette.secondary.light,
+        },
+        '&:active': {
+          backgroundColor: '#E9E9E9',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 4px #0000EE99',
+        },
+      }}
+    >
+      {text}
+      <ArrowForwardIcon />
+    </Button>
+  );
+}
