@@ -26,7 +26,6 @@ function DisclaimerBanner() {
           }}
           />
           <Box sx={{ pl: 1 }}>
-            {/* eslint-disable-next-line max-len */}
             Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
           </Box>
         </Box>
