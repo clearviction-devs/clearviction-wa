@@ -57,6 +57,7 @@ export default function HeroBanner({
             color: 'text.light',
             pt: 40,
             fontSize: 48,
+            mb: '24px',
           }}
         >
           {header}
