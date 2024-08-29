@@ -59,7 +59,6 @@ export default function HeroBanner({
           sx={{
             color: 'text.light',
             pt: 40,
-            fontSize: 48,
           }}
         >
           {header}
