@@ -22,9 +22,12 @@ export default function BenefitCard({
         sm: 'column',
         md: 'row',
       },
-      maxWidth: '902px',
+      maxWidth: {
+        sm: '999px',
+        md: '936px',
+      },
       mx: 'auto',
-      my: 3,
+      mb: 3,
       borderRadius: '0px',
     }}
     >

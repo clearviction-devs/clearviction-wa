@@ -3,14 +3,16 @@ import React from 'react';
 
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import BenefitCard from '../../components/layout/BenefitCard.tsx';
-import SectionContainer from '../../components/layout/SectionContainer.tsx';
+import BenefitPageContainer, { BenefitCardsContainer } from '../../components/layout/BenefitPageContainer.tsx';
 import content from '../../content/why-vacate.ts';
 import theme from '../../styles/themes/theme.tsx';
 
 export default function EducationalBenefits() {
   return (
     <>
-      <SectionContainer>
+      <BenefitPageContainer
+        id="section-educational-benefits"
+      >
         <Typography variant="h2">
           {content.cards[2].title}
         </Typography>
@@ -20,8 +22,10 @@ export default function EducationalBenefits() {
         <Typography variant="body1">
           {content.cards[2].subtitle2}
         </Typography>
-      </SectionContainer>
-      <SectionContainer sx={{ my: 0 }}>
+      </BenefitPageContainer>
+      <BenefitCardsContainer
+        id="section-educational-benefits-cards"
+      >
         {
             content.cards[2].cardItems.map((benefit, index) => (
               <BenefitCard
@@ -33,8 +37,10 @@ export default function EducationalBenefits() {
               />
             ))
         }
-      </SectionContainer>
-      <SectionContainer>
+      </BenefitCardsContainer>
+      <BenefitPageContainer
+        id="section-educational-resources"
+      >
         <Typography variant="h3">
           Educational resources
         </Typography>
@@ -49,7 +55,7 @@ export default function EducationalBenefits() {
               />
             ))
         }
-      </SectionContainer>
+      </BenefitPageContainer>
     </>
   );
 }

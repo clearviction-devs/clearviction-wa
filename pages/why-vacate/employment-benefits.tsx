@@ -3,14 +3,14 @@ import React from 'react';
 
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import BenefitCard from '../../components/layout/BenefitCard.tsx';
-import SectionContainer from '../../components/layout/SectionContainer.tsx';
+import BenefitPageContainer, { BenefitCardsContainer } from '../../components/layout/BenefitPageContainer.tsx';
 import content from '../../content/why-vacate.ts';
 import theme from '../../styles/themes/theme.tsx';
 
 export default function EmploymentBenefits() {
   return (
     <>
-      <SectionContainer>
+      <BenefitPageContainer id="section-employment-benefits">
         <Typography variant="h2">
           {content.cards[0].title}
         </Typography>
@@ -20,8 +20,8 @@ export default function EmploymentBenefits() {
         <Typography variant="body1">
           {content.cards[0].subtitle2}
         </Typography>
-      </SectionContainer>
-      <SectionContainer sx={{ my: 0 }}>
+      </BenefitPageContainer>
+      <BenefitCardsContainer id="section-employment-benefits-cards">
         {
             content.cards[0].cardItems.map((benefit, index) => (
               <BenefitCard
@@ -33,8 +33,8 @@ export default function EmploymentBenefits() {
               />
             ))
         }
-      </SectionContainer>
-      <SectionContainer>
+      </BenefitCardsContainer>
+      <BenefitPageContainer id="section-employment-resources">
         <Typography variant="h3">
           Employment resources
         </Typography>
@@ -49,7 +49,7 @@ export default function EmploymentBenefits() {
               />
             ))
         }
-      </SectionContainer>
+      </BenefitPageContainer>
     </>
   );
 }
