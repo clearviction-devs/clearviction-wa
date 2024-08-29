@@ -20,7 +20,6 @@ const heroStyles: SxProps = {
   backgroundPosition: 'center',
   color: 'primary.contrastText',
   width: '100%',
-  height: '100vh',
   py: {
     xs: 0.5,
     md: 8,
@@ -39,9 +38,6 @@ export default function HeroBanner({
       sx={{
         ...heroStyles,
         backgroundImage: background,
-        height: {
-          lg: '660px',
-        },
       }}
       textAlign="left"
     >
