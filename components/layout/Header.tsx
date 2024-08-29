@@ -43,14 +43,18 @@ export default function Header({ isCalc }: HeaderProps) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle}>
-      <Box>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-around',
+      }}
+    >
+      <Box sx={{
+        margin: '16px auto 16px 16px',
+      }}
+      >
         <IconButton
           aria-label="Close navigation"
-          sx={{
-            marginRight: 'auto',
-            paddingY: 4,
-          }}
         >
           <ArrowForwardIos
             fontSize="large"
@@ -60,19 +64,26 @@ export default function Header({ isCalc }: HeaderProps) {
           />
         </IconButton>
       </Box>
-      <List className="nav-mobile" sx={{ transform: 'translateY(-20px)' }}>
+      <List className="nav-mobile" sx={{ transform: 'translateY(-60px)' }}>
         {navItems.map(({ href, text, sublist }) => (
           <React.Fragment key={text}>
-            <ListItem sx={{ margin: '0px', padding: '0px' }}>
+            <ListItem
+              sx={{ paddingBottom: 0, paddingTop: 0 }}
+            >
               <ListItemButton
                 component={Link}
                 href={href}
+                sx={{
+                  paddingBottom: 0,
+                  paddingTop: 0,
+                }}
               >
                 <ListItemText
                   primary={text}
                   primaryTypographyProps={{
-                    style: {
-                      fontSize: '16px', fontWeight: '700', margin: '0px',
+                    style:
+                    {
+                      fontSize: '16px', fontWeight: '700', fontFamily: theme.typography.button.fontFamily, marginBottom: 0,
                     },
                   }}
                 />
@@ -81,11 +92,13 @@ export default function Header({ isCalc }: HeaderProps) {
             <List sx={{ paddingLeft: '32px' }}>
               {sublist?.map((item) => (
                 <ListItem key={item.text} disablePadding>
-                  <ListItemButton component={Link} href={item.href} sx={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '8px' }}>
+                  <ListItemButton>
                     <ListItemText
                       primary={item.text}
                       primaryTypographyProps={{
-                        style: { fontSize: '16px', fontWeight: '500', margin: '0px' },
+                        style: {
+                          fontSize: '16px', fontWeight: '500', fontFamily: theme.typography.button.fontFamily, marginBottom: 0,
+                        },
                       }}
                     />
                   </ListItemButton>
@@ -94,10 +107,14 @@ export default function Header({ isCalc }: HeaderProps) {
             </List>
           </React.Fragment>
         ))}
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <EligibilityButton />
-        </Box>
       </List>
+      <Box sx={{
+        display: 'flex', flexDirection: 'column', justifyContent: 'end', height: '128px',
+      }}
+      >
+        <Box />
+        <EligibilityButton />
+      </Box>
     </Box>
   );
 
@@ -106,7 +123,7 @@ export default function Header({ isCalc }: HeaderProps) {
       <Box
         component="nav"
         sx={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 10.5,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 2,
         }}
       >
         <Drawer

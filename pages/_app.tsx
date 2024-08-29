@@ -31,6 +31,8 @@ function MyApp({
   const stringToCheck = 'calculator';
   const isCalc = asPath.includes(stringToCheck);
 
+  const isHomePage = asPath === '/';
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -40,7 +42,7 @@ function MyApp({
         <>
           <CssBaseline />
           <Header isCalc={isCalc} />
-          <DisclaimerBanner />
+          <DisclaimerBanner isHomePage={isHomePage} />
           <Component {...pageProps} />
           <Footer isCalc={isCalc} />
         </>
