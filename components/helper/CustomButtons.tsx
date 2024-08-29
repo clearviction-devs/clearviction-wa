@@ -91,6 +91,7 @@ export function CalculatorButton({
 }
 
 export function StepsForFilingButton() {
+  const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
   return (
     <Button
       href="/get-started/file-with-the-court"
@@ -115,9 +116,15 @@ export function StepsForFilingButton() {
           boxShadow: '0 0 0 4px #0000EE99',
         },
       }}
+      onMouseEnter={() => setStrokeColor(theme.palette.text.primary!)}
+      onMouseLeave={() => setStrokeColor(theme.palette.text.light!)}
     >
       Steps for filing with the court
-      <ArrowForwardIcon />
+      <ArrowForwardIcon sx={{
+        stroke: strokeColor,
+        strokeWidth: 0.5,
+      }}
+      />
     </Button>
   );
 }
@@ -137,6 +144,7 @@ export function ResourcesButton({ text, href }: {text: string, href: string}) {
         textDecoration: 'underline',
         '&:hover': {
           backgroundColor: theme.palette.secondary.light,
+          textDecoration: 'underline',
         },
         '&:active': {
           backgroundColor: '#E9E9E9',
@@ -147,7 +155,11 @@ export function ResourcesButton({ text, href }: {text: string, href: string}) {
       }}
     >
       {text}
-      <ArrowForwardIcon />
+      <ArrowForwardIcon sx={{
+        stroke: theme.palette.secondary.dark,
+        strokeWidth: 0.5,
+      }}
+      />
     </Button>
   );
 }
