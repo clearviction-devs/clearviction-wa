@@ -6,7 +6,11 @@ import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 
-function DisclaimerBanner() {
+function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
+  if (!isHomePage) {
+    return null;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Box
