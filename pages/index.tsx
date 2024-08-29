@@ -35,7 +35,7 @@ export default function Home() {
             <Grid item xs={12} md={7}>
               <Typography
                 variant="h2"
-                sx={{ lineHeight: '40px' }}
+                sx={{ lineHeight: '40px', mb: '24px' }}
               >
                 {content.background.title}
               </Typography>
@@ -170,7 +170,7 @@ export default function Home() {
         </SectionContainer>
 
         <SectionContainer id="faq">
-          <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px' }}>Conviction Vacation FAQs</Typography>
+          <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px', mb: '24px' }}>Conviction Vacation FAQs</Typography>
           {content.faqs.map((faq) => (
             <AccordionBuilder
               key={faq.id}

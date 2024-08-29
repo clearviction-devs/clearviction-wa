@@ -43,7 +43,10 @@ export default function InfoDropdown({
         id={`${id}-header`}
         aria-controls={`${id}-content`}
         expandIcon={expanded === id ? <RemoveIcon /> : <AddIcon />}
-        sx={{ ...sx }}
+        sx={{
+          backgroundColor: theme.palette.primary.light,
+          ...sx,
+        }}
       >
         <MuiMarkdown overrides={{
           span: {
