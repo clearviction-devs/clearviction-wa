@@ -49,7 +49,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         ref={contentRef}
         component={Container}
         sx={{
-          minHeight: '35rem',
+          minHeight: '40rem',
           display: 'flex',
           flexDirection: 'column',
           maxWidth: {
