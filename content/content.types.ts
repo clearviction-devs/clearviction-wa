@@ -77,6 +77,7 @@ export interface Card {
     title: string;
     sectionId: string;
     subtitle: string;
+    subtitle2?: string;
     cardItems: CardItem[];
     accordianItems: Info[];
 }
