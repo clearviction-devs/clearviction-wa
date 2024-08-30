@@ -1,15 +1,13 @@
 import {
-  Button,
-  Fact, GetStartedStep, Header, Info, InfoWithoutSummary,
+  Fact, FAQ, GetStartedStep, Header, Info, InfoWithoutSummary,
   MetaPageHead,
 } from './content.types.ts';
 
 interface GetStartedContent {
   meta: MetaPageHead;
   hero: Header;
-  buttons: Button[];
   steps: GetStartedStep[];
-  stepFourSectionNames: string[];
+  FAQ: FAQ[];
   needToKnowFacts: Fact[];
   CHRIMethods: Info[];
   step3Substeps: InfoWithoutSummary[];
@@ -21,60 +19,51 @@ interface GetStartedContent {
 
 const getStartedContent: GetStartedContent = {
   meta: {
-    title: 'Vacate Your Criminal Record in 4 Steps',
-    content: 'Get started with our 4 step process and access our resources to vacate your criminal record in Washington State',
+    title: 'Vacate Your Criminal Record in 3 Steps',
+    content: 'Get started with our 3 step process and access our resources to vacate your criminal record in Washington State',
   },
   hero: {
-    header: 'Get started on the conviction vacation process',
-    subheading: 'Vacate your conviction in the state of Washington by following these 4 steps!',
-    imgsrc: '/illustrations/chart.svg',
-    ctaLink: '#step-1-documents',
-    ctaText: 'Read More',
+    header: 'Get started with the vacation process',
+    subheading: 'You can vacate your conviction in the state of Washington by following these 3 steps.',
   },
-  buttons: [
-    {
-      name: 'Step 1: Documents',
-      href: '#step-1-documents',
-    },
-    {
-      name: 'Step 2: Eligibility',
-      href: '#step-2-eligibility',
-    },
-    {
-      name: 'Step 3: Filing',
-      href: '#step-3-file-with-court',
-    },
-    {
-      name: 'Step 4: Court Hearing',
-      href: '#step-4-court-hearing',
-    },
-  ],
   steps: [
     {
-      title: 'Step 1: Gather the Required Documents',
-      body: 'First let\'s gather the documents you will need to determine your eligibility. Before using the calculator, gather all the documentation you have regarding your conviction.',
-      data: ['You\'ll need to know:', 'CHRI (Recommended)', 'A copy of your **Criminal History Record Information (CHRI)** would be very helpful in the vacation process and might be required in some cases.'],
+      title: 'Gather your documentation',
+      overline: 'Step 1',
+      body: 'Before using the eligibility calculator, gather all the documentation you have regarding your conviction. ',
+      ctaText: 'Learn more',
+      ctaLink: '/get-started/gather-your-documentation',
     },
     {
-      title: 'Step 2: Check Your Eligibility',
-      body: 'Once you have your records and forms gathered, use our eligibility calculator to determine whether you are eligible to vacate your misdemeanor or felony conviction. It is expected to take 10-30 minutes.',
-      ctaLink: '/calculator/head-initial-1-cont',
-      ctaText: 'Access Calculator',
-      ariaLabels: { ctaButton: 'Access our eligibility calculator' },
-      data: [],
+      title: 'Determine your eligibility',
+      overline: 'Step 2',
+      body: 'If you know the details of your conviction, you can use our eligibility tool to determine if your conviction meets the vacation criteria.',
+      ctaText: 'Learn more',
+      ctaLink: '/get-started/determine-your-eligibility',
     },
     {
-      title: 'Step 3: File with Court',
-      body: 'Once you have determined you are eligible to vacate your conviction using the Eligibility Calculator, you must submit a request to have your conviction vacated at the court where you were sentenced.',
-      data: ['To find where to file your petitition to vacate, you can go the [Washington State Courts Website](https://www.courts.wa.gov/court_dir/) for a statewide directory of courts, with addresses and numbers.', 'Your request to vacate may be denied if:'],
-    },
-    {
-      title: 'Step 4: Court Hearing',
-      body: 'Last but not least, schedule a hearing with a judge, following the "**Instructions for Vacating Misdemeanor and Felony Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/documents/CrRLJ%2009.0300%20InstructVacateMisdConvictions_2022%2007.pdf) / [CrRLJ 08.0930](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) above.',
-      data: ['Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline:\n\n* Outside of King County: call 1-888-201-1014 (weekdays 9.15am - 12.15pm)\n\n* In King County: call 2-1-1 (weekdays 8am - 6pm) \n\n* You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)', 'Important Notice to Verify Legal Resources:', ' Before proceeding with any legal resources mentioned on our website, we highly encourage you to contact them directly and verify that they are currently able to assist with your specific issue. While we strive to provide accurate and up-to-date information, it is important to acknowledge that the priorities and availability of legal resources can evolve.'],
+      title: 'File with the court',
+      overline: 'Step 3',
+      body: 'If you\'re eligible, the next step is to petition the court to vacate your conviction and attend your hearing.',
+      ctaText: 'Learn more',
+      ctaLink: '/get-started/file-with-the-court',
     },
   ],
-  stepFourSectionNames: ['Legal Aid', 'Financial Aid', 'Eligibility-Related Forms'],
+  FAQ: [{
+    id: 'vacatable-convictions-faq-1',
+    summary: 'What convictions are allowed to be vacated?',
+    details: 'Washington State allows you to vacate most types of criminal charges, but your conviction must meet specific criteria. \n \n Review the general requirements below, but for the most accurate results, use the Eligibility Calculator.',
+  },
+  {
+    id: 'vacatable-convictions-faq-2',
+    summary: 'What misdemeanors can NOT be vacated?',
+    details: 'This list outlines basic criteria only and does not cover specific exceptions. For detailed information and criteria, visit [Courts.wa.gov](https://www.courts.wa.gov/forms/documents/CrRLJ%2009_0300_InstructVacateMisdConvictions_2019%2012.pdf). \n \n Alternatively, gather your documents and use the Eligibility Calculator for the most accurate results regarding the vacation status of your specific conviction. \n \n - Sex offenses [(RCW 9A.44)](https://app.leg.wa.gov/RCW/default.aspx?cite=9A.44). There is one exception: failing to register as a sex offender [(RCW 9A.44.132)](https://app.leg.wa.gov/RCW/default.aspx?cite=9A.44) \n - Convictions involving obscenity and pornography [(RCW 9.68)](https://app.leg.wa.gov/RCW/default.aspx?cite=9A.44) \n - Convictions involving sexual exploitation of children [(RCW 9.68A)](https://app.leg.wa.gov/rcw/default.aspx?cite=9A.44) \n - Violent offenses or attempts to commit violent offenses (RCW 9.94A.030)\n - Driving while under the influence (DUI) [(RCW 46.61.502)](https://app.leg.wa.gov/rcw/default.aspx?cite=9A.44) \n - Actual physical control while under the influence [(RCW 46.61.504)](https://app.leg.wa.gov/rcw/default.aspx?cite=9A.44)',
+  },
+  {
+    id: 'vacatable-convictions-faq-3',
+    summary: 'What felonies can NOT be vacated?',
+    details: 'This list covers basic criteria only and does not include specific exceptions. For detailed information and criteria, visit [Courts.wa.gov](https://www.courts.wa.gov/forms/documents/CrRLJ%2009_0300_InstructVacateMisdConvictions_2019%2012.pdf). \n \n Or collect your documents and use the Eligibility Calculator for the most accurate results regarding the vacation status of your specific conviction.\n \n Class A Felonies are CANNOT be vacated. \n \n Class B and C CANNOT be vacated if they are: \n \n - A violent offense [(9.94A.030(58)a)](https://app.leg.wa.gov/rcw/default.aspx?cite=9.94A) \n - Driving under the influence [(RCW 46.61.502)](https://app.leg.wa.gov/rcw/default.aspx?cite=46.61) \n - Actual physical control while under the influence [(RCW 46.61.504)](https://app.leg.wa.gov/rcw/default.aspx?cite=46.61) \n - A crime against a person as defined in [RCW 43.43.830](https://app.leg.wa.gov/RCW/default.aspx?cite=43.43.830) with specific exceptions. \n - Violations of [RCW 9A.44](https://app.leg.wa.gov/RCW/default.aspx?cite=9A.44) (sex offenses) with specific exceptions.',
+  }],
   needToKnowFacts: [
     {
       id: 'n2k1',

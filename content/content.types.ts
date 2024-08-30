@@ -109,11 +109,10 @@ export interface MetaPageHead {
 
 export interface GetStartedStep {
     title: string;
+    overline: string;
     body: string;
-    ctaText?: string;
-    ctaLink?: string;
-    data: string[];
-    ariaLabels?: AriaLabels;
+    ctaText: string;
+    ctaLink: string;
 }
 
 export interface ContactType {
