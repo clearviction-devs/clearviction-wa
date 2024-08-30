@@ -163,3 +163,41 @@ export function ResourcesButton({ text, href }: {text: string, href: string}) {
     </Button>
   );
 }
+
+export function DarkButton({ text, href }: {text: string, href: string}) {
+  const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
+  return (
+    <Button
+      href={href}
+      variant="contained"
+      aria-label={text}
+      sx={{
+        whiteSpace: 'nowrap',
+        py: 1,
+        margin: '.625rem 0',
+        letterSpacing: 0,
+        color: theme.palette.text.light,
+        backgroundColor: theme.palette.primary.dark,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.text.secondary,
+        },
+        '&:active': {
+          backgroundColor: '#002138',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 4px #0000EE99',
+        },
+      }}
+      onMouseEnter={() => setStrokeColor(theme.palette.text.secondary)}
+      onMouseLeave={() => setStrokeColor(theme.palette.text.light)}
+    >
+      {text}
+      <ArrowForwardIcon sx={{
+        stroke: strokeColor,
+        strokeWidth: 0.5,
+      }}
+      />
+    </Button>
+  );
+}
