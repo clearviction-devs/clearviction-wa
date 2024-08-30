@@ -53,7 +53,7 @@ export default function InfoDropdown({
             component: Typography,
             props: {
               variant: 'headingCalculator',
-              sx: { my: 2 },
+              sx: { m: 2 },
             },
           },
         }}
