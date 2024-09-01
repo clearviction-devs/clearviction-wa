@@ -14,21 +14,20 @@ const details2 = 'The RCW links throughout the calculator send you to the online
 const details3 = 'Your WATCH report should list the crime name, degree of the offense, and the **RCW** law that was violated.';
 
 export default function RCWLinkInfo() {
-  const [infoPopup, setInfoPopup] = useState(false);
   const [RCWPopup, setRCWPopup] = useState(false);
 
   return (
     <>
       <Box
         padding="32px 0px"
-        minHeight="108px"
+        minHeight="124px"
         sx={{
           display: 'flex',
           gap: '8px',
         }}
       >
         <IconButton
-          onClick={() => setInfoPopup(!infoPopup)}
+          onClick={() => setRCWPopup(!RCWPopup)}
           sx={{
             color: theme.palette.secondary.dark,
             '&:hover': {
@@ -40,33 +39,34 @@ export default function RCWLinkInfo() {
           <InfoOutlinedIcon style={{
             color: theme.palette.secondary.dark,
             fontSize: '24px',
+            alignSelf: 'flex-start',
+            marginTop: '4px',
           }}
           />
         </IconButton>
 
-        {infoPopup && (
-          <Box>
-            <Typography variant="body2" sx={{ color: 'black', display: 'inline' }}>
-              Throughout the calculator, you may need to view the
-              {' '}
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                color: theme.palette.secondary.dark,
-                fontWeight: 'bold',
-                display: 'inline',
-                textDecoration: 'underline',
-                cursor: 'pointer',
-                '&:hover': { textDecoration: 'none' },
-              }}
-              onClick={() => setRCWPopup(true)}
-            >
-              RCW links
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'black', display: 'inline' }}> provided for each question to determine your answers.</Typography>
-          </Box>
-        )}
+        <Box>
+          <Typography variant="body2" sx={{ color: theme.palette.text.primary, display: 'inline' }}>
+            Throughout the calculator, you may need to view the
+            {' '}
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              color: theme.palette.secondary.dark,
+              fontWeight: 'bold',
+              display: 'inline',
+              textDecoration: 'underline',
+              cursor: 'pointer',
+              '&:hover': { textDecoration: 'none' },
+            }}
+            onClick={() => setRCWPopup(true)}
+          >
+            RCW links
+          </Typography>
+          <Typography variant="body2" sx={{ color: theme.palette.text.primary, display: 'inline' }}> provided for each question to determine your answers.</Typography>
+        </Box>
+
       </Box>
 
       <Dialog

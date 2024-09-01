@@ -76,16 +76,14 @@ export default function QandAContainer({
           id="choices-container"
           disableGutters
           sx={{
-            width: {
-              xs: '100%',
-              sm: '360px',
-            },
+            width: '344px',
             mt: 2,
             mx: 0,
             pl: 0,
             display: 'flex',
             flexDirection: 'column',
-
+            position: (isPartOfHead || page.slug === 'm-offense-mari-1-cont') ? 'static' : 'absolute',
+            top: '536px',
           }}
         >
 
@@ -97,11 +95,8 @@ export default function QandAContainer({
               aria-label="Choice options"
               direction={useColumnForChoices ? 'column' : 'row'}
               sx={{
-                justifyContent: {
-                  xs: 'space-between',
-                  sm: 'normal',
-                },
-                pl: 0,
+                width: '312px',
+                justifyContent: 'space-between',
               }}
             >
               {page.choices

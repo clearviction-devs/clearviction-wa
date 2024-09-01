@@ -20,7 +20,6 @@ const heroStyles: SxProps = {
   backgroundPosition: 'center',
   color: 'primary.contrastText',
   width: '100%',
-  height: '100vh',
   py: {
     xs: 0.5,
     md: 8,
@@ -56,10 +55,6 @@ export default function HeroBanner({
           sx={{
             color: 'text.light',
             pt: 40,
-            fontSize: {
-              xs: '36px',
-              md: '48px !important',
-            },
           }}
         >
           {header}

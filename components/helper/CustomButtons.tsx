@@ -49,6 +49,8 @@ export function CalculatorButton({
   children?: React.ReactNode,
   handleClick?: () => void,
 }) {
+  const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
+
   return (
     <Button
       href={href}
@@ -73,9 +75,17 @@ export function CalculatorButton({
         boxShadow: 'none',
       }}
       onClick={handleClick}
+      onMouseEnter={() => setStrokeColor(theme.palette.text.primary!)}
+      onMouseLeave={() => setStrokeColor(theme.palette.text.light!)}
     >
       {children}
-      {hasArrow && <ArrowForwardIcon />}
+      {hasArrow && (
+      <ArrowForwardIcon sx={{
+        stroke: strokeColor,
+        strokeWidth: 0.5,
+      }}
+      />
+      )}
     </Button>
   );
 }

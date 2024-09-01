@@ -1,12 +1,13 @@
 import {
-  Button,
   Dialog, DialogActions, DialogContent, DialogTitle,
 } from '@mui/material';
 import { PortableText } from '@portabletext/react';
 import React from 'react';
 
+import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
+import { CalculatorButton } from '../helper/CustomButtons.tsx';
 
 export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOpenNotSurePopup }: {
     calculatorConfig: StaticCalcProps['calculatorConfig'],
@@ -20,12 +21,19 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       data-cy="not-sure-popup"
+      sx={{
+        width: '312px',
+        minHeight: '394px',
+        margin: 'auto',
+      }}
     >
       <DialogTitle
         id="alert-dialog-title"
         sx={{
           backgroundColor: 'secondary.dark',
           color: 'text.light',
+          fontFamily: theme.typography.h3.fontFamily,
+          fontWeight: 600,
         }}
       >
         {calculatorConfig.notSureAnswer.header}
@@ -45,9 +53,9 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
         color: 'text.light',
       }}
       >
-        <Button onClick={() => setOpenNotSurePopup(false)} data-cy="not-sure-pop-up-close" sx={{ backgroundColor: 'secondary.dark' }}>
+        <CalculatorButton handleClick={() => setOpenNotSurePopup(false)} data-cy="not-sure-pop-up-close">
           {calculatorConfig.notSureAnswer.closeText}
-        </Button>
+        </CalculatorButton>
       </DialogActions>
     </Dialog>
   );
