@@ -7,6 +7,7 @@ import SquareIcon from '@mui/icons-material/Square';
 import {
   Box, Grid, IconButton,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import React, { useState } from 'react';
 
 import PlayCard from './PlayCard.tsx';
@@ -34,6 +35,7 @@ export default function CarouselBuilder({
   textColor,
   buttonHRef, buttonClassName, buttonAriaLabel,
 }: CarouselBuilderProps) {
+  const theme = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -87,21 +89,37 @@ export default function CarouselBuilder({
       <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
         <IconButton
           onClick={handlePrevious}
+          sx={{
+            px: '2px',
+          }}
         >
-          <ArrowBackIcon />
+          <ArrowBackIcon
+            sx={{
+              fontSize: '24px',
+              color: theme.palette.primary.main,
+            }}
+          />
         </IconButton>
 
-        <Box>
+        <Box
+          sx={{
+            display: 'flex',
+          }}
+        >
           {cards.map((card, index) => (
             <IconButton
               key={card.title}
               onClick={() => handleDotClick(index)}
+              sx={{
+                padding: '4px',
+              }}
             >
               <SquareIcon
                 sx={{
-                  fontSize: '10px',
+                  fontSize: '4px',
+                  color: index === currentIndex
+                    ? theme.palette.primary.dark : theme.palette.primary.main,
                 }}
-                color={index === currentIndex ? 'primary' : 'disabled'}
               />
             </IconButton>
           ))}
@@ -109,8 +127,16 @@ export default function CarouselBuilder({
 
         <IconButton
           onClick={handleNext}
+          sx={{
+            px: '2px',
+          }}
         >
-          <ArrowForwardIcon />
+          <ArrowForwardIcon
+            sx={{
+              fontSize: '24px',
+              color: theme.palette.primary.main,
+            }}
+          />
         </IconButton>
       </Box>
     </Grid>
