@@ -1,5 +1,6 @@
+import { CarouselCard } from '../components/layout/CarouselBuilder.tsx';
 import {
-  Fact, FAQ, GetStartedStep, Header, Info, InfoWithoutSummary,
+  FAQ, GetStartedStep, Header, Info, InfoWithoutSummary,
   MetaPageHead,
 } from './content.types.ts';
 
@@ -8,8 +9,8 @@ interface GetStartedContent {
   hero: Header;
   steps: GetStartedStep[];
   FAQ: FAQ[];
-  needToKnowFacts: Fact[];
-  CHRIMethods: Info[];
+  needToKnowFacts: string;
+  WATCHCards: CarouselCard[];
   step3Substeps: InfoWithoutSummary[];
   rejectionReasons: InfoWithoutSummary[];
   legalAidForms: Info[];
@@ -64,35 +65,25 @@ const getStartedContent: GetStartedContent = {
     summary: 'What felonies can NOT be vacated?',
     details: 'This list covers basic criteria only and does not include specific exceptions. For detailed information and criteria, visit [Courts.wa.gov](https://www.courts.wa.gov/forms/documents/CrRLJ%2009_0300_InstructVacateMisdConvictions_2019%2012.pdf). \n \n Or collect your documents and use the Eligibility Calculator for the most accurate results regarding the vacation status of your specific conviction.\n \n Class A Felonies are CANNOT be vacated. \n \n Class B and C CANNOT be vacated if they are: \n \n - A violent offense [(9.94A.030(58)a)](https://app.leg.wa.gov/rcw/default.aspx?cite=9.94A) \n - Driving under the influence [(RCW 46.61.502)](https://app.leg.wa.gov/rcw/default.aspx?cite=46.61) \n - Actual physical control while under the influence [(RCW 46.61.504)](https://app.leg.wa.gov/rcw/default.aspx?cite=46.61) \n - A crime against a person as defined in [RCW 43.43.830](https://app.leg.wa.gov/RCW/default.aspx?cite=43.43.830) with specific exceptions. \n - Violations of [RCW 9A.44](https://app.leg.wa.gov/RCW/default.aspx?cite=9A.44) (sex offenses) with specific exceptions.',
   }],
-  needToKnowFacts: [
+  needToKnowFacts: '- The date & violation of your misdemeanor or felony conviction in Washington state \n- If and when you completed the terms of your sentence, including any **Legal Financial Obligations** ([LFOs](/lfos)) \n- Pending or new criminal charges & any court orders against you',
+  WATCHCards: [
     {
-      id: 'n2k1',
-      icon: 'date',
-      details: 'The date & violation of your misdemeanor or felony conviction in Washington state',
+      title: '**Online “WATCH” report** (Unofficial copy)',
+      details: 'This report is not always accurate. \n \n **Price**: $11 \n\n **Estimated Turnaround**: instant',
+      ctaButton: 'WSP website',
+      buttonHref: 'https://wsp.wa.gov/crime/criminal-history',
     },
     {
-      id: 'n2k2',
-      icon: 'history',
-      details: 'If and when you completed the terms of your sentence, including any Legal Financial Obligations ([LFOs]())',
+      title: '**“WATCH” report by mail** (Unofficial copy)',
+      details: 'This report is not always accurate. \n \n **Price**: $32 \n\n **Estimated Turnaround**: about 2 weeks',
+      ctaButton: 'WSP website',
+      buttonHref: 'https://wsp.wa.gov/crime/criminal-history',
     },
     {
-      id: 'n2k3',
-      icon: 'account',
-      details: 'Pending or new criminal charges & any court orders against you',
-    },
-  ],
-  CHRIMethods: [
-    {
-      id: 'chri1',
-      summary: '“Unofficial” Copy Through W.A.T.C.H',
-      details:
-        '**Price: $11**\n\n**Estimated Turnaround: Instant**\n\nGet an [“unofficial” copy through WATCH](https://watch.wsp.wa.gov/WATCH/Home/Notice?ReturnPage=%2FHome%2FIndex) for a $11.00 fee. This report is not always accurate so you should ask the prosecutor.',
-    },
-    {
-      id: 'chri2',
-      summary: 'Official Record Review (Fingerprint Card)',
-      details:
-        '**Price: $30 - $70**\n\n**Estimated Turnaround: 2 weeks**\n\nIf the WATCH printout is not good enough, go to your local police or sheriff\'s office for an official “record review/challenge” fingerprint card.\n\nNext, write WSP a letter asking them to send an official copy of your complete CHRI. Include the fingerprint card and a money order. A copy of your CHRI will be returned to the address on the fingerprint card. Send everything to:\n\nWashington State Patrol Identification and Background Section\n\nPO Box 42633\n\nOlympia WA 98504-2633',
+      title: '**Official “WATCH” report by mail**',
+      details: 'You may obtain this report by request from the Washington State Patrol through mail by submitting a full set of fingerprints. \n \n **Price**: $32 \n\n **Estimated Turnaround**: about 2 weeks',
+      ctaButton: 'WSP website',
+      buttonHref: 'https://wsp.wa.gov/crime/criminal-history',
     },
   ],
   step3Substeps: [
