@@ -92,7 +92,10 @@ export default function Header({ isCalc }: HeaderProps) {
             <List sx={{ paddingLeft: '32px' }}>
               {sublist?.map((item) => (
                 <ListItem key={item.text} disablePadding>
-                  <ListItemButton>
+                  <ListItemButton
+                    href={item.href}
+                    component={Link}
+                  >
                     <ListItemText
                       primary={item.text}
                       primaryTypographyProps={{
