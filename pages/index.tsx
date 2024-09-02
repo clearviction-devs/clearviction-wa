@@ -125,22 +125,29 @@ export default function Home() {
           </SectionContainer>
         </Grid>
 
-        <SectionContainer>
+        <Box sx={{
+          padding: {
+            xs: '72px 0px 52px 24px',
+            sm: '72px 0px 52px 64px',
+            md: '52px 32px',
+          },
+          maxWidth: '936px',
+          mx: 'auto',
+        }}
+        >
           <Grid container spacing={4}>
-            <Grid item xs={12} textAlign={{ xs: 'center', sm: 'left' }}>
+            <Grid item xs={12}>
               <Typography variant="h2">How can we help you vacate a conviction?</Typography>
             </Grid>
             <CarouselBuilder
               cards={content.carousel}
               cardWidth={274}
               cardHeight={362}
-              backgroundColor={theme.palette.background.dark as string}
-              textColor={theme.palette.text.light as string}
               buttonHRef="/calculator/head-initial-1-cont"
               usePlaycard
             />
           </Grid>
-        </SectionContainer>
+        </Box>
 
         <SectionContainer id="faq">
           <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px', mb: '24px' }}>Conviction Vacation FAQs</Typography>

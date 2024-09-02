@@ -14,20 +14,19 @@ import { GetStartedStep } from '../../content/content.types.ts';
 import GetStartedCard from './GetStartedCard.tsx';
 import PlayCard from './PlayCard.tsx';
 
-interface Card {
+export interface CarouselCard {
   title: string;
   details: string;
   iconSource?: string;
   ctaButton: string;
+  buttonHref: string;
 }
 
 interface CarouselBuilderProps {
-  cards?: Card[];
+  cards?: CarouselCard[];
   getStartedCards?: GetStartedStep[];
   cardWidth: number;
   cardHeight?: number;
-  backgroundColor?: string;
-  textColor?: string;
   buttonHRef?: string;
   buttonClassName?: string;
   buttonAriaLabel?: string;
@@ -40,11 +39,6 @@ export default function CarouselBuilder({
   getStartedCards,
   cardWidth,
   cardHeight,
-  backgroundColor,
-  textColor,
-  buttonHRef,
-  buttonClassName,
-  buttonAriaLabel,
   useGetStartedCards,
   usePlaycard,
 }: CarouselBuilderProps) {
@@ -70,7 +64,16 @@ export default function CarouselBuilder({
   };
 
   return (
-    <Grid item xs={12}>
+    <Grid
+      item
+      xs={12}
+      sx={{
+        paddingLeft: {
+          xs: '24px',
+          sm: 'unset',
+        },
+      }}
+    >
       <Box
         sx={{
           overflow: 'hidden',
@@ -81,6 +84,11 @@ export default function CarouselBuilder({
           display: 'flex',
           transform: `translateX(-${currentIndex * (cardWidth + 32)}px)`,
           transition: 'transform 0.5s ease-in-out',
+          gap: '32px',
+          justifyContent: {
+            md: 'space-between',
+          },
+
         }}
         >
           {useGetStartedCards && getStartedCards && getStartedCards.map((card) => (
@@ -89,7 +97,6 @@ export default function CarouselBuilder({
               sx={{
                 flex: '1 1 0',
                 width: cardWidth,
-                marginRight: '32px',
               }}
             >
               <GetStartedCard
@@ -116,11 +123,8 @@ export default function CarouselBuilder({
                 {...card}
                 cardWidth={cardWidth}
                 cardHeight={cardHeight}
-                backgroundColor={backgroundColor}
-                textColor={textColor}
-                buttonHRef={buttonHRef}
-                buttonClassName={buttonClassName}
-                buttonAriaLabel={buttonAriaLabel}
+                buttonHref={card.buttonHref}
+                ctaText={card.ctaButton}
               />
             </Box>
           ))}

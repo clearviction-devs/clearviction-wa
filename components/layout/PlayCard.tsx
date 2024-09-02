@@ -11,25 +11,22 @@ interface PlayCardProps {
   title?: string;
   details: string;
   iconSource?: string;
-  ctaButton: string;
-  textColor?: string;
-  backgroundColor?: string;
-  cardWidth: number,
-  cardHeight?: number,
-  buttonHRef: string;
+  cardWidth: number;
+  cardHeight?: number;
+  buttonHref: string;
+  ctaText: string;
 }
 
 export default function PlayCard({
-  title, details, iconSource, ctaButton, textColor, backgroundColor, cardWidth, cardHeight,
-  buttonHRef,
+  title, details, iconSource, cardWidth, cardHeight, buttonHref, ctaText,
 }: PlayCardProps) {
   return (
     <Card
       sx={{
         width: cardWidth,
         minHeight: cardHeight,
-        bgcolor: `${backgroundColor}`,
-        color: `${textColor}`,
+        bgcolor: 'primary.dark',
+        color: 'text.light',
         display: 'flex',
         flexDirection: 'column',
         px: 1,
@@ -37,8 +34,34 @@ export default function PlayCard({
     >
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Grid container direction="column" justifyContent="space-between" sx={{ flexGrow: 1 }}>
-          <Grid item sx={{ mt: 1 }}>
-            <Typography variant="overline" sx={{ fontWeight: 700, textTransform: 'none' }}>{title}</Typography>
+          <Grid item sx={{ my: '24px' }}>
+            <MuiMarkdown overrides={{
+              span: {
+                component: Typography,
+                props: {
+                  variant: 'overline',
+                  sx: {
+                    fontWeight: 400,
+                    textTransform: 'none',
+                    lineHeight: '30px',
+                  },
+                },
+              },
+              strong: {
+                component: Typography,
+                props: {
+                  variant: 'overline',
+                  sx: {
+                    fontWeight: 700,
+                    textTransform: 'none',
+                    lineHeight: '30px',
+                  },
+                },
+              },
+            }}
+            >
+              {title}
+            </MuiMarkdown>
           </Grid>
           <Grid item sx={{ mt: 1, fontSize: '16px', lineHeight: '21.79px' }}>
             <MuiMarkdown
@@ -53,13 +76,16 @@ export default function PlayCard({
                   component: Typography,
                   props: {
                     variant: 'body2',
+                    style: {
+                      marginBottom: '6px',
+                    },
                   },
                 },
                 strong: {
                   component: Typography,
                   props: {
                     variant: 'body2',
-                    sx: { fontWeight: 'bold', display: 'inline' },
+                    sx: { fontWeight: '700', display: 'inline' },
                   },
                 },
               }}
@@ -83,8 +109,8 @@ export default function PlayCard({
           <Grid container sx={{ mt: 'auto' }}>
             <Grid item>
               <LightButton
-                href={buttonHRef}
-                text={ctaButton}
+                href={buttonHref}
+                text={ctaText}
               />
             </Grid>
           </Grid>
