@@ -1,13 +1,14 @@
 import {
-  Container, ContainerProps, Typography,
+  Container, ContainerProps, Grid, Typography,
 } from '@mui/material';
 import React from 'react';
 
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
+import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedCard from '../../components/layout/GetStartedCard.tsx';
 import content from '../../content/get-started.ts';
 
-function GSContainer({
+export function GSContainer({
   children,
   id,
   sx,
@@ -28,7 +29,7 @@ function GSContainer({
         padding: {
           xs: '72px 24px 52px 24px',
           sm: '72px 24px 52px 24px',
-          md: '72px 64px 52px 64px',
+          md: '72px 32px 52px 32px',
           lg: '112px 32px 72px 32px',
           xl: '112px 32px 72px 32px',
         },
@@ -54,18 +55,41 @@ export default function GetStartedPage() {
           {content.hero.subheading}
         </Typography>
       </GSContainer>
+
       <GSContainer
         id="section-get-started-cards"
         sx={{
           padding: '44px 24px',
           margin: 'auto',
           width: 'auto',
+          display: {
+            sm: 'none',
+          },
         }}
       >
         {content.steps.map((step) => (
           <GetStartedCard key={step.overline} {...step} />
         ))}
       </GSContainer>
+
+      <GSContainer
+        id="section-get-started-carousel"
+        sx={{
+          display: {
+            xs: 'none',
+            sm: 'flex',
+          },
+          padding: {
+            sm: '72px 0px 52px 24px',
+            md: '72px 0px 52px 32px',
+          },
+        }}
+      >
+        <Grid container>
+          <CarouselBuilder useGetStartedCards getStartedCards={content.steps} cardWidth={284} />
+        </Grid>
+      </GSContainer>
+
       <GSContainer>
         <Typography variant="h3">
           Vacatable Convictions FAQs
