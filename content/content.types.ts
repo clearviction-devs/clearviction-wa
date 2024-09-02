@@ -37,6 +37,7 @@ export interface HomePlayCards {
     title: string;
     details: string;
     ctaButton: string;
+    buttonHref: string;
 }
 
 export interface GridItem {
