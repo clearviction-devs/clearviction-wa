@@ -52,7 +52,7 @@ const getStartedContent: GetStartedContent = {
   FAQ: [{
     id: 'vacatable-convictions-faq-1',
     summary: 'What convictions are allowed to be vacated?',
-    details: 'Washington State allows you to vacate most types of criminal charges, but your conviction must meet specific criteria. \n \n Review the general requirements below, but for the most accurate results, use the Eligibility Calculator.',
+    details: 'Washington State allows you to vacate most types of criminal charges, but your conviction must meet specific criteria. \n \n Review the general requirements below, but for the most accurate results, use the **Eligibility Calculator**.',
   },
   {
     id: 'vacatable-convictions-faq-2',
@@ -68,12 +68,12 @@ const getStartedContent: GetStartedContent = {
     {
       id: 'n2k1',
       icon: 'date',
-      details: 'The date & violation of your misdemeanor or felony conviction',
+      details: 'The date & violation of your misdemeanor or felony conviction in Washington state',
     },
     {
       id: 'n2k2',
       icon: 'history',
-      details: 'If and when you completed the terms of your sentence',
+      details: 'If and when you completed the terms of your sentence, including any Legal Financial Obligations ([LFOs]())',
     },
     {
       id: 'n2k3',

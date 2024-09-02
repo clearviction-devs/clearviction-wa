@@ -1,7 +1,5 @@
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
-  Button,
   Grid,
   Typography,
 } from '@mui/material';
@@ -9,6 +7,7 @@ import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
+import { DarkButton } from '../components/helper/CustomButtons.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
@@ -117,43 +116,10 @@ export default function Home() {
                   justifyContent: { xs: 'center', md: 'flex-start' },
                 }}
               >
-                <Button
+                <DarkButton
+                  text={content.eligibilityCTA.ctaButton}
                   href="/calculator/head-initial-1-cont"
-                  variant="contained"
-                  size="small"
-                  className="calc-btn"
-                  aria-label="Access our eligibility calculator"
-                  sx={{
-                    backgroundColor: theme.palette.background.dark,
-                    '&:hover': {
-                      color: theme.palette.text.secondary,
-                      backgroundColor: theme.palette.primary.main,
-                      '& .MuiTypography-root': {
-                        color: theme.palette.text.secondary,
-                      },
-                      '& .MuiSvgIcon-root': {
-                        color: theme.palette.text.secondary,
-                        stroke: theme.palette.text.secondary,
-                      },
-                    },
-                  }}
-                >
-                  <Typography
-                    variant="button"
-                    sx={{
-                      color: theme.palette.text.light, textTransform: 'none', marginBottom: '0px', letterSpacing: '0',
-                    }}
-                  >
-                    {content.eligibilityCTA.ctaButton}
-                  </Typography>
-                  <Box component="span" sx={{ ml: 1 }} />
-                  <ArrowForwardIcon sx={{
-                    color: theme.palette.text.light,
-                    stroke: theme.palette.text.light,
-                    strokeWidth: 0.5,
-                  }}
-                  />
-                </Button>
+                />
               </Grid>
             </Grid>
           </SectionContainer>
@@ -171,8 +137,6 @@ export default function Home() {
               backgroundColor={theme.palette.background.dark as string}
               textColor={theme.palette.text.light as string}
               buttonHRef="/calculator/head-initial-1-cont"
-              buttonClassName="calc-btn"
-              buttonAriaLabel="Access our eligibility calculator"
               usePlaycard
             />
           </Grid>

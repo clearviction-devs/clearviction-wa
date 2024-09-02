@@ -6,7 +6,7 @@ import MuiMarkdown from 'mui-markdown';
 import Link from 'next/link';
 import React from 'react';
 
-import { ResourcesButton, StepsForFilingButton } from '../components/helper/CustomButtons.tsx';
+import { DarkButton, TextButtonGreen } from '../components/helper/CustomButtons.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import whyVacateContent from '../content/why-vacate.ts';
 import theme from '../styles/themes/theme.tsx';
@@ -120,7 +120,10 @@ export default function SeeMoreResources() {
             <ListItem sx={{ py: 0 }}>2. If your conviction qualifies for vacation later, follow the step-by-step process on our website to petition the court to vacate.</ListItem>
           </List>
         </Box>
-        <StepsForFilingButton />
+        <DarkButton
+          text="Steps for filing with the court"
+          href="/get-started/file-with-the-court"
+        />
       </SMRContainer>
       <SMRContainer sx={{
         gap: '24px',
@@ -132,7 +135,10 @@ export default function SeeMoreResources() {
         <Typography variant="body1">
           Revisit our “general guidelines” for the step by step process of filing with the court to vacate your conviction and enjoy your new opportunities!
         </Typography>
-        <StepsForFilingButton />
+        <DarkButton
+          text="Steps for filing with the court"
+          href="/get-started/file-with-the-court"
+        />
       </SMRContainer>
       <SMRContainer sx={{
         gap: '24px',
@@ -147,7 +153,7 @@ export default function SeeMoreResources() {
         }}
         >
           {[['Employment resources', '/why-vacate/employment-resources'], ['Housing resources', '/why-vacate/housing-resources'], ['Education resources', '/why-vacate/education-resources']].map(([text, href]) => (
-            <ResourcesButton key={text} text={text} href={href} />
+            <TextButtonGreen key={text} text={text} href={href} />
           ))}
         </Box>
       </SMRContainer>

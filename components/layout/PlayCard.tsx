@@ -1,32 +1,27 @@
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
-  Box,
-  Button,
   Card, CardContent, Grid, Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import theme from '../../styles/themes/theme.tsx';
+import { LightButton } from '../helper/CustomButtons.tsx';
 import ImageContainer from './ImageContainer.tsx';
 
 interface PlayCardProps {
   title?: string;
   details: string;
   iconSource?: string;
-  ctaButton?: string;
+  ctaButton: string;
   textColor?: string;
   backgroundColor?: string;
   cardWidth: number,
   cardHeight?: number,
-  buttonHRef?: string;
-  buttonClassName?: string;
-  buttonAriaLabel?: string;
+  buttonHRef: string;
 }
 
 export default function PlayCard({
   title, details, iconSource, ctaButton, textColor, backgroundColor, cardWidth, cardHeight,
-  buttonHRef, buttonClassName, buttonAriaLabel,
+  buttonHRef,
 }: PlayCardProps) {
   return (
     <Card
@@ -87,43 +82,10 @@ export default function PlayCard({
           )}
           <Grid container sx={{ mt: 'auto' }}>
             <Grid item>
-              <Button
+              <LightButton
                 href={buttonHRef}
-                variant="contained"
-                size="small"
-                className={buttonClassName}
-                aria-label={buttonAriaLabel}
-                sx={{
-                  backgroundColor: theme.palette.background.default,
-                  '&:hover': {
-                    color: theme.palette.text.secondary,
-                    backgroundColor: theme.palette.primary.light,
-                    '& .MuiTypography-root': {
-                      color: theme.palette.text.secondary,
-                    },
-                    '& .MuiSvgIcon-root': {
-                      color: theme.palette.text.secondary,
-                      stroke: theme.palette.text.secondary,
-                    },
-                  },
-                }}
-              >
-                <Typography
-                  variant="button"
-                  sx={{
-                    color: theme.palette.text.secondary, textTransform: 'none', marginBottom: '0px', letterSpacing: '0',
-                  }}
-                >
-                  {ctaButton}
-                </Typography>
-                <Box component="span" sx={{ ml: 1 }} />
-                <ArrowForwardIcon sx={{
-                  color: theme.palette.text.secondary,
-                  stroke: theme.palette.text.secondary,
-                  strokeWidth: 0.5,
-                }}
-                />
-              </Button>
+                text={ctaButton}
+              />
             </Grid>
           </Grid>
         </Grid>
