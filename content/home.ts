@@ -1,5 +1,5 @@
 import {
-  FAQ, GridSection, Header, HomePlayCards,
+  FAQ, Header, HomePlayCards,
   MetaPageHead,
 } from './content.types.ts';
 
@@ -25,7 +25,6 @@ interface HomeContent {
     ctaButton: string;
   }
   carousel: HomePlayCards[];
-  // gridSections: GridSection[];
   faqs: FAQ[];
 }
 
@@ -66,16 +65,19 @@ const content: HomeContent = {
       title: 'Step 1',
       details: 'Gather all the documentation you have regarding your conviction. That includes previous records and all other legal documents.',
       ctaButton: 'Learn more',
+      buttonHref: '/get-started/gather-your-documentation',
     },
     {
       title: 'Step 2',
       details: 'Use the **Eligibility Tool**  to determine your eligibility to vacate your misdemeanor or felony conviction by answering a few **yes** or **no** questions.',
       ctaButton: 'Check eligibility',
+      buttonHref: '/calculator/head-initial-1-cont',
     },
     {
       title: 'Step 3',
       details: 'We help you explore what comes after your eligibility is determined.',
       ctaButton: 'Learn more',
+      buttonHref: '/',
     },
   ],
   faqs: [
