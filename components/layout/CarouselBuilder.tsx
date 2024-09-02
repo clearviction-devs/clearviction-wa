@@ -10,6 +10,8 @@ import {
 import { useTheme } from '@mui/material/styles';
 import React, { useState } from 'react';
 
+import { GetStartedStep } from '../../content/content.types.ts';
+import GetStartedCard from './GetStartedCard.tsx';
 import PlayCard from './PlayCard.tsx';
 
 interface Card {
@@ -20,30 +22,47 @@ interface Card {
 }
 
 interface CarouselBuilderProps {
-  cards: Card[];
+  cards?: Card[];
+  getStartedCards?: GetStartedStep[];
   cardWidth: number;
-  cardHeight: number;
-  backgroundColor: string;
-  textColor: string;
-  buttonHRef: string;
-  buttonClassName: string;
-  buttonAriaLabel: string;
+  cardHeight?: number;
+  backgroundColor?: string;
+  textColor?: string;
+  buttonHRef?: string;
+  buttonClassName?: string;
+  buttonAriaLabel?: string;
+  useGetStartedCards?: boolean;
+  usePlaycard?: boolean;
 }
 
 export default function CarouselBuilder({
-  cards, cardWidth, cardHeight, backgroundColor,
+  cards,
+  getStartedCards,
+  cardWidth,
+  cardHeight,
+  backgroundColor,
   textColor,
-  buttonHRef, buttonClassName, buttonAriaLabel,
+  buttonHRef,
+  buttonClassName,
+  buttonAriaLabel,
+  useGetStartedCards,
+  usePlaycard,
 }: CarouselBuilderProps) {
   const theme = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const getNumCards = () => {
+    if (cards) return cards.length;
+    if (getStartedCards) return getStartedCards.length;
+    return 0;
+  };
+
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === cards.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === getNumCards() - 1 ? 0 : prevIndex + 1));
   };
 
   const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? cards.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? getNumCards() - 1 : prevIndex - 1));
   };
 
   const handleDotClick = (index: number) => {
@@ -64,11 +83,33 @@ export default function CarouselBuilder({
           transition: 'transform 0.5s ease-in-out',
         }}
         >
-          {cards.map((card) => (
+          {useGetStartedCards && getStartedCards && getStartedCards.map((card) => (
             <Box
               key={card.title}
               sx={{
-                flex: '1 1 0', minWidth: 274, maxWidth: 274, marginRight: '32px',
+                flex: '1 1 0',
+                width: cardWidth,
+                marginRight: '32px',
+              }}
+            >
+              <GetStartedCard
+                title={card.title}
+                overline={card.overline}
+                body={card.body}
+                ctaText={card.ctaText}
+                ctaLink={card.ctaLink}
+              />
+            </Box>
+          ))}
+
+          { usePlaycard && cards && cards.map((card) => (
+            <Box
+              key={card.title}
+              sx={{
+                flex: '1 1 0',
+                minWidth: 274,
+                maxWidth: 274,
+                marginRight: '32px',
               }}
             >
               <PlayCard
@@ -86,7 +127,15 @@ export default function CarouselBuilder({
         </Box>
       </Box>
 
-      <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+      {/* Dots and arrows */}
+      <Box sx={{
+        display: {
+          xs: 'flex',
+          md: 'none',
+        },
+        mt: '32px',
+      }}
+      >
         <IconButton
           onClick={handlePrevious}
           sx={{
@@ -106,7 +155,25 @@ export default function CarouselBuilder({
             display: 'flex',
           }}
         >
-          {cards.map((card, index) => (
+          {cards && cards.map((card, index) => (
+            <IconButton
+              key={card.title}
+              onClick={() => handleDotClick(index)}
+              sx={{
+                padding: '4px',
+              }}
+            >
+              <SquareIcon
+                sx={{
+                  fontSize: '4px',
+                  color: index === currentIndex
+                    ? theme.palette.primary.dark : theme.palette.primary.main,
+                }}
+              />
+            </IconButton>
+          ))}
+
+          {getStartedCards && getStartedCards.map((card, index) => (
             <IconButton
               key={card.title}
               onClick={() => handleDotClick(index)}

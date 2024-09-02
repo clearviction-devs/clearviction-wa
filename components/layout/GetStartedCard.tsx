@@ -13,8 +13,9 @@ export default function GetStartedCard({
     <Card sx={{
       backgroundColor: theme.palette.secondary.light,
       height: '404px',
-      width: '312px',
+      width: '284px',
       padding: '32px 24px',
+      mb: '32px',
     }}
     >
       <CardContent sx={{

@@ -15,10 +15,10 @@ interface PlayCardProps {
   details: string;
   iconSource?: string;
   ctaButton?: string;
-  textColor: string;
-  backgroundColor: string;
+  textColor?: string;
+  backgroundColor?: string;
   cardWidth: number,
-  cardHeight: number,
+  cardHeight?: number,
   buttonHRef?: string;
   buttonClassName?: string;
   buttonAriaLabel?: string;

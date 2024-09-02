@@ -173,6 +173,7 @@ export default function Home() {
               buttonHRef="/calculator/head-initial-1-cont"
               buttonClassName="calc-btn"
               buttonAriaLabel="Access our eligibility calculator"
+              usePlaycard
             />
           </Grid>
         </SectionContainer>
