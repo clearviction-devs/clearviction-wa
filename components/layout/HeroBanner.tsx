@@ -60,7 +60,12 @@ export default function HeroBanner({
           {header}
         </Typography>
         {ctaText && ctaLink && (
-          <EligibilityButton />
+          <Box sx={{
+            marginY: '24px',
+          }}
+          >
+            <EligibilityButton />
+          </Box>
         )}
       </Container>
     </Box>
