@@ -95,6 +95,17 @@ export default function PlayCard({
                 aria-label={buttonAriaLabel}
                 sx={{
                   backgroundColor: theme.palette.background.default,
+                  '&:hover': {
+                    color: theme.palette.text.secondary,
+                    backgroundColor: theme.palette.primary.light,
+                    '& .MuiTypography-root': {
+                      color: theme.palette.text.secondary,
+                    },
+                    '& .MuiSvgIcon-root': {
+                      color: theme.palette.text.secondary,
+                      stroke: theme.palette.text.secondary,
+                    },
+                  },
                 }}
               >
                 <Typography
