@@ -65,7 +65,7 @@ const content: HomeContent = {
       title: 'Step 1',
       details: 'Gather all the documentation you have regarding your conviction. That includes previous records and all other legal documents.',
       ctaButton: 'Learn more',
-      buttonHref: '/get-started/gather-your-documentation',
+      buttonHref: '/get-started',
     },
     {
       title: 'Step 2',
@@ -77,7 +77,7 @@ const content: HomeContent = {
       title: 'Step 3',
       details: 'We help you explore what comes after your eligibility is determined.',
       ctaButton: 'Learn more',
-      buttonHref: '/',
+      buttonHref: '/get-started/file-with-the-court',
     },
   ],
   faqs: [
