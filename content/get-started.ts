@@ -1,6 +1,6 @@
 import { CarouselCard } from '../components/layout/CarouselBuilder.tsx';
 import {
-  FAQ, GetStartedStep, Header, Info, InfoWithoutSummary,
+  FAQ, GetStartedStep, Header, Info,
   MetaPageHead,
 } from './content.types.ts';
 
@@ -12,10 +12,8 @@ interface GetStartedContent {
   needToKnowFacts: string;
   WATCHCards: CarouselCard[];
   LFOFAQs: FAQ[];
-  step3Substeps: InfoWithoutSummary[];
-  rejectionReasons: InfoWithoutSummary[];
+  fileWithTheCourtSteps: GetStartedStep[];
   legalAidForms: Info[];
-  financialAidForms: Info[];
   eligibilityForms: Info[];
 }
 
@@ -100,101 +98,95 @@ const getStartedContent: GetStartedContent = {
     summary: 'What if I can’t pay my LFOs?',
     details: 'You may qualify for relief from some or all of your LFOs, depending on your conviction type, the types of LFOs assessed, and your financial situation. \n \n For more information about reducing or waiving your LFOs, visit the below online resources. \n \n - Ask a court to cancel your non-restitution interest and/or reduce your LFOs at [WashingtonLawHelp.org](https://www.washingtonlawhelp.org/resource/filing-a-motion-to-remit-remove-financial-legal-obligations-in-district-or-municipal-court). \n - [Civilsurvival.org](https://civilsurvival.org/guides/) has two guides regarding LFOs on their website.  You can find these guides under the “Legal Support” section.',
   }],
-  step3Substeps: [
+  fileWithTheCourtSteps: [
     {
-      id: 'step_1',
-      details:
-        'Read "**Instructions for Vacating Misdemeanor or Felony Convictions**": [CrRLJ 09.0300](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) / [CrRLJ 08.0930](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) from the Washington Courts website.',
+      title: 'Fill the petition form',
+      overline: 'Step 1',
+      body: 'To petition your conviction vacation, fill out and sign the corresponding form:\n\n**Cannabis**: [CrRLJ 09.0800](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) \n **Prostitution**: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) \n **Misdemeanor**: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) \n **Felony**: [CR 08.0900](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38)',
     },
     {
-      id: 'step_2',
-      details:
-        'Fill out form: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/documents/CrRLJ%2009.0100%20PetitionDecVacateConviction_2022%2001.pdf) for misdemeanors or [CR 08.0900](https://www.courts.wa.gov/forms/documents/CR08.0900_Mt%20and%20Decl%20for%20Or%20Vacating%20Record%20of%20Felony_2023%2007.pdf) for felonies from the Washington Courts website to vacate your conviction.',
+      title: 'Fill out the notice to schedule a hearing',
+      overline: 'Step 2',
+      body: 'To schedule a hearing, contact the clerk of the court where you were sentenced and complete the form that the court uses to schedule a hearing. If the court does not require a specific form, you may use [CrRLJ 09.0150](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38). ',
     },
     {
-      id: 'step_3',
-      details:
-      'Read more about misdemeanor or felony conviction vacation [here](https://www.washingtonlawhelp.org/resource/criminal-historyrecords-when-and-how-to-vacat) from the Washington Law Help website.',
-    },
-  ],
-  rejectionReasons: [
-    {
-      id: 'reason1',
-      details: 'The court does not believe that vacating your conviction will be in the interest of society.',
+      title: 'File both documents',
+      overline: 'Step 3',
+      body: 'To find where to file your petition to vacate, visit the [Washington State Courts Website](https://www.courts.wa.gov/court_dir/) for a statewide directory of courts.\n\nOn the same day that you file those documents with the clerk of the court, you must also provide a copy to your prosecutors’ office.',
     },
     {
-      id: 'reason2',
-      details: 'There are inaccuracies in your court records and/or the application.',
+      title: 'Attend your hearing',
+      overline: 'Step 4',
+      body: 'The judge will hear your petition on the scheduled hearing day, and you must attend. If the petition is granted, the judge will issue an order vacating your conviction.\n\nThe court clerk will then send a copy of the order to the WSP and any local law enforcement agency that holds your criminal history.',
     },
     {
-      id: 'reason3',
-      details: 'You violated probation, have not paid off your fines or are otherwise not eligible to vacate that conviction.',
+      title: 'Enjoy your new opportunities',
+      overline: 'Step 5',
+      body: 'After the judge grants your request, your conviction will be vacated within a few days.\n\nThis means your conviction will no longer appear in your criminal history when searched.',
     },
   ],
   legalAidForms: [
     {
+      id: 'legalform0',
+      summary: 'Waiving costs associated with vacating',
+      details:
+        'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) to find out if you are eligible to waive your fees (pages 1-2).\n - This packet includes: \n  - Instructions to request a fee waiver (pages 4-9) \n  - All necessary forms (pages 10-14).\n - If you have trouble filling out the documents, visit [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
+    },
+    {
       id: 'legalform1',
-      summary: 'Representing Yourself in Court',
+      summary: 'Representing yourself in court',
       details:
         '[Public Law Library of King County Legal Clinics (KCLL)](https://kcll.org/contact-us/)\n\n[Walk-In Clinic](https://www.kcba.org/For-Lawyers/Pro-Bono-Services/YLD-Law-Library-Walk-in-Clinic)\n\n[King County Bar](http://www.kcba.org/For-the-Public/Free-Legal-Assistance/Neighborhood-Legal-Clinics)\n\n[Open Door Legal Services](https://www.ugm.org/what-we-do/stabilization/legal-services/#)',
     },
     {
       id: 'legalform2',
-      summary: 'Assistance For Adults',
+      summary: 'Legal assistance for adults',
       details:
         '[Center for Justice](https://serve.gonzaga.edu/agency/detail/?agency_id=101214)\n\n[Clark County Volunteer Lawyers Program (CCVLP)](https://ccvlp.org/)\n\n[Cowlitz-Wahkiakum Legal Aid](http://cwlap.org/)\n\n[Northwest Justice Project](https://nwjustice.org/get-legal-help)\n\n[The Records Project](https://www.kcba.org/For-the-Public/Free-Legal-Assistance/The-Records-Project)\n\n',
     },
     {
       id: 'legalform3',
-      summary: 'Assistance For Children',
+      summary: 'Legal assistance for children',
       details:
         '[TeamChild](https://teamchild.org/record-sealing/)\n\n[Center for Children & Youth Justice (CCYJ)](https://ccyj.org/our-work/empowering-foster-homeless-youth/)',
-    },
-  ],
-  financialAidForms: [
-    {
-      id: 'financialform2',
-      summary: 'Costs Associated with Vacation',
-      details:
-        'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) to find out if you are eligible to waive your fees (p. 1-2). It also includes instructions to request a fee waiver (p. 4-9) as well as all necessary forms (p. 10-14).\n\nIf you have trouble filling out the documents, use [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
     },
   ],
   eligibilityForms: [
     {
       id: 'eligibilityform1',
-      summary: '(Gross) Misdeameanor Convictions',
+      summary: 'Forms for gross misdeameanor conviction vacation',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) with details about the eligibility to vacate (p. 2-4) and the needed court forms (p. 5-13).\n',
+        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) with guidance on: \n \n - Vacation eligibility (pages 2-4) \n -  Required court forms (p. 5-13)\n',
     },
     {
       id: 'eligibilityform2',
-      summary: 'Marijuana Misdemeanors',
+      summary: 'Forms for marijuana misdemeanor conviction vacation',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with the steps to vacate (p. 2-6), all necessary court documents (p. 8-13) and a sample letter for WSP to seal your record (p. 7).\n',
+        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with guidance on: \n - Steps to vacate (pages 2-6) \n - All necessary court documents (pages 8-13) \n - A sample letter for the Washington State Patrol to seal your record (page 7)\n',
     },
     {
       id: 'eligibilityform3',
-      summary: 'Prostitution Convictions',
+      summary: 'Forms for prostitution conviction vacation',
       details:
-        'If you were a victim of trafficking, you can use [this vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with info on the eligibility to vacate (p. 1-3), steps to take (p. 4-8), court forms (p. 10-18) and a sample letter for WSP (p. 9).\n',
+        'If you were a victim of trafficking, you can use [this vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with guidance on: \n - Vacation eligibility (pages 1-3) \n - Steps to take (pages 4-8) \n - Court forms (pages 10-18) \n - A sample letter for the Washington State Patrol (page 9)\n',
     },
     {
       id: 'eligibilityform4',
-      summary: 'Non-Violent Class B or C Felony',
+      summary: 'Forms for fishing treaty conviction vacation',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/criminal-historyrecords-when-and-how-to-vacat) including an overview of the requirements to vacate (p. 4-6), how to file motion (p. 8), all necessary court documents (p. 8-9), preparations (p. 10-12), and a sample letter to WSP (p. 14). Additional resources can be found at the end of the document after p. 14.\n\nTo vacate a felony conviction, you will also need a Certificate of Discharge. If the court has not issued the Certificate of Discharge yet, you must file for a certificate before you can vacate the felony. [This packet](https://www.courts.wa.gov/forms/documents/CR08.0670_Obtaining%20a%20Certificate%20of%20Discharge_2019%2007.pdf) will assist you to obtain a Certificate of Discharge in Washington State.',
+        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) which includes: \n - An overview of the eligibility to vacate (pages 1-2) \n - Steps to take (pages 3-7) \n - All court forms (pages 8-16) \n - A sample letter for the Washington State Patrol (page 17)\n',
     },
     {
       id: 'eligibilityform5',
-      summary: 'Treaty to Indian Fishing Convictions',
+      summary: 'Forms for juvenile records conviction vacation',
       details:
-        '[Vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) including an overview of the eligibility to vacate (p. 1-2), steps to take (p. 3-7), all court forms (p. 8-16), and a sample letter for WSP (p. 17).\n',
+        'This [detailed packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) contains: \n - All court documents (pages 30-40) \n - Sample letters to the Washington State Patrol and the Juvenile Rehabilitation Administration (pages 41-42) \n - Specific practices per county (pages 19-27)\n\nThis [packet from King County Superior Court](https://kingcounty.gov/~/media/courts/superior-court/docs/juvenile/juvenile-forms/10-sealing-records-instructions-and-forms-pdf-web.ashx?la=en) describes: \n - The procedure to vacate and contains all necessary court documents (pages 11-17) \n - A sample of how to fill in the court documents (pages 4-9)',
     },
     {
       id: 'eligibilityform6',
-      summary: 'Juvenile Conviction Records',
+      summary: 'Forms for non-violent Class B or C felony conviction vacation',
       details:
-        'Detailed [packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) containing all court documents (p. 30-40), sample letters to WSP and JRA (p. 41-42), and the specific practices per county (p. 19-27).\n\nThe [packet from King County Superior Court](https://kingcounty.gov/~/media/courts/superior-court/docs/juvenile/juvenile-forms/10-sealing-records-instructions-and-forms-pdf-web.ashx?la=en) briefly describes the procedure to vacate and contains all necessary court documents (p. 11-17) and a sample of how to fill in the court documents (p. 4-9)',
+        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/criminal-historyrecords-when-and-how-to-vacat) includes: \n - An overview of the requirements to vacate (pages 4-6) \n - Instructions on how to file motion (page 8) \n - All necessary court documents (pages 8-9) \n - Preparation guidelines (pages 10-12) \n - A sample letter to the Washington State Patrol (page 14) \n - Additional resources can be found at the end of the document after page 14\n\nTo vacate a felony conviction, you will also need a **Certificate of Discharge**. If the court has not issued the Certificate of Discharge yet, you must file for a certificate before you can vacate the felony. \n - [This packet](https://www.courts.wa.gov/forms/documents/CR08.0670_Obtaining%20a%20Certificate%20of%20Discharge_2019%2007.pdf) will assist you in obtaining a Certificate of Discharge in Washington State.',
     },
   ],
 };
