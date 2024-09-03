@@ -107,7 +107,7 @@ const getStartedContent: GetStartedContent = {
     {
       title: 'Fill out the notice to schedule a hearing',
       overline: 'Step 2',
-      body: 'To schedule a hearing, contact the clerk of the court where you were sentenced and complete the form that the court uses to schedule a hearing. If the court does not require a specific form, you may use [CrRLJ 09.0150](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38). ',
+      body: 'To schedule a hearing, contact the clerk of the court where you were sentenced and complete the form that the court uses to schedule a hearing. If the court does not require a specific form, you may use [CrRLJ 09.0150](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38). \n',
     },
     {
       title: 'File both documents',
