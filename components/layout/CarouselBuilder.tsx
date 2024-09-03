@@ -32,6 +32,7 @@ interface CarouselBuilderProps {
   buttonAriaLabel?: string;
   useGetStartedCards?: boolean;
   usePlaycard?: boolean;
+  useMD?: boolean;
 }
 
 export default function CarouselBuilder({
@@ -41,6 +42,7 @@ export default function CarouselBuilder({
   cardHeight,
   useGetStartedCards,
   usePlaycard,
+  useMD,
 }: CarouselBuilderProps) {
   const theme = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -105,6 +107,7 @@ export default function CarouselBuilder({
                 body={card.body}
                 ctaText={card.ctaText}
                 ctaLink={card.ctaLink}
+                useMD={useMD}
               />
             </Box>
           ))}

@@ -112,8 +112,9 @@ export interface GetStartedStep {
     title: string;
     overline: string;
     body: string;
-    ctaText: string;
-    ctaLink: string;
+    ctaText?: string;
+    ctaLink?: string;
+    useMD?: boolean;
 }
 
 export interface ContactType {
