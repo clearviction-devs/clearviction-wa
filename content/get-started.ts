@@ -11,6 +11,7 @@ interface GetStartedContent {
   FAQ: FAQ[];
   needToKnowFacts: string;
   WATCHCards: CarouselCard[];
+  LFOFAQs: FAQ[];
   step3Substeps: InfoWithoutSummary[];
   rejectionReasons: InfoWithoutSummary[];
   legalAidForms: Info[];
@@ -86,6 +87,19 @@ const getStartedContent: GetStartedContent = {
       buttonHref: 'https://wsp.wa.gov/crime/criminal-history',
     },
   ],
+  LFOFAQs: [{
+    id: 'LFO-FAQ-1',
+    summary: 'Must I pay my LFOs to vacate a felony conviction?',
+    details: 'For felony offenses, you need to obtain a Certificate of Discharge before vacating a conviction. Failure to pay LFOs prevents obtaining this certificate. ',
+  }, {
+    id: 'LFO-FAQ-2',
+    summary: 'Must I pay my LFOs to vacate a misdemeanor?',
+    details: 'For misdemeanor offenses, you must prove completion of all sentence conditions (including LFO payments) and wait at least three years.',
+  }, {
+    id: 'LFO-FAQ-3',
+    summary: 'What if I can’t pay my LFOs?',
+    details: 'You may qualify for relief from some or all of your LFOs, depending on your conviction type, the types of LFOs assessed, and your financial situation. \n \n For more information about reducing or waiving your LFOs, visit the below online resources. \n \n - Ask a court to cancel your non-restitution interest and/or reduce your LFOs at [WashingtonLawHelp.org](https://www.washingtonlawhelp.org/resource/filing-a-motion-to-remit-remove-financial-legal-obligations-in-district-or-municipal-court). \n - [Civilsurvival.org](https://civilsurvival.org/guides/) has two guides regarding LFOs on their website.  You can find these guides under the “Legal Support” section.',
+  }],
   step3Substeps: [
     {
       id: 'step_1',
