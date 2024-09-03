@@ -123,7 +123,7 @@ export default function QandAContainer({
             <Button
               data-cy="not-sure-button"
               sx={{
-                width: '100%', backgroundColor: 'inherit', color: theme.palette.secondary.dark, textDecoration: 'underline',
+                width: '100%', backgroundColor: 'inherit', color: theme.palette.secondary.dark, textDecoration: 'underline', marginTop: '16px',
               }}
               onClick={() => setOpenNotSurePopup(true)}
             >
