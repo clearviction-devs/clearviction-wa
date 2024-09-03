@@ -28,7 +28,7 @@ export function GSContainer({
         },
         padding: {
           xs: '72px 24px 52px 24px',
-          sm: '72px 24px 52px 24px',
+          sm: '72px 64px 52px 64px',
           md: '72px 0px 52px 0px',
           lg: '112px 0px 72px 0px',
           xl: '112px 0px 72px 0px',

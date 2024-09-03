@@ -115,6 +115,7 @@ export interface GetStartedStep {
     ctaText?: string;
     ctaLink?: string;
     useMD?: boolean;
+    cardHeight?: number;
 }
 
 export interface ContactType {

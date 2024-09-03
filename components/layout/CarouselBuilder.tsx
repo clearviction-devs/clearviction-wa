@@ -86,7 +86,7 @@ export default function CarouselBuilder({
           display: 'flex',
           transform: `translateX(-${currentIndex * (cardWidth + 32)}px)`,
           transition: 'transform 0.5s ease-in-out',
-          gap: '32px',
+          gap: useGetStartedCards ? '32px' : '0px',
           justifyContent: {
             md: 'space-between',
           },
@@ -107,6 +107,7 @@ export default function CarouselBuilder({
                 body={card.body}
                 ctaText={card.ctaText}
                 ctaLink={card.ctaLink}
+                cardHeight={cardHeight}
                 useMD={useMD}
               />
             </Box>
@@ -138,7 +139,7 @@ export default function CarouselBuilder({
       <Box sx={{
         display: {
           xs: 'flex',
-          md: 'none',
+          md: getNumCards() > 3 ? 'flex' : 'none',
         },
         mt: '32px',
       }}

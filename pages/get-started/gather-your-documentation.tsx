@@ -96,7 +96,7 @@ export default function GatherYourDocumentation() {
           padding: {
             xs: '24px 0px 64px 0px',
             sm: '0px 0px 52px 24px',
-            md: '0px 0px 52px 0px',
+            md: '0px 0px 72px 0px',
           },
         }}
       >
