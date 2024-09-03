@@ -143,7 +143,7 @@ export default function GatherYourDocumentation() {
         >
           <DarkButton
             text="Access record reading guide"
-            href=""
+            href="https://cjei.cornell.edu/about-your-record/how-read-your-rap-sheet"
           />
         </GSContainer>
       </Box>
@@ -171,7 +171,7 @@ export default function GatherYourDocumentation() {
           <ReadYourRecordsText />
           <DarkButton
             text="Access record reading guide"
-            href=""
+            href="https://cjei.cornell.edu/about-your-record/how-read-your-rap-sheet"
           />
         </Box>
         <Box sx={{
