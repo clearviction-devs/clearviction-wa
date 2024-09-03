@@ -20,8 +20,13 @@ export default function GetStartedHero({ image, overline, title }: GetStartedHer
         padding: {
           xs: '32px 24px',
           sm: '32px 64px',
-          md: '32px 32px',
-          lg: '32px 252px',
+          md: '32px 0px',
+        },
+        margin: {
+          md: '0 auto',
+        },
+        width: {
+          md: '936px',
         },
         height: '100%',
         display: 'flex',
