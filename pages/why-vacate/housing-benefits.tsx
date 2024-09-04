@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 
+import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import BenefitCard from '../../components/layout/BenefitCard.tsx';
 import BenefitPageContainer, { BenefitCardsContainer } from '../../components/layout/BenefitPageContainer.tsx';
@@ -8,6 +9,7 @@ import content from '../../content/why-vacate.ts';
 import theme from '../../styles/themes/theme.tsx';
 
 export default function HousingBenefits() {
+  externalLinks();
   return (
     <>
       <BenefitPageContainer id="section-housing-benefits">

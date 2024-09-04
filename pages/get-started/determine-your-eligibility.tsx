@@ -3,12 +3,14 @@ import { Box, Typography } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import externalLinks from '../../components/functional/ExternalLinks.tsx';
 import { DarkButton } from '../../components/helper/CustomButtons.tsx';
 import GetStartedHero from '../../components/layout/GetStartedHero.tsx';
 import content from '../../content/get-started.ts';
 import { GSContainer } from './index.tsx';
 
 export default function DetermineYourEligibility() {
+  externalLinks();
   return (
     <>
       <GetStartedHero
