@@ -19,7 +19,7 @@ export default function FileWithTheCourt() {
   return (
     <>
       <GetStartedHero
-        image="/get-started/step-3_hero.png"
+        image="/get-started/step-3_hero.jpg"
         overline="Step 3"
         title="File with the court"
       />

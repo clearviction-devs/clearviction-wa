@@ -28,7 +28,7 @@ export default function GatherYourDocumentation() {
   return (
     <>
       <GetStartedHero
-        image="/get-started/step-1_hero.png"
+        image="/get-started/step-1_hero.jpg"
         overline="Step 1"
         title="Gather your documentation"
       />
@@ -123,7 +123,7 @@ export default function GatherYourDocumentation() {
           <ReadYourRecordsText />
         </GSContainer>
         <Box sx={{
-          backgroundImage: 'url(/get-started/step-1_read-records.png)',
+          backgroundImage: 'url(/get-started/step-1_read-records.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: {
@@ -175,7 +175,7 @@ export default function GatherYourDocumentation() {
           />
         </Box>
         <Box sx={{
-          backgroundImage: 'url(/get-started/step-1_read-records.png)',
+          backgroundImage: 'url(/get-started/step-1_read-records.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '338px',

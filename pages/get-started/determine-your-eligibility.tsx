@@ -12,7 +12,7 @@ export default function DetermineYourEligibility() {
   return (
     <>
       <GetStartedHero
-        image="/get-started/step-2_hero.png"
+        image="/get-started/step-2_hero.jpg"
         overline="Step 2"
         title="Determine your eligibility"
       />
