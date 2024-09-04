@@ -37,11 +37,9 @@ function Footer({ isCalc }: FooterProps) {
             <Stack>
               <Typography className="warning" variant="footerTitle">Conviction Vacation Initiative is an open source project</Typography>
               <Typography className="warning" variant="footerCaption" sx={{ mt: 5 }} paragraph>
-                {/* eslint-disable-next-line max-len */}
                 We are an open source initiative that emerged following Washington State's New Hope Act.
               </Typography>
               <Typography className="warning" variant="footerCaption" paragraph>
-                {/* eslint-disable-next-line max-len */}
                 Formerly known as Clearviction, our project has transitioned to an open-source model, inviting collaboration so we can better serve our community.
               </Typography>
               <Typography className="warning" variant="footerCaption" sx={{ mb: 0 }} paragraph>
@@ -86,11 +84,9 @@ function Footer({ isCalc }: FooterProps) {
                 Conviction Vacation Initiative is an open source project
               </Typography>
               <Typography className="warning" variant="footerCaption">
-                {/* eslint-disable-next-line max-len */}
                 We are an open source initiative that emerged following Washington State's New Hope Act.
               </Typography>
               <Typography className="warning" variant="footerCaption">
-                {/* eslint-disable-next-line max-len */}
                 Formerly known as Clearviction, our project has transitioned to an open-source model, inviting collaboration so we can better serve our community.
               </Typography>
               <Typography className="warning" variant="footerCaption">

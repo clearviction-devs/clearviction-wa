@@ -17,12 +17,16 @@ function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
         sx={{
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
           bgcolor: 'secondary.dark',
           py: 1,
           color: 'white',
         }}
       >
-        <Box sx={{ display: 'flex', px: 2 }}>
+        <Box sx={{
+          display: 'flex', px: 2, width: { xs: '100%', md: '85%' },
+        }}
+        >
           <ErrorOutlineIcon sx={{
             // width: '24px',
             // height: '32px',
@@ -30,7 +34,6 @@ function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
           }}
           />
           <Box sx={{ pl: 1 }}>
-            {/* eslint-disable-next-line max-len */}
             Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
           </Box>
         </Box>

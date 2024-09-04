@@ -1,18 +1,18 @@
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
-  Button,
-  Grid, ImageList, ImageListItem, Typography,
+  Grid,
+  Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import externalLinks from '../components/functional/ExternalLinks.tsx';
+import { DarkButton } from '../components/helper/CustomButtons.tsx';
 import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
+import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import PlayCard from '../components/layout/PlayCard.tsx';
 import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
 import theme from '../styles/themes/theme.tsx';
@@ -35,7 +35,7 @@ export default function Home() {
             <Grid item xs={12} md={7}>
               <Typography
                 variant="h2"
-                sx={{ lineHeight: '40px' }}
+                sx={{ lineHeight: '40px', mb: '24px' }}
               >
                 {content.background.title}
               </Typography>
@@ -59,6 +59,7 @@ export default function Home() {
               md={4}
               display="flex"
               justifyContent="center"
+              sx={{ marginTop: { xs: 8, md: 0 } }}
             >
               <Box
                 sx={{
@@ -105,72 +106,51 @@ export default function Home() {
                   {content.eligibilityCTA.title}
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={3.5} sx={{ display: 'flex', justifyContent: { xs: 'center' }, mt: { xs: 2, md: 0 } }}>
-                <Button
+              <Grid
+                item
+                xs={12}
+                md="auto"
+                sx={{
+                  display: 'flex',
+                  paddingTop: { xs: 2, md: 0 },
+                  justifyContent: { xs: 'center', md: 'flex-start' },
+                }}
+              >
+                <DarkButton
+                  text={content.eligibilityCTA.ctaButton}
                   href="/calculator/head-initial-1-cont"
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  className="calc-btn"
-                  aria-label="Access our eligibility calculator"
-                  sx={{
-                    whiteSpace: 'nowrap',
-                    py: 1,
-                    px: 3,
-                    backgroundColor: theme.palette.background.dark,
-                  }}
-                >
-                  <Typography variant="button" sx={{ textTransform: 'none', marginBottom: '0px' }}>{content.eligibilityCTA.ctaButton}</Typography>
-                  <Box component="span" sx={{ ml: 1 }} />
-                  <ArrowForwardIcon sx={{ stroke: theme.palette.text.light, strokeWidth: 0.5 }} />
-                </Button>
+                />
               </Grid>
             </Grid>
           </SectionContainer>
         </Grid>
 
-        <SectionContainer>
+        <Box sx={{
+          padding: {
+            xs: '72px 0px 52px 24px',
+            sm: '72px 0px 52px 64px',
+            md: '52px 32px',
+          },
+          maxWidth: '936px',
+          mx: 'auto',
+        }}
+        >
           <Grid container spacing={4}>
-            <Grid item xs={12} textAlign={{ xs: 'center', sm: 'left' }}>
+            <Grid item xs={12}>
               <Typography variant="h2">How can we help you vacate a conviction?</Typography>
             </Grid>
-            <Grid item xs={12}>
-              <ImageList sx={{
-                overflowX: 'auto', rowHeight: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%',
-              }}
-              >
-                <ImageListItem sx={{
-                  display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'nowrap', width: '100%',
-                }}
-                >
-                  {content.carousel.map((card) => (
-                    <Box
-                      key={card.title}
-                      sx={{
-                        flex: '1 1 0', minWidth: 274, maxWidth: 274, marginRight: '32px',
-                      }}
-                    >
-                      <PlayCard
-                        {...card}
-                        cardWidth={274}
-                        cardHeight={362}
-                        backgroundColor={theme.palette.background.dark as string}
-                        textColor={theme.palette.text.light as string}
-                        buttonHRef="/calculator/head-initial-1-cont"
-                        // buttonColor="tertiary"
-                        buttonClassName="calc-btn"
-                        buttonAriaLabel="Access our eligibility calculator"
-                      />
-                    </Box>
-                  ))}
-                </ImageListItem>
-              </ImageList>
-            </Grid>
+            <CarouselBuilder
+              cards={content.carousel}
+              cardWidth={274}
+              cardHeight={362}
+              buttonHRef="/calculator/head-initial-1-cont"
+              usePlaycard
+            />
           </Grid>
-        </SectionContainer>
+        </Box>
 
         <SectionContainer id="faq">
-          <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px' }}>Conviction Vacation FAQs</Typography>
+          <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px', mb: '24px' }}>Conviction Vacation FAQs</Typography>
           {content.faqs.map((faq) => (
             <AccordionBuilder
               key={faq.id}

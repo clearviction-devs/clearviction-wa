@@ -21,8 +21,7 @@ export default function FinalPageLinksContainer({
         my: '24px',
       }}
     >
-      {/* invalid placeholder url */}
-      <CalculatorButton href="/file-with-the-court" hasArrow>See more resources </CalculatorButton>
+      <CalculatorButton href="/see-more-resources" hasArrow>See more resources </CalculatorButton>
 
       <Button
         variant="text"

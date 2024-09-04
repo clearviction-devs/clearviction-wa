@@ -89,3 +89,111 @@ export function CalculatorButton({
     </Button>
   );
 }
+
+export function TextButtonGreen({ text, href }: {text: string, href: string}) {
+  return (
+    <Button
+      href={href}
+      variant="text"
+      aria-label={text}
+      sx={{
+        whiteSpace: 'nowrap',
+        py: 1,
+        margin: '.625rem 0',
+        letterSpacing: 0,
+        color: theme.palette.secondary.dark,
+        textDecoration: 'underline',
+        '&:hover': {
+          backgroundColor: theme.palette.secondary.light,
+          textDecoration: 'underline',
+        },
+        '&:active': {
+          backgroundColor: '#E9E9E9',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 4px #0000EE99',
+        },
+      }}
+    >
+      {text}
+      <ArrowForwardIcon sx={{
+        stroke: theme.palette.secondary.dark,
+        strokeWidth: 0.5,
+      }}
+      />
+    </Button>
+  );
+}
+
+export function DarkButton({ text, href }: {text: string, href: string}) {
+  const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
+  return (
+    <Button
+      href={href}
+      variant="contained"
+      aria-label={text}
+      sx={{
+        whiteSpace: 'nowrap',
+        py: 1,
+        margin: '.625rem 0',
+        letterSpacing: 0,
+        color: theme.palette.text.light,
+        backgroundColor: theme.palette.primary.dark,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.text.secondary,
+        },
+        '&:active': {
+          backgroundColor: '#002138',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 4px #0000EE99',
+        },
+      }}
+      onMouseEnter={() => setStrokeColor(theme.palette.text.secondary)}
+      onMouseLeave={() => setStrokeColor(theme.palette.text.light)}
+    >
+      {text}
+      <ArrowForwardIcon sx={{
+        stroke: strokeColor,
+        strokeWidth: 0.5,
+      }}
+      />
+    </Button>
+  );
+}
+
+export function LightButton({ text, href }: {text: string, href: string}) {
+  return (
+    <Button
+      href={href}
+      variant="contained"
+      size="small"
+      aria-label={text}
+      sx={{
+        color: theme.palette.text.secondary,
+        backgroundColor: theme.palette.text.light,
+        whiteSpace: 'nowrap',
+        py: 1,
+        margin: '.625rem 0',
+        '&:hover': {
+          backgroundColor: theme.palette.primary.light,
+          '&:active': {
+            backgroundColor: '#E9E9E9',
+          },
+          '&:focus': {
+            boxShadow: '0 0 0 4px #0000EE99',
+          },
+        },
+      }}
+    >
+      {text}
+      <ArrowForwardIcon sx={{
+        color: theme.palette.text.secondary,
+        stroke: theme.palette.text.secondary,
+        strokeWidth: 0.5,
+      }}
+      />
+    </Button>
+  );
+}

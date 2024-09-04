@@ -43,14 +43,17 @@ export default function InfoDropdown({
         id={`${id}-header`}
         aria-controls={`${id}-content`}
         expandIcon={expanded === id ? <RemoveIcon /> : <AddIcon />}
-        sx={{ ...sx }}
+        sx={{
+          backgroundColor: theme.palette.primary.light,
+          ...sx,
+        }}
       >
         <MuiMarkdown overrides={{
           span: {
             component: Typography,
             props: {
               variant: 'headingCalculator',
-              sx: { my: 2 },
+              sx: { m: 2 },
             },
           },
         }}
@@ -72,6 +75,14 @@ export default function InfoDropdown({
               props: {
                 variant: 'body2',
                 component: 'li',
+              },
+            },
+            a: {
+              component: 'a',
+              props: {
+                target: '_blank',
+                rel: 'noreferrer',
+                style: { color: theme.palette.link.main },
               },
             },
           }}
