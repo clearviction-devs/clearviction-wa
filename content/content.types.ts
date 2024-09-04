@@ -37,6 +37,7 @@ export interface HomePlayCards {
     title: string;
     details: string;
     ctaButton: string;
+    buttonHref: string;
 }
 
 export interface GridItem {
@@ -109,11 +110,12 @@ export interface MetaPageHead {
 
 export interface GetStartedStep {
     title: string;
+    overline: string;
     body: string;
     ctaText?: string;
     ctaLink?: string;
-    data: string[];
-    ariaLabels?: AriaLabels;
+    useMD?: boolean;
+    cardHeight?: number;
 }
 
 export interface ContactType {
