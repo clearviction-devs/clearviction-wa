@@ -156,6 +156,7 @@ export default function Header({ isCalc }: HeaderProps) {
                 justifyContent: 'flex-start',
                 width: '450px',
                 paddingRight: '32px',
+                paddingY: '24px',
               }}
             >
               {navItems.map((item, index) => (
@@ -176,7 +177,7 @@ export default function Header({ isCalc }: HeaderProps) {
                       py: 1,
                       '&:hover': {
                         color: theme.palette.text.secondary,
-                        backgroundColor: theme.palette.primary.main,
+                        backgroundColor: isCalc ? theme.palette.secondary.main : theme.palette.primary.main,
                       },
                       '&:active': {
                         color: theme.palette.text.light,
@@ -195,9 +196,8 @@ export default function Header({ isCalc }: HeaderProps) {
                         flexDirection: 'column',
                         alignItems: 'center',
                         position: 'absolute',
-                        backgroundColor: theme.palette.primary.dark,
+                        backgroundColor: isCalc ? theme.palette.secondary.dark : theme.palette.primary.dark,
                         width: '284px',
-                        py: '10px',
                         boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
                         zIndex: 1,
                       }}
@@ -215,7 +215,9 @@ export default function Header({ isCalc }: HeaderProps) {
                               borderRadius: '125px',
                               fontSize: '16px',
                               width: '260px',
-                              '&:hover': { backgroundColor: theme.palette.text.secondary },
+                              '&:hover': {
+                                backgroundColor: isCalc ? theme.palette.secondary.contrastText : theme.palette.text.secondary,
+                              },
                             }}
                           >
                             {link.text}
