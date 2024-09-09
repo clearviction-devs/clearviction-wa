@@ -9,7 +9,6 @@ import externalLinks from '../../components/ExternalLinks.tsx';
 import IndividualPageHead from '../../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import GridItemCard from '../../components/layout/GridItem.tsx';
-import HeroBanner from '../../components/layout/HeroBanner.tsx';
 import SectionContainer from '../../components/layout/SectionContainer.tsx';
 import content from '../../content/why-vacate.ts';
 
@@ -24,10 +23,6 @@ export default function WhyVacatePage() {
       <IndividualPageHead
         title={content.meta.title}
         metaContent={content.meta.content}
-      />
-
-      <HeroBanner
-        header={content.heroBanner.header}
       />
 
       <SectionContainer id="why-vacate-main">
