@@ -1,11 +1,12 @@
 import {
   CarouselCard,
-  FAQ, GetStartedStep, Info,
+  FAQ, GetStartedStep, Header, Info,
   MetaPageHead,
 } from './content.types.ts';
 
 interface GetStartedContent {
   meta: MetaPageHead;
+  hero: Header;
   steps: GetStartedStep[];
   FAQ: FAQ[];
   needToKnowFacts: string;
@@ -20,6 +21,10 @@ const getStartedContent: GetStartedContent = {
   meta: {
     title: 'Vacate Your Criminal Record in 3 Steps',
     content: 'Get started with our 3 step process and access our resources to vacate your criminal record in Washington State',
+  },
+  hero: {
+    header: 'Get started with the vacation process',
+    subheading: 'You can vacate your conviction in the state of Washington by following these 3 steps.',
   },
   steps: [
     {
