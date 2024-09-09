@@ -6,9 +6,9 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import externalLinks from '../components/functional/ExternalLinks.tsx';
-import { DarkButton } from '../components/helper/CustomButtons.tsx';
-import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import { DarkButton } from '../components/CustomButtons.tsx';
+import externalLinks from '../components/ExternalLinks.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
