@@ -6,8 +6,8 @@ import MuiMarkdown from 'mui-markdown';
 import Link from 'next/link';
 import React from 'react';
 
-import externalLinks from '../components/functional/ExternalLinks.tsx';
-import { DarkButton, TextButtonGreen } from '../components/helper/CustomButtons.tsx';
+import { DarkButton, TextButtonGreen } from '../components/CustomButtons.tsx';
+import externalLinks from '../components/ExternalLinks.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import whyVacateContent from '../content/why-vacate.ts';
 import theme from '../styles/themes/theme.tsx';

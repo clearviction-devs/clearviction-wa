@@ -6,12 +6,6 @@ import {
 interface HomeContent {
   meta: MetaPageHead;
   heroBanner: Header;
-  ourMission: {
-    id: string;
-    header: string;
-    body: string;
-    body2: string;
-  };
   background: {
     id: string;
     title: string;
@@ -35,18 +29,9 @@ const content: HomeContent = {
   },
   heroBanner: {
     header: 'Check if your WA state conviction can be vacated by answering a few questions.',
-    subheading: 'Our free eligibility calculator can check if your conviction qualifies for vacation in less than 10 minutes.',
     ctaLink: '/calculator/head-initial-1-cont',
-    ctaText: 'Access Calculator',
-    imgsrc: '/illustrations/home-hero-2color.svg',
+    ctaText: 'Check eligibility',
     ariaLabels: { ctaButton: 'Access our eligibility calculator' },
-  },
-  ourMission: {
-    id: 'our-mission',
-    header:
-      'Open Source Project',
-    body: 'We are an open source initiative that emerged following the enactment of Washington State\'s New Hope Act. Annually, close to 98,000 individuals join the ranks of millions across Washington State who bear the weight of a criminal record. Those impacted by the justice system encounter substantial obstacles in their daily lives even after serving their prison sentences.',
-    body2: 'Formerly known as Clearviction, our project has transitioned from a volunteer led non-profit to an open-source model, inviting collaboration and contributions so we can better serve our community. If you would like to contribute to the project, please reach out on [Github](https://github.com/clearviction-devs).',
   },
   background: {
     id: 'background-information',

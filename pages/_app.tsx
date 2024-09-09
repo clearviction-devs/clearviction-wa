@@ -6,7 +6,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import DisclaimerBanner from '../components/functional/DisclaimerBanner.tsx';
+import DisclaimerBanner from '../components/layout/DisclaimerBanner.tsx';
 import Footer from '../components/layout/Footer.tsx';
 import Header from '../components/layout/Header.tsx';
 import theme from '../styles/themes/theme.tsx';

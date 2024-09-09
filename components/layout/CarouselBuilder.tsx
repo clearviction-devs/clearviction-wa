@@ -10,17 +10,9 @@ import {
 import { useTheme } from '@mui/material/styles';
 import React, { useState } from 'react';
 
-import { GetStartedStep } from '../../content/content.types.ts';
+import { CarouselCard, GetStartedStep } from '../../content/content.types.ts';
 import GetStartedCard from './GetStartedCard.tsx';
 import PlayCard from './PlayCard.tsx';
-
-export interface CarouselCard {
-  title: string;
-  details: string;
-  iconSource?: string;
-  ctaButton: string;
-  buttonHref: string;
-}
 
 interface CarouselBuilderProps {
   cards?: CarouselCard[];

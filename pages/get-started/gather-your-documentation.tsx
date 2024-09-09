@@ -2,8 +2,8 @@ import { Box, Grid, Typography } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import externalLinks from '../../components/functional/ExternalLinks.tsx';
-import { DarkButton, LightButton } from '../../components/helper/CustomButtons.tsx';
+import { DarkButton, LightButton } from '../../components/CustomButtons.tsx';
+import externalLinks from '../../components/ExternalLinks.tsx';
 import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedHero from '../../components/layout/GetStartedHero.tsx';
 import content from '../../content/get-started.ts';

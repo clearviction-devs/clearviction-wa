@@ -2,7 +2,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button } from '@mui/material';
 import React from 'react';
 
-import theme from '../../styles/themes/theme.tsx';
+import theme from '../styles/themes/theme.tsx';
 
 export function EligibilityButton() {
   return (
