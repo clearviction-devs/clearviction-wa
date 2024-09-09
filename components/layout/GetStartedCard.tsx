@@ -5,7 +5,7 @@ import React from 'react';
 
 import { GetStartedStep } from '../../content/content.types.ts';
 import theme from '../../styles/themes/theme.tsx';
-import { DarkButton } from '../helper/CustomButtons.tsx';
+import { DarkButton } from '../CustomButtons.tsx';
 
 export default function GetStartedCard({
   title, overline, body, ctaText, ctaLink, useMD, cardHeight,

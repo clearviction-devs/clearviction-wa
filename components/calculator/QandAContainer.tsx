@@ -2,13 +2,12 @@ import {
   Box, Button, Container, Stack,
 } from '@mui/material';
 import { PortableText } from '@portabletext/react';
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
-import { CalculatorButton } from '../helper/CustomButtons.tsx';
-import { PageContext } from '../helper/PageContext.tsx';
+import { CalculatorButton } from '../CustomButtons.tsx';
 
 interface Choice {
   _key?: string;
@@ -36,10 +35,6 @@ export default function QandAContainer({
 }: StaticCalcProps & {
   setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-  const contextValue = useMemo(() => ({
-    isFinalPage: page.isFinalPage,
-  }), [page.isFinalPage]);
-
   const isPartOfHead = page.slug.includes('head');
 
   const linkToPage = (choice: Choice) => {
@@ -57,9 +52,8 @@ export default function QandAContainer({
   return (
     <>
       <Box>
-        <PageContext.Provider value={contextValue}>
-          <Box data-cy="calc-block-of-content" mb={6}>
-            {
+        <Box data-cy="calc-block-of-content" mb={6}>
+          {
               page.content && (
                 <PortableText
                   value={page.content}
@@ -68,8 +62,7 @@ export default function QandAContainer({
               )
             }
 
-          </Box>
-        </PageContext.Provider>
+        </Box>
       </Box>
       <Box>
         <Container

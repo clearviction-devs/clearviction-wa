@@ -7,7 +7,7 @@ import React from 'react';
 import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
-import { CalculatorButton } from '../helper/CustomButtons.tsx';
+import { CalculatorButton } from '../CustomButtons.tsx';
 
 export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOpenNotSurePopup }: {
     calculatorConfig: StaticCalcProps['calculatorConfig'],

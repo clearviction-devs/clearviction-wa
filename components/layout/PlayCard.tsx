@@ -4,7 +4,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import { LightButton } from '../helper/CustomButtons.tsx';
+import { LightButton } from '../CustomButtons.tsx';
 import ImageContainer from './ImageContainer.tsx';
 
 interface PlayCardProps {

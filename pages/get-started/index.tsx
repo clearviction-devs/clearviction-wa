@@ -3,7 +3,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import externalLinks from '../../components/functional/ExternalLinks.tsx';
+import externalLinks from '../../components/ExternalLinks.tsx';
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedCard from '../../components/layout/GetStartedCard.tsx';
