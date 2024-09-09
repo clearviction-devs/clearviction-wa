@@ -43,6 +43,7 @@ export default function BenefitCard({
             md: '32px 24px',
           },
           order: { md: index % 2 === 0 ? 0 : 1 },
+          gap: '32px',
         }}
       >
         <Typography

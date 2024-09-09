@@ -12,7 +12,12 @@ export default function HousingBenefits() {
   externalLinks();
   return (
     <>
-      <BenefitPageContainer id="section-housing-benefits">
+      <BenefitPageContainer
+        id="section-housing-benefits"
+        sx={{
+          gap: '24px',
+        }}
+      >
         <Typography variant="h2">
           {content.cards[1].title}
         </Typography>
