@@ -43,7 +43,12 @@ export default function EducationalBenefits() {
       <BenefitPageContainer
         id="section-educational-resources"
       >
-        <Typography variant="h3">
+        <Typography
+          variant="h3"
+          sx={{
+            mb: '24px',
+          }}
+        >
           Educational resources
         </Typography>
         {

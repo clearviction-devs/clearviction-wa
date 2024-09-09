@@ -34,7 +34,12 @@ export default function HousingBenefits() {
         }
       </BenefitCardsContainer>
       <BenefitPageContainer id="section-housing-resources">
-        <Typography variant="h3">
+        <Typography
+          variant="h3"
+          sx={{
+            mb: '24px',
+          }}
+        >
           Employment resources
         </Typography>
         {

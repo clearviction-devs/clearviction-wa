@@ -37,7 +37,12 @@ export default function EmploymentBenefits() {
         }
       </BenefitCardsContainer>
       <BenefitPageContainer id="section-employment-resources">
-        <Typography variant="h3">
+        <Typography
+          variant="h3"
+          sx={{
+            mb: '24px',
+          }}
+        >
           Employment resources
         </Typography>
         {
