@@ -77,7 +77,7 @@ export default function Home() {
               >
                 <Typography variant="headingCalculator" align="center">{content.background.iconText}</Typography>
                 <ImageContainer
-                  src="/illustrations/3-percent.png"
+                  src="/3-percent.png"
                   width={200}
                   height={120}
                   alt=""
