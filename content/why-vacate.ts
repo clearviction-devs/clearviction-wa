@@ -1,9 +1,10 @@
 import {
-  Card, MetaPageHead,
+  Card, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface WhyVacateContent {
   meta: MetaPageHead;
+  hero: Header;
   cards: Card[];
 }
 
@@ -11,6 +12,9 @@ const whyVacateContent: WhyVacateContent = {
   meta: {
     title: 'Find out why it\'s important to vacate criminal records',
     content: 'Vacating your criminal record allows you better access to employment, housing, and educational resources so you can get your life back on track.',
+  },
+  hero: {
+    header: 'Explore conviction vacating and its benefits',
   },
   cards: [
     {
