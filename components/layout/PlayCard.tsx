@@ -41,7 +41,7 @@ export default function PlayCard({
                 props: {
                   variant: 'overline',
                   sx: {
-                    fontWeight: 400,
+                    fontWeight: 700,
                     textTransform: 'none',
                     lineHeight: '30px',
                   },
