@@ -70,7 +70,7 @@ export default function CarouselBuilder({
       sx={{
         paddingLeft: {
           xs: '24px',
-          sm: 'unset',
+          sm: '0px',
         },
       }}
     >
