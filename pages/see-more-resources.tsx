@@ -154,7 +154,7 @@ export default function SeeMoreResources() {
           flexDirection: 'column',
         }}
         >
-          {[['Employment resources', '/why-vacate/employment-resources'], ['Housing resources', '/why-vacate/housing-resources'], ['Education resources', '/why-vacate/education-resources']].map(([text, href]) => (
+          {[['Employment resources', '/why-vacate/employment-benefits'], ['Housing resources', '/why-vacate/housing-benefits'], ['Educational resources', '/why-vacate/educational-benefits']].map(([text, href]) => (
             <TextButtonGreen key={text} text={text} href={href} />
           ))}
         </Box>
