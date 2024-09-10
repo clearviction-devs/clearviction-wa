@@ -12,7 +12,12 @@ export default function EmploymentBenefits() {
   externalLinks();
   return (
     <>
-      <BenefitPageContainer id="section-employment-benefits">
+      <BenefitPageContainer
+        id="section-employment-benefits"
+        sx={{
+          gap: '24px',
+        }}
+      >
         <Typography variant="h2">
           {content.cards[0].title}
         </Typography>
@@ -37,7 +42,12 @@ export default function EmploymentBenefits() {
         }
       </BenefitCardsContainer>
       <BenefitPageContainer id="section-employment-resources">
-        <Typography variant="h3">
+        <Typography
+          variant="h3"
+          sx={{
+            mb: '24px',
+          }}
+        >
           Employment resources
         </Typography>
         {

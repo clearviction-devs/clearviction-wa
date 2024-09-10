@@ -19,6 +19,7 @@ export default function FinalPageLinksContainer({
         justifyContent: 'flex-start',
         width: '360px',
         my: '24px',
+        gap: '16px',
       }}
     >
       <CalculatorButton href="/see-more-resources" hasArrow>See more resources </CalculatorButton>

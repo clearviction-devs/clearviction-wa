@@ -76,7 +76,7 @@ export default function RCWLinkInfo() {
         <Card
           sx={{
             width: '312px',
-            minHeight: '394px',
+            minHeight: '400px',
             bgcolor: 'secondary.dark',
             color: 'text.light',
             display: 'flex',
@@ -84,14 +84,14 @@ export default function RCWLinkInfo() {
           }}
         >
           <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-            <Grid container direction="column" justifyContent="space-between" sx={{ flexGrow: 1 }}>
+            <Grid container direction="column" sx={{ flexGrow: 1 }}>
               <Grid item>
-                <Typography variant="h3" sx={{ textTransform: 'none', mb: 0 }}>What is an RCW?</Typography>
+                <Typography variant="h3" sx={{ textTransform: 'none' }}>What is an RCW?</Typography>
               </Grid>
               <Grid
                 item
                 sx={{
-                  mt: 2, display: 'flex', flexDirection: 'column',
+                  mt: 3, display: 'flex', flexDirection: 'column', gap: 2,
                 }}
               >
                 <Typography variant="body2">
@@ -106,7 +106,7 @@ export default function RCWLinkInfo() {
               </Grid>
             </Grid>
           </CardContent>
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', mb: 1 }}>
             <Grid item sx={{ width: '50%' }} />
             <CalculatorButton
               handleClick={() => setRCWPopup(false)}

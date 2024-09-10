@@ -4,6 +4,7 @@ import React from 'react';
 export default function BenefitPageContainer({
   children,
   id,
+  sx,
   ...props
 }: ContainerProps) {
   return (
@@ -12,6 +13,8 @@ export default function BenefitPageContainer({
       id={id}
       disableGutters
       sx={{
+        display: 'flex',
+        flexDirection: 'column',
         maxWidth: {
           md: '936px',
         },
@@ -22,6 +25,7 @@ export default function BenefitPageContainer({
           lg: '112px 32px',
           xl: '112px 32px',
         },
+        ...sx,
       }}
       {...props}
     >
@@ -33,6 +37,7 @@ export default function BenefitPageContainer({
 export function BenefitCardsContainer({
   children,
   id,
+  sx,
   ...props
 }: ContainerProps) {
   return (
@@ -51,6 +56,7 @@ export function BenefitCardsContainer({
           lg: '0px 32px',
           xl: '0px 32px',
         },
+        ...sx,
       }}
       {...props}
     >

@@ -14,6 +14,9 @@ export default function EducationalBenefits() {
     <>
       <BenefitPageContainer
         id="section-educational-benefits"
+        sx={{
+          gap: '24px',
+        }}
       >
         <Typography variant="h2">
           {content.cards[2].title}
@@ -43,7 +46,12 @@ export default function EducationalBenefits() {
       <BenefitPageContainer
         id="section-educational-resources"
       >
-        <Typography variant="h3">
+        <Typography
+          variant="h3"
+          sx={{
+            mb: '24px',
+          }}
+        >
           Educational resources
         </Typography>
         {
