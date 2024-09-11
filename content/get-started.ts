@@ -88,15 +88,15 @@ const getStartedContent: GetStartedContent = {
   LFOFAQs: [{
     id: 'LFO-FAQ-1',
     summary: 'Must I pay my LFOs to vacate a felony conviction?',
-    details: 'For felony offenses, you need to obtain a Certificate of Discharge before vacating a conviction. Failure to pay LFOs prevents obtaining this certificate. ',
+    details: 'For felony offenses, you need to obtain a Certificate of Discharge before vacating a conviction. Failure to pay LFOs prevents obtaining this certificate.\n - [This packet](https://www.courts.wa.gov/forms/documents/CR08.0670_Obtaining%20a%20Certificate%20of%20Discharge_2019%2007.pdf) will assist you in obtaining a Certificate of Discharge in Washington State. \n - You will need to file both forms: [CR 08.600](https://www.courts.wa.gov/forms/documents/CR08.0600_MTCtOrdDischarge_2019%2007.pdf) & [CR 08.0650](https://www.courts.wa.gov/forms/documents/CR08.0650_CtOrdDischarge_2019%2007.pdf) from the [Washington Courts](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=43) website. ',
   }, {
     id: 'LFO-FAQ-2',
     summary: 'Must I pay my LFOs to vacate a misdemeanor?',
-    details: 'For misdemeanor offenses, you must prove completion of all sentence conditions (including LFO payments) and wait at least three years.',
+    details: 'For misdemeanor offenses, you don’t have to wait 3 years after you pay off your Legal Financial Obligations (or “LFOs”) to vacate your convictions. You can now ask to vacate your convictions once 3 years have passed from whichever of these dates is later: \n - The end of your supervision or probation \n - The end of your total and partial confinement \n - Your sentencing date',
   }, {
     id: 'LFO-FAQ-3',
     summary: 'What if I can’t pay my LFOs?',
-    details: 'You may qualify for relief from some or all of your LFOs, depending on your conviction type, the types of LFOs assessed, and your financial situation. \n \n For more information about reducing or waiving your LFOs, visit the below online resources. \n \n - Ask a court to cancel your non-restitution interest and/or reduce your LFOs at [WashingtonLawHelp.org](https://www.washingtonlawhelp.org/resource/filing-a-motion-to-remit-remove-financial-legal-obligations-in-district-or-municipal-court). \n - [Civilsurvival.org](https://civilsurvival.org/guides/) has two guides regarding LFOs on their website.  You can find these guides under the “Legal Support” section.',
+    details: 'You may qualify for relief from some or all of your LFOs, depending on your conviction type, the types of LFOs assessed, and your financial situation. \n \n For more information about reducing or waiving your LFOs, visit the below online resources. \n \n - Ask a court to cancel your non-restitution interest and/or reduce your LFOs using the packet available from [WashingtonLawHelp.org](https://www.washingtonlawhelp.org/resource/filing-a-motion-to-remit-remove-financial-legal-obligations-in-district-or-municipal-court). \n - [Civilsurvival.org](https://civilsurvival.org/guides/) has two guides regarding LFOs on their website.  You can find these guides under the “Legal Support” section.',
   }],
   fileWithTheCourtSteps: [
     {
