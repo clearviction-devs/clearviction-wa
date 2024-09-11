@@ -1,14 +1,15 @@
 import {
   Box,
+  Container,
   Grid,
   Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import externalLinks from '../components/functional/ExternalLinks.tsx';
-import { DarkButton } from '../components/helper/CustomButtons.tsx';
-import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import { DarkButton } from '../components/CustomButtons.tsx';
+import externalLinks from '../components/ExternalLinks.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
@@ -28,9 +29,22 @@ export default function Home() {
       />
 
       <main>
-        <HeroBanner {...content.heroBanner} background="url(/illustrations/h1-home-desktop.png)" />
+        <HeroBanner {...content.heroBanner} background="url(/h1-home-desktop.png)" />
 
-        <SectionContainer>
+        <Container sx={{
+          padding: {
+            xs: '72px 24px',
+            sm: '72px 64px',
+            md: '72px 0px',
+          },
+          maxWidth: {
+            md: '936px',
+          },
+          margin: {
+            md: 'auto',
+          },
+        }}
+        >
           <Grid container justifyContent="space-between" id={`${content.background.id}-main-grid`}>
             <Grid item xs={12} md={7}>
               <Typography
@@ -46,6 +60,7 @@ export default function Home() {
                     variant: 'body2',
                     fontSize: '18px',
                     lineHeight: '22px',
+                    marginBottom: '16px',
                   },
                 },
               }}
@@ -77,7 +92,7 @@ export default function Home() {
               >
                 <Typography variant="headingCalculator" align="center">{content.background.iconText}</Typography>
                 <ImageContainer
-                  src="/illustrations/3-percent.png"
+                  src="/3-percent.png"
                   width={200}
                   height={120}
                   alt=""
@@ -88,7 +103,7 @@ export default function Home() {
             </Grid>
 
           </Grid>
-        </SectionContainer>
+        </Container>
 
         <Grid
           container
@@ -128,8 +143,8 @@ export default function Home() {
         <Box sx={{
           padding: {
             xs: '72px 0px 52px 24px',
-            sm: '72px 0px 52px 64px',
-            md: '52px 32px',
+            sm: '72px 0px 52px 32px',
+            md: '52px 0px',
           },
           maxWidth: '936px',
           mx: 'auto',
@@ -149,7 +164,19 @@ export default function Home() {
           </Grid>
         </Box>
 
-        <SectionContainer id="faq">
+        <Container
+          id="faq"
+          sx={{
+            padding: {
+              xs: '8px 24px 88px 24px',
+              sm: '8px 64px 88px 64px',
+              // md: '0px',
+            },
+            maxWidth: {
+              md: '936px',
+            },
+          }}
+        >
           <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px', mb: '24px' }}>Conviction Vacation FAQs</Typography>
           {content.faqs.map((faq) => (
             <AccordionBuilder
@@ -158,7 +185,7 @@ export default function Home() {
               sx={{ backgroundColor: theme.palette.primary.light }}
             />
           ))}
-        </SectionContainer>
+        </Container>
 
       </main>
     </>

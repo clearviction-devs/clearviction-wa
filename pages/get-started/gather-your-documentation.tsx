@@ -2,7 +2,8 @@ import { Box, Grid, Typography } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import { DarkButton, LightButton } from '../../components/helper/CustomButtons.tsx';
+import { DarkButton, LightButton } from '../../components/CustomButtons.tsx';
+import externalLinks from '../../components/ExternalLinks.tsx';
 import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedHero from '../../components/layout/GetStartedHero.tsx';
 import content from '../../content/get-started.ts';
@@ -25,6 +26,7 @@ function ReadYourRecordsText() {
 }
 
 export default function GatherYourDocumentation() {
+  externalLinks();
   return (
     <>
       <GetStartedHero
@@ -55,12 +57,24 @@ export default function GatherYourDocumentation() {
             sm: '296px',
           },
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: {
+            xs: 'column',
+            md: 'row',
+          },
           padding: '24px 32px',
           gap: '64px',
-          justifyContent: 'center',
+          justifyContent: {
+            xs: 'center',
+            md: 'space-between',
+          },
           alignItems: {
             sm: 'center',
+          },
+          width: {
+            md: '936px',
+          },
+          margin: {
+            md: 'auto',
           },
         }}
         >

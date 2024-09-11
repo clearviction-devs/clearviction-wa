@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import { EligibilityButton } from '../helper/CustomButtons.tsx';
+import { EligibilityButton } from '../CustomButtons.tsx';
 
 interface HeroBannerProps {
   header: string;
@@ -43,34 +43,44 @@ export default function HeroBanner({
       }}
       textAlign="left"
     >
-      <Container
-        disableGutters
-        sx={{
-          maxWidth: '936px',
-          width: {
-            lg: '936px',
-            xl: '936px',
-          },
-        }}
+      <Container sx={{
+        width: {
+          md: '936px',
+        },
+        height: '366px',
+        padding: {
+          xs: '0px 24px 32px 24px',
+          sm: '0px 64px 64px 64px',
+          md: '0px',
+        },
+        margin: {
+          md: 'auto',
+        },
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        gap: '32px',
+      }}
       >
         <Typography
           className="hero-title"
           variant="h1"
           sx={{
             color: 'text.light',
+            width: {
+              xs: 'fit-content',
+              md: '936px',
+            },
             lineHeight: {
-              sm: '46px',
-              md: '56px',
+              xs: '36px',
+              md: '46px',
             },
           }}
         >
           {header}
         </Typography>
         {ctaText && ctaLink && (
-          <Box sx={{
-            marginY: '24px',
-          }}
-          >
+          <Box>
             <EligibilityButton />
           </Box>
         )}

@@ -4,7 +4,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import { LightButton } from '../helper/CustomButtons.tsx';
+import { LightButton } from '../CustomButtons.tsx';
 import ImageContainer from './ImageContainer.tsx';
 
 interface PlayCardProps {
@@ -41,7 +41,7 @@ export default function PlayCard({
                 props: {
                   variant: 'overline',
                   sx: {
-                    fontWeight: 400,
+                    fontWeight: 700,
                     textTransform: 'none',
                     lineHeight: '30px',
                   },

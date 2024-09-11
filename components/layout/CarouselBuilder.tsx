@@ -10,21 +10,15 @@ import {
 import { useTheme } from '@mui/material/styles';
 import React, { useState } from 'react';
 
-import { GetStartedStep } from '../../content/content.types.ts';
+import { CarouselCard, GetStartedStep } from '../../content/content.types.ts';
 import GetStartedCard from './GetStartedCard.tsx';
 import PlayCard from './PlayCard.tsx';
-
-export interface CarouselCard {
-  title: string;
-  details: string;
-  iconSource?: string;
-  ctaButton: string;
-  buttonHref: string;
-}
+import WhyVacateCard, { WhyVacateCardProps } from './WhyVacateCard.tsx';
 
 interface CarouselBuilderProps {
   cards?: CarouselCard[];
   getStartedCards?: GetStartedStep[];
+  whyVacateCards?: WhyVacateCardProps[];
   cardWidth: number;
   cardHeight?: number;
   buttonHRef?: string;
@@ -32,16 +26,19 @@ interface CarouselBuilderProps {
   buttonAriaLabel?: string;
   useGetStartedCards?: boolean;
   usePlaycard?: boolean;
+  useWhyVacateCards?: boolean;
   useMD?: boolean;
 }
 
 export default function CarouselBuilder({
   cards,
   getStartedCards,
+  whyVacateCards,
   cardWidth,
   cardHeight,
   useGetStartedCards,
   usePlaycard,
+  useWhyVacateCards,
   useMD,
 }: CarouselBuilderProps) {
   const theme = useTheme();
@@ -50,6 +47,7 @@ export default function CarouselBuilder({
   const getNumCards = () => {
     if (cards) return cards.length;
     if (getStartedCards) return getStartedCards.length;
+    if (whyVacateCards) return whyVacateCards.length;
     return 0;
   };
 
@@ -72,7 +70,7 @@ export default function CarouselBuilder({
       sx={{
         paddingLeft: {
           xs: '24px',
-          sm: 'unset',
+          sm: '0px',
         },
       }}
     >
@@ -93,7 +91,7 @@ export default function CarouselBuilder({
 
         }}
         >
-          {useGetStartedCards && getStartedCards && getStartedCards.map((card) => (
+          { useGetStartedCards && getStartedCards && getStartedCards.map((card) => (
             <Box
               key={card.title}
               sx={{
@@ -130,6 +128,20 @@ export default function CarouselBuilder({
                 buttonHref={card.buttonHref}
                 ctaText={card.ctaButton}
               />
+            </Box>
+          ))}
+
+          { useWhyVacateCards && whyVacateCards && whyVacateCards.map((card) => (
+            <Box
+              key={card.id}
+              sx={{
+                flex: '1 1 0',
+                width: cardWidth,
+                height: card.minHeight,
+                marginRight: '32px',
+              }}
+            >
+              <WhyVacateCard {...card} />
             </Box>
           ))}
         </Box>
@@ -184,6 +196,24 @@ export default function CarouselBuilder({
           {getStartedCards && getStartedCards.map((card, index) => (
             <IconButton
               key={card.title}
+              onClick={() => handleDotClick(index)}
+              sx={{
+                padding: '4px',
+              }}
+            >
+              <SquareIcon
+                sx={{
+                  fontSize: '4px',
+                  color: index === currentIndex
+                    ? theme.palette.primary.dark : theme.palette.primary.main,
+                }}
+              />
+            </IconButton>
+          ))}
+
+          {whyVacateCards && whyVacateCards.map((card, index) => (
+            <IconButton
+              key={card.id}
               onClick={() => handleDotClick(index)}
               sx={{
                 padding: '4px',

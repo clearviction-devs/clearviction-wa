@@ -1,11 +1,10 @@
 import {
-  Button, Card, Header, MetaPageHead,
+  Card, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface WhyVacateContent {
   meta: MetaPageHead;
-  heroBanner: Header;
-  buttons: Button[];
+  hero: Header;
   cards: Card[];
 }
 
@@ -14,26 +13,9 @@ const whyVacateContent: WhyVacateContent = {
     title: 'Find out why it\'s important to vacate criminal records',
     content: 'Vacating your criminal record allows you better access to employment, housing, and educational resources so you can get your life back on track.',
   },
-  heroBanner: {
-    header: 'Why vacate your conviction in Washington State?',
-    subheading:
-      'Vacating a conviction in Washington is complicated and intimidating but doing so opens opportunities in employment, housing, and education. \n\nExplore the benefits of vacating your conviction and get resources to help you along the way.',
-    imgsrc: '/illustrations/team-building.svg',
+  hero: {
+    header: 'Explore conviction vacating and its benefits',
   },
-  buttons: [
-    {
-      name: 'Employment',
-      href: '#section-employment',
-    },
-    {
-      name: 'Housing',
-      href: '#section-housing',
-    },
-    {
-      name: 'Education',
-      href: '#section-education',
-    },
-  ],
   cards: [
     {
       title: 'Employment benefits',

@@ -1,11 +1,13 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 
+import externalLinks from '../components/ExternalLinks.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import content from '../content/get-started.ts';
 import { GSContainer } from './get-started/index.tsx';
 
 export default function Lfos() {
+  externalLinks();
   return (
     <>
       <GSContainer>

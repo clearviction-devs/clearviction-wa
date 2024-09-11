@@ -6,7 +6,8 @@ import MuiMarkdown from 'mui-markdown';
 import Link from 'next/link';
 import React from 'react';
 
-import { DarkButton, TextButtonGreen } from '../components/helper/CustomButtons.tsx';
+import { DarkButton, TextButtonGreen } from '../components/CustomButtons.tsx';
+import externalLinks from '../components/ExternalLinks.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import whyVacateContent from '../content/why-vacate.ts';
 import theme from '../styles/themes/theme.tsx';
@@ -17,6 +18,7 @@ function SMRContainer({
   sx,
   ...props
 }: ContainerProps) {
+  externalLinks();
   return (
     <Container
       component="section"
@@ -152,7 +154,7 @@ export default function SeeMoreResources() {
           flexDirection: 'column',
         }}
         >
-          {[['Employment resources', '/why-vacate/employment-resources'], ['Housing resources', '/why-vacate/housing-resources'], ['Education resources', '/why-vacate/education-resources']].map(([text, href]) => (
+          {[['Employment resources', '/why-vacate/employment-benefits'], ['Housing resources', '/why-vacate/housing-benefits'], ['Educational resources', '/why-vacate/educational-benefits']].map(([text, href]) => (
             <TextButtonGreen key={text} text={text} href={href} />
           ))}
         </Box>

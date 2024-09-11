@@ -11,8 +11,8 @@ import FinalPageLinksContainer from '../../components/calculator/CTAContainers.t
 import NotSurePopup from '../../components/calculator/PopupContainers.tsx';
 import QandAContainer from '../../components/calculator/QandAContainer.tsx';
 import RCWLinkInfo from '../../components/calculator/RCWLinkInfo.tsx';
-import externalLinks from '../../components/functional/ExternalLinks.tsx';
-import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
+import externalLinks from '../../components/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/IndividualPageHead.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
 import {
   getAllPagePaths,

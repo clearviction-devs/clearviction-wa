@@ -1,5 +1,10 @@
 import {
   Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Divider,
   Link,
   Stack,
@@ -7,8 +12,125 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import React from 'react';
+import React, { useState } from 'react';
 
+function LegalDisclaimerDialog({ openLegalDisclaimer, setOpenLegalDisclaimer }: { openLegalDisclaimer: boolean, setOpenLegalDisclaimer: React.Dispatch<React.SetStateAction<boolean>> }) {
+  return (
+    <Dialog
+      open={openLegalDisclaimer}
+      onClose={() => setOpenLegalDisclaimer(false)}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+      sx={{
+        width: '376px',
+        margin: 'auto',
+      }}
+    >
+      <DialogTitle
+        id="alert-dialog-title"
+        sx={{
+          color: 'text.secondary',
+          backgroundColor: 'primary.light',
+        }}
+      >
+        <Typography variant="h3">
+          Legal Disclaimer
+        </Typography>
+      </DialogTitle>
+      <DialogContent
+        sx={{
+          color: 'text.secondary',
+          backgroundColor: 'primary.light',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
+        <Typography variant="body2">
+          This website does not provide legal advice. You should not rely on it for legal guidance. We cannot guarantee its accuracy or be held responsible for any consequences.
+        </Typography>
+        <Typography variant="body2">
+          Consult with an attorney to ensure the information and your understanding of it are suitable for your situation.
+        </Typography>
+      </DialogContent>
+      <DialogActions sx={{
+        backgroundColor: 'primary.light',
+      }}
+      >
+        <Button
+          onClick={() => setOpenLegalDisclaimer(false)}
+          sx={{
+            color: 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'text.light',
+            },
+          }}
+        >
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
+
+function PrivacyNoticeDialog({ openPrivacyNotice, setOpenPrivacyNotice }: { openPrivacyNotice: boolean, setOpenPrivacyNotice: React.Dispatch<React.SetStateAction<boolean>> }) {
+  return (
+    <Dialog
+      open={openPrivacyNotice}
+      onClose={() => setOpenPrivacyNotice(false)}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+      sx={{
+        width: '376px',
+        margin: 'auto',
+      }}
+    >
+      <DialogTitle
+        id="alert-dialog-title"
+        sx={{
+          color: 'text.secondary',
+          backgroundColor: 'primary.light',
+        }}
+      >
+        <Typography variant="h3">
+          Privacy Notice
+        </Typography>
+      </DialogTitle>
+      <DialogContent
+        sx={{
+          color: 'text.secondary',
+          backgroundColor: 'primary.light',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
+        <Typography variant="body2">
+          We do not ask, nor collect any personally identifiable information. We may collect non-personal information such as your browser type, operating system, and IP address for statistical purposes to improve our website and services.
+        </Typography>
+        <Typography variant="body2">
+          Our website may contain links to third-party websites for your convenience. We are not responsible for the privacy practices or content of these third-party sites.
+        </Typography>
+      </DialogContent>
+      <DialogActions sx={{
+        backgroundColor: 'primary.light',
+      }}
+      >
+        <Button
+          onClick={() => setOpenPrivacyNotice(false)}
+          sx={{
+            color: 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'text.light',
+            },
+          }}
+        >
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
 interface FooterProps {
   isCalc: boolean;
 }
@@ -16,6 +138,8 @@ interface FooterProps {
 function Footer({ isCalc }: FooterProps) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
+  const [openLegalDisclaimer, setOpenLegalDisclaimer] = useState(false);
+  const [openPrivacyNotice, setOpenPrivacyNotice] = useState(false);
 
   return (
     <Box
@@ -53,8 +177,16 @@ function Footer({ isCalc }: FooterProps) {
           <Box>
             <Stack>
               <Divider sx={{ borderBottom: `1px solid ${theme.palette.primary.main}`, my: 3 }} />
-              <Typography className="warning" variant="footerDisclaimers" display="block" gutterBottom>LEGAL DISCLAIMER</Typography>
-              <Typography className="warning" variant="footerDisclaimers" display="block" gutterBottom>PRIVACY NOTICE</Typography>
+              <Typography className="warning" variant="footerDisclaimers" display="block" gutterBottom>
+                <Button onClick={() => setOpenLegalDisclaimer(true)}>
+                  LEGAL DISCLAIMER
+                </Button>
+              </Typography>
+              <Typography className="warning" variant="footerDisclaimers" display="block" gutterBottom>
+                <Button onClick={() => setOpenPrivacyNotice(true)}>
+                  PRIVACY NOTICE
+                </Button>
+              </Typography>
             </Stack>
           </Box>
         </Stack>
@@ -113,15 +245,22 @@ function Footer({ isCalc }: FooterProps) {
             >
               <Divider sx={{ borderBottom: `1px solid ${theme.palette.primary.main}` }} />
               <Typography className="warning" variant="footerDisclaimers" display="block">
-                LEGAL DISCLAIMER
+                <Button onClick={() => setOpenLegalDisclaimer(true)}>
+                  LEGAL DISCLAIMER
+                </Button>
               </Typography>
               <Typography className="warning" variant="footerDisclaimers" display="block">
-                PRIVACY NOTICE
+                <Button onClick={() => setOpenPrivacyNotice(true)}>
+                  PRIVACY NOTICE
+                </Button>
               </Typography>
             </Stack>
           </Box>
         </Stack>
       )}
+      <PrivacyNoticeDialog openPrivacyNotice={openPrivacyNotice} setOpenPrivacyNotice={setOpenPrivacyNotice} />
+
+      <LegalDisclaimerDialog openLegalDisclaimer={openLegalDisclaimer} setOpenLegalDisclaimer={setOpenLegalDisclaimer} />
 
     </Box>
   );

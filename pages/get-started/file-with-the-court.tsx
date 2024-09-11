@@ -4,6 +4,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
+import externalLinks from '../../components/ExternalLinks.tsx';
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedCard from '../../components/layout/GetStartedCard.tsx';
@@ -16,6 +17,7 @@ const generalGuidelinesText = 'The step by step process outlined on this page is
 const legalAndFinancialAidText = 'Many pro bono services are only available after being referred by CLEAR, a toll-free legal hotline: \n - Outside of King County: call 1-888-201-1014 (weekdays 9:15am - 12:15pm) \n - In King County: call 2-1-1 (weekdays 8am - 6pm) \n - You can also apply online at [CLEAR*Online](https://nwjustice.org/apply-online)';
 
 export default function FileWithTheCourt() {
+  externalLinks();
   return (
     <>
       <GetStartedHero

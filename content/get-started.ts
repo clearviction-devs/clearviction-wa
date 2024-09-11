@@ -1,5 +1,5 @@
-import { CarouselCard } from '../components/layout/CarouselBuilder.tsx';
 import {
+  CarouselCard,
   FAQ, GetStartedStep, Header, Info,
   MetaPageHead,
 } from './content.types.ts';
