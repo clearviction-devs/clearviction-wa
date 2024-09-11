@@ -100,9 +100,9 @@ const getStartedContent: GetStartedContent = {
   }],
   fileWithTheCourtSteps: [
     {
-      title: 'Fill the petition form',
+      title: 'File the petition & order forms',
       overline: 'Step 1',
-      body: 'To petition your conviction vacation, fill out and sign the corresponding form:\n\n**Cannabis**: [CrRLJ 09.0800](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) \n **Prostitution**: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) \n **Misdemeanor**: [CrRLJ 09.0100](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) \n **Felony**: [CR 08.0900](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38)',
+      body: 'To petition your conviction vacation, fill out and sign the corresponding petition and order forms:\n\n**Cannabis**: [CrRLJ 09.0800/ .0870](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38) \n **Prostitution**: [CrRLJ 09.0100/ .0200](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38)  \n **Misdemeanor**: [CrRLJ 09.0100/ .0200](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38)  \n **Felony**: [CR 08.0900/ .0920](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=38)',
     },
     {
       title: 'Fill out the notice to schedule a hearing',
