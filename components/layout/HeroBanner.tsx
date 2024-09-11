@@ -42,11 +42,22 @@ export default function HeroBanner({
       textAlign="left"
     >
       <Container sx={{
-        maxWidth: '936px',
         width: {
-          lg: '936px',
-          xl: '936px',
+          md: '936px',
         },
+        height: '366px',
+        padding: {
+          xs: '0px 24px 32px 24px',
+          sm: '0px 64px 64px 64px',
+          md: '0px',
+        },
+        margin: {
+          md: 'auto',
+        },
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        gap: '32px',
       }}
       >
         <Typography
@@ -54,16 +65,20 @@ export default function HeroBanner({
           variant="h1"
           sx={{
             color: 'text.light',
-            pt: 40,
+            width: {
+              xs: 'fit-content',
+              md: '936px',
+            },
+            lineHeight: {
+              xs: '36px',
+              md: '46px',
+            },
           }}
         >
           {header}
         </Typography>
         {ctaText && ctaLink && (
-          <Box sx={{
-            marginY: '24px',
-          }}
-          >
+          <Box>
             <EligibilityButton />
           </Box>
         )}

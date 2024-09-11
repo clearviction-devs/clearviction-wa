@@ -9,6 +9,58 @@ import GetStartedHero from '../../components/layout/GetStartedHero.tsx';
 import content from '../../content/get-started.ts';
 import { GSContainer } from './index.tsx';
 
+export function CheckConvictionCTABox({ text }: {text: string}) {
+  return (
+    <Box sx={{
+      backgroundColor: 'secondary.light',
+    }}
+    >
+      <GSContainer sx={{
+        height: {
+          xs: '232px',
+          sm: '296px',
+        },
+        flexDirection: {
+          xs: 'column',
+          md: 'row',
+        },
+        justifyContent: 'center',
+      }}
+      >
+        <Box sx={{
+          width: 'fit-content',
+          padding: {
+            xs: '32px 0px',
+            sm: '0px',
+          },
+          margin: {
+            sm: 'auto',
+          },
+        }}
+        >
+          <Typography variant="h3">
+            {text}
+          </Typography>
+        </Box>
+        <Box sx={{
+          width: 'fit-content',
+          padding: {
+          },
+          margin: {
+            sm: 'auto',
+          },
+        }}
+        >
+          <DarkButton
+            href="/calculator/head-initial-1-cont"
+            text="Check your conviction"
+          />
+        </Box>
+      </GSContainer>
+    </Box>
+  );
+}
+
 export default function DetermineYourEligibility() {
   externalLinks();
   return (
@@ -75,55 +127,7 @@ export default function DetermineYourEligibility() {
           </MuiMarkdown>
         </GSContainer>
       </Box>
-      <Box sx={{
-        backgroundColor: 'secondary.light',
-      }}
-      >
-        <GSContainer sx={{
-          height: {
-            xs: '232px',
-            sm: '296px',
-          },
-          flexDirection: {
-            xs: 'column',
-            md: 'row',
-          },
-          justifyContent: 'center',
-        }}
-        >
-          <Box sx={{
-            width: 'fit-content',
-            padding: {
-              xs: '32px 24px',
-              sm: '0px',
-            },
-            margin: {
-              sm: 'auto',
-            },
-          }}
-          >
-            <Typography variant="h3">
-              Ready to check your eligibility?
-            </Typography>
-          </Box>
-          <Box sx={{
-            width: 'fit-content',
-            padding: {
-              xs: '32px 24px',
-              sm: '0px',
-            },
-            margin: {
-              sm: 'auto',
-            },
-          }}
-          >
-            <DarkButton
-              href="/calculator/head-initial-1-cont"
-              text="Check your conviction"
-            />
-          </Box>
-        </GSContainer>
-      </Box>
+      <CheckConvictionCTABox text="Ready to check your eligibility?" />
     </>
   );
 }
