@@ -170,7 +170,7 @@ export default function Home() {
             padding: {
               xs: '8px 24px 88px 24px',
               sm: '8px 64px 88px 64px',
-              // md: '0px',
+              md: '8px 0px 88px 0px',
             },
             maxWidth: {
               md: '936px',
