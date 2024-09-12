@@ -7,7 +7,8 @@ const portableTextComponent = {
   block: {
     headingCalculator: ({ children }: any) => <Typography style={theme.typography.headingCalculator}>{children}</Typography>,
     body1: ({ children }: any) => <Typography variant="body1" style={theme.typography.body1}>{children}</Typography>,
-    body2: ({ children }: any) => <Typography variant="body2" style={theme.typography.body2}>{children}</Typography>,
+    body2: ({ children }: any) => <Typography variant="body2" style={{ ...theme.typography.body2, marginBottom: '24px' }}>{children}</Typography>,
+    h6: ({ children }: any) => <Typography variant="body2" style={theme.typography.body2}>{children}</Typography>,
   },
   marks: {
     link: ({ children, value }: any) => {
