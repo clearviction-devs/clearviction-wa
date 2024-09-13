@@ -2,6 +2,7 @@ import {
   Box, Container, Step, StepConnector, Stepper, styled,
   Typography,
 } from '@mui/material';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import theme from '../../styles/themes/theme.tsx';
@@ -139,8 +140,13 @@ function CustomHorizontalStepper() {
 }
 
 export default function CalcHeader({ page }:
-    { page: StaticCalcProps['page']
-    }) {
+  {
+    page: StaticCalcProps['page']
+  }) {
+  const router = useRouter();
+  useEffect(() => {
+  }, [router.query.slug]);
+
   const isPageIncludedInStepper = () => {
     const isMisSpecialCase = page.slug.includes('m-offense-pro') || page.slug.includes('m-offense-mari') || page.slug.includes('m-offense-fish');
     const excludedPageSlugs = ['start', 'head'];
@@ -151,6 +157,7 @@ export default function CalcHeader({ page }:
   return (
     <Container
       id="calc-head-container"
+      key={router.asPath}
       sx={{
         marginTop: {
           xs: '40px',
