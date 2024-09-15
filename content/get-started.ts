@@ -156,37 +156,37 @@ const getStartedContent: GetStartedContent = {
       id: 'eligibilityform1',
       summary: 'Forms for gross misdeameanor conviction vacation',
       details:
-        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) with guidance on: \n \n - Vacation eligibility (pages 2-4) \n -  Required court forms (p. 5-13)\n',
+        'This [vacation packet](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record_20240717.pdf) from Washington Law Help with guidance on vacation eligibility and necessary court forms and documents. \n',
     },
     {
       id: 'eligibilityform2',
       summary: 'Forms for marijuana misdemeanor conviction vacation',
       details:
-        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with guidance on: \n - Steps to vacate (pages 2-6) \n - All necessary court documents (pages 8-13) \n - A sample letter for the Washington State Patrol to seal your record (page 7)\n',
+        'This [vacation packet](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record_20240717.pdf) from Washington Law Help with guidance on vacation eligibility and necessary court forms and documents. \n',
     },
     {
       id: 'eligibilityform3',
       summary: 'Forms for prostitution conviction vacation',
       details:
-        'If you were a victim of trafficking, you can use [this vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) with guidance on: \n - Vacation eligibility (pages 1-3) \n - Steps to take (pages 4-8) \n - Court forms (pages 10-18) \n - A sample letter for the Washington State Patrol (page 9)\n',
+        'This [vacation packet](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record_20240717.pdf) from Washington Law Help with guidance on vacation eligibility and necessary court forms and documents. \n',
     },
     {
       id: 'eligibilityform4',
       summary: 'Forms for fishing treaty conviction vacation',
       details:
-        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/get-misdemeanor-convictions-off-your-criminal-record/download/21968678-A4F9-42E5-BA32-58826390C62D.pdf) which includes: \n - An overview of the eligibility to vacate (pages 1-2) \n - Steps to take (pages 3-7) \n - All court forms (pages 8-16) \n - A sample letter for the Washington State Patrol (page 17)\n',
+        'This [vacation packet](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record_20240717.pdf) from Washington Law Help with guidance on vacation eligibility and necessary court forms and documents. \n',
     },
     {
       id: 'eligibilityform5',
       summary: 'Forms for juvenile records conviction vacation',
       details:
-        'This [detailed packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) contains: \n - All court documents (pages 30-40) \n - Sample letters to the Washington State Patrol and the Juvenile Rehabilitation Administration (pages 41-42) \n - Specific practices per county (pages 19-27)\n\nThis [packet from King County Superior Court](https://kingcounty.gov/~/media/courts/superior-court/docs/juvenile/juvenile-forms/10-sealing-records-instructions-and-forms-pdf-web.ashx?la=en) describes: \n - The procedure to vacate and contains all necessary court documents (pages 11-17) \n - A sample of how to fill in the court documents (pages 4-9)',
+        'This [detailed packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) contains: \n - All court documents  \n - Sample letters to the Washington State Patrol and the Juvenile Rehabilitation Administration  \n - Specific practices per county \n\nThis [packet from King County Superior Court](https://kingcounty.gov/~/media/courts/superior-court/docs/juvenile/juvenile-forms/10-sealing-records-instructions-and-forms-pdf-web.ashx?la=en) describes: \n - The procedure to vacate and contains all necessary court documents  \n - A sample of how to fill in the court documents ',
     },
     {
       id: 'eligibilityform6',
       summary: 'Forms for non-violent Class B or C felony conviction vacation',
       details:
-        'This [vacation packet from Northwest Justice Project](https://www.washingtonlawhelp.org/resource/criminal-historyrecords-when-and-how-to-vacat) includes: \n - An overview of the requirements to vacate (pages 4-6) \n - Instructions on how to file motion (page 8) \n - All necessary court documents (pages 8-9) \n - Preparation guidelines (pages 10-12) \n - A sample letter to the Washington State Patrol (page 14) \n - Additional resources can be found at the end of the document after page 14\n\nTo vacate a felony conviction, you will also need a **Certificate of Discharge**. If the court has not issued the Certificate of Discharge yet, you must file for a certificate before you can vacate the felony. \n - [This packet](https://www.courts.wa.gov/forms/documents/CR08.0670_Obtaining%20a%20Certificate%20of%20Discharge_2019%2007.pdf) will assist you in obtaining a Certificate of Discharge in Washington State. \n - You will need to file both forms: [CR 08.600](https://www.courts.wa.gov/forms/documents/CR08.0600_MTCtOrdDischarge_2019%2007.pdf) & [CR 08.0650](https://www.courts.wa.gov/forms/documents/CR08.0650_CtOrdDischarge_2019%2007.pdf) from the [Washington Courts](https://www.courts.wa.gov/forms/?fa=forms.contribute&formID=43) website. ',
+        'This [vacation packet](https://www.washingtonlawhelp.org/resource/criminal-historyrecords-when-and-how-to-vacat) from Washington Law Help includes: \n - An overview of the requirements to vacate  \n - Instructions on how to file motion  \n - All necessary court documents  \n - Preparation guidelines  \n - A sample letter to the Washington State Patrol  \n\nTo vacate a felony conviction, you will also need a **Certificate of Discharge**. If the court has not issued the Certificate of Discharge yet, you must file for a certificate before you can vacate the felony. \n - [This packet](https://www.courts.wa.gov/forms/documents/CR08.0670_Obtaining%20a%20Certificate%20of%20Discharge_2019%2007.pdf) will assist you in obtaining a Certificate of Discharge in Washington State \n ',
     },
   ],
 };
