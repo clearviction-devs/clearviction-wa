@@ -16,23 +16,28 @@ export function CheckConvictionCTABox({ text }: {text: string}) {
     }}
     >
       <GSContainer sx={{
-        height: {
-          xs: '232px',
-          sm: '296px',
-        },
         flexDirection: {
           xs: 'column',
           md: 'row',
         },
         justifyContent: 'center',
+        padding: {
+          xs: '32px 24px',
+          sm: '48px',
+          md: '0px',
+        },
+        gap: {
+          xs: '64px',
+          sm: '48px',
+          md: '0px',
+        },
+        height: {
+          md: '318px',
+        },
       }}
       >
         <Box sx={{
           width: 'fit-content',
-          padding: {
-            xs: '32px 0px',
-            sm: '0px',
-          },
           margin: {
             sm: 'auto',
           },
