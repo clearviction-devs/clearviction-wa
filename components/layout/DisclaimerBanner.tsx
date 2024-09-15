@@ -20,19 +20,22 @@ function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
           justifyContent: 'center',
           bgcolor: 'secondary.dark',
           py: 1,
+          px: 2,
           color: 'white',
         }}
       >
         <Box sx={{
-          display: 'flex', px: 2, width: { xs: '100%', md: '85%' },
+          display: 'flex', width: { xs: '100%', md: '85%' },
         }}
         >
-          <ErrorOutlineIcon sx={{
-            // width: '24px',
-            // height: '32px',
-            // pb: 1,
+          <Box sx={{
+            display: 'flex',
+            direction: 'column',
+            alignItems: 'center',
           }}
-          />
+          >
+            <ErrorOutlineIcon />
+          </Box>
           <Box sx={{ pl: 1 }}>
             Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
           </Box>
