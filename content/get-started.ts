@@ -166,7 +166,7 @@ const getStartedContent: GetStartedContent = {
     },
     {
       id: 'eligibilityform3',
-      summary: 'Forms for prostitution conviction vacation',
+      summary: 'Forms for misdemeanor prostitution conviction vacation',
       details:
         'This [vacation packet](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record_20240717.pdf) from Washington Law Help with guidance on vacation eligibility and necessary court forms and documents. \n',
     },
