@@ -75,6 +75,9 @@ export default function InfoDropdown({
               props: {
                 variant: 'body2',
                 component: 'li',
+                style: {
+                  marginBottom: '10px',
+                },
               },
             },
             a: {
