@@ -26,6 +26,7 @@ interface HeaderProps {
 export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
   const matchesMd = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesXs = useMediaQuery(theme.breakpoints.down('xs'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -122,7 +123,7 @@ export default function Header({ isCalc }: HeaderProps) {
         ))}
       </List>
       <Box sx={{
-        paddingTop: '16px',
+        paddingTop: matchesXs ? '16px' : '72px',
       }}
       >
         <EligibilityButton />
