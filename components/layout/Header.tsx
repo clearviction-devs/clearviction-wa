@@ -25,7 +25,7 @@ interface HeaderProps {
 
 export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesMd = useMediaQuery(theme.breakpoints.down('md'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -155,7 +155,7 @@ export default function Header({ isCalc }: HeaderProps) {
           {drawer}
         </Drawer>
         <Box sx={{ width: '100%' }}>
-          {matches && (
+          {matchesMd && (
             <IconButton aria-label="open sidebar menu" onClick={handleDrawerToggle} sx={{ display: 'flex', width: '100%' }}>
               <Menu
                 sx={{
@@ -165,7 +165,7 @@ export default function Header({ isCalc }: HeaderProps) {
               />
             </IconButton>
           )}
-          {!matches && (
+          {!matchesMd && (
             <Box
               className="desktop-nav-list"
               sx={{
@@ -250,7 +250,7 @@ export default function Header({ isCalc }: HeaderProps) {
           )}
         </Box>
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
-        {!matches && (
+        {!matchesMd && (
           <Box>
             <EligibilityButton />
           </Box>
