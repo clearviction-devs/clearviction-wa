@@ -46,36 +46,37 @@ export default function Header({ isCalc }: HeaderProps) {
     <Box
       onClick={handleDrawerToggle}
       sx={{
-        display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-around',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        marginTop: '2px',
+        padding: '24px 16px 24px 16px',
+        gap: '16px',
       }}
     >
-      <Box sx={{
-        margin: '16px auto 16px 16px',
-      }}
-      >
+      <Box>
         <IconButton
           aria-label="Close navigation"
         >
           <ArrowForwardIos
-            fontSize="large"
             sx={{
               color: theme.palette.text.light,
             }}
           />
         </IconButton>
       </Box>
-      <List className="nav-mobile" sx={{ transform: 'translateY(-60px)' }}>
+
+      <List className="nav-mobile">
         {navItems.map(({ href, text, sublist }) => (
           <React.Fragment key={text}>
-            <ListItem
-              sx={{ paddingBottom: 0, paddingTop: 0 }}
-            >
+            <ListItem disablePadding>
               <ListItemButton
                 component={Link}
                 href={href}
                 sx={{
-                  paddingBottom: 0,
-                  paddingTop: 0,
+                  '&:hover': {
+                    backgroundColor: theme.palette.text.secondary,
+                  },
                 }}
               >
                 <ListItemText
@@ -83,24 +84,33 @@ export default function Header({ isCalc }: HeaderProps) {
                   primaryTypographyProps={{
                     style:
                     {
-                      fontSize: '16px', fontWeight: '700', fontFamily: theme.typography.button.fontFamily, marginBottom: 0,
+                      fontSize: '16px',
+                      fontWeight: '700',
+                      fontFamily: theme.typography.button.fontFamily,
                     },
                   }}
                 />
               </ListItemButton>
             </ListItem>
-            <List sx={{ paddingLeft: '32px' }}>
+            <List sx={{ paddingLeft: '24px' }}>
               {sublist?.map((item) => (
                 <ListItem key={item.text} disablePadding>
                   <ListItemButton
                     href={item.href}
                     component={Link}
+                    sx={{
+                      '&:hover': {
+                        backgroundColor: theme.palette.text.secondary,
+                      },
+                    }}
                   >
                     <ListItemText
                       primary={item.text}
                       primaryTypographyProps={{
                         style: {
-                          fontSize: '16px', fontWeight: '500', fontFamily: theme.typography.button.fontFamily, marginBottom: 0,
+                          fontSize: '16px',
+                          fontWeight: '500',
+                          fontFamily: theme.typography.button.fontFamily,
                         },
                       }}
                     />
@@ -112,10 +122,9 @@ export default function Header({ isCalc }: HeaderProps) {
         ))}
       </List>
       <Box sx={{
-        display: 'flex', flexDirection: 'column', justifyContent: 'end', height: '128px',
+        paddingTop: '16px',
       }}
       >
-        <Box />
         <EligibilityButton />
       </Box>
     </Box>
@@ -126,7 +135,12 @@ export default function Header({ isCalc }: HeaderProps) {
       <Box
         component="nav"
         sx={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 2,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '80px',
+          position: 'relative',
+          px: 2,
         }}
       >
         <Drawer
@@ -134,6 +148,9 @@ export default function Header({ isCalc }: HeaderProps) {
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           anchor="right"
+          PaperProps={{
+            sx: { width: '72%' },
+          }}
         >
           {drawer}
         </Drawer>
