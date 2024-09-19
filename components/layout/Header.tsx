@@ -26,7 +26,6 @@ interface HeaderProps {
 export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
   const matchesMd = useMediaQuery(theme.breakpoints.down('md'));
-  const matchesXs = useMediaQuery(theme.breakpoints.down('xs'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -58,6 +57,7 @@ export default function Header({ isCalc }: HeaderProps) {
       <Box>
         <IconButton
           aria-label="Close navigation"
+          sx={{ padding: 0 }}
         >
           <ArrowForwardIos
             sx={{
@@ -70,7 +70,9 @@ export default function Header({ isCalc }: HeaderProps) {
       <List className="nav-mobile">
         {navItems.map(({ href, text, sublist }) => (
           <React.Fragment key={text}>
-            <ListItem disablePadding>
+            <ListItem
+              disablePadding
+            >
               <ListItemButton
                 component={Link}
                 href={href}
@@ -88,12 +90,14 @@ export default function Header({ isCalc }: HeaderProps) {
                       fontSize: '16px',
                       fontWeight: '700',
                       fontFamily: theme.typography.button.fontFamily,
+
                     },
                   }}
+                  sx={{ margin: 0 }}
                 />
               </ListItemButton>
             </ListItem>
-            <List sx={{ paddingLeft: '24px' }}>
+            <List sx={{ paddingLeft: '24px', paddingTop: '0px', paddingBottom: '0px' }}>
               {sublist?.map((item) => (
                 <ListItem key={item.text} disablePadding>
                   <ListItemButton
@@ -123,7 +127,7 @@ export default function Header({ isCalc }: HeaderProps) {
         ))}
       </List>
       <Box sx={{
-        paddingTop: matchesXs ? '16px' : '72px',
+        marginTop: 'auto',
       }}
       >
         <EligibilityButton />
