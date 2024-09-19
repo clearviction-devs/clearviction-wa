@@ -54,7 +54,7 @@ export default function Header({ isCalc }: HeaderProps) {
         gap: '16px',
       }}
     >
-      <Box>
+      <Box sx={{ paddingLeft: '10px' }}>
         <IconButton
           aria-label="Close navigation"
           sx={{ padding: 0 }}
@@ -127,7 +127,7 @@ export default function Header({ isCalc }: HeaderProps) {
         ))}
       </List>
       <Box sx={{
-        marginTop: 'auto',
+        paddingLeft: '16px',
       }}
       >
         <EligibilityButton />
