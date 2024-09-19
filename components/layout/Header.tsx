@@ -67,7 +67,7 @@ export default function Header({ isCalc }: HeaderProps) {
         </IconButton>
       </Box>
 
-      <List className="nav-mobile">
+      <List className="nav-mobile" sx={{ width: '226px' }}>
         {navItems.map(({ href, text, sublist }) => (
           <React.Fragment key={text}>
             <ListItem
@@ -97,13 +97,14 @@ export default function Header({ isCalc }: HeaderProps) {
                 />
               </ListItemButton>
             </ListItem>
-            <List sx={{ paddingLeft: '24px', paddingTop: '0px', paddingBottom: '0px' }}>
+            <List sx={{ paddingTop: '0px', paddingBottom: '0px' }}>
               {sublist?.map((item) => (
                 <ListItem key={item.text} disablePadding>
                   <ListItemButton
                     href={item.href}
                     component={Link}
                     sx={{
+                      paddingLeft: '24px',
                       '&:hover': {
                         backgroundColor: theme.palette.text.secondary,
                       },
