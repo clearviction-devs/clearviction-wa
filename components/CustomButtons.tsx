@@ -35,7 +35,6 @@ export function EligibilityButton() {
       Check eligibility
       <ArrowForwardIcon sx={{
         stroke: theme.palette.text.secondary,
-        strokeWidth: 0.5,
         fontSize: '18px',
       }}
       />
