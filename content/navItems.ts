@@ -4,10 +4,12 @@ const navItems: NavItem[] = [
   {
     href: '/',
     text: 'Home',
+    width: '109px',
   },
   {
     href: '/get-started',
     text: 'Get started',
+    width: '153px',
     sublist: [
       {
         href: '/get-started/gather-your-documentation',
@@ -25,6 +27,7 @@ const navItems: NavItem[] = [
   {
     href: '/why-vacate',
     text: 'Why vacate',
+    width: '159px',
     sublist: [
       {
         href: '/why-vacate/employment-benefits',

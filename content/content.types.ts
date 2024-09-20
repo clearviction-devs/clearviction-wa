@@ -36,6 +36,7 @@ export interface Info {
 export interface NavItem {
     href: string;
     text: string;
+    width?: string;
     sublist?: {
         text: string;
         href: string;

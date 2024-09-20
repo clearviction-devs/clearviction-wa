@@ -26,6 +26,7 @@ interface HeaderProps {
 export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesLg = useMediaQuery(theme.breakpoints.up('lg'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -83,7 +84,10 @@ export default function Header({ isCalc }: HeaderProps) {
                   primaryTypographyProps={{
                     style:
                     {
-                      fontSize: '16px', fontWeight: '700', fontFamily: theme.typography.button.fontFamily, marginBottom: 0,
+                      fontSize: '16px',
+                      fontWeight: '700',
+                      fontFamily: theme.typography.button.fontFamily,
+                      marginBottom: 0,
                     },
                   }}
                 />
@@ -100,7 +104,10 @@ export default function Header({ isCalc }: HeaderProps) {
                       primary={item.text}
                       primaryTypographyProps={{
                         style: {
-                          fontSize: '16px', fontWeight: '500', fontFamily: theme.typography.button.fontFamily, marginBottom: 0,
+                          fontSize: '16px',
+                          fontWeight: '500',
+                          fontFamily: theme.typography.button.fontFamily,
+                          marginBottom: 0,
                         },
                       }}
                     />
@@ -112,7 +119,10 @@ export default function Header({ isCalc }: HeaderProps) {
         ))}
       </List>
       <Box sx={{
-        display: 'flex', flexDirection: 'column', justifyContent: 'end', height: '128px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'end',
+        height: '128px',
       }}
       >
         <Box />
@@ -126,7 +136,12 @@ export default function Header({ isCalc }: HeaderProps) {
       <Box
         component="nav"
         sx={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px', position: 'relative', px: 2,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '80px',
+          position: 'relative',
+          px: matchesLg ? '205px' : '32px',
         }}
       >
         <Drawer
@@ -172,9 +187,10 @@ export default function Header({ isCalc }: HeaderProps) {
                     className="nav-list__item"
                     sx={{
                       whiteSpace: 'nowrap',
-                      marginLeft: { md: 0 },
-                      px: { md: 2, lg: 3 },
-                      py: 1,
+                      borderRadius: '20px',
+                      width: item.width,
+                      px: '30px',
+                      py: '8px',
                       '&:hover': {
                         color: theme.palette.text.secondary,
                         backgroundColor: isCalc ? theme.palette.secondary.main : theme.palette.primary.main,
@@ -183,7 +199,6 @@ export default function Header({ isCalc }: HeaderProps) {
                         color: theme.palette.text.light,
                         backgroundColor: '#002138',
                       },
-                      margin: '.625rem auto',
                     }}
                   >
                     {item.text}
@@ -234,7 +249,10 @@ export default function Header({ isCalc }: HeaderProps) {
         </Box>
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
         {!matches && (
-          <Box>
+          <Box sx={{
+            px: '30px',
+          }}
+          >
             <EligibilityButton />
           </Box>
         )}

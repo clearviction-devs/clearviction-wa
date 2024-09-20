@@ -15,9 +15,13 @@ export function EligibilityButton() {
       aria-label="Access our eligibility calculator"
       sx={{
         whiteSpace: 'nowrap',
-        py: 1,
-        px: 3,
+        py: '10px',
+        px: '16px',
+        width: '191px',
+        radius: '100px',
+        gap: '8px',
         color: 'text.secondary',
+        letterSpacing: 0,
         '&:hover': {
           backgroundColor: 'tertiary.light',
         },
@@ -28,13 +32,12 @@ export function EligibilityButton() {
           backgroundColor: 'tertiary',
           boxShadow: '0 0 0 4px #0000EE99',
         },
-        margin: '.625rem auto',
       }}
     >
       Check eligibility
       <ArrowForwardIcon sx={{
         stroke: theme.palette.text.secondary,
-        strokeWidth: 0.5,
+        fontSize: '15px',
       }}
       />
     </Button>
@@ -80,17 +83,17 @@ export function CalculatorButton({
     >
       {children}
       {hasArrow && (
-      <ArrowForwardIcon sx={{
-        stroke: strokeColor,
-        strokeWidth: 0.5,
-      }}
-      />
+        <ArrowForwardIcon sx={{
+          stroke: strokeColor,
+          strokeWidth: 0.5,
+        }}
+        />
       )}
     </Button>
   );
 }
 
-export function TextButtonGreen({ text, href }: {text: string, href: string}) {
+export function TextButtonGreen({ text, href }: { text: string, href: string }) {
   return (
     <Button
       href={href}
@@ -125,7 +128,7 @@ export function TextButtonGreen({ text, href }: {text: string, href: string}) {
   );
 }
 
-export function DarkButton({ text, href }: {text: string, href: string}) {
+export function DarkButton({ text, href }: { text: string, href: string }) {
   const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
   return (
     <Button
@@ -163,7 +166,7 @@ export function DarkButton({ text, href }: {text: string, href: string}) {
   );
 }
 
-export function LightButton({ text, href }: {text: string, href: string}) {
+export function LightButton({ text, href }: { text: string, href: string }) {
   return (
     <Button
       href={href}

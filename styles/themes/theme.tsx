@@ -245,7 +245,6 @@ theme.components = {
         borderRadius: 100,
         boxShadow: 'none',
         textAlign: 'center',
-        minWidth: '140px',
         maxWidth: 'fit-content',
         padding: '10px 24px',
         height: '40px',
