@@ -15,9 +15,9 @@ export function EligibilityButton() {
       aria-label="Access our eligibility calculator"
       sx={{
         whiteSpace: 'nowrap',
-        py: '10px',
-        px: '16px',
+        padding: '10px 16px',
         width: '191px',
+        height: '40px',
         radius: '100px',
         gap: '8px',
         color: 'text.secondary',
@@ -37,7 +37,7 @@ export function EligibilityButton() {
       Check eligibility
       <ArrowForwardIcon sx={{
         stroke: theme.palette.text.secondary,
-        fontSize: '15px',
+        fontSize: '18px',
       }}
       />
     </Button>

@@ -25,8 +25,7 @@ interface HeaderProps {
 
 export default function Header({ isCalc }: HeaderProps) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('md'));
-  const matchesLg = useMediaQuery(theme.breakpoints.up('lg'));
+  const matchesMd = useMediaQuery(theme.breakpoints.down('md'));
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -47,36 +46,40 @@ export default function Header({ isCalc }: HeaderProps) {
     <Box
       onClick={handleDrawerToggle}
       sx={{
-        display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-around',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        marginTop: '2px',
+        padding: '24px 16px 24px 16px',
+        gap: '16px',
       }}
     >
-      <Box sx={{
-        margin: '16px auto 16px 16px',
-      }}
-      >
+      <Box sx={{ paddingLeft: '10px' }}>
         <IconButton
           aria-label="Close navigation"
+          sx={{ padding: 0 }}
         >
           <ArrowForwardIos
-            fontSize="large"
             sx={{
               color: theme.palette.text.light,
             }}
           />
         </IconButton>
       </Box>
-      <List className="nav-mobile" sx={{ transform: 'translateY(-60px)' }}>
+
+      <List className="nav-mobile" sx={{ width: '226px' }}>
         {navItems.map(({ href, text, sublist }) => (
           <React.Fragment key={text}>
             <ListItem
-              sx={{ paddingBottom: 0, paddingTop: 0 }}
+              disablePadding
             >
               <ListItemButton
                 component={Link}
                 href={href}
                 sx={{
-                  paddingBottom: 0,
-                  paddingTop: 0,
+                  '&:hover': {
+                    backgroundColor: theme.palette.text.secondary,
+                  },
                 }}
               >
                 <ListItemText
@@ -87,18 +90,24 @@ export default function Header({ isCalc }: HeaderProps) {
                       fontSize: '16px',
                       fontWeight: '700',
                       fontFamily: theme.typography.button.fontFamily,
-                      marginBottom: 0,
                     },
                   }}
+                  sx={{ margin: 0 }}
                 />
               </ListItemButton>
             </ListItem>
-            <List sx={{ paddingLeft: '32px' }}>
+            <List sx={{ paddingTop: '0px', paddingBottom: '0px' }}>
               {sublist?.map((item) => (
                 <ListItem key={item.text} disablePadding>
                   <ListItemButton
                     href={item.href}
                     component={Link}
+                    sx={{
+                      paddingLeft: '24px',
+                      '&:hover': {
+                        backgroundColor: theme.palette.text.secondary,
+                      },
+                    }}
                   >
                     <ListItemText
                       primary={item.text}
@@ -107,7 +116,6 @@ export default function Header({ isCalc }: HeaderProps) {
                           fontSize: '16px',
                           fontWeight: '500',
                           fontFamily: theme.typography.button.fontFamily,
-                          marginBottom: 0,
                         },
                       }}
                     />
@@ -119,13 +127,9 @@ export default function Header({ isCalc }: HeaderProps) {
         ))}
       </List>
       <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'end',
-        height: '128px',
+        paddingLeft: '16px',
       }}
       >
-        <Box />
         <EligibilityButton />
       </Box>
     </Box>
@@ -141,7 +145,7 @@ export default function Header({ isCalc }: HeaderProps) {
           justifyContent: 'space-between',
           height: '80px',
           position: 'relative',
-          px: matchesLg ? '205px' : '32px',
+          px: 2,
         }}
       >
         <Drawer
@@ -149,11 +153,14 @@ export default function Header({ isCalc }: HeaderProps) {
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           anchor="right"
+          PaperProps={{
+            sx: { width: '72%' },
+          }}
         >
           {drawer}
         </Drawer>
         <Box sx={{ width: '100%' }}>
-          {matches && (
+          {matchesMd && (
             <IconButton aria-label="open sidebar menu" onClick={handleDrawerToggle} sx={{ display: 'flex', width: '100%' }}>
               <Menu
                 sx={{
@@ -163,7 +170,7 @@ export default function Header({ isCalc }: HeaderProps) {
               />
             </IconButton>
           )}
-          {!matches && (
+          {!matchesMd && (
             <Box
               className="desktop-nav-list"
               sx={{
@@ -248,11 +255,8 @@ export default function Header({ isCalc }: HeaderProps) {
           )}
         </Box>
         <NavigationLogo sx={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0)' }} />
-        {!matches && (
-          <Box sx={{
-            px: '30px',
-          }}
-          >
+        {!matchesMd && (
+          <Box>
             <EligibilityButton />
           </Box>
         )}
