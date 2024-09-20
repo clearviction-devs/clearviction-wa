@@ -20,6 +20,7 @@ export function EligibilityButton() {
         height: '40px',
         gap: '8px',
         color: 'text.secondary',
+        letterSpacing: 0,
         '&:hover': {
           backgroundColor: 'tertiary.light',
         },
