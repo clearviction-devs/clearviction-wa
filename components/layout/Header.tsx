@@ -90,7 +90,6 @@ export default function Header({ isCalc }: HeaderProps) {
                       fontSize: '16px',
                       fontWeight: '700',
                       fontFamily: theme.typography.button.fontFamily,
-
                     },
                   }}
                   sx={{ margin: 0 }}
@@ -195,9 +194,10 @@ export default function Header({ isCalc }: HeaderProps) {
                     className="nav-list__item"
                     sx={{
                       whiteSpace: 'nowrap',
-                      marginLeft: { md: 0 },
-                      px: { md: 2, lg: 3 },
-                      py: 1,
+                      borderRadius: '20px',
+                      width: item.width,
+                      px: '30px',
+                      py: '8px',
                       '&:hover': {
                         color: theme.palette.text.secondary,
                         backgroundColor: isCalc ? theme.palette.secondary.main : theme.palette.primary.main,
@@ -206,7 +206,6 @@ export default function Header({ isCalc }: HeaderProps) {
                         color: theme.palette.text.light,
                         backgroundColor: '#002138',
                       },
-                      margin: '.625rem auto',
                     }}
                   >
                     {item.text}

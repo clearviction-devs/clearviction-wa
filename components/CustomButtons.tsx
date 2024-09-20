@@ -18,6 +18,7 @@ export function EligibilityButton() {
         padding: '10px 16px',
         width: '191px',
         height: '40px',
+        radius: '100px',
         gap: '8px',
         color: 'text.secondary',
         letterSpacing: 0,
