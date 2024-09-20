@@ -21,6 +21,7 @@ export function EligibilityButton() {
         radius: '100px',
         gap: '8px',
         color: 'text.secondary',
+        letterSpacing: 0,
         '&:hover': {
           backgroundColor: 'tertiary.light',
         },
