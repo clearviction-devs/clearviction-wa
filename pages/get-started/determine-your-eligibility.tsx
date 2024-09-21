@@ -20,11 +20,13 @@ export function CheckConvictionCTABox({ text }: {text: string}) {
           xs: 'column',
           md: 'row',
         },
-        justifyContent: 'center',
+        justifyContent: {
+          xs: 'space-between',
+          sm: 'center',
+        },
         padding: {
           xs: '32px 24px',
-          sm: '48px',
-          md: '0px',
+          sm: '0px',
         },
         gap: {
           xs: '64px',
@@ -32,6 +34,8 @@ export function CheckConvictionCTABox({ text }: {text: string}) {
           md: '0px',
         },
         height: {
+          xs: '232px',
+          sm: '296px',
           md: '318px',
         },
       }}
@@ -39,7 +43,8 @@ export function CheckConvictionCTABox({ text }: {text: string}) {
         <Box sx={{
           width: 'fit-content',
           margin: {
-            sm: 'auto',
+            sm: '0px auto',
+            md: 'auto',
           },
         }}
         >
@@ -52,7 +57,8 @@ export function CheckConvictionCTABox({ text }: {text: string}) {
           padding: {
           },
           margin: {
-            sm: 'auto',
+            sm: '0px auto',
+            md: 'auto',
           },
         }}
         >
