@@ -16,25 +16,35 @@ export function CheckConvictionCTABox({ text }: {text: string}) {
     }}
     >
       <GSContainer sx={{
-        height: {
-          xs: '232px',
-          sm: '296px',
-        },
         flexDirection: {
           xs: 'column',
           md: 'row',
         },
-        justifyContent: 'center',
+        justifyContent: {
+          xs: 'space-between',
+          sm: 'center',
+        },
+        padding: {
+          xs: '32px 24px',
+          sm: '0px',
+        },
+        gap: {
+          xs: '64px',
+          sm: '48px',
+          md: '0px',
+        },
+        height: {
+          xs: '232px',
+          sm: '296px',
+          md: '318px',
+        },
       }}
       >
         <Box sx={{
           width: 'fit-content',
-          padding: {
-            xs: '32px 0px',
-            sm: '0px',
-          },
           margin: {
-            sm: 'auto',
+            sm: '0px auto',
+            md: 'auto',
           },
         }}
         >
@@ -47,7 +57,8 @@ export function CheckConvictionCTABox({ text }: {text: string}) {
           padding: {
           },
           margin: {
-            sm: 'auto',
+            sm: '0px auto',
+            md: 'auto',
           },
         }}
         >
