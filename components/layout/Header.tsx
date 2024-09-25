@@ -198,6 +198,7 @@ export default function Header({ isCalc }: HeaderProps) {
                       width: item.width,
                       px: '30px',
                       py: '8px',
+                      letterSpacing: 0,
                       '&:hover': {
                         color: theme.palette.text.secondary,
                         backgroundColor: isCalc ? theme.palette.secondary.main : theme.palette.primary.main,

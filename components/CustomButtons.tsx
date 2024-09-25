@@ -63,6 +63,10 @@ export function CalculatorButton({
         whiteSpace: 'nowrap',
         py: 1,
         px: 3,
+        height: '40px',
+        minWidth: '140px',
+        letterSpacing: 0,
+        gap: '8px',
         color: 'text.light',
         backgroundColor: 'secondary.dark',
         '&:hover': {
@@ -104,6 +108,7 @@ export function TextButtonGreen({ text, href }: { text: string, href: string }) 
         py: 1,
         margin: '.625rem 0',
         letterSpacing: 0,
+        gap: '8px',
         color: theme.palette.secondary.dark,
         textDecoration: 'underline',
         '&:hover': {
@@ -140,6 +145,7 @@ export function DarkButton({ text, href }: { text: string, href: string }) {
         py: 1,
         margin: '.625rem 0',
         letterSpacing: 0,
+        gap: '8px',
         color: theme.palette.text.light,
         backgroundColor: theme.palette.primary.dark,
         '&:hover': {
@@ -178,6 +184,8 @@ export function LightButton({ text, href }: { text: string, href: string }) {
         backgroundColor: theme.palette.text.light,
         whiteSpace: 'nowrap',
         py: 1,
+        letterSpacing: 0,
+        gap: '8px',
         margin: '.625rem 0',
         '&:hover': {
           backgroundColor: theme.palette.primary.light,
