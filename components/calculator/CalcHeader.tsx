@@ -30,17 +30,12 @@ function CustomHorizontalStepper() {
   const handleNext = () => {
     const { pathname } = window.location;
 
-    switch (true) {
-      case pathname.includes('classcpro'):
-      case pathname.includes('classbpro'):
-        setIsProPath(true);
-        break;
-      case pathname.includes('eligible'):
-      case pathname.includes('ineligible'):
-        setIsEndPage(true);
-        break;
-      default:
-        break;
+    if (pathname.includes('classcpro') || pathname.includes('classbpro')) {
+      setIsProPath(true);
+    }
+
+    if (pathname.includes('eligible') || pathname.includes('ineligible')) {
+      setIsEndPage(true);
     }
 
     type Items = {
