@@ -14,14 +14,9 @@ export function EligibilityButton() {
       className="calc-btn"
       aria-label="Access our eligibility calculator"
       sx={{
-        whiteSpace: 'nowrap',
         padding: '10px 16px',
         width: '191px',
-        height: '40px',
-        radius: '100px',
-        gap: '8px',
         color: 'text.secondary',
-        letterSpacing: 0,
         '&:hover': {
           backgroundColor: 'tertiary.light',
         },
@@ -60,9 +55,7 @@ export function CalculatorButton({
       variant="contained"
       size="small"
       sx={{
-        whiteSpace: 'nowrap',
-        py: 1,
-        px: 3,
+        minWidth: '140px',
         color: 'text.light',
         backgroundColor: 'secondary.dark',
         '&:hover': {
@@ -100,10 +93,6 @@ export function TextButtonGreen({ text, href }: { text: string, href: string }) 
       variant="text"
       aria-label={text}
       sx={{
-        whiteSpace: 'nowrap',
-        py: 1,
-        margin: '.625rem 0',
-        letterSpacing: 0,
         color: theme.palette.secondary.dark,
         textDecoration: 'underline',
         '&:hover': {
@@ -136,10 +125,6 @@ export function DarkButton({ text, href }: { text: string, href: string }) {
       variant="contained"
       aria-label={text}
       sx={{
-        whiteSpace: 'nowrap',
-        py: 1,
-        margin: '.625rem 0',
-        letterSpacing: 0,
         color: theme.palette.text.light,
         backgroundColor: theme.palette.primary.dark,
         '&:hover': {
@@ -176,9 +161,6 @@ export function LightButton({ text, href }: { text: string, href: string }) {
       sx={{
         color: theme.palette.text.secondary,
         backgroundColor: theme.palette.text.light,
-        whiteSpace: 'nowrap',
-        py: 1,
-        margin: '.625rem 0',
         '&:hover': {
           backgroundColor: theme.palette.primary.light,
           '&:active': {
