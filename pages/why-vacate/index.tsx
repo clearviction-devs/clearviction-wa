@@ -113,6 +113,7 @@ export default function WhyVacatePage() {
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
+            gap: '10px',
           }}
           >
             {[['Employment benefits', '/why-vacate/employment-benefits'], ['Housing benefits', '/why-vacate/housing-benefits'], ['Educational benefits', '/why-vacate/educational-benefits']].map(([text, href]) => (

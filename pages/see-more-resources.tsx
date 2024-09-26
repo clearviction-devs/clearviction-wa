@@ -152,6 +152,7 @@ export default function SeeMoreResources() {
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
+          gap: '10px',
         }}
         >
           {[['Employment resources', '/why-vacate/employment-benefits'], ['Housing resources', '/why-vacate/housing-benefits'], ['Educational resources', '/why-vacate/educational-benefits']].map(([text, href]) => (
