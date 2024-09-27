@@ -102,7 +102,7 @@ export default function QandAContainer({
                     <CalculatorButton
                       key={choice._key}
                       href={href}
-                      data-cy={`calc-choice-${index}`}
+                      dataCy={`calc-choice-${index}`}
                       hasArrow={buttonShouldHaveArrow}
                     >
                       {choice.label}

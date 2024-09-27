@@ -22,7 +22,14 @@ export default function FinalPageLinksContainer({
         gap: '16px',
       }}
     >
-      <CalculatorButton href="/see-more-resources" hasArrow>See more resources </CalculatorButton>
+      <CalculatorButton
+        href="/see-more-resources"
+        hasArrow
+        dataCy="check-another-conviction"
+      >
+        See more resources
+        {' '}
+      </CalculatorButton>
 
       <Button
         variant="text"
