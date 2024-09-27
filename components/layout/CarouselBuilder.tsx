@@ -70,7 +70,7 @@ export default function CarouselBuilder({
       sx={{
         paddingLeft: {
           xs: '24px',
-          sm: '0px',
+          md: '36px',
         },
       }}
     >
@@ -85,9 +85,6 @@ export default function CarouselBuilder({
           transform: `translateX(-${currentIndex * (cardWidth + 32)}px)`,
           transition: 'transform 0.5s ease-in-out',
           gap: useGetStartedCards ? '32px' : '0px',
-          justifyContent: {
-            md: 'space-between',
-          },
 
         }}
         >

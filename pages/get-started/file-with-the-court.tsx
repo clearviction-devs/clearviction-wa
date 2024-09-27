@@ -87,6 +87,10 @@ export default function FileWithTheCourt() {
             sm: '72px 0px 52px 24px',
             md: '72px 0px 52px 0px',
           },
+          maxWidth: {
+            md: '1399px',
+            lg: '1599px',
+          },
         }}
       >
         <Grid container>
