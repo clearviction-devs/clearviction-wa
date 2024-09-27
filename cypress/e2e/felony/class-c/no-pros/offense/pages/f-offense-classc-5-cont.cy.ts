@@ -21,11 +21,11 @@ describe('f-offense-classc-5-cont', () => {
       .click();
     cy.url().should('include', '/calculator/f-offense-classc-5-ineligible');
   });
-  it('directs to f-offense-classc-11-cont when clicking No', () => {
+  it('directs to f-circ-classc-1-main when clicking No', () => {
     cy.get('[data-cy="calc-choice-1')
       .should('be.visible')
       .click();
-    cy.url().should('include', '/calculator/f-offense-classc-11-cont');
+    cy.url().should('include', '/calculator/f-circ-classc-1-main');
   });
   testNotSureModal();
   testPreviousButton('f-offense-classc-5-cont');
