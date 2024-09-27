@@ -25,13 +25,14 @@ export default function FinalPageLinksContainer({
       <CalculatorButton
         href="/see-more-resources"
         hasArrow
-        dataCy="check-another-conviction"
+        dataCy="see-more-resources"
       >
         See more resources
         {' '}
       </CalculatorButton>
 
       <Button
+        data-cy="check-another-conviction"
         variant="text"
         href={calculatorConfig.checkAnotherConviction.linkTo.slug.current}
         sx={{ backgroundColor: 'white', color: theme.palette.secondary.dark, textDecoration: 'underline' }}
