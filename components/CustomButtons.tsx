@@ -40,11 +40,12 @@ export function EligibilityButton() {
 }
 
 export function CalculatorButton({
-  href, hasArrow, children, handleClick,
+  href, hasArrow, children, dataCy, handleClick,
 }: {
   href?: string,
   hasArrow?: boolean,
   children?: React.ReactNode,
+  dataCy?: string,
   handleClick?: () => void,
 }) {
   const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
@@ -54,6 +55,7 @@ export function CalculatorButton({
       href={href}
       variant="contained"
       size="small"
+      data-cy={dataCy}
       sx={{
         minWidth: '140px',
         color: 'text.light',

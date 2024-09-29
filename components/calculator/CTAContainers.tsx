@@ -22,9 +22,17 @@ export default function FinalPageLinksContainer({
         gap: '16px',
       }}
     >
-      <CalculatorButton href="/see-more-resources" hasArrow>See more resources </CalculatorButton>
+      <CalculatorButton
+        href="/see-more-resources"
+        hasArrow
+        dataCy="see-more-resources"
+      >
+        See more resources
+        {' '}
+      </CalculatorButton>
 
       <Button
+        data-cy="check-another-conviction"
         variant="text"
         href={calculatorConfig.checkAnotherConviction.linkTo.slug.current}
         sx={{ backgroundColor: 'white', color: theme.palette.secondary.dark, textDecoration: 'underline' }}

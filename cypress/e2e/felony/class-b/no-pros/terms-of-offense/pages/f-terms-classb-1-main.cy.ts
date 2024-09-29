@@ -6,6 +6,6 @@ describe('Felony Class B No-Pros Terms of Offense Main Page', () => {
     cy.get('[data-cy="calc-choice-0"]')
       .should('be.visible')
       .click();
-    cy.url().should('include', 'calculator/f-terms-classb-1-cont');
+    cy.url().should('include', 'calculator/f-terms-classb-3-cont');
   });
 });

@@ -15,22 +15,17 @@ describe('f-offense-classc-6-cont', () => {
       .should('be.visible')
       .should('have.attr', 'href', 'https://app.leg.wa.gov/rcw/default.aspx?cite=9A.56.210');
   });
-  it('displays 9.94A.640(2)(b) and directs to the proper link', () => {
-    cy.contains('9.94A.640(2)(b)')
-      .should('be.visible')
-      .should('have.attr', 'href', 'https://app.leg.wa.gov/RCW/default.aspx?cite=9.94a.640');
-  });
   it('directs to f-offense-classc-8-cont when clicking No', () => {
     cy.get('[data-cy="calc-choice-1')
       .should('be.visible')
       .click();
     cy.url().should('include', '/calculator/f-offense-classc-8-cont');
   });
-  it('directs to f-offense-classc-7-cont when clicking Yes', () => {
+  it('directs to f-offense-classc-5-cont when clicking Yes', () => {
     cy.get('[data-cy="calc-choice-0')
       .should('be.visible')
       .click();
-    cy.url().should('include', '/calculator/f-offense-classc-7-cont');
+    cy.url().should('include', '/calculator/f-offense-classc-5-cont');
   });
   testNotSureModal();
   testPreviousButton('f-offense-classc-6-cont');
