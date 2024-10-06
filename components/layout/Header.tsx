@@ -79,6 +79,7 @@ export default function Header({ isCalc }: HeaderProps) {
                 sx={{
                   '&:hover': {
                     backgroundColor: theme.palette.text.secondary,
+                    borderRadius: '100px',
                   },
                 }}
               >
@@ -106,6 +107,7 @@ export default function Header({ isCalc }: HeaderProps) {
                       paddingLeft: '24px',
                       '&:hover': {
                         backgroundColor: theme.palette.text.secondary,
+                        borderRadius: '100px',
                       },
                     }}
                   >
