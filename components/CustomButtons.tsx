@@ -48,8 +48,6 @@ export function CalculatorButton({
   dataCy?: string,
   handleClick?: () => void,
 }) {
-  const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
-
   return (
     <Button
       href={href}
@@ -70,18 +68,22 @@ export function CalculatorButton({
         '&:focus': {
           boxShadow: '0 0 0 4px #0000EE99',
         },
+        '&:hover .icon': {
+          stroke: theme.palette.text.primary,
+        },
         boxShadow: 'none',
       }}
       onClick={handleClick}
-      onMouseEnter={() => setStrokeColor(theme.palette.text.primary!)}
-      onMouseLeave={() => setStrokeColor(theme.palette.text.light!)}
     >
       {children}
       {hasArrow && (
-        <ArrowForwardIcon sx={{
-          stroke: strokeColor,
-          strokeWidth: 0.5,
-        }}
+        <ArrowForwardIcon
+          className="icon"
+          sx={{
+            stroke: theme.palette.text.light,
+            strokeWidth: 0.5,
+            transition: 'stroke 0.3s ease',
+          }}
         />
       )}
     </Button>
@@ -120,7 +122,6 @@ export function TextButtonGreen({ text, href }: { text: string, href: string }) 
 }
 
 export function DarkButton({ text, href }: { text: string, href: string }) {
-  const [strokeColor, setStrokeColor] = React.useState(theme.palette.text.light);
   return (
     <Button
       href={href}
@@ -139,15 +140,19 @@ export function DarkButton({ text, href }: { text: string, href: string }) {
         '&:focus': {
           boxShadow: '0 0 0 4px #0000EE99',
         },
+        '&:hover .icon': {
+          stroke: theme.palette.text.secondary,
+        },
       }}
-      onMouseEnter={() => setStrokeColor(theme.palette.text.secondary)}
-      onMouseLeave={() => setStrokeColor(theme.palette.text.light)}
     >
       {text}
-      <ArrowForwardIcon sx={{
-        stroke: strokeColor,
-        strokeWidth: 0.5,
-      }}
+      <ArrowForwardIcon
+        className="icon"
+        sx={{
+          stroke: theme.palette.text.light,
+          strokeWidth: 0.5,
+          transition: 'stroke 0.3s ease',
+        }}
       />
     </Button>
   );
