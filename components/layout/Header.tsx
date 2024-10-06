@@ -1,4 +1,5 @@
 import { ArrowForwardIos, ChevronRight, Menu } from '@mui/icons-material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   AppBar,
   Box,
@@ -79,6 +80,13 @@ export default function Header({ isCalc }: HeaderProps) {
                 sx={{
                   '&:hover': {
                     backgroundColor: theme.palette.text.secondary,
+                    borderRadius: '100px',
+                    '.arrow-icon': {
+                      display: 'inline-block',
+                    },
+                  },
+                  '.arrow-icon': {
+                    display: 'none',
                   },
                 }}
               >
@@ -94,6 +102,13 @@ export default function Header({ isCalc }: HeaderProps) {
                   }}
                   sx={{ margin: 0 }}
                 />
+                <ArrowForwardIcon
+                  className="arrow-icon"
+                  sx={{
+                    stroke: theme.palette.text.light,
+                    strokeWidth: 1,
+                  }}
+                />
               </ListItemButton>
             </ListItem>
             <List sx={{ paddingTop: '0px', paddingBottom: '0px' }}>
@@ -106,6 +121,13 @@ export default function Header({ isCalc }: HeaderProps) {
                       paddingLeft: '24px',
                       '&:hover': {
                         backgroundColor: theme.palette.text.secondary,
+                        borderRadius: '100px',
+                        '.arrow-icon': {
+                          display: 'inline-block',
+                        },
+                      },
+                      '.arrow-icon': {
+                        display: 'none',
                       },
                     }}
                   >
@@ -117,6 +139,13 @@ export default function Header({ isCalc }: HeaderProps) {
                           fontWeight: '500',
                           fontFamily: theme.typography.button.fontFamily,
                         },
+                      }}
+                    />
+                    <ArrowForwardIcon
+                      className="arrow-icon"
+                      sx={{
+                        stroke: theme.palette.text.light,
+                        strokeWidth: 0.25,
                       }}
                     />
                   </ListItemButton>

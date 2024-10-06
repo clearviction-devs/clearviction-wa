@@ -13,11 +13,6 @@ interface HomeContent {
     iconText: string;
     iconText2: string;
   }
-  eligibilityCTA: {
-    id: string;
-    title: string;
-    ctaButton: string;
-  }
   carousel: HomePlayCards[];
   faqs: FAQ[];
 }
@@ -39,11 +34,6 @@ const content: HomeContent = {
     body: 'In Washington state, a **vacated** conviction will no longer appear on state or federal background checks, opening up opportunities in employment, housing, and education.\n\nOur **Eligibility Tool** helps free those impacted by the justice system from the harmful consequences of a lifetime of discrimination because of their record, even decades after it occurred.',
     iconText: 'Of the 1M+ Washingtonians eligible to vacate',
     iconText2: 'Less than 3% have actually vacated their convictions',
-  },
-  eligibilityCTA: {
-    id: 'eligibility-cta',
-    title: 'Are you one of the 97% of people eligible to vacate?',
-    ctaButton: 'Check your conviction',
   },
   carousel: [
     {

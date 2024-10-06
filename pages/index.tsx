@@ -7,16 +7,15 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import { DarkButton } from '../components/CustomButtons.tsx';
 import externalLinks from '../components/ExternalLinks.tsx';
 import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
 import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/home.ts';
 import theme from '../styles/themes/theme.tsx';
+import { CheckConvictionCTABox } from './get-started/determine-your-eligibility.tsx';
 
 export default function Home() {
   externalLinks();
@@ -105,40 +104,7 @@ export default function Home() {
           </Grid>
         </Container>
 
-        <Grid
-          container
-          sx={{
-            backgroundColor: theme.palette.secondary.light,
-          }}
-        >
-          <SectionContainer>
-            <Grid container justifyContent="space-between" alignItems="center">
-              <Grid item xs={12} md={8}>
-                <Typography
-                  variant="h3"
-                  sx={{ fontWeight: 500, textAlign: { xs: 'center', md: 'left' } }}
-                >
-                  {content.eligibilityCTA.title}
-                </Typography>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md="auto"
-                sx={{
-                  display: 'flex',
-                  paddingTop: { xs: 2, md: 0 },
-                  justifyContent: { xs: 'center', md: 'flex-start' },
-                }}
-              >
-                <DarkButton
-                  text={content.eligibilityCTA.ctaButton}
-                  href="/calculator/head-initial-1-cont"
-                />
-              </Grid>
-            </Grid>
-          </SectionContainer>
-        </Grid>
+        <CheckConvictionCTABox text="Are you one of the 97% of people eligible to vacate?" />
 
         <Box sx={{
           padding: {
