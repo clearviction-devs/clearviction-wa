@@ -157,11 +157,14 @@ export default function CarouselBuilder({
           onClick={handlePrevious}
           sx={{
             px: '2px',
+            '&:hover': {
+              backgroundColor: 'transparent',
+            },
           }}
         >
           <ArrowBackIcon
             sx={{
-              fontSize: '24px',
+              fontSize: '36px',
               color: theme.palette.primary.main,
             }}
           />
@@ -178,6 +181,9 @@ export default function CarouselBuilder({
               onClick={() => handleDotClick(index)}
               sx={{
                 padding: '4px',
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                },
               }}
             >
               <SquareIcon
@@ -196,6 +202,9 @@ export default function CarouselBuilder({
               onClick={() => handleDotClick(index)}
               sx={{
                 padding: '4px',
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                },
               }}
             >
               <SquareIcon
@@ -214,6 +223,9 @@ export default function CarouselBuilder({
               onClick={() => handleDotClick(index)}
               sx={{
                 padding: '4px',
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                },
               }}
             >
               <SquareIcon
@@ -231,11 +243,14 @@ export default function CarouselBuilder({
           onClick={handleNext}
           sx={{
             px: '2px',
+            '&:hover': {
+              backgroundColor: 'transparent',
+            },
           }}
         >
           <ArrowForwardIcon
             sx={{
-              fontSize: '24px',
+              fontSize: '36px',
               color: theme.palette.primary.main,
             }}
           />
