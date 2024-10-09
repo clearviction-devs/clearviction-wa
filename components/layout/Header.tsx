@@ -18,6 +18,7 @@ import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
 import { EligibilityButton } from '../CustomButtons.tsx';
+import SkipLink from '../SkipLink.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 interface HeaderProps {
@@ -166,6 +167,7 @@ export default function Header({ isCalc }: HeaderProps) {
 
   return (
     <AppBar id="main-header" className="nav-desktop" color={isCalc ? 'secondary' : 'primary'} elevation={0} component="nav" position="sticky">
+      <SkipLink />
       <Box
         component="nav"
         sx={{
