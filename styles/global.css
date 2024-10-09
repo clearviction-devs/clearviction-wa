@@ -11,3 +11,9 @@ html {
 main {
   height: 100%;
 }
+
+@media (hover: none) {
+  .calc-btn:hover {
+    background-color: initial; /* Reset the hover effect */
+  }
+}
