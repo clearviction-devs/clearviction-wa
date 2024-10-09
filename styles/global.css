@@ -14,6 +14,6 @@ main {
 
 @media (hover: none) {
   .calc-btn:hover {
-    background-color: initial; /* Reset the hover effect */
+    background-color: #00513C; /* Reset the hover effect */
   }
 }
