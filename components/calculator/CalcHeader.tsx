@@ -69,7 +69,7 @@ function CustomHorizontalStepper() {
     <Box sx={{ width: '100%', margin: '0 auto', maxWidth: '724px' }}>
 
       <Stepper alternativeLabel activeStep={activeStep} connector={<CustomConnector />}>
-        {steps.map((label) => {
+        {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
 
           const isFinalStep = steps.indexOf(label) === steps.length - 1;
@@ -99,6 +99,7 @@ function CustomHorizontalStepper() {
                   ...stepSxProps,
                   display: (!isEndPage && isFinalStep) ? 'none' : 'block',
                 }}
+                last={index === steps.length - 1 ? true : undefined}
               />
 
               {/* Displays just the final step so that it can have special styling */}
@@ -110,6 +111,7 @@ function CustomHorizontalStepper() {
                   borderTopRightRadius: 0,
                   borderBottomRightRadius: 0,
                 }}
+                last={index === steps.length - 1 ? true : undefined}
               />
               <Box sx={{
                 display: (!isEndPage && isFinalStep) ? 'block' : 'none',
