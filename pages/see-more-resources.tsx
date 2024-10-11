@@ -50,8 +50,8 @@ const vocationalProgramsForOccupationalLicensesMarkdown = `
 Some vocational programs have restrictions based on your criminal record. \n
 If you are prevented from getting an  occupational license, you might be eligible for a Certificate of Restoration of Opportunity (CROP).  \n
 This certificate can prevent most licensed professions from denying you if you meet all other requirements. \n
-For more information about a CROP, visit [https://www.washingtonlawhelp.org/resource/certificate-of-restoration-of-opportunity-crop](https://www.washingtonlawhelp.org/resource/certificate-of-restoration-of-opportunity-crop) \n
-Here is a packet to help file for a CROP: [https://www.washingtonlawhelp.org/resource/filing-a-petition-for-certificate-of-restoration-of-opportunity-crop](https://www.washingtonlawhelp.org/resource/filing-a-petition-for-certificate-of-restoration-of-opportunity-crop) \n
+For more information about a CROP, visit [Washington Law Help’s Resources](https://www.washingtonlawhelp.org/resource/certificate-of-restoration-of-opportunity-crop) \n
+Here is a packet to help file for a CROP: [Petition for Certificate of Restoration](https://www.washingtonlawhelp.org/resource/filing-a-petition-for-certificate-of-restoration-of-opportunity-crop) \n
 `;
 
 export default function SeeMoreResources() {
@@ -183,11 +183,9 @@ export default function SeeMoreResources() {
         </Box>
       </SMRContainer>
       <SMRContainer sx={{ gap: '24' }}>
-        {/* <Box> */}
         <Typography variant="h3" sx={{ mb: '24px' }}>
           Vocational programs for occupational licensing
         </Typography>
-        {/* </Box> */}
         <MuiMarkdown overrides={{
           p: {
             component: Typography,
@@ -203,7 +201,6 @@ export default function SeeMoreResources() {
             props: {
               style: {
                 color: theme.palette.link.main,
-                wordBreak: 'break-all',
               },
             },
           },
