@@ -1,9 +1,8 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 
+import { DarkButton } from '../components/CustomButtons.tsx';
 import IndividualPageHead from '../components/IndividualPageHead.tsx';
-import ImageContainer from '../components/layout/ImageContainer.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
 import content from '../content/404.ts';
 
 export default function PageNotFound() {
@@ -14,39 +13,25 @@ export default function PageNotFound() {
         metaContent={content.meta.content}
       />
 
-      <SectionContainer sx={{ px: 2, textAlign: 'center', mt: 10 }} id={content.page.id}>
-        <Typography variant="h3">
+      <Box
+        sx={{
+          textAlign: 'center',
+          height: '50vh',
+          mt: 10,
+        }}
+        id={content.page.id}
+      >
+        <Typography variant="h1">
           {content.page.header}
         </Typography>
-        <Box sx={{ mt: 8 }}>
-          <ImageContainer
-            src={content.page.imgsrc || ''}
-            width={406}
-            height={306}
-            alt={content.page.header}
-            style={{ maxWidth: '100%' }}
-            useImageDimensions
-          />
-        </Box>
-        <Typography variant="body1" sx={{ mt: 8 }}>
+        <Typography variant="body1" sx={{ my: 8 }}>
           {content.page.body}
         </Typography>
-        <Button
-          href={content.page.ctaLink}
-          variant="contained"
-          color="primary"
-          sx={{
-            px: 4,
-            my: 8,
-            '&:hover': {
-              color: 'primary.dark',
-              backgroundColor: 'secondary.main',
-            },
-          }}
-        >
-          {content.page.ctaText}
-        </Button>
-      </SectionContainer>
+        <DarkButton
+          href={content.page.ctaLink!}
+          text={content.page.ctaText!}
+        />
+      </Box>
     </>
   );
 }
