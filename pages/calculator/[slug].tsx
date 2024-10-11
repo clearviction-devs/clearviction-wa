@@ -61,6 +61,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
             xs: isPartOfHead ? 'normal' : 'space-between',
             sm: 'normal',
           },
+          marginBottom: { xs: '36px', sm: '0' },
         }}
         id="calculator-container-outer"
         tabIndex={-1}
