@@ -45,7 +45,7 @@ export default function HousingBenefits() {
             mb: '24px',
           }}
         >
-          Employment resources
+          Housing resources
         </Typography>
         {
                 content.cards[1].accordianItems.map((item) => (
