@@ -81,8 +81,7 @@ const whyVacateContent: WhyVacateContent = {
           summary: 'Shelter Listings',
           details: `[Washington Shelter List](https://www.shelterlist.com/state/washington) 
           \n[Catholic Community Services and Catholic Housing Services of Western Washington](https://ccsww.org/) 
-          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
-          \n[Social Serve](https://www.myhousingsearch.com/CallCenter.html)`,
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)`,
         },
         {
           id: 'housing-resources-2',
@@ -134,8 +133,7 @@ const whyVacateContent: WhyVacateContent = {
           summary: 'Post-incarceration educational programs',
           details: `[Freedom Education Project](http://www.fepps.org/) 
           \n[People for People](https://mypfp.org) 
-          \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills)
-          \n[Post-Prison Education Program](http://postprisonedu.org/)
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills) 
           \n[The STAR Project](http://thestarproject.us/)`,
         },
         {
