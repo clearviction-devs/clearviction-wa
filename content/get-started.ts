@@ -130,13 +130,13 @@ const getStartedContent: GetStartedContent = {
       id: 'legalform0',
       summary: 'Waiving costs associated with vacating',
       details:
-        'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/21968678-A4F9-42E5-BA32-58826390C62D/8705en_get-misdemeanor-convictions-off-your-criminal-record.pdf) to find out if you are eligible to waive your fees (pages 1-2).\n - This packet includes: \n  - Instructions to request a fee waiver (pages 4-9) \n  - All necessary forms (pages 10-14).\n - If you have trouble filling out the documents, visit [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
+        'Use this [packet from Washington Law Help](https://www.washingtonlawhelp.org/files/C9D2EA3F-0350-D9AF-ACAE-BF37E9BC9FFA/attachments/3928A184-D6E5-9324-4FB9-495A060A017B/3204en_ask-the-court-to-waive-filing-fee.pdf) to find out if you are eligible to waive your fees.\n - This packet includes: \n  - Instructions to request a fee waiver \n  - All necessary forms.\n - If you have trouble filling out the documents, visit [this website created by Northwest Justice](https://lawhelpinteractive.org/Interview/GenerateInterview/7063/engine) to help fill out the documents for free.',
     },
     {
       id: 'legalform1',
       summary: 'Representing yourself in court',
       details:
-        '[Public Law Library of King County Legal Clinics (KCLL)](https://kcll.org/contact-us/)\n\n[Walk-In Clinic](https://www.kcba.org/For-Lawyers/Pro-Bono-Services/YLD-Law-Library-Walk-in-Clinic)\n\n[King County Bar](http://www.kcba.org/For-the-Public/Free-Legal-Assistance/Neighborhood-Legal-Clinics)\n\n[Open Door Legal Services](https://www.ugm.org/what-we-do/stabilization/legal-services/#)',
+        '[Public Law Library of King County Legal Clinics (KCLL)](https://kcll.org/contact-us/)\n\n[King County Bar](http://www.kcba.org/For-the-Public/Free-Legal-Assistance/Neighborhood-Legal-Clinics)\n\n[Open Door Legal Services](https://www.ugm.org/what-we-do/stabilization/legal-services/#)',
     },
     {
       id: 'legalform2',
@@ -180,7 +180,7 @@ const getStartedContent: GetStartedContent = {
       id: 'eligibilityform5',
       summary: 'Forms for juvenile records conviction vacation',
       details:
-        'This [detailed packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) contains: \n - All court documents  \n - Sample letters to the Washington State Patrol and the Juvenile Rehabilitation Administration  \n - Specific practices per county \n\nThis [packet from King County Superior Court](https://kingcounty.gov/~/media/courts/superior-court/docs/juvenile/juvenile-forms/10-sealing-records-instructions-and-forms-pdf-web.ashx?la=en) describes: \n - The procedure to vacate and contains all necessary court documents  \n - A sample of how to fill in the court documents ',
+        'This [detailed packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) contains: \n - All court documents  \n - Sample letters to the Washington State Patrol and the Juvenile Rehabilitation Administration  \n - Specific practices per county \n\nThis [packet from King County Superior Court](https://kingcounty.gov/en/-/media/king-county/depts/superior-court/documents/juvenile-court/sealing-packet-fillable.pdf?rev=ee2311c27fa64f1fbfbf77763a02959b&hash=1AC3618CC8A7AF818285A7BFF42B68A2) describes: \n - The procedure to vacate and contains all necessary court documents  \n - A sample of how to fill in the court documents ',
     },
     {
       id: 'eligibilityform6',

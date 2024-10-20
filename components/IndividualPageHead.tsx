@@ -11,7 +11,7 @@ export default function IndividualPageHead({ title, metaContent }: Props) {
     <Head>
       <title>{title}</title>
       <meta name="description" content={metaContent} key="description" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/favicon.png" />
     </Head>
   );
 }
