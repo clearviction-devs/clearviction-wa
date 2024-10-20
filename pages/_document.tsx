@@ -40,7 +40,7 @@ export default class MyDocument extends Document {
           <meta
             name="image"
             property="og:image"
-            content="https://clearviction.org/illustrations/newlogo"
+            content="https://clearviction.org/cv-logo.svg"
           />
           <meta name="theme-color" content="#000000" />
           <meta
@@ -53,7 +53,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="shortcut icon" href="newlogo.svg" />
+          <link rel="shortcut icon" href="cv-logo.svg" />
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="emotion-insertion-point" content="" />
           <meta name="google-site-verification" content="KCnoZn7O-gYJ4Loa2Wzn7iosA1gxamx9iOOMVLCkaVA" />
