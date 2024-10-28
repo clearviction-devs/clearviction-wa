@@ -86,6 +86,12 @@ export default function Header({ isCalc }: HeaderProps) {
                       display: 'inline-block',
                     },
                   },
+                  '&:active': {
+                    backgroundColor: '#E9E9E9',
+                  },
+                  '&:focus': {
+                    boxShadow: '0 0 0 4px #0000EE99',
+                  },
                   '.arrow-icon': {
                     display: 'none',
                   },
@@ -126,6 +132,12 @@ export default function Header({ isCalc }: HeaderProps) {
                         '.arrow-icon': {
                           display: 'inline-block',
                         },
+                      },
+                      '&:active': {
+                        backgroundColor: '#E9E9E9',
+                      },
+                      '&:focus': {
+                        boxShadow: '0 0 0 4px #0000EE99',
                       },
                       '.arrow-icon': {
                         display: 'none',
@@ -238,6 +250,9 @@ export default function Header({ isCalc }: HeaderProps) {
                         color: theme.palette.text.light,
                         backgroundColor: '#002138',
                       },
+                      '&:focus': {
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
                     }}
                   >
                     {item.text}
@@ -271,6 +286,12 @@ export default function Header({ isCalc }: HeaderProps) {
                               width: '260px',
                               '&:hover': {
                                 backgroundColor: isCalc ? theme.palette.secondary.contrastText : theme.palette.text.secondary,
+                              },
+                              '&:active': {
+                                backgroundColor: '#E9E9E9',
+                              },
+                              '&:focus': {
+                                boxShadow: '0 0 0 4px #0000EE99',
                               },
                             }}
                           >
