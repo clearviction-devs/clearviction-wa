@@ -64,6 +64,12 @@ function LegalDisclaimerDialog({ openLegalDisclaimer, setOpenLegalDisclaimer }: 
             '&:hover': {
               backgroundColor: 'text.light',
             },
+            '&:active': {
+              backgroundColor: '#E9E9E9',
+            },
+            '&:focus': {
+              boxShadow: '0 0 0 4px #0000EE99',
+            },
           }}
         >
           Close
@@ -123,6 +129,12 @@ function PrivacyNoticeDialog({ openPrivacyNotice, setOpenPrivacyNotice }: { open
             '&:hover': {
               backgroundColor: 'text.light',
             },
+            '&:active': {
+              backgroundColor: '#E9E9E9',
+            },
+            '&:focus': {
+              boxShadow: '0 0 0 4px #0000EE99',
+            },
           }}
         >
           Close
@@ -178,12 +190,32 @@ function Footer({ isCalc }: FooterProps) {
             <Stack>
               <Divider sx={{ borderBottom: `1px solid ${theme.palette.primary.main}`, my: 3 }} />
               <Typography className="warning" variant="footerDisclaimers" display="block" gutterBottom>
-                <Button onClick={() => setOpenLegalDisclaimer(true)}>
+                <Button
+                  onClick={() => setOpenLegalDisclaimer(true)}
+                  sx={{
+                    '&:active': {
+                      backgroundColor: '#E9E9E9',
+                    },
+                    '&:focus': {
+                      boxShadow: '0 0 0 4px #0000EE99',
+                    },
+                  }}
+                >
                   LEGAL DISCLAIMER
                 </Button>
               </Typography>
               <Typography className="warning" variant="footerDisclaimers" display="block" gutterBottom>
-                <Button onClick={() => setOpenPrivacyNotice(true)}>
+                <Button
+                  onClick={() => setOpenPrivacyNotice(true)}
+                  sx={{
+                    '&:active': {
+                      backgroundColor: '#E9E9E9',
+                    },
+                    '&:focus': {
+                      boxShadow: '0 0 0 4px #0000EE99',
+                    },
+                  }}
+                >
                   PRIVACY NOTICE
                 </Button>
               </Typography>
