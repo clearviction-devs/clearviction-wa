@@ -160,6 +160,12 @@ export default function CarouselBuilder({
             '&:hover': {
               backgroundColor: 'transparent',
             },
+            '&:active': {
+              backgroundColor: '#E9E9E9',
+            },
+            '&:focus': {
+              boxShadow: '0 0 0 4px #0000EE99',
+            },
           }}
         >
           <ArrowBackIcon
@@ -245,6 +251,12 @@ export default function CarouselBuilder({
             px: '2px',
             '&:hover': {
               backgroundColor: 'transparent',
+            },
+            '&:active': {
+              backgroundColor: '#E9E9E9',
+            },
+            '&:focus': {
+              boxShadow: '0 0 0 4px #0000EE99',
             },
           }}
         >
