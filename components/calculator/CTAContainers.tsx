@@ -1,9 +1,8 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 
-import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
-import { CalculatorButton } from '../CustomButtons.tsx';
+import { CalculatorButton, TextButtonGreen } from '../CustomButtons.tsx';
 
 export default function FinalPageLinksContainer({
   calculatorConfig,
@@ -31,14 +30,12 @@ export default function FinalPageLinksContainer({
         {' '}
       </CalculatorButton>
 
-      <Button
-        data-cy="check-another-conviction"
-        variant="text"
+      <TextButtonGreen
+        dataCy="check-another-conviction"
         href={calculatorConfig.checkAnotherConviction.linkTo.slug.current}
-        sx={{ backgroundColor: 'white', color: theme.palette.secondary.dark, textDecoration: 'underline' }}
       >
         {calculatorConfig.checkAnotherConviction.linkText}
-      </Button>
+      </TextButtonGreen>
     </Box>
   );
 }
