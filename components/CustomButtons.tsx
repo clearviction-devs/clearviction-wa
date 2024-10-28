@@ -170,12 +170,12 @@ export function LightButton({ text, href }: { text: string, href: string }) {
         backgroundColor: theme.palette.text.light,
         '&:hover': {
           backgroundColor: theme.palette.primary.light,
-          '&:active': {
-            backgroundColor: '#E9E9E9',
-          },
-          '&:focus': {
-            boxShadow: '0 0 0 4px #0000EE99',
-          },
+        },
+        '&:active': {
+          backgroundColor: '#E9E9E9',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 4px #0000EE99',
         },
       }}
     >
