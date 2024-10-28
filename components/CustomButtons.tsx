@@ -90,12 +90,21 @@ export function CalculatorButton({
   );
 }
 
-export function TextButtonGreen({ text, href }: { text: string, href: string }) {
+export function TextButtonGreen({
+  text, href, dataCy, handleClick, children, hasArrow,
+}: {
+  text?: string,
+  href?: string,
+  dataCy?: string,
+  hasArrow?: boolean,
+  handleClick?: () => void,
+  children?: React.ReactNode, }) {
   return (
     <Button
       href={href}
       variant="text"
       aria-label={text}
+      data-cy={dataCy}
       sx={{
         color: theme.palette.secondary.dark,
         textDecoration: 'underline',
@@ -110,13 +119,17 @@ export function TextButtonGreen({ text, href }: { text: string, href: string }) 
           boxShadow: '0 0 0 4px #0000EE99',
         },
       }}
+      onClick={handleClick}
     >
+      {children}
       {text}
+      { hasArrow && (
       <ArrowForwardIcon sx={{
         stroke: theme.palette.secondary.dark,
         strokeWidth: 0.5,
       }}
       />
+      )}
     </Button>
   );
 }
