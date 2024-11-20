@@ -5,6 +5,7 @@ import React from 'react';
 
 import { DarkButton } from '../../components/CustomButtons.tsx';
 import externalLinks from '../../components/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/IndividualPageHead.tsx';
 import GetStartedHero from '../../components/layout/GetStartedHero.tsx';
 import content from '../../content/get-started.ts';
 import { GSContainer } from './index.tsx';
@@ -76,6 +77,10 @@ export default function DetermineYourEligibility() {
   externalLinks();
   return (
     <>
+      <IndividualPageHead
+        title={content.meta[2].title}
+        metaContent={content.meta[2].content}
+      />
       <GetStartedHero
         image="/get-started/step-2_hero.jpg"
         overline="Step 2"

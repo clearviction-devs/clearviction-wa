@@ -5,6 +5,7 @@ import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
 import externalLinks from '../../components/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedCard from '../../components/layout/GetStartedCard.tsx';
@@ -20,6 +21,10 @@ export default function FileWithTheCourt() {
   externalLinks();
   return (
     <>
+      <IndividualPageHead
+        title={content.meta[3].title}
+        metaContent={content.meta[3].content}
+      />
       <GetStartedHero
         image="/get-started/step-3_hero.jpg"
         overline="Step 3"
