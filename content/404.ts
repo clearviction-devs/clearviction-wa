@@ -9,8 +9,8 @@ interface NotFoundPageContent {
 
 const donateContent: NotFoundPageContent = {
   meta: {
-    title: 'Page Not Found',
-    content: 'You have reached a page route that does not exist. Please check the URL and try again.',
+    title: 'Clearviction | Oops! Error - We Can’t Find That Page',
+    content: 'Sorry, the page you’re looking for can’t be found. Explore resources to clear criminal convictions in WA or return to the homepage for more help.',
   },
   page: {
     id: 'not-found',
