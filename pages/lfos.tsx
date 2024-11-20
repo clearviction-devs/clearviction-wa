@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import React from 'react';
 
 import externalLinks from '../components/ExternalLinks.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import content from '../content/get-started.ts';
 import { GSContainer } from './get-started/index.tsx';
@@ -10,6 +11,10 @@ export default function Lfos() {
   externalLinks();
   return (
     <>
+      <IndividualPageHead
+        title="Clearviction | What are Legal Financial Obligations (LFOs) in WA"
+        metaContent="Learn about Legal Financial Obligations (LFOs) in WA State, how they impact vacating criminal records, how to manage them, and their role in the court process"
+      />
       <GSContainer>
         <Typography variant="h1">
           What are "Legal Financial Obligations"?

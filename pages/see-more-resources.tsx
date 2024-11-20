@@ -8,6 +8,7 @@ import React from 'react';
 
 import { DarkButton, TextButtonGreen } from '../components/CustomButtons.tsx';
 import externalLinks from '../components/ExternalLinks.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
 import whyVacateContent from '../content/why-vacate.ts';
 import theme from '../styles/themes/theme.tsx';
@@ -57,6 +58,10 @@ Here is a packet to help file for a CROP: [Petition for Certificate of Restorati
 export default function SeeMoreResources() {
   return (
     <>
+      <IndividualPageHead
+        title="Clearviction | Resources for People Impacted by the Justice System"
+        metaContent="Explore resources for clearing convictions and find additional guides and support if you're not yet eligible to vacate in WA State"
+      />
       <SMRContainer>
         <Typography variant="h2" sx={{ mb: 0 }}>
           Useful Links and Resources
