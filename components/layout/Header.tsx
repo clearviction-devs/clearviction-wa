@@ -18,6 +18,7 @@ import React, { useState } from 'react';
 
 import navItems from '../../content/navItems.ts';
 import { EligibilityButton } from '../CustomButtons.tsx';
+import SkipLink from '../SkipLink.tsx';
 import NavigationLogo from './NavigationLogo.tsx';
 
 interface HeaderProps {
@@ -85,6 +86,12 @@ export default function Header({ isCalc }: HeaderProps) {
                       display: 'inline-block',
                     },
                   },
+                  '&:active': {
+                    backgroundColor: '#E9E9E9',
+                  },
+                  '&:focus': {
+                    boxShadow: '0 0 0 4px #0000EE99',
+                  },
                   '.arrow-icon': {
                     display: 'none',
                   },
@@ -126,6 +133,12 @@ export default function Header({ isCalc }: HeaderProps) {
                           display: 'inline-block',
                         },
                       },
+                      '&:active': {
+                        backgroundColor: '#E9E9E9',
+                      },
+                      '&:focus': {
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
                       '.arrow-icon': {
                         display: 'none',
                       },
@@ -166,6 +179,7 @@ export default function Header({ isCalc }: HeaderProps) {
 
   return (
     <AppBar id="main-header" className="nav-desktop" color={isCalc ? 'secondary' : 'primary'} elevation={0} component="nav" position="sticky">
+      <SkipLink />
       <Box
         component="nav"
         sx={{
@@ -236,6 +250,9 @@ export default function Header({ isCalc }: HeaderProps) {
                         color: theme.palette.text.light,
                         backgroundColor: '#002138',
                       },
+                      '&:focus': {
+                        boxShadow: '0 0 0 4px #0000EE99',
+                      },
                     }}
                   >
                     {item.text}
@@ -269,6 +286,12 @@ export default function Header({ isCalc }: HeaderProps) {
                               width: '260px',
                               '&:hover': {
                                 backgroundColor: isCalc ? theme.palette.secondary.contrastText : theme.palette.text.secondary,
+                              },
+                              '&:active': {
+                                backgroundColor: '#E9E9E9',
+                              },
+                              '&:focus': {
+                                boxShadow: '0 0 0 4px #0000EE99',
                               },
                             }}
                           >

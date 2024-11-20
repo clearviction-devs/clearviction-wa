@@ -1,13 +1,12 @@
 import {
-  Box, Button, Container, Stack,
+  Box, Container, Stack,
 } from '@mui/material';
 import { PortableText } from '@portabletext/react';
 import React from 'react';
 
-import theme from '../../styles/themes/theme.tsx';
 import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
-import { CalculatorButton } from '../CustomButtons.tsx';
+import { CalculatorButton, TextButtonGreen } from '../CustomButtons.tsx';
 
 interface Choice {
   _key?: string;
@@ -113,15 +112,14 @@ export default function QandAContainer({
           )}
 
           {page.isQuestion && (
-            <Button
-              data-cy="not-sure-button"
-              sx={{
-                width: '100%', backgroundColor: 'inherit', color: theme.palette.secondary.dark, textDecoration: 'underline', marginTop: '16px',
-              }}
-              onClick={() => setOpenNotSurePopup(true)}
-            >
-              {calculatorConfig.notSureAnswer.promptText}
-            </Button>
+            <Box sx={{ marginTop: '16px' }}>
+              <TextButtonGreen
+                dataCy="not-sure-button"
+                handleClick={() => setOpenNotSurePopup(true)}
+              >
+                {calculatorConfig.notSureAnswer.promptText}
+              </TextButtonGreen>
+            </Box>
           )}
 
         </Container>

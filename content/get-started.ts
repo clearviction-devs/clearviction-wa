@@ -180,7 +180,7 @@ const getStartedContent: GetStartedContent = {
       id: 'eligibilityform5',
       summary: 'Forms for juvenile records conviction vacation',
       details:
-        'This [detailed packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) contains: \n - All court documents  \n - Sample letters to the Washington State Patrol and the Juvenile Rehabilitation Administration  \n - Specific practices per county \n\nThis [packet from King County Superior Court](https://kingcounty.gov/en/-/media/king-county/depts/superior-court/documents/juvenile-court/sealing-packet-fillable.pdf?rev=ee2311c27fa64f1fbfbf77763a02959b&hash=1AC3618CC8A7AF818285A7BFF42B68A2) describes: \n - The procedure to vacate and contains all necessary court documents  \n - A sample of how to fill in the court documents ',
+        'This [detailed packet](https://teamchild.org/wp-content/uploads/2019/03/Sealing-Juvenile-Court-Records-in-Washington-State-2018.pdf) contains: \n - All court documents \n - Sample letters to the Washington State Patrol and the Juvenile Rehabilitation Administration \n - Specific practices per county ',
     },
     {
       id: 'eligibilityform6',

@@ -33,6 +33,12 @@ export default function RCWLinkInfo() {
             '&:hover': {
               backgroundColor: 'transparent',
             },
+            '&:active': {
+              backgroundColor: '#E9E9E9',
+            },
+            '&:focus': {
+              boxShadow: '0 0 0 4px #0000EE99',
+            },
             padding: 0,
           }}
         >
@@ -59,6 +65,12 @@ export default function RCWLinkInfo() {
               textDecoration: 'underline',
               cursor: 'pointer',
               '&:hover': { textDecoration: 'none' },
+              '&:active': {
+                backgroundColor: '#E9E9E9',
+              },
+              '&:focus': {
+                boxShadow: '0 0 0 4px #0000EE99',
+              },
             }}
             onClick={() => setRCWPopup(true)}
           >
