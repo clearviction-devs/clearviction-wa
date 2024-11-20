@@ -24,10 +24,7 @@ function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
           color: 'white',
         }}
       >
-        <Box sx={{
-          display: 'flex', width: { xs: '100%', md: '85%' },
-        }}
-        >
+        <Box sx={{ display: 'flex' }}>
           <Box sx={{
             display: 'flex',
             direction: 'column',
