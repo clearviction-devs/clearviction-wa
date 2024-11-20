@@ -37,7 +37,7 @@ function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
             <ErrorOutlineIcon />
           </Box>
           <Box sx={{ pl: 1 }}>
-            Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
+            Since we are an open-source project, some links may be broken or outdated. Last updated: 2024-11-20
           </Box>
         </Box>
       </Box>
