@@ -19,8 +19,8 @@ interface HomeContent {
 
 const content: HomeContent = {
   meta: {
-    title: 'Clearing Criminal Records in Washington State',
-    content: 'Washington Law allows for vacation of select criminal records. Our free tools help individuals assess their eligibility for a fresh start.',
+    title: 'Clearviction: Clearing Criminal Records in Washington State',
+    content: 'Washington law allows for vacation of select criminal records. Our free tool helps individuals check their eligibility to clear convictions for a fresh start.',
   },
   heroBanner: {
     header: 'Check if your WA state conviction can be vacated by answering a few questions.',
