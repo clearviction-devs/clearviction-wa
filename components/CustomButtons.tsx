@@ -51,6 +51,7 @@ export function CalculatorButton({
   return (
     <Button
       href={href}
+      className="calc-btn"
       variant="contained"
       size="small"
       data-cy={dataCy}

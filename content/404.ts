@@ -15,10 +15,9 @@ const donateContent: NotFoundPageContent = {
   page: {
     id: 'not-found',
     header: 'Error 404: Page Not Found',
-    body: 'Oops! The page you\'re looking for cannot be found. Please check the URL or navigate back to the homepage',
-    ctaText: 'Return to Homepage',
+    body: 'Oops! The page you\'re looking for cannot be found. Please check the URL or navigate back to the homepage.',
+    ctaText: 'Return to homepage',
     ctaLink: '/',
-    imgsrc: 'illustrations/not-found.svg',
   },
 };
 
