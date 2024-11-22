@@ -24,10 +24,7 @@ function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
           color: 'white',
         }}
       >
-        <Box sx={{
-          display: 'flex', width: { xs: '100%', md: '85%' },
-        }}
-        >
+        <Box sx={{ display: 'flex' }}>
           <Box sx={{
             display: 'flex',
             direction: 'column',
@@ -37,7 +34,7 @@ function DisclaimerBanner({ isHomePage }: { isHomePage: boolean }) {
             <ErrorOutlineIcon />
           </Box>
           <Box sx={{ pl: 1 }}>
-            Since we are an open-sourced project, links may be broken or outdated. Last updated: 2024-04-12
+            Since we are an open-source project, some links may be broken or outdated. Last updated: 2024-11-20
           </Box>
         </Box>
       </Box>
