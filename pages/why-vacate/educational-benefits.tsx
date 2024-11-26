@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import React from 'react';
 
 import externalLinks from '../../components/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import BenefitCard from '../../components/layout/BenefitCard.tsx';
 import BenefitPageContainer, { BenefitCardsContainer } from '../../components/layout/BenefitPageContainer.tsx';
@@ -12,6 +13,10 @@ export default function EducationalBenefits() {
   externalLinks();
   return (
     <>
+      <IndividualPageHead
+        title={content.meta[1].title}
+        metaContent={content.meta[1].content}
+      />
       <BenefitPageContainer
         id="section-educational-benefits"
         sx={{

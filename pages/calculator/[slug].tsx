@@ -38,8 +38,8 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   return (
     <>
       <IndividualPageHead
-        title="Check the Eligibility to Vacate your Misdemeanor or Felony conviction"
-        metaContent="Determine if your misdemeanor or felony is eligible to vacate in Washington State with our eligibility calculator."
+        title="Check Eligibility to Vacate Misdemeanors & Felonies | Conviction Vacation Initiative"
+        metaContent="Answer a few questions using our eligibility calculator and see if your misdemeanor or felony conviction qualifies for vacation in WA State"
       />
 
       {/* Stepper */}

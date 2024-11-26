@@ -51,8 +51,8 @@ export default function WhyVacatePage() {
   return (
     <>
       <IndividualPageHead
-        title={content.meta.title}
-        metaContent={content.meta.content}
+        title={content.meta[0].title}
+        metaContent={content.meta[0].content}
       />
       <HeroBanner {...content.hero} background="url(/why-vacate/why-vacate-main-hero.jpg)" />
 

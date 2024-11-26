@@ -4,6 +4,7 @@ import React from 'react';
 
 import { DarkButton, LightButton } from '../../components/CustomButtons.tsx';
 import externalLinks from '../../components/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/IndividualPageHead.tsx';
 import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedHero from '../../components/layout/GetStartedHero.tsx';
 import content from '../../content/get-started.ts';
@@ -29,6 +30,10 @@ export default function GatherYourDocumentation() {
   externalLinks();
   return (
     <>
+      <IndividualPageHead
+        title={content.meta[1].title}
+        metaContent={content.meta[1].content}
+      />
       <GetStartedHero
         image="/get-started/step-1_hero.jpg"
         overline="Step 1"

@@ -31,21 +31,21 @@ export default class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta
             property="og:title"
-            content="Clearviction.org: A fresh start for people with Washington State Convictions"
+            content="Clearviction.org | Clear Your Criminal Record in WA"
           />
           <meta
             property="og:description"
-            content="Tools and guidance for people with Washington State convictions to clear their criminal records and begin a path to a fresh start."
+            content="Use our eligibility tool and resources to reduce the impact of criminal records. Vacate your conviction and legally state you weren’t convicted."
           />
           <meta
             name="image"
             property="og:image"
-            content="https://clearviction.org/cv-logo.svg"
+            content="https://clearviction.org/social-share.png"
           />
           <meta name="theme-color" content="#000000" />
           <meta
             name="description"
-            content="Tools and guidance for people with Washington State convictions to clear their criminal records and begin a path to a fresh start."
+            content="Use our eligibility tool and resources to reduce the impact of criminal records. Vacate your conviction and legally state you weren’t convicted."
             key="description"
           />
           <link

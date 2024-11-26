@@ -4,6 +4,7 @@ import {
 import React from 'react';
 
 import externalLinks from '../../components/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../../components/layout/AccordionBuilder.tsx';
 import CarouselBuilder from '../../components/layout/CarouselBuilder.tsx';
 import GetStartedCard from '../../components/layout/GetStartedCard.tsx';
@@ -47,6 +48,10 @@ export function GSContainer({
 export default function GetStartedPage() {
   return (
     <>
+      <IndividualPageHead
+        title={content.meta[0].title}
+        metaContent={content.meta[0].content}
+      />
       <GSContainer
         id="section-get-started-header"
       >
