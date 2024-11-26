@@ -10,19 +10,19 @@ interface WhyVacateContent {
 
 const whyVacateContent: WhyVacateContent = {
   meta: [{
-    title: 'Clearviction | Find out why it’s important to vacate criminal records',
+    title: 'Why It’s Important to Vacate Criminal Records | Conviction Vacation Initiative',
     content: 'Vacating your criminal record in Washington State improves access to jobs, housing, and education, helping you get your life back on track',
   },
   {
-    title: 'Clearviction | Educational Benefits of Vacating a Criminal Record in Washington State',
+    title: 'Educational Benefits of Vacating Criminal Records in WA | Conviction Vacation Initiative',
     content: 'Learn how clearing your criminal record in Washington State can unlock educational opportunities by removing barriers to scholarships, financial aid, and admissions',
   },
   {
-    title: 'Clearviction | Employment Benefits of Vacating a Criminal Record in Washington State',
+    title: 'Employment Benefits of Vacating Criminal Records in WA | Conviction Vacation Initiative',
     content: 'Clearing your criminal record in Washington State can improve job opportunities by removing barriers in background checks. Discover the benefits of a clean record.',
   },
   {
-    title: 'Clearviction | Housing Benefits of Vacating a Criminal Record in Washington State',
+    title: 'Housing Benefits of Vacating Criminal Records in WA | Conviction Vacation Initiative',
     content: 'Learn how vacating your criminal record in Washington State can remove barriers to rental applications and improve housing options',
   },
   ],

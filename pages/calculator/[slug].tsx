@@ -38,7 +38,7 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   return (
     <>
       <IndividualPageHead
-        title="Clearviction | Check Eligibility to Vacate Misdemeanors & Felonies"
+        title="Check Eligibility to Vacate Misdemeanors & Felonies | Conviction Vacation Initiative"
         metaContent="Answer a few questions using our eligibility calculator and see if your misdemeanor or felony conviction qualifies for vacation in WA State"
       />
 

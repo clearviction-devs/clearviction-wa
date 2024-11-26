@@ -9,7 +9,7 @@ interface NotFoundPageContent {
 
 const donateContent: NotFoundPageContent = {
   meta: {
-    title: 'Clearviction | Oops! Error - We Can’t Find That Page',
+    title: 'Oops! We Can’t Find That Page | Conviction Vacation Initiative',
     content: 'Sorry, the page you’re looking for can’t be found. Explore resources to clear criminal convictions in WA or return to the homepage for more help.',
   },
   page: {

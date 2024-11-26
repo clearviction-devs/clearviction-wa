@@ -19,7 +19,7 @@ interface HomeContent {
 
 const content: HomeContent = {
   meta: {
-    title: 'Clearviction: Clearing Criminal Records in Washington State',
+    title: 'Conviction Vacation Initiative | Clear Criminal Records in WA State',
     content: 'Washington law allows for vacation of select criminal records. Our free tool helps individuals check their eligibility to clear convictions for a fresh start.',
   },
   heroBanner: {

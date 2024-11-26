@@ -19,19 +19,19 @@ interface GetStartedContent {
 
 const getStartedContent: GetStartedContent = {
   meta: [{
-    title: 'Clearviction | Vacate Your Criminal Record in 3 Steps',
+    title: 'Conviction Vacation Initiative | Vacate a Criminal Record in 3 Steps',
     content: 'Get started with our 3 step vacation process and access our resources, forms and support to clear your criminal record in Washington State',
   },
   {
-    title: 'Clearviction | Required Documents for Vacating Criminal Records in WA',
+    title: 'Required Documents to Clear Criminal Records in WA | Conviction Vacation Initiative',
     content: 'Our step-by-step guide shows you how to gather court records, case details, and essential documents to vacate your criminal record in WA State',
   },
   {
-    title: 'Clearviction | Check Your Eligibility to Clear Your WA Record',
+    title: 'Check Your Eligibility to Clear Your WA Record | Conviction Vacation Initiative',
     content: 'Gather your records and use our Eligibility Calculator to check if you qualify to vacate your conviction in WA under the New Hope Act. Expect 10-30 minutes per conviction.',
   },
   {
-    title: 'Clearviction | Vacation Final Steps: Filing Petitions & Court Hearings',
+    title: 'Vacation Final Steps: Filing Petitions & Court Hearings | Conviction Vacation Initiative',
     content: 'After confirming your eligibility to clear your record, follow our filing guidelines on forms and court requirements to submit your petition successfully',
   }],
   hero: {

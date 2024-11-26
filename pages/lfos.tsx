@@ -12,7 +12,7 @@ export default function Lfos() {
   return (
     <>
       <IndividualPageHead
-        title="Clearviction | What are Legal Financial Obligations (LFOs) in WA"
+        title="What are Legal Financial Obligations (LFOs) in WA | Conviction Vacation Initiative"
         metaContent="Learn about Legal Financial Obligations (LFOs) in WA State, how they impact vacating criminal records, how to manage them, and their role in the court process"
       />
       <GSContainer>

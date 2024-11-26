@@ -59,7 +59,7 @@ export default function SeeMoreResources() {
   return (
     <>
       <IndividualPageHead
-        title="Clearviction | Resources for People Impacted by the Justice System"
+        title="Resources for Justice System Impacted Individuals | Conviction Vacation Initiative"
         metaContent="Explore resources for clearing convictions and find additional guides and support if you're not yet eligible to vacate in WA State"
       />
       <SMRContainer>
