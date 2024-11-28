@@ -1,19 +1,18 @@
-import CloseIcon from '@mui/icons-material/Close';
 import {
-  Button,
   Dialog, DialogActions, DialogContent, DialogTitle,
 } from '@mui/material';
-import BlockContent from '@sanity/block-content-to-react';
-import React, { useState } from 'react';
+import { PortableText } from '@portabletext/react';
+import React from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import theme from '../../styles/themes/theme.tsx';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
-import ShareButtons from '../helper/ShareButtons.tsx';
+import { CalculatorButton } from '../CustomButtons.tsx';
 
 export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOpenNotSurePopup }: {
     calculatorConfig: StaticCalcProps['calculatorConfig'],
-    openNotSurePopup: SharedCalcProps['openNotSurePopup'],
-    setOpenNotSurePopup: SharedCalcProps['setOpenNotSurePopup'],
+    openNotSurePopup: boolean,
+    setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>,
   }) {
   return (
     <Dialog
@@ -22,63 +21,42 @@ export default function NotSurePopup({ calculatorConfig, openNotSurePopup, setOp
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       data-cy="not-sure-popup"
+      sx={{
+        width: '312px',
+        minHeight: '394px',
+        margin: 'auto',
+      }}
     >
-      <DialogTitle id="alert-dialog-title">
+      <DialogTitle
+        id="alert-dialog-title"
+        sx={{
+          backgroundColor: 'secondary.dark',
+          color: 'text.light',
+          fontFamily: theme.typography.h3.fontFamily,
+          fontWeight: 600,
+        }}
+      >
         {calculatorConfig.notSureAnswer.header}
       </DialogTitle>
-      <DialogContent>
-        <BlockContent
-          blocks={calculatorConfig.notSureAnswer.content}
-          serializers={portableTextComponent}
+      <DialogContent sx={{
+        backgroundColor: 'secondary.dark',
+        color: 'text.light',
+      }}
+      >
+        <PortableText
+          value={calculatorConfig.notSureAnswer.content}
+          components={portableTextComponent}
         />
       </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setOpenNotSurePopup(false)} data-cy="not-sure-pop-up-close">
+      <DialogActions sx={{
+        backgroundColor: 'secondary.dark',
+        color: 'text.light',
+      }}
+      >
+        <CalculatorButton handleClick={() => setOpenNotSurePopup(false)} dataCy="not-sure-pop-up-close">
           {calculatorConfig.notSureAnswer.closeText}
-        </Button>
+        </CalculatorButton>
       </DialogActions>
-    </Dialog>
-  );
-}
-
-export function ShareCalculatorPopup({ openSharePopup, setOpenSharePopup }: {
-    openSharePopup: SharedCalcProps['openSharePopup'],
-    setOpenSharePopup: SharedCalcProps['setOpenSharePopup'],
-  }) {
-  const [shareLinkCopied, setShareLinkCopied] = useState(false);
-  const popup = true;
-
-  const closeDialog = () => {
-    setTimeout(() => {
-      setOpenSharePopup(false);
-    }, 10);
-
-    setTimeout(() => {
-      setShareLinkCopied(false);
-    }, 350);
-  };
-
-  return (
-    <Dialog
-      open={openSharePopup}
-      onClose={() => closeDialog()}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
-      data-cy="share-calc-popup"
-    >
-      <CloseIcon
-        color="inherit"
-        onClick={() => closeDialog()}
-        aria-label="close"
-        style={{
-          position: 'absolute', top: '.625rem', right: '.625rem',
-        }}
-      />
-      <ShareButtons
-        popup={popup}
-        setShareLinkCopied={setShareLinkCopied}
-        shareLinkCopied={shareLinkCopied}
-      />
     </Dialog>
   );
 }

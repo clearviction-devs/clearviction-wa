@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 #__next {
   min-height: 100vh;
   display: flex;
@@ -6,4 +10,12 @@
 
 main {
   height: 100%;
+}
+
+@media (hover: none) {
+  .calc-btn:hover {
+    color: #FFFEFC;
+    background-color: #00513C; 
+    box-shadow: none;
+  }
 }

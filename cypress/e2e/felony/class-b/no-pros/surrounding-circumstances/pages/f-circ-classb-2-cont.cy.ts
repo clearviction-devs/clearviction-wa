@@ -14,11 +14,11 @@ describe('Felony Class B No-Pros Surrounding Circumstances Second Page', () => {
       .click();
     cy.url().should('include', 'calculator/f-circ-classb-2-ineligible');
   });
-  it('should redirect users to Felony Class B No-Pros Surrounding Circumstances Third Page when "no" button is clicked', () => {
+  it('should redirect users to Felony Class B No-Pros Terms of Offense First Page when "no" button is clicked', () => {
     cy.get('[data-cy="calc-choice-1"]')
       .should('be.visible')
       .click();
-    cy.url().should('include', 'calculator/f-circ-classb-3-cont');
+    cy.url().should('include', 'calculator/f-terms-classb-1-main');
   });
   testNotSureModal();
 });

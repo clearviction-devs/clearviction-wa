@@ -1,66 +1,56 @@
 import {
-  Button, Card, Header, MetaPageHead,
+  Card, Header, MetaPageHead,
 } from './content.types.ts';
 
 interface WhyVacateContent {
-  meta: MetaPageHead;
-  heroBanner: Header;
-  buttons: Button[];
+  meta: MetaPageHead[];
+  hero: Header;
   cards: Card[];
-  resourcesText: string;
 }
 
 const whyVacateContent: WhyVacateContent = {
-  meta: {
-    title: 'Find out why it\'s important to vacate criminal records',
-    content: 'Vacating your criminal record allows you better access to employment, housing, and educational resources so you can get your life back on track.',
+  meta: [{
+    title: 'Why It’s Important to Vacate Criminal Records | Conviction Vacation Initiative',
+    content: 'Vacating your criminal record in Washington State improves access to jobs, housing, and education, helping you get your life back on track',
   },
-  heroBanner: {
-    header: 'Why vacate your conviction in Washington State?',
-    subheading:
-      'Vacating a conviction in Washington is complicated and intimidating but doing so opens opportunities in employment, housing, and education. \n\nExplore the benefits of vacating your conviction and get resources to help you along the way.',
-    imgsrc: '/illustrations/team-building.svg',
+  {
+    title: 'Educational Benefits of Vacating Criminal Records in WA | Conviction Vacation Initiative',
+    content: 'Learn how clearing your criminal record in Washington State can unlock educational opportunities by removing barriers to scholarships, financial aid, and admissions',
   },
-  buttons: [
-    {
-      name: 'Employment',
-      href: '#section-employment',
-    },
-    {
-      name: 'Housing',
-      href: '#section-housing',
-    },
-    {
-      name: 'Education',
-      href: '#section-education',
-    },
+  {
+    title: 'Employment Benefits of Vacating Criminal Records in WA | Conviction Vacation Initiative',
+    content: 'Clearing your criminal record in Washington State can improve job opportunities by removing barriers in background checks. Discover the benefits of a clean record.',
+  },
+  {
+    title: 'Housing Benefits of Vacating Criminal Records in WA | Conviction Vacation Initiative',
+    content: 'Learn how vacating your criminal record in Washington State can remove barriers to rental applications and improve housing options',
+  },
   ],
+  hero: {
+    header: 'Explore conviction vacating and its benefits',
+  },
   cards: [
     {
-      title: 'Convictions and Job Barriers',
-      sectionId: 'employment',
+      title: 'Employment benefits',
+      sectionId: 'employment_benefits',
       subtitle:
-        'A conviction does not prevent you from having a job, but roadblocks can pop up depending on the job or the employer. It is important to not lose hope while facing challenges such as: ',
+        'More than 80 percent of employers conduct background checks. ',
+      subtitle2: 'Improve your earning potential by opening the door to countless job opportunities.',
       cardItems: [
         {
-          title: 'Long periods of unemployment',
-          body: 'Getting back into society may take longer with a conviction on record.',
-          imgRef: '/illustrations/time.svg',
+          title: 'Fair chance at employment',
+          body: 'You can tell potential employers that you have not been convicted of a crime. This reduces discrimination and gets you fairer treatment by employers during the hiring process.',
+          imgRef: '/why-vacate/employ_fair-chance.jpg',
         },
         {
-          title: 'Rejected applications',
-          body: 'This is a common circumstance for people who have previously been convicted.',
-          imgRef: '/illustrations/sending-emails.svg',
-        },
-        {
-          title: 'Lack of experience',
-          body: 'Getting a job in a new field is complicated by lack of access to educational opportunities.',
-          imgRef: '/illustrations/question.svg',
+          title: 'Access to professional licenses',
+          body: 'Improve your eligibility to obtain or maintain a professional license to help you get on your feet. These are often unattainable by people with certain convictions.',
+          imgRef: '/why-vacate/employ_licenses.jpg',
         },
       ],
       accordianItems: [
         {
-          id: '1',
+          id: 'employment-resources-1',
           summary: 'Job Boards',
           details: `[Careeronestop](https://www.careeronestop.org/) 
                     \n[WorkSourceWA](https://www.worksourcewa.com/) 
@@ -68,7 +58,7 @@ const whyVacateContent: WhyVacateContent = {
                     \n[People for People](https://mypfp.org/about-us/careers/)`,
         },
         {
-          id: '2',
+          id: 'employment-resources-2',
           summary: 'Professional Training',
           details: `[People for People](https://mypfp.org/services/employment-training/) 
                     \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills) 
@@ -77,43 +67,37 @@ const whyVacateContent: WhyVacateContent = {
       ],
     },
     {
-      title: 'Convictions and Housing Challenges',
-      sectionId: 'housing',
+      title: 'Housing benefits',
+      sectionId: 'housing_benefits',
       subtitle:
-        'A background check is an obstacle for people with a conviction and it can prevent access to certain opportunities. Here are the main challenges background checks present to those seeking housing:',
+        'Landlords and property management companies often check the criminal backgrounds of potential tenants before accepting rental applications',
       cardItems: [
         {
-          title: 'Public Housing Authorities',
-          body: '* Income capped \n* Can\'t be a registered offender \n* PHAs have discretion on who they decide to house',
-          imgRef: '/illustrations/city-buildings.svg',
+          title: 'Eligibility for housing assistance programs',
+          body: 'You may become eligible for more and/or better housing assistance programs and opportunities  that cater to specific populations (such as individuals experiencing homelessness or those with disabilities).',
+          imgRef: '/why-vacate/housing_assistance.jpg',
         },
         {
-          title: 'Private Housing',
-          body: '* Landlords have full discretion, and often deny people with criminal records \n* Management companies usually have extensive background checks',
-          imgRef: '/illustrations/dream.svg',
+          title: 'More access to rental opportunities',
+          body: 'By preventing potential landlords from seeing your criminal history, you increase your chances of being approved for rental housing. ',
+          imgRef: '/why-vacate/housing_rental.jpg',
         },
         {
-          title: 'Supportive Housing',
-          body: '* Funded by HUD homelessness programs \n* Must have been residing in emergency shelter/housing in the previous 90 days',
-          imgRef: '/illustrations/diversity-1.svg',
-        },
-        {
-          title: 'Transitional Housing',
-          body: '* Might require you to have substance abuse, mental health or physical issues \n* Some require you to attend special meetings or work',
-          imgRef: '/illustrations/process-building.svg',
+          title: 'Increased access to government assistance',
+          body: 'You might also have easier access to government-assisted housing, such as  public housing and Section 8 Housing Choice Vouchers.',
+          imgRef: '/why-vacate/housing_gov.jpg',
         },
       ],
       accordianItems: [
         {
-          id: 'courtform1',
+          id: 'housing-resources-1',
           summary: 'Shelter Listings',
           details: `[Washington Shelter List](https://www.shelterlist.com/state/washington) 
           \n[Catholic Community Services and Catholic Housing Services of Western Washington](https://ccsww.org/) 
-          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)
-          \n[Social Serve](https://www.myhousingsearch.com/CallCenter.html)`,
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/housing)`,
         },
         {
-          id: 'courtform2',
+          id: 'housing-resources-2',
           summary: 'Housing Advisory',
           details: `[Compass Housing Alliance](https://www.compasshousingalliance.org/) 
           \n[The STAR Project](https://www.thestarproject.us/)`,
@@ -121,25 +105,36 @@ const whyVacateContent: WhyVacateContent = {
       ],
     },
     {
-      title: 'Convictions and Education Barriers',
-      sectionId: 'education',
+      title: 'Educational benefits',
+      sectionId: 'educational_benefits',
       subtitle:
-        'With a conviction on your record, you might face some barriers when it comes to getting opportunities where a background check is performed. Here are the main educational challenges faced by those with convictions:',
+        'Having a conviction on your record can limit your education and opportunities.',
+      subtitle2: 'Vacate your conviction to improve your chances for success and pursue your education.',
       cardItems: [
         {
-          title: 'Occupational Licenses',
-          body: 'Some states\' laws contain an automatic disqualification prohibiting a person with a felony conviction from obtaining an occupational license, regardless of the offense.',
-          imgRef: '/illustrations/career.svg',
+          title: 'Open doors to higher education',
+          body: 'By vacating your conviction you can overcome the admission barriers that some colleges and universities place on enrollment due to certain criminal convictions.',
+          imgRef: '/why-vacate/edu_open-doors.jpg',
         },
         {
-          title: 'College Acceptance',
-          body: 'Colleges run background checks on applicants. Whether you will be accepted depends on the kind of check they do and the type and time of crime.',
-          imgRef: '/illustrations/graduation.svg',
+          title: 'Broader access to financial aid',
+          body: 'Access federal Pell Grants, financial aid, and student loans to increase your ability to afford tuition, fees, and other educational expenses.',
+          imgRef: '/why-vacate/edu_broader-access.jpg',
+        },
+        {
+          title: 'Equitable treatment in the application process',
+          body: 'You can receive increased assistance and equitable treatment in the application process, as well as reduced stigma and discrimination from financial aid offices.',
+          imgRef: '/why-vacate/edu_applications.jpg',
+        },
+        {
+          title: 'Eligible for more types of professional and occupational licenses',
+          body: 'Vacating our conviction helps you overcome the barrier of automatic disqualification for some professional licenses and certificates.',
+          imgRef: '/why-vacate/edu_licenses.jpg',
         },
       ],
       accordianItems: [
         {
-          id: 'courtform1',
+          id: 'edu-resources-1',
           summary: 'Federal Financial Student Aid',
           details: `[FAQ on Incarcerated Individuals and Eligibility for Federal Student Aid](https://studentaid.gov/understand-aid/eligibility/requirements/criminal-convictions) 
           \n[Free Application for Federal Student Aid (FAFSA)](http://www.fafsa.gov/) 
@@ -147,16 +142,15 @@ const whyVacateContent: WhyVacateContent = {
           \n[Federal Work-Study Programs](https://studentaid.gov/understand-aid/types/work-study)`,
         },
         {
-          id: 'courtform2',
+          id: 'edu-resources-2',
           summary: 'Post-incarceration educational programs',
           details: `[Freedom Education Project](http://www.fepps.org/) 
           \n[People for People](https://mypfp.org) 
-          \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills)
-          \n[Post-Prison Education Program](http://postprisonedu.org/)
+          \n[Pioneer Human Services](https://pioneerhumanservices.org/job-skills) 
           \n[The STAR Project](http://thestarproject.us/)`,
         },
         {
-          id: 'courtform3',
+          id: 'edu-resources-3',
           summary: 'Other Educational assistance',
           details:
             '[Adams State University Prison College Program](http://www.adams.edu/extended_studies/undergrad/prisoncollegeprogram.php)\n',
@@ -164,7 +158,6 @@ const whyVacateContent: WhyVacateContent = {
       ],
     },
   ],
-  resourcesText: 'Resources',
 };
 
 export default whyVacateContent;

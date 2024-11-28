@@ -1,17 +1,21 @@
 import {
-  Grid, Typography,
+  Box,
+  Container,
+  Grid,
+  Typography,
 } from '@mui/material';
 import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import externalLinks from '../components/functional/ExternalLinks.tsx';
-import IndividualPageHead from '../components/helper/IndividualPageHead.tsx';
+import externalLinks from '../components/ExternalLinks.tsx';
+import IndividualPageHead from '../components/IndividualPageHead.tsx';
 import AccordionBuilder from '../components/layout/AccordionBuilder.tsx';
-import GridItemCard from '../components/layout/GridItem.tsx';
+import CarouselBuilder from '../components/layout/CarouselBuilder.tsx';
 import HeroBanner from '../components/layout/HeroBanner.tsx';
-import PaperSection from '../components/layout/PaperSection.tsx';
-import SectionContainer from '../components/layout/SectionContainer.tsx';
+import ImageContainer from '../components/layout/ImageContainer.tsx';
 import content from '../content/home.ts';
+import theme from '../styles/themes/theme.tsx';
+import { CheckConvictionCTABox } from './get-started/determine-your-eligibility.tsx';
 
 export default function Home() {
   externalLinks();
@@ -24,58 +28,130 @@ export default function Home() {
       />
 
       <main>
+        <HeroBanner {...content.heroBanner} background="url(/h1-home-desktop.png)" />
 
-        <HeroBanner {...content.heroBanner} aria-label={content.heroBanner.ariaLabels?.ctaButton} />
-
-        <SectionContainer id={content.ourMission.id}>
-          <PaperSection>
-            <Grid container id={`${content.ourMission.id}-main-grid`}>
-              <Grid item xs={12}>
-                <Typography variant="h2" sx={{ textAlign: 'center' }}>
-                  {content.ourMission.header}
-                </Typography>
-                <MuiMarkdown>{content.ourMission.body}</MuiMarkdown>
-                <br />
-                <br />
-                <MuiMarkdown>{content.ourMission.body2}</MuiMarkdown>
-              </Grid>
+        <Container sx={{
+          padding: {
+            xs: '72px 24px',
+            sm: '72px 64px',
+            md: '72px 0px',
+          },
+          maxWidth: {
+            md: '936px',
+          },
+          margin: {
+            md: 'auto',
+          },
+        }}
+        >
+          <Grid container justifyContent="space-between" id={`${content.background.id}-main-grid`}>
+            <Grid item xs={12} md={7}>
+              <Typography
+                variant="h2"
+                sx={{ lineHeight: '40px', mb: '24px' }}
+              >
+                {content.background.title}
+              </Typography>
+              <MuiMarkdown overrides={{
+                p: {
+                  component: Typography,
+                  props: {
+                    variant: 'body2',
+                    fontSize: '18px',
+                    lineHeight: '22px',
+                    marginBottom: '16px',
+                  },
+                },
+              }}
+              >
+                {content.background.body}
+              </MuiMarkdown>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+              display="flex"
+              justifyContent="center"
+              sx={{ marginTop: { xs: 8, md: 0 } }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-evenly',
+                  alignItems: 'center',
+                  bgcolor: theme.palette.primary.dark,
+                  color: theme.palette.text.light,
+                  paddingY: 4,
+                  height: 364,
+                  maxWidth: 312,
+                  width: '100%',
+                }}
+              >
+                <Typography variant="headingCalculator" align="center">{content.background.iconText}</Typography>
+                <ImageContainer
+                  src="/3-percent.png"
+                  width={200}
+                  height={120}
+                  alt=""
+                  style={{ width: 200, height: 'auto' }}
+                />
+                <Typography variant="headingCalculator" align="center">{content.background.iconText2}</Typography>
+              </Box>
             </Grid>
 
-          </PaperSection>
-        </SectionContainer>
+          </Grid>
+        </Container>
 
-        {content.gridSections.map((section) => (
-          <SectionContainer key={section.id} id={section.id}>
-            <PaperSection
-              title={section.title}
-              subtitle={section.subtitle}
-              ctaLink={section.ctaLink}
-              ctaText={section.ctaText}
-              ariaLabels={{ ctaButton: section.ariaLabels?.ctaButton }}
-            >
-              <Grid container spacing={4} id={`${section.id}-main-grid`}>
-                {section.items.map((item) => (
-                  <GridItemCard
-                    key={item.id}
-                    xs={12}
-                    md={section.items.length % 2 ? 4 : 3}
-                    title={item.title}
-                    body={item.body}
-                    imgsrc={item.imgsrc}
-                  />
-                ))}
-              </Grid>
-            </PaperSection>
-          </SectionContainer>
-        ))}
+        <CheckConvictionCTABox text="Are you one of the 97% of people eligible to vacate?" />
 
-        <SectionContainer id="faq">
-          <PaperSection title="FAQ">
-            {content.faqs.map((faq) => (
-              <AccordionBuilder key={faq.id} {...faq} />
-            ))}
-          </PaperSection>
-        </SectionContainer>
+        <Box sx={{
+          padding: {
+            xs: '72px 0px 52px 24px',
+            sm: '72px 0px 52px 32px',
+            md: '52px 0px',
+          },
+          maxWidth: '936px',
+          mx: 'auto',
+        }}
+        >
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <Typography variant="h2">How can we help you vacate a conviction?</Typography>
+            </Grid>
+            <CarouselBuilder
+              cards={content.carousel}
+              cardWidth={274}
+              cardHeight={362}
+              buttonHRef="/calculator/head-initial-1-cont"
+              usePlaycard
+            />
+          </Grid>
+        </Box>
+
+        <Container
+          id="faq"
+          sx={{
+            padding: {
+              xs: '8px 24px 88px 24px',
+              sm: '8px 64px 88px 64px',
+              md: '8px 0px 88px 0px',
+            },
+            maxWidth: {
+              md: '936px',
+            },
+          }}
+        >
+          <Typography variant="h3" sx={{ fontWeight: '500', lineHeight: '32px', mb: '24px' }}>Conviction Vacation FAQs</Typography>
+          {content.faqs.map((faq) => (
+            <AccordionBuilder
+              key={faq.id}
+              {...faq}
+              sx={{ backgroundColor: theme.palette.primary.light }}
+            />
+          ))}
+        </Container>
 
       </main>
     </>
