@@ -7,14 +7,13 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 
 import CalcHeader from '../../components/calculator/CalcHeader.tsx';
-import FinalPageLinksContainer, { ShareCalcContainer } from '../../components/calculator/CTAContainers.tsx';
-import NotSurePopup, { ShareCalculatorPopup } from '../../components/calculator/PopupContainers.tsx';
+import FinalPageLinksContainer from '../../components/calculator/CTAContainers.tsx';
+import NotSurePopup from '../../components/calculator/PopupContainers.tsx';
 import QandAContainer from '../../components/calculator/QandAContainer.tsx';
-import Results from '../../components/calculator/Results.tsx';
-import ResultsDownloadContainer from '../../components/calculator/ResultsDownloadContainer.tsx';
-import externalLinks from '../../components/functional/ExternalLinks.tsx';
-import IndividualPageHead from '../../components/helper/IndividualPageHead.tsx';
-import { StaticCalcProps } from '../../utils/calculator.props.ts';
+import RCWLinkInfo from '../../components/calculator/RCWLinkInfo.tsx';
+import externalLinks from '../../components/ExternalLinks.tsx';
+import IndividualPageHead from '../../components/IndividualPageHead.tsx';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import {
   getAllPagePaths,
   getAllPagesBySlug,
@@ -22,32 +21,10 @@ import {
 } from '../../utils/sanity.client.ts';
 
 export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCalcProps) {
-  // all state and functions here are shared between multiple secondary components
   const [openNotSurePopup, setOpenNotSurePopup] = useState(false);
-  const [openSharePopup, setOpenSharePopup] = useState(false);
-  const [responseObject, setResponseObject] = useState({});
-  const [showResults, setShowResults] = useState(false);
+  const isPartOfHead = page.slug.includes('head');
 
-  const calcFirstPageUrl = 'https://clearviction.org/calculator/head-initial-1-cont';
-  const isFirstPage = () => page.slug === 'head-initial-1-cont';
   const contentRef = useRef<HTMLDivElement>(null);
-
-  const addToResponses = (answer: string) => {
-    // delete object when start over
-    if (page.slug === 'head-initial-1-cont') setResponseObject({});
-    if (
-      answer !== 'Continue'
-      && answer !== 'Next'
-      && answer !== 'Start'
-      && page.slug !== 'head-start-3-cont'
-    ) {
-      setResponseObject({ ...responseObject, [page.slug]: answer });
-    }
-  };
-
-  const handleCloseResults = () => {
-    setShowResults(false);
-  };
 
   externalLinks();
 
@@ -61,69 +38,67 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
   return (
     <>
       <IndividualPageHead
-        title="Check the Eligibility to Vacate your Misdemeanor or Felony conviction"
-        metaContent="Determine if your misdemeanor or felony is eligible to vacate in Washington State with our eligibility calculator."
+        title="Check Eligibility to Vacate Misdemeanors & Felonies | Conviction Vacation Initiative"
+        metaContent="Answer a few questions using our eligibility calculator and see if your misdemeanor or felony conviction qualifies for vacation in WA State"
       />
 
-      <CalcHeader page={page} isFirstPage={isFirstPage} />
+      {/* Stepper */}
+      <CalcHeader page={page} />
 
       <Container
         ref={contentRef}
         component={Container}
-        maxWidth="md"
         sx={{
-          minHeight: '35rem',
+          minHeight: '40rem',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          maxWidth: {
+            sm: '724px',
+            md: '724px',
+            lg: '724px',
+          },
+          justifyContent: {
+            xs: isPartOfHead ? 'normal' : 'space-between',
+            sm: 'normal',
+          },
+          marginBottom: { xs: '36px', sm: '0' },
         }}
         id="calculator-container-outer"
         tabIndex={-1}
       >
+        {/* Sanity content */}
         <QandAContainer
           page={page}
           calculatorConfig={calculatorConfig}
-          addToResponses={addToResponses}
           setOpenNotSurePopup={setOpenNotSurePopup}
         />
 
+        {/* RCW Link Infographic - !! remove test page */}
+        {page.slug === 'head-initial-1-cont' && (
+          <RCWLinkInfo />
+        )}
+
+        {/* Link to more resources & check another conviction */}
         {
           (page.isFinalPage) && (
-            <>
-              <FinalPageLinksContainer
-                calculatorConfig={calculatorConfig}
-                setOpenSharePopup={setOpenSharePopup}
-                calcFirstPageUrl={calcFirstPageUrl}
-              />
-              <Box
-                maxWidth="60ch"
-                textAlign="center"
-                id="legal-disclaimer-container"
-              >
-                <Typography variant="caption" data-cy="legal-disclaimer" sx={{ fontWeight: 'light' }}>
-                  {calculatorConfig.legalDisclaimer}
-                </Typography>
-              </Box>
-            </>
-          )
-        }
-
-        {
-          (page.isFinalPage && page.isEligible && !page.slug.startsWith('f')) && (
-            <ResultsDownloadContainer
-              handleCloseResults={handleCloseResults}
-              setShowResults={setShowResults}
+            <FinalPageLinksContainer
+              calculatorConfig={calculatorConfig}
             />
           )
         }
 
+        {/* Legal disclaimer */}
         {
-          (page.isEligible && showResults) && (
-            <Results
-              responseObject={responseObject}
-              handleCloseResults={handleCloseResults}
-            />
+          (page.isFinalPage) && (
+          <Box
+            maxWidth="md"
+            id="legal-disclaimer-container"
+            marginBottom="24px"
+          >
+            <Typography variant="caption" data-cy="legal-disclaimer">
+              {calculatorConfig.legalDisclaimer}
+            </Typography>
+          </Box>
           )
         }
 
@@ -134,23 +109,6 @@ export default function CalculatorSlugRoute({ page, calculatorConfig }: StaticCa
         openNotSurePopup={openNotSurePopup}
         setOpenNotSurePopup={setOpenNotSurePopup}
       />
-
-      <ShareCalculatorPopup
-        openSharePopup={openSharePopup}
-        setOpenSharePopup={setOpenSharePopup}
-      />
-
-      <Box sx={{ mb: '1.875rem' }}>
-        {
-          isFirstPage() && (
-            <ShareCalcContainer
-              setOpenSharePopup={setOpenSharePopup}
-              calcFirstPageUrl={calcFirstPageUrl}
-              justify
-            />
-          )
-        }
-      </Box>
 
     </>
   );

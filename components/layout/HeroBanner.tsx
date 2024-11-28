@@ -1,175 +1,88 @@
-import { JSX } from '@emotion/react/jsx-runtime';
 import {
   Box,
-  Button,
+  Container,
   SxProps,
-  Theme,
   Typography,
-  TypographyProps,
 } from '@mui/material';
-import MuiMarkdown from 'mui-markdown';
 import React from 'react';
 
-import { AriaLabels } from '../../content/content.types.ts';
-import useLinkHandler from '../functional/LinkHandler.tsx';
-import ImageContainer from './ImageContainer.tsx';
-import SectionContainer from './SectionContainer.tsx';
+import { EligibilityButton } from '../CustomButtons.tsx';
 
 interface HeroBannerProps {
   header: string;
-  subheading?: string;
-  subheading2?: string;
-  imgsrc?: string;
+  background?: string;
   ctaText?: string;
   ctaLink?: string;
-  children?: JSX.Element | null;
-  overrideStyles?: SxProps;
-  priority?: boolean;
-  ariaLabels?: AriaLabels;
 }
 
 const heroStyles: SxProps = {
-  backgroundColor: 'primary.dark',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
   color: 'primary.contrastText',
+  width: '100%',
   py: {
     xs: 0.5,
     md: 8,
   },
 };
 
-const getHeroAdditionalsStyles = (theme: Theme) => ({
-  display: 'flex',
-  margin: theme.spacing(3, 'auto'),
-  justifyContent: 'center',
-  order: { xs: '1', md: '2' },
-});
-
 export default function HeroBanner({
   header,
-  subheading,
-  subheading2,
-  imgsrc,
+  background,
   ctaText,
   ctaLink,
-  children = null,
-  overrideStyles,
-  priority = false,
-  ariaLabels,
 }: HeroBannerProps) {
-  const { handleLinkClick } = useLinkHandler();
-
   return (
-    <Box className="hero-banner" sx={overrideStyles || heroStyles} textAlign="left">
-      <SectionContainer>
-        <Typography className="hero-title" variant="h1" sx={{ display: 'block' }}>
-          {header}
-        </Typography>
-        <Box
-          className="hero-content"
+    <Box
+      className="hero-banner"
+      sx={{
+        ...heroStyles,
+        backgroundImage: background,
+      }}
+      textAlign="left"
+    >
+      <Container sx={{
+        width: {
+          md: '936px',
+        },
+        height: '366px',
+        padding: {
+          xs: '0px 24px 32px 24px',
+          sm: '0px 64px 64px 64px',
+          md: '0px',
+        },
+        margin: {
+          md: 'auto',
+        },
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        gap: '32px',
+      }}
+      >
+        <Typography
+          className="hero-title"
+          variant="h1"
           sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            flexDirection: { xs: 'column', md: 'row' },
+            color: 'text.light',
+            width: {
+              xs: 'fit-content',
+              md: '936px',
+            },
+            lineHeight: {
+              xs: '36px',
+              md: '46px',
+            },
           }}
         >
-          <Box sx={{ flex: 1, order: { xs: '2', md: '1' } }}>
-            <Box className="subheading" sx={{ mt: 2, mb: 4 }}>
-              <MuiMarkdown
-                overrides={{
-                  p: {
-                    component: Typography,
-                    props: {
-                      variant: 'body1',
-                      gutterBottom: true,
-                    } as TypographyProps,
-                  },
-
-                  span: {
-                    component: Typography,
-                    props: { variant: 'body1' } as TypographyProps,
-
-                  },
-                  a: {
-                    props: {
-                      style: {
-                        color: '#FFD200',
-                        textDecoration: 'underline',
-                      },
-                    },
-                  },
-                }}
-              >
-                {`${subheading}`}
-
-              </MuiMarkdown>
-
-            </Box>
-            {subheading2 && (
-            <Box className="subheading-secondary" sx={{ mb: 4 }}>
-              <MuiMarkdown
-                overrides={{
-                  p: {
-                    component: Typography,
-                    props: {
-                      variant: 'body1',
-                      gutterBottom: true,
-                    } as TypographyProps,
-                  },
-
-                  span: {
-                    component: Typography,
-                    props: { variant: 'body1' } as TypographyProps,
-
-                  },
-                }}
-              >
-                {` ${subheading2}`}
-
-              </MuiMarkdown>
-
-            </Box>
-            )}
-            {ctaText && ctaLink && (
-              <Button
-                variant="contained"
-                color="primary"
-                href={ctaLink}
-                data-href={ctaLink}
-                aria-label={ariaLabels?.ctaButton}
-                onClick={handleLinkClick}
-                sx={{
-                  px: 4,
-                  '&:hover': {
-                    color: 'primary.dark',
-                    backgroundColor: 'secondary.main',
-                  },
-                }}
-              >
-                {ctaText}
-              </Button>
-            )}
+          {header}
+        </Typography>
+        {ctaText && ctaLink && (
+          <Box>
+            <EligibilityButton />
           </Box>
-          {(imgsrc || children) && (
-            <Box
-              className="hero-additionals"
-              sx={getHeroAdditionalsStyles}
-            >
-              {imgsrc && (
-                <ImageContainer
-                  src={imgsrc}
-                  width={513}
-                  height={386}
-                  alt=""
-                  style={{ maxWidth: '100%' }}
-                  useImageDimensions
-                  priority={priority}
-                />
-              )}
-              {children}
-            </Box>
-          )}
-        </Box>
-      </SectionContainer>
+        )}
+      </Container>
     </Box>
   );
 }

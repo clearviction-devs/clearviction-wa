@@ -9,16 +9,15 @@ interface NotFoundPageContent {
 
 const donateContent: NotFoundPageContent = {
   meta: {
-    title: 'Page Not Found',
-    content: 'You have reached a page route that does not exist. Please check the URL and try again.',
+    title: 'Oops! We Can’t Find That Page | Conviction Vacation Initiative',
+    content: 'Sorry, the page you’re looking for can’t be found. Explore resources to clear criminal convictions in WA or return to the homepage for more help.',
   },
   page: {
     id: 'not-found',
     header: 'Error 404: Page Not Found',
-    body: 'Oops! The page you\'re looking for cannot be found. Please check the URL or navigate back to the homepage',
-    ctaText: 'Return to Homepage',
+    body: 'Oops! The page you\'re looking for cannot be found. Please check the URL or navigate back to the homepage.',
+    ctaText: 'Return to homepage',
     ctaLink: '/',
-    imgsrc: 'illustrations/not-found.svg',
   },
 };
 

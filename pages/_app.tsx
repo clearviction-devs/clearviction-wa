@@ -3,9 +3,10 @@ import '../styles/global.css';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React from 'react';
 
-import DisclaimerBanner from '../components/functional/DisclaimerBanner.tsx';
+import DisclaimerBanner from '../components/layout/DisclaimerBanner.tsx';
 import Footer from '../components/layout/Footer.tsx';
 import Header from '../components/layout/Header.tsx';
 import theme from '../styles/themes/theme.tsx';
@@ -24,6 +25,14 @@ function MyApp({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }: AppProps) {
+  // get url info to determine if we are on a calculator page for styling
+  const router = useRouter();
+  const { asPath } = router;
+  const stringToCheck = 'calculator';
+  const isCalc = asPath.includes(stringToCheck);
+
+  const isHomePage = asPath === '/';
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -32,10 +41,10 @@ function MyApp({
       <ThemeProvider theme={theme}>
         <>
           <CssBaseline />
-          <Header />
-          <DisclaimerBanner />
+          <Header isCalc={isCalc} />
+          <DisclaimerBanner isHomePage={isHomePage} />
           <Component {...pageProps} />
-          <Footer />
+          <Footer isCalc={isCalc} />
         </>
       </ThemeProvider>
     </CacheProvider>

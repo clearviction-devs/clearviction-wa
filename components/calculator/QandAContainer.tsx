@@ -1,12 +1,12 @@
 import {
-  Box, Button, Container, Stack,
+  Box, Container, Stack,
 } from '@mui/material';
-import BlockContent from '@sanity/block-content-to-react';
-import React, { useMemo } from 'react';
+import { PortableText } from '@portabletext/react';
+import React from 'react';
 
-import { SharedCalcProps, StaticCalcProps } from '../../utils/calculator.props.ts';
+import StaticCalcProps from '../../utils/calculator.props.ts';
 import portableTextComponent from '../../utils/portableTextComponents.tsx';
-import { PageContext } from '../helper/PageContext.tsx';
+import { CalculatorButton, TextButtonGreen } from '../CustomButtons.tsx';
 
 interface Choice {
   _key?: string;
@@ -30,13 +30,11 @@ interface Choice {
 }
 
 export default function QandAContainer({
-  page, calculatorConfig, addToResponses, setOpenNotSurePopup,
-}: StaticCalcProps &{
-      addToResponses: SharedCalcProps['addToResponses'],
-      setOpenNotSurePopup: SharedCalcProps['setOpenNotSurePopup']}) {
-  const contextValue = useMemo(() => ({
-    isFinalPage: page.isFinalPage,
-  }), [page.isFinalPage]);
+  page, calculatorConfig, setOpenNotSurePopup,
+}: StaticCalcProps & {
+  setOpenNotSurePopup: React.Dispatch<React.SetStateAction<boolean>>
+}) {
+  const isPartOfHead = page.slug.includes('head');
 
   const linkToPage = (choice: Choice) => {
     if (choice.linkTo) {
@@ -48,60 +46,84 @@ export default function QandAContainer({
     return '#';
   };
 
+  const useColumnForChoices = isPartOfHead || (page.choices && page.choices.length > 3);
+
   return (
     <>
-      <PageContext.Provider value={contextValue}>
-        <Box data-cy="calc-block-of-content" mb={4}>
+      <Box>
+        <Box data-cy="calc-block-of-content" mb={6}>
           {
-            page.content && (
-            <BlockContent
-              blocks={page.content}
-              serializers={portableTextComponent}
-            />
-            )
-          }
+              page.content && (
+                <PortableText
+                  value={page.content}
+                  components={portableTextComponent}
+                />
+              )
+            }
 
         </Box>
-      </PageContext.Provider>
+      </Box>
+      <Box>
+        <Container
+          id="choices-container"
+          disableGutters
+          sx={{
+            width: '344px',
+            mt: 2,
+            mx: 0,
+            pl: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            position: (isPartOfHead || page.slug === 'm-offense-mari-1-cont') ? 'static' : 'absolute',
+            top: '536px',
+          }}
+        >
 
-      <Container id="choices-container" maxWidth="xs" sx={{ mb: 4 }}>
+          {(page.choices || page.isQuestion) && (
 
-        {(page.choices || page.isQuestion) && (
-
-        <Stack gap={2} role="group" aria-label="Choice options">
-          {page.choices
+            <Stack
+              gap={2}
+              role="group"
+              aria-label="Choice options"
+              direction={useColumnForChoices ? 'column' : 'row'}
+              sx={{
+                width: '312px',
+                justifyContent: 'space-between',
+              }}
+            >
+              {page.choices
                 && page.choices.map((choice, index) => {
                   const linkTo = linkToPage(choice);
                   const href = choice.isExternalLink ? choice.url : linkTo;
+                  const buttonShouldHaveArrow = choice.label === 'Check my eligibility' || choice.label === 'Continue' || false;
+
                   return (
-                    <Button
+                    <CalculatorButton
                       key={choice._key}
-                      variant="contained"
                       href={href}
-                      data-cy={`calc-choice-${index}`}
-                      sx={{ width: '100%' }}
-                      onClick={() => addToResponses(choice.label)}
+                      dataCy={`calc-choice-${index}`}
+                      hasArrow={buttonShouldHaveArrow}
                     >
                       {choice.label}
-                    </Button>
+                    </CalculatorButton>
                   );
                 })}
-
-          {page.isQuestion && (
-          <Button
-            variant="outlined"
-            color="primary"
-            data-cy="not-sure-button"
-            sx={{ width: '100%' }}
-            onClick={() => setOpenNotSurePopup(true)}
-          >
-            {calculatorConfig.notSureAnswer.promptText}
-          </Button>
+            </Stack>
           )}
 
-        </Stack>
-        )}
-      </Container>
+          {page.isQuestion && (
+            <Box sx={{ marginTop: '16px' }}>
+              <TextButtonGreen
+                dataCy="not-sure-button"
+                handleClick={() => setOpenNotSurePopup(true)}
+              >
+                {calculatorConfig.notSureAnswer.promptText}
+              </TextButtonGreen>
+            </Box>
+          )}
+
+        </Container>
+      </Box>
     </>
   );
 }

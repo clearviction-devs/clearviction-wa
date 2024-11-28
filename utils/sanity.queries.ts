@@ -21,7 +21,6 @@ export const calculatorConfigQuery = groq`
   *[_type == "calculatorConfig"][0] {
     notSureAnswer,
     feedback,
-    errorReportingForm,
     checkAnotherConviction{..., "linkTo": reference->{slug}},
     legalDisclaimer
   }
