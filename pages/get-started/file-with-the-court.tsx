@@ -138,7 +138,6 @@ export default function FileWithTheCourt() {
         <Typography
           variant="body2"
           sx={{
-            width: '312px',
             marginBottom: '24px',
           }}
         >
